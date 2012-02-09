@@ -1,0 +1,242 @@
+/**
+ * AES 128, CBC
+ */
+GnuTLS.CipherAlgorithm.RIJNDAEL_128_CBC,
+
+
+/**
+ * AES 256, CBC
+ */
+GnuTLS.CipherAlgorithm.RIJNDAEL_256_CBC,
+
+
+/**
+ * AES 128, CBC
+ */
+GnuTLS.CipherAlgorithm.RIJNDAEL_CBC,
+
+
+/**
+ * ARCFOUR 128
+ */
+GnuTLS.CipherAlgorithm.ARCFOUR;
+
+
+/**
+ * ZLib, DEFLATE
+ */
+GnuTLS.CompressionMethod
+
+
+/**
+ * Only available if gnutls-extra has been initialized
+ */
+GnuTLS.CompressionMethod.LZO
+
+
+/**
+ *
+ * Note that the status bits have different meanings
+ * in openpgp keys and x.509 certificate verification.
+ */
+GnuTLS.CertificateStatus
+
+
+/**
+ * Will be set if the certificate was not verified.
+ */
+GnuTLS.CertificateStatus.INVALID
+
+
+/**
+ * In X.509 this will be set only if CRLs are checked.
+ */
+GnuTLS.CertificateStatus.REVOKED
+
+
+/**
+ * Diffie Hellman parameter handling.
+ */
+GnuTLS.DHParams
+
+
+/**
+ * Supplemental data, RFC 4680.
+ */
+GnuTLS.SupplementalDataFormatType {
+
+
+/**
+ * External signing callback. Experimental.
+ */
+GnuTLS.SignFunc
+
+
+/**
+ * Fail if the certificates in the buffer are more than the space
+ * allocated for certificates.
+ *
+ * The error code will be {@link c::GNUTLS_E_SHORT_MEMORY_BUFFER}.
+ */
+GnuTLS.CertificateImportFlags.LIST_IMPORT_FAIL_IF_EXCEED
+
+
+/**
+ * If set a signer does not have to be a certificate authority.
+ *
+ * This flag should normaly be disabled, unless you know what this means.
+ */
+GnuTLS.CertificateVerifyFlags.DISABLE_CA_SIGN
+
+
+/**
+ * Allow only trusted CA certificates that have version 1.
+ *
+ * This is safer than GNUTLS_VERIFY_ALLOW_ANY_X509_V1_CA_CRT, and should be
+ * used instead. That way only signers in your trusted list will be
+ * allowed to have certificates of version 1.
+ */
+GnuTLS.CertificateVerifyFlags.ALLOW_X509_V1_CA_CRT
+
+
+/**
+ * If a certificate is not signed by anyone trusted but exists in
+ * the trusted CA list do not treat it as trusted.
+ */
+GnuTLS.CertificateVerifyFlags.DO_NOT_ALLOW_SAME
+
+
+/**
+ * Allow CA certificates that have version 1 (both root and
+ * intermediate).
+ *
+ * This might be dangerous since those haven't the
+ * basicConstraints extension. Must be used in combination with
+ * GNUTLS_VERIFY_ALLOW_X509_V1_CA_CRT.
+ */
+GnuTLS.CertificateVerifyFlags.ALLOW_ANY_X509_V1_CA_CRT
+
+
+/**
+ * Allow certificates to be signed using the broken MD2 algorithm.
+ */
+GnuTLS.CertificateVerifyFlags.ALLOW_SIGN_RSA_MD2
+
+
+/**
+ * Allow certificates to be signed using the broken MD5 algorithm.
+ */
+GnuTLS.CertificateVerifyFlags.ALLOW_SIGN_RSA_MD5
+
+
+/**
+ * Flags for the {@link c::gnutls_x509_privkey_export_pkcs8} function.
+ */
+GnuTLS.PKCSEncryptFlags
+
+
+/**
+ * Callback prototype to get OpenPGP keys
+ * 
+ * A callback of this type is used to retrieve OpenPGP keys.  Only
+ * useful on the server, and will only be used if the peer send a key
+ * fingerprint instead of a full key.
+ *
+ * @see ServerSession.set_openpgp_recv_key_function
+ * @param session a TLS session
+ * @param keyfp key fingerprint
+ * @param key output key.
+ */
+GnuTLS.OpenPGP.RecvKeyFunc
+
+
+/**
+ * Returns cipher suite name or null if index is out of bounds
+ */
+GnuTLS.cipher_suite_info
+
+
+/**
+ * Gnutls error codes. The mapping to a TLS alert is also shown in comments.
+ */
+GnuTLS.ErrorCode
+
+/**
+ *
+ * @see c::GNUTLS_A_PROTOCOL_VERSION
+ */
+GnuTLS.ErrorCode.UNSUPPORTED_VERSION_PACKET
+
+/**
+ *
+ * @see c::GNUTLS_A_RECORD_OVERFLOW
+ */
+GnuTLS.ErrorCode.UNEXPECTED_PACKET_LENGTH
+
+
+/**
+ *
+ * @see c::GNUTLS_A_UNEXPECTED_MESSAGE
+ */
+GnuTLS.ErrorCode.UNEXPECTED_PACKET
+
+
+/**
+ *
+ * @see c::GNUTLS_A_HANDSHAKE_FAILURE
+ */
+GnuTLS.ErrorCode.UNKNOWN_CIPHER_SUITE
+
+
+/**
+ *
+ * @see c::GNUTLS_A_DECRYPTION_FAILED
+ * @see c::GNUTLS_A_BAD_RECORD_MAC
+ */
+GnuTLS.ErrorCode.DECRYPTION_FAILED
+
+
+/**
+ *
+ * @see c::GNUTLS_A_DECOMPRESSION_FAILURE
+ */
+GnuTLS.ErrorCode.DECOMPRESSION_FAILED
+
+
+/**
+ *
+ * @see c::GNUTLS_A_NO_RENEGOTIATION
+ */
+GnuTLS.ErrorCode.REHANDSHAKE
+
+
+/**
+ *
+ * @see c::GNUTLS_A_BAD_CERTIFICATE
+ */
+GnuTLS.ErrorCode.NO_CERTIFICATE_FOUND
+
+
+/**
+ *
+ * @see c::GNUTLS_A_ILLEGAL_PARAMETER
+ */
+GnuTLS.ErrorCode.RECEIVED_ILLEGAL_PARAMETER
+
+
+/**
+ * Returned if libextra functionality was requested but
+ * {@link c::gnutls_global_init_extra} was not called.
+ */
+GnuTLS.ErrorCode.INIT_LIBEXTRA,
+
+
+/**
+ * Returned if you need to generate temporary RSA
+ * parameters.
+ *
+ * These are needed for export cipher suites.
+ */
+GnuTLS.ErrorCodeNO_TEMPORARY_RSA_PARAMS,
+
+

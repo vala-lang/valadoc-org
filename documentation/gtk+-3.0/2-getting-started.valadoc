@@ -1,0 +1,27 @@
+==Getting Started==
+
+===Simple Example===
+
+To start with our tutorial we create the simplest program possible. This program will create
+an emtpy 200 x 200 pixel window.
+
+{{2-1-simple.example.png|Empty 200 x 200 px window}}
+
+{{{#!include:examples/2-1-simple-example.vala}}}
+
+To run the program, open a terminal, change to the directory of the file, and enter:
+
+{{{
+valac 2-1-simple-example.vala --pkg gtk+-3.0
+./2-1-simple-example
+}}}
+
+===2.2. Extended Example===
+
+For something a little more useful, here’s the GTK version of the classic
+“Hello World” program.
+
+{{2-2-extended-example.png}}
+
+{{{#!include:examples/2-2-extended-example.vala}}}
+

@@ -1,0 +1,1812 @@
+/**
+ * Returns a string corresponding to the given error code, e.g. "no such process".
+ */
+GLib.strerror
+
+
+
+
+
+/**
+ * Calculates the minimum of a and b.
+ *
+ * @param a a numeric value.
+ * @param b a numeric value.
+ * @return the minimum of a and b.
+ */
+c::MIN
+
+
+/**
+ * Calculates the maximum of a and b.
+ * 
+ * @param a a numeric value.
+ * @param b a numeric value.
+ * @return the maximum of a and b.
+ */
+c::MAX
+
+
+/**
+ * Calculates the absolute value of a.
+ *
+ * The absolute value is simply the number with any negative sign taken away.
+ *
+ * For example,
+ *
+ * {{{
+ *  ABS(-10) is 10.
+ *  ABS(10) is also 10.
+ * }}}
+ *
+ * @param a a numeric value.
+ * @return the absolute value of a.
+ */
+c::ABS
+
+
+/**
+ * Determines whether a character is a hexadecimal-digit character.
+ */
+char.isxdigit
+
+
+/**
+ * Convert a character to ASCII lower case.
+ */
+char.tolower
+
+
+/**
+ * Determines whether a character is alphabetic (i.e. a letter).
+ */
+char.isalpha
+
+
+/**
+ * Determines whether a character is a printing character.
+ */
+char.isprint
+
+
+/**
+ * Determines the numeric value of a character as a decimal digit.
+ */
+char.digit_value
+
+
+/**
+ * Returns a non-zero value if x is not-a-number (NaN).
+ * 
+ * The {@link double.is_nan} function returns a non-zero value if x is not-a-number (NaN).
+ * 
+ * @param x A numeric value.
+ */
+double.is_nan
+
+
+/**
+ * Returns the value of infinity checking.
+ * 
+ * The {@link double.is_infinity} function returns 1 if x is positive infinity, and -1 if x is negative infinity. Otherwise {@link double.is_infinity} returns 0.
+ * 
+ * @param x A numeric value.
+ */
+double.is_infinity
+
+
+/**
+ * Determines whether a character is a white-space character.
+ */
+char.isspace
+
+
+/**
+ * Determines whether a character is an ASCII upper case letter.
+ */
+char.isupper
+
+
+/**
+ * Determines the numeric value of a character as a hexidecimal digit.
+ */
+char.xdigit_value
+
+
+/**
+ * Convert a character to ASCII upper case.
+ */
+char.toupper
+
+
+/**
+ * Determines whether a character is alphanumeric.
+ */
+char.isalnum
+
+
+/**
+ * Determines whether a character is a control character.
+ */
+char.iscntrl
+
+
+/**
+ * Determines whether a character is digit (0-9).
+ */
+char.isdigit
+
+
+/**
+ * Determines whether a character is a printing character and not a space.
+ */
+char.isgraph
+
+
+/**
+ * Determines whether a character is an ASCII lower case letter.
+ */
+char.islower
+
+
+/**
+ * Determines whether a character is a punctuation character.
+ */
+char.ispunct
+
+
+/**
+ * Similar to the standard C sprintf-function but safer, since it calculates the maximum space  required and allocates memory to hold the result.
+ */
+float.to_string
+
+
+/**
+ * Removes leading and trailing whitespace from a string.
+ */
+string.strip
+
+
+/**
+ * Removes leading whitespace from a string, by moving the rest of the characters forward.
+ */
+string.chug
+
+
+/**
+ * Splits a string into a maximum of max_tokens pieces, using the given delimiter.
+ */
+string.split
+
+
+/**
+ * Removes trailing whitespace from a string.
+ */
+string.chomp
+
+
+/**
+ * Converts any delimiter characters in string to new_delimiter.
+ */
+string.delimit
+
+
+/**
+ * The read() method shall read into the array pointed to by buf up to size elements whose size is specified by the size of buf.  The file position indicator for the stream shall be advanced by the number of bytes successfully read.
+ */
+GLib.FileStream.read
+
+
+
+
+
+
+
+/**
+ * Calculates the arc tangent of x.
+ * 
+ * The {@link GLib.Math.atan} function calculates the arc tangent of x; that is the value whose tangent is x.
+ */
+GLib.Math.atan
+
+
+/**
+ * Calculates the arc tangent of x.
+ * 
+ * The {@link GLib.Math.atanf} function calculates the arc tangent of x; that is the value whose tangent is x.
+ */
+GLib.Math.atanf
+
+
+/**
+ * Returns the inverse hyperbolic tangent of x.
+ * 
+ * The {@link GLib.Math.atanh} function returns the inverse hyperbolic tangent of x. If the absolute  value of x is greater than 1.0, {@link GLib.Math.atanh} returns not-a-number (NaN) and {@link GLib.errno} is set {@link EDOM}.
+ * 
+ * @param x A numeric value which is between -1.0 and 1.0.
+ */
+GLib.Math.atanh
+
+
+/**
+ * Returns the result of multiplying the floating-point number x by 2 raised to the power exp.
+ * 
+ * The {@link GLib.Math.ldexp} function returns the result of multiplying the floating-point number x by 2 raised to the power exp.
+ * 
+ * @param x A numeric value.
+ * @param exp An integer value for the exponent.
+ */
+GLib.Math.ldexp
+
+
+/**
+ * Returns the natural logarithm of x.
+ * 
+ * The {@link GLib.Math.logf} function returns the natural logarithm of x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.logf
+
+
+/**
+ * Returns the base 10 logarithm of x.
+ * 
+ * The {@link GLib.Math.log10f} function returns the base 10 logarithm of x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.log10f
+
+
+/**
+ * Breaks the argument x into an integral part and a fractional part.
+ * 
+ * The {@link GLib.Math.modff} function breaks the argument x into an integral part and a fractional part,  each of which has the same sign as x. The integral part is stored in output variable i.
+ * 
+ * @param x A numeric value.
+ * @param i The output variable for the integral part.
+ */
+GLib.Math.modff
+
+
+/**
+ * Returns the value of 10 raised to the power of x.
+ * 
+ * The {@link GLib.Math.exp10} function returns the value of 10 raised to the power of x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.exp10
+
+
+/**
+ * Extracts the exponent of x and returns it as a floating-point value.
+ * 
+ * The {@link GLib.Math.logb} function extracts the exponent of x and returns it as a floating-point value.
+ * 
+ * If x is de-normalized, {@link GLib.Math.logb} returns the exponent x as if it had been normalized.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.logb
+
+
+/**
+ * Extracts the exponent of x and returns it as a floating-point value.
+ * 
+ * The {@link GLib.Math.logbf} function extracts the exponent of x and returns it as a floating-point value.
+ * 
+ * If x is de-normalized, {@link GLib.Math.logb} returns the exponent x as if it had been normalized.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.logbf
+
+
+/**
+ * Returns the value of 2 raised to the power of x.
+ * 
+ * The {@link GLib.Math.exp2f} function returns the value of 2 raised to the power of x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.exp2f
+
+
+/**
+ * Computes the remainder of dividing x by y.
+ * 
+ * The {@link GLib.Math.fmod} function computes the remainder of dividing x by y. The return  value is x - n * y, where n is the quotient of x / y, rounded towards zero to an integer.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.fmod
+
+
+/**
+ * Returns the value of infinity checking.
+ * 
+ * The {@link GLib.Math.isinff} function returns 1 if x is positive infinity, and -1 if x is negative infinity. Otherwise {@link double.is_infinity} returns 0.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.isinff
+
+
+/**
+ * Returns the value of not-a-number (NaN) checking.
+ * 
+ * The {@link GLib.Math.finite} function returns a non-zero value if x is neither infinite nor a not-a-number (NaN) value, and 0 otherwise.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.finite
+
+
+/**
+ * Computes the remainder of dividing x by y.
+ * 
+ * The {@link GLib.Math.drem} function computes the remainder of dividing x by y. The return value is x - n * y, where n is the value x / y,rounded to the nearest integer. If this quotient is 1/2 (mod 1), it is rounded to the nearest even number  (independent of the current rounding mode).
+ * 
+ * If the return value is 0, it has the sign of x.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.drem
+
+
+/**
+ * Returns a non-zero value if x is not-a-number (NaN).
+ * 
+ * The {@link GLib.Math.isnanf} function returns a non-zero value if x is not-a-number (NaN).
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.isnanf
+
+
+/**
+ * Returns Bessel function of x of the first kind of order 1.
+ * 
+ * The {@link GLib.Math.j1f} function returns Bessel function of x of the first kind of order 1.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.j1f
+
+
+/**
+ * Returns Bessel function of x0 of the second kind of order 0.
+ * 
+ * The {@link GLib.Math.y0f} function returns Bessel function of x0 of the second kind of order 0.
+ * 
+ * @param x0 A numeric value.
+ */
+GLib.Math.y0f
+
+
+/**
+ * Returns the natural logarithm of the absolute value of the Gamma function.
+ * 
+ * The {@link GLib.Math.lgamma} function returns the natural logarithm of the absolute value of the Gamma function. The sign of the Gamma function is returned in the external integer Posix.signgam. It is 1 when the Gamma function is positive or zero, -1 when it is negative.
+ * 
+ * Since using a constant location GLib.signgam is not thread-safe, the functions {@link GLib.Math.lgamma_r} etc. have been introduced; they return this sign via an output argument.
+ * 
+ * For non-positeve integer values of x, {@link GLib.Math.lgamma} returns Posix.HUGE_VAL, sets GLib.errno to Posix.ERANGE and raises the zero divide exception.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.lgamma
+
+
+/**
+ * Returns the natural logarithm of the absolute value of the Gamma function.
+ * 
+ * The {@link GLib.Math.lgammaf} function returns the natural logarithm of the absolute value of the Gamma function. The sign of the Gamma function is returned in the external integer Posix.signgam. It is 1 when the Gamma function is positive or zero, -1 when it is negative.
+ * 
+ * Since using a constant location GLib.signgam is not thread-safe, the functions {@link GLib.Math.lgamma_r} etc. have been introduced; they return this sign via an output argument.
+ * 
+ * For non-positeve integer values of x, {@link GLib.Math.lgamma} returns Posix.HUGE_VAL, sets GLib.errno to Posix.ERANGE and raises the zero divide exception.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.lgammaf
+
+
+/**
+ * Computes the remainder of dividing x by y.
+ * 
+ * The {@link GLib.Math.remainder} function computes the remainder of dividing x by y. The return value is x - n * y, where n is the value x / y, rounded to the nearest integer.
+ * 
+ * If this quotient is 1/2 (mod 1), it is rounded to the nearest even number (independent of the current rounding mode). If the return value is 0, it has the sign of x.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.remainder
+
+
+/**
+ * Computes the remainder of dividing x by y.
+ * 
+ * The {@link GLib.Math.remainderf} function computes the remainder of dividing x by y. The return value is x - n * y, where n is the value x / y, rounded to the nearest integer.
+ * 
+ * If this quotient is 1/2 (mod 1), it is rounded to the nearest even number (independent of the current rounding mode). If the return value is 0, it has the sign of x.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.remainderf
+
+
+/**
+ * Rounds argument x to the nearest integer not larger in absolute value.
+ * 
+ * The {@link GLib.Math.trunc} function rounds argument x to the nearest integer not larger in absolute value.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.trunc
+
+
+/**
+ * Rounds argument x to the nearest integer not larger in absolute value.
+ * 
+ * The {@link GLib.Math.truncf} function rounds argument x to the nearest integer not larger in absolute value.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.truncf
+
+
+/**
+ * Computes the remainder and part of the quotient upon division of x by y.
+ * 
+ * The {@link GLib.Math.remquof} function computes the remainder and part of the quotient upon division  of x by y. A few bits of the quotient are stored via the quo output variable. The remainder  is returned as function value.
+ * 
+ * The value of the remainder is the same as that computed by the {@link GLib.Math.remainder} function.
+ * 
+ * The value stored via the quo output variable has the sign of x / y and agrees with the  quotient in at least the low order 3 bits.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ * @param quo An output variable for the quotient.
+ */
+GLib.Math.remquof
+
+
+/**
+ * Rounds it's argument to the nearest integer value, using the current rounding direction.
+ * 
+ * The {@link GLib.Math.llrintf} rounds it's argument to the nearest integer value, using the current rounding direction. If x is infinite or NaN, or if the rounded value is outside the range of the return type, the numeric result is unspecified. A domain error may occur if the magnitude of x is too large.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.llrintf
+
+
+/**
+ * Returns the larger value of x and y.
+ * 
+ * The {@link GLib.Math.fmax} function returns the larger value of x and y.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.fmax
+
+
+/**
+ * Returns the smaller value of x and y.
+ * 
+ * The {@link GLib.Math.fminf} function returns the smaller value of x and y.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.fminf
+
+
+/**
+ * Computes x * y + z.
+ * 
+ * The {@link GLib.Math.fmaf} function computes x * y + z. The result is rounded according to the rounding  mode determined by the value of {@link FLT_ROUNDS}.
+ * 
+ * {@link FLT_ROUNDS} indicates the implementation-defined rounding behavior for floating-point addition, and has one of the following values:
+ * 
+ *  * -1 The rounding mode is not determinable.
+ *  * 0 Rounding is towards 0.
+ *  * 1 Rounding is towards nearest number.
+ *  * 2 Rounding istowards positive infinity.
+ *  * 3 Rounding is towards negative infinity.
+ *  * Other values represent machine-dependent, non-standard rounding modes.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.fmaf
+
+
+/**
+ * Computes the remainder of dividing x by y.
+ * 
+ * The {@link GLib.Math.dremf} function computes the remainder of dividing x by y. The return value is x - n * y, where n is the value x / y,rounded to the nearest integer. If this quotient is 1/2 (mod 1), it is rounded to the nearest even number  (independent of the current rounding mode).
+ * 
+ * If the return value is 0, it has the sign of x.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.dremf
+
+
+/**
+ * Returns the mantissa of x scaled to the range [1,2].
+ * 
+ * The {@link GLib.Math.significandf} function returns the mantissa of x scaled to the range [1,2]. 
+ * 
+ * This function exists mainly for use in certain standardized tests for IEEE 754 conformance.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.significandf
+
+
+/**
+ * Returns Bessel function of x of the first kind of order 0.
+ * 
+ * The {@link GLib.Math.j0} function returns Bessel function of x of the first kind of order 0.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.j0
+
+
+/**
+ * Returns Bessel function of x1 of the second kind of order x0.
+ * 
+ * The {@link GLib.Math.yn} function returns Bessel function of x1 of the second kind of order x0.
+ * 
+ * @param x0 Determines the Bessel function order.
+ * @param x1 A numeric value.
+ */
+GLib.Math.yn
+
+
+/**
+ * Returns the complementary error function of x0.
+ * 
+ * The {@link GLib.Math.erfc} function returns the complementary error function of x0, that is 1.0 - erf(x0).
+ * 
+ * @param x0 A numeric value.
+ */
+GLib.Math.erfc
+
+
+/**
+ * Returns the value of Gamma function for the argument x0.
+ * 
+ * The Gamma function is defined by Gamma(x) = integral from 0 to infinity of t^(x-1) e^-t dt.
+ * 
+ * It is defined for every real number except for non-positive integers. For non-negative integral m one has Gamma(m+1) = m! and, more generally, for all x: Gamma(x+1) = x * Gamma(x)
+ * 
+ * Furthermore, the following is valid for all values of x outside the poles: Gamma(x) * Gamma(1 - x) = PI / sin(PI * x)
+ * 
+ * This function return the value of Gamma function for the argument x. It had to be called "true gamma function" since there is already a function gamma that returns something else.
+ * 
+ * @param x0 A numeric value.
+ */
+GLib.Math.tgammaf
+
+
+/**
+ * Returns the natural logarithm of the absolute value of the Gamma function.
+ * 
+ * The {@link GLib.Math.lgamma_r} function returns the natural logarithm of the absolute value  of the Gamma function. The sign of the Gamma function is returned in the second parameter.
+ * 
+ * It is 1 when the Gamma function is positive or zero, -1 when it is negative.
+ * 
+ * @param x0 A numeric value.
+ * @param signgamp {@link GLib.Math.lgamma_r} sets signgamp to 1 when the Gamma function is positive or zero, -1 when it is negative.
+ */
+GLib.Math.lgamma_r
+
+
+/**
+ * Rounds it's argument to an integer value in floating point format.
+ * 
+ * {@link GLib.Math.rintf} function rounds it's argument to an integer value in floating point format, using the current rounding direction and with raising the inexact exception.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.rintf
+
+
+/**
+ * Multiplies it's first argument x by 2 to the power exp.
+ * 
+ * The {@link GLib.Math.scalbn} function multiplies their first argument x by 2 to the power exp. {@link GLib.Math.scalbn} is equivalent to ldexp.
+ * 
+ * @param x A numeric value.
+ * @param exp A numeric value.
+ */
+GLib.Math.scalbnf
+
+
+/**
+ * Returns the exponent part of their argument as a signed integer.
+ * 
+ * The {@link GLib.Math.ilogb} function returns the exponent part of their argument as a signed integer. When no error occurs, the function is equivalent to the corresponding logb function, cast to int.
+ * 
+ * An error will occur for zero and infinity and NaN, and possibly for overflow.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.ilogb
+
+
+/**
+ * Returns the exponent part of their argument as a signed integer.
+ * 
+ * The {@link GLib.Math.ilogb} function returns the exponent part of their argument as a signed integer.
+ * 
+ * When no error occurs, the function is equivalent to the corresponding logb function, cast to int.
+ * 
+ * An error will occur for zero and infinity and NaN, and possibly for overflow.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.ilogbf
+
+
+/**
+ * This function is equivalent to ldexp.
+ * 
+ * {@link GLib.Math.scalbln} function is equivalent to ldexp.
+ * 
+ * @param x A numeric value.
+ * @param exp A numeric value.
+ */
+GLib.Math.scalbln
+
+
+/**
+ * Rounds argument x to the nearest integer, but round halfway cases away from zero.
+ * 
+ * The {@link GLib.Math.roundf} function rounds argument x to the nearest integer, but round halfway cases away from zero (regardless of the current rounding direction), instead of to the nearest even integer like rint.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.roundf
+
+
+/**
+ * Rounds it's argument to the nearest integer value, rounding away from zero.
+ * 
+ * The {@link GLib.Math.llround} rounds it's argument to the nearest integer value, rounding away from zero, regardless of the current rounding direction. If x is infinite or NaN, or if the rounded value is outside the range of the return type, the numeric result is unspecified.
+ * 
+ * A domain error may occur if the magnitude of x is too large.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.llround
+
+
+/**
+ * Rounds it's argument to the nearest integer value, rounding away from zero.
+ * 
+ * The {@link GLib.Math.llroundf} rounds it's argument to the nearest integer value, rounding away from zero, regardless of the current rounding direction. If x is infinite or NaN, or if the rounded value is outside the range of the return type, the numeric result is unspecified.
+ * 
+ * A domain error may occur if the magnitude of x is too large.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.llroundf
+
+
+/**
+ * Returns max(x - y, 0).
+ * 
+ * The {@link GLib.Math.fdim} function returns max(x - y, 0). If x or y or both are NaN, NaN is returned.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.fdim
+
+
+/**
+ * Multiplies x by 2 to the power exp.
+ * 
+ * The {@link GLib.Math.scalbf} function multiplies x by 2 to the power exp.
+ * 
+ * @param x A numeric value.
+ * @param exp A numeric value.
+ */
+GLib.Math.scalbf
+
+
+/**
+ * Returns the tangent of x, where x is given in radians.
+ * 
+ * The {@link GLib.Math.tan} function returns the tangent of x, where x is given in radians.
+ */
+GLib.Math.tan
+
+
+/**
+ * Returns the hyperbolic tangent of x.
+ * 
+ * The {@link GLib.Math.tanhf} function returns the hyperbolic tangent of x, which is defined mathematically as:
+ * 
+ * {{{
+ *  tanh(x) = sinh(x) / cosh(x)
+ * }}}
+ */
+GLib.Math.tanhf
+
+
+/**
+ * Returns the inverse hyperbolic sine of x.
+ * 
+ * The {@link GLib.Math.asinh} function returns the inverse hyperbolic sine of x, that is the value whose hyperbolic sine is x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.asinhf
+
+
+/**
+ * Returns the value of the base of natural logarithms raised to the power of x.
+ * 
+ * The {@link GLib.Math.exp} function returns the value of e (the base of natural logarithms) raised to the power of x.
+ * 
+ * @param x A numeric value
+ */
+GLib.Math.exp
+
+
+/**
+ * Returns the base 10 logarithm of x.
+ * 
+ * The {@link GLib.Math.log10} function returns the base 10 logarithm of x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.log10
+
+
+/**
+ * Returns a value equivalent to log(1 + x).
+ * 
+ * The {@link GLib.Math.log1pf} function returns a value equivalent to log(1 + x). It is computed in a way that is accurate even if the value of x is near zero.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.log1pf
+
+
+/**
+ * Returns the value of 2 raised to the power of x.
+ * 
+ * The {@link GLib.Math.exp2} function returns the value of 2 raised to the power of x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.exp2
+
+
+/**
+ * Returns the base 2 logarithm of x.
+ * 
+ * The {@link GLib.Math.log2} function returns the base 2 logarithm of x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.log2
+
+
+/**
+ * Returns the base 2 logarithm of x.
+ * 
+ * The {@link GLib.Math.log2f} function returns the base 2 logarithm of x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.log2f
+
+
+/**
+ * Returns the value of x raised to the power of y.
+ * 
+ * The {@link GLib.Math.pow} function returns the value of x raised to the power of y.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.pow
+
+
+/**
+ * Returns the length of the hypotenuse of a right-angle triangle.
+ * 
+ * The {@link GLib.Math.hypotf} function returns sqrt(x*x + y*y). This is the length of the hypotenuse of a right-angle triangle with sides of length x and y, or the distance of the point (x,y) from the origin.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.hypotf
+
+
+/**
+ * Returns the (real) cube root of x.
+ * 
+ * The {@link GLib.Math.cbrtf} function returns the (real) cube root of x. This function cannot fail; every representable real value has a representable real cube root.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.cbrtf
+
+
+/**
+ * Returns the absolute value.
+ * 
+ * The {@link GLib.Math.fabsf} function returns the absolute value of the floating-point number x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.fabsf
+
+
+/**
+ * Rounds x down to the nearest integer.
+ * 
+ * The {@link GLib.Math.floorf} function rounds x down to the nearest integer.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.floorf
+
+/**
+ * The value of pi (ratio of circle's circumference to its diameter).
+ */
+GLib.Math.PI
+
+
+/**
+ * Calculates the arc cosine of x.
+ * 
+ * The {@link GLib.Math.acos} function calculates the arc cosine of x; that is the value whose cosine is x. If x falls outside the range -1 to 1, {@link GLib.Math.acos} fails and {@link GLib.errno} is set to {@link EDOM}.
+ */
+GLib.Math.acos
+
+
+/**
+ * Calculates the arc sine of x.
+ * 
+ * The {@link GLib.Math.asin} function calculates the arc sine of x; that is the value whose sine is x. If x falls outside the range -1 to 1, {@link GLib.Math.asin} fails and {@link GLib.errno} is set to {@link EDOM}.
+ */
+GLib.Math.asin
+
+
+/**
+ * Calculates the arc tangent of the two variables x and y.
+ * 
+ * The {@link GLib.Math.atan2} function calculates the arc tangent of the two variables x and y. It is similar to calculating the arc tangent of y / x, except that the signs of both arguments are used to determine the quadrant of the result.
+ */
+GLib.Math.atan2
+
+
+/**
+ * Calculates the arc tangent of the two variables x and y.
+ * 
+ * The {@link GLib.Math.atan2f} function calculates the arc tangent of the two variables x and y.
+ * 
+ * It is similar to calculating the arc tangent of y / x, except that the signs of both arguments are used to determine the quadrant of the result.
+ */
+GLib.Math.atan2f
+
+
+/**
+ * Returns the cosine of x.
+ * 
+ * The {@link GLib.Math.acos} function returns the cosine of x, where x is given in radians.
+ */
+GLib.Math.cos
+
+
+/**
+ * Returns the cosine of x.
+ * 
+ * The {@link GLib.Math.cosf} function returns the cosine of x, where x is given in radians.
+ */
+GLib.Math.cosf
+
+
+/**
+ * Returns the sine of x.
+ * 
+ * The {@link GLib.Math.sin} function returns the sine of x, where x is given in radians.
+ */
+GLib.Math.sin
+
+
+/**
+ * Returns the tangent of x.
+ * 
+ * The {@link GLib.Math.tanf} function returns the tangent of x, where x is given in radians.
+ */
+GLib.Math.tanf
+
+
+/**
+ * Returns the hyperbolic cosine of x.
+ * 
+ * The {@link GLib.Math.cosh} function returns the hyperbolic cosine of x, which is defined mathematically as:
+ * 
+ * {{{
+ *  cosh(x) = (exp(x) + exp(-x / 2)).
+ * }}}
+ */
+GLib.Math.cosh
+
+
+/**
+ * returns the hyperbolic sine of x.
+ * 
+ * The {@link GLib.Math.sinhf} function returns the hyperbolic sine of x, which is defined mathematically as:
+ * 
+ * {{{
+ *  sinh(x) = (exp(x) - exp(-x / 2))
+ * }}}
+ */
+GLib.Math.sinhf
+
+
+/**
+ * returns the hyperbolic tangent of x.
+ * 
+ * The {@link GLib.Math.tanh} function returns the hyperbolic tangent of x, which is defined mathematically as:
+ * 
+ * {{{
+ * tanh(x) = sinh(x) / cosh(x)
+ * }}}
+ */
+GLib.Math.tanh
+
+
+/**
+ * Computes both sine and cosine of x at the same time.
+ * 
+ * Several applications need sine and cosine of the same angle x. This function computes both at the same time, and stores the results via the output variables.
+ * 
+ * @param x A numeric value in radians.
+ * @param sinx Output variable for sine of x.
+ * @param cosx Output variable for cosine of x.
+ */
+GLib.Math.sincosf
+
+
+/**
+ * Calculates the inverse hyperbolic cosine of x.
+ * 
+ * The {@link GLib.Math.acosh} function calculates the inverse hyperbolic cosine of x; that is the value whose hyperbolic cosine is x. If x is less than 1.0, {@link GLib.Math.acosh} returns not-a-number (NaN) and {@link GLib.errno} is set {@link EDOM}.
+ * 
+ * @param x A numeric value which is equal or greater than 1.0.
+ */
+GLib.Math.acosh
+
+
+/**
+ * Calculates the inverse hyperbolic cosine of x.
+ * 
+ * The {@link GLib.Math.acosh} function calculates the inverse hyperbolic cosine of x; that is the value whose hyperbolic cosine is x. If x is less than 1.0, {@link GLib.Math.acosh} returns not-a-number (NaN) and {@link GLib.errno} is {@link EDOM}.
+ * 
+ * @param x A numeric value which is equal or greater than 1.0.
+ */
+GLib.Math.acoshf
+
+
+/**
+ * Returns the value of the base of natural logarithms raised to the power of x.
+ * 
+ * The {@link GLib.Math.expf} function returns the value of e (the base of natural logarithms) raised to the power of x.
+ * 
+ * @param x A numeric value
+ */
+GLib.Math.expf
+
+
+/**
+ * Split the number x into a normalized fraction and an exponent.
+ * 
+ * The {@link GLib.Math.frexp} function is used to split the number x into a normalized fraction and an exponent which is stored in exp.
+ * 
+ * @param x A numeric value.
+ * @param exp The output variable for the exponent.
+ */
+GLib.Math.frexp
+
+
+/**
+ * Breaks the argument x into an integral part and a fractional part.
+ * 
+ * The {@link GLib.Math.modf} function breaks the argument x into an integral part and a fractional part,  each of which has the same sign as x. The integral part is stored in output variable i.
+ * 
+ * @param x A numeric value.
+ * @param i The output variable for the integral part.
+ */
+GLib.Math.modf
+
+
+/**
+ * Returns the value of 10 raised to the power of x.
+ * 
+ * The {@link GLib.Math.pow10f} function returns the value of 10 raised to the power of x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.pow10f
+
+
+/**
+ * Returns a value equivalent to exp(x) - 1.
+ * 
+ * The {@link GLib.Math.expm1} function returns a value equivalent to exp(x) - 1. It is computed in a way that  is accurate even if the value of x is near zero; a case where exp(x) - 1 would be inaccurate  due to subtraction of two numbers that are nearly equal.
+ * 
+ * @param x A numeric value
+ */
+GLib.Math.expm1
+
+
+/**
+ * Returns the value of x raised to the power of y.
+ * 
+ * The {@link GLib.Math.powf} function returns the value of x raised to the power of y.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.powf
+
+
+/**
+ * Returns the non-negative square root of x.
+ * 
+ * The {@link GLib.Math.sqrt} function returns the non-negative square root of x. It fails and sets {@link GLib.errno} to {@link EDOM}, if x is negative.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.sqrt
+
+
+/**
+ * Returns the non-negative square root of x.
+ * 
+ * The {@link GLib.Math.sqrtf} function returns the non-negative square root of x. It fails and sets {@link GLib.errno} to {@link EDOM}, if x is negative.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.sqrtf
+
+
+/**
+ * Returns the (real) cube root of x.
+ * 
+ * The {@link GLib.Math.cbrt} function returns the (real) cube root of x. This function cannot fail; every representable real value has a representable real cube root.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.cbrt
+
+
+/**
+ * Rounds x up to the nearest integer.
+ * 
+ * The {@link GLib.Math.ceilf} function rounds x up to the nearest integer.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.ceilf
+
+
+/**
+ * Rounds x down to the nearest integer.
+ * 
+ * The {@link GLib.Math.floor} function rounds x down to the nearest integer.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.floor
+
+
+/**
+ * Computes the remainder of dividing x by y.
+ * 
+ * The {@link GLib.Math.fmodf} function computes the remainder of dividing x by y. The return  value is x - n * y, where n is the quotient of x / y, rounded towards zero to an integer.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.fmodf
+
+
+/**
+ * Returns the value of not-a-number (NaN) checking.
+ * 
+ * The {@link GLib.Math.finitef} function returns a non-zero value if x is neither infinite nor a not-a-number (NaN) value, and 0 otherwise.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.finitef
+
+
+/**
+ * Returns the mantissa of x scaled to the range [1,2].
+ * 
+ * The {@link GLib.Math.significand} function returns the mantissa of x scaled to the range [1,2]. 
+ * 
+ * This function exists mainly for use in certain standardized tests for IEEE 754 conformance.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.significand
+
+
+/**
+ * Returns a value whose absolute value matches that of x, but whose sign bit matches that of y.
+ * 
+ * The {@link GLib.Math.copysignf} function returns a value whose absolute value matches that of x, but whose sign bit matches that of y. If x is a NaN, then a Nan with the sign bit of y is returned.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.copysignf
+
+
+/**
+ * Returns a representation (determined by tag) of a quiet NaN.
+ * 
+ * The {@link GLib.Math.nan} function returns a representation (determined by tag) of a quiet NaN. If the implementation does not support quiet NaNs, the function returns zero.
+ * 
+ * The argument tag is used in an unspecified manner. On IEEE 754 systems, there are many representations of NaN, and tag selects one. On other systems it may do nothing.
+ * 
+ * @param tag A representation tag.
+ */
+GLib.Math.nan
+
+
+/**
+ * Returns a representation (determined by tag) of a quiet NaN.
+ * 
+ * The {@link GLib.Math.nanf} function returns a representation (determined by tag) of a quiet NaN. If the implementation does not support quiet NaNs, the function returns zero.
+ * 
+ * The argument tag is used in an unspecified manner. On IEEE 754 systems, there are many representations of NaN, and tag selects one. On other systems it may do nothing.
+ * 
+ * @param tag A representation tag.
+ */
+GLib.Math.nanf
+
+
+/**
+ * Returns Bessel function of x of the first kind of order 0.
+ * 
+ * The {@link GLib.Math.j0f} function returns Bessel function of x of the first kind of order 0.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.j0f
+
+
+/**
+ * Returns Bessel function of x of the first kind of order n.
+ * 
+ * The {@link GLib.Math.jn} function returns Bessel function of x of the first kind of order n.
+ * 
+ * @param n Determines the Bessel function order.
+ * @param x A numeric value.
+ */
+GLib.Math.jn
+
+
+/**
+ * Returns Bessel function of x of the first kind of order n.
+ * 
+ * The {@link GLib.Math.jnf} function returns Bessel function of x of the first kind of order n.
+ * 
+ * @param n Determines the Bessel function order.
+ * @param x A numeric value.
+ */
+GLib.Math.jnf
+
+
+/**
+ * Returns Bessel function of x0 of the second kind of order 1.
+ * 
+ * The {@link GLib.Math.y1f} function returns Bessel function of x0 of the second kind of order 1.
+ * 
+ * @param x0 A numeric value.
+ */
+GLib.Math.y1f
+
+
+/**
+ * Returns Bessel function of x1 of the second kind of order x0.
+ * 
+ * The {@link GLib.Math.ynf} function returns Bessel function of x1 of the second kind of order x0.
+ * 
+ * @param x0 Determines the Bessel function order.
+ * @param x1 A numeric value.
+ */
+GLib.Math.ynf
+
+
+/**
+ * Returns the error function of x0.
+ * 
+ * The {@link GLib.Math.erf} function returns the error function of x0; defined as erf(x) = 2/sqrt(pi)* integral from 0 to x0 of exp(-t*t) dt.
+ * 
+ * @param x0 A numeric value.
+ */
+GLib.Math.erf
+
+
+/**
+ * Returns the complementary error function of x0.
+ * 
+ * The {@link GLib.Math.erfcf} function returns the complementary error function of x0, that is 1.0 - erf(x0).
+ * 
+ * @param x0 A numeric value.
+ */
+GLib.Math.erfcf
+
+
+/**
+ * Returns the value of Gamma function for the argument x0.
+ * 
+ * The Gamma function is defined by Gamma(x) = integral from 0 to infinity of t^(x-1) e^-t dt.
+ * 
+ * It is defined for every real number except for non-positive integers. For non-negative integral m one has Gamma(m+1) = m! and, more generally, for all x: Gamma(x+1) = x * Gamma(x)
+ * 
+ * Furthermore, the following is valid for all values of x outside the poles: Gamma(x) * Gamma(1 - x) = PI / sin(PI * x)
+ * 
+ * This function return the value of Gamma function for the argument x. It had to be called "true gamma function" since there is already a function gamma that returns something else.
+ * 
+ * @param x0 A numeric value.
+ */
+GLib.Math.tgamma
+
+
+/**
+ * Returns the natural logarithm of the absolute value of the Gamma function.
+ * 
+ * The {@link GLib.Math.lgamma_rf} function returns the natural logarithm of the absolute value  of the Gamma function. The sign of the Gamma function is returned in the second parameter.
+ * 
+ * It is 1 when the Gamma function is positive or zero, -1 when it is negative.
+ * 
+ * @param x0 A numeric value.
+ * @param signgamp {@link GLib.Math.lgamma_rf} sets signgamp to 1 when the Gamma function is positive or zero, -1  when it is negative.
+ */
+GLib.Math.lgamma_rf
+
+
+/**
+ * Rounds it's argument to an integer value in floating point format.
+ * 
+ * {@link GLib.Math.rint} function rounds it's argument to an integer value in floating point format, using the current rounding direction and with raising the inexact exception.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.rint
+
+
+/**
+ * Returns the next representable neighbor of x in the direction towards y.
+ * 
+ * The {@link GLib.Math.nextafter} function returns the next representable neighbor of x in the direction towards y. The size of the step between x and the result depends on the type of the result.
+ * 
+ * If x = y the function simply returns y. If either value is NaN, then NaN is returned. Otherwise a value corresponding to the value of the least significant bit in the mantissa is added or subtracted, depending on the direction.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.nextafter
+
+
+/**
+ * This function is equivalent to ldexp.
+ * 
+ * {@link GLib.Math.scalblnf} function is equivalent to ldexp.
+ * 
+ * @param x A numeric value.
+ * @param exp A numeric value.
+ */
+GLib.Math.scalblnf
+
+
+/**
+ * Rounds argument x to an integer value in floating point format.
+ * 
+ * The {@link GLib.Math.nearbyint} function rounds argument x to an integer value in floating point format, using the current rounding direction and without raising the inexact exception.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.nearbyint
+
+
+/**
+ * Rounds argument x to the nearest integer, but round halfway cases away from zero.
+ * 
+ * The {@link GLib.Math.round} function rounds argument x to the nearest integer, but round halfway cases away from zero (regardless of the current rounding direction), instead of to the nearest even integer like rint.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.round
+
+
+/**
+ * Rounds it's argument to the nearest integer value, using the current rounding direction.
+ * 
+ * The {@link GLib.Math.lrint} rounds it's argument to the nearest integer value, using the current rounding direction. If x is infinite or NaN, or if the rounded value is outside the range of the return type, the numeric result is unspecified. A domain error may occur if the magnitude of x is too large.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.lrint
+
+
+/**
+ * Rounds it's argument to the nearest integer value, using the current rounding direction.
+ * 
+ * The {@link GLib.Math.lrintf} rounds it's argument to the nearest integer value, using the current rounding direction. If x is infinite or NaN, or if the rounded value is outside the range of the return type, the numeric result is unspecified. A domain error may occur if the magnitude of x is too large.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.lrintf
+
+
+/**
+ * Rounds it's argument to the nearest integer value, using the current rounding direction.
+ * 
+ * The {@link GLib.Math.llrint} rounds it's argument to the nearest integer value, using the current rounding direction. If x is infinite or NaN, or if the rounded value is outside the range of the return type, the numeric result is unspecified. A domain error may occur if the magnitude of x is too large.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.llrint
+
+
+/**
+ * Rounds it's argument to the nearest integer value, rounding away from zero.
+ * 
+ * The {@link GLib.Math.lround} rounds it's argument to the nearest integer value, rounding away from zero, regardless of the current rounding direction. If x is infinite or NaN, or if the rounded value is outside the range of the return type, the numeric result is unspecified.
+ * 
+ * A domain error may occur if the magnitude of x is too large.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.lround
+
+
+/**
+ * Rounds it's argument to the nearest integer value, rounding away from zero.
+ * 
+ * The {@link GLib.Math.lroundf} rounds it's argument to the nearest integer value, rounding away from zero, regardless of the current rounding direction. If x is infinite or NaN, or if the rounded value is outside the range of the return type, the numeric result is unspecified.
+ * 
+ * A domain error may occur if the magnitude of x is too large.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.lroundf
+
+
+/**
+ * Returns max(x - y, 0).
+ * 
+ * The {@link GLib.Math.fdimf} function returns max(x - y, 0). If x or y or both are NaN, NaN is returned.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.fdimf
+
+
+/**
+ * Returns the larger value of x and y.
+ * 
+ * The {@link GLib.Math.fmaxf} function returns the larger value of x and y.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.fmaxf
+
+
+/**
+ * Multiplies x by 2 to the power exp.
+ * 
+ * The {@link GLib.Math.scalb} function multiplies x by 2 to the power exp.
+ * 
+ * @param x A numeric value.
+ * @param exp A numeric value.
+ */
+GLib.Math.scalb
+
+
+/**
+ * The base of natural logarithms.
+ */
+GLib.Math.E
+
+
+/**
+ * Calculates the arc cosine of x.
+ * 
+ * The {@link GLib.Math.acosf} function calculates the arc cosine of x; that is the value whose cosine is x. If x falls outside the range -1 to 1, {@link GLib.Math.acosf} fails and {@link GLib.errno} is set to {@link EDOM}.
+ */
+GLib.Math.acosf
+
+
+/**
+ * Calculates the arc sine of x.
+ * 
+ * The {@link GLib.Math.asinf} function calculates the arc sine of x; that is the value whose sine is x. If x falls outside the range -1 to 1, {@link GLib.Math.asinf} fails and {@link GLib.errno} is set to {@link EDOM}.
+ */
+GLib.Math.asinf
+
+
+/**
+ * Returns the sine of x.
+ * 
+ * The {@link GLib.Math.sinf} function returns the sine of x, where x is given in radians.
+ */
+GLib.Math.sinf
+
+
+/**
+ * Returns the hyperbolic cosine of x.
+ * 
+ * The {@link GLib.Math.coshf} function returns the hyperbolic cosine of x, which is defined mathematically as:
+ * 
+ * {{{
+ *  cosh(x) = (exp(x) + exp(-x / 2))
+ * }}}
+ */
+GLib.Math.coshf
+
+
+/**
+ * Returns the hyperbolic sine of x.
+ * 
+ * The {@link GLib.Math.sinh} function returns the hyperbolic sine of x, which is defined mathematically as:
+ * 
+ * {{{
+ *  sinh(x) = (exp(x) - exp(-x / 2))
+ * }}}
+ */
+GLib.Math.sinh
+
+
+/**
+ * computes both sine and cosine of x at the same time.
+ * 
+ * Several applications need sine and cosine of the same angle x. This function computes both at the same time, and stores the results via the output variables.
+ * 
+ * @param x A numeric value in radians.
+ * @param sin Output variable for sine of x
+ * @param cos Output variable for cosine of x.
+ */
+GLib.Math.sincos
+
+
+/**
+ * Returns the inverse hyperbolic sine of x.
+ * 
+ * The {@link GLib.Math.asinh} function returns the inverse hyperbolic sine of x, that is the value whose hyperbolic sine is x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.asinh
+
+
+/**
+ * Returns the inverse hyperbolic tangent of x.
+ * 
+ * The {@link GLib.Math.atanhf} function returns the inverse hyperbolic tangent of x. If the absolute  value of x is greater than 1.0, {@link GLib.Math.atanhf} returns not-a-number (NaN) and {@link GLib.errno} is set {@link EDOM}.
+ * 
+ * @param x A numeric value which is between -1.0 and 1.0.
+ */
+GLib.Math.atanhf
+
+
+/**
+ * Split the number x into a normalized fraction and an exponent.
+ * 
+ * The {@link GLib.Math.frexpf} function is used to split the number x into a normalized fraction and an exponent which is stored in exp.
+ * 
+ * @param x A numeric value.
+ * @param exp The output variable for the exponent.
+ */
+GLib.Math.frexpf
+
+
+/**
+ * Returns the result of multiplying the floating-point number x by 2 raised to the power exp.
+ * 
+ * The {@link GLib.Math.ldexpf} function returns the result of multiplying the floating-point number x by 2 raised to the power exp.
+ * 
+ * @param x A numeric value.
+ * @param exp An integer value for the exponent.
+ */
+GLib.Math.ldexpf
+
+
+/**
+ * Returns the natural logarithm of x.
+ * 
+ * The {@link GLib.Math.log} function returns the natural logarithm of x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.log
+
+
+/**
+ * Returns the value of 10 raised to the power of x.
+ * 
+ * The {@link GLib.Math.exp10f} function returns the value of 10 raised to the power of x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.exp10f
+
+
+/**
+ * Returns the value of 10 raised to the power of x.
+ * 
+ * The {@link GLib.Math.pow10} function returns the value of 10 raised to the power of x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.pow10
+
+
+/**
+ * Returns a value equivalent to exp(x) - 1.
+ * 
+ * The {@link GLib.Math.expm1f} function returns a value equivalent to exp(x) - 1. It is computed in a way that  is accurate even if the value of x is near zero; a case where exp(x) - 1 would be inaccurate  due to subtraction of two numbers that are nearly equal.
+ * 
+ * @param x A numeric value
+ */
+GLib.Math.expm1f
+
+
+/**
+ * Returns a value equivalent to log(1 + x).
+ * 
+ * The {@link GLib.Math.log1p} function returns a value equivalent to log(1 + x). It is computed in a way that is accurate even if the value of x is near zero.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.log1p
+
+
+/**
+ * Returns the length of the hypotenuse of a right-angle triangle.
+ * 
+ * The {@link GLib.Math.hypot} function returns sqrt(x*x + y*y). This is the length of the hypotenuse of a right-angle triangle with sides of length x and y, or the distance of the point (x,y) from the origin.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.hypot
+
+
+/**
+ * Rounds x up to the nearest integer.
+ * 
+ * The {@link GLib.Math.ceil} function rounds x up to the nearest integer.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.ceil
+
+
+/**
+ * Returns the absolute value.
+ * 
+ * The {@link GLib.Math.fabs} function returns the absolute value of the floating-point number x.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.fabs
+
+
+/**
+ * Returns a value whose absolute value matches that of x, but whose sign bit matches that of y.
+ * 
+ * The {@link GLib.Math.copysign} function returns a value whose absolute value matches that of x, but whose sign bit matches that of y. If x is a NaN, then a Nan with the sign bit of y is returned.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.copysign
+
+
+/**
+ * Returns Bessel function of x of the first kind of order 1.
+ * 
+ * The {@link GLib.Math.j1} function returns Bessel function of x of the first kind of order 1.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.j1
+
+
+/**
+ * Returns Bessel function of x0 of the second kind of order 0.
+ * 
+ * The {@link GLib.Math.y0} function returns Bessel function of x0 of the second kind of order 0.
+ * 
+ * @param x0 A numeric value.
+ */
+GLib.Math.y0
+
+
+/**
+ * Returns Bessel function of x0 of the second kind of order 1.
+ * 
+ * The {@link GLib.Math.y1} function returns Bessel function of x0 of the second kind of order 1.
+ * 
+ * @param x0 A numeric value.
+ */
+GLib.Math.y1
+
+
+/**
+ * Returns the error function of x0.
+ * 
+ * The {@link GLib.Math.erff} function returns the error function of x0; defined as erf(x) = 2/sqrt(pi)* integral from 0 to x0 of exp(-t*t) dt.
+ * 
+ * @param x0 A numeric value.
+ */
+GLib.Math.erff
+
+
+/**
+ * Computes the natural logarithm of the Gamma function.
+ * 
+ * {@link GLib.Math.gamma} function is equivalent to {@link GLib.Math.lgamma} and computes the natural logarithm of the Gamma function.
+ * 
+ * @param x0 A numeric value.
+ */
+GLib.Math.gamma
+
+
+/**
+ * Computes the natural logarithm of the Gamma function.
+ * 
+ * {@link GLib.Math.gammaf} function is equivalent to {@link GLib.Math.lgamma} and computes the natural logarithm of  the Gamma function.
+ * 
+ * @param x0 A numeric value.
+ */
+GLib.Math.gammaf
+
+
+/**
+ * Returns the next representable neighbor of x in the direction towards y.
+ * 
+ * The {@link GLib.Math.nextafterf} function returns the next representable neighbor of x in the direction towards y. The size of the step between x and the result depends on the type of the result.
+ * 
+ * If x = y the function simply returns y. If either value is NaN, then NaN is returned. Otherwise a value corresponding to the value of the least significant bit in the mantissa is added or subtracted, depending on the direction.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.nextafterf
+
+
+/**
+ * Multiplies it's first argument x by 2 to the power exp.
+ * 
+ * The {@link GLib.Math.scalbn} function multiplies their first argument x by 2 to the power exp. {@link GLib.Math.scalbn} is equivalent to ldexp.
+ * 
+ * @param x A numeric value.
+ * @param exp A numeric value.
+ */
+GLib.Math.scalbn
+
+
+/**
+ * Rounds argument x to an integer value in floating point format.
+ * 
+ * The {@link GLib.Math.nearbyintf} function rounds argument x to an integer value in floating point format, using the current rounding direction and without raising the inexact exception.
+ * 
+ * @param x A numeric value.
+ */
+GLib.Math.nearbyintf
+
+
+/**
+ * Computes the remainder and part of the quotient upon division of x by y.
+ * 
+ * The {@link GLib.Math.remquo} function computes the remainder and part of the quotient upon division  of x by y. A few bits of the quotient are stored via the quo output variable. The remainder  is returned as function value.
+ * 
+ * The value of the remainder is the same as that computed by the {@link GLib.Math.remainder} function.
+ * 
+ * The value stored via the quo output variable has the sign of x / y and agrees with the  quotient in at least the low order 3 bits.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ * @param quo An output variable for the quotient.
+ */
+GLib.Math.remquo
+
+
+/**
+ * Returns the smaller value of x and y.
+ * 
+ * The {@link GLib.Math.fmin} function returns the smaller value of x and y.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.fmin
+
+
+/**
+ * Computes x * y + z.
+ * 
+ * The {@link fmf} function computes x * y + z. The result is rounded according to the rounding  mode determined by the value of {@link FLT_ROUNDS}. {@link FLT_ROUNDS} indicates the implementation-defined rounding behavior for floating-point addition, and has one of the following values:
+ * 
+ *  * -1 The rounding mode is not determinable.
+ *  * 0 Rounding is towards 0.
+ *  * 1 Rounding is towards nearest number.
+ *  * 2 Rounding istowards positive infinity.
+ *  * 3 Rounding is towards negative infinity.
+ *  * Other values represent machine-dependent, non-standard rounding modes.
+ * 
+ * @param x A numeric value.
+ * @param y A numeric value.
+ */
+GLib.Math.fma
+
+
+
+
+
+
+/**
+ * The {@link c::memcmp} function compares the first n bytes of the memory areas s1 and s2.
+ * 
+ * It returns an integer less than, equal to, or greater than zero if s1 is found, respectively, to be less than, to match, or be greater than s2. 
+ * 
+ * @return returns an integer less than, equal to, or greater than zero if the first n bytes of s1 is found, respectively, to be less than, to match, or be greater than the first n bytes of s2.
+ */
+c::memcmp
+
+
+/**
+ * Creates a symbolic link
+ *
+ * @param oldpath Target of the link.
+ * @param newpath The link name.
+ * @return successful 0; otherwise, -1 and set errno to indicate the error.
+ */
+c::symlink
+
+
+/**
+ * {@link GLib.FileUtils.close} closes a file descriptor, so that it no longer refers to any file and may be reused.
+ * 
+ * Any record locks held on the file it was associated with, and owned by the process, are removed (regardless of the file descriptor that was used to obtain the lock).
+ * 
+ * If fd is the last copy of a particular file descriptor the resources associated with it are freed; if the descriptor was the last reference to a file which has been removed using {@link GLib.FileUtils.unlink} the file is deleted. 
+ * 
+ * @return returns zero on success. On error, -1 is returned, and {@link GLib.errno} is set appropriately.
+ * @see EBADF
+ * @see EINTR
+ * @see EIO
+ */
+GLib.FileUtils.close

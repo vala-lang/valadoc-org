@@ -1,0 +1,178 @@
+/**
+ * Unspecified type, binary data chunk
+ */
+Netlink.AttributeType.UNSPEC
+
+
+/**
+ * 8 bit integer
+ */
+Netlink.AttributeType.U8
+
+
+/**
+ * 16 bit integer
+ */
+Netlink.AttributeType.U16
+
+
+/**
+ * 32 bit integer
+ */
+Netlink.AttributeType.U32
+
+
+/**
+ * 64 bit integer
+ */
+Netlink.AttributeType.U64
+
+
+/**
+ * ``NUL`` terminated character string
+ */
+Netlink.AttributeType.STRING
+
+
+/**
+ * Flag
+ */
+Netlink.AttributeType.FLAG
+
+
+/**
+ * Micro seconds (64bit)
+ */
+Netlink.AttributeType.MSECS
+
+
+/**
+ * Nested attributes
+ */
+Netlink.AttributeType.NESTED
+
+
+/**
+ * Proceed with whatever comes next.
+ */
+Netlink.CallbackAction.OK
+
+
+/**
+ * Skip this message.
+ */
+Netlink.CallbackAction.SKIP
+
+
+/**
+ * Stop parsing altogether and discard remaining messages.
+ */
+Netlink.CallbackAction.STOP
+
+
+/**
+ * Default handlers (quiet).
+ */
+Netlink.CallbackKind.DEFAULT
+
+
+/**
+ * Verbose default handlers (error messages printed).
+ */
+Netlink.CallbackKind.VERBOSE
+
+
+/**
+ * Debug handlers for debugging.
+ */
+Netlink.CallbackKind.DEBUG
+
+
+/**
+ * Customized handler specified by the user.
+ */
+Netlink.CallbackKind.CUSTOM
+
+
+/**
+ * Message is valid.
+ */
+Netlink.CallbackType.VALID
+
+
+/**
+ * Last message in a series of multi part messages received.
+ */
+Netlink.CallbackType.FINISH
+
+
+/**
+ * Report received that data was lost.
+ */
+Netlink.CallbackType.OVERRUN
+
+
+/**
+ * Message wants to be skipped.
+ */
+Netlink.CallbackType.SKIPPED
+
+
+/**
+ * Message is an acknowledge.
+ */
+Netlink.CallbackType.ACK
+
+
+/**
+ * Called for every message received.
+ */
+Netlink.CallbackType.MSG_IN
+
+
+/**
+ * Called for every message sent out except for {@link c::nl_sendto}.
+ */
+Netlink.CallbackType.MSG_OUT
+
+
+/**
+ * Message is malformed and invalid.
+ */
+Netlink.CallbackType.INVALID
+
+
+/**
+ * Called instead of internal sequence number checking.
+ */
+Netlink.CallbackType.SEQ_CHECK
+
+
+/**
+ * Sending of an acknowledge message has been requested.
+ */
+Netlink.CallbackType.SEND_ACK
+
+
+/**
+ * Dump object briefly on one line
+ */
+Netlink.DumpType.LINE
+
+
+/**
+ * Dump all attributes but no statistics
+ */
+Netlink.DumpType.DETAILS
+
+
+/**
+ * Dump all attributes including statistics
+ */
+Netlink.DumpType.STATS
+
+
+/**
+ * Dump all attribtues as env variables
+ */
+Netlink.DumpType.ENV

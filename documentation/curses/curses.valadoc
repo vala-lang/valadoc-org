@@ -1,0 +1,1036 @@
+
+
+/**
+ * Predefined colors
+ */
+Curses.Color
+
+
+/**
+ * Blink mode.
+ */
+Curses.Attribute.BLINK
+
+
+/**
+ * Alternate character set mode.
+ */
+Curses.Attribute.ALTCHARSET
+
+
+/**
+ * Soft (partial) reset (unreliable)
+ */
+Curses.Key.SRESET
+
+
+/**
+ * Up-arrow
+ */
+Curses.Key.UP
+
+
+/**
+ * Home key (upward+left arrow)
+ */
+Curses.Key.HOME
+
+
+/**
+ * Insert line
+ */
+Curses.Key.IL
+
+
+/**
+ * Delete character
+ */
+Curses.Key.DC
+
+
+/**
+ * Exit insert char mode
+ */
+Curses.Key.EIC
+
+
+/**
+ * Clear screen
+ */
+Curses.Key.CLEAR
+
+
+/**
+ * Home down or bottom (lower left)
+ */
+Curses.Key.LL
+
+
+/**
+ * Upper left of keypad
+ */
+Curses.Key.A1
+
+
+/**
+ * Close
+ */
+Curses.Key.CLOSE
+
+
+/**
+ * Cmd (command)
+ */
+Curses.Key.COMMAND
+
+
+/**
+ * End
+ */
+Curses.Key.END
+
+
+/**
+ * Ref (reference)
+ */
+Curses.Key.REFERENCE
+
+
+/**
+ * Refresh
+ */
+Curses.Key.REFRESH
+
+
+/**
+ * Replace
+ */
+Curses.Key.REPLACE
+
+
+/**
+ * Resume
+ */
+Curses.Key.RESUME
+
+
+/**
+ * Shifted Cancel
+ */
+Curses.Key.SCANCEL
+
+
+/**
+ * Shifted Delete char
+ */
+Curses.Key.SDC
+
+
+/**
+ * Shifted Dxit
+ */
+Curses.Key.SEXIT
+
+
+/**
+ * Shifted Prev
+ */
+Curses.Key.SPREVIOUS
+
+
+/**
+ * Shifted Replace
+ */
+Curses.Key.SREPLACE
+
+
+/**
+ * Shifted Right arrow
+ */
+Curses.Key.SRIGHT
+
+
+/**
+ * Shifted Undo
+ */
+Curses.Key.SUNDO
+
+
+/**
+ * Suspend
+ */
+Curses.Key.SUSPEND
+
+
+/**
+ * Undo
+ */
+Curses.Key.UNDO
+
+
+/**
+ * Maximum key value
+ */
+Curses.Key.MAX
+
+
+/**
+ * Add attribute attr from the "background" set applied to all writes to the current window.
+ */
+Curses.attron
+
+
+/**
+ * Like {@link Curses.erase}, but also causes the whole window to be repainted upon next call to {@link Curses.refresh}.
+ */
+Curses.clear
+
+
+/**
+ * Insert a blank line under the cursor. All following lines are moved down by 1 line.
+ */
+Curses.insertln
+
+
+/**
+ * Inserts an ms millisecond pause in output.
+ */
+Curses.delay_output
+
+
+/**
+ * Delete any character at the given position.
+ */
+Curses.delch
+
+
+/**
+ * De-initialize the library, and return terminal to normal status.
+ */
+Curses.endwin
+
+
+/**
+ * Initialize the library.
+ * 
+ * Returns a {@link Curses.Window} which represents the whole screen.
+ */
+Curses.initscr
+
+
+/**
+ * Returns the user's current line kill character. Under Unix operating systems this is a property of the controlling tty of the curses program, and is not set by the curses library itself.
+ */
+Curses.killchar
+
+
+/**
+ * Leave echo mode. Echoing of input characters is turned off.
+ */
+Curses.noecho
+
+
+/**
+ * When the noqiflush routine is used, normal flush of input and output queues associated with the INTR, QUIT and SUSP characters will not be done.
+ * 
+ * You may want to call {@link Curses.noqiflush} in a signal handler if you want output to continue as though the interrupt had not occurred, after the handler exits.
+ */
+Curses.noqiflush
+
+
+/**
+ * Returns a logical OR of all video attributes supported by the terminal.
+ * 
+ * This information is useful when a curses program needs complete control over the appearance of the screen.
+ */
+Curses.termattrs
+
+
+/**
+ * Update the display immediately (sync actual screen with previous drawing/deleting methods).
+ * 
+ * The 6 optional arguments can only be specified when the window is a pad created with newpad(). The additional parameters are needed to indicate what part of the pad and screen are involved. pminrow and pmincol specify the upper left-hand corner of the rectangle to be displayed in the pad. sminrow, smincol, smaxrow, and smaxcol specify the edges of the rectangle to be displayed on the screen. The lower right-hand corner of the rectangle to be displayed in the pad is calculated from the screen coordinates, since the rectangles must be the same size. Both rectangles must be entirely contained within their respective structures. Negative values of pminrow, pmincol, sminrow, or smincol are treated as if they were zero.
+ */
+Curses.refresh
+
+
+/**
+ * Push ch so the next {@link Curses.getch} will return it.
+ * 
+ * //Note:// Only one ch can be pushed before {@link Curses.getch} is called.
+ */
+Curses.ungetch
+
+
+/**
+ * Black
+ */
+Curses.Color.BLACK
+
+
+/**
+ * Red
+ */
+Curses.Color.RED
+
+
+/**
+ * Zellow
+ */
+Curses.Color.YELLOW
+
+
+/**
+ * Cyan (light greenish blue)
+ */
+Curses.Color.CYAN
+
+
+/**
+ * Standout mode.
+ */
+Curses.Attribute.STANDOUT
+
+
+/**
+ * Underline mode.
+ */
+Curses.Attribute.UNDERLINE
+
+
+/**
+ * Dim mode.
+ */
+Curses.Attribute.DIM
+
+
+/**
+ * The exact keycaps available are system dependent.
+ */
+Curses.Key
+
+
+/**
+ * Reset or hard reset (unreliable)
+ */
+Curses.Key.RESET
+
+
+/**
+ * Left-arrow
+ */
+Curses.Key.LEFT
+
+
+/**
+ * Right-arrow
+ */
+Curses.Key.RIGHT
+
+
+/**
+ * Backspace (unreliable)
+ */
+Curses.Key.BACKSPACE
+
+
+/**
+ * Function keys. Up to 64 function keys are supported.
+ */
+Curses.Key.F0
+
+
+/**
+ * Delete line
+ */
+Curses.Key.DL
+
+
+/**
+ * Next page
+ */
+Curses.Key.NPAGE
+
+
+/**
+ * Previous page
+ */
+Curses.Key.PPAGE
+
+
+/**
+ * Set tab
+ */
+Curses.Key.STAB
+
+
+/**
+ * Clear all tabs
+ */
+Curses.Key.CATAB
+
+
+/**
+ * Enter or send (unreliable)
+ */
+Curses.Key.ENTER
+
+
+/**
+ * Lower right of keypad
+ */
+Curses.Key.C3
+
+
+/**
+ * Save
+ */
+Curses.Key.SAVE
+
+
+/**
+ * Shifted Copy
+ */
+Curses.Key.SCOPY
+
+
+/**
+ * Shifted Create
+ */
+Curses.Key.SCREATE
+
+
+/**
+ * Shifted Input
+ */
+Curses.Key.SIC
+
+
+/**
+ * Shifted Left arrow
+ */
+Curses.Key.SLEFT
+
+
+/**
+ * Shifted Move
+ */
+Curses.Key.SMOVE
+
+
+/**
+ * Shifted Print
+ */
+Curses.Key.SPRINT
+
+
+/**
+ * Shifted Redo
+ */
+Curses.Key.SREDO
+
+
+/**
+ * Shifted Save
+ */
+Curses.Key.SSAVE
+
+
+/**
+ * Shifted Suspend
+ */
+Curses.Key.SSUSPEND
+
+
+/**
+ * Mouse event has occurred
+ */
+Curses.Key.MOUSE
+
+
+/**
+ * Paint at most n characters of the string, overwriting anything previously on the display.
+ */
+Curses.addnstr
+
+
+/**
+ * Paint the string str overwriting anything previously on the display.
+ */
+Curses.addstr
+
+
+/**
+ * Returns true or false, depending on whether the programmer can change the colors displayed by the terminal.
+ */
+Curses.can_change_color
+
+
+/**
+ * Enter cbreak mode.
+ * 
+ * In cbreak mode (sometimes called "rare" mode) normal tty line buffering is turned off and characters are available to be read one by one. However, unlike raw mode, special characters (interrupt, quit, suspend, and flow control) retain their effects on the tty driver and calling program. Calling first {@link Curses.raw} then {@link Curses.cbreak} leaves the terminal in cbreak mode.
+ */
+Curses.cbreak
+
+
+/**
+ * Enter echo mode. In echo mode, each character input is echoed to the screen as it is entered.
+ */
+Curses.echo
+
+
+/**
+ * Returns the user's current erase character. Under Unix operating systems this is a property of the controlling tty of the curses program, and is not set by the curses library itself.
+ */
+Curses.erasechar
+
+
+/**
+ * Flash the screen.
+ * 
+ * That is, change it to reverse-video and then change it back in a short interval. Some people prefer such as "visible bell" to the audible attention signal produced by {@link Curses.beep}.
+ */
+Curses.flash
+
+
+/**
+ * Flush all input buffers. This throws away any typeahead that has been typed by the user and has not yet been processed by the program.
+ */
+Curses.flushinp
+
+
+/**
+ * Returns true if the terminal can display colors; otherwise, it returns false.
+ */
+Curses.has_colors
+
+
+/**
+ * Returns true if the terminal has insert- and delete- character capabilities.
+ * 
+ * This function is included for historical reasons only, as all modern software terminal emulators have such capabilities.
+ */
+Curses.has_ic
+
+
+/**
+ * Returns true if the terminal has insert- and delete-line capabilities, or can simulate them using scrolling regions.
+ * 
+ * This function is included for historical reasons only, as all modern software terminal emulators have such capabilities.
+ */
+Curses.has_il
+
+
+/**
+ * Sleep for ms milliseconds.
+ */
+Curses.napms
+
+
+/**
+ * Returns the value of the environment variable TERM, truncated to 14 characters.
+ */
+Curses.termname
+
+
+/**
+ * After {@link Curses.getch} returns {@link Curses.Key.MOUSE} to signal a mouse event, this method should be call to retrieve the queued mouse event, represented as a 5-tuple (id, x, y, z, bstate).
+ * 
+ * id is an ID value used to distinguish multiple devices, and x, y, z are the event's coordinates. (z is currently unused.). bstate is an integer value whose bits will be set to indicate the type of event, and will be the bitwise OR of one or more of the following constants, where n is the button number from 1 to 4: BUTTONn_PRESSED, BUTTONn_RELEASED, BUTTONn_CLICKED, BUTTONn_DOUBLE_CLICKED, BUTTONn_TRIPLE_CLICKED, BUTTON_SHIFT, BUTTON_CTRL, BUTTON_ALT.
+ */
+Curses.getmouse
+
+
+/**
+ * Sets the maximum time in milliseconds that can elapse between press and release events in order for them to be recognized as a click, and returns the previous interval value.
+ * 
+ * The default value is 200 msec, or one fifth of a second.
+ */
+Curses.mouseinterval
+
+
+/**
+ * White
+ */
+Curses.Color.WHITE
+
+
+/**
+ * Blue
+ */
+Curses.Color.BLUE
+
+
+/**
+ * Magenta (purplish red)
+ */
+Curses.Color.MAGENTA
+
+
+/**
+ * Normal attribute.
+ */
+Curses.Attribute.NORMAL
+
+
+/**
+ * Minimum key value
+ */
+Curses.Key.MIN
+
+
+/**
+ * Down-arrow
+ */
+Curses.Key.DOWN
+
+
+/**
+ * Insert char or enter insert mode
+ */
+Curses.Key.IC
+
+
+/**
+ * Scroll 1 line backward (reverse)
+ */
+Curses.Key.SR
+
+
+/**
+ * Print
+ */
+Curses.Key.PRINT
+
+
+/**
+ * Upper right of keypad
+ */
+Curses.Key.A3
+
+
+/**
+ * Center of keypad
+ */
+Curses.Key.B2
+
+
+/**
+ * Lower left of keypad
+ */
+Curses.Key.C1
+
+
+/**
+ * Copy
+ */
+Curses.Key.COPY
+
+
+/**
+ * Create
+ */
+Curses.Key.CREATE
+
+
+/**
+ * Mark
+ */
+Curses.Key.MARK
+
+
+/**
+ * Message
+ */
+Curses.Key.MESSAGE
+
+
+/**
+ * Move
+ */
+Curses.Key.MOVE
+
+
+/**
+ * Next
+ */
+Curses.Key.NEXT
+
+
+/**
+ * Prev (previous)
+ */
+Curses.Key.PREVIOUS
+
+
+/**
+ * Redo
+ */
+Curses.Key.REDO
+
+
+/**
+ * Restart
+ */
+Curses.Key.RESTART
+
+
+/**
+ * Shifted Beg (beginning)
+ */
+Curses.Key.SBEG
+
+
+/**
+ * Shifted Command
+ */
+Curses.Key.SCOMMAND
+
+
+/**
+ * Shifted Delete line
+ */
+Curses.Key.SDL
+
+
+/**
+ * Select
+ */
+Curses.Key.SELECT
+
+
+/**
+ * Shifted Find
+ */
+Curses.Key.SFIND
+
+
+/**
+ * Shifted Help
+ */
+Curses.Key.SHELP
+
+
+/**
+ * Shifted Home
+ */
+Curses.Key.SHOME
+
+
+/**
+ * Shifted Message
+ */
+Curses.Key.SMESSAGE
+
+
+/**
+ * Shifted Next
+ */
+Curses.Key.SNEXT
+
+
+/**
+ * Terminal resize event
+ */
+Curses.Key.RESIZE
+
+
+/**
+ * Remove attribute attr from the "background" set applied to all writes to the current window.
+ */
+Curses.attroff
+
+
+/**
+ * Emit a short attention sound.
+ */
+Curses.beep
+
+
+/**
+ * Saves the current terminal mode as the "program" mode, the mode when the running program is using curses.
+ * 
+ * Its counterpart is the "shell" mode, for when the program is not in curses.
+ * 
+ * Subsequent calls to {@link Curses.reset_prog_mode} will restore this mode.
+ */
+Curses.def_prog_mode
+
+
+/**
+ * Saves the current terminal mode as the "shell" mode, the mode when the running program is not using curses.
+ * 
+ * Its counterpart is the "program" mode, when the program is using curses capabilities.
+ * 
+ * Subsequent calls to {@link Curses.reset_shell_mode} will restore this mode.
+ */
+Curses.def_shell_mode
+
+
+/**
+ * Delete the line under the cursor.
+ * 
+ * All following lines are moved up by 1 line.
+ */
+Curses.deleteln
+
+
+/**
+ * Used for half-delay mode, which is similar to cbreak mode in that characters typed by the user are immediately available to the program.
+ * 
+ * However, after blocking for tenths tenths of seconds, an exception is raised if nothing has been typed. The value of tenths must be a number between 1 and 255. Use {@link Curses.nocbreak} to leave half-delay mode.
+ */
+Curses.halfdelay
+
+
+/**
+ * Display a horizontal line starting with length n consisting of the character ch.
+ */
+Curses.hline
+
+
+/**
+ * Leave cbreak mode. Return to normal "cooked" mode with line buffering.
+ */
+Curses.nocbreak
+
+
+/**
+ * Leave raw mode. Return to normal "cooked" mode with line buffering.
+ */
+Curses.noraw
+
+
+/**
+ * Enter raw mode.
+ * 
+ * In raw mode, normal line buffering and processing of interrupt, quit, suspend, and flow control keys are turned off; characters are presented to curses input functions one by one.
+ */
+Curses.raw
+
+
+/**
+ * Green
+ */
+Curses.Color.GREEN
+
+
+/**
+ * Character cell attributes
+ */
+Curses.Attribute
+
+
+/**
+ * Bold mode.
+ */
+Curses.Attribute.BOLD
+
+
+/**
+ * Break key (unreliable)
+ */
+Curses.Key.BREAK
+
+
+/**
+ * Clear to end of screen
+ */
+Curses.Key.EOS
+
+
+/**
+ * Clear to end of line
+ */
+Curses.Key.EOL
+
+
+/**
+ * Scroll 1 line forward
+ */
+Curses.Key.SF
+
+
+/**
+ * Clear tab
+ */
+Curses.Key.CTAB
+
+
+/**
+ * Back tab
+ */
+Curses.Key.BTAB
+
+
+/**
+ * Beg (beginning)
+ */
+Curses.Key.BEG
+
+
+/**
+ * Cancel
+ */
+Curses.Key.CANCEL
+
+
+/**
+ * Exit
+ */
+Curses.Key.EXIT
+
+
+/**
+ * Find
+ */
+Curses.Key.FIND
+
+
+/**
+ * Help
+ */
+Curses.Key.HELP
+
+
+/**
+ * Open
+ */
+Curses.Key.OPEN
+
+
+/**
+ * Options
+ */
+Curses.Key.OPTIONS
+
+
+/**
+ * Shifted End
+ */
+Curses.Key.SEND
+
+
+/**
+ * Shifted Clear line
+ */
+Curses.Key.SEOL
+
+
+/**
+ * Shifted Options
+ */
+Curses.Key.SOPTIONS
+
+
+/**
+ * Shifted Resume
+ */
+Curses.Key.SRSUME
+
+
+/**
+ * Paint character ch, overwriting any character previously painter at that location.
+ * 
+ * By default, the character position and attributes are the current settings for the window object.
+ */
+Curses.addch
+
+
+/**
+ * Returns the output speed of the terminal in bits per second.
+ * 
+ * On software terminal emulators it will have a fixed high value. Included for historical reasons; in former times, it was used to write output loops for time delays and occasionally to change interfaces depending on the line speed.
+ */
+Curses.baudrate
+
+
+/**
+ * Returns the intensity of the red, green, and blue (RGB) components in the color color_number, which must be between 0 and {@link Curses.COLORS}.
+ * 
+ * A 3-tuple is returned, containing the R,G,B values for the given color, which will be between 0 (no component) and 1000 (maximum amount of component).
+ */
+Curses.color_content
+
+
+/**
+ * Returns the attribute value for displaying text in the specified color.
+ * 
+ * This attribute value can be combined with A_STANDOUT, A_REVERSE, and the other A_* attributes. {@link Curses.PAIR_NUMBER} is the counterpart to this function.
+ */
+Curses.COLOR_PAIR
+
+
+/**
+ * Add character ch, and immediately call {@link Curses.refresh} on the window.
+ */
+Curses.echochar
+
+
+/**
+ * Clear the window.
+ */
+Curses.erase
+
+
+/**
+ * Paint character ch, moving the line from position x right by one character.
+ */
+Curses.insch
+
+
+/**
+ * Enter newline mode.
+ * 
+ * This mode translates the return key into newline on input, and translates newline into return and line-feed on output. Newline mode is initially on.
+ */
+Curses.nl
+
+
+/**
+ * Leave newline mode.
+ * 
+ * Disable translation of return into newline on input, and disable low-level translation of newline into newline/return on output (but this does not change the behavior of {@link Curses.addch}('\n'), which always does the equivalent of return and line feed on the virtual screen). With translation off, curses can sometimes speed up vertical motion a little; also, it will be able to detect the return key on input.
+ */
+Curses.nonl
+
+
+/**
+ * Sets blocking or non-blocking read behavior for the window. If delay is negative, blocking read is used (which will wait indefinitely for input).
+ * 
+ * If delay is zero, then non-blocking read is used, and -1 will be returned by {@link Curses.getch} if no input is waiting. If delay is positive, then {@link Curses.getch} will block for delay milliseconds, and return -1 if there is still no input at the end of that time.
+ */
+Curses.timeout
+
+
+/**
+ * Specifies that the file descriptor fd be used for typeahead checking. If fd is -1, then no typeahead checking is done.
+ * 
+ * The curses library does "line-breakout optimization" by looking for typeahead periodically while updating the screen. If input is found, and it is coming from a tty, the current update is postponed until refresh or doupdate is called again, allowing faster response to commands typed in advance. This function allows specifying a different file descriptor for typeahead checking.
+ */
+Curses.typeahead
+
+
+/**
+ * If used, this function should be called before {@link Curses.initscr} or newterm are called.
+ * 
+ * When flag is false, the values of lines and columns specified in the terminfo database will be used, even if environment variables {@link Curses.LINES} and {@link Curses.COLS} (used by default) are set, or if curses is running in a window (in which case default behavior would be to use the window size if {@link Curses.LINES} and {@link Curses.COLS} are not set).
+ */
+Curses.use_env
+
+
+/**
+ * Display a vertical line starting at (y, x) with length n consisting of the character ch.
+ */
+Curses.vline
+
+
+/**
+ * Sets the mouse events to be reported, and returns a tuple (availmask, oldmask).
+ * 
+ * availmask indicates which of the specified mouse events can be reported; on complete failure it returns 0. oldmask is the previous value of the given window's mouse event mask. If this function is never called, no mouse events are ever reported.
+ */
+Curses.mousemask
+
+

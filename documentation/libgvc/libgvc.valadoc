@@ -1,0 +1,58 @@
+/**
+ * Low-level initialization function for the graphviz library, used only if
+ * you need to explicitly control the sizes of graph, node and edge objects.
+ *
+ * ''Note:''
+ *
+ * It's not necessary to call {@link c::initlib} if you already called {@link c::aginit}
+ * because {@link c::aginit} makes a call to {@link c::aginitlib} internally.
+ */
+Gvc.initlib
+
+
+/**
+ * You must call {@link c::aginit} before using the graphviz API.
+ *
+ * However, note that both {@link c::gvContext} and {@link c::gvParseArgs} will call {@link c::aginit}
+ * internally if necessary. It's safe to call {@link c::aginit} multiple times.
+ *
+ * For more information of Graphviz initialization, see documention at:
+ * [[http://graphviz.org/pdf/libguide.pdf]]
+ */
+Gvc.init
+
+
+/**
+ *
+ * ''Note:''
+ *
+ * name set to "null" creates an anonymous subgraph.
+ */
+Gvc.Graph.create_subgraph ([CCode (type = "char*")] string? name);
+
+
+/**
+ *
+ * ''Note:''
+ *
+ * {@link c::agclose} is also allowed for subgraphs and has the same effect as {@link c::agdelsubg}.
+ */
+Gvc.Graph.delete_subgraph
+
+
+/**
+ * Graphviz has this concept of "referenced counted strings" to save memory.
+ *
+ * In addition, there is a special type of string in Graphviz called an "HTML string".
+ * More information about graphviz "HTML strings" can be found at:
+ *
+ * [[http://www.graphviz.org/doc/info/shapes.html#html]]
+ *
+ * And also near the end of page 9 in:
+ *
+ * [[http://graphviz.org/pdf/libguide.pdf]]
+ */
+Gvc.HtmlString
+
+
+

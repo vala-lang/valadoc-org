@@ -1,0 +1,5 @@
+GTK+ is a library for creating graphical user interfaces. It works
+on many UNIX-like platforms, Windows, and OS X. GTK+ is released
+under the GNU Library General Public License (GNU LGPL), which allows
+for flexible licensing of client applications. GTK+ has a C-based
+object-oriented architecture that allows for maximum flexibility.

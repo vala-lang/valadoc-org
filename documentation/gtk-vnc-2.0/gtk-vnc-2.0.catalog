@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gtk-vnc2-devel
+InstallPackages(debian)=libgtk-vnc-2.0-dev

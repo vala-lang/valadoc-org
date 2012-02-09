@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libnotify-devel
+InstallPackages(debian)=libnotify-dev

@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libxcb-devel
+InstallPackages(debian)=libxcb1-dev

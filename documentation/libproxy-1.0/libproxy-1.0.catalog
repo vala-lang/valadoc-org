@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libproxy-devel
+InstallPackages(debian)=libproxy-dev

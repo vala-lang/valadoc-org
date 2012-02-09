@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=SDL_image-devel
+InstallPackages(debian)=libsdl-image1.2-dev

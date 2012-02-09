@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libgnome-keyring-devel
+InstallPackages(debian)=libgnome-keyring-dev

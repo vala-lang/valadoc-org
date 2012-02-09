@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=SDL_ttf-devel
+InstallPackages(debian)=libsdl-ttf2.0-dev 

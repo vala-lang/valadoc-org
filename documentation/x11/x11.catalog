@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libX11-devel
+InstallPackages(debian)=libx11-dev

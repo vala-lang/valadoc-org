@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gedit-devel
+InstallPackages(debian)=gedit-dev

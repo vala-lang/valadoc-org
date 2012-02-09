@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=raptor-devel
+InstallPackages(debian)=libraptor1-dev

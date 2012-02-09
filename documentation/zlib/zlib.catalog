@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=zlib-devel
+InstallPackages(debian)=zlib1g-dev

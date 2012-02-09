@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libgusb-devel
+InstallPackages(debian)=libgusb-dev

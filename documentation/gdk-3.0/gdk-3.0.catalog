@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gtk3-devel
+InstallPackages(debian)=libgtk-3-dev

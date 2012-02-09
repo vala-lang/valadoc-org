@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gnome-disk-utility-devel
+InstallPackages(debian)=libgdu-dev

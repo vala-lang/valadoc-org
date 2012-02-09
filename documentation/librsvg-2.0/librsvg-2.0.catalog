@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=librsvg2-devel
+InstallPackages(debian)=librsvg2-dev

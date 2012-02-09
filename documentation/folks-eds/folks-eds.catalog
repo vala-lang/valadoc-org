@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=folks
+InstallPackages(debian)=libfolks-eds-dev

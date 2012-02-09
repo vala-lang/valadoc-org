@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libtiff-devel
+InstallPackages(debian)=libtiff-dev

@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=avahi-gobject-devel
+InstallPackages(debian)=libavahi-gobject-dev

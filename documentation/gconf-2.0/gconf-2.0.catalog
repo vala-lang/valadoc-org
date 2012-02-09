@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=GConf2-devel
+InstallPackages(debian)=libgconf2-dev

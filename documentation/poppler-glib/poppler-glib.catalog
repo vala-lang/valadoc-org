@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=poppler-glib-devel
+InstallPackages(debian)=libpoppler-glib-dev

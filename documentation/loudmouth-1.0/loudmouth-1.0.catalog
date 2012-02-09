@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=loudmouth-devel
+InstallPackages(debian)=libloudmouth1-dev

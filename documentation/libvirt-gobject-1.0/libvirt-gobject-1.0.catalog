@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libvirt-gobject-devel
+InstallPackages(debian)=libvirt-glib-1.0-dev

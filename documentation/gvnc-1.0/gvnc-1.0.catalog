@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gvnc-devel
+InstallPackages(debian)=libgvnc-1.0-dev

@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=readline-devel
+InstallPackages(debian)=libreadline6-dev

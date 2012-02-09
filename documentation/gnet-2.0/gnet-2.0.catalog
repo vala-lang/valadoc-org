@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gnet2-devel
+InstallPackages(debian)=libgnet-dev

@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=pixman-devel
+InstallPackages(debian)=libpixman-1-dev

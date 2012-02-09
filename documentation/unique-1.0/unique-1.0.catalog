@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=unique-devel
+InstallPackages(debian)=libunique-dev

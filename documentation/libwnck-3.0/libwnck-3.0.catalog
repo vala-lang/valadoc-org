@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libwnck3-devel
+InstallPackages(debian)=libwnck-3-dev

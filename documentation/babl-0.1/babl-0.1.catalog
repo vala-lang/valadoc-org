@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=babl-devel
+InstallPackages(debian)=libbabl-0.0-0-dev

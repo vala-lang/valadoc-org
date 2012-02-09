@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libosinfo-vala
+InstallPackages(debian)=libosinfo-1.0-dev

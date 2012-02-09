@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libpeas-devel
+InstallPackages(debian)=libpeas-dev

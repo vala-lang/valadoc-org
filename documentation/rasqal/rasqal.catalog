@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=rasqal-devel
+InstallPackages(debian)=librasqal3-dev

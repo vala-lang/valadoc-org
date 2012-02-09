@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libgudev1-devel
+InstallPackages(debian)=libgudev-1.0-dev

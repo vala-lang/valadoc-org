@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=fuse-devel
+InstallPackages(debian)=libfuse-dev

@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libchamplain-vala
+InstallPackages(debian)=libchamplain-gtk-0.14-dev

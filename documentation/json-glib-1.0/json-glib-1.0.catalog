@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=json-glib-devel
+InstallPackages(debian)=libjson-glib-dev

@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=clutter-gst-devel
+InstallPackages(debian)=libclutter-gst-dev

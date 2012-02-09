@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libdaemon-devel
+InstallPackages(debian)=libdaemon-dev

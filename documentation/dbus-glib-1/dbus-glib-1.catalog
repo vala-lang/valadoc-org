@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=dbus-glib-devel
+InstallPackages(debian)=libdbus-glib-1-dev

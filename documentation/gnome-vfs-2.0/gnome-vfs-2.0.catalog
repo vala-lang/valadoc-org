@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gnome-vfs2-devel
+InstallPackages(debian)=libgnomevfs2-dev

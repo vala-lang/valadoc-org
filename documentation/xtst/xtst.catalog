@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libXtst-devel
+InstallPackages(debian)=libxtst-dev

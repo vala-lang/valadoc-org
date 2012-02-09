@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=graphviz-devel
+InstallPackages(debian)=libgraphviz-dev

@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=cairo-devel
+InstallPackages(debian)=libcairo2-dev

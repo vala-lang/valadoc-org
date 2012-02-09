@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libgdata-devel
+InstallPackages(debian)=libgdata-dev

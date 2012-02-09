@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=rest-devel
+InstallPackages(debian)=librest-dev

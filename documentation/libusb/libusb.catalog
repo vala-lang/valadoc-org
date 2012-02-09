@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libusb-devel
+InstallPackages(debian)=libusb-dev

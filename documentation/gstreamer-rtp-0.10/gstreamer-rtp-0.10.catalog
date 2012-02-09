@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gstreamer-plugins-base-devel
+InstallPackages(debian)=libgstreamer-plugins-base0.10-dev

@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=webkitgtk3-devel
+InstallPackages(debian)=libjavascriptcoregtk-3.0-dev

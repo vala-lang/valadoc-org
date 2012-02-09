@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libpurple-devel
+InstallPackages(debian)=libpurple-dev

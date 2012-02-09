@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libsoup-devel
+InstallPackages(debian)=libsoup2.4-dev

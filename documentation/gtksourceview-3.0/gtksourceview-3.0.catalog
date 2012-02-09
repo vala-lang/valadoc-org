@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gtksourceview3-devel
+InstallPackages(debian)=libgtksourceview-3.0-dev

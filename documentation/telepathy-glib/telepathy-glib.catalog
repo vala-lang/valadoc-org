@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=telepathy-glib-vala
+InstallPackages(debian)=libtelepathy-glib-dev

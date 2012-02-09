@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=postgresql-devel
+InstallPackages(debian)=libpq-dev

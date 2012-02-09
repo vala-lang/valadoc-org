@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=atk-devel
+InstallPackages(debian)=libatk1.0-dev

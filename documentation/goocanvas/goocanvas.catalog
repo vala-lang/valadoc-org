@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=goocanvas-devel
+InstallPackages(debian)=libgoocanvas-dev

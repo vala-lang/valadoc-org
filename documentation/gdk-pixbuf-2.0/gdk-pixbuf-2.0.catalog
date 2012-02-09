@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gdk-pixbuf2-devel
+InstallPackages(debian)=libgdk-pixbuf2.0-dev

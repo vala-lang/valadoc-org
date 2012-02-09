@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libgsf-devel
+InstallPackages(debian)=libgsf-1-dev

@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=kernel-headers
+InstallPackages(debian)=linux-libc-dev

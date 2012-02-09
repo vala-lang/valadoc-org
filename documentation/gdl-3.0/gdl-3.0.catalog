@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libgdl-devel
+InstallPackages(debian)=libgdl-3-dev

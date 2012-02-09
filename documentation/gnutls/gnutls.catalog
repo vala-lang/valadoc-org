@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gnutls-devel
+InstallPackages(debian)=libgnutls-dev

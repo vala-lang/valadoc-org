@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=orc-devel
+InstallPackages(debian)=liborc-0.4-dev

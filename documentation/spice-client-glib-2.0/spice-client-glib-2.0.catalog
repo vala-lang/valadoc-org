@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=spice-gtk3-vala
+InstallPackages(debian)=libspice-client-glib-2.0-dev

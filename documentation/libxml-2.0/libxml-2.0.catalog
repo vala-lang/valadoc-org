@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libxml2-devel
+InstallPackages(debian)=libxml2-dev

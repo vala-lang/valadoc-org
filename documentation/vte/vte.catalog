@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=vte-devel
+InstallPackages(debian)=libvte-dev

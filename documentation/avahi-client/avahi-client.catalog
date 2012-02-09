@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=avahi-devel
+InstallPackages(debian)=libavahi-client-dev

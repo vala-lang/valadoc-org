@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gupnp-vala
+InstallPackages(debian)=libgssdp-1.0-dev

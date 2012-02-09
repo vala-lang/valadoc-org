@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gsl-devel
+InstallPackages(debian)=libgsl0-dev

@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=mysql-devel
+InstallPackages(debian)=libmysqlclient15-dev

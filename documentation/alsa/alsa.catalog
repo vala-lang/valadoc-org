@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=alsa-lib-devel
+InstallPackages(debian)=libasound2-dev

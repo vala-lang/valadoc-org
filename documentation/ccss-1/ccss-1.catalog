@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libccss-devel
+InstallPackages(debian)=libccss-dev

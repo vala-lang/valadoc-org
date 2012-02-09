@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=pango-devel
+InstallPackages(debian)=libpango1.0-dev

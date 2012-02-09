@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=glib2-devel
+InstallPackages(debian)=libglib2.0-dev

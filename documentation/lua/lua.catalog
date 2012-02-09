@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=lua-devel
+InstallPackages(debian)=liblua5.1-dev

@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libftdi-devel
+InstallPackages(debian)=libftdi-dev

@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=spice-glib-devel
+InstallPackages(debian)=libspice-protocol-dev

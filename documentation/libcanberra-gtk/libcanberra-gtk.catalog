@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libcanberra-devel
+InstallPackages(debian)=libcanberra-gtk-dev

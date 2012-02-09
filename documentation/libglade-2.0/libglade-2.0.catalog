@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libglade2-devel
+InstallPackages(debian)=libglade2-dev

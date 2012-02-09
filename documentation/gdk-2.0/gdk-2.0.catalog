@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gtk2-devel
+InstallPackages(debian)=libgtk2.0-dev

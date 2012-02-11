@@ -125,13 +125,13 @@
 	<package name="rasqal" />
 	<package name="readline" />
 	<package name="rest-0.6" maintainers="Adrien Bustany" />
-	<package name="sdl" home="http://www.libsdl.org/" maintainers="Levi Bard" />
+	<package name="sdl" home="http://www.libsdl.org/" c-docs="http://wiki.libsdl.org/moin.cgi/APIByCategory" maintainers="Levi Bard" />
 	<package name="sdl-gfx" home="http://www.libsdl.org/" />
 	<package name="sdl-image" home="http://www.libsdl.org/" />
 	<package name="sdl-mixer" home="http://www.libsdl.org/" />
 	<package name="sdl-net" home="http://www.libsdl.org/" />
 	<package name="sdl-ttf" home="http://www.libsdl.org/" />
-	<package name="sqlite3" home="http://www.libsdl.org/" />
+	<package name="sqlite3" home="http://www.sqlite.org/" c-docs="http://www.sqlite.org/c3ref/intro.html" />
 	<package name="taglib_c" />
 	<package name="tiff" home="http://www.libtiff.org/" />
 	<package name="tracker-indexer-module-1.0" home="http://projects.gnome.org/tracker/" />
@@ -139,8 +139,8 @@
 	<package name="unique-1.0" />
 	<package name="v4l2" />
 	<package deprecated="true" name="vte" c-docs="http://developer.gnome.org/vte/unstable/" />
-	<package name="x11" home="http://www.x.org" />
-	<package name="xcb" home="http://xcb.freedesktop.org/" />
+	<package name="x11" home="http://www.x.org" c-docs="http://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html" />
+	<package name="xcb" home="http://xcb.freedesktop.org/" c-docs="http://xcb.freedesktop.org/XcbApi/" />
 	<package name="libcanberra-gtk" flags="--pkg libcanberra --pkg gtk+-3.0" home="http://0pointer.de/lennart/projects/libcanberra/" c-docs="http://developer.gnome.org/libcanberra/unstable/" />
 	<package name="libcanberra" home="http://0pointer.de/lennart/projects/libcanberra/" c-docs="http://developer.gnome.org/libcanberra/unstable/" />
 	<package name="spice-client-glib-2.0" gir="GtkVnc-2.0" home="http://spice-space.org/" />

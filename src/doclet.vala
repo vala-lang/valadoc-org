@@ -165,42 +165,9 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		GLib.FileStream file = GLib.FileStream.open (Path.build_filename(contentp, page.name.substring (0, page.name.length-7).replace ("/", ".")+"htm"), "w");
 		writer = new Html.MarkupWriter (file);
 		_renderer.set_writer (writer);
-		this.write_file_header (css_path, js_path, this.image_path, pkg_name);
+
 		_renderer.set_container (page);
 		_renderer.render (page.documentation);
-		this.write_file_footer ();
-	}
-
-	protected new void write_file_header (string css, string js, string image, string? _title) {
-		string title = (_title == null)? "Vala Binding Reference" : _title.strip () + " - Vala Binding Reference";
-
-		writer.start_tag ("html");
-		writer.start_tag ("head");
-		writer.start_tag ("title").text (title).end_tag ("title");
-		writer.stylesheet_link (css);
-		writer.javascript_link (js);
-		writer.end_tag ("head");
-		writer.start_tag ("body");
-
-		writer.start_tag ("div", {"class", "site_header"});
-		writer.start_tag ("a", {"href", "../index.html"});
-		writer.image (image, "");
-		writer.end_tag ("a");
-		writer.end_tag ("div");
-
-		writer.start_tag ("div", {"style", "border-color: #aaaaff; border-style: solid; border-width: 1px; background-color: #eeeeff; margin-bottom: 5px;"});
-		writer.link ("http://live.gnome.org/Valadoc", "Valadoc");
-		writer.text (" | ");
-		writer.link ("http://live.gnome.org/Vala", "Vala");
-		writer.text (" | ");
-		writer.link ("https://live.gnome.org/Vala/Documentation", "Tutorial");
-		writer.text (" | ");
-		writer.link ("/index.html", "API-References");
-		writer.text (" | ");
-		writer.link ("/markup.html", "Markup");
-		writer.end_tag ("div");
-
-		writer.start_tag ("div", {"class", "site_body"});
 	}
 
 	public override void process (Settings settings, Api.Tree tree, ErrorReporter reporter) {
@@ -216,15 +183,6 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		DirUtils.create_with_parents (this.settings.path, 0777);
 
 		write_wiki_pages (tree, css_path_wiki, js_path_wiki, Path.build_filename(settings.path, settings.pkg_name));
-
-		GLib.FileStream file = GLib.FileStream.open (GLib.Path.build_filename (settings.path, "index.html"), "w");
-		writer = new Html.MarkupWriter (file);
-		_renderer.set_writer (writer);
-		write_file_header (this.css_path_package, this.js_path_package, this.image_path_package, settings.pkg_name);
-		write_navi_packages (tree);
-		write_package_index_content (tree);
-		write_file_footer ();
-		file = null;
 
 		tree.accept (this);
 	}
@@ -251,17 +209,19 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		FileStream index_xml_file = FileStream.open (GLib.Path.build_filename (path, "index.xml"), "w");
 		index_xml = new IndexMarkupWriter (index_xml_file);
 
-		string index_path = GLib.Path.build_filename (path, "index.htm");
-		GLib.FileStream file = GLib.FileStream.open (index_path, "w");
+		string index_path = GLib.Path.build_filename (path, ".index.htm");
 		register_package_start (package, index_path);
 
+		GLib.FileStream file = GLib.FileStream.open (index_path + ".navi.tpl", "w");
 		writer = new Html.MarkupWriter (file);
 		_renderer.set_writer (writer);
-		write_file_header (this.css_path, this.js_path, this.image_path, pkg_name);
 		write_navi_package (package);
+
+		file = GLib.FileStream.open (index_path + ".content.tpl", "w");
+		writer = new Html.MarkupWriter (file);
+		_renderer.set_writer (writer);
 		write_package_content (package, package);
-		write_file_footer ();
-		file = null;
+
 
 		package.accept_all_children (this);
 
@@ -273,14 +233,16 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 
 		if (ns.name != null) {
 			register_node (ns);
-			GLib.FileStream file = GLib.FileStream.open (rpath, "w");
+
+			GLib.FileStream file = GLib.FileStream.open (rpath + "navi.tpl", "w");
 			writer = new Html.MarkupWriter (file);
 			_renderer.set_writer (writer);
-			write_file_header (this.css_path, this.js_path, this.image_path, ns.get_full_name ());
 			write_navi_symbol (ns);
+
+			file = GLib.FileStream.open (rpath + "content.tpl", "w");
+			writer = new Html.MarkupWriter (file);
+			_renderer.set_writer (writer);
 			write_namespace_content (ns, ns);
-			write_file_footer ();
-			file = null;
 		}
 
 		ns.accept_all_children (this);
@@ -290,18 +252,23 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		string rpath = this.get_real_path (node);
 		register_node (node);
 
-		GLib.FileStream file = GLib.FileStream.open (rpath, "w");
+
+		GLib.FileStream file = GLib.FileStream.open (rpath + ".navi.tpl", "w");
 		writer = new Html.MarkupWriter (file);
 		_renderer.set_writer (writer);
-		write_file_header (css_path, js_path, image_path, node.get_full_name());
+
 		if (is_internal_node (node)) {
 			write_navi_symbol (node);
 		} else {
 			write_navi_leaf_symbol (node);
 		}
+
+
+		file = GLib.FileStream.open (rpath + ".content.tpl", "w");
+		writer = new Html.MarkupWriter (file);
+		_renderer.set_writer (writer);
 		write_symbol_content (node);
-		write_file_footer ();
-		file = null;
+
 
 		if (accept_all_children) {
 			node.accept_all_children (this);

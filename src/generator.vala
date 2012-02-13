@@ -289,7 +289,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		return packages;
 	}
 
-	private void generate_navigation () {
+	private void generate_navigation (string path) {
+		GLib.FileStream file = GLib.FileStream.open (path, "w");
+		var writer = new Html.MarkupWriter (file);
+
 		writer.start_tag ("div", {"class", "site_navigation"});
 		writer.start_tag ("ul", {"class", "navi_main"});
 
@@ -306,11 +309,11 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		writer.end_tag ("div");
 	}
 
-	private void generate_index () {
-		stdout.printf ("generate index ...\n");
+	private void generate_index (string path) {
+		GLib.FileStream file = GLib.FileStream.open (path, "w");
+		var writer = new Html.MarkupWriter (file);
 
 		writer.start_tag ("div", {"class", "site_content"});
-
 
 		writer.start_tag ("h1", {"class", "main_title"}).text ("Packages").end_tag ("h1");
 		writer.simple_tag ("hr", {"class", "main_hr"});
@@ -431,13 +434,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	}
 
 	public void generate (string path) {
-		GLib.FileStream file = GLib.FileStream.open (path, "w");
-		writer = new Html.MarkupWriter (file);
+		stdout.printf ("generate index ...\n");
 
-		this.write_file_header ("style.css", "scripts.png", "logo.png", "");
-		generate_navigation ();
-		generate_index ();
-		this.write_file_footer ();
+		generate_navigation (path + ".navi.tpl");
+		generate_index (path + ".content.tpl");
 	}
 
 	public void regenerate_all_knwon_packages () throws Error {

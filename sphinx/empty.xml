@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sphinx:docset xmlns:sphinx="foo" xmlns:str="http://exslt.org/strings">
+  <sphinx:schema>
+    <sphinx:field name="ftsname"/>
+    <sphinx:field name="shortname"/>
+    <sphinx:attr name="name" type="string"/>
+    <sphinx:attr name="namelen" type="int"/>
+    <sphinx:attr name="shortnamelen" type="int"/>
+    <sphinx:attr name="shortdesc" type="string"/>
+    <sphinx:attr name="type" type="str2ordinal"/>
+    <sphinx:attr name="path" type="string"/>
+    <sphinx:attr name="signature" type="string"/>
+  </sphinx:schema>
+</sphinx:docset>

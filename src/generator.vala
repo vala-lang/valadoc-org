@@ -46,18 +46,22 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private static string vapidir;
 	private static string driver;
 	private static bool download_images;
+	private static string prefix;
+	private static bool skip_existing;
 
 	public IndexGenerator (ErrorReporter reporter) {
 		this.reporter = new ErrorReporter ();
 	}
 
 	private const GLib.OptionEntry[] options = {
+		{ "prefix", 0, 0, OptionArg.STRING, ref prefix, "package prefix (e.g. stable, unstable", null},
 		{ "all", 0, 0, OptionArg.NONE, ref regenerate_all_packages, "Regenerate documentation for all packages", null },
 		{ "directory", 'o', 0, OptionArg.FILENAME, ref output_directory, "Output directory", "DIRECTORY" },
 		{ "driver", 'o', 0, OptionArg.FILENAME, ref driver, "Output directory", "DIRECTORY" },
 		{ "download-images", 0, 0, OptionArg.NONE, ref download_images, "Downlaod images", null },
 		{ "doclet", 0, 0, OptionArg.STRING, ref docletpath, "Name of an included doclet or path to custom doclet", "PLUGIN"},
 		{ "vapidir", 0, 0, OptionArg.STRING, ref vapidir, "Look for package bindings in DIRECTORY", "DIRECTORY"},
+		{ "skip-existing", 0, 0, OptionArg.NONE, ref skip_existing, "Skip existing packages", null },
 		{ "", 0, 0, OptionArg.FILENAME_ARRAY, ref requested_packages, null, "FILE..." },
 		{ null }
 	};
@@ -164,8 +168,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		protected Package.dummy () {}
 
 		public Package (string name, string? gir_name = null, string? maintainers = null, string? home = null, string? c_docs = null, string? flags = null, bool is_deprecated = false) {
-			devhelp_link = name + "/" + name + ".tar.bz2";
-			online_link = name + "/index.htm";
+			devhelp_link = "/" + name + "/" + name + ".tar.bz2";
+			online_link = "/" + name + "/index.htm";
 			this.is_deprecated = is_deprecated;
 			this.maintainers = maintainers;
 			this.gir_name = gir_name;
@@ -271,6 +275,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		while ((dir = dirptr.read_name ()) != null) {
 			string dir_path = Path.build_path (Path.DIR_SEPARATOR_S, path, dir);
+			if (dir == ".sphinx") {
+				continue ;
+			}
+
 			if (FileUtils.test (dir_path, FileTest.IS_DIR)) {
 				if (!packages_per_name.has_key (dir)) {
 					register_package (new Package (dir));
@@ -299,7 +307,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		ArrayList<Package> packages = get_sorted_package_list ();
 		foreach (Package pkg in packages) {
 			if (pkg is ExternalPackage) {
-				writer.start_tag ("li", {"class", "package"}).start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").simple_tag ("img", {"src", "external_link.png"}).end_tag ("li");
+				writer.start_tag ("li", {"class", "package"}).start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").simple_tag ("img", {"src", "/external_link.png"}).end_tag ("li");
 			} else {
 				writer.start_tag ("li", {"class", "package"}).start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
 			}
@@ -365,9 +373,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 
 			//string maintainers = pkg.maintainers ?? "-";
-			writer.start_tag ("tr");
+			writer.start_tag ("tr", {"class", "highlight"});
 			writer.start_tag ("td").end_tag ("td"); // space
-			writer.start_tag ("td").simple_tag ("img", {"src", "package.png"}).end_tag ("td");
+			writer.start_tag ("td").simple_tag ("img", {"src", "/package.png"}).end_tag ("td");
 
 			writer.start_tag ("td");
 			if (pkg.is_deprecated) {
@@ -377,7 +385,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 
 			if (pkg is ExternalPackage) {
-				writer.simple_tag ("img", {"src", "external_link.png"});
+				writer.simple_tag ("img", {"src", "/external_link.png"});
 			}
 			writer.end_tag ("td");
 
@@ -425,7 +433,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		writer.end_tag ("table");
 		writer.end_tag ("div");
-
+		writer = null;
+		file = null;
 		try {
 			copy_data ();
 		} catch (Error e) {
@@ -440,13 +449,144 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		generate_index (path + ".content.tpl");
 	}
 
-	public void regenerate_all_knwon_packages () throws Error {
+	public void regenerate_all_known_packages () throws Error {
 		foreach (var pkg in packages_per_name.values) {
 			if (pkg is ExternalPackage == false) {
 				build_doc_for_package (pkg);
 			}
 		}
 	}
+
+	private string get_index_name (string pkg_name) {
+		StringBuilder builder = new StringBuilder ();
+		for (unowned string pos = pkg_name; pos.get_char () != '\0'; pos = pos.next_char ()) {
+			unichar c = pos.get_char ();
+			if (('A' <= c <= 'Z') || ('a' <= c <= 'z') || ('0' <= c <= '9')) {
+				builder.append_unichar (c);
+			}
+		}
+
+		return builder.str;
+	}
+
+	public void generate_configs (string path) throws Error {
+		string constants_path = Path.build_filename (path, "constants.php");
+		string path_prefix = Path.build_filename (path, "prefix.conf");
+
+		var _prefix = FileStream.open (path_prefix, "w");
+		_prefix.printf ("%s", prefix);
+
+		var php = FileStream.open (constants_path, "w");
+		bool first = true;
+
+		php.printf ("<?php\n");
+		php.printf ("\t$prefix = \"%s\";\n", prefix);
+		php.printf ("\t$allpkgs = \"");
+		foreach (Package pkg in packages_per_name.values) {
+			if (pkg is ExternalPackage) {
+				continue ;
+			}
+
+			if (first == false) {
+				php.printf (",");
+			}
+
+			php.printf ("%s%s", prefix, get_index_name (pkg.name));
+			first = false;
+		}
+		php.printf ("\";\n");
+		php.printf ("?>\n");
+	}
+
+	/*
+	public void generate_configs (string config_path) throws Error {
+		string htaccess_path = Path.build_filename (config_path, ".htaccess");
+		string sphinx_path = Path.build_filename (config_path, "sphinx.conf");
+		string php_path = Path.build_filename (config_path, "constants.php");
+
+		if (FileUtils.test (config_path, FileTest.EXISTS)) {
+			FileUtils.unlink (htaccess_path);
+			FileUtils.unlink (sphinx_path);
+			FileUtils.unlink (php_path);
+		}
+
+		DirUtils.create (config_path, 0777);
+
+		var php = FileStream.open (php_path, "w");
+		php.printf ("<?php\n");
+		php.printf ("\t$allpkgs = \"");
+
+
+		var writer = FileStream.open (htaccess_path, "w");
+		writer.printf ("Options -Indexes\n");
+		writer.printf ("\n");
+		writer.printf ("<Files ~ \"^\\.conf\">\n");
+		writer.printf ("        Order allow,deny\n");
+		writer.printf ("        Deny from all\n");
+		writer.printf ("        Satisfy All\n");
+		writer.printf ("</Files>\n");
+		writer.printf ("\n\n");
+
+		writer = FileStream.open (sphinx_path, "w");
+		writer.printf ("searchd {\n");
+		writer.printf ("        listen = 0.0.0.0:51413:mysql41\n");
+		writer.printf ("        log = ./searchd.log\n");
+		writer.printf ("        query_log = ./query.log\n");
+		writer.printf ("        pid_file = ./searcd.pid\n");
+		writer.printf ("}\n");
+
+		writer.printf ("\n\n");
+
+		writer.printf ("index base {\n");
+		writer.printf ("        charset_type = utf-8\n");
+		writer.printf ("        enable_star = 1\n");
+		writer.printf ("        min_infix_len = 1\n");
+		writer.printf ("        html_strip = 1\n");
+		writer.printf ("        charset_table = 0..9, A..Z->a..z, ., _, a..z\n");
+		writer.printf ("}\n");
+
+		writer.printf ("source main {\n");
+		writer.printf ("        type = xmlpipe2\n");
+		writer.printf ("        xmlpipe_command = cat ../empty.xml\n");
+		writer.printf ("}\n");
+
+		writer.printf ("index main : base {\n");
+		writer.printf ("        source = main\n");
+		writer.printf ("        path = ./sphinx-main\n");
+		writer.printf ("}\n");
+
+
+		writer.printf ("\n\n");
+		writer.printf ("\n\n");
+
+		int startid = 0;
+
+		foreach (var pkg in packages_per_name.values) {
+			if (pkg is ExternalPackage == false) {
+				string name = get_index_name (pkg.name);
+				writer.printf ("source %s {\n", name);
+				writer.printf ("        type = xmlpipe2\n");
+				writer.printf ("        xmlpipe_command = xsltproc --stringparam startid %d ./sphinx.xsl ./../%s/index.xml\n", startid, pkg.name);
+				writer.printf ("}\n");
+				writer.printf ("\n\n");
+
+				writer.printf ("index %s : base {\n", name);
+				writer.printf ("        source = %s\n", name);
+				writer.printf ("        path = ./sphinx-%s\n", name);
+				writer.printf ("}\n");
+				writer.printf ("\n\n");
+
+				if (startid != 0) {
+					php.printf (", ");
+				}
+				php.printf ("%s ", name);
+
+				startid += 1000000;
+			}
+		}
+		php.printf ("\";\n");
+		php.printf ("?>\n");
+	} */
 
 	public void regenerate_packages (string[] packages) throws Error {
 		LinkedList<Package> queue = new LinkedList<Package> ();
@@ -470,6 +610,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	}
 
 	private void build_doc_for_package (Package pkg) throws Error {
+		if (skip_existing && FileUtils.test (Path.build_filename (output_directory, pkg.name), FileTest.IS_DIR)) {
+			return ;
+		}
+
 		StringBuilder builder = new StringBuilder ();
 		builder.append_printf ("valadoc --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" %s", driver, docletpath, pkg.name, pkg.get_vapi_path (), Path.get_dirname (pkg.get_vapi_path ()), pkg.flags);
 
@@ -631,6 +775,11 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return -1;
 		}
 
+		if (prefix == null) {
+			stdout.printf ("error: prefix == null\n");
+			return -1;
+		}
+
 		if (FileUtils.test (metadata_path, FileTest.IS_REGULAR)) {
 			stdout.printf ("error: %s does not exist.\n", metadata_path);
 			return -1;
@@ -692,7 +841,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 
 			if (regenerate_all_packages) {
-				generator.regenerate_all_knwon_packages ();
+				generator.regenerate_all_known_packages ();
 			} else {
 				generator.regenerate_packages (requested_packages);
 			}
@@ -701,8 +850,11 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				return -1;
 			}
 
-			string index = Path.build_path (Path.DIR_SEPARATOR_S, output_directory, "index.html");
+			string index = Path.build_path (Path.DIR_SEPARATOR_S, output_directory, "index.htm");
 			generator.generate (index);
+
+			generator.generate_configs (output_directory);
+
 			if (reporter.errors > 0) {
 				return -1;
 			}

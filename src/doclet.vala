@@ -62,7 +62,7 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 	}
 
 	construct {
-		package_list_link = "../index.html";
+		package_list_link = "/index.htm";
 	}
 
 	private void register_package_start (Api.Package pkg, string path) {
@@ -162,12 +162,16 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 	}
 
 	protected override void write_wiki_page (WikiPage page, string contentp, string css_path, string js_path, string pkg_name) {
-		GLib.FileStream file = GLib.FileStream.open (Path.build_filename(contentp, page.name.substring (0, page.name.length-7).replace ("/", ".")+"htm"), "w");
+		string basic_path = Path.build_filename(contentp, page.name.substring (0, page.name.length-7).replace ("/", ".")+"htm");
+
+		GLib.FileStream file = GLib.FileStream.open (basic_path + ".content.tpl", "w");
 		writer = new Html.MarkupWriter (file);
 		_renderer.set_writer (writer);
 
 		_renderer.set_container (page);
 		_renderer.render (page.documentation);
+
+		file = GLib.FileStream.open (basic_path + ".navi.tpl", "w");
 	}
 
 	public override void process (Settings settings, Api.Tree tree, ErrorReporter reporter) {
@@ -178,12 +182,13 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 
 		base.process (settings, tree, reporter);
 
-		this.linker.enable_browsable_check = false;
+		this.linker = new ValadocOrgLinkHelper ();
+		_renderer = new HtmlRenderer (settings, this.linker, this.cssresolver);
+		this.image_factory = new SimpleChartFactory (settings, linker);
 
 		DirUtils.create_with_parents (this.settings.path, 0777);
 
 		write_wiki_pages (tree, css_path_wiki, js_path_wiki, Path.build_filename(settings.path, settings.pkg_name));
-
 		tree.accept (this);
 	}
 
@@ -209,7 +214,7 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		FileStream index_xml_file = FileStream.open (GLib.Path.build_filename (path, "index.xml"), "w");
 		index_xml = new IndexMarkupWriter (index_xml_file);
 
-		string index_path = GLib.Path.build_filename (path, ".index.htm");
+		string index_path = GLib.Path.build_filename (path, "index.htm");
 		register_package_start (package, index_path);
 
 		GLib.FileStream file = GLib.FileStream.open (index_path + ".navi.tpl", "w");
@@ -234,12 +239,12 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		if (ns.name != null) {
 			register_node (ns);
 
-			GLib.FileStream file = GLib.FileStream.open (rpath + "navi.tpl", "w");
+			GLib.FileStream file = GLib.FileStream.open (rpath + ".navi.tpl", "w");
 			writer = new Html.MarkupWriter (file);
 			_renderer.set_writer (writer);
 			write_navi_symbol (ns);
 
-			file = GLib.FileStream.open (rpath + "content.tpl", "w");
+			file = GLib.FileStream.open (rpath + ".content.tpl", "w");
 			writer = new Html.MarkupWriter (file);
 			_renderer.set_writer (writer);
 			write_namespace_content (ns, ns);

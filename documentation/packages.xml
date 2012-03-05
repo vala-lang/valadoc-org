@@ -10,6 +10,8 @@
 	<package name="clutter-gtk-0.10" home="http://www.clutter-project.org/" c-docs="http://docs.clutter-project.org/docs/clutter-gtk/0.10/" />
 	<package name="clutter-json-1.0" home="http://www.clutter-project.org/" />
 	<package name="gdu" />
+	<package name="xtst" />
+	<!-- package name="packagekit-glib2" gir="PackageKitGlib-1.0" home="http://www.packagekit.org/" c-docs="http://www.packagekit.org/gtk-doc/" /-->
 	<package name="gdu-gtk" />
 	<package name="gedit" home="http://projects.gnome.org/gedit/" maintainers="Andrea Del Signore" c-docs="http://developer.gnome.org/gedit/unstable/" />
 	<package deprecated="true" name="gedit-2.20" home="http://projects.gnome.org/gedit/" maintainers="Andrea Del Signore" c-docs="http://developer.gnome.org/gedit/unstable/" />
@@ -20,7 +22,8 @@
 	<package name="clutter-gst-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-1.0" c-docs="http://docs.clutter-project.org/docs/clutter-gst/unstable/" />
 	<package name="clutter-gtk-1.0" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://docs.clutter-project.org/docs/clutter-gtk/unstable/" />
 	<package name="cogl-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Cogl-1.0" c-docs="http://docs.clutter-project.org/docs/cogl/unstable/" />
-	<package name="dbus-glib-1" home=" home=""" gir="DBusGLib-1.0" c-docs="" />
+	<package name="cogl-pango-1.0" flags="--pkg pangocairo" gir="CoglPango" />
+	<package name="dbus-glib-1" home="" gir="DBusGLib-1.0" c-docs="" />
 	<package deprecated="true" name="gconf-2.0" home="http://projects.gnome.org/gconf/" gir="GConf-2.0" c-docs="http://developer.gnome.org/gconf/unstable/" />
 	<package deprecated="true" name="gdk-2.0" home="http://www.gtk.org/" gir="Gdk-2.0" c-docs="http://developer.gnome.org/gdk/unstable/" />
 	<package name="gdk-3.0" home="http://www.gtk.org/" gir="Gdk-3.0" c-docs="http://developer.gnome.org/gdk3/unstable/" />
@@ -28,6 +31,7 @@
 	<package deprecated="true" name="gdk-x11-2.0" home="http://www.gtk.org/" gir="GdkX11-2.0" c-docs="" />
 	<package name="gdk-x11-3.0" home="http://www.gtk.org/" gir="GdkX11-3.0" c-docs="" />
 	<package name="gdl-1.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="http://developer.gnome.org/gdl/unstable/" />
+	<package name="gdl-3.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="http://developer.gnome.org/gdl/unstable/" />
 	<package name="gio-2.0" home="http://www.gtk.org/" gir="Gio-2.0" c-docs="http://developer.gnome.org/gio/unstable/" />
 	<package name="gio-unix-2.0" home="http://www.gtk.org/" gir="Gio-2.0" c-docs="http://developer.gnome.org/gio/unstable/" />
 	<package name="glib-2.0" home="http://www.gtk.org/" gir="GLib-2.0" c-docs="http://developer.gnome.org/glib/unstable/" />
@@ -106,6 +110,7 @@
 	<package name="libmagic" home="http://libmagic.sourceforge.net/" />
 	<package name="libnl-1" maintainers="Michael 'Mickey' Lauer" />
 	<package name="libnl-2.0" maintainers="Michael 'Mickey' Lauer" />
+	<package name="libnl-3.0" maintainers="Michael 'Mickey' Lauer" />
 	<package name="liboobs-1" />
 	<package name="libosso" />
 	<package deprecated="true" name="libpanelapplet-2.0" />

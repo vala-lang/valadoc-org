@@ -39,7 +39,7 @@ namespace Generator {
 
 		config.printf ("index %s%s : base {\n", prefix, name);
 		config.printf ("\tsource = %s%s\n", prefix, name);
-		config.printf ("\tpath = ./sphinx-%s\n", name);
+		config.printf ("\tpath = ./sphinx-%s-%s\n", prefix, name);
 		config.printf ("}\n");
 		config.printf ("\n\n");
 

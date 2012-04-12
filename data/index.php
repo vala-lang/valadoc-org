@@ -34,6 +34,7 @@ if (isset ($hash_frag)) {
 		<script type="text/javascript" src="/wtooltip.js"></script>
 		<script type="text/javascript" src="/valadoc.js"></script>
 		<link href="/style.css" rel="stylesheet" type="text/css">
+		<link rel="apple-touch-icon" href="devhelp.png" />
 	</head>
 	<body>
 	  <table border="0" cellspacing="0" cellpadding="0" width="100%">

@@ -7,7 +7,7 @@
 	<package name="ccss-1" maintainers="Ali Sabil" />
 	<package name="fuse" home="http://fuse.sourceforge.net/" />
 	<package name="enchant" home="http://www.abisource.com/projects/enchant/" />
-	<package name="clutter-gtk-0.10" home="http://www.clutter-project.org/" c-docs="http://docs.clutter-project.org/docs/clutter-gtk/0.10/" />
+	<package deprecated="true" name="clutter-gtk-0.10" gir="GtkClutter-1.0" home="http://www.clutter-project.org/" c-docs="http://docs.clutter-project.org/docs/clutter-gtk/0.10/" />
 	<package name="clutter-json-1.0" home="http://www.clutter-project.org/" />
 	<package name="gdu" />
 	<package name="xtst" />
@@ -22,7 +22,7 @@
 	<package name="clutter-gst-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-1.0" c-docs="http://docs.clutter-project.org/docs/clutter-gst/unstable/" />
 	<package name="clutter-gtk-1.0" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://docs.clutter-project.org/docs/clutter-gtk/unstable/" />
 	<package name="cogl-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Cogl-1.0" c-docs="http://docs.clutter-project.org/docs/cogl/unstable/" />
-	<package name="cogl-pango-1.0" flags="--pkg pangocairo" gir="CoglPango" />
+	<package name="cogl-pango-1.0" flags="--pkg pangocairo" gir="CoglPango-1.0" />
 	<package name="dbus-glib-1" home="" gir="DBusGLib-1.0" c-docs="" />
 	<package deprecated="true" name="gconf-2.0" home="http://projects.gnome.org/gconf/" gir="GConf-2.0" c-docs="http://developer.gnome.org/gconf/unstable/" />
 	<package deprecated="true" name="gdk-2.0" home="http://www.gtk.org/" gir="Gdk-2.0" c-docs="http://developer.gnome.org/gdk/unstable/" />
@@ -82,7 +82,7 @@
 	<package name="champlain-0.14" flags="--pkg clutter-1.0" home="http://projects.gnome.org/libchamplain/" gir="Champlain-0.14" />
 	<package name="colord" flags="--pkg gio-2.0" home="http://www.freedesktop.org/software/colord/" gir="Colord-1.0" />
 	<package name="tracker-miner-0.12" home="http://projects.gnome.org/tracker/" gir="TrackerMiner-0.12" ignore="true" />
-	<package name="spice-client-gtk-3.0" home="http://spice-space.org/" gir="SpiceClientGtk-3.0" />
+	<package name="spice-client-gtk-3.0" gir="SpiceClientGtk-3.0" home="http://spice-space.org/" gir="SpiceClientGtk-3.0" />
 	<package name="gnome-keyring-1" gir="GnomeKeyring-1.0" />
 	<package name="gssdp-1.0" gir="GSSDP-1.0" />
 	<package name="javascriptcoregtk-3.0" gir="JSCore-3.0" />
@@ -99,7 +99,13 @@
 	<package name="libarchive" home="http://code.google.com/p/libarchive/" />
 	<package deprecated="true" name="libbonoboui-2.0" />
 	<package name="libdaemon" />
-	<package name="libepc-1.0" />
+
+	<package name="libebook-1.2" gir="EBook-1.2" />
+	<package name="libecalendar-1.2" gir="ECalendar-1.2" />
+	<package name="libedataserver-1.2" gir="EDataServer-1.2" />
+	<package name="curses" />
+
+	<package name="libepc-1.0" gir="Epc-1.0" />
 	<package name="libesmtp" maintainers="Adrien Bustany" />
 	<package name="libftdi" />
 	<package name="libgda-4.0" />
@@ -148,7 +154,7 @@
 	<package name="xcb" home="http://xcb.freedesktop.org/" c-docs="http://xcb.freedesktop.org/XcbApi/" />
 	<package name="libcanberra-gtk" flags="--pkg libcanberra --pkg gtk+-3.0" home="http://0pointer.de/lennart/projects/libcanberra/" c-docs="http://developer.gnome.org/libcanberra/unstable/" />
 	<package name="libcanberra" home="http://0pointer.de/lennart/projects/libcanberra/" c-docs="http://developer.gnome.org/libcanberra/unstable/" />
-	<package name="spice-client-glib-2.0" gir="GtkVnc-2.0" home="http://spice-space.org/" />
+	<package name="spice-client-glib-2.0" gir="SpiceClientGLib-2.0" home="http://spice-space.org/" />
 	<package name="spice-protocol" home="http://spice-space.org/" />
  	<package name="libproxy-1.0" />
 	<package name="gtk-vnc-2.0" gir="GtkVnc-2.0" />
@@ -157,7 +163,15 @@
 	<package name="libvirt-gconfig-1.0" gir="LibvirtGConfig-1.0" />
 	<package name="champlain-gtk-0.14" gir="GtkChamplain-0.14" flags="--pkg gtk+-3.0 --pkg champlain-0.14 --pkg clutter-1.0" home="http://projects.gnome.org/libchamplain/" />
 	<package name="gvnc-1.0" gir="GtkVnc-2.0" />
+	<package name="udisks2" gir="UDisks-2.0" />
+	<package name="Dbusmenu-0.4" gir="Dbusmenu-0.4" />
+	<package name="DbusmenuGtk3-0.4" gir="DbusmenuGtk3-0.4" flags="--pkg gtk+-3.0 --pkg Dbusmenu-0.4" />
+	<package name="dee-1.0" gir="Dee-1.0" />
+	<package name="unity" />
+	<package name="unity-trace" />
+	<package name="zeitgeist-1.0" />
 
+	<external-package name="gee-1.0" link="/gee-1.0/index.htm" />
 	<external-package name="bump" home="http://code.google.com/p/bump" maintainers="Evan Nemerson" link="http://code.coeusgroup.com/bump/valadoc/Bump/index.htm" />
 	<external-package name="folks" home="http://telepathy.freedesktop.org/wiki/Folks" maintainers="Travis Reitter" link="http://telepathy.freedesktop.org/doc/folks/vala/" />
 	<external-package name="sqlheavy" home="http://code.google.com/p/sqlheavy/" maintainers="Evan Nemerson" link="http://code.coeusgroup.com/sqlheavy/valadoc/SQLHeavy/index.htm" />

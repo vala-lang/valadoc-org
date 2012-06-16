@@ -2,6 +2,7 @@
 //	ini_set("display_errors","1");
 //	ERROR_REPORTING(E_ALL);
 
+
 if ($_GET['page'] == '') {
   $_GET['page'] = 'index.htm';
 }

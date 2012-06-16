@@ -108,7 +108,7 @@
 	<package name="libepc-1.0" gir="Epc-1.0" />
 	<package name="libesmtp" maintainers="Adrien Bustany" />
 	<package name="libftdi" />
-	<package name="libgda-4.0" />
+	<package name="libgda-4.0" gir="Gda-0.5" />
 	<package name="libgda-report-4.0" />
 	<package deprecated="true" name="libglade-2.0" home="http://glade.gnome.org/" c-docs="http://developer.gnome.org/gladeui/unstable/" />
 	<package name="libgsf-1" />

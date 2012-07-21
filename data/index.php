@@ -24,10 +24,31 @@ if (isset ($hash_frag)) {
   }
 }
 
+function get_title () {
+  $is_wiki = substr($_GET['page'], -4) === '.htm';
+  $segments = explode ('/', $_GET['page']);
+
+  for ($i = 0; $i < count ($segments) ; $i++) {
+    $segments[$i] = htmlentities ($segments[$i]);
+  }
+
+  if (count ($segments) == 2) {
+    // package content
+    if ($is_wiki) {
+      return $segments[0];
+    } else {
+      // api description: <element-name> -- <package-name>
+      return basename ($segments[1], ".html") . ' &ndash; ' . $segments[0];
+    }
+  }
+
+  return  "Valadoc.org - Stays crunchy. Even in milk.";
+}
+
 ?>
 <html>
 	<head>
-		<title>Valadoc.org - Stays crunchy. Even in milk.</title>
+		<title><?php echo get_title (); ?></title>
 		<meta name="fragment" content="!">
 		<script type="text/javascript" src="/jquery.min.js"></script>
 		<script type="text/javascript" src="/jquery.ba-hashchange.min.js"></script>

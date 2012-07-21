@@ -115,7 +115,8 @@ function abort_loading () {
 
 function load_content (href) {
     if (href.substr (-5) == '.html') {
-	document.title = href.substr (0, href.length - 5).replace ('/', ' - ');
+	// decodeURIComponent -> firefox does not show my ndash otherwise ...
+	document.title = href.substr (0, href.length - 5).split ('/').reverse ().join (' ' + decodeURIComponent('%E2%80%93') + ' ');
     } else if (href.substr (-10) == '/index.htm') {
 	document.title = href.substr (0, href.length - 10);
     } else {

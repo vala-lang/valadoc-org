@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packages>
-	<package name="accountservice" gir="AccountsService-1.0" />
+	<package name="accountsservice" gir="AccountsService-1.0" />
 	<package name="alsa" home="http://www.alsa-project.org/" maintainers="Michael 'Mickey' Lauer" />
 	<package name="avahi-gobject" maintainers="Sebastian Noack" />
 	<package name="bzlib" />
 	<package name="cairo-xcb" home="http://cairographics.org/" />
 	<package name="ccss-1" maintainers="Ali Sabil" />
-	<package name="dbusmenu-glib-0.4" gir="Dbusmenu-0.4.gir" home="https://launchpad.net/dbusmenu" />
-	<package name="dbusmenu-gtk3-0.4" gir="DbusmenuGtk3-0.4.gir" home="https://launchpad.net/dbusmenu" />
+	<package name="dbusmenu-glib-0.4" gir="Dbusmenu-0.4" home="https://launchpad.net/dbusmenu" />
+	<package name="dbusmenu-gtk3-0.4" flags="--pkg gtk+-3.0 --pkg dbusmenu-glib-0.4" gir="DbusmenuGtk3-0.4" home="https://launchpad.net/dbusmenu" />
 	<package name="fuse" home="http://fuse.sourceforge.net/" />
 	<package name="enchant" home="http://www.abisource.com/projects/enchant/" />
 	<package deprecated="true" name="clutter-gtk-0.10" gir="GtkClutter-1.0" home="http://www.clutter-project.org/" c-docs="http://docs.clutter-project.org/docs/clutter-gtk/0.10/" />
@@ -103,9 +103,9 @@
 	<package deprecated="true" name="libbonoboui-2.0" />
 	<package name="libdaemon" />
 
-	<package name="libebook-1.2" gir="EBook-1.2" c-docs="http://developer.gnome.org/libebook/stable/" />
-	<package name="libecalendar-1.2" gir="ECalendar-1.2" c-docs="http://developer.gnome.org/libecal/stable/" />
-	<package name="libedataserver-1.2" gir="EDataServer-1.2" c-docs="http://developer.gnome.org/libedataserver/stable/" />
+	<package name="libebook-1.2" flags="--pkg libedataserver-1.2" gir="EBook-1.2" c-docs="http://developer.gnome.org/libebook/stable/" />
+	<package name="libecalendar-1.2" gir="ECalendar-1.2" c-docs="http://developer.gnome.org/libecal/stable/" flags="--pkg libedataserver-1.2" />
+	<package name="libedataserver-1.2" gir="EDataServer-1.2" flags="--pkg gio-2.0 --pkg libxml-2.0" c-docs="http://developer.gnome.org/libedataserver/stable/" />
 	<package name="curses" />
 
 	<package name="libepc-1.0" gir="Epc-1.0" />
@@ -167,8 +167,8 @@
 	<package name="champlain-gtk-0.14" gir="GtkChamplain-0.14" flags="--pkg gtk+-3.0 --pkg champlain-0.14 --pkg clutter-1.0" home="http://projects.gnome.org/libchamplain/" />
 	<package name="gvnc-1.0" gir="GtkVnc-2.0" />
 	<package name="udisks2" gir="UDisks-2.0" />
-	<package name="Dbusmenu-0.4" gir="Dbusmenu-0.4" />
-	<package name="DbusmenuGtk3-0.4" gir="DbusmenuGtk3-0.4" flags="--pkg gtk+-3.0 --pkg Dbusmenu-0.4" />
+	<!--- package name="Dbusmenu-0.4" gir="Dbusmenu-0.4" / -->
+	<!--- package name="DbusmenuGtk3-0.4" gir="DbusmenuGtk3-0.4" flags="--pkg gtk+-3.0 --pkg Dbusmenu-0.4" / -->
 	<package name="dee-1.0" gir="Dee-1.0" />
 	<package name="unity" />
 	<package name="unity-trace" />

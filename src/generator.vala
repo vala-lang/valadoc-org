@@ -48,6 +48,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private static bool download_images;
 	private static string prefix;
 	private static bool skip_existing;
+	private static string girdir = "girs/gir-1.0";
 
 	public IndexGenerator (ErrorReporter reporter) {
 		this.reporter = new ErrorReporter ();
@@ -615,7 +616,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 		StringBuilder builder = new StringBuilder ();
-		builder.append_printf ("valadoc --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" %s", driver, docletpath, pkg.name, pkg.get_vapi_path (), Path.get_dirname (pkg.get_vapi_path ()), pkg.flags);
+		builder.append_printf ("valadoc --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s", driver, docletpath, pkg.name, pkg.get_vapi_path (), Path.get_dirname (pkg.get_vapi_path ()), girdir, pkg.flags);
 
 		stdout.printf ("creating \'%s\' ...\n", pkg.name);
 
@@ -631,7 +632,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		if (gir_path != null) {
 			stdout.printf ("  using .gir:            %s\n", gir_path);
 				
-			builder.append_printf (" --importdir girs/gir-1.0/");
+			builder.append_printf (" --importdir \"%s\"", girdir);
 			builder.append_printf (" --import %s", pkg.gir_name);
 
 			load_images (pkg);

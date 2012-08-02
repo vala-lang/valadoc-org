@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libgee06-devel
+InstallPackages(debian)=libgee-dev

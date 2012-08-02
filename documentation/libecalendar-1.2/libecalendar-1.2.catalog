@@ -1,0 +1,3 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=evolution-data-server-devel

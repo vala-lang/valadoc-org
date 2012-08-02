@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=evolution-data-server-devel
+InstallPackages(debian)=libebook1.2-dev

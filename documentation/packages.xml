@@ -30,7 +30,7 @@
 	<package deprecated="true" name="gconf-2.0" home="http://projects.gnome.org/gconf/" gir="GConf-2.0" c-docs="http://developer.gnome.org/gconf/unstable/" />
 	<package deprecated="true" name="gdk-2.0" home="http://www.gtk.org/" gir="Gdk-2.0" c-docs="http://developer.gnome.org/gdk/unstable/" />
 	<package name="gdk-3.0" home="http://www.gtk.org/" gir="Gdk-3.0" c-docs="http://developer.gnome.org/gdk3/unstable/" />
-	<package deprecated="true" name="gdk-pixbuf-2.0"  home="http://www.gtk.org/" gir="GdkPixbuf-2.0" c-docs="http://developer.gnome.org/gdk-pixbuf/unstable/" />
+	<package name="gdk-pixbuf-2.0"  home="http://www.gtk.org/" gir="GdkPixbuf-2.0" c-docs="http://developer.gnome.org/gdk-pixbuf/unstable/" />
 	<package deprecated="true" name="gdk-x11-2.0" home="http://www.gtk.org/" gir="GdkX11-2.0" c-docs="" />
 	<package name="gdk-x11-3.0" home="http://www.gtk.org/" gir="GdkX11-3.0" c-docs="" />
 	<package name="gdl-1.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="http://developer.gnome.org/gdl/unstable/" />

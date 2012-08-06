@@ -78,7 +78,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		current_token = reader.read_token (out begin, out end);
 
 		if (current_token != MarkupTokenType.START_ELEMENT || reader.name != "packages") {
-			reporter.simple_error ("Expected: <packages>");
+			reporter.simple_error ("error: Expected: <packages>");
 			return ;
 		}
 
@@ -86,7 +86,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		while (current_token != MarkupTokenType.END_ELEMENT && current_token != MarkupTokenType.EOF) {
 			if (current_token != MarkupTokenType.START_ELEMENT || !(reader.name == "package" || reader.name == "external-package")) {
-				reporter.simple_error ("Expected: <package> (got: %s '%s')", current_token.to_string (), reader.name);
+				reporter.simple_error ("error: Expected: <package> (got: %s '%s')", current_token.to_string (), reader.name);
 				return ;
 			}
 
@@ -106,7 +106,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 
 				if (name == null) {
-					reporter.simple_error ("%s: Missing attribute: name=\"\"", start_tag);
+					reporter.simple_error ("error: %s: Missing attribute: name=\"\"", start_tag);
 					return ;
 				}
 
@@ -114,7 +114,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 					string? external_link = reader.get_attribute ("link");;
 					string? devhelp_link = reader.get_attribute ("devhelp");
 					if (external_link == null) {
-						reporter.simple_error ("%s: Missing attribute: link=\"\" in %s", start_tag, name);
+						reporter.simple_error ("error: %s: Missing attribute: link=\"\" in %s", start_tag, name);
 						return ;
 					} else {
 						register_package (new ExternalPackage (name, external_link, maintainers, devhelp_link, home, c_docs, is_deprecated));
@@ -129,14 +129,14 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			current_token = reader.read_token (out begin, out end);
 
 			if (current_token != MarkupTokenType.END_ELEMENT || reader.name != start_tag) {
-				reporter.simple_error ("Expected: </package> (got: %s '%s')", current_token.to_string (), reader.name);				return ;
+				reporter.simple_error ("error: Expected: </package> (got: %s '%s')", current_token.to_string (), reader.name);				return ;
 			}
 
 			current_token = reader.read_token (out begin, out end);
 		}
 
 		if (current_token != MarkupTokenType.END_ELEMENT || reader.name != "packages") {
-			reporter.simple_error ("Expected: </packages> (got: %s '%s')", current_token.to_string (), reader.name);
+			reporter.simple_error ("error: Expected: </packages> (got: %s '%s')", current_token.to_string (), reader.name);
 			return ;
 		}
 	}
@@ -439,7 +439,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		try {
 			copy_data ();
 		} catch (Error e) {
-			reporter.simple_error ("Can't copy data: %s", e.message);
+			reporter.simple_error ("error: Can't copy data: %s", e.message);
 		}
 	}
 
@@ -595,7 +595,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		foreach (string pkg_name in packages) {
 			Package? pkg = packages_per_name.get (pkg_name);
 			if (pkg == null) {
-				reporter.simple_error ("Unknown package %s", pkg_name);
+				reporter.simple_error ("error: Unknown package %s", pkg_name);
 			}
 
 			queue.add (pkg);

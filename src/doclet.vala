@@ -118,14 +118,14 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 	private bool build_devhelp_book () {
 		string? doclet_path = ModuleLoader.get_doclet_path ("devhelp", reporter);
 		if (doclet_path == null) {
-			reporter.simple_error ("failed to load doclet");
+			reporter.simple_error ("error: failed to load doclet");
 			return false;
 		}
 
 		ModuleLoader loader = ModuleLoader.get_instance ();
 		Doclet? doclet = loader.create_doclet (doclet_path);
 		if (doclet == null) {
-			reporter.simple_error ("failed to load doclet");
+			reporter.simple_error ("error: failed to load doclet");
 			return false;
 		}
 
@@ -148,7 +148,7 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 			FileStream stream = FileStream.open (file_name + ".md5", "w");
 			stream.printf ("%s", create_checksum_for_file (file_name));
 		} catch (SpawnError e) {
-			reporter.simple_error ("failed to tar: %s", e.message);
+			reporter.simple_error ("error: failed to tar: %s", e.message);
 		}
 
 		settings.directory = settings_directory;
@@ -176,7 +176,7 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 
 	public override void process (Settings settings, Api.Tree tree, ErrorReporter reporter) {
 		if (settings.with_deps == true) {
-			reporter.simple_warning ("--deps not supported by valadoc.org-doclet");
+			reporter.simple_warning ("warning: --deps not supported by valadoc.org-doclet");
 			settings.with_deps = false;
 		}
 

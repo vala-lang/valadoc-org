@@ -404,6 +404,9 @@ h3.main_title {
 	margin-left: 20px;
 }
 
+.main_parameter_table_unknown_parameter {
+	color: grey;
+}
 
 
 .description a.constant, .brief_description a.constant {

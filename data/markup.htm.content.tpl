@@ -56,6 +56,7 @@
 
 <h3>Lists:</h3>
 <hr class=\"main_hr\" />
+<p>Two spaces are required after newlines.</p>
 <h4>Comment:</h4>
 <div class=\"main_code_definition\">
 <pre>/**

@@ -21,10 +21,10 @@
 	<package name="gobject-2.0" home="http://www.gtk.org/" gir="GObject-2.0" c-docs="http://developer.gnome.org/gobject/unstable/" />
 	<package name="atk" home="http://www.gtk.org/" gir="Atk-1.0" c-docs="http://developer.gnome.org/atk/unstable/" />
 	<package name="cairo" home="http://cairographics.org/" gir="cairo-1.0" c-docs="http://cairographics.org/manual/" />
-	<package name="clutter-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Clutter-1.0" c-docs="http://docs.clutter-project.org/docs/clutter/unstable/" />
-	<package name="clutter-gst-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-1.0" c-docs="http://docs.clutter-project.org/docs/clutter-gst/unstable/" />
-	<package name="clutter-gtk-1.0" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://docs.clutter-project.org/docs/clutter-gtk/unstable/" />
-	<package name="cogl-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Cogl-1.0" c-docs="http://docs.clutter-project.org/docs/cogl/unstable/" />
+	<package name="clutter-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Clutter-1.0" c-docs="http://developer.gnome.org/clutter/unstable/" />
+	<package name="clutter-gst-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-1.0" c-docs="http://developer.gnome.org/clutter-gst/unstable/" />
+	<package name="clutter-gtk-1.0" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/" />
+	<package name="cogl-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Cogl-1.0" c-docs="http://developer.gnome.org/cogl-2.0-experimental/stable/" />
 	<package name="cogl-pango-1.0" flags="--pkg pangocairo" gir="CoglPango-1.0" />
 	<package name="dbus-glib-1" home="" gir="DBusGLib-1.0" c-docs="" />
 	<package deprecated="true" name="gconf-2.0" home="http://projects.gnome.org/gconf/" gir="GConf-2.0" c-docs="http://developer.gnome.org/gconf/unstable/" />
@@ -37,7 +37,7 @@
 	<package name="gdl-3.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="http://developer.gnome.org/gdl/unstable/" />
 	<package name="gio-2.0" home="http://www.gtk.org/" gir="Gio-2.0" c-docs="http://developer.gnome.org/gio/unstable/" />
 	<package name="gio-unix-2.0" home="http://www.gtk.org/" gir="Gio-2.0" c-docs="http://developer.gnome.org/gio/unstable/" />
-	<package name="glib-2.0" home="http://www.gtk.org/" gir="GLib-2.0" c-docs="http://developer.gnome.org/glib/unstable/" />
+	<package name="glib-2.0" flags="--pkg posix" home="http://www.gtk.org/" gir="GLib-2.0" c-docs="http://developer.gnome.org/glib/unstable/" />
 	<package name="gmodule-2.0" home="http://www.gtk.org/" gir="GModule-2.0" c-docs="http://developer.gnome.org/glib/unstable/" />
 	<package name="gstreamer-0.10" home="http://gstreamer.freedesktop.org/" maintainers="Zeeshan Ali, Sebastian Dröge" gir="Gst-0.10" c-docs="http://developer.gnome.org/gstreamer/unstable/" />
 	<package name="gstreamer-app-0.10" home="http://gstreamer.freedesktop.org/" gir="GstApp-0.10" c-docs="" />
@@ -63,7 +63,7 @@
 	<package name="gtksourceview-3.0" home="http://projects.gnome.org/gtksourceview/" gir="GtkSource-3.0" c-docs="http://developer.gnome.org/gtksourceview/unstable/" />
 	<package name="gudev-1.0" home="http://gudev.sourceforge.net/" gir="GUdev-1.0" c-docs="" />
 	<package name="json-glib-1.0" maintainers="Tomaž Vajngerl" gir="Json-1.0" c-docs="http://developer.gnome.org/json-glib/unstable/" />
-	<package name="libgdata" gir="GData-0.0" c-docs="http://developer.gnome.org/gdata/unstable/" />
+	<package name="libgdata" flags="--pkg Goa-1.0" gir="GData-0.0" c-docs="http://developer.gnome.org/gdata/unstable/" />
 	<package name="libnotify" gir="Notify-0.7" c-docs="http://developer.gnome.org/libnotify/unstable/" />
 	<package name="libpeas-1.0" gir="Peas-1.0" c-docs="http://developer.gnome.org/libpeas/unstable/" />
 	<package name="libsoup-2.4" maintainers="Zeeshan Ali" gir="Soup-2.4" c-docs="http://developer.gnome.org/libsoup/unstable/" />

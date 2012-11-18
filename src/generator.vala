@@ -650,6 +650,37 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			builder.append_printf (" --wiki documentation/%s", pkg.name);
 		}
 
+		string example_path = "examples/%s/%s.valadoc.examples".printf (pkg.name, pkg.name);
+		if (FileUtils.test (example_path, FileTest.IS_REGULAR)) {
+			string output = "examples/%s-examples.valadoc".printf (pkg.name); 
+			stdout.printf ("  using example.valadoc: %s\n", output);
+			FileUtils.remove (output);
+
+			try {
+				int exit_status = 0;
+				string? standard_output = null;
+				string? standard_error = null;
+
+				Process.spawn_command_line_sync ("./valadoc-example-gen %s %s".printf (example_path, output), out standard_output, out standard_error, out exit_status); 
+				if (exit_status != 0) {
+					FileStream log = FileStream.open ("LOG", "w");
+					log.printf ("%s\n", builder.str);
+					if (standard_error != null) {
+						log.printf (standard_error);
+					}
+					if (standard_output != null) {
+						log.printf (standard_output);
+					}
+					throw new SpawnError.FAILED ("Exit status != 0");
+				}
+			} catch (SpawnError e) {
+				stdout.printf ("ERROR: Can't generate documentation for %s. See LOG for details.\n", pkg.name);
+				throw e;
+			}
+
+			builder.append_printf (" --importdir examples --import %s-examples", pkg.name);
+		}
+
 		try {
 			int exit_status = 0;
 			string? standard_output = null;

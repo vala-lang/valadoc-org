@@ -1,12 +1,13 @@
 
-
-default: generator doclet.so update-girs configgen
+default: generator doclet.so update-girs configgen example-gen
 
 datadir = $(shell dirname $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))
 
 
 
 clean:
+	rm -f examples/*-examples.valadoc
+	rm -f valadoc-example-gen
 	rm -f configgen
 	rm -f generator
 	rm -R -f girs
@@ -15,6 +16,9 @@ clean:
 	rm -f LOG
 
 
+
+example-gen:
+	valac -o valadoc-example-gen src/valdoc-example-parser.vala src/valadoc-example-gen.vala
 
 doclet.so:
 	valac -o doclet src/doclet.vala src/linkhelper.vala --pkg gee-1.0 --pkg valadoc-1.0 -C
@@ -37,7 +41,4 @@ update-girs:
 	else \
 		git clone git://gitorious.org/vala-girs/vala-girs.git girs ; \
 	fi
-
-
-
 

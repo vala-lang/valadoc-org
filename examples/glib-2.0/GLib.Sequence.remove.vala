@@ -1,0 +1,24 @@
+public static int main (string[] args) {
+	Sequence<string> seq = new Sequence<string> ();
+	seq.append ("Lorem");
+	seq.append ("ipsum");
+	seq.append ("XXXXX");
+	seq.append ("dolor");
+	seq.append ("sit");
+	seq.append ("amet");
+
+	SequenceIter<string> iter = seq.get_iter_at_pos (2);
+	Sequence<string>.remove (iter);
+
+	// Output:
+	//  ``Lorem``
+	//  ``ipsum``
+	//  ``dolor``
+	//  ``sit``
+	//  ``amet``
+	seq.foreach ((item) => {
+		stdout.printf ("%s\n", item);
+	});
+
+	return 0;
+}

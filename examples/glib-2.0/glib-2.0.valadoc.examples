@@ -1,0 +1,2897 @@
+<examples>
+	<example>
+		<file>bool.parse.vala</file>
+		<compile>valac --pkg glib-2.0 bool.parse.vala</compile>
+		<node>bool.parse</node>
+	</example>
+	<example>
+		<file>bool.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 bool.to_string.vala</compile>
+		<node>bool.to_string</node>
+	</example>
+	<example>
+		<file>bool.try_parse.vala</file>
+		<compile>valac --pkg glib-2.0 bool.try_parse.vala</compile>
+		<node>bool.try_parse</node>
+	</example>
+	<example>
+		<file>bool.vala</file>
+		<compile>valac --pkg glib-2.0 bool.vala</compile>
+		<node>bool</node>
+	</example>
+	<example>
+		<file>char.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 char.clamp.vala</compile>
+		<node>char.clamp</node>
+	</example>
+	<example>
+		<file>char.digit_value.vala</file>
+		<compile>valac --pkg glib-2.0 char.digit_value.vala</compile>
+		<node>char.digit_value</node>
+	</example>
+	<example>
+		<file>char.isalnum.vala</file>
+		<compile>valac --pkg glib-2.0 char.isalnum.vala</compile>
+		<node>char.isalnum</node>
+	</example>
+	<example>
+		<file>char.isalpha.vala</file>
+		<compile>valac --pkg glib-2.0 char.isalpha.vala</compile>
+		<node>char.isalpha</node>
+	</example>
+	<example>
+		<file>char.iscntrl.vala</file>
+		<compile>valac --pkg glib-2.0 char.iscntrl.vala</compile>
+		<node>char.iscntrl</node>
+	</example>
+	<example>
+		<file>char.isdigit.vala</file>
+		<compile>valac --pkg glib-2.0 char.isdigit.vala</compile>
+		<node>char.isdigit</node>
+	</example>
+	<example>
+		<file>char.isgraph.vala</file>
+		<compile>valac --pkg glib-2.0 char.isgraph.vala</compile>
+		<node>char.isgraph</node>
+	</example>
+	<example>
+		<file>char.islower.vala</file>
+		<compile>valac --pkg glib-2.0 char.islower.vala</compile>
+		<node>char.islower</node>
+	</example>
+	<example>
+		<file>char.isprint.vala</file>
+		<compile>valac --pkg glib-2.0 char.isprint.vala</compile>
+		<node>char.isprint</node>
+	</example>
+	<example>
+		<file>char.ispunct.vala</file>
+		<compile>valac --pkg glib-2.0 char.ispunct.vala</compile>
+		<node>char.ispunct</node>
+	</example>
+	<example>
+		<file>char.isspace.vala</file>
+		<compile>valac --pkg glib-2.0 char.isspace.vala</compile>
+		<node>char.isspace</node>
+	</example>
+	<example>
+		<file>char.isupper.vala</file>
+		<compile>valac --pkg glib-2.0 char.isupper.vala</compile>
+		<node>char.isupper</node>
+	</example>
+	<example>
+		<file>char.isxdigit.vala</file>
+		<compile>valac --pkg glib-2.0 char.isxdigit.vala</compile>
+		<node>char.isxdigit</node>
+	</example>
+	<example>
+		<file>char.max.vala</file>
+		<compile>valac --pkg glib-2.0 char.max.vala</compile>
+		<node>char.max</node>
+	</example>
+	<example>
+		<file>char.min.vala</file>
+		<compile>valac --pkg glib-2.0 char.min.vala</compile>
+		<node>char.min</node>
+	</example>
+	<example>
+		<file>char.tolower.vala</file>
+		<compile>valac --pkg glib-2.0 char.tolower.vala</compile>
+		<node>char.tolower</node>
+	</example>
+	<example>
+		<file>char.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 char.to_string.vala</compile>
+		<node>char.to_string</node>
+	</example>
+	<example>
+		<file>char.toupper.vala</file>
+		<compile>valac --pkg glib-2.0 char.toupper.vala</compile>
+		<node>char.toupper</node>
+	</example>
+	<example>
+		<file>char.xdigit_value.vala</file>
+		<compile>valac --pkg glib-2.0 char.xdigit_value.vala</compile>
+		<node>char.xdigit_value</node>
+	</example>
+	<example>
+		<file>double.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 double.clamp.vala</compile>
+		<node>double.clamp</node>
+	</example>
+	<example>
+		<file>double.DTOSTR_BUF_SIZE.vala</file>
+		<compile>valac --pkg glib-2.0 double.DTOSTR_BUF_SIZE.vala</compile>
+		<node>double.DTOSTR_BUF_SIZE</node>
+	</example>
+	<example>
+		<file>double.INFINITY.vala</file>
+		<compile>valac --pkg glib-2.0 double.INFINITY.vala</compile>
+		<node>double.INFINITY</node>
+	</example>
+	<example>
+		<file>double.is_finite.vala</file>
+		<compile>valac --pkg glib-2.0 double.is_finite.vala</compile>
+		<node>double.is_finite</node>
+	</example>
+	<example>
+		<file>double.is_infinity.vala</file>
+		<compile>valac --pkg glib-2.0 double.is_infinity.vala</compile>
+		<node>double.is_infinity</node>
+	</example>
+	<example>
+		<file>double.is_nan.vala</file>
+		<compile>valac --pkg glib-2.0 double.is_nan.vala</compile>
+		<node>double.is_nan</node>
+	</example>
+	<example>
+		<file>double.is_normal.vala</file>
+		<compile>valac --pkg glib-2.0 double.is_normal.vala</compile>
+		<node>double.is_normal</node>
+	</example>
+	<example>
+		<file>double.max.vala</file>
+		<compile>valac --pkg glib-2.0 double.max.vala</compile>
+		<node>double.max</node>
+	</example>
+	<example>
+		<file>double.min.vala</file>
+		<compile>valac --pkg glib-2.0 double.min.vala</compile>
+		<node>double.min</node>
+	</example>
+	<example>
+		<file>double.NAN.vala</file>
+		<compile>valac --pkg glib-2.0 double.NAN.vala</compile>
+		<node>double.NAN</node>
+	</example>
+	<example>
+		<file>double.parse.vala</file>
+		<compile>valac --pkg glib-2.0 double.parse.vala</compile>
+		<node>double.parse</node>
+	</example>
+	<example>
+		<file>double.to_str.vala</file>
+		<compile>valac --pkg glib-2.0 double.to_str.vala</compile>
+		<node>double.to_str</node>
+	</example>
+	<example>
+		<file>double.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 double.to_string.vala</compile>
+		<node>double.to_string</node>
+	</example>
+	<example>
+		<file>double.try_parse.vala</file>
+		<compile>valac --pkg glib-2.0 double.try_parse.vala</compile>
+		<node>double.try_parse</node>
+	</example>
+	<example>
+		<file>float.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 float.clamp.vala</compile>
+		<node>float.clamp</node>
+	</example>
+	<example>
+		<file>float.INFINITY.vala</file>
+		<compile>valac --pkg glib-2.0 float.INFINITY.vala</compile>
+		<node>float.INFINITY</node>
+	</example>
+	<example>
+		<file>float.is_finite.vala</file>
+		<compile>valac --pkg glib-2.0 float.is_finite.vala</compile>
+		<node>float.is_finite</node>
+	</example>
+	<example>
+		<file>float.is_infinity.vala</file>
+		<compile>valac --pkg glib-2.0 float.is_infinity.vala</compile>
+		<node>float.is_infinity</node>
+	</example>
+	<example>
+		<file>float.is_nan.vala</file>
+		<compile>valac --pkg glib-2.0 float.is_nan.vala</compile>
+		<node>float.is_nan</node>
+	</example>
+	<example>
+		<file>float.is_normal.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm float.is_normal.vala</compile>
+		<node>float.is_normal</node>
+	</example>
+	<example>
+		<file>float.max.vala</file>
+		<compile>valac --pkg glib-2.0 float.max.vala</compile>
+		<node>float.max</node>
+	</example>
+	<example>
+		<file>float.min.vala</file>
+		<compile>valac --pkg glib-2.0 float.min.vala</compile>
+		<node>float.min</node>
+	</example>
+	<example>
+		<file>float.NAN.vala</file>
+		<compile>valac --pkg glib-2.0 float.NAN.vala</compile>
+		<node>float.NAN</node>
+	</example>
+	<example>
+		<file>float.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 float.to_string.vala</compile>
+		<node>float.to_string</node>
+	</example>
+	<example>
+		<file>float.vala</file>
+		<compile>valac --pkg glib-2.0 float.vala</compile>
+		<node>float</node>
+	</example>
+	<example>
+		<file>GLib.Array.append_val.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Array.append_val.vala</compile>
+		<node>GLib.Array.append_val</node>
+	</example>
+	<example>
+		<file>GLib.Array.append_vals.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Array.append_vals.vala</compile>
+		<node>GLib.Array.append_vals</node>
+	</example>
+	<example>
+		<file>GLib.Array.index.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Array.index.vala</compile>
+		<node>GLib.Array.index</node>
+	</example>
+	<example>
+		<file>GLib.Array.insert_val.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Array.insert_val.vala</compile>
+		<node>GLib.Array.insert_val</node>
+		<node>GLib.Array</node>
+	</example>
+	<example>
+		<file>GLib.Array.insert_vals.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Array.insert_vals.vala</compile>
+		<node>GLib.Array.insert_vals</node>
+	</example>
+	<example>
+		<file>GLib.Array.prepend_val.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Array.prepend_val.vala</compile>
+		<node>GLib.Array.prepend_val</node>
+	</example>
+	<example>
+		<file>GLib.Array.prepend_vals.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Array.prepend_vals.vala</compile>
+		<node>GLib.Array.prepend_vals</node>
+	</example>
+	<example>
+		<file>GLib.Array.remove_index.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Array.remove_index.vala</compile>
+		<node>GLib.Array.remove_index</node>
+	</example>
+	<example>
+		<file>GLib.Array.remove_index_fast.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Array.remove_index_fast.vala</compile>
+		<node>GLib.Array.remove_index_fast</node>
+	</example>
+	<example>
+		<file>GLib.Array.remove_range.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Array.remove_range.vala</compile>
+		<node>GLib.Array.remove_range</node>
+	</example>
+	<example>
+		<file>GLib.Array.set_size.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Array.set_size.vala</compile>
+		<node>GLib.Array.set_size</node>
+	</example>
+	<example>
+		<file>GLib.AsyncQueue.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.AsyncQueue.vala</compile>
+		<node>GLib.AsyncQueue</node>
+	</example>
+	<example>
+		<file>GLib.Base64.decode.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Base64.decode.vala</compile>
+		<node>GLib.Base64.decode</node>
+	</example>
+	<example>
+		<file>GLib.Base64.encode.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Base64.encode.vala</compile>
+		<node>GLib.Base64.encode</node>
+	</example>
+	<example>
+		<file>GLib.Bit.storage.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Bit.storage.vala</compile>
+		<node>GLib.Bit.storage</node>
+	</example>
+	<example>
+		<file>GLib.Checksum.compute_for_string.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Checksum.compute_for_string.vala</compile>
+		<node>GLib.Checksum.compute_for_string</node>
+	</example>
+	<example>
+		<file>GLib.Checksum.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Checksum.vala</compile>
+		<node>GLib.Checksum</node>
+	</example>
+	<example>
+		<file>GLib.CompareFunc.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.CompareFunc.vala</compile>
+		<node>GLib.CompareFunc</node>
+	</example>
+	<example>
+		<file>GLib.Cond.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Cond.vala</compile>
+		<node>GLib.Cond</node>
+	</example>
+	<example>
+		<file>GLib.critical.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.critical.vala</compile>
+		<node>GLib.critical</node>
+	</example>
+	<example>
+		<file>GLib.debug.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.debug.vala</compile>
+		<run>G_MESSAGES_DEBUG=all ./GLib.debug</run>
+		<run>./GLib.debug</run>
+		<node>GLib.debug</node>
+	</example>
+	<example>
+		<file>GLib.Dir.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Dir.vala</compile>
+		<node>GLib.Dir</node>
+	</example>
+	<example>
+		<file>GLib.Environ.get.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Environ.get.vala</compile>
+		<node>GLib.Environ.get</node>
+	</example>
+	<example>
+		<file>GLib.Environment.find_program_in_path.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Environment.find_program_in_path.vala</compile>
+		<node>GLib.Environment.find_program_in_path</node>
+	</example>
+	<example>
+		<file>GLib.Environment.get_variable.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Environment.get_variable.vala</compile>
+		<run>G_DEBUG=fatal_criticals ./GLib.Environment.get_variable</run>
+		<node>GLib.Environment.get_variable</node>
+	</example>
+	<example>
+		<file>GLib.Environment.list_variables.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Environment.list_variables.vala</compile>
+		<node>GLib.Environment.list_variables</node>
+	</example>
+	<example>
+		<file>GLib.error.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.error.vala</compile>
+		<node>GLib.error</node>
+	</example>
+	<example>
+		<file>GLib.Error.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Error.vala</compile>
+		<node>GLib.Error</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.clearerr.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.clearerr.vala</compile>
+		<node>GLib.FileStream.clearerr</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.eof.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.eof.vala</compile>
+		<node>GLib.FileStream.eof</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.error.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.error.vala</compile>
+		<node>GLib.FileStream.error</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.flush.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.flush.vala</compile>
+		<node>GLib.FileStream.flush</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.getc.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.getc.vala</compile>
+		<node>GLib.FileStream.getc</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.gets.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.gets.vala</compile>
+		<node>GLib.FileStream.open</node>
+		<node>GLib.FileStream.gets</node>
+		<node>GLib.FileStream</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.printf.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.printf.vala</compile>
+		<node>GLib.FileStream.printf</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.putc.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.putc.vala</compile>
+		<node>GLib.FileStream.putc</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.puts.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.puts.vala</compile>
+		<node>GLib.FileStream.puts</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.read.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.read.vala</compile>
+		<node>GLib.FileStream.read</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.read_line.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.read_line.vala</compile>
+		<node>GLib.FileStream.read_line</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.rewind.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.rewind.vala</compile>
+		<node>GLib.FileStream.rewind</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.scanf.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.scanf.vala</compile>
+		<node>GLib.FileStream.scanf</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.seek.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.seek.vala</compile>
+		<node>GLib.FileStream.seek</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.tell.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.tell.vala</compile>
+		<node>GLib.FileStream.tell</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.ungetc.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.ungetc.vala</compile>
+		<node>GLib.FileStream.ungetc</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.vprintf.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.vprintf.vala</compile>
+		<node>GLib.FileStream.vprintf</node>
+	</example>
+	<example>
+		<file>GLib.FileStream.write.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.write.vala</compile>
+		<node>GLib.FileStream.write</node>
+	</example>
+	<example>
+		<file>GLib.FileUtils.test.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileUtils.test.vala</compile>
+		<node>GLib.FileUtils.test</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.add.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.add.vala</compile>
+		<node>GLib.GenericArray.add</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.data.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.data.vala</compile>
+		<node>GLib.GenericArray.data</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.foreach.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.foreach.vala</compile>
+		<node>GLib.GenericArray.foreach</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.get.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.get.vala</compile>
+		<node>GLib.GenericArray.get</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.index.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.index.vala</compile>
+		<node>GLib.GenericArray.index</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.len.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.len.vala</compile>
+		<node>GLib.GenericArray.len</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.remove.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.remove.vala</compile>
+		<node>GLib.GenericArray.remove</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.remove_fast.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.remove_fast.vala</compile>
+		<node>GLib.GenericArray.remove_fast</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.remove_index.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.remove_index.vala</compile>
+		<node>GLib.GenericArray.remove_index</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.remove_index_fast.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.remove_index_fast.vala</compile>
+		<node>GLib.GenericArray.remove_index_fast</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.remove_range.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.remove_range.vala</compile>
+		<node>GLib.GenericArray.remove_range</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.set.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.set.vala</compile>
+		<node>GLib.GenericArray.set</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.sort.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.sort.vala</compile>
+		<node>GLib.GenericArray.sort</node>
+	</example>
+	<example>
+		<file>GLib.GenericArray.sort_with_data.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericArray.sort_with_data.vala</compile>
+		<node>GLib.GenericArray.sort_with_data</node>
+		<node>GLib.GenericArray</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.add.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.add.vala</compile>
+		<node>GLib.HashTable.add</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.contains.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.contains.vala</compile>
+		<node>GLib.HashTable.contains</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.find.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.find.vala</compile>
+		<node>GLib.HashTable.find</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.foreach.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.foreach.vala</compile>
+		<node>GLib.HashTable.foreach</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.foreach_remove.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.foreach_remove.vala</compile>
+		<node>GLib.HashTable.foreach_remove</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.get.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.get.vala</compile>
+		<node>GLib.HashTable.get</node>
+		<node>GLib.HashTable</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.get_keys.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.get_keys.vala</compile>
+		<node>GLib.HashTable.get_keys</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.get_values.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.get_values.vala</compile>
+		<node>GLib.HashTable.get_values</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.HashTable.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.HashTable.vala</compile>
+		<node>GLib.HashTable.HashTable</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.insert.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.insert.vala</compile>
+		<node>GLib.HashTable.insert</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.lookup.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.lookup.vala</compile>
+		<node>GLib.HashTable.lookup</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.remove.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.remove.vala</compile>
+		<node>GLib.HashTable.remove</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.remove_all.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.remove_all.vala</compile>
+		<node>GLib.HashTable.remove_all</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.replace.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.replace.vala</compile>
+		<node>GLib.HashTable.replace</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.set.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.set.vala</compile>
+		<node>GLib.HashTable.set</node>
+	</example>
+	<example>
+		<file>GLib.HashTable.size.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTable.size.vala</compile>
+		<node>GLib.HashTable.size</node>
+	</example>
+	<example>
+		<file>GLib.HashTableIter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.HashTableIter.vala</compile>
+		<node>GLib.HashTableIter</node>
+	</example>
+	<example>
+		<file>GLib.IOChannel.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.IOChannel.vala</compile>
+		<node>GLib.IOChannel</node>
+	</example>
+	<example>
+		<file>GLib.KeyFile.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.KeyFile.vala</compile>
+		<node>GLib.KeyFile</node>
+	</example>
+	<example>
+		<file>GLib.List.append.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.append.vala</compile>
+		<node>GLib.List.append</node>
+	</example>
+	<example>
+		<file>GLib.List.concat.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.concat.vala</compile>
+		<node>GLib.List.concat</node>
+	</example>
+	<example>
+		<file>GLib.List.copy.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.copy.vala</compile>
+		<node>GLib.List.copy</node>
+	</example>
+	<example>
+		<file>GLib.List.delete_link.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.delete_link.vala</compile>
+		<node>GLib.List.delete_link</node>
+	</example>
+	<example>
+		<file>GLib.List.find.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.find.vala</compile>
+		<node>GLib.List.find</node>
+	</example>
+	<example>
+		<file>GLib.List.find_custom.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.find_custom.vala</compile>
+		<node>GLib.List.find_custom</node>
+	</example>
+	<example>
+		<file>GLib.List.first.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.first.vala</compile>
+		<node>GLib.List.first</node>
+	</example>
+	<example>
+		<file>GLib.List.foreach.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.foreach.vala</compile>
+		<node>GLib.List.foreach</node>
+		<node>GLib.List</node>
+	</example>
+	<example>
+		<file>GLib.List.index.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.index.vala</compile>
+		<node>GLib.List.index</node>
+	</example>
+	<example>
+		<file>GLib.List.insert.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.insert.vala</compile>
+		<node>GLib.List.insert</node>
+	</example>
+	<example>
+		<file>GLib.List.insert_before.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.insert_before.vala</compile>
+		<node>GLib.List.insert_before</node>
+	</example>
+	<example>
+		<file>GLib.List.insert_sorted.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.insert_sorted.vala</compile>
+		<node>GLib.List.insert_sorted</node>
+	</example>
+	<example>
+		<file>GLib.List.insert_sorted_with_data.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.insert_sorted_with_data.vala</compile>
+		<node>GLib.List.insert_sorted_with_data</node>
+	</example>
+	<example>
+		<file>GLib.List.last.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.last.vala</compile>
+		<node>GLib.List.last</node>
+	</example>
+	<example>
+		<file>GLib.List.length.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.length.vala</compile>
+		<node>GLib.List.length</node>
+	</example>
+	<example>
+		<file>GLib.List.nth.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.nth.vala</compile>
+		<node>GLib.List.nth</node>
+	</example>
+	<example>
+		<file>GLib.List.nth_data.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.nth_data.vala</compile>
+		<node>GLib.List.nth_data</node>
+	</example>
+	<example>
+		<file>GLib.List.nth_prev.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.nth_prev.vala</compile>
+		<node>GLib.List.nth_prev</node>
+	</example>
+	<example>
+		<file>GLib.List.position.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.position.vala</compile>
+		<node>GLib.List.position</node>
+	</example>
+	<example>
+		<file>GLib.List.prepend.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.prepend.vala</compile>
+		<node>GLib.List.prepend</node>
+	</example>
+	<example>
+		<file>GLib.List.remove.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.remove.vala</compile>
+		<node>GLib.List.remove</node>
+	</example>
+	<example>
+		<file>GLib.List.remove_all.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.remove_all.vala</compile>
+		<node>GLib.List.remove_all</node>
+	</example>
+	<example>
+		<file>GLib.List.remove_link.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.remove_link.vala</compile>
+		<node>GLib.List.remove_link</node>
+	</example>
+	<example>
+		<file>GLib.List.reverse.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.reverse.vala</compile>
+		<node>GLib.List.reverse</node>
+	</example>
+	<example>
+		<file>GLib.List.sort.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.sort.vala</compile>
+		<node>GLib.List.sort</node>
+	</example>
+	<example>
+		<file>GLib.List.sort_with_data.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.List.sort_with_data.vala</compile>
+		<node>GLib.List.sort_with_data</node>
+	</example>
+	<example>
+		<file>GLib.MainLoop.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.MainLoop.vala</compile>
+		<node>GLib.MainLoop</node>
+	</example>
+	<example>
+		<file>GLib.MappedFile.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.MappedFile.vala</compile>
+		<node>GLib.MappedFile</node>
+	</example>
+	<example>
+		<file>GLib.MarkupParser.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.MarkupParser.vala</compile>
+		<node>GLib.MarkupParseContext</node>
+		<node>GLib.MarkupParser</node>
+	</example>
+	<example>
+		<file>GLib.Math.acos.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.acos.vala</compile>
+		<node>GLib.Math.acos</node>
+	</example>
+	<example>
+		<file>GLib.Math.acosf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.acosf.vala</compile>
+		<node>GLib.Math.acosf</node>
+	</example>
+	<example>
+		<file>GLib.Math.asin.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.asin.vala</compile>
+		<node>GLib.Math.asin</node>
+	</example>
+	<example>
+		<file>GLib.Math.asinf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.asinf.vala</compile>
+		<node>GLib.Math.asinf</node>
+	</example>
+	<example>
+		<file>GLib.Math.atan.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.atan.vala</compile>
+		<node>GLib.Math.atan</node>
+	</example>
+	<example>
+		<file>GLib.Math.atan2.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.atan2.vala</compile>
+		<node>GLib.Math.atan2</node>
+	</example>
+	<example>
+		<file>GLib.Math.atan2f.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.atan2f.vala</compile>
+		<node>GLib.Math.atan2f</node>
+	</example>
+	<example>
+		<file>GLib.Math.atanf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.atanf.vala</compile>
+		<node>GLib.Math.atanf</node>
+	</example>
+	<example>
+		<file>GLib.Math.ceil.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.ceil.vala</compile>
+		<node>GLib.Math.ceil</node>
+	</example>
+	<example>
+		<file>GLib.Math.ceilf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.ceilf.vala</compile>
+		<node>GLib.Math.ceilf</node>
+	</example>
+	<example>
+		<file>GLib.Math.cos.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.cos.vala</compile>
+		<node>GLib.Math.cos</node>
+	</example>
+	<example>
+		<file>GLib.Math.cosf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.cosf.vala</compile>
+		<node>GLib.Math.cosf</node>
+	</example>
+	<example>
+		<file>GLib.Math.floor.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.floor.vala</compile>
+		<node>GLib.Math.floor</node>
+	</example>
+	<example>
+		<file>GLib.Math.floorf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.floorf.vala</compile>
+		<node>GLib.Math.floorf</node>
+	</example>
+	<example>
+		<file>GLib.Math.llround.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.llround.vala</compile>
+		<node>GLib.Math.llround</node>
+	</example>
+	<example>
+		<file>GLib.Math.llroundf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.llroundf.vala</compile>
+		<node>GLib.Math.llroundf</node>
+	</example>
+	<example>
+		<file>GLib.Math.lround.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.lround.vala</compile>
+		<node>GLib.Math.lround</node>
+	</example>
+	<example>
+		<file>GLib.Math.lroundf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.lroundf.vala</compile>
+		<node>GLib.Math.lroundf</node>
+	</example>
+	<example>
+		<file>GLib.Math.pow.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.pow.vala</compile>
+		<node>GLib.Math.pow</node>
+	</example>
+	<example>
+		<file>GLib.Math.pow10.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.pow10.vala</compile>
+		<node>GLib.Math.pow10</node>
+	</example>
+	<example>
+		<file>GLib.Math.pow10f.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.pow10f.vala</compile>
+		<node>GLib.Math.pow10f</node>
+	</example>
+	<example>
+		<file>GLib.Math.powf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.powf.vala</compile>
+		<node>GLib.Math.powf</node>
+	</example>
+	<example>
+		<file>GLib.Math.round.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.round.vala</compile>
+		<node>GLib.Math.round</node>
+	</example>
+	<example>
+		<file>GLib.Math.roundf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.roundf.vala</compile>
+		<node>GLib.Math.roundf</node>
+	</example>
+	<example>
+		<file>GLib.Math.sin.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.sin.vala</compile>
+		<node>GLib.Math.sin</node>
+	</example>
+	<example>
+		<file>GLib.Math.sinf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.sinf.vala</compile>
+		<node>GLib.Math.sinf</node>
+	</example>
+	<example>
+		<file>GLib.Math.sqrt.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.sqrt.vala</compile>
+		<node>GLib.Math.sqrt</node>
+	</example>
+	<example>
+		<file>GLib.Math.sqrtf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.sqrtf.vala</compile>
+		<node>GLib.Math.sqrtf</node>
+	</example>
+	<example>
+		<file>GLib.Math.tan.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.tan.vala</compile>
+		<node>GLib.Math.tan</node>
+	</example>
+	<example>
+		<file>GLib.Math.tanf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.tanf.vala</compile>
+		<node>GLib.Math.tanf</node>
+	</example>
+	<example>
+		<file>GLib.Math.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.vala</compile>
+		<node>GLib.Math</node>
+	</example>
+	<example>
+		<file>GLib.Memory.cmp.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Memory.cmp.vala</compile>
+		<node>GLib.Memory.cmp</node>
+	</example>
+	<example>
+		<file>GLib.Memory.copy.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Memory.copy.vala</compile>
+		<node>GLib.Memory.copy</node>
+	</example>
+	<example>
+		<file>GLib.Memory.dup.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Memory.dup.vala</compile>
+		<node>GLib.Memory.dup</node>
+	</example>
+	<example>
+		<file>GLib.Memory.move.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Memory.move.vala</compile>
+		<node>GLib.Memory.move</node>
+	</example>
+	<example>
+		<file>GLib.Memory.set.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Memory.set.vala</compile>
+		<node>GLib.Memory.set</node>
+	</example>
+	<example>
+		<file>GLib.message.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.message.vala</compile>
+		<node>GLib.message</node>
+	</example>
+	<example>
+		<file>GLib.Mutex.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Mutex.vala</compile>
+		<node>GLib.Mutex</node>
+	</example>
+	<example>
+		<file>GLib.OptionContext.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.OptionContext.vala</compile>
+		<node>GLib.OptionContext</node>
+		<node>GLib.OptionArg</node>
+		<node>GLib.OptionEntry</node>
+	</example>
+	<example>
+		<file>GLib.Path.build_filename.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Path.build_filename.vala</compile>
+		<node>GLib.Path.build_filename</node>
+	</example>
+	<example>
+		<file>GLib.Path.build_path.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Path.build_path.vala</compile>
+		<node>GLib.Path.build_path</node>
+	</example>
+	<example>
+		<file>GLib.Path.DIR_SEPARATOR.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Path.DIR_SEPARATOR.vala</compile>
+		<node>GLib.Path.DIR_SEPARATOR</node>
+	</example>
+	<example>
+		<file>GLib.Path.DIR_SEPARATOR_S.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Path.DIR_SEPARATOR_S.vala</compile>
+		<node>GLib.Path.DIR_SEPARATOR_S</node>
+	</example>
+	<example>
+		<file>GLib.Path.get_basename.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Path.get_basename.vala</compile>
+		<node>GLib.Path.get_basename</node>
+	</example>
+	<example>
+		<file>GLib.Path.get_dirname.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Path.get_dirname.vala</compile>
+		<node>GLib.Path.get_dirname</node>
+	</example>
+	<example>
+		<file>GLib.Path.is_absolute.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Path.is_absolute.vala</compile>
+		<node>GLib.Path.is_absolute</node>
+	</example>
+	<example>
+		<file>GLib.Path.is_dir_separator.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Path.is_dir_separator.vala</compile>
+		<node>GLib.Path.is_dir_separator</node>
+	</example>
+	<example>
+		<file>GLib.Path.SEARCHPATH_SEPARATOR.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Path.SEARCHPATH_SEPARATOR.vala</compile>
+		<node>GLib.Path.SEARCHPATH_SEPARATOR</node>
+	</example>
+	<example>
+		<file>GLib.Path.SEARCHPATH_SEPARATOR_S.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Path.SEARCHPATH_SEPARATOR_S.vala</compile>
+		<node>GLib.Path.SEARCHPATH_SEPARATOR_S</node>
+	</example>
+	<example>
+		<file>GLib.Path.skip_root.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Path.skip_root.vala</compile>
+		<node>GLib.Path.skip_root</node>
+	</example>
+	<example>
+		<file>GLib.PatternSpec.equal.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PatternSpec.equal.vala</compile>
+		<node>GLib.PatternSpec.equal</node>
+	</example>
+	<example>
+		<file>GLib.PatternSpec.match.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PatternSpec.match.vala</compile>
+		<node>GLib.PatternSpec.match</node>
+		<node>GLib.PatternSpec</node>
+	</example>
+	<example>
+		<file>GLib.PatternSpec.match_simple.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PatternSpec.match_simple.vala</compile>
+		<node>GLib.PatternSpec.match_simple</node>
+	</example>
+	<example>
+		<file>GLib.PatternSpec.match_string.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PatternSpec.match_string.vala</compile>
+		<node>GLib.PatternSpec.match_string</node>
+	</example>
+	<example>
+		<file>GLib.Process.abort.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Process.abort.vala</compile>
+		<node>GLib.Process.abort</node>
+	</example>
+	<example>
+		<file>GLib.Process.exit.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Process.exit.vala</compile>
+		<node>GLib.Process.exit</node>
+	</example>
+	<example>
+		<file>GLib.Process.spawn_async.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Process.spawn_async.vala</compile>
+		<node>GLib.Process.spawn_async</node>
+	</example>
+	<example>
+		<file>GLib.Process.spawn_async_with_pipes.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Process.spawn_async_with_pipes.vala</compile>
+		<node>GLib.Process.spawn_async_with_pipes</node>
+		<node>GLib.ChildWatch</node>
+		<node>GLib.Pid</node>
+	</example>
+	<example>
+		<file>GLib.Process.spawn_command_line_async.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Process.spawn_command_line_async.vala</compile>
+		<node>GLib.Process.spawn_command_line_async</node>
+	</example>
+	<example>
+		<file>GLib.Process.spawn_command_line_sync.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Process.spawn_command_line_sync.vala</compile>
+		<node>GLib.Process.spawn_command_line_sync</node>
+	</example>
+	<example>
+		<file>GLib.Process.spawn_sync.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Process.spawn_sync.vala</compile>
+		<node>GLib.Process.spawn_sync</node>
+	</example>
+	<example>
+		<file>GLib.PtrArray.add.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PtrArray.add.vala</compile>
+		<node>GLib.PtrArray.add</node>
+	</example>
+	<example>
+		<file>GLib.PtrArray.foreach.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PtrArray.foreach.vala</compile>
+		<node>GLib.PtrArray.foreach</node>
+		<node>GLib.PtrArray</node>
+	</example>
+	<example>
+		<file>GLib.PtrArray.index.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PtrArray.index.vala</compile>
+		<node>GLib.PtrArray.index</node>
+	</example>
+	<example>
+		<file>GLib.PtrArray.len.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PtrArray.len.vala</compile>
+		<node>GLib.PtrArray.len</node>
+	</example>
+	<example>
+		<file>GLib.PtrArray.PtrArray.with_free_func.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PtrArray.PtrArray.with_free_func.vala</compile>
+		<node>GLib.PtrArray.PtrArray.with_free_func</node>
+	</example>
+	<example>
+		<file>GLib.PtrArray.remove.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove.vala</compile>
+		<node>GLib.PtrArray.remove</node>
+	</example>
+	<example>
+		<file>GLib.PtrArray.remove_fast.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove_fast.vala</compile>
+		<node>GLib.PtrArray.remove_fast</node>
+	</example>
+	<example>
+		<file>GLib.PtrArray.remove_index.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove_index.vala</compile>
+		<node>GLib.PtrArray.remove_index</node>
+	</example>
+	<example>
+		<file>GLib.PtrArray.remove_index_fast.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove_index_fast.vala</compile>
+		<node>GLib.PtrArray.remove_index_fast</node>
+	</example>
+	<example>
+		<file>GLib.PtrArray.remove_range.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove_range.vala</compile>
+		<node>GLib.PtrArray.remove_range</node>
+	</example>
+	<example>
+		<file>GLib.PtrArray.set_free_func.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PtrArray.set_free_func.vala</compile>
+		<node>GLib.PtrArray.set_free_func</node>
+	</example>
+	<example>
+		<file>GLib.PtrArray.sort.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PtrArray.sort.vala</compile>
+		<node>GLib.PtrArray.sort</node>
+	</example>
+	<example>
+		<file>GLib.Quark.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Quark.vala</compile>
+		<node>GLib.Quark</node>
+	</example>
+	<example>
+		<file>GLib.Queue.clear.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.clear.vala</compile>
+		<node>GLib.Queue.clear</node>
+	</example>
+	<example>
+		<file>GLib.Queue.copy.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.copy.vala</compile>
+		<node>GLib.Queue.copy</node>
+	</example>
+	<example>
+		<file>GLib.Queue.delete_link.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.delete_link.vala</compile>
+		<node>GLib.Queue.delete_link</node>
+	</example>
+	<example>
+		<file>GLib.Queue.find.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.find.vala</compile>
+		<node>GLib.Queue.find</node>
+	</example>
+	<example>
+		<file>GLib.Queue.find_custom.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.find_custom.vala</compile>
+		<node>GLib.Queue.find_custom</node>
+	</example>
+	<example>
+		<file>GLib.Queue.get_length.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.get_length.vala</compile>
+		<node>GLib.Queue.get_length</node>
+	</example>
+	<example>
+		<file>GLib.Queue.index.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.index.vala</compile>
+		<node>GLib.Queue.index</node>
+	</example>
+	<example>
+		<file>GLib.Queue.insert_after.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.insert_after.vala</compile>
+		<node>GLib.Queue.insert_after</node>
+	</example>
+	<example>
+		<file>GLib.Queue.insert_before.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.insert_before.vala</compile>
+		<node>GLib.Queue.insert_before</node>
+	</example>
+	<example>
+		<file>GLib.Queue.insert_sorted.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.insert_sorted.vala</compile>
+		<node>GLib.Queue.insert_sorted</node>
+	</example>
+	<example>
+		<file>GLib.Queue.is_empty.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.is_empty.vala</compile>
+		<node>GLib.Queue.is_empty</node>
+	</example>
+	<example>
+		<file>GLib.Queue.length.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.length.vala</compile>
+		<node>GLib.Queue.length</node>
+	</example>
+	<example>
+		<file>GLib.Queue.peek_head.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.peek_head.vala</compile>
+		<node>GLib.Queue.peek_head</node>
+	</example>
+	<example>
+		<file>GLib.Queue.peek_nth.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.peek_nth.vala</compile>
+		<node>GLib.Queue.peek_nth</node>
+	</example>
+	<example>
+		<file>GLib.Queue.peek_tail.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.peek_tail.vala</compile>
+		<node>GLib.Queue.peek_tail</node>
+	</example>
+	<example>
+		<file>GLib.Queue.pop_head.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.pop_head.vala</compile>
+		<node>GLib.Queue.pop_head</node>
+	</example>
+	<example>
+		<file>GLib.Queue.pop_nth.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.pop_nth.vala</compile>
+		<node>GLib.Queue.pop_nth</node>
+	</example>
+	<example>
+		<file>GLib.Queue.pop_tail.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.pop_tail.vala</compile>
+		<node>GLib.Queue.pop_tail</node>
+	</example>
+	<example>
+		<file>GLib.Queue.push_head.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.push_head.vala</compile>
+		<node>GLib.Queue.push_head</node>
+	</example>
+	<example>
+		<file>GLib.Queue.push_nth.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.push_nth.vala</compile>
+		<node>GLib.Queue.push_nth</node>
+	</example>
+	<example>
+		<file>GLib.Queue.push_tail.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.push_tail.vala</compile>
+		<node>GLib.Queue.push_tail</node>
+	</example>
+	<example>
+		<file>GLib.Queue.remove.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.remove.vala</compile>
+		<node>GLib.Queue.remove</node>
+	</example>
+	<example>
+		<file>GLib.Queue.remove_all.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.remove_all.vala</compile>
+		<node>GLib.Queue.remove_all</node>
+	</example>
+	<example>
+		<file>GLib.Queue.reverse.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.reverse.vala</compile>
+		<node>GLib.Queue.reverse</node>
+	</example>
+	<example>
+		<file>GLib.Queue.sort.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.sort.vala</compile>
+		<node>GLib.Queue.sort</node>
+	</example>
+	<example>
+		<file>GLib.Queue.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Queue.vala</compile>
+		<node>GLib.Queue</node>
+	</example>
+	<example>
+		<file>GLib.RecMutex.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.RecMutex.vala</compile>
+		<node>GLib.RecMutex</node>
+	</example>
+	<example>
+		<file>GLib.Regex.escape_string.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Regex.escape_string.vala</compile>
+		<node>GLib.Regex.escape_string</node>
+	</example>
+	<example>
+		<file>GLib.Regex.match.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Regex.match.vala</compile>
+		<node>GLib.Regex.match</node>
+	</example>
+	<example>
+		<file>GLib.Regex.match_simple.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Regex.match_simple.vala</compile>
+		<node>GLib.Regex.match_simple</node>
+	</example>
+	<example>
+		<file>GLib.Regex.replace.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Regex.replace.vala</compile>
+		<node>GLib.Regex.replace</node>
+	</example>
+	<example>
+		<file>GLib.Regex.replace_literal.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Regex.replace_literal.vala</compile>
+		<node>GLib.Regex.replace_literal</node>
+	</example>
+	<example>
+		<file>GLib.Regex.split_simple.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Regex.split_simple.vala</compile>
+		<node>GLib.Regex.split_simple</node>
+	</example>
+	<example>
+		<file>GLib.RWLock.vala</file>
+		<compile>valac --target-glib=2.32 GLib.RWLock.vala</compile>
+		<node>GLib.RWLock</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.append.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.append.vala</compile>
+		<node>GLib.Sequence.append</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.foreach.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.foreach.vala</compile>
+		<node>GLib.Sequence.foreach</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.foreach_range.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.foreach_range.vala</compile>
+		<node>GLib.Sequence.foreach_range</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.get.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.get.vala</compile>
+		<node>GLib.Sequence.get</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.get_begin_iter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.get_begin_iter.vala</compile>
+		<node>GLib.Sequence.get_begin_iter</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.get_end_iter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.get_end_iter.vala</compile>
+		<node>GLib.Sequence.get_end_iter</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.get_iter_at_pos.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.get_iter_at_pos.vala</compile>
+		<node>GLib.Sequence.get_iter_at_pos</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.get_length.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.get_length.vala</compile>
+		<node>GLib.Sequence.get_length</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.get_pos_iter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.get_pos_iter.vala</compile>
+		<node>GLib.Sequence.get_pos_iter</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.insert_before.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.insert_before.vala</compile>
+		<node>GLib.Sequence.insert_before</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.insert_sorted.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.insert_sorted.vala</compile>
+		<node>GLib.Sequence.insert_sorted</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.insert_sorted_iter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.insert_sorted_iter.vala</compile>
+		<node>GLib.Sequence.insert_sorted_iter</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.lookup.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.lookup.vala</compile>
+		<node>GLib.Sequence.lookup</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.lookup_iter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.lookup_iter.vala</compile>
+		<node>GLib.Sequence.lookup_iter</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.move.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.move.vala</compile>
+		<node>GLib.Sequence.move</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.move_range.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.move_range.vala</compile>
+		<node>GLib.Sequence.move_range</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.prepend.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.prepend.vala</compile>
+		<node>GLib.Sequence.prepend</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.range_get_midpoint.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.range_get_midpoint.vala</compile>
+		<node>GLib.Sequence.range_get_midpoint</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.remove.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.remove.vala</compile>
+		<node>GLib.Sequence.remove</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.remove_range.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.remove_range.vala</compile>
+		<node>GLib.Sequence.remove_range</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.search.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.search.vala</compile>
+		<node>GLib.Sequence.search</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.search_iter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.search_iter.vala</compile>
+		<node>GLib.Sequence.search_iter</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.set.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.set.vala</compile>
+		<node>GLib.Sequence.set</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.sort.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.sort.vala</compile>
+		<node>GLib.Sequence.sort</node>
+		<node>GLib.Sequence</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.sort_changed.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.sort_changed.vala</compile>
+		<node>GLib.Sequence.sort_changed</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.sort_changed_iter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.sort_changed_iter.vala</compile>
+		<node>GLib.Sequence.sort_changed_iter</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.sort_iter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.sort_iter.vala</compile>
+		<node>GLib.Sequence.sort_iter</node>
+	</example>
+	<example>
+		<file>GLib.Sequence.swap.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.swap.vala</compile>
+		<node>GLib.Sequence.swap</node>
+	</example>
+	<example>
+		<file>GLib.SequenceIter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SequenceIter.vala</compile>
+		<node>GLib.SequenceIter</node>
+	</example>
+	<example>
+		<file>GLib.Shell.parse_argv.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Shell.parse_argv.vala</compile>
+		<node>GLib.Shell.parse_argv</node>
+	</example>
+	<example>
+		<file>GLib.Shell.quote.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Shell.quote.vala</compile>
+		<node>GLib.Shell.quote</node>
+	</example>
+	<example>
+		<file>GLib.Shell.unquote.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Shell.unquote.vala</compile>
+		<node>GLib.Shell.unquote</node>
+	</example>
+	<example>
+		<file>GLib.SList.append.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.append.vala</compile>
+		<node>GLib.SList.append</node>
+	</example>
+	<example>
+		<file>GLib.SList.concat.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.concat.vala</compile>
+		<node>GLib.SList.concat</node>
+	</example>
+	<example>
+		<file>GLib.SList.copy.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.copy.vala</compile>
+		<node>GLib.SList.copy</node>
+	</example>
+	<example>
+		<file>GLib.SList.delete_link.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.delete_link.vala</compile>
+		<node>GLib.SList.delete_link</node>
+	</example>
+	<example>
+		<file>GLib.SList.find.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.find.vala</compile>
+		<node>GLib.SList.find</node>
+	</example>
+	<example>
+		<file>GLib.SList.find_custom.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.find_custom.vala</compile>
+		<node>GLib.SList.find_custom</node>
+	</example>
+	<example>
+		<file>GLib.SList.foreach.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.foreach.vala</compile>
+		<node>GLib.SList.foreach</node>
+	</example>
+	<example>
+		<file>GLib.SList.index.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.index.vala</compile>
+		<node>GLib.SList.index</node>
+	</example>
+	<example>
+		<file>GLib.SList.insert.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.insert.vala</compile>
+		<node>GLib.SList.insert</node>
+	</example>
+	<example>
+		<file>GLib.SList.insert_before.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.insert_before.vala</compile>
+		<node>GLib.SList.insert_before</node>
+	</example>
+	<example>
+		<file>GLib.SList.insert_sorted.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.insert_sorted.vala</compile>
+		<node>GLib.SList.insert_sorted</node>
+	</example>
+	<example>
+		<file>GLib.SList.insert_sorted_with_data.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.insert_sorted_with_data.vala</compile>
+		<node>GLib.SList.insert_sorted_with_data</node>
+	</example>
+	<example>
+		<file>GLib.SList.last.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.last.vala</compile>
+		<node>GLib.SList.last</node>
+	</example>
+	<example>
+		<file>GLib.SList.length.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.length.vala</compile>
+		<node>GLib.SList.length</node>
+	</example>
+	<example>
+		<file>GLib.SList.nth.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.nth.vala</compile>
+		<node>GLib.SList.nth</node>
+	</example>
+	<example>
+		<file>GLib.SList.nth_data.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.nth_data.vala</compile>
+		<node>GLib.SList.nth_data</node>
+	</example>
+	<example>
+		<file>GLib.SList.position.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.position.vala</compile>
+		<node>GLib.SList.position</node>
+	</example>
+	<example>
+		<file>GLib.SList.prepend.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.prepend.vala</compile>
+		<node>GLib.SList.prepend</node>
+	</example>
+	<example>
+		<file>GLib.SList.remove.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.remove.vala</compile>
+		<node>GLib.SList.remove</node>
+	</example>
+	<example>
+		<file>GLib.SList.remove_all.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.remove_all.vala</compile>
+		<node>GLib.SList.remove_all</node>
+	</example>
+	<example>
+		<file>GLib.SList.remove_link.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.remove_link.vala</compile>
+		<node>GLib.SList.remove_link</node>
+	</example>
+	<example>
+		<file>GLib.SList.reverse.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.reverse.vala</compile>
+		<node>GLib.SList.reverse</node>
+	</example>
+	<example>
+		<file>GLib.SList.sort.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.sort.vala</compile>
+		<node>GLib.SList.sort</node>
+	</example>
+	<example>
+		<file>GLib.SList.sort_with_data.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SList.sort_with_data.vala</compile>
+		<node>GLib.SList.sort_with_data</node>
+	</example>
+	<example>
+		<file>GLib.SpacedPrimes.closest.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SpacedPrimes.closest.vala</compile>
+		<node>GLib.SpacedPrimes.closest</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.append.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.append.vala</compile>
+		<node>GLib.StringBuilder.append</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.append_c.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.append_c.vala</compile>
+		<node>GLib.StringBuilder.append_c</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.append_len.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.append_len.vala</compile>
+		<node>GLib.StringBuilder.append_len</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.append_printf.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.append_printf.vala</compile>
+		<node>GLib.StringBuilder.append_printf</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.append_unichar.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.append_unichar.vala</compile>
+		<node>GLib.StringBuilder.append_unichar</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.append_vprintf.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.append_vprintf.vala</compile>
+		<node>GLib.StringBuilder.append_vprintf</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.assign.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.assign.vala</compile>
+		<node>GLib.StringBuilder.assign</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.erase.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.erase.vala</compile>
+		<node>GLib.StringBuilder.erase</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.insert.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.insert.vala</compile>
+		<node>GLib.StringBuilder.insert</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.insert_unichar.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.insert_unichar.vala</compile>
+		<node>GLib.StringBuilder.insert_unichar</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.prepend.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.prepend.vala</compile>
+		<node>GLib.StringBuilder.prepend</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.prepend_c.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.prepend_c.vala</compile>
+		<node>GLib.StringBuilder.prepend_c</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.prepend_len.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.prepend_len.vala</compile>
+		<node>GLib.StringBuilder.prepend_len</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.prepend_unichar.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.prepend_unichar.vala</compile>
+		<node>GLib.StringBuilder.prepend_unichar</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.printf.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.printf.vala</compile>
+		<node>GLib.StringBuilder.printf</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.truncate.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.truncate.vala</compile>
+		<node>GLib.StringBuilder.truncate</node>
+	</example>
+	<example>
+		<file>GLib.StringBuilder.vprintf.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.StringBuilder.vprintf.vala</compile>
+		<node>GLib.StringBuilder.vprintf</node>
+	</example>
+	<example>
+		<file>GLib.Test.add_func.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.add_func.vala</compile>
+		<run>./GLib.Test.add_func --verbose</run>
+		<node>GLib.Test.add_func</node>
+	</example>
+	<example>
+		<file>GLib.Test.bug.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.bug.vala</compile>
+		<run>./GLib.Test.bug --verbose</run>
+		<node>GLib.Test.bug</node>
+	</example>
+	<example>
+		<file>GLib.Test.bug_base.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.bug_base.vala</compile>
+		<run>./GLib.Test.bug_base --verbose</run>
+		<node>GLib.Test.bug_base</node>
+	</example>
+	<example>
+		<file>GLib.Test.fail.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.fail.vala</compile>
+		<run>./GLib.Test.fail --verbose</run>
+		<node>GLib.Test.fail</node>
+	</example>
+	<example>
+		<file>GLib.Test.init.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.init.vala</compile>
+		<node>GLib.Test.init</node>
+	</example>
+	<example>
+		<file>GLib.Test.message.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.message.vala</compile>
+		<run>./test --verbose</run>
+		<node>GLib.Test.message</node>
+	</example>
+	<example>
+		<file>GLib.Test.minimized_result.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.minimized_result.vala</compile>
+		<run>./GLib.Test.minimized_result --verbose</run>
+		<node>GLib.Test.timer_elapsed</node>
+		<node>GLib.Test.timer_start</node>
+		<node>GLib.Test.timer_last</node>
+		<node>GLib.Test.minimized_result</node>
+		<node>GLib.Test.maximized_result</node>
+		<node>GLib.Test.minimized_result</node>
+	</example>
+	<example>
+		<file>GLib.Test.rand_bit.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.rand_bit.vala</compile>
+		<run>./GLib.Test.rand_bit --verbose --seed R02S855b50e66c1a59011b2cd8f4c28c9996</run>
+		<node>GLib.Test.rand_bit</node>
+	</example>
+	<example>
+		<file>GLib.Test.rand_double.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.rand_double.vala</compile>
+		<run>./GLib.Test.rand_double --verbose --seed R02S855b50e66c1a59011b2cd8f4c28c9996</run>
+		<node>GLib.Test.rand_double</node>
+	</example>
+	<example>
+		<file>GLib.Test.rand_double_range.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.rand_double_range.vala</compile>
+		<run>./GLib.Test.rand_double_range --verbose --seed R02S855b50e66c1a59011b2cd8f4c28c9996</run>
+		<node>GLib.Test.rand_double_range</node>
+	</example>
+	<example>
+		<file>GLib.Test.rand_int.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.rand_int.vala</compile>
+		<run>./GLib.Test.rand_int --verbose --seed R02S855b50e66c1a59011b2cd8f4c28c9996</run>
+		<node>GLib.Test.rand_int</node>
+	</example>
+	<example>
+		<file>GLib.Test.rand_int_range.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.rand_int_range.vala</compile>
+		<run>./GLib.Test.rand_int_range --verbose --seed R02S855b50e66c1a59011b2cd8f4c28c9996</run>
+		<node>GLib.Test.rand_int_range</node>
+	</example>
+	<example>
+		<file>GLib.Test.run.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.run.vala</compile>
+		<run>./GLib.Test.run --keep-going</run>
+		<node>GLib.Test.run</node>
+	</example>
+	<example>
+		<file>GLib.Test.trap_assert_failed.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.trap_assert_failed.vala</compile>
+		<run>./GLib.Test.trap_assert_failed --verbose</run>
+		<node>GLib.Test.trap_assert_failed</node>
+	</example>
+	<example>
+		<file>GLib.Test.trap_assert_passed.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.trap_assert_passed.vala</compile>
+		<run>./GLib.Test.trap_assert_passed --verbose</run>
+		<node>GLib.Test.trap_assert_passed</node>
+	</example>
+	<example>
+		<file>GLib.Test.trap_assert_stderr.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.trap_assert_stderr.vala</compile>
+		<run>./GLib.Test.trap_assert_stderr --verbose</run>
+		<node>GLib.Test.trap_assert_stderr</node>
+	</example>
+	<example>
+		<file>GLib.Test.trap_assert_stderr_unmatched.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.trap_assert_stderr_unmatched.vala</compile>
+		<run>./GLib.Test.trap_assert_stderr_unmatched --verbose</run>
+		<node>GLib.Test.trap_assert_stderr_unmatched</node>
+	</example>
+	<example>
+		<file>GLib.Test.trap_assert_stdout.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.trap_assert_stdout.vala</compile>
+		<run>./GLib.Test.trap_assert_stdout --verbose</run>
+		<node>GLib.Test.trap_assert_stdout</node>
+	</example>
+	<example>
+		<file>GLib.Test.trap_assert_stdout_unmatched.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.trap_assert_stdout_unmatched.vala</compile>
+		<run>./GLib.Test.trap_assert_stdout_unmatched --verbose</run>
+		<node>GLib.Test.trap_assert_stdout_unmatched</node>
+	</example>
+	<example>
+		<file>GLib.Test.trap_fork.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.trap_fork.vala</compile>
+		<run>./GLib.Test.trap_fork --verbose</run>
+		<node>GLib.Test.trap_fork</node>
+	</example>
+	<example>
+		<file>GLib.Test.trap_has_passed.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.trap_has_passed.vala</compile>
+		<run>./GLib.Test.trap_has_passed --verbose</run>
+		<node>GLib.Test.trap_has_passed</node>
+	</example>
+	<example>
+		<file>GLib.Test.trap_reached_timeout.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.trap_reached_timeout.vala</compile>
+		<run>./GLib.Test.trap_reached_timeout --verbose</run>
+		<node>GLib.Test.trap_reached_timeout</node>
+	</example>
+	<example>
+		<file>GLib.Thread.vala</file>
+		<compile>valac --pkg glib-2.0 --target-glib=2.32 GLib.Thread.vala</compile>
+		<node>GLib.Thread</node>
+	</example>
+	<example>
+		<file>GLib.ThreadPool.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.ThreadPool.vala</compile>
+		<node>GLib.ThreadPool</node>
+	</example>
+	<example>
+		<file>GLib.TimeoutSource.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.TimeoutSource.vala</compile>
+		<node>GLib.TimeoutSource</node>
+	</example>
+	<example>
+		<file>GLib.Timer.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Timer.vala</compile>
+		<node>GLib.Timer</node>
+	</example>
+	<example>
+		<file>GLib.Tree.foreach.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Tree.foreach.vala</compile>
+		<node>GLib.Tree.foreach</node>
+		<node>GLib.Tree</node>
+	</example>
+	<example>
+		<file>GLib.Tree.height.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Tree.height.vala</compile>
+		<node>GLib.Tree.height</node>
+	</example>
+	<example>
+		<file>GLib.Tree.insert.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Tree.insert.vala</compile>
+		<node>GLib.Tree.insert</node>
+	</example>
+	<example>
+		<file>GLib.Tree.lookup.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Tree.lookup.vala</compile>
+		<node>GLib.Tree.lookup</node>
+	</example>
+	<example>
+		<file>GLib.Tree.lookup_extended.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Tree.lookup_extended.vala</compile>
+		<node>GLib.Tree.lookup_extended</node>
+	</example>
+	<example>
+		<file>GLib.Tree.nnodes.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Tree.nnodes.vala</compile>
+		<node>GLib.Tree.nnodes</node>
+	</example>
+	<example>
+		<file>GLib.Tree.remove.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Tree.remove.vala</compile>
+		<node>GLib.Tree.remove</node>
+	</example>
+	<example>
+		<file>GLib.Tree.replace.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Tree.replace.vala</compile>
+		<node>GLib.Tree.replace</node>
+	</example>
+	<example>
+		<file>GLib.Tree.search.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Tree.search.vala</compile>
+		<node>GLib.Tree.search</node>
+	</example>
+	<example>
+		<file>GLib.Tree.search_key.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Tree.search_key.vala</compile>
+		<node>GLib.Tree.search_key</node>
+	</example>
+	<example>
+		<file>GLib.Uri.escape_string.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Uri.escape_string.vala</compile>
+		<node>GLib.Uri.escape_string</node>
+	</example>
+	<example>
+		<file>GLib.Uri.list_extract_uris.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Uri.list_extract_uris.vala</compile>
+		<node>GLib.Uri.list_extract_uris</node>
+	</example>
+	<example>
+		<file>GLib.Uri.parse_scheme.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Uri.parse_scheme.vala</compile>
+		<node>GLib.Uri.parse_scheme</node>
+	</example>
+	<example>
+		<file>GLib.Uri.unescape_segment.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Uri.unescape_segment.vala</compile>
+		<node>GLib.Uri.unescape_segment</node>
+	</example>
+	<example>
+		<file>GLib.Uri.unescape_string.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Uri.unescape_string.vala</compile>
+		<node>GLib.Uri.unescape_string</node>
+	</example>
+	<example>
+		<file>GLib.Variant.dup_bytestring.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.dup_bytestring.vala</compile>
+		<node>GLib.Variant.dup_bytestring</node>
+	</example>
+	<example>
+		<file>GLib.Variant.dup_string.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.dup_string.vala</compile>
+		<node>GLib.Variant.dup_string</node>
+	</example>
+	<example>
+		<file>GLib.Variant.dup_strv .vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.dup_strv .vala</compile>
+		<node>GLib.Variant.dup_strv </node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_boolean.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_boolean.vala</compile>
+		<node>GLib.Variant.get_boolean</node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_byte.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_byte.vala</compile>
+		<node>GLib.Variant.get_byte</node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_bytestring.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_bytestring.vala</compile>
+		<node>GLib.Variant.get_bytestring</node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_double.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_double.vala</compile>
+		<node>GLib.Variant.get_double</node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_int16.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_int16.vala</compile>
+		<node>GLib.Variant.get_int16</node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_int32.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_int32.vala</compile>
+		<node>GLib.Variant.get_int32</node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_int64.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_int64.vala</compile>
+		<node>GLib.Variant.get_int64</node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_string.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_string.vala</compile>
+		<node>GLib.Variant.get_string</node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_strv.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_strv.vala</compile>
+		<node>GLib.Variant.get_strv</node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_type_string.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_type_string.vala</compile>
+		<node>GLib.Variant.get_type_string</node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_uint16.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_uint16.vala</compile>
+		<node>GLib.Variant.get_uint16</node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_uint32.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_uint32.vala</compile>
+		<node>GLib.Variant.get_uint32</node>
+	</example>
+	<example>
+		<file>GLib.Variant.get_uint64.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.get_uint64.vala</compile>
+		<node>GLib.Variant.get_uint64</node>
+	</example>
+	<example>
+		<file>GLib.Variant.is_signature.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.is_signature.vala</compile>
+		<node>GLib.Variant.is_signature</node>
+	</example>
+	<example>
+		<file>GLib.Variant.iterator.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.iterator.vala</compile>
+		<node>GLib.Variant.iterator</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.bool.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.bool.vala</compile>
+		<node>GLib.Variant.Variant.bool</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.byte.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.byte.vala</compile>
+		<node>GLib.Variant.Variant.byte</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.bytestring.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.bytestring.vala</compile>
+		<node>GLib.Variant.Variant.bytestring</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.bytestring_array.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.bytestring_array.vala</compile>
+		<node>GLib.Variant.Variant.bytestring_array</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.double.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.double.vala</compile>
+		<node>GLib.Variant.Variant.double</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.dup_bytestring_array.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.dup_bytestring_array.vala</compile>
+		<node>GLib.Variant.Variant.dup_bytestring_array</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.get_bytestring_array.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.get_bytestring_array.vala</compile>
+		<node>GLib.Variant.Variant.get_bytestring_array</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.int16.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.int16.vala</compile>
+		<node>GLib.Variant.Variant.int16</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.int32.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.int32.vala</compile>
+		<node>GLib.Variant.Variant.int32</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.int64.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.int64.vala</compile>
+		<node>GLib.Variant.Variant.int64</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.string.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.string.vala</compile>
+		<node>GLib.Variant.Variant.string</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.strv.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.strv.vala</compile>
+		<node>GLib.Variant.Variant.strv</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.uint16.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.uint16.vala</compile>
+		<node>GLib.Variant.Variant.uint16</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.uint32.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.uint32.vala</compile>
+		<node>GLib.Variant.Variant.uint32</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.uint64.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.uint64.vala</compile>
+		<node>GLib.Variant.Variant.uint64</node>
+	</example>
+	<example>
+		<file>GLib.Variant.Variant.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.Variant.vala</compile>
+		<node>GLib.Variant.Variant</node>
+		<node>GLib.Variant</node>
+	</example>
+	<example>
+		<file>GLib.VariantBuilder.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.VariantBuilder.vala</compile>
+		<node>GLib.VariantBuilder</node>
+	</example>
+	<example>
+		<file>GLib.VariantIter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.VariantIter.vala</compile>
+		<node>GLib.VariantIter</node>
+	</example>
+	<example>
+		<file>GLib.warning.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.warning.vala</compile>
+		<node>GLib.warning</node>
+	</example>
+	<example>
+		<file>int.abs.vala</file>
+		<compile>valac --pkg glib-2.0 int.abs.vala</compile>
+		<node>int.abs</node>
+	</example>
+	<example>
+		<file>int.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 int.clamp.vala</compile>
+		<node>int.clamp</node>
+	</example>
+	<example>
+		<file>int.max.vala</file>
+		<compile>valac --pkg glib-2.0 int.max.vala</compile>
+		<node>int.max</node>
+	</example>
+	<example>
+		<file>int.MAX.vala</file>
+		<compile>valac --pkg glib-2.0 int.MAX.vala</compile>
+		<node>int.MAX</node>
+	</example>
+	<example>
+		<file>int.min.vala</file>
+		<compile>valac --pkg glib-2.0 int.min.vala</compile>
+		<node>int.min</node>
+	</example>
+	<example>
+		<file>int.MIN.vala</file>
+		<compile>valac --pkg glib-2.0 int.MIN.vala</compile>
+		<node>int.MIN</node>
+	</example>
+	<example>
+		<file>int.parse.vala</file>
+		<compile>valac --pkg glib-2.0 int.parse.vala</compile>
+		<node>int.parse</node>
+	</example>
+	<example>
+		<file>int.to_big_endian.vala</file>
+		<compile>valac --pkg glib-2.0 int.to_big_endian.vala</compile>
+		<node>int.to_big_endian</node>
+	</example>
+	<example>
+		<file>int.to_little_endian.vala</file>
+		<compile>valac --pkg glib-2.0 int.to_little_endian.vala</compile>
+		<node>int.to_little_endian</node>
+	</example>
+	<example>
+		<file>int.to_pointer.vala</file>
+		<compile>valac --pkg glib-2.0 int.to_pointer.vala</compile>
+		<node>int.to_pointer</node>
+	</example>
+	<example>
+		<file>int.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 int.to_string.vala</compile>
+		<node>int.to_string</node>
+	</example>
+	<example>
+		<file>int8.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 int8.clamp.vala</compile>
+		<node>int8.clamp</node>
+	</example>
+	<example>
+		<file>int8.max.vala</file>
+		<compile>valac --pkg glib-2.0 int8.max.vala</compile>
+		<node>int8.max</node>
+	</example>
+	<example>
+		<file>int8.min.vala</file>
+		<compile>valac --pkg glib-2.0 int8.min.vala</compile>
+		<node>int8.min</node>
+	</example>
+	<example>
+		<file>int8.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 int8.to_string.vala</compile>
+		<node>int8.to_string</node>
+	</example>
+	<example>
+		<file>int16.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 int16.clamp.vala</compile>
+		<node>int16.clamp</node>
+	</example>
+	<example>
+		<file>int16.FORMAT.vala</file>
+		<compile>valac --pkg glib-2.0 int16.FORMAT.vala</compile>
+		<node>int16.FORMAT</node>
+	</example>
+	<example>
+		<file>int16.max.vala</file>
+		<compile>valac --pkg glib-2.0 int16.max.vala</compile>
+		<node>int16.max</node>
+	</example>
+	<example>
+		<file>int16.min.vala</file>
+		<compile>valac --pkg glib-2.0 int16.min.vala</compile>
+		<node>int16.min</node>
+	</example>
+	<example>
+		<file>int16.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 int16.to_string.vala</compile>
+		<node>int16.to_string</node>
+	</example>
+	<example>
+		<file>int32.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 int32.clamp.vala</compile>
+		<node>int32.clamp</node>
+	</example>
+	<example>
+		<file>int32.FORMAT.vala</file>
+		<compile>valac --pkg glib-2.0 int32.FORMAT.vala</compile>
+		<node>int32.FORMAT</node>
+	</example>
+	<example>
+		<file>int32.max.vala</file>
+		<compile>valac --pkg glib-2.0 int32.max.vala</compile>
+		<node>int32.max</node>
+	</example>
+	<example>
+		<file>int32.min.vala</file>
+		<compile>valac --pkg glib-2.0 int32.min.vala</compile>
+		<node>int32.min</node>
+	</example>
+	<example>
+		<file>int32.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 int32.to_string.vala</compile>
+		<node>int32.to_string</node>
+	</example>
+	<example>
+		<file>int64.abs.vala</file>
+		<compile>valac --pkg glib-2.0 int64.abs.vala</compile>
+		<node>int64.abs</node>
+	</example>
+	<example>
+		<file>int64.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 int64.clamp.vala</compile>
+		<node>int64.clamp</node>
+	</example>
+	<example>
+		<file>int64.FORMAT.vala</file>
+		<compile>valac --pkg glib-2.0 int64.FORMAT.vala</compile>
+		<node>int64.FORMAT</node>
+	</example>
+	<example>
+		<file>int64.max.vala</file>
+		<compile>valac --pkg glib-2.0 int64.max.vala</compile>
+		<node>int64.max</node>
+	</example>
+	<example>
+		<file>int64.min.vala</file>
+		<compile>valac --pkg glib-2.0 int64.min.vala</compile>
+		<node>int64.min</node>
+	</example>
+	<example>
+		<file>int64.parse.vala</file>
+		<compile>valac --pkg glib-2.0 int64.parse.vala</compile>
+		<node>int64.parse</node>
+	</example>
+	<example>
+		<file>int64.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 int64.to_string.vala</compile>
+		<node>int64.to_string</node>
+	</example>
+	<example>
+		<file>int64.try_parse.vala</file>
+		<compile>valac --pkg glib-2.0 int64.try_parse.vala</compile>
+		<node>int64.try_parse</node>
+	</example>
+	<example>
+		<file>long.abs.vala</file>
+		<compile>valac --pkg glib-2.0 long.abs.vala</compile>
+		<node>long.abs</node>
+	</example>
+	<example>
+		<file>long.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 long.clamp.vala</compile>
+		<node>long.clamp</node>
+	</example>
+	<example>
+		<file>long.max.vala</file>
+		<compile>valac --pkg glib-2.0 long.max.vala</compile>
+		<node>long.max</node>
+	</example>
+	<example>
+		<file>long.min.vala</file>
+		<compile>valac --pkg glib-2.0 long.min.vala</compile>
+		<node>long.min</node>
+	</example>
+	<example>
+		<file>long.parse.vala</file>
+		<compile>valac --pkg glib-2.0 long.parse.vala</compile>
+		<node>long.parse</node>
+	</example>
+	<example>
+		<file>long.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 long.to_string.vala</compile>
+		<node>long.to_string</node>
+	</example>
+	<example>
+		<file>Sequence.sort.vala</file>
+		<compile>valac --pkg glib-2.0 Sequence.sort.vala</compile>
+		<node>Sequence.sort</node>
+	</example>
+	<example>
+		<file>short.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 short.clamp.vala</compile>
+		<node>short.clamp</node>
+	</example>
+	<example>
+		<file>short.max.vala</file>
+		<compile>valac --pkg glib-2.0 short.max.vala</compile>
+		<node>short.max</node>
+	</example>
+	<example>
+		<file>short.min.vala</file>
+		<compile>valac --pkg glib-2.0 short.min.vala</compile>
+		<node>short.min</node>
+	</example>
+	<example>
+		<file>short.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 short.to_string.vala</compile>
+		<node>short.to_string</node>
+	</example>
+	<example>
+		<file>size_t.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 size_t.clamp.vala</compile>
+		<node>size_t.clamp</node>
+	</example>
+	<example>
+		<file>size_t.FORMAT.vala</file>
+		<compile>valac --pkg glib-2.0 size_t.FORMAT.vala</compile>
+		<node>size_t.FORMAT</node>
+	</example>
+	<example>
+		<file>size_t.max.vala</file>
+		<compile>valac --pkg glib-2.0 size_t.max.vala</compile>
+		<node>size_t.max</node>
+	</example>
+	<example>
+		<file>size_t.min.vala</file>
+		<compile>valac --pkg glib-2.0 size_t.min.vala</compile>
+		<node>size_t.min</node>
+	</example>
+	<example>
+		<file>size_t.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 size_t.to_string.vala</compile>
+		<node>size_t.to_string</node>
+	</example>
+	<example>
+		<file>ssize_t.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 ssize_t.clamp.vala</compile>
+		<node>ssize_t.clamp</node>
+	</example>
+	<example>
+		<file>ssize_t.FORMAT.vala</file>
+		<compile>valac --pkg glib-2.0 ssize_t.FORMAT.vala</compile>
+		<node>ssize_t.FORMAT</node>
+	</example>
+	<example>
+		<file>ssize_t.max.vala</file>
+		<compile>valac --pkg glib-2.0 ssize_t.max.vala</compile>
+		<node>ssize_t.max</node>
+	</example>
+	<example>
+		<file>ssize_t.min.vala</file>
+		<compile>valac --pkg glib-2.0 ssize_t.min.vala</compile>
+		<node>ssize_t.min</node>
+	</example>
+	<example>
+		<file>ssize_t.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 ssize_t.to_string.vala</compile>
+		<node>ssize_t.to_string</node>
+	</example>
+	<example>
+		<file>stderr.vala</file>
+		<compile>valac --pkg glib-2.0 stderr.vala</compile>
+		<node>stderr</node>
+	</example>
+	<example>
+		<file>stdin.vala</file>
+		<compile>valac --pkg glib-2.0 stdin.vala</compile>
+		<node>stdin</node>
+	</example>
+	<example>
+		<file>stdout.vala</file>
+		<compile>valac --pkg glib-2.0 stdout.vala</compile>
+		<node>stdout</node>
+	</example>
+	<example>
+		<file>string.ascii_casecmp.vala</file>
+		<compile>valac --pkg glib-2.0 string.ascii_casecmp.vala</compile>
+		<node>string.ascii_casecmp</node>
+	</example>
+	<example>
+		<file>string.ascii_ncasecmp.vala</file>
+		<compile>valac --pkg glib-2.0 string.ascii_ncasecmp.vala</compile>
+		<node>string.ascii_ncasecmp</node>
+	</example>
+	<example>
+		<file>string.canon.vala</file>
+		<compile>valac --pkg glib-2.0 string.canon.vala</compile>
+		<node>string.canon</node>
+	</example>
+	<example>
+		<file>string.char_count.vala</file>
+		<compile>valac --pkg glib-2.0 string.char_count.vala</compile>
+		<node>string.char_count</node>
+	</example>
+	<example>
+		<file>string.chomp.vala</file>
+		<compile>valac --pkg glib-2.0 string.chomp.vala</compile>
+		<node>string.chomp</node>
+	</example>
+	<example>
+		<file>string._chomp.vala</file>
+		<compile>valac --pkg glib-2.0 string._chomp.vala</compile>
+		<node>string._chomp</node>
+	</example>
+	<example>
+		<file>string.chug.vala</file>
+		<compile>valac --pkg glib-2.0 string.chug.vala</compile>
+		<node>string.chug</node>
+	</example>
+	<example>
+		<file>string._chug.vala</file>
+		<compile>valac --pkg glib-2.0 string._chug.vala</compile>
+		<node>string._chug</node>
+	</example>
+	<example>
+		<file>string.compress.vala</file>
+		<compile>valac --pkg glib-2.0 string.compress.vala</compile>
+		<node>string.compress</node>
+	</example>
+	<example>
+		<file>string.concat.vala</file>
+		<compile>valac --pkg glib-2.0 string.concat.vala</compile>
+		<node>string.concat</node>
+	</example>
+	<example>
+		<file>string.contains.vala</file>
+		<compile>valac --pkg glib-2.0 string.contains.vala</compile>
+		<node>string.contains</node>
+	</example>
+	<example>
+		<file>string.delimit.vala</file>
+		<compile>valac --pkg glib-2.0 string.delimit.vala</compile>
+		<node>string.delimit</node>
+	</example>
+	<example>
+		<file>string._delimit.vala</file>
+		<compile>valac --pkg glib-2.0 string._delimit.vala</compile>
+		<node>string._delimit</node>
+	</example>
+	<example>
+		<file>string.down.vala</file>
+		<compile>valac --pkg glib-2.0 string.down.vala</compile>
+		<node>string.down</node>
+	</example>
+	<example>
+		<file>string.dup.vala</file>
+		<compile>valac --pkg glib-2.0 string.dup.vala</compile>
+		<node>string.dup</node>
+	</example>
+	<example>
+		<file>string.escape.vala</file>
+		<compile>valac --pkg glib-2.0 string.escape.vala</compile>
+		<node>string.escape</node>
+	</example>
+	<example>
+		<file>string.get_char.vala</file>
+		<compile>valac --pkg glib-2.0 string.get_char.vala</compile>
+		<node>string.get_char</node>
+	</example>
+	<example>
+		<file>string.get_next_char.vala</file>
+		<compile>valac --pkg glib-2.0 string.get_next_char.vala</compile>
+		<node>string.get_next_char</node>
+	</example>
+	<example>
+		<file>string.get_prev_char.vala</file>
+		<compile>valac --pkg glib-2.0 string.get_prev_char.vala</compile>
+		<node>string.get_prev_char</node>
+	</example>
+	<example>
+		<file>string.has_prefix.vala</file>
+		<compile>valac --pkg glib-2.0 string.has_prefix.vala</compile>
+		<node>string.has_prefix</node>
+	</example>
+	<example>
+		<file>string.has_suffix.vala</file>
+		<compile>valac --pkg glib-2.0 string.has_suffix.vala</compile>
+		<node>string.has_suffix</node>
+	</example>
+	<example>
+		<file>string.index_of.vala</file>
+		<compile>valac --pkg glib-2.0 string.index_of.vala</compile>
+		<node>string.index_of</node>
+	</example>
+	<example>
+		<file>string.index_of_char.vala</file>
+		<compile>valac --pkg glib-2.0 string.index_of_char.vala</compile>
+		<node>string.index_of_char</node>
+	</example>
+	<example>
+		<file>string.index_of_nth_char.vala</file>
+		<compile>valac --pkg glib-2.0 string.index_of_nth_char.vala</compile>
+		<node>string.index_of_nth_char</node>
+	</example>
+	<example>
+		<file>string.join.vala</file>
+		<compile>valac --pkg glib-2.0 string.join.vala</compile>
+		<node>string.join</node>
+	</example>
+	<example>
+		<file>string.joinv.vala</file>
+		<compile>valac --pkg glib-2.0 string.joinv.vala</compile>
+		<node>string.joinv</node>
+	</example>
+	<example>
+		<file>string.last_index_of.vala</file>
+		<compile>valac --pkg glib-2.0 string.last_index_of.vala</compile>
+		<node>string.last_index_of</node>
+	</example>
+	<example>
+		<file>string.last_index_of_char.vala</file>
+		<compile>valac --pkg glib-2.0 string.last_index_of_char.vala</compile>
+		<node>string.last_index_of_char</node>
+	</example>
+	<example>
+		<file>string.length.vala</file>
+		<compile>valac --pkg glib-2.0 string.length.vala</compile>
+		<node>string.length</node>
+	</example>
+	<example>
+		<file>string.nfill.vala</file>
+		<compile>valac --pkg glib-2.0 string.nfill.vala</compile>
+		<node>string.nfill</node>
+	</example>
+	<example>
+		<file>string.normalize.vala</file>
+		<compile>valac --pkg glib-2.0 string.normalize.vala</compile>
+		<node>string.normalize</node>
+	</example>
+	<example>
+		<file>string.prev_char.vala</file>
+		<compile>valac --pkg glib-2.0 string.prev_char.vala</compile>
+		<node>string.prev_char</node>
+	</example>
+	<example>
+		<file>string.printf.vala</file>
+		<compile>valac --pkg glib-2.0 string.printf.vala</compile>
+		<node>string.printf</node>
+	</example>
+	<example>
+		<file>string.replace.vala</file>
+		<compile>valac --pkg glib-2.0 string.replace.vala</compile>
+		<node>string.replace</node>
+	</example>
+	<example>
+		<file>string.reverse.vala</file>
+		<compile>valac --pkg glib-2.0 string.reverse.vala</compile>
+		<node>string.reverse</node>
+	</example>
+	<example>
+		<file>string.rstr_len.vala</file>
+		<compile>valac --pkg glib-2.0 string.rstr_len.vala</compile>
+		<node>string.rstr_len</node>
+	</example>
+	<example>
+		<file>string.scanf.vala</file>
+		<compile>valac --pkg glib-2.0 string.scanf.vala</compile>
+		<node>string.scanf</node>
+	</example>
+	<example>
+		<file>string.slice.vala</file>
+		<compile>valac --pkg glib-2.0 string.slice.vala</compile>
+		<node>string.slice</node>
+	</example>
+	<example>
+		<file>string.splice.vala</file>
+		<compile>valac --pkg glib-2.0 string.splice.vala</compile>
+		<node>string.splice</node>
+	</example>
+	<example>
+		<file>string.split.vala</file>
+		<compile>valac --pkg glib-2.0 string.split.vala</compile>
+		<node>string.split</node>
+	</example>
+	<example>
+		<file>string.split_set.vala</file>
+		<compile>valac --pkg glib-2.0 string.split_set.vala</compile>
+		<node>string.split_set</node>
+	</example>
+	<example>
+		<file>string.strip.vala</file>
+		<compile>valac --pkg glib-2.0 string.strip.vala</compile>
+		<node>string.strip</node>
+	</example>
+	<example>
+		<file>string._strip.vala</file>
+		<compile>valac --pkg glib-2.0 string._strip.vala</compile>
+		<node>string._strip</node>
+	</example>
+	<example>
+		<file>string.substring.vala</file>
+		<compile>valac --pkg glib-2.0 string.substring.vala</compile>
+		<node>string.substring</node>
+	</example>
+	<example>
+		<file>string.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 string.to_string.vala</compile>
+		<node>string.to_string</node>
+	</example>
+	<example>
+		<file>string.up.vala</file>
+		<compile>valac --pkg glib-2.0 string.up.vala</compile>
+		<node>string.up</node>
+	</example>
+	<example>
+		<file>string.vala</file>
+		<compile>valac --pkg glib-2.0 string.vala</compile>
+		<node>string</node>
+	</example>
+	<example>
+		<file>string.valid_char.vala</file>
+		<compile>valac --pkg glib-2.0 string.valid_char.vala</compile>
+		<node>string.valid_char</node>
+	</example>
+	<example>
+		<file>string.vprintf.vala</file>
+		<compile>valac --pkg glib-2.0 string.vprintf.vala</compile>
+		<node>string.vprintf</node>
+	</example>
+	<example>
+		<file>uchar.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 uchar.clamp.vala</compile>
+		<node>uchar.clamp</node>
+	</example>
+	<example>
+		<file>uchar.max.vala</file>
+		<compile>valac --pkg glib-2.0 uchar.max.vala</compile>
+		<node>uchar.max</node>
+	</example>
+	<example>
+		<file>uchar.min.vala</file>
+		<compile>valac --pkg glib-2.0 uchar.min.vala</compile>
+		<node>uchar.min</node>
+	</example>
+	<example>
+		<file>uchar.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 uchar.to_string.vala</compile>
+		<node>uchar.to_string</node>
+	</example>
+	<example>
+		<file>uint.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 uint.clamp.vala</compile>
+		<node>uint.clamp</node>
+	</example>
+	<example>
+		<file>uint.max.vala</file>
+		<compile>valac --pkg glib-2.0 uint.max.vala</compile>
+		<node>uint.max</node>
+	</example>
+	<example>
+		<file>uint.min.vala</file>
+		<compile>valac --pkg glib-2.0 uint.min.vala</compile>
+		<node>uint.min</node>
+	</example>
+	<example>
+		<file>uint.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 uint.to_string.vala</compile>
+		<node>uint.to_string</node>
+	</example>
+	<example>
+		<file>uint8.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 uint8.clamp.vala</compile>
+		<node>uint8.clamp</node>
+	</example>
+	<example>
+		<file>uint8.max.vala</file>
+		<compile>valac --pkg glib-2.0 uint8.max.vala</compile>
+		<node>uint8.max</node>
+	</example>
+	<example>
+		<file>uint8.MAX.vala</file>
+		<compile>valac --pkg glib-2.0 uint8.MAX.vala</compile>
+		<node>uint8.MAX</node>
+	</example>
+	<example>
+		<file>uint8.min.vala</file>
+		<compile>valac --pkg glib-2.0 uint8.min.vala</compile>
+		<node>uint8.min</node>
+	</example>
+	<example>
+		<file>uint8.MIN.vala</file>
+		<compile>valac --pkg glib-2.0 uint8.MIN.vala</compile>
+		<node>uint8.MIN</node>
+	</example>
+	<example>
+		<file>uint8.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 uint8.to_string.vala</compile>
+		<node>uint8.to_string</node>
+	</example>
+	<example>
+		<file>uint16.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 uint16.clamp.vala</compile>
+		<node>uint16.clamp</node>
+	</example>
+	<example>
+		<file>uint16.FORMAT.vala</file>
+		<compile>valac --pkg glib-2.0 uint16.FORMAT.vala</compile>
+		<node>uint16.FORMAT</node>
+	</example>
+	<example>
+		<file>uint16.max.vala</file>
+		<compile>valac --pkg glib-2.0 uint16.max.vala</compile>
+		<node>uint16.max</node>
+	</example>
+	<example>
+		<file>uint16.min.vala</file>
+		<compile>valac --pkg glib-2.0 uint16.min.vala</compile>
+		<node>uint16.min</node>
+	</example>
+	<example>
+		<file>uint16.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 uint16.to_string.vala</compile>
+		<node>uint16.to_string</node>
+	</example>
+	<example>
+		<file>uint32.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 uint32.clamp.vala</compile>
+		<node>uint32.clamp</node>
+	</example>
+	<example>
+		<file>uint32.FORMAT.vala</file>
+		<compile>valac --pkg glib-2.0 uint32.FORMAT.vala</compile>
+		<node>uint32.FORMAT</node>
+	</example>
+	<example>
+		<file>uint32.max.vala</file>
+		<compile>valac --pkg glib-2.0 uint32.max.vala</compile>
+		<node>uint32.max</node>
+	</example>
+	<example>
+		<file>uint32.min.vala</file>
+		<compile>valac --pkg glib-2.0 uint32.min.vala</compile>
+		<node>uint32.min</node>
+	</example>
+	<example>
+		<file>uint32.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 uint32.to_string.vala</compile>
+		<node>uint32.to_string</node>
+	</example>
+	<example>
+		<file>uint64.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 uint64.clamp.vala</compile>
+		<node>uint64.clamp</node>
+	</example>
+	<example>
+		<file>uint64.FORMAT.vala</file>
+		<compile>valac --pkg glib-2.0 uint64.FORMAT.vala</compile>
+		<node>uint64.FORMAT</node>
+	</example>
+	<example>
+		<file>uint64.max.vala</file>
+		<compile>valac --pkg glib-2.0 uint64.max.vala</compile>
+		<node>uint64.max</node>
+	</example>
+	<example>
+		<file>uint64.min.vala</file>
+		<compile>valac --pkg glib-2.0 uint64.min.vala</compile>
+		<node>uint64.min</node>
+	</example>
+	<example>
+		<file>uint64.parse.vala</file>
+		<compile>valac --pkg glib-2.0 uint64.parse.vala</compile>
+		<node>uint64.parse</node>
+	</example>
+	<example>
+		<file>uint64.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 uint64.to_string.vala</compile>
+		<node>uint64.to_string</node>
+	</example>
+	<example>
+		<file>uint64.try_parse.vala</file>
+		<compile>valac --pkg glib-2.0 uint64.try_parse.vala</compile>
+		<node>uint64.try_parse</node>
+	</example>
+	<example>
+		<file>ulong.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 ulong.clamp.vala</compile>
+		<node>ulong.clamp</node>
+	</example>
+	<example>
+		<file>ulong.max.vala</file>
+		<compile>valac --pkg glib-2.0 ulong.max.vala</compile>
+		<node>ulong.max</node>
+	</example>
+	<example>
+		<file>ulong.min.vala</file>
+		<compile>valac --pkg glib-2.0 ulong.min.vala</compile>
+		<node>ulong.min</node>
+	</example>
+	<example>
+		<file>ulong.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 ulong.to_string.vala</compile>
+		<node>ulong.to_string</node>
+	</example>
+	<example>
+		<file>unichar.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 unichar.clamp.vala</compile>
+		<node>unichar.clamp</node>
+	</example>
+	<example>
+		<file>unichar.isalnum.vala</file>
+		<compile>valac --pkg glib-2.0 unichar.isalnum.vala</compile>
+		<node>unichar.isalnum</node>
+	</example>
+	<example>
+		<file>unichar.isalpha.vala</file>
+		<compile>valac --pkg glib-2.0 unichar.isalpha.vala</compile>
+		<node>unichar.isalpha</node>
+	</example>
+	<example>
+		<file>unichar.isdigit.vala</file>
+		<compile>valac --pkg glib-2.0 unichar.isdigit.vala</compile>
+		<node>unichar.isdigit</node>
+	</example>
+	<example>
+		<file>unichar.max.vala</file>
+		<compile>valac --pkg glib-2.0 unichar.max.vala</compile>
+		<node>unichar.max</node>
+	</example>
+	<example>
+		<file>unichar.min.vala</file>
+		<compile>valac --pkg glib-2.0 unichar.min.vala</compile>
+		<node>unichar.min</node>
+	</example>
+	<example>
+		<file>unichar.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 unichar.to_string.vala</compile>
+		<node>unichar.to_string</node>
+	</example>
+	<example>
+		<file>ushort.clamp.vala</file>
+		<compile>valac --pkg glib-2.0 ushort.clamp.vala</compile>
+		<node>ushort.clamp</node>
+	</example>
+	<example>
+		<file>ushort.max.vala</file>
+		<compile>valac --pkg glib-2.0 ushort.max.vala</compile>
+		<node>ushort.max</node>
+	</example>
+	<example>
+		<file>ushort.min.vala</file>
+		<compile>valac --pkg glib-2.0 ushort.min.vala</compile>
+		<node>ushort.min</node>
+	</example>
+	<example>
+		<file>ushort.to_string.vala</file>
+		<compile>valac --pkg glib-2.0 ushort.to_string.vala</compile>
+		<node>ushort.to_string</node>
+	</example>
+	<example>
+		<file>va_list.vala</file>
+		<compile>valac --pkg glib-2.0 va_list.vala</compile>
+		<node>va_list</node>
+	</example>
+</examples>

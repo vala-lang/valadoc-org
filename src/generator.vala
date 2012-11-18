@@ -826,10 +826,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			output_directory = "valadoc.org";
 		}
 
-		string target_version = "0.16";
-
 		if (driver == null) {
-			driver = "%s.x".printf (target_version);
+			stdout.printf ("error: --driver is missing\n");
+			return -1;
 		}
 
 		if (metadata_path == null) {
@@ -841,7 +840,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 		if (vapidir == null) {
-			vapidir = "/usr/share/vala-%s/vapi/".printf (target_version);
+			stdout.printf ("error: --vapidir is missing\n");
+			return -1;
 		}
 
 

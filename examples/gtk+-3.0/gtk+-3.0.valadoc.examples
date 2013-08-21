@@ -1,511 +1,614 @@
 <examples>
 	<example>
+		<title>About Dialog</title>
 		<file>Gtk.AboutDialog.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.AboutDialog.vala</compile>
 		<node>Gtk.AboutDialog</node>
 	</example>
 	<example>
+		<title>Alignment</title>
 		<file>Gtk.Alignment.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Alignment.vala</compile>
 		<node>Gtk.Alignment</node>
 	</example>
 	<example>
+		<title>AppChooser Button</title>
 		<file>Gtk.AppChooserButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.AppChooserButton.vala</compile>
 		<node>Gtk.AppChooserButton</node>
 	</example>
 	<example>
+		<title>AppChooser Dialog</title>
 		<file>Gtk.AppChooserDialog.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.AppChooserDialog.vala</compile>
 		<node>Gtk.AppChooserDialog</node>
 	</example>
 	<example>
+		<title>AppChooser Widget</title>
 		<file>Gtk.AppChooserWidget.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.AppChooserWidget.vala</compile>
 		<node>Gtk.AppChooserWidget</node>
 	</example>
 	<example>
+		<title>Application</title>
 		<file>Gtk.Application.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Application.vala</compile>
 		<node>Gtk.Application</node>
 	</example>
 	<example>
+		<title>ApplicationWindow</title>
 		<file>Gtk.ApplicationWindow.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ApplicationWindow.vala</compile>
 		<node>Gtk.ApplicationWindow</node>
 	</example>
 	<example>
+		<title>Arrow</title>
 		<file>Gtk.Arrow.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Arrow.vala</compile>
 		<node>Gtk.Arrow</node>
 	</example>
 	<example>
+		<title>AspectFrame</title>
 		<file>Gtk.AspectFrame.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.AspectFrame.vala</compile>
 		<node>Gtk.AspectFrame</node>
 	</example>
 	<example>
+		<title>Assistant</title>
 		<file>Gtk.Assistant.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Assistant.vala</compile>
 		<node>Gtk.Assistant</node>
 	</example>
 	<example>
+		<title>Box</title>
 		<file>Gtk.Box.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Box.vala</compile>
 		<node>Gtk.Box</node>
 	</example>
 	<example>
+		<title>Button</title>
 		<file>Gtk.Button.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Button.vala</compile>
 		<node>Gtk.Button</node>
 	</example>
 	<example>
+		<title>ButtonBox</title>
 		<file>Gtk.ButtonBox.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ButtonBox.vala</compile>
 		<node>Gtk.ButtonBox</node>
 	</example>
 	<example>
+		<title>Calendar</title>
 		<file>Gtk.Calendar.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Calendar.vala</compile>
 		<node>Gtk.Calendar</node>
 	</example>
 	<example>
+		<title>CellRenderer</title>
 		<file>Gtk.CellRenderer.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.CellRenderer.vala</compile>
 		<node>Gtk.CellRenderer</node>
 	</example>
 	<example>
+		<title>CellRendererCombo</title>
 		<file>Gtk.CellRendererCombo.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.CellRendererCombo.vala</compile>
 		<node>Gtk.CellRendererCombo</node>
 	</example>
 	<example>
+		<title>CellRendererPixbuf</title>
 		<file>Gtk.CellRendererPixbuf.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.CellRendererPixbuf.vala</compile>
 		<node>Gtk.CellRendererPixbuf</node>
 	</example>
 	<example>
+		<title>CellRendererProgress</title>
 		<file>Gtk.CellRendererProgress.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.CellRendererProgress.vala</compile>
 		<node>Gtk.CellRendererProgress</node>
 	</example>
 	<example>
+		<title>CellRendererSpin</title>
 		<file>Gtk.CellRendererSpin.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.CellRendererSpin.vala</compile>
 		<node>Gtk.CellRendererSpin</node>
 	</example>
 	<example>
+		<title>CellRendererSpinner</title>
 		<file>Gtk.CellRendererSpinner.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.CellRendererSpinner.vala</compile>
 		<node>Gtk.CellRendererSpinner</node>
 	</example>
 	<example>
+		<title>CellRendererText</title>
 		<file>Gtk.CellRendererText.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.CellRendererText.vala</compile>
 		<node>Gtk.CellRendererText</node>
 	</example>
 	<example>
+		<title>CellRendererToggle</title>
 		<file>Gtk.CellRendererToggle.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.CellRendererToggle.vala</compile>
 		<node>Gtk.CellRendererToggle</node>
 	</example>
 	<example>
+		<title>CheckButton</title>
 		<file>Gtk.CheckButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.CheckButton.vala</compile>
 		<node>Gtk.CheckButton</node>
 	</example>
 	<example>
+		<title>CheckMenuItem</title>
 		<file>Gtk.CheckMenuItem.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.CheckMenuItem.vala</compile>
 		<node>Gtk.CheckMenuItem</node>
 	</example>
 	<example>
+		<title>Clipboard</title>
 		<note>Copy some text before running.</note>
 		<file>Gtk.Clipboard.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Clipboard.vala</compile>
 		<node>Gtk.Clipboard</node>
 	</example>
 	<example>
+		<title>ColorButton</title>
 		<file>Gtk.ColorButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ColorButton.vala</compile>
 		<node>Gtk.ColorButton</node>
 	</example>
 	<example>
+		<title>ColorChooserDialog</title>
 		<file>Gtk.ColorChooserDialog.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ColorChooserDialog.vala</compile>
 		<node>Gtk.ColorChooserDialog</node>
 	</example>
 	<example>
+		<title>ColorChooserWidget</title>
 		<file>Gtk.ColorChooserWidget.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ColorChooserWidget.vala</compile>
 		<node>Gtk.ColorChooserWidget</node>
 	</example>
 	<example>
+		<title>ColorSelection</title>
 		<file>Gtk.ColorSelection.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ColorSelection.vala</compile>
 		<node>Gtk.ColorSelection</node>
 	</example>
 	<example>
+		<title>ColorSelectionDialog</title>
 		<file>Gtk.ColorSelectionDialog.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ColorSelectionDialog.vala</compile>
 		<node>Gtk.ColorSelectionDialog</node>
 	</example>
 	<example>
+		<title>ComboBox</title>
 		<file>Gtk.ComboBox.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ComboBox.vala</compile>
 		<node>Gtk.ComboBox</node>
 	</example>
 	<example>
+		<title>ComboBoxText</title>
 		<file>Gtk.ComboBoxText.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ComboBoxText.vala</compile>
 		<node>Gtk.ComboBoxText</node>
 	</example>
 	<example>
+		<title>Dialog</title>
 		<file>Gtk.Dialog.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Dialog.vala</compile>
 		<node>Gtk.Dialog</node>
 	</example>
 	<example>
+		<title>DrawingArea</title>
 		<file>Gtk.DrawingArea.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.DrawingArea.vala</compile>
 		<node>Gtk.DrawingArea</node>
 	</example>
 	<example>
+		<title>Entry</title>
 		<file>Gtk.Entry.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Entry.vala</compile>
 		<node>Gtk.Entry</node>
 	</example>
 	<example>
+		<title>EntryCompletion</title>
 		<file>Gtk.EntryCompletion.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.EntryCompletion.vala</compile>
 		<node>Gtk.EntryCompletion</node>
 	</example>
 	<example>
+		<title>Expander</title>
 		<file>Gtk.Expander.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Expander.vala</compile>
 		<node>Gtk.Expander</node>
 	</example>
 	<example>
+		<title>FileChooserButton</title>
 		<file>Gtk.FileChooserButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.FileChooserButton.vala</compile>
 		<node>Gtk.FileChooserButton</node>
 	</example>
 	<example>
+		<title>FileChooserDialog</title>
 		<file>Gtk.FileChooserDialog.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.FileChooserDialog.vala</compile>
 		<node>Gtk.FileChooserDialog</node>
 	</example>
 	<example>
+		<title>FileChooserWidget</title>
 		<file>Gtk.FileChooserWidget.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.FileChooserWidget.vala</compile>
 		<node>Gtk.FileChooserWidget</node>
 	</example>
 	<example>
+		<title>FileFilter</title>
 		<file>Gtk.FileFilter.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.FileFilter.vala</compile>
 		<node>Gtk.FileFilter</node>
 	</example>
 	<example>
+		<title>Fixed</title>
 		<file>Gtk.Fixed.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Fixed.vala</compile>
 		<node>Gtk.Fixed</node>
 	</example>
 	<example>
+		<title>FontButton</title>
 		<file>Gtk.FontButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.FontButton.vala</compile>
 		<node>Gtk.FontButton</node>
 	</example>
 	<example>
+		<title>FontChooserDialog</title>
 		<file>Gtk.FontChooserDialog.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.FontChooserDialog.vala</compile>
 		<node>Gtk.FontChooserDialog</node>
 	</example>
 	<example>
+		<title>FontChooserWidget</title>
 		<file>Gtk.FontChooserWidget.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.FontChooserWidget.vala</compile>
 		<node>Gtk.FontChooserWidget</node>
 	</example>
 	<example>
+		<title>FontSelection</title>
 		<file>Gtk.FontSelection.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.FontSelection.vala</compile>
 		<node>Gtk.FontSelection</node>
 	</example>
 	<example>
+		<title>Frame</title>
 		<file>Gtk.Frame.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Frame.vala</compile>
 		<node>Gtk.Frame</node>
 	</example>
 	<example>
+		<title>Grid</title>
 		<file>Gtk.Grid.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Grid.vala</compile>
 		<node>Gtk.Grid</node>
 	</example>
 	<example>
+		<title>HButtonBox</title>
 		<file>Gtk.HButtonBox.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.HButtonBox.vala</compile>
 		<node>Gtk.HButtonBox</node>
 	</example>
 	<example>
+		<title>IconInfo</title>
 		<file>Gtk.IconInfo.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.IconInfo.vala</compile>
 		<node>Gtk.IconInfo</node>
 	</example>
 	<example>
+		<title>IconTheme</title>
 		<file>Gtk.IconTheme.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.IconTheme.vala</compile>
 		<node>Gtk.IconTheme</node>
 	</example>
 	<example>
+		<title>IconView</title>
 		<file>Gtk.IconView.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.IconView.vala</compile>
 		<node>Gtk.IconView</node>
 	</example>
 	<example>
+		<title>Image</title>
 		<file>Gtk.Image.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Image.vala</compile>
 		<node>Gtk.Image</node>
 	</example>
 	<example>
+		<title>ImageMenuItem</title>
 		<file>Gtk.ImageMenuItem.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ImageMenuItem.vala</compile>
 		<node>Gtk.ImageMenuItem</node>
 	</example>
 	<example>
+		<title>InfoBar</title>
 		<file>Gtk.InfoBar.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.InfoBar.vala</compile>
 		<node>Gtk.InfoBar</node>
 	</example>
 	<example>
+		<title>Label</title>
 		<file>Gtk.Label.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Label.vala</compile>
 		<node>Gtk.Label</node>
 	</example>
 	<example>
+		<title>LevelBar</title>
 		<file>Gtk.LevelBar.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.LevelBar.vala</compile>
 		<node>Gtk.LevelBar</node>
 	</example>
 	<example>
+		<title>LinkButton</title>
 		<file>Gtk.LinkButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.LinkButton.vala</compile>
 		<node>Gtk.LinkButton</node>
 	</example>
 	<example>
+		<title>ListStore</title>
 		<file>Gtk.ListStore.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ListStore.vala</compile>
 		<node>Gtk.ListStore</node>
 	</example>
 	<example>
+		<title>Menu</title>
 		<file>Gtk.Menu.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Menu.vala</compile>
 		<node>Gtk.Menu</node>
 	</example>
 	<example>
+		<title>MenuBar</title>
 		<file>Gtk.MenuBar.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.MenuBar.vala</compile>
 		<node>Gtk.MenuBar</node>
 	</example>
 	<example>
+		<title>MenuItem</title>
 		<file>Gtk.MenuItem.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.MenuItem.vala</compile>
 		<node>Gtk.MenuItem</node>
 	</example>
 	<example>
+		<title>MessageDialog</title>
 		<file>Gtk.MessageDialog.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.MessageDialog.vala</compile>
 		<node>Gtk.MessageDialog</node>
 	</example>
 	<example>
+		<title>Notebook</title>
 		<file>Gtk.Notebook.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Notebook.vala</compile>
 		<node>Gtk.Notebook</node>
 	</example>
 	<example>
+		<title>Paned</title>
 		<file>Gtk.Paned.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Paned.vala</compile>
 		<node>Gtk.Paned</node>
 	</example>
 	<example>
+		<title>ProgressBar</title>
 		<file>Gtk.ProgressBar.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ProgressBar.vala</compile>
 		<node>Gtk.ProgressBar</node>
 	</example>
 	<example>
+		<title>RadioButton</title>
 		<file>Gtk.RadioButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.RadioButton.vala</compile>
 		<node>Gtk.RadioButton</node>
 	</example>
 	<example>
+		<title>RadioMenuItem</title>
 		<file>Gtk.RadioMenuItem.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.RadioMenuItem.vala</compile>
 		<node>Gtk.RadioMenuItem</node>
 	</example>
 	<example>
+		<title>RadioToolButton</title>
 		<file>Gtk.RadioToolButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.RadioToolButton.vala</compile>
 		<node>Gtk.RadioToolButton</node>
 	</example>
 	<example>
+		<title>RecentChooserDialog</title>
 		<file>Gtk.RecentChooserDialog.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.RecentChooserDialog.vala</compile>
 		<node>Gtk.RecentChooserDialog</node>
 	</example>
 	<example>
+		<title>RecentChooserMenu</title>
 		<file>Gtk.RecentChooserMenu.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.RecentChooserMenu.vala</compile>
 		<node>Gtk.RecentChooserMenu</node>
 	</example>
 	<example>
+		<title>RecentChooserWidget</title>
 		<file>Gtk.RecentChooserWidget.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.RecentChooserWidget.vala</compile>
 		<node>Gtk.RecentChooserWidget</node>
 	</example>
 	<example>
+		<title>Scale</title>
 		<file>Gtk.Scale.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Scale.vala</compile>
 		<node>Gtk.Scale</node>
 	</example>
 	<example>
+		<title>ScaleButton</title>
 		<file>Gtk.ScaleButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ScaleButton.vala</compile>
 		<node>Gtk.ScaleButton</node>
 	</example>
 	<example>
+		<title>ScrolledWindow</title>
 		<file>Gtk.ScrolledWindow.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ScrolledWindow.vala</compile>
 		<node>Gtk.ScrolledWindow</node>
 	</example>
 	<example>
+		<title>Separator</title>
 		<file>Gtk.Separator.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Separator.vala</compile>
 		<node>Gtk.Separator</node>
 	</example>
 	<example>
+		<title>SeparatorMenuItem</title>
 		<file>Gtk.SeparatorMenuItem.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.SeparatorMenuItem.vala</compile>
 		<node>Gtk.SeparatorMenuItem</node>
 	</example>
 	<example>
+		<title>SeparatorToolItem</title>
 		<file>Gtk.SeparatorToolItem.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.SeparatorToolItem.vala</compile>
 		<node>Gtk.SeparatorToolItem</node>
 	</example>
 	<example>
+		<title>AboutDialog (convenience function)</title>
 		<file>Gtk.show_about_dialog.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.show_about_dialog.vala</compile>
 		<node>Gtk.show_about_dialog</node>
+		<node>Gtk.AboutDialog</node>
 	</example>
 	<example>
+		<title>SizeGroup</title>
 		<file>Gtk.SizeGroup.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.SizeGroup.vala</compile>
 		<node>Gtk.SizeGroup</node>
 	</example>
 	<example>
+		<title>SpinButton</title>
 		<file>Gtk.SpinButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.SpinButton.vala</compile>
 		<node>Gtk.SpinButton</node>
 	</example>
 	<example>
+		<title>Spinner</title>
 		<file>Gtk.Spinner.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Spinner.vala</compile>
 		<node>Gtk.Spinner</node>
 	</example>
 	<example>
+		<title>Statusbar</title>
 		<file>Gtk.Statusbar.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Statusbar.vala</compile>
 		<node>Gtk.Statusbar</node>
 	</example>
 	<example>
+		<title>Switch</title>
 		<file>Gtk.Switch.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Switch.vala</compile>
 		<node>Gtk.Switch</node>
 	</example>
 	<example>
+		<title>Table</title>
 		<file>Gtk.Table.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Table.vala</compile>
 		<node>Gtk.Table</node>
 	</example>
 	<example>
+		<title>TextView</title>
 		<file>Gtk.TextView.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.TextView.vala</compile>
 		<node>Gtk.TextView</node>
 	</example>
 	<example>
+		<title>ToggleButton</title>
 		<file>Gtk.ToggleButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ToggleButton.vala</compile>
 		<node>Gtk.ToggleButton</node>
 	</example>
 	<example>
+		<title>ToggleToolButton</title>
 		<file>Gtk.ToggleToolButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ToggleToolButton.vala</compile>
 		<node>Gtk.ToggleToolButton</node>
 	</example>
 	<example>
+		<title>ToolButton</title>
 		<file>Gtk.Toolbar.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Toolbar.vala</compile>
 		<node>Gtk.Toolbar</node>
 	</example>
 	<example>
+		<title>ToolButton</title>
 		<file>Gtk.ToolButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ToolButton.vala</compile>
 		<node>Gtk.ToolButton</node>
 	</example>
 	<example>
+		<title>ToolItem</title>
 		<file>Gtk.ToolItem.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ToolItem.vala</compile>
 		<node>Gtk.ToolItem</node>
 	</example>
 	<example>
+		<title>ToolPalette</title>
 		<file>Gtk.ToolPalette.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.ToolPalette.vala</compile>
 		<node>Gtk.ToolPalette</node>
 	</example>
 	<example>
+		<title>Tooltip</title>
 		<file>Gtk.Tooltip.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Tooltip.vala</compile>
 		<node>Gtk.Tooltip</node>
 	</example>
 	<example>
+		<title>TreeIter</title>
 		<file>Gtk.TreeIter.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.TreeIter.vala</compile>
 		<node>Gtk.TreeIter</node>
 	</example>
 	<example>
+		<title>TreeModel</title>
 		<file>Gtk.TreeModel.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.TreeModel.vala</compile>
 		<node>Gtk.TreeModel</node>
 	</example>
 	<example>
+		<title>TreePath</title>
 		<file>Gtk.TreePath.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.TreePath.vala</compile>
 		<node>Gtk.TreePath</node>
 	</example>
 	<example>
+		<title>TreeStore</title>
 		<file>Gtk.TreeStore.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.TreeStore.vala</compile>
 		<node>Gtk.TreeStore</node>
 	</example>
 	<example>
+		<title>TreeView</title>
 		<file>Gtk.TreeView.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.TreeView.vala</compile>
 		<node>Gtk.TreeView</node>
 	</example>
 	<example>
+		<title>VButtonBox</title>
 		<file>Gtk.VButtonBox.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.VButtonBox.vala</compile>
 		<node>Gtk.VButtonBox</node>
 	</example>
 	<example>
+		<title>Viewport</title>
 		<file>Gtk.Viewport.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Viewport.vala</compile>
 		<node>Gtk.Viewport</node>
 	</example>
 	<example>
+		<title>VolumeButton</title>
 		<file>Gtk.VolumeButton.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.VolumeButton.vala</compile>
 		<node>Gtk.VolumeButton</node>
 	</example>
 	<example>
+		<title>Window</title>
 		<file>Gtk.Window.vala</file>
 		<compile>valac --pkg gtk+-3.0 Gtk.Window.vala</compile>
 		<node>Gtk.Window</node>

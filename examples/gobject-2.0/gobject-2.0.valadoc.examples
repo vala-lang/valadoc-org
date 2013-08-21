@@ -1,145 +1,167 @@
 <examples>
 	<example>
+		<title>Enum-introspection</title>
 		<file>GLib.EnumClass.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.EnumClass.vala</compile>
 		<node>GLib.EnumClass</node>
 		<node>GLib.EnumValue</node>
 	</example>
 	<example>
+		<title>Flag-introspection</title>
 		<file>GLib.FlagClass.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.FlagClass.vala</compile>
 		<node>GLib.FlagClass</node>
 		<node>GLib.FlagValue</node>
 	</example>
 	<example>
+		<title>Property bindings</title>
 		<file>GLib.Object.bind_property.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Object.bind_property.vala</compile>
 		<node>GLib.Object.bind_property</node>
 		<node>GLib.Binding</node>
 	</example>
 	<example>
+		<title>Get the type of a GObject</title>
 		<file>GLib.Object.get_type.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Object.get_type.vala</compile>
 		<node>GLib.Object.get_type</node>
 	</example>
 	<example>
+		<title>Object-introspection</title>
 		<file>GLib.ObjectClass.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.ObjectClass.vala</compile>
 		<node>GLib.ObjectClass</node>
 		<node>GLib.ParamSpec</node>
 	</example>
 	<example>
+		<title>Get the length of the ancestry of the type</title>
 		<file>GLib.Type.depth.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.depth.vala</compile>
 		<node>GLib.Type.depth</node>
 	</example>
 	<example>
+		<title>Get a type from a instance</title>
 		<file>GLib.Type.from_instance.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.from_instance.vala</compile>
 		<node>GLib.Type.from_instance</node>
 	</example>
 	<example>
+		<title>Get a type from (C-)name</title>
 		<file>GLib.Type.from_name.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.from_name.vala</compile>
 		<node>GLib.Type.from_name</node>
 	</example>
 	<example>
+		<title>Get a list of implemented interfaces</title>
 		<file>GLib.Type.interfaces.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.interfaces.vala</compile>
 		<node>GLib.Type.interfaces</node>
 	</example>
 	<example>
+		<title>Check whether type is a descendant of another</title>
 		<file>GLib.Type.is_a.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_a.vala</compile>
 		<node>GLib.Type.is_a</node>
 	</example>
 	<example>
+		<title>Check whether a type is abstract</title>
 		<file>GLib.Type.is_abstract.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_abstract.vala</compile>
 		<node>GLib.Type.is_abstract</node>
 	</example>
 	<example>
+		<title>Check if type is a classed type</title>
 		<file>GLib.Type.is_classed.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_classed.vala</compile>
 		<node>GLib.Type.is_classed</node>
 	</example>
 	<example>
+		<title>Check if type is a deep derivable type (deep)</title>
 		<file>GLib.Type.is_deep_derivable.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_deep_derivable.vala</compile>
 		<node>GLib.Type.is_deep_derivable</node>
 	</example>
 	<example>
+		<title>Check if type is a derivable type (flat)</title>
 		<file>GLib.Type.is_derivable.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_derivable.vala</compile>
 		<node>GLib.Type.is_derivable</node>
 	</example>
 	<example>
+		<title>Check if type is derived from another type</title>
 		<file>GLib.Type.is_derived.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_derived.vala</compile>
 		<node>GLib.Type.is_derived</node>
 	</example>
 	<example>
+		<title>Check whether a type represents a enum</title>
 		<file>GLib.Type.is_enum.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_enum.vala</compile>
 		<node>GLib.Type.is_enum</node>
 	</example>
 	<example>
+		<title>Check whether a type represents flags</title>
 		<file>GLib.Type.is_flags.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_flags.vala</compile>
 		<node>GLib.Type.is_flags</node>
 	</example>
 	<example>
+		<title> Check if type is a fundamental type.</title>
 		<file>GLib.Type.is_fundamental.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_fundamental.vala</compile>
 		<node>GLib.Type.is_fundamental</node>
 	</example>
 	<example>
+		<title>Check if a type can be instantiated</title>
 		<file>GLib.Type.is_instantiable.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_instantiable.vala</compile>
 		<node>GLib.Type.is_instantiable</node>
 	</example>
 	<example>
+		<title>Check whether a type represents a interface</title>
 		<file>GLib.Type.is_interface.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_interface.vala</compile>
 		<node>GLib.Type.is_interface</node>
 	</example>
 	<example>
+		<title>Check whether a type is a object</title>
 		<file>GLib.Type.is_object.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_object.vala</compile>
 		<node>GLib.Type.is_object</node>
 	</example>
 	<example>
+		<title>Check whether a type is a value type</title>
 		<file>GLib.Type.is_value_type.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.is_value_type.vala</compile>
 		<node>GLib.Type.is_value_type</node>
 	</example>
 	<example>
+		<title>Get the (C-)name of a type</title>
 		<file>GLib.Type.name.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.name.vala</compile>
 		<node>GLib.Type.name</node>
 	</example>
 	<example>
+		<title>Get the parent-type</title>
 		<file>GLib.Type.parent.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.parent.vala</compile>
 		<node>GLib.Type.parent</node>
 	</example>
 	<example>
+		<title>Query the type system for type-information</title>
 		<file>GLib.Type.query.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.query.vala</compile>
 		<node>GLib.Type.query</node>
 		<node>GLib.TypeQuery</node>
 	</example>
 	<example>
+		<title>Introspection (GType)</title>
 		<file>GLib.Type.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Type.vala</compile>
 		<node>GLib.Type</node>
 	</example>
 	<example>
-		<file>GLib.TypeClass.vala</file>
-		<compile>valac --pkg gobject-2.0 GLib.TypeClass.vala</compile>
-		<node>GLib.TypeClass</node>
-	</example>
-	<example>
+		<title>Plugin sample</title>
 		<note>The plugin:</note>
 		<file>GLib.TypeModule.plugin.vala</file>
 		<compile>valac --ccode GLib.TypeModule.plugin.vala</compile>
@@ -150,11 +172,13 @@
 		<node>GLib.TypeModule</node>
 	</example>
 	<example>
+		<title>GLib.Value and strings</title>
 		<file>GLib.Value.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.Value.vala</compile>
 		<node>GLib.Value</node>
 	</example>
 	<example>
+		<title>Value arrays</title>
 		<file>GLib.ValueArray.vala</file>
 		<compile>valac --pkg gobject-2.0 GLib.ValueArray.vala</compile>
 		<node>GLib.ValueArray</node>

@@ -97,7 +97,8 @@
 	<package name="gupnp-av-1.0" home="http://gupnp.org/" gir="GUPnPAV-1.0" />
 	<package name="gupnp-dlna-1.0" home="http://gupnp.org/" gir="GUPnP-DLNA-1.0" />
 	<package name="champlain-0.14" flags="--pkg clutter-1.0" home="http://projects.gnome.org/libchamplain/" gir="Champlain-0.14" />
-	<package name="colord" flags="--pkg gio-2.0" home="http://www.freedesktop.org/software/colord/" gir="Colord-1.0" />
+	<package name="colord" flags="--pkg gio-2.0" home="http://www.freedesktop.org/software/colord/" c-docs="http://www.freedesktop.org/software/colord/gtk-doc/" gir="Colord-1.0" />
+	<package name="colord-gtk" flags="--pkg colord" home="http://www.freedesktop.org/software/colord/" gir="ColordGtk-1.0" />
 	<package name="tracker-miner-0.12" home="http://projects.gnome.org/tracker/" gir="TrackerMiner-0.12" ignore="true" />
 	<package name="spice-client-gtk-3.0" gir="SpiceClientGtk-3.0" home="http://spice-space.org/" />
 	<package name="gnome-keyring-1" gir="GnomeKeyring-1.0" />
@@ -179,7 +180,7 @@
 	<package name="libosinfo-1.0" gir="Libosinfo-1.0" flags="--pkg gio-2.0" />
 	<package name="libvirt-gconfig-1.0" gir="LibvirtGConfig-1.0" />
 	<package name="champlain-gtk-0.14" gir="GtkChamplain-0.14" flags="--pkg gtk+-3.0 --pkg champlain-0.14 --pkg clutter-1.0" home="http://projects.gnome.org/libchamplain/" />
-	<package name="gvnc-1.0" gir="GtkVnc-2.0" />
+	<package name="gvnc-1.0" gir="GtkVnc-2.0" home="https://live.gnome.org/gtk-vnc" />
 	<package name="udisks2" gir="UDisks-2.0" />
 	<!--- package name="Dbusmenu-0.4" gir="Dbusmenu-0.4" / -->
 	<!--- package name="DbusmenuGtk3-0.4" gir="DbusmenuGtk3-0.4" flags="- -pkg gtk+-3.0 --pkg Dbusmenu-0.4" /-->
@@ -187,6 +188,17 @@
 	<package name="unity" />
 	<package name="unity-trace" />
 	<package name="zeitgeist-1.0" />
+
+	<package name="rygel-core-2.0" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/" />
+	<package name="rygel-server-2.0" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/" />
+	<package name="rygel-renderer-2.0" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/" />
+	<package name="rygel-renderer-gst-2.0" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/" />
+
+	<package name="libnm-glib" home="http://projects.gnome.org/NetworkManager/" gir="NMClient-1.0" c-docs="http://developer.gnome.org/libnm-glib/unstable/" />
+	<package name="libnm-util" home="http://projects.gnome.org/NetworkManager/" gir="NetworkManager-1.0" c-docs="http://developer.gnome.org/libnm-util/unstable/" />
+	<package name="ibus-1.0" home="https://code.google.com/p/ibus/" gir="IBus-1.0" c-docs="http://ibus.googlecode.com/svn/docs/ibus-1.5/index.html" />
+	<package name="caribou" home="https://live.gnome.org/Caribou" />
+	<package name="dconf" home="https://live.gnome.org/dconf" />
 
 	<external-package name="gee-1.0" link="/gee-1.0/index.htm" />
 	<external-package name="bump" home="http://code.google.com/p/bump" maintainers="Evan Nemerson" link="http://code.coeusgroup.com/bump/valadoc/Bump/index.htm" />

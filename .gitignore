@@ -5,4 +5,5 @@
 /libdoclet.so
 /sphinx.conf
 /valadoc.org/
-
+*~
+.*

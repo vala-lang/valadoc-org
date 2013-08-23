@@ -1,0 +1,178 @@
+<examples>
+	<example>
+		<title>Basic soup request, sync</title>
+		<file>basic-soup-request-get-sync.vala</file>
+		<compile>valac --pkg libsoup-2.4 basic-soup-request-get-sync.vala</compile>
+		<node>Soup.SessionSync</node>
+		<node>Soup.LoggerLogLevel</node>
+		<node>Soup.Session.add_feature</node>
+		<node>Soup.MessageHeaders.foreach</node>
+		<node>Soup.Session.send_message</node>
+		<node>Soup.MessageHeaders.response_body.length</node>
+		<node>Soup.MessageHeaders.response_body.data</node>
+		<node>Soup.MessageHeadersForeachFunc</node>
+	</example>
+	<example>
+		<title>Basic soup request, async</title>
+		<file>basic-soup-request-get-async.vala</file>
+		<compile>valac --pkg libsoup-2.4 basic-soup-request-get-async.vala</compile>
+		<node>Soup.SessionAsync</node>
+		<node>Soup.Session.queue_message</node>
+		<node>Soup.MessageCallbackFn</node>
+		<node>Soup.Message.status_code</node>
+	</example>
+	<example>
+		<title>Resolve an address, sync</title>
+		<file>message-resolve-sync.vala</file>
+		<compile>valac --pkg libsoup-2.4 message-resolve-sync.vala</compile>
+		<node>Soup.Address.resolve_sync</node>
+	</example>
+	<example>
+		<title>Resolve an address, async</title>
+		<file>message-resolve-async.vala</file>
+		<compile>valac --pkg libsoup-2.4 message-resolve-async.vala</compile>
+		<node>Soup.AddressCallback</node>
+		<node>Soup.Address.resolve_async</node>
+		<node>Soup.KnownStatusCode</node>
+	</example>
+	<example>
+		<title>Authentication, sync</title>
+		<file>authentication-sync.vala</file>
+		<compile>valac --pkg libsoup-2.4 authentication-sync.vala</compile>
+		<node>Soup.Session.authenticate</node>
+		<node>Soup.Auth.authenticate</node>
+		<node>Soup.AuthBasic</node>
+		<node>Soup.AuthDigest</node>
+		<node>Soup.AuthNTLM</node>
+		<node>Soup.Auth</node>
+	</example>
+	<example>
+		<title>Authentication, async</title>
+		<file>authentication-async.vala</file>
+		<compile>valac --pkg libsoup-2.4 authentication-async.vala</compile>
+		<node>Soup.Session.authenticate</node>
+		<node>Soup.Auth.authenticate</node>
+		<node>Soup.Session.unpause_message</node>
+		<node>Soup.Session.pause_message</node>
+		<node>Soup.AuthBasic</node>
+		<node>Soup.AuthDigest</node>
+		<node>Soup.AuthNTLM</node>
+		<node>Soup.Auth</node>
+	</example>
+	<example>
+		<title>Simple server, sync</title>
+		<file>simple-server-sync.vala</file>
+		<compile>valac --pkg libsoup-2.4 simple-server-sync.vala</compile>
+		<node>Soup.Server</node>
+		<node>Soup.Server.add_handler</node>
+		<node>Soup.Server.run</node>
+		<node>Soup.ServerCallback</node>
+		<node>Soup.Server.status_code</node>
+	</example>
+	<example>
+		<title>Simple server, async</title>
+		<file>simple-server-async.vala</file>
+		<compile>valac --pkg libsoup-2.4 simple-server-async.vala</compile>
+		<node>Soup.Server</node>
+		<node>Soup.Server.run_async</node>
+		<node>Soup.Server.unpause_message</node>
+		<node>Soup.Server.pause_message</node>
+	</example>
+	<example>
+		<title>URIs</title>
+		<file>uri.vala</file>
+		<compile>valac --pkg libsoup-2.4 uri.vala</compile>
+		<node>Soup.URI.URI</node>
+		<node>Soup.URI</node>
+	</example>
+	<example>
+		<title>Set and get the fragment</title>
+		<file>uri-fragment.vala</file>
+		<compile>valac --pkg libsoup-2.4 uri-fragment.vala</compile>
+		<node>Soup.URI.get_fragment</node>
+		<node>Soup.URI.set_fragment</node>
+	</example>
+	<example>
+		<title>Set and get the host</title>
+		<file>uri-host.vala</file>
+		<compile>valac --pkg libsoup-2.4 uri-host.vala</compile>
+		<node>Soup.URI.get_host</node>
+		<node>Soup.URI.set_host</node>
+	</example>
+	<example>
+		<title>Set and get the password</title>
+		<file>uri-password.vala</file>
+		<compile>valac --pkg libsoup-2.4 uri-password.vala</compile>
+		<node>Soup.URI.get_password</node>
+		<node>Soup.URI.set_password</node>
+	</example>
+	<example>
+		<title>Set and get the path</title>
+		<file>uri-path.vala</file>
+		<compile>valac --pkg libsoup-2.4 uri-path.vala</compile>
+		<node>Soup.URI.get_path</node>
+		<node>Soup.URI.set_path</node>
+	</example>
+	<example>
+		<title>Set and get the port</title>
+		<file>uri-port.vala</file>
+		<compile>valac --pkg libsoup-2.4 uri-port.vala</compile>
+		<node>Soup.URI.uses_default_port</node>
+		<node>Soup.URI.set_port</node>
+		<node>Soup.URI.get_port</node>
+	</example>
+	<example>
+		<title>Set and get the query</title>
+		<file>uri-query.vala</file>
+		<compile>valac --pkg libsoup-2.4 uri-query.vala</compile>
+		<node>Soup.URI.get_query</node>
+		<node>Soup.URI.set_query</node>
+	</example>
+	<example>
+		<title>Set and get the scheme</title>
+		<file>uri-scheme.vala</file>
+		<compile>valac --pkg libsoup-2.4 uri-scheme.vala</compile>
+		<node>Soup.URI.get_scheme</node>
+		<node>Soup.URI.set_scheme</node>
+	</example>
+	<example>
+		<title>Set and get the username</title>
+		<file>uri-username.vala</file>
+		<compile>valac --pkg libsoup-2.4 uri-username.vala</compile>
+		<node>Soup.URI.get_username</node>
+		<node>Soup.URI.set_username</node>
+	</example>
+	<example>
+		<title>Convert a URI to string</title>
+		<file>uri-to-string.vala</file>
+		<compile>valac --pkg libsoup-2.4 uri-to-string.vala</compile>
+		<node>Soup.URI.to_string</node>
+	</example>
+	<example>
+		<title>Cookies, sync</title>
+		<file>cookie-sample-sync.vala</file>
+		<compile>valac --pkg libsoup-2.4 cookie-sample-sync.vala</compile>
+		<node>Soup.Cookie
+		<node>Soup.cookies_to_request</node>
+		<node>Soup.cookies_from_request</node>
+		<node>Soup.cookies_from_response</node>
+		<node>Soup.Message</node>
+	</example>
+	<example>
+		<title>Request API, sync</title>
+		<file>request-sync.vala</file>
+		<compile>valac --pkg libsoup-2.4 request-sync.vala</compile>
+		<node>Soup.Request</node>
+		<node>Soup.Request.send</node>
+		<node>Soup.Session.request</node>
+	</example>
+	<example>
+		<title>Request API, async</title>
+		<file>request-async.vala</file>
+		<compile>valac --pkg libsoup-2.4 request-async.vala</compile>
+		<node>Soup.Request</node>
+		<node>Soup.Request.send_async</node>
+		<node>Soup.Session.request</node>
+		<node>Soup.Session.use_thread_context</node>
+	</example>
+</examples>

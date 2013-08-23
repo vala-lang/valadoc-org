@@ -1,11 +1,13 @@
 public static int main (string[] args) {
 	Gtk.init (ref args);
 
+	// Create a window:
 	Gtk.Window window = new Gtk.Window ();
 	window.destroy.connect (Gtk.main_quit);
 	window.set_default_size (500, 500);
 	window.show_all ();
 
+	// Configure the dialog:
 	Gtk.AboutDialog dialog = new Gtk.AboutDialog ();
 	dialog.set_destroy_with_parent (true);
 	dialog.set_transient_for (window);
@@ -33,7 +35,7 @@ public static int main (string[] args) {
 		}
 	});
 
-
+	// Show the dialog:
 	dialog.present ();
 	Gtk.main ();
 	return 0;

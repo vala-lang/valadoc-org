@@ -4,10 +4,11 @@ public class Application : Gtk.Window {
 		this.title = "My Gtk.AspectFrame";
 		this.window_position = Gtk.WindowPosition.CENTER;
 		this.destroy.connect (Gtk.main_quit);
-		this.set_default_size (350, 70);
+		this.set_default_size (200, 200);
+		this.set_border_width (10);
 
 		// The AspectFrame:
-		Gtk.AspectFrame frame = new Gtk.AspectFrame ("Label", 0.5f, 0.5f, 1.0f, false);
+		Gtk.AspectFrame frame = new Gtk.AspectFrame ("Label", 0.5f, 0.5f, 2.0f, false);
 		this.add (frame);
 
 		// AspectFrame content:

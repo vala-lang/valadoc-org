@@ -50,29 +50,41 @@ public static int main (string[] args) {
 
 	Gtk.init (ref args);
 
+	// The TreeView:
 	Gtk.TreeView tv = new Gtk.TreeView ();
 	Gtk.ListStore tm = new Gtk.ListStore (2, typeof (Gdk.Pixbuf), typeof (string));
 	tv.set_model (tm);
 
-	MyCellRenderer renderer = new MyCellRenderer ();
+	Gtk.CellRenderer renderer = new MyCellRenderer ();
 	Gtk.TreeViewColumn col = new Gtk.TreeViewColumn ();
 	col.pack_start (renderer, true);
 	col.set_title ("1st column");
 	col.add_attribute (renderer, "icon", 0);
+	tv.append_column (col);
 
+	renderer = new Gtk.CellRendererText ();
+	col = new Gtk.TreeViewColumn ();
+	col.pack_start (renderer, true);
+	col.set_title ("2nd column");
+	col.add_attribute (renderer, "text", 1);
+	tv.append_column (col);
+
+
+	// Append data to our model:
 	Gtk.TreeIter ti;
 	tm.append (out ti);
-	tv.append_column (col);
 
 	Gdk.Pixbuf pixbuf = open_image (args[1]);
 	tm.set (ti, 0, pixbuf, 1, "asd", -1); 
-	col.add_attribute (renderer, "icon", 0);
 
+
+	// The main window:
 	Gtk.Window win = new Gtk.Window ();
 	win.set_default_size (400, 100);
 	win.destroy.connect (Gtk.main_quit);
 	win.add (tv);
 	win.show_all ();
+
 	Gtk.main ();
 	return 0;
 }

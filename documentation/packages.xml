@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <packages>
 	<package name="accountsservice" gir="AccountsService-1.0" />
 	<package name="alsa" home="http://www.alsa-project.org/" maintainers="Michael 'Mickey' Lauer" />
@@ -10,14 +9,14 @@
 	<package name="dbusmenu-gtk3-0.4" flags="--pkg gtk+-3.0 --pkg dbusmenu-glib-0.4" gir="DbusmenuGtk3-0.4" home="https://launchpad.net/dbusmenu" />
 	<package name="fuse" home="http://fuse.sourceforge.net/" />
 	<package name="enchant" home="http://www.abisource.com/projects/enchant/" />
-	<package deprecated="true" name="clutter-gtk-0.10" gir="GtkClutter-1.0" home="http://www.clutter-project.org/" c-docs="http://docs.clutter-project.org/docs/clutter-gtk/0.10/" />
+	<!--package deprecated="true" name="clutter-gtk-0.10" gir="GtkClutter-1.0" home="http://www.clutter-project.org/" c-docs="http://docs.clutter-project.org/docs/clutter-gtk/0.10/" /-->
 	<package name="clutter-json-1.0" home="http://www.clutter-project.org/" />
 	<package name="gdu" />
 	<package name="xtst" />
 	<!-- package name="packagekit-glib2" gir="PackageKitGlib-1.0" home="http://www.packagekit.org/" c-docs="http://www.packagekit.org/gtk-doc/" /-->
 	<package name="gdu-gtk" />
 	<package name="gedit" home="http://projects.gnome.org/gedit/" maintainers="Andrea Del Signore" c-docs="http://developer.gnome.org/gedit/unstable/" />
-	<package deprecated="true" name="gedit-2.20" home="http://projects.gnome.org/gedit/" maintainers="Andrea Del Signore" c-docs="http://developer.gnome.org/gedit/unstable/" />
+	<!--package deprecated="true" name="gedit-2.20" home="http://projects.gnome.org/gedit/" maintainers="Andrea Del Signore" c-docs="http://developer.gnome.org/gedit/unstable/" /-->
 	<package name="gobject-2.0" home="http://www.gtk.org/" gir="GObject-2.0" c-docs="http://developer.gnome.org/gobject/unstable/" />
 	<package name="atk" home="http://www.gtk.org/" gir="Atk-1.0" c-docs="http://developer.gnome.org/atk/unstable/" />
 	<package name="cairo" home="http://cairographics.org/" gir="cairo-1.0" c-docs="http://cairographics.org/manual/" />
@@ -27,11 +26,11 @@
 	<package name="cogl-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Cogl-1.0" c-docs="http://developer.gnome.org/cogl-2.0-experimental/stable/" />
 	<package name="cogl-pango-1.0" flags="--pkg pangocairo" gir="CoglPango-1.0" />
 	<package name="dbus-glib-1" home="" gir="DBusGLib-1.0" c-docs="" />
-	<package deprecated="true" name="gconf-2.0" home="http://projects.gnome.org/gconf/" gir="GConf-2.0" c-docs="http://developer.gnome.org/gconf/unstable/" />
-	<package deprecated="true" name="gdk-2.0" home="http://www.gtk.org/" gir="Gdk-2.0" c-docs="http://developer.gnome.org/gdk/unstable/" />
+	<!--package deprecated="true" name="gconf-2.0" home="http://projects.gnome.org/gconf/" gir="GConf-2.0" c-docs="http://developer.gnome.org/gconf/unstable/" /-->
+	<!--package deprecated="true" name="gdk-2.0" home="http://www.gtk.org/" gir="Gdk-2.0" c-docs="http://developer.gnome.org/gdk/unstable/" /-->
 	<package name="gdk-3.0" home="http://www.gtk.org/" gir="Gdk-3.0" c-docs="http://developer.gnome.org/gdk3/unstable/" />
 	<package name="gdk-pixbuf-2.0"  home="http://www.gtk.org/" gir="GdkPixbuf-2.0" c-docs="http://developer.gnome.org/gdk-pixbuf/unstable/" />
-	<package deprecated="true" name="gdk-x11-2.0" home="http://www.gtk.org/" gir="GdkX11-2.0" c-docs="" />
+	<!--package deprecated="true" name="gdk-x11-2.0" home="http://www.gtk.org/" gir="GdkX11-2.0" c-docs="" /-->
 	<package name="gdk-x11-3.0" home="http://www.gtk.org/" gir="GdkX11-3.0" c-docs="" />
 	<package name="gdl-1.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="http://developer.gnome.org/gdl/unstable/" />
 	<package name="gdl-3.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="http://developer.gnome.org/gdl/unstable/" />
@@ -39,26 +38,41 @@
 	<package name="gio-unix-2.0" home="http://www.gtk.org/" gir="Gio-2.0" c-docs="http://developer.gnome.org/gio/unstable/" />
 	<package name="glib-2.0" flags="--pkg posix" home="http://www.gtk.org/" gir="GLib-2.0" c-docs="http://developer.gnome.org/glib/unstable/" />
 	<package name="gmodule-2.0" home="http://www.gtk.org/" gir="GModule-2.0" c-docs="http://developer.gnome.org/glib/unstable/" />
-	<package name="gstreamer-0.10" home="http://gstreamer.freedesktop.org/" maintainers="Zeeshan Ali, Sebastian Dröge" gir="Gst-0.10" c-docs="http://developer.gnome.org/gstreamer/unstable/" />
-	<package name="gstreamer-app-0.10" home="http://gstreamer.freedesktop.org/" gir="GstApp-0.10" c-docs="" />
-	<package name="gstreamer-audio-0.10" home="http://gstreamer.freedesktop.org/" gir="GstAudio-0.10" c-docs="" />
-	<package name="gstreamer-base-0.10" home="http://gstreamer.freedesktop.org/" gir="GstBase-0.10" c-docs="http://developer.gnome.org/gstreamer-libs/unstable/" />
-	<package name="gstreamer-cdda-0.10" home="http://gstreamer.freedesktop.org/" c-docs="" />
-	<package name="gstreamer-check-0.10" home="http://gstreamer.freedesktop.org/" gir="GstCheck-0.10" c-docs="http://developer.gnome.org/gstreamer-libs/unstable/" />
-	<package name="gstreamer-controller-0.10" home="http://gstreamer.freedesktop.org/" gir="GstController-0.10" c-docs="" />
-	<package name="gstreamer-dataprotocol-0.10" home="http://gstreamer.freedesktop.org/" c-docs="http://developer.gnome.org/gstreamer-libs/unstable/" />
-	<package name="gstreamer-fft-0.10" home="http://gstreamer.freedesktop.org/" gir="GstFft-0.10" c-docs="" />
-	<package name="gstreamer-interfaces-0.10" home="http://gstreamer.freedesktop.org/" gir="GstInterfaces-0.10" c-docs="" />
-	<package name="gstreamer-net-0.10" home="http://gstreamer.freedesktop.org/" gir="GstNet-0.10" c-docs="http://developer.gnome.org/gstreamer-libs/unstable/" />
-	<package name="gstreamer-netbuffer-0.10" home="http://gstreamer.freedesktop.org/" gir="GstNetbuffer-0.10" c-docs="" />
-	<package name="gstreamer-pbutils-0.10" home="http://gstreamer.freedesktop.org/" gir="GstPbutils-0.10" c-docs="" />
-	<package name="gstreamer-riff-0.10" home="http://gstreamer.freedesktop.org/" gir="GstRiff-0.10" c-docs="" />
-	<package name="gstreamer-rtp-0.10" home="http://gstreamer.freedesktop.org/" gir="GstRtp-0.10" c-docs="" />
-	<package name="gstreamer-rtsp-0.10" home="http://gstreamer.freedesktop.org/" gir="GstRtsp-0.10" c-docs="" />
-	<package name="gstreamer-sdp-0.10" home="http://gstreamer.freedesktop.org/" gir="GstSdp-0.10" c-docs="" />
-	<package name="gstreamer-tag-0.10" home="http://gstreamer.freedesktop.org/" gir="GstTag-0.10" c-docs="" />
-	<package name="gstreamer-video-0.10" home="http://gstreamer.freedesktop.org/" gir="GstVideo-0.10" c-docs="" />
-	<package deprecated="true" name="gtk+-2.0" home="http://www.gtk.org/" gir="Gtk-2.0" c-docs="http://developer.gnome.org/gtk2/unstable/" />
+	<!--package deprecated="true" name="gstreamer-0.10" home="http://gstreamer.freedesktop.org/" maintainers="Zeeshan Ali, Sebastian Dröge" gir="Gst-0.10" c-docs="http://developer.gnome.org/gstreamer/unstable/" /-->
+	<!--package deprecated="true" name="gstreamer-app-0.10" home="http://gstreamer.freedesktop.org/" gir="GstApp-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-audio-0.10" home="http://gstreamer.freedesktop.org/" gir="GstAudio-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-base-0.10" home="http://gstreamer.freedesktop.org/" gir="GstBase-0.10" c-docs="http://developer.gnome.org/gstreamer-libs/unstable/" /-->
+	<!--package deprecated="true" name="gstreamer-cdda-0.10" home="http://gstreamer.freedesktop.org/" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-check-0.10" home="http://gstreamer.freedesktop.org/" gir="GstCheck-0.10" c-docs="http://developer.gnome.org/gstreamer-libs/unstable/" /-->
+	<!--package deprecated="true" name="gstreamer-controller-0.10" home="http://gstreamer.freedesktop.org/" gir="GstController-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-dataprotocol-0.10" home="http://gstreamer.freedesktop.org/" c-docs="http://developer.gnome.org/gstreamer-libs/unstable/" /-->
+	<!--package deprecated="true" name="gstreamer-fft-0.10" home="http://gstreamer.freedesktop.org/" gir="GstFft-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-interfaces-0.10" home="http://gstreamer.freedesktop.org/" gir="GstInterfaces-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-net-0.10" home="http://gstreamer.freedesktop.org/" gir="GstNet-0.10" c-docs="http://developer.gnome.org/gstreamer-libs/unstable/" /-->
+	<!--package deprecated="true" name="gstreamer-netbuffer-0.10" home="http://gstreamer.freedesktop.org/" gir="GstNetbuffer-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-pbutils-0.10" home="http://gstreamer.freedesktop.org/" gir="GstPbutils-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-riff-0.10" home="http://gstreamer.freedesktop.org/" gir="GstRiff-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-rtp-0.10" home="http://gstreamer.freedesktop.org/" gir="GstRtp-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-rtsp-0.10" home="http://gstreamer.freedesktop.org/" gir="GstRtsp-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-sdp-0.10" home="http://gstreamer.freedesktop.org/" gir="GstSdp-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-tag-0.10" home="http://gstreamer.freedesktop.org/" gir="GstTag-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gstreamer-video-0.10" home="http://gstreamer.freedesktop.org/" gir="GstVideo-0.10" c-docs="" /-->
+	<!--package deprecated="true" name="gtk+-2.0" home="http://www.gtk.org/" gir="Gtk-2.0" c-docs="http://developer.gnome.org/gtk2/unstable/" /-->
+	<package name="gstreamer-1.0" home="http://gstreamer.freedesktop.org/" gir="Gst-1.0" />
+	<package name="gstreamer-app-1.0" home="http://gstreamer.freedesktop.org/" gir="GstApp-1.0" />
+	<package name="gstreamer-audio-1.0" home="http://gstreamer.freedesktop.org/" gir="GstAudio-1.0" />
+	<package name="gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GstBase-1.0" />
+	<package name="gstreamer-check-1.0" home="http://gstreamer.freedesktop.org/" gir="GstCheck-1.0" />
+	<package name="gstreamer-controller-1.0" home="http://gstreamer.freedesktop.org/" gir="GstController-1.0" />
+	<package name="gstreamer-fft-1.0" home="http://gstreamer.freedesktop.org/" gir="GstFft-1.0" />
+	<package name="gstreamer-net-1.0" flags="--pkg gio-2.0" home="http://gstreamer.freedesktop.org/" gir="GstNet-1.0" />
+	<package name="gstreamer-pbutils-1.0" home="http://gstreamer.freedesktop.org/" gir="GstPbutils-1.0" />
+	<package name="gstreamer-rtp-1.0" home="http://gstreamer.freedesktop.org/" gir="GstRtp-1.0" />
+	<package name="gstreamer-rtsp-1.0" home="http://gstreamer.freedesktop.org/" gir="GstRtsp-1.0" />
+	<!-- package name="gstreamer-rtsp-server-1.0" home="http://gstreamer.freedesktop.org/" gir="GstRtspServer-1.0" /-->
+	<package name="gstreamer-sdp-1.0" home="http://gstreamer.freedesktop.org/" gir="GstSdp-1.0" />
+	<package name="gstreamer-tag-1.0" home="http://gstreamer.freedesktop.org/" gir="GstTag-1.0" />
+	<package name="gstreamer-video-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GstVideo-1.0" />
 	<package name="gtk+-3.0" home="http://www.gtk.org/" gir="Gtk-3.0" c-docs="http://developer.gnome.org/gtk3/unstable/" />
 	<package name="gtksourceview-3.0" home="http://projects.gnome.org/gtksourceview/" gir="GtkSource-3.0" c-docs="http://developer.gnome.org/gtksourceview/unstable/" />
 	<package name="gudev-1.0" home="http://gudev.sourceforge.net/" gir="GUdev-1.0" c-docs="" />
@@ -85,7 +99,7 @@
 	<package name="champlain-0.14" flags="--pkg clutter-1.0" home="http://projects.gnome.org/libchamplain/" gir="Champlain-0.14" />
 	<package name="colord" flags="--pkg gio-2.0" home="http://www.freedesktop.org/software/colord/" gir="Colord-1.0" />
 	<package name="tracker-miner-0.12" home="http://projects.gnome.org/tracker/" gir="TrackerMiner-0.12" ignore="true" />
-	<package name="spice-client-gtk-3.0" gir="SpiceClientGtk-3.0" home="http://spice-space.org/" gir="SpiceClientGtk-3.0" />
+	<package name="spice-client-gtk-3.0" gir="SpiceClientGtk-3.0" home="http://spice-space.org/" />
 	<package name="gnome-keyring-1" gir="GnomeKeyring-1.0" />
 	<package name="gssdp-1.0" gir="GSSDP-1.0" />
 	<package name="javascriptcoregtk-3.0" gir="JSCore-3.0" />
@@ -95,12 +109,12 @@
 	<package ignore="true" name="webkitgtk-3.0" gir="http://webkitgtk.org/" />
 	<package deprecated="true" name="webkit-1.0" home="http://webkitgtk.org/" c-docs="http://webkitgtk.org/reference/webkitgtk/unstable/" gir="WebKit-1.0" />
 	<package name="gtkmozembed" home="https://wiki.mozilla.org/Gtkmozembed" c-docs="http://www-archive.mozilla.org/unix/gtk-embedding.html" />
-	<package deprecated="true" name="gtksourceview-2.0" home="http://projects.gnome.org/gtksourceview/" c-docs="http://developer.gnome.org/gtksourceview/2.10/" />
+	<!--package deprecated="true" name="gtksourceview-2.0" home="http://projects.gnome.org/gtksourceview/" c-docs="http://developer.gnome.org/gtksourceview/2.10/" /-->
 	<package name="hal" />
 	<package name="hildon-1" home="http://live.gnome.org/Hildon" />
 	<package name="hildon-fm-2" home="http://live.gnome.org/Hildon" />
 	<package name="libarchive" home="http://code.google.com/p/libarchive/" />
-	<package deprecated="true" name="libbonoboui-2.0" />
+	<!--package deprecated="true" name="libbonoboui-2.0" /-->
 	<package name="libdaemon" />
 
 	<package name="libebook-1.2" flags="--pkg libedataserver-1.2" gir="EBook-1.2" c-docs="http://developer.gnome.org/libebook/stable/" />
@@ -113,7 +127,7 @@
 	<package name="libftdi" />
 	<package name="libgda-4.0" gir="Gda-0.5" />
 	<package name="libgda-report-4.0" />
-	<package deprecated="true" name="libglade-2.0" home="http://glade.gnome.org/" c-docs="http://developer.gnome.org/gladeui/unstable/" />
+	<!--package deprecated="true" name="libglade-2.0" home="http://glade.gnome.org/" c-docs="http://developer.gnome.org/gladeui/unstable/" /-->
 	<package name="libgsf-1" />
 	<package name="libgvc" home="http://www.graphviz.org/" c-docs="http://www.graphviz.org/pub/graphviz/development/doxygen/html/annotated.html" />
 	<package name="libmagic" home="http://libmagic.sourceforge.net/" />
@@ -122,11 +136,11 @@
 	<package name="libnl-3.0" maintainers="Michael 'Mickey' Lauer" />
 	<package name="liboobs-1" />
 	<package name="libosso" />
-	<package deprecated="true" name="libpanelapplet-2.0" />
+	<!--package deprecated="true" name="libpanelapplet-2.0" /-->
 	<package name="libpq" home="http://www.postgresql.org/" c-docs="http://www.postgresql.org/docs/8.1/static/libpq.html" />
 	<package name="librsvg-2.0" />
-	<package deprecated="true" name="libsoup-2.2" maintainers="Zeeshan Ali" />
-	<package deprecated="true" name="libwnck-1.0" />
+	<!--package deprecated="true" name="libsoup-2.2" maintainers="Zeeshan Ali" /-->
+	<!--package deprecated="true" name="libwnck-1.0" /-->
 	<package name="linux" maintainers="Michael 'Mickey' Lauer" />
 	<package name="loudmouth-1.0" />
 	<package name="lua" />
@@ -152,7 +166,7 @@
 	<package name="twitter-glib-1.0" maintainers="Adrien Bustany" />
 	<package name="unique-1.0" />
 	<package name="v4l2" />
-	<package deprecated="true" name="vte" c-docs="http://developer.gnome.org/vte/unstable/" />
+	<!--package deprecated="true" name="vte" c-docs="http://developer.gnome.org/vte/unstable/" /-->
 	<package name="x11" home="http://www.x.org" c-docs="http://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html" />
 	<package name="xcb" home="http://xcb.freedesktop.org/" c-docs="http://xcb.freedesktop.org/XcbApi/" />
 	<package name="libcanberra-gtk" flags="--pkg libcanberra --pkg gtk+-3.0" home="http://0pointer.de/lennart/projects/libcanberra/" c-docs="http://developer.gnome.org/libcanberra/unstable/" />
@@ -168,7 +182,7 @@
 	<package name="gvnc-1.0" gir="GtkVnc-2.0" />
 	<package name="udisks2" gir="UDisks-2.0" />
 	<!--- package name="Dbusmenu-0.4" gir="Dbusmenu-0.4" / -->
-	<!--- package name="DbusmenuGtk3-0.4" gir="DbusmenuGtk3-0.4" flags="--pkg gtk+-3.0 --pkg Dbusmenu-0.4" / -->
+	<!--- package name="DbusmenuGtk3-0.4" gir="DbusmenuGtk3-0.4" flags="- -pkg gtk+-3.0 --pkg Dbusmenu-0.4" /-->
 	<package name="dee-1.0" gir="Dee-1.0" />
 	<package name="unity" />
 	<package name="unity-trace" />

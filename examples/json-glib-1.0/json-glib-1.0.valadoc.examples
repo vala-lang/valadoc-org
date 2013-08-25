@@ -1,0 +1,104 @@
+<examples>
+	<example>
+		<title>Builder &amp; Generators</title>
+		<file>builder-generator.vala</file>
+		<compile>valac --pkg json-glib-1.0 builder-generator.vala
+		<node>Json.Builder</node>
+		<node>Json.Generator</node>
+	</example>
+	<example>
+		<title>GObject deserialization</title>
+		<file>deserialization.vala</file>
+		<compile>valac --pkg json-glib-1.0 deserialization.vala
+		<node>Json.gobject_deserialize</node>
+	</example>
+	<example>
+		<title>Boxed deserialization</title>
+		<file>deserialization-boxed.vala</file>
+		<compile>valac --pkg json-glib-1.0 deserialization-boxed.vala
+		<node>Json.boxed_can_deserialize</node>
+		<node>Json.boxed_register_deserialize_func</node>
+		<node>Json.boxed_deserialize</node>
+	</example>
+	<example>
+		<title>GObject deserialization (string)</title>
+		<file>deserialization-data.vala</file>
+		<compile>valac --pkg json-glib-1.0 deserialization-data.vala
+		<node>Json.gobject_from_data</node>
+	</example>
+	<example>
+		<title>GVariant deserialization</title>
+		<file>deserialization-variant.vala</file>
+		<compile>valac --pkg json-glib-1.0 deserialization-variant.vala
+		<node>Json.gvariant_deserialize</node>
+	</example>
+	<example>
+		<title>GVariant deserialization (string)</title>
+		<file>deserialization-variant-data.vala</file>
+		<compile>valac --pkg json-glib-1.0 deserialization-variant-data.vala
+		<node>Json.gvariant_deserialize_data</node>
+	</example>
+	<example>
+		<title>Parser example (data)</title>
+		<file>parser-example-data.vala</file>
+		<compile>valac --pkg json-glib-1.0 parser-example-data.vala
+		<node>Json.Parser</node>
+		<node>Json.Parser.load_from_data</node>
+	</example>
+	<example>
+		<title>Parser example (file)</title>
+		<file>parser-example-file.vala</file>
+		<compile>valac --pkg json-glib-1.0 parser-example-file.vala
+		<node>Json.Parser.load_from_file</node>
+	</example>
+	<example>
+		<title>Parser example (Stream, sync)</title>
+		<file>parser-example-stream-sync.vala</file>
+		<compile>valac --pkg json-glib-1.0 parser-example-stream-sync.vala
+		<node>Json.Parser.load_from_stream</node>
+	</example>
+	<example>
+		<title>Parser example (Stream, async)</title>
+		<file>parser-example-stream-async.vala</file>
+		<compile>valac --pkg json-glib-1.0 parser-example-stream-async.vala
+		<node>Json.Parser.load_from_stream_async</node>
+	</example>
+	<example>
+		<title>Reader (cursor-based API)</title>
+		<file>reader-example.vala</file>
+		<compile>valac --pkg json-glib-1.0 reader-example.vala
+		<node>Json.Reader</node>
+	</example>
+	<example>
+		<title>GObject serialization</title>
+		<file>serialization.vala</file>
+		<compile>valac --pkg json-glib-1.0 serialization.vala
+		<node>Json.gobject_serialize</node>
+	</example>
+	<example>
+		<title>Boxed serialization</title>
+		<file>serialization-boxed.vala</file>
+		<compile>valac --pkg json-glib-1.0 serialization-boxed.vala
+		<node>Json.boxed_can_serialize</node>
+		<node>Json.boxed_register_serialize_func</node>
+		<node>Json.boxed_serialize</node>
+	</example>
+	<example>
+		<title>GObject serialization (string)</title>
+		<file>serialization-data.vala</file>
+		<compile>valac --pkg json-glib-1.0 serialization-data.vala
+		<node>Json.gobject_to_data</node>
+	</example>
+	<example>
+		<title>GVariant serialization</title>
+		<file>serialization-variant.vala</file>
+		<compile>valac --pkg json-glib-1.0 serialization-variant.vala
+		<node>Json.gvariant_serialize</node>
+	</example>
+	<example>
+		<title>GVariant serialization (string)</title>
+		<file>serialization-variant-data.vala</file>
+		<compile>valac --pkg json-glib-1.0 serialization-variant-data.vala
+		<node>Json.gvariant_serialize_data</node>
+	</example>
+</examples>

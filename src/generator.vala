@@ -1,6 +1,6 @@
 /* generator.vala
  *
- * Copyright (C) 2012  Florian Brosch
+ * Copyright (C) 2012-2013  Florian Brosch
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -32,9 +32,13 @@ using Gee;
 
 public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private HashMap<string, Package> packages_per_name = new HashMap<string, Package> ();
+	private Collection<Node> sections;
 
-	private void register_package (Package pkg) {
+	private void register_package (Section? section, Package pkg) {
 		packages_per_name.set (pkg.name, pkg);
+		if (section != null) {
+			section.packages.add (pkg);
+		}
 	}
 
 	[CCode (array_length = false, array_null_terminated = true)]
@@ -67,6 +71,87 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		{ null }
 	};
 
+	private void parse_metadata_package (Section section, MarkupReader reader, ref MarkupTokenType current_token, ref MarkupSourceLocation begin, ref MarkupSourceLocation end) {
+		string start_tag = reader.name;
+
+		string? ignore = reader.get_attribute ("ignore");
+		if (ignore == null || ignore != "true") {
+			string? maintainers = reader.get_attribute ("maintainers");
+			string? name = reader.get_attribute ("name");
+			string? c_docs = reader.get_attribute ("c-docs");
+			string? home = reader.get_attribute ("home");
+			string? deprecated_str = reader.get_attribute ("deprecated");
+			bool is_deprecated = false;
+			if (deprecated_str != null && deprecated_str == "true") {
+				is_deprecated = true;
+			}
+
+
+			if (name == null) {
+				reporter.simple_error ("error: %s: Missing attribute: name=\"\"", start_tag);
+				return ;
+			}
+
+			if (start_tag == "external-package") {
+				string? external_link = reader.get_attribute ("link");;
+				string? devhelp_link = reader.get_attribute ("devhelp");
+				if (external_link == null) {
+					reporter.simple_error ("error: %s: Missing attribute: link=\"\" in %s", start_tag, name);
+					return ;
+				} else {
+					register_package (section, new ExternalPackage (name, external_link, maintainers, devhelp_link, home, c_docs, is_deprecated));
+				}
+			} else {
+				string? gir_name = reader.get_attribute ("gir");
+				string? flags = reader.get_attribute ("flags");
+				register_package (section, new Package (name, gir_name, maintainers, home, c_docs, flags, is_deprecated));
+			}
+		}
+
+		current_token = reader.read_token (out begin, out end);
+
+		if (current_token != MarkupTokenType.END_ELEMENT || reader.name != start_tag) {
+			reporter.simple_error ("error: Expected: </package> (got: %s '%s')", current_token.to_string (), reader.name);				return ;
+		}
+
+		current_token = reader.read_token (out begin, out end);
+	}
+
+	private void parse_metadata_section (Section parent_section, MarkupReader reader, ref MarkupTokenType current_token, ref MarkupSourceLocation begin, ref MarkupSourceLocation end) {
+		string name = reader.get_attribute ("name");
+		if (name == null) {
+			reporter.simple_error ("error: Expected: <section name=\"...\"");
+			return ;
+		}
+
+		Section section = new Section (name);
+		parent_section.sections.add (section);
+
+		current_token = reader.read_token (out begin, out end);
+
+		while (current_token != MarkupTokenType.END_ELEMENT && current_token != MarkupTokenType.EOF) {
+			if (current_token != MarkupTokenType.START_ELEMENT || !(reader.name == "package" || reader.name == "external-package" || reader.name == "section")) {
+				reporter.simple_error ("error: Expected: <section>|<package>|<external-package> (got: %s '%s')", current_token.to_string (), reader.name);
+				return ;
+			}
+
+			if (reader.name == "package" || reader.name == "external-package") {
+				parse_metadata_package (section, reader, ref current_token, ref begin, ref end);
+			} else if (reader.name == "section") {
+				parse_metadata_section (section, reader, ref current_token, ref begin, ref end);
+			} else {
+				assert_not_reached ();
+			}
+		}
+
+		if (current_token != MarkupTokenType.END_ELEMENT || reader.name != "section") {
+			reporter.simple_error ("error: Expected: </section> (got: %s '%s')", current_token.to_string (), reader.name);
+			return ;
+		}
+
+		current_token = reader.read_token (out begin, out end);
+	}
+
 	private void load_metadata (string filename) {
 		MarkupReader reader = new MarkupReader (filename, reporter);
 
@@ -84,56 +169,18 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		current_token = reader.read_token (out begin, out end);
 
+		Section section = new Section ("");
+
 		while (current_token != MarkupTokenType.END_ELEMENT && current_token != MarkupTokenType.EOF) {
-			if (current_token != MarkupTokenType.START_ELEMENT || !(reader.name == "package" || reader.name == "external-package")) {
-				reporter.simple_error ("error: Expected: <package> (got: %s '%s')", current_token.to_string (), reader.name);
+			if (current_token != MarkupTokenType.START_ELEMENT || reader.name != "section") {
+				reporter.simple_error ("error: Expected: <section> (got: %s '%s')", current_token.to_string (), reader.name);
 				return ;
 			}
 
-			string start_tag = reader.name;
-
-			string? ignore = reader.get_attribute ("ignore");
-			if (ignore == null || ignore != "true") {
-				string? maintainers = reader.get_attribute ("maintainers");
-				string? name = reader.get_attribute ("name");
-				string? c_docs = reader.get_attribute ("c-docs");
-				string? home = reader.get_attribute ("home");
-				string? deprecated_str = reader.get_attribute ("deprecated");
-				bool is_deprecated = false;
-				if (deprecated_str != null && deprecated_str == "true") {
-					is_deprecated = true;
-				}
-
-
-				if (name == null) {
-					reporter.simple_error ("error: %s: Missing attribute: name=\"\"", start_tag);
-					return ;
-				}
-
-				if (start_tag == "external-package") {
-					string? external_link = reader.get_attribute ("link");;
-					string? devhelp_link = reader.get_attribute ("devhelp");
-					if (external_link == null) {
-						reporter.simple_error ("error: %s: Missing attribute: link=\"\" in %s", start_tag, name);
-						return ;
-					} else {
-						register_package (new ExternalPackage (name, external_link, maintainers, devhelp_link, home, c_docs, is_deprecated));
-					}
-				} else {
-					string? gir_name = reader.get_attribute ("gir");
-					string? flags = reader.get_attribute ("flags");
-					register_package (new Package (name, gir_name, maintainers, home, c_docs, flags, is_deprecated));
-				}
-			}
-
-			current_token = reader.read_token (out begin, out end);
-
-			if (current_token != MarkupTokenType.END_ELEMENT || reader.name != start_tag) {
-				reporter.simple_error ("error: Expected: </package> (got: %s '%s')", current_token.to_string (), reader.name);				return ;
-			}
-
-			current_token = reader.read_token (out begin, out end);
+			parse_metadata_section (section, reader, ref current_token, ref begin, ref end);
 		}
+
+		this.sections = section.sections;
 
 		if (current_token != MarkupTokenType.END_ELEMENT || reader.name != "packages") {
 			reporter.simple_error ("error: Expected: </packages> (got: %s '%s')", current_token.to_string (), reader.name);
@@ -141,7 +188,35 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
-	private class Package {
+	private abstract class Node {
+		public abstract void render (Renderer renderer);
+	}
+
+	private class Section : Node {
+		public string name;
+		public Collection<Package> packages = new ArrayList<Package> (); 
+		public Collection<Section> sections = new ArrayList<Section> (); 
+
+		public Section (string name) {
+			this.name = name;
+		}
+
+		public Collection<Package> sorted_package_list () {
+			ArrayList<Package> packages = new ArrayList<Package> ();
+			packages.add_all (this.packages);
+			packages.sort ((a, b) => {
+				return ((Package) a).name.ascii_casecmp (((Package) b).name);
+			});
+
+			return packages;
+		}
+
+		public override void render (Renderer renderer) {
+			renderer.render_section (this);
+		}
+	}
+
+	private class Package : Node {
 		public string? devhelp_link;
 		public string? maintainers;
 		public string online_link;
@@ -233,6 +308,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			return null;
 		}
+
+		public override void render (Renderer renderer) {
+			renderer.render_package (this);
+		}
 	}
 
 	private class ExternalPackage : Package {
@@ -268,8 +347,20 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		public override string? get_catalog_file () {
 			return null;
 		}
+
+		public override void render (Renderer renderer) {
+			renderer.render_external_package (this);
+		}
 	}
 
+	private abstract class Renderer {
+		public abstract void render (string path, Collection<Node> sections);
+		public abstract void render_section (Section section);
+		public abstract void render_package (Package pkg);
+		public abstract void render_external_package (ExternalPackage pkg);
+	}
+
+	// TODO
 	public void load (string path) throws Error {
 		Dir dirptr = Dir.open (path);
 		string? dir;
@@ -282,7 +373,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			if (FileUtils.test (dir_path, FileTest.IS_DIR)) {
 				if (!packages_per_name.has_key (dir)) {
-					register_package (new Package (dir));
+					register_package (null, new Package (dir));
 				}
 			}
 		}
@@ -318,61 +409,84 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		writer.end_tag ("div");
 	}
 
-	private void generate_index (string path) {
-		GLib.FileStream file = GLib.FileStream.open (path, "w");
-		var writer = new Html.MarkupWriter (file);
+	private class IndexRenderer : Renderer {
+		private const int HEADER_LEVEL_START = 2;
 
-		writer.start_tag ("div", {"class", "site_content"});
-
-		writer.start_tag ("h1", {"class", "main_title"}).text ("Packages").end_tag ("h1");
-		writer.simple_tag ("hr", {"class", "main_hr"});
-
-		writer.start_tag ("h2").text ("Submitting API-Bugs and Patches").end_tag ("h2");
-		writer.start_tag ("p").text ("For all bindings where the status is not marked as external, and unless otherwise noted, bugs and patches should be submitted to the bindings component in the Vala product in the GNOME Bugzilla.").end_tag ("p");
-
-		writer.start_tag ("h2").text ("Bindings without maintainer(s) listed").end_tag ("h2");
-		writer.start_tag ("p").text ("The general bindings maintainer is Evan Nemerson (IRC nickname: nemequ). If you would like to adopt some bindings, please contact him.").end_tag ("p");
-
-		// writer.start_tag ("h2").text ("About documentation").end_tag ("h2");
-		// writer.start_tag ("p").text ("Two types of documentation sources for bindings are supported: handwritten *.valadoc files and gir-files.").end_tag ("p");
+		private Html.MarkupWriter writer;
+		private int header_level = HEADER_LEVEL_START;
 
 
-		// index:
-		writer.start_tag ("table", {"style", "width: 100%; margin: auto;"});
+		public override void render (string path, Collection<Node> sections) {
+			GLib.FileStream file = GLib.FileStream.open (path, "w");
+			writer = new Html.MarkupWriter (file);
 
-		writer.start_tag ("tr");
-		writer.start_tag ("td", {"width", "10"}).end_tag ("td");
-		writer.start_tag ("td", {"width", "20"}).end_tag ("td");
-		writer.start_tag ("td").end_tag ("td");
-		writer.start_tag ("td", {"width", "160"}).end_tag ("td");
-		writer.start_tag ("td", {"width", "100"}).end_tag ("td");
-		writer.start_tag ("td", {"width", "50"}).end_tag ("td");
-		writer.start_tag ("td", {"width", "110"}).end_tag ("td");
-		writer.start_tag ("td", {"width", "10"}).end_tag ("td");
-		writer.end_tag ("tr");
+			writer.start_tag ("div", {"class", "site_content"});
 
+			// Intro:
+			writer.start_tag ("h1", {"class", "main_title"}).text ("Packages").end_tag ("h1");
+			writer.simple_tag ("hr", {"class", "main_hr"});
 
-		ArrayList<Package> packages = get_sorted_package_list ();
-		char c = '\0';
+			writer.start_tag ("h2").text ("Submitting API-Bugs and Patches").end_tag ("h2");
+			writer.start_tag ("p").text ("For all bindings where the status is not marked as external, and unless otherwise noted, bugs and patches should be submitted to the bindings component in the Vala product in the GNOME Bugzilla.").end_tag ("p");
 
-		foreach (Package pkg in packages) {
-			char local_c = pkg.name[0].toupper ();
-			if (c != local_c) {
-				writer.start_tag ("tr").start_tag ("td", {"colspan", "8"});
-				writer.simple_tag ("hr", {"class", "main_hr"});
-				writer.end_tag ("td").end_tag ("tr");
+			writer.start_tag ("h2").text ("Bindings without maintainer(s) listed").end_tag ("h2");
+			writer.start_tag ("p").text ("The general bindings maintainer is Evan Nemerson (IRC nickname: nemequ). If you would like to adopt some bindings, please contact him.").end_tag ("p");
 
-				writer.start_tag ("tr");
-				writer.start_tag ("td", {"colspan", "3"}).start_tag ("h2", {"class", "main_title"}).text (local_c.to_string ()).text (":").end_tag ("h2").end_tag ("td");
-				writer.start_tag ("td", {"style", "color:grey;font-style:italic;"}).text ("Documentation Source").end_tag ("td");
-				writer.start_tag ("td", {"style", "color:grey;font-style:italic;"}).text ("Links:").end_tag ("td");
-				writer.start_tag ("td", {"style", "color:grey;font-style:italic;"}).text ("Install:").end_tag ("td");
-				writer.start_tag ("td", {"style", "color:grey;font-style:italic;"}).text ("Download:").end_tag ("td");
-				writer.start_tag ("td").end_tag ("td");
-				writer.end_tag ("tr");
-				c = local_c;
+			foreach (Node node in sections) {
+				node.render (this);
 			}
 
+			writer.end_tag ("div");
+			writer = null;
+		}
+
+		public override void render_section (Section section) {
+			if (header_level == HEADER_LEVEL_START) {
+				writer.simple_tag ("hr", {"class", "main_hr"});
+			}
+
+			string tag = "h%d".printf (header_level);
+			writer.start_tag (tag).text (section.name).end_tag (tag);
+
+			header_level++;
+
+			foreach (Node node in section.sections) {
+				node.render (this);
+			}
+
+			render_table_begin ();
+			foreach (Package pkg in section.sorted_package_list ()) {
+				pkg.render (this);
+			}
+			render_table_end ();
+
+			header_level--;
+		}
+
+		public override void render_package (Package pkg) {
+			render_table_entry (pkg);
+		}
+
+		public override void render_external_package (ExternalPackage pkg) {
+			render_table_entry (pkg);
+		}
+
+		private void render_table_begin () {
+			writer.start_tag ("table", {"style", "width: 100%; margin: auto;"});
+
+			writer.start_tag ("tr");
+			writer.start_tag ("td", {"width", "10"}).end_tag ("td");
+			writer.start_tag ("td", {"width", "20"}).end_tag ("td");
+			writer.start_tag ("td").end_tag ("td");
+			writer.start_tag ("td", {"width", "160"}).end_tag ("td");
+			writer.start_tag ("td", {"width", "100"}).end_tag ("td");
+			writer.start_tag ("td", {"width", "50"}).end_tag ("td");
+			writer.start_tag ("td", {"width", "110"}).end_tag ("td");
+			writer.start_tag ("td", {"width", "10"}).end_tag ("td");
+			writer.end_tag ("tr");
+		}
+
+		private void render_table_entry (Package pkg) {
 			//string maintainers = pkg.maintainers ?? "-";
 			writer.start_tag ("tr", {"class", "highlight"});
 			writer.start_tag ("td").end_tag ("td"); // space
@@ -432,10 +546,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.end_tag ("tr");
 		}
 
-		writer.end_tag ("table");
-		writer.end_tag ("div");
-		writer = null;
-		file = null;
+		private void render_table_end () {
+			writer.end_tag ("table");
+		}
+	}
+
+	private void generate_index (string path) {
+		IndexRenderer renderer = new IndexRenderer ();
+		renderer.render (path, sections);
+
 		try {
 			copy_data ();
 		} catch (Error e) {

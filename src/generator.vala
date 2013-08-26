@@ -117,6 +117,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		if (current_token == MarkupTokenType.TEXT) {
 			if (pkg != null) {
 				pkg.description = Regex.split_simple ("[ |\t]*\n[ |\t]*\n[ |\t]*", reader.content.strip ());
+				try {
+					Regex regex = new Regex ("[\n|\t| ]+");
+					for (int i = 0; i < pkg.description.length; i++) {
+						string tmp = regex.replace (pkg.description[i], -1, 0, " ");
+						pkg.description[i] = tmp.strip ();
+					}
+				} catch (Error e) {
+					assert_not_reached ();
+				}
 			}
 			current_token = reader.read_token (out begin, out end);
 		}
@@ -583,6 +592,45 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
+	private void generate_wiki_index (Package pkg, string path) {
+		FileStream stream = FileStream.open (path, "w");
+		assert (stream != null);
+
+		if (pkg.description != null) {
+			foreach (string line in pkg.description) {
+				stream.puts (line);
+				stream.putc ('\n');
+			}
+		}
+		if (pkg.is_deprecated) {
+			stream.puts ("\n''//Warning:// This package is deprecated!''\n");
+		}
+
+		if (pkg.is_deprecated || pkg.description != null) {
+			stream.putc ('\n');
+		}
+
+		if (pkg.home != null) {
+			stream.printf (" * ''Home:'' [[%s]]\n", pkg.home);
+		}
+		if (pkg.c_docs != null) {
+			stream.printf (" * ''C-Documentation:'' [[%s]]\n", pkg.c_docs);
+		}
+		if (pkg.maintainers != null) {
+			stream.printf (" * ''Binding-Maintainer(s): %s''\n", pkg.maintainers);
+		}
+		string? catalog = pkg.get_catalog_file ();
+		if (catalog != null) {
+			stream.printf (" * ''[[%s|Install this package]]'' (PackageKit required)\n", catalog);			
+		}
+		if (pkg.devhelp_link != null) {
+			stream.printf (" * ''[[%s|Devhelp-Package download]]''\n", pkg.devhelp_link);
+		}
+		if (pkg.gallery != null) {
+			stream.puts (" * ''[[widget-gallery.valadoc|Widget Gallery]]''\n");
+		}
+	}
+
 	private void generate_index (string path) {
 		IndexRenderer renderer = new IndexRenderer ();
 		renderer.render (path, sections);
@@ -802,11 +850,14 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 		string wiki_path = "documentation/%s/index.valadoc".printf (pkg.name);
+		bool delete_wiki_path = false;
 		if (FileUtils.test (wiki_path, FileTest.IS_REGULAR)) {
 			stdout.printf ("  using .valadoc (wiki): documentation/%s/*.valadoc\n", pkg.name);
-
-			builder.append_printf (" --wiki documentation/%s", pkg.name);
+		} else {
+			generate_wiki_index (pkg, wiki_path);
+			delete_wiki_path = true;
 		}
+		builder.append_printf (" --wiki documentation/%s", pkg.name);
 
 		string example_path = "examples/%s/%s.valadoc.examples".printf (pkg.name, pkg.name);
 		if (FileUtils.test (example_path, FileTest.IS_REGULAR)) {
@@ -858,7 +909,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			standard_error = null;
 			log = null;
 
-
 			if (exit_status != 0) {
 				throw new SpawnError.FAILED ("Exit status != 0");
 			}
@@ -869,6 +919,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		} catch (SpawnError e) {
 			stdout.printf ("ERROR: Can't generate documentation for %s. See LOG for details.\n", pkg.name);
 			throw e;
+		} finally {
+			if (delete_wiki_path) {
+				FileUtils.unlink (wiki_path);
+			}		
 		}
 	}
 
@@ -963,7 +1017,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		FileStream stream = FileStream.open ("documentation/%s/widget-gallery.valadoc".printf (pkg.name), "w");
 		assert (stream != null);
 
-		stream.puts ("== Layout Containers ==\n");
+		stream.puts ("== Widget Gallery ==\n");
 		stream.putc ('\n');
 
 		images.foreach ((entry) => {

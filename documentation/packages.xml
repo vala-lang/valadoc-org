@@ -13,7 +13,7 @@
 		</section>
 
 		<section name="User Interface">
-			<package name="gtk+-3.0" home="http://www.gtk.org/" gir="Gtk-3.0" c-docs="http://developer.gnome.org/gtk3/unstable/" />
+			<package name="gtk+-3.0" gallery="https://developer.gnome.org/gtk3/unstable/ch03.html" home="http://www.gtk.org/" gir="Gtk-3.0" c-docs="http://developer.gnome.org/gtk3/unstable/" />
 			<package name="clutter-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Clutter-1.0" c-docs="http://developer.gnome.org/clutter/unstable/" />
 			<package name="clutter-gtk-1.0" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/" />
 			<package name="clutter-json-1.0" home="http://www.clutter-project.org/" />

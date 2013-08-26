@@ -102,9 +102,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 					register_package (section, new ExternalPackage (name, external_link, maintainers, devhelp_link, home, c_docs, is_deprecated));
 				}
 			} else {
+				string? gallery = reader.get_attribute ("gallery");
 				string? gir_name = reader.get_attribute ("gir");
 				string? flags = reader.get_attribute ("flags");
-				register_package (section, new Package (name, gir_name, maintainers, home, c_docs, flags, is_deprecated));
+				register_package (section, new Package (name, gir_name, maintainers, home, c_docs, gallery, flags, is_deprecated));
 			}
 		}
 
@@ -226,6 +227,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		public string? c_docs;
 		public string flags;
 		public bool is_deprecated;
+		public string? gallery;
 
 		public virtual string get_documentation_source () {
 			StringBuilder builder = new StringBuilder ();
@@ -243,7 +245,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		protected Package.dummy () {}
 
-		public Package (string name, string? gir_name = null, string? maintainers = null, string? home = null, string? c_docs = null, string? flags = null, bool is_deprecated = false) {
+		public Package (string name, string? gir_name = null, string? maintainers = null, string? home = null, string? c_docs = null, string? gallery = null, string? flags = null, bool is_deprecated = false) {
 			devhelp_link = "/" + name + "/" + name + ".tar.bz2";
 			online_link = "/" + name + "/index.htm";
 			this.is_deprecated = is_deprecated;
@@ -253,6 +255,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			this.name = name;
 			this.home = home;
 			this.flags = flags ?? "";
+			this.gallery = gallery;
 		}
 
 		public string? get_gir_file_metadata_path () {
@@ -762,6 +765,13 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 		}
 
+		if (pkg.gallery != null) {
+			generate_widget_gallery (pkg);
+
+			builder.append (" --importdir \"tmp\"");
+			builder.append_printf (" --import \"%s-widget-gallery\"", pkg.name);
+		}
+
 		string wiki_path = "documentation/%s/index.valadoc".printf (pkg.name);
 		if (FileUtils.test (wiki_path, FileTest.IS_REGULAR)) {
 			stdout.printf ("  using .valadoc (wiki): documentation/%s/*.valadoc\n", pkg.name);
@@ -849,6 +859,111 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				}
 			}
 		}
+	}
+
+	private void generate_widget_gallery (Package pkg) throws Error {
+		if (pkg.gallery == null) {
+			return ;
+		}
+
+		int pos = pkg.gallery.last_index_of_char ('/');
+		if (pos < 0) {
+			stdout.printf ("Invalid widget gallery path\n");
+			throw new FileError.FAILED ("Invalid widget gallery path");
+		}
+		string search_path = pkg.gallery.substring (0, pos);
+
+
+		stdout.printf ("  widget gallery\n");
+
+		try {
+			Process.spawn_command_line_sync ("wget -O tmp/c-gallery.html \"%s\"".printf (pkg.gallery));
+		} catch (SpawnError e) {
+		}
+
+		HashMap<string, string> images = new HashMap<string, string> ();
+
+		var markup_reader = new Valadoc.MarkupReader ("tmp/c-gallery.html", reporter);
+		MarkupTokenType token = MarkupTokenType.START_ELEMENT;
+		MarkupSourceLocation token_begin;
+		MarkupSourceLocation token_end;
+
+		token = markup_reader.read_token (out token_begin, out token_end);
+		while (token != MarkupTokenType.EOF) {
+			if (token == MarkupTokenType.START_ELEMENT && markup_reader.name == "div" && markup_reader.get_attribute ("class") == "gallery-float") {
+				string? widget = null;
+				string? img = null;
+
+				token = markup_reader.read_token (out token_begin, out token_end);
+				if (token == MarkupTokenType.START_ELEMENT && markup_reader.name == "a") {
+					widget = markup_reader.get_attribute ("title");
+
+					token = markup_reader.read_token (out token_begin, out token_end);
+					if (token == MarkupTokenType.START_ELEMENT && markup_reader.name == "img") {
+						img = markup_reader.get_attribute ("src");
+						images.set (widget, img);
+					} else {
+						continue;
+					}
+				} else {
+					continue;
+				}
+			}
+			token = markup_reader.read_token (out token_begin, out token_end);
+		}
+
+		FileUtils.unlink ("tmp/c-gallery.html");
+
+
+
+		DirUtils.create ("documentation/%s/gallery-images/".printf (pkg.name), 0600);
+
+		// Download:
+		if (download_images) {
+			images.foreach ((entry) => {
+				try {
+					string link = Path.build_path (Path.DIR_SEPARATOR_S, search_path, entry.value);
+					Process.spawn_command_line_sync ("wget --directory-prefix documentation/%s/gallery-images/ \"%s\"".printf (pkg.name, link));
+				} catch (SpawnError e) {
+				}
+
+				return true;
+			});
+		}
+
+		FileStream stream = FileStream.open ("documentation/%s/widget-gallery.valadoc".printf (pkg.name), "w");
+		assert (stream != null);
+
+		stream.puts ("== Layout Containers ==\n");
+		stream.putc ('\n');
+
+		images.foreach ((entry) => {
+			stream.printf ("{@link c::%s}:\n", entry.key);
+			stream.putc ('\n');
+			stream.printf ("{{gallery-images/%s|%s}}\n", entry.value, entry.key);
+			stream.putc ('\n');
+			return true;
+		});
+
+
+		stream = FileStream.open ("tmp/%s-widget-gallery.valadoc".printf (pkg.name), "w");
+		assert (stream != null);
+
+		bool first_entry = true;
+
+		images.foreach ((entry) => {
+			if (first_entry == false) {
+				stream.puts ("\n\n");
+			}			
+
+			stream.puts ("/**\n");
+			stream.printf (" * {{../documentation/%s/gallery-images/%s|%s}}\n", pkg.name, entry.value, entry.key);
+			stream.puts (" */\n");
+			stream.printf ("c::%s::append", entry.key);
+
+			first_entry = false;
+			return true;
+		});
 	}
 
 	private void load_images (Package pkg) {

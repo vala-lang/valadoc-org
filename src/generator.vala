@@ -73,6 +73,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 	private void parse_metadata_package (Section section, MarkupReader reader, ref MarkupTokenType current_token, ref MarkupSourceLocation begin, ref MarkupSourceLocation end) {
 		string start_tag = reader.name;
+		Package pkg = null;
 
 		string? ignore = reader.get_attribute ("ignore");
 		if (ignore == null || ignore != "true") {
@@ -99,20 +100,29 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 					reporter.simple_error ("error: %s: Missing attribute: link=\"\" in %s", start_tag, name);
 					return ;
 				} else {
-					register_package (section, new ExternalPackage (name, external_link, maintainers, devhelp_link, home, c_docs, is_deprecated));
+					pkg = new ExternalPackage (name, external_link, maintainers, devhelp_link, home, c_docs, is_deprecated);
+					register_package (section, pkg);
 				}
 			} else {
 				string? gallery = reader.get_attribute ("gallery");
 				string? gir_name = reader.get_attribute ("gir");
 				string? flags = reader.get_attribute ("flags");
-				register_package (section, new Package (name, gir_name, maintainers, home, c_docs, gallery, flags, is_deprecated));
+				pkg = new Package (name, gir_name, maintainers, home, c_docs, gallery, flags, is_deprecated);
+				register_package (section, pkg);
 			}
 		}
 
 		current_token = reader.read_token (out begin, out end);
 
+		if (current_token == MarkupTokenType.TEXT) {
+			if (pkg != null) {
+				pkg.description = Regex.split_simple ("[ |\t]*\n[ |\t]*\n[ |\t]*", reader.content.strip ());
+			}
+			current_token = reader.read_token (out begin, out end);
+		}
+
 		if (current_token != MarkupTokenType.END_ELEMENT || reader.name != start_tag) {
-			reporter.simple_error ("error: Expected: </package> (got: %s '%s')", current_token.to_string (), reader.name);				return ;
+			reporter.simple_error ("error: Expected: </%s> (got: %s '%s')", start_tag, current_token.to_string (), reader.name);				return ;
 		}
 
 		current_token = reader.read_token (out begin, out end);
@@ -228,6 +238,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		public string flags;
 		public bool is_deprecated;
 		public string? gallery;
+		public string[] description;
 
 		public virtual string get_documentation_source () {
 			StringBuilder builder = new StringBuilder ();
@@ -490,8 +501,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 		private void render_table_entry (Package pkg) {
+			writer.start_tag ("tbody", {"class", "highlight"});
+
 			//string maintainers = pkg.maintainers ?? "-";
-			writer.start_tag ("tr", {"class", "highlight"});
+			writer.start_tag ("tr");
 			writer.start_tag ("td").end_tag ("td"); // space
 			writer.start_tag ("td").simple_tag ("img", {"src", "/package.png"}).end_tag ("td");
 
@@ -547,6 +560,22 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			writer.start_tag ("td").end_tag ("td"); // space
 			writer.end_tag ("tr");
+
+			if (pkg.description != null) {
+				writer.start_tag ("tr");
+				writer.start_tag ("td").end_tag ("td");
+				writer.start_tag ("td").end_tag ("td");
+				writer.start_tag ("td", {"colspan", "5"});
+				foreach (string line in pkg.description) {
+					line._strip ();
+					writer.start_tag ("p").text (line).end_tag ("p");
+				}
+				writer.end_tag ("td");
+				writer.start_tag ("td").end_tag ("td");
+				writer.end_tag ("tr");
+			}
+
+			writer.end_tag ("tbody");
 		}
 
 		private void render_table_end () {
@@ -868,7 +897,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		int pos = pkg.gallery.last_index_of_char ('/');
 		if (pos < 0) {
-			stdout.printf ("Invalid widget gallery path\n");
+			reporter.simple_error ("Invalid widget gallery path\n");
 			throw new FileError.FAILED ("Invalid widget gallery path");
 		}
 		string search_path = pkg.gallery.substring (0, pos);

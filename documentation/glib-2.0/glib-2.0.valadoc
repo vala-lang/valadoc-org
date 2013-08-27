@@ -3104,7 +3104,7 @@ GLib.FileStream.scanf
 GLib.FileStream.putc
 
 /**
- * Writes string ``s`` and a newline to the given output stream 
+ * Writes string ``s`` to the given output stream 
  *
  * @param s string to be written 
  * @return non-negative number on success or {@link GLib.FileStream.EOF} otherwise 

@@ -53,6 +53,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private static string prefix;
 	private static bool skip_existing;
 	private static string girdir = "girs/gir-1.0";
+	private static string target_glib;
 
 	public IndexGenerator (ErrorReporter reporter) {
 		this.reporter = new ErrorReporter ();
@@ -62,6 +63,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		{ "prefix", 0, 0, OptionArg.STRING, ref prefix, "package prefix (e.g. stable, unstable", null},
 		{ "all", 0, 0, OptionArg.NONE, ref regenerate_all_packages, "Regenerate documentation for all packages", null },
 		{ "directory", 'o', 0, OptionArg.FILENAME, ref output_directory, "Output directory", "DIRECTORY" },
+		{ "target-glib", 0, 0, OptionArg.STRING, ref target_glib, "target", "VERSION" },
 		{ "driver", 'o', 0, OptionArg.FILENAME, ref driver, "Output directory", "DIRECTORY" },
 		{ "download-images", 0, 0, OptionArg.NONE, ref download_images, "Downlaod images", null },
 		{ "doclet", 0, 0, OptionArg.STRING, ref docletpath, "Name of an included doclet or path to custom doclet", "PLUGIN"},
@@ -819,7 +821,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 
 		StringBuilder builder = new StringBuilder ();
-		builder.append_printf ("valadoc --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s", driver, docletpath, pkg.name, pkg.get_vapi_path (), Path.get_dirname (pkg.get_vapi_path ()), girdir, pkg.flags);
+		builder.append_printf ("valadoc --target-glib %s --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s", target_glib, driver, docletpath, pkg.name, pkg.get_vapi_path (), Path.get_dirname (pkg.get_vapi_path ()), girdir, pkg.flags);
+
 
 		stdout.printf ("creating \'%s\' ...\n", pkg.name);
 
@@ -1130,6 +1133,11 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		if (prefix == null) {
 			stdout.printf ("error: prefix == null\n");
+			return -1;
+		}
+
+		if (target_glib == null) {
+			stdout.printf ("error: target_glib == null\n");
 			return -1;
 		}
 

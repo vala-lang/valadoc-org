@@ -1,4 +1,9 @@
+/documentation/*/gir-images/*
+/documentation/*/gallery-images/*
+/documentation/*/widget-gallery.valadoc
+/examples/*-examples.valadoc
 /LOG
+/valadoc-example-gen
 /configgen
 /generator
 /girs/

@@ -1,7 +1,7 @@
 public static int main (string[] args) {
 	Variant var1 = new Variant ("(ssi)", "aa", "bb", 10);
-    string? val1 = null;
-    string? val2 = null;
+	string? val1 = null;
+	string? val2 = null;
 	int val3 = -1;
 
 	VariantIter iter = var1.iterator ();

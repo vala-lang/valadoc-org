@@ -45,8 +45,22 @@ public class ValadocGen : ExampleParser {
 		builder.append (" * }}}\n");
 	}
 
-	protected override void title (string str) {
-		builder.append_printf (" * ''%s''\n", str);
+	protected override void title (string? str) {
+		string title;
+
+		if (str == null) {
+			title = "''Example:''";
+		} else  {
+			if (str.has_prefix (":") == false) {
+				title = str.strip () + ":";
+			} else {
+				title = str.strip ();
+			}
+
+			title = "''Example:'' //%s//".printf (title);
+		}
+
+		builder.append_printf (" * %s\n", title);
 	}
 
 	protected override void note (string note) {

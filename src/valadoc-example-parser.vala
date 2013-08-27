@@ -50,7 +50,7 @@ public class ExampleParser : Object {
 			}
 
 			if (sibling3 == 0 && name != "title") {
-				title ("Example:");
+				title (null);
 			}
 
 			this.node3 = name;
@@ -88,11 +88,7 @@ public class ExampleParser : Object {
 				break;
 
 			case "title":
-				if (str.has_suffix (":")) {
-					title (str);
-				} else {
-					title (str + ":");
-				}
+				title (str);
 				break;
 
 			case "file":
@@ -165,7 +161,7 @@ public class ExampleParser : Object {
 	protected virtual void compile (string cmnd) {
 	}
 
-	protected virtual void title (string str) {
+	protected virtual void title (string? str) {
 	}
 
 	protected virtual void image (string image) {

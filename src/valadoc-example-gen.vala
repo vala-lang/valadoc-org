@@ -33,6 +33,11 @@ public class ValadocGen : ExampleParser {
 		builder.erase ();
 	}
 
+	protected override void image (string image) {
+		builder.append (" *\n");
+		builder.append_printf (" * {{%s}}\n" , image);
+	}
+
 	protected override void compile (string str) {
 		builder.append (" *\n");
 		builder.append (" * {{{\n");

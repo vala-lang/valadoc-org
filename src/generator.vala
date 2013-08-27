@@ -814,6 +814,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return ;
 		}
 
+		DirUtils.create ("documentation/%s/".printf (pkg.name), 0755);
+		DirUtils.create ("documentation/%s/wiki".printf (pkg.name), 0755);
+
+
 		StringBuilder builder = new StringBuilder ();
 		builder.append_printf ("valadoc --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s", driver, docletpath, pkg.name, pkg.get_vapi_path (), Path.get_dirname (pkg.get_vapi_path ()), girdir, pkg.flags);
 
@@ -830,7 +834,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		string gir_path = pkg.get_gir_file ();
 		if (gir_path != null) {
 			stdout.printf ("  using .gir:            %s\n", gir_path);
-				
+
 			builder.append_printf (" --importdir \"%s\"", girdir);
 			builder.append_printf (" --import %s", pkg.gir_name);
 
@@ -849,15 +853,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			builder.append_printf (" --import \"%s-widget-gallery\"", pkg.name);
 		}
 
-		string wiki_path = "documentation/%s/index.valadoc".printf (pkg.name);
+		string wiki_path = "documentation/%s/wiki/index.valadoc".printf (pkg.name);
 		bool delete_wiki_path = false;
 		if (FileUtils.test (wiki_path, FileTest.IS_REGULAR)) {
-			stdout.printf ("  using .valadoc (wiki): documentation/%s/*.valadoc\n", pkg.name);
+			stdout.printf ("  using .valadoc (wiki): documentation/%s/wiki/*.valadoc\n", pkg.name);
 		} else {
 			generate_wiki_index (pkg, wiki_path);
 			delete_wiki_path = true;
 		}
-		builder.append_printf (" --wiki documentation/%s", pkg.name);
+		builder.append_printf (" --wiki documentation/%s/wiki", pkg.name);
 
 		string example_path = "examples/%s/%s.valadoc.examples".printf (pkg.name, pkg.name);
 		if (FileUtils.test (example_path, FileTest.IS_REGULAR)) {
@@ -999,7 +1003,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 
 
-		DirUtils.create ("documentation/%s/gallery-images/".printf (pkg.name), 0600);
+		DirUtils.create ("documentation/%s/gallery-images/".printf (pkg.name), 0755);
 
 		// Download:
 		if (download_images) {

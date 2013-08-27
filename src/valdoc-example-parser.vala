@@ -1,5 +1,5 @@
 public class ExampleParser : Object {
-	const string[] nodes3 = {"compile", "title", "file", "node","note", "run"};
+	const string[] nodes3 = {"compile", "title", "file", "node","note", "run", "image"};
 
 	private const MarkupParser parser = {
 		visit_start,
@@ -83,6 +83,10 @@ public class ExampleParser : Object {
 				compile (str);
 				break;
 
+			case "image":
+				image (str);
+				break;
+
 			case "title":
 				if (str.has_suffix (":")) {
 					title (str);
@@ -162,6 +166,9 @@ public class ExampleParser : Object {
 	}
 
 	protected virtual void title (string str) {
+	}
+
+	protected virtual void image (string image) {
 	}
 
 	protected virtual void note (string note) {

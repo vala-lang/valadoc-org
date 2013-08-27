@@ -33,17 +33,20 @@
 		<node>GLib.DBusConnection</node>
 	</example>
 	<example>
+		<title>Commandline-handling and GLib.Applications</title>
 		<file>GLib.Application.4.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Application.4.vala</compile>
 		<node>GLib.Application</node>
 		<node>GLib.ApplicationCommandLine</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.BufferedInputStream.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.BufferedInputStream.vala</compile>
 		<node>GLib.BufferedInputStream</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.CharsetConverter.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.CharsetConverter.vala</compile>
 		<node>GLib.CharsetConverter</node>
@@ -51,71 +54,85 @@
 		<node>GLib.ConverterInputStream</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.DataInputStream.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.DataInputStream.vala</compile>
 		<node>GLib.DataInputStream</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.DataOutputStream.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.DataOutputStream.vala</compile>
 		<node>GLib.DataOutputStream</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.Drive.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Drive.vala</compile>
 		<node>GLib.Drive</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.append_to.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.append_to.vala</compile>
 		<node>GLib.File.append_to</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.append_to_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.append_to_async.vala</compile>
 		<node>GLib.File.append_to_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.copy.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.copy.vala</compile>
 		<node>GLib.File.copy</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.copy_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.copy_async.vala</compile>
 		<node>GLib.File.copy_async</node>
 	</example>
 	<example>
+		<title></title>
 		<node>GLib.File.create</node>
 		<file>GLib.File.create.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.create.vala</compile>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.create_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.create_async.vala</compile>
 		<node>GLib.File.create_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.create_readwrite.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.create_readwrite.vala</compile>
 		<node>GLib.File.create_readwrite</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.create_readwrite_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.create_readwrite_async.vala</compile>
 		<node>GLib.File.create_readwrite_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.delete.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.delete.vala</compile>
 		<node>GLib.File.delete</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.delete_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.delete_async.vala</compile>
 		<node>GLib.File.delete_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.enumerate_children.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.enumerate_children.vala</compile>
 		<node>GLib.File.enumerate_children</node>
@@ -123,6 +140,7 @@
 		<node>GLib.FileInfo</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.enumerate_children_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.enumerate_children_async.vala</compile>
 		<node>GLib.File.enumerate_children_async</node>
@@ -130,209 +148,250 @@
 		<node>GLib.FileInfo</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.find_enclosing_mount.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.find_enclosing_mount.vala</compile>
 		<node>GLib.File.find_enclosing_mount</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.find_enclosing_mount_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.find_enclosing_mount_async.vala</compile>
 		<node>GLib.File.find_enclosing_mount_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.get_basename.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.get_basename.vala</compile>
 		<node>GLib.File.get_basename</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.get_parent.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.get_parent.vala</compile>
 		<node>GLib.File.get_parent</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.get_parse_name.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.get_parse_name.vala</compile>
 		<node>GLib.File.get_parse_name</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.get_path.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.get_path.vala</compile>
 		<node>GLib.File.get_path</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.get_uri.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.get_uri.vala</compile>
 		<node>GLib.File.get_uri</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.get_uri_scheme.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.get_uri_scheme.vala</compile>
 		<node>GLib.File.get_uri_scheme</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.load_contents.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.load_contents.vala</compile>
 		<node>GLib.File.load_contents</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.load_contents_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.load_contents_async.vala</compile>
 		<node>GLib.File.load_contents_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.make_directory.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.make_directory.vala</compile>
 		<node>GLib.File.make_directory</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.make_directory_with_parents.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.make_directory_with_parents.vala</compile>
 		<node>GLib.File.make_directory_with_parents</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.make_symbolic_link.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.make_symbolic_link.vala</compile>
 		<node>GLib.File.make_symbolic_link</node>
 	</example>
 	<example>
+		<title>File monitoring</title>
 		<file>GLib.File.monitor.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.monitor.vala</compile>
 		<node>GLib.File.monitor</node>
 		<node>GLib.FileMonitor</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.monitor_directory.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.monitor_directory.vala</compile>
 		<node>GLib.File.monitor_directory</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.monitor_file.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.monitor_file.vala</compile>
 		<node>GLib.File.monitor_file</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.move.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.move.vala</compile>
 		<node>GLib.File.move</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.new_for_commandline_arg.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.new_for_commandline_arg.vala</compile>
 		<node>GLib.File.new_for_commandline_arg</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.new_for_path.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.new_for_path.vala</compile>
 		<node>GLib.File.new_for_path</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.new_for_uri.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.new_for_uri.vala</compile>
 		<node>GLib.File.new_for_uri</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.new_tmp.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.new_tmp.vala</compile>
 		<node>GLib.File.new_tmp</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.open_readwrite.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.open_readwrite.vala</compile>
 		<node>GLib.File.open_readwrite</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.open_readwrite_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.open_readwrite_async.vala</compile>
 		<node>GLib.File.open_readwrite_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.query_default_handler.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.query_default_handler.vala</compile>
 		<node>GLib.File.query_default_handler</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.query_exists.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.query_exists.vala</compile>
 		<node>GLib.File.query_exists</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.query_file_type.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.query_file_type.vala</compile>
 		<node>GLib.File.query_file_type</node>
 	</example>
 	<example>
+		<title>File infos, sync</title>
 		<file>GLib.File.query_info.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.query_info.vala</compile>
 		<node>GLib.File.query_info</node>
 	</example>
 	<example>
+		<title>File infos, async</title>
 		<file>GLib.File.query_info_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.query_info_async.vala</compile>
 		<node>GLib.File.query_info_async</node>
 		<node>GLib.Icon</node>
 	</example>
 	<example>
+		<title>Read, sync</title>
 		<file>GLib.File.read.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.read.vala</compile>
 		<node>GLib.File.read</node>
 	</example>
 	<example>
+		<title>Read, async</title>
 		<file>GLib.File.read_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.read_async.vala</compile>
 		<node>GLib.File.read_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.replace.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.replace.vala</compile>
 		<node>GLib.File.replace</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.replace_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.replace_async.vala</compile>
 		<node>GLib.File.replace_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.replace_contents.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.replace_contents.vala</compile>
 		<node>GLib.File.replace_contents</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.replace_contents_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.replace_contents_async.vala</compile>
 		<node>GLib.File.replace_contents_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.replace_readwrite.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.replace_readwrite.vala</compile>
 		<node>GLib.File.replace_readwrite</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.replace_readwrite_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.replace_readwrite_async.vala</compile>
 		<node>GLib.File.replace_readwrite_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.set_display_name.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.set_display_name.vala</compile>
 		<node>GLib.File.set_display_name</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.File.set_display_name_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.set_display_name_async.vala</compile>
 		<node>GLib.File.set_display_name_async</node>
 	</example>
 	<example>
+		<title>Trash a file</title>
 		<file>GLib.File.trash.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.trash.vala</compile>
 		<node>GLib.File.trash</node>
 		<node>GLib.File.new_for_commandline_arg</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.FileAttributeMatcher.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.FileAttributeMatcher.vala</compile>
 		<node>GLib.FileAttributeMatcher</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.FileIOStream.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.FileIOStream.vala</compile>
 		<node>GLib.FileIOStream</node>
@@ -340,27 +399,32 @@
 		<node>GLib.FileOutputStream</node>
 	</example>
 	<example>
+		<title></title>
 		<note>Use control c to exit the program.</note>
 		<file>GLib.FilenameCompleter.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.FilenameCompleter.vala</compile>
 		<node>GLib.FilenameCompleter</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.InetAddress.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.InetAddress.vala</compile>
 		<node>GLib.InetAddress</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.InetSocketAddress.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.InetSocketAddress.vala</compile>
 		<node>GLib.InetSocketAddress</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.IOSchedulerJob.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.IOSchedulerJob.vala</compile>
 		<node>GLib.IOSchedulerJob</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.IOStream.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.IOStream.vala</compile>
 		<node>GLib.IOStream</node>
@@ -368,79 +432,94 @@
 		<node>GLib.OutputStream</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.MemoryOutputStream.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.MemoryOutputStream.vala</compile>
 		<node>GLib.MemoryOutputStream</node>
 		<node>GLib.MemoryInputStream</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.Mount.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Mount.vala</compile>
 		<node>GLib.Mount</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.NetworkAddress.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.NetworkAddress.vala</compile>
 		<node>GLib.NetworkAddress</node>
 	</example>
 	<example>
+		<title>Network Monitoring</title>
 		<file>GLib.NetworkMonitor.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.NetworkMonitor.vala</compile>
 		<node>GLib.NetworkMonitor</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.replace_contents.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.replace_contents.vala</compile>
-		<node>GLib.replace_contents</node>
+		<node>GLib.File.replace_contents</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.Resolver.lookup_by_address.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Resolver.lookup_by_address.vala</compile>
 		<node>GLib.Resolver.lookup_by_address</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.Resolver.lookup_by_address_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Resolver.lookup_by_address_async.vala</compile>
 		<node>GLib.Resolver.lookup_by_address_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.Resolver.lookup_by_name.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Resolver.lookup_by_name.vala</compile>
 		<node>GLib.Resolver.lookup_by_name</node>
 		<node>GLib.Resolver</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.Resolver.lookup_by_name_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Resolver.lookup_by_name_async.vala</compile>
 		<node>GLib.Resolver.lookup_by_name_async</node>
 		<node>GLib.Resolver</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.Resolver.lookup_service.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Resolver.lookup_service.vala</compile>
 		<node>GLib.Resolver.lookup_service</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.Resolver.lookup_service_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Resolver.lookup_service_async.vala</compile>
 		<node>GLib.Resolver.lookup_service_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.Resolver.lookup_service_fn.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Resolver.lookup_service_fn.vala</compile>
 		<node>GLib.Resolver.lookup_service_fn</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.Resolver.lookup_service_fn_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Resolver.lookup_service_fn_async.vala</compile>
 		<node>GLib.Resolver.lookup_service_fn_async</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.Seekable.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Seekable.vala</compile>
 		<node>GLib.Seekable</node>
 	</example>
 	<example>
+		<title>GSettings</title>
 		<note>Use ``glib-compile-schemas [directory]`` to compile the gschema.</note>
 		<note>Use Control-C to quit the program.</note>
 		<file>org.example.glib-settings-schema.gschema.xml</file>
@@ -452,27 +531,32 @@
 		<node>GLib.SettingsSchema</node>
 	</example>
 	<example>
+		<title>Sockets</title>
 		<file>GLib.Socket.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Socket.vala</compile>
 		<node>GLib.Socket</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.SocketAddressEnumerator.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.SocketAddressEnumerator.vala</compile>
 		<node>GLib.SocketAddressEnumerator</node>
 	</example>
 	<example>
+		<title>Socket client, sync</title>
 		<file>GLib.SocketClient.connect.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.SocketClient.connect.vala</compile>
 		<node>GLib.SocketClient.connect</node>
 		<node>ADD: GLib.SocketClient</node>
 	</example>
 	<example>
+		<title>Socket client, async</title>
 		<file>GLib.SocketClient.connect_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.SocketClient.connect_async.vala</compile>
 		<node>GLib.SocketClient.connect_async</node>
 	</example>
 	<example>
+		<title>Socket Listener, sync</title>
 		<note>Use ``telnet localhost 1024`` or ``telnet localhost 1025`` to create connections</note>
 		<note>Send "shutdown" to close the server.</note>
 		<file>GLib.SocketListener.accept.vala</file>
@@ -481,6 +565,7 @@
 		<node>GLib.SocketListener</node>
 	</example>
 	<example>
+		<title>Socket listener, async</title>
 		<note>Use ``telnet localhost 1024`` or ``telnet localhost 1025`` to create connections</note>
 		<note>Send "shutdown" to close the server.</note>
 		<file>GLib.SocketListener.accept_async.vala</file>
@@ -489,6 +574,7 @@
 		<node>GLib.Cancellable</node>
 	</example>
 	<example>
+		<title>Socket service</title>
 		<note>Use ``telnet localhost 1024`` or ``telnet localhost 1025`` to create connections</note>
 		<note>Send "shutdown" to close the server.</note>
 		<file>GLib.SocketService.vala</file>
@@ -496,11 +582,13 @@
 		<node>GLib.SocketService</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.SrvTarget.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.SrvTarget.vala</compile>
 		<node>GLib.SrvTarget</node>
 	</example>
 	<example>
+		<title>Threaded socket service</title>
 		<note>Use ``telnet localhost 1024`` or ``telnet localhost 1025`` to create connections</note>
 		<note>Send "shutdown" to close the server.</note>
 		<file>GLib.ThreadedSocketService.vala</file>
@@ -508,16 +596,19 @@
 		<node>GLib.ThreadedSocketService</node>
 	</example>
 	<example>
+		<title></title>
 		<file>GLib.Volume.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Volume.vala</compile>
 		<node>GLib.Volume</node>
 	</example>
 	<example>
+		<title>Volume monitoring</title>
 		<file>GLib.VolumeMonitor.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.VolumeMonitor.vala</compile>
 		<node>GLib.VolumeMonitor</node>
 	</example>
 	<example>
+		<title>ZLib-Compression</title>
 		<file>GLib.ZlibCompressor.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.ZlibCompressor.vala</compile>
 		<node>GLib.ZlibCompressor</node>

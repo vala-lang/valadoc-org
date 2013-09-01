@@ -284,10 +284,13 @@
 				API, like Identi.ca. 
 			</package>
 			<package name="libgda-4.0" gir="Gda-0.5">
-				Libgda is a (relatively small) database access library: 
+				Libgda is a (relatively small) database access library. 
 			</package>
 			<package name="libgda-report-4.0">
 				GNU Data Access Library, reporter
+			</package>
+			<package name="gweather-3.0" gir="GWeather-3.0">
+				Location and timezone database and weather-lookup library.
 			</package>
 		</section>
 

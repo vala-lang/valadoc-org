@@ -582,7 +582,7 @@
 		<node>GLib.GenericArray.add</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the stored data</title>
 		<file>GLib.GenericArray.data.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.GenericArray.data.vala</compile>
 		<node>GLib.GenericArray.data</node>
@@ -594,55 +594,55 @@
 		<node>GLib.GenericArray.foreach</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the nth entry</title>
 		<file>GLib.GenericArray.get.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.GenericArray.get.vala</compile>
 		<node>GLib.GenericArray.get</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the nth entry</title>
 		<file>GLib.GenericArray.index.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.GenericArray.index.vala</compile>
 		<node>GLib.GenericArray.index</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the number of stored items</title>
 		<file>GLib.GenericArray.len.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.GenericArray.len.vala</compile>
 		<node>GLib.GenericArray.len</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove the first occurrence of the given data</title>
 		<file>GLib.GenericArray.remove.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.GenericArray.remove.vala</compile>
 		<node>GLib.GenericArray.remove</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove the first occurrence of the given data, fast</title>
 		<file>GLib.GenericArray.remove_fast.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.GenericArray.remove_fast.vala</compile>
 		<node>GLib.GenericArray.remove_fast</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove the nth element</title>
 		<file>GLib.GenericArray.remove_index.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.GenericArray.remove_index.vala</compile>
 		<node>GLib.GenericArray.remove_index</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove the nth element, fast</title>
 		<file>GLib.GenericArray.remove_index_fast.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.GenericArray.remove_index_fast.vala</compile>
 		<node>GLib.GenericArray.remove_index_fast</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove a range of elements</title>
 		<file>GLib.GenericArray.remove_range.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.GenericArray.remove_range.vala</compile>
 		<node>GLib.GenericArray.remove_range</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Set the item at the specified index</title>
 		<file>GLib.GenericArray.set.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.GenericArray.set.vala</compile>
 		<node>GLib.GenericArray.set</node>
@@ -673,7 +673,7 @@
 		<node>GLib.HashTable.contains</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Predicate based search</title>
 		<file>GLib.HashTable.find.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.HashTable.find.vala</compile>
 		<node>GLib.HashTable.find</node>
@@ -691,7 +691,7 @@
 		<node>GLib.HashTable.foreach_remove</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the value for a key</title>
 		<file>GLib.HashTable.get.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.HashTable.get.vala</compile>
 		<node>GLib.HashTable.get</node>
@@ -746,7 +746,7 @@
 		<node>GLib.HashTable.replace</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Associate a value with a key</title>
 		<file>GLib.HashTable.set.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.HashTable.set.vala</compile>
 		<node>GLib.HashTable.set</node>
@@ -758,13 +758,13 @@
 		<node>GLib.HashTable.size</node>
 	</example>
 	<example>
-		<title></title>
+		<title>HashTable, iter</title>
 		<file>GLib.HashTableIter.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.HashTableIter.vala</compile>
 		<node>GLib.HashTableIter</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Watch a file with IOChannel</title>
 		<file>GLib.IOChannel.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.IOChannel.vala</compile>
 		<node>GLib.IOChannel</node>
@@ -782,37 +782,37 @@
 		<node>GLib.List.append</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Concatenate two lists</title>
 		<file>GLib.List.concat.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.concat.vala</compile>
 		<node>GLib.List.concat</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Create a copy</title>
 		<file>GLib.List.copy.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.copy.vala</compile>
 		<node>GLib.List.copy</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Delete a link</title>
 		<file>GLib.List.delete_link.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.delete_link.vala</compile>
 		<node>GLib.List.delete_link</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Find the link which contains the given data</title>
 		<file>GLib.List.find.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.find.vala</compile>
 		<node>GLib.List.find</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Find the link containing the given data, custom</title>
 		<file>GLib.List.find_custom.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.find_custom.vala</compile>
 		<node>GLib.List.find_custom</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the first element</title>
 		<file>GLib.List.first.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.first.vala</compile>
 		<node>GLib.List.first</node>
@@ -825,7 +825,7 @@
 		<node>GLib.List</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the link-position containing the given data</title>
 		<file>GLib.List.index.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.index.vala</compile>
 		<node>GLib.List.index</node>
@@ -855,37 +855,37 @@
 		<node>GLib.List.insert_sorted_with_data</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the last element</title>
 		<file>GLib.List.last.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.last.vala</compile>
 		<node>GLib.List.last</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the length</title>
 		<file>GLib.List.length.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.length.vala</compile>
 		<node>GLib.List.length</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the nth element</title>
 		<file>GLib.List.nth.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.nth.vala</compile>
 		<node>GLib.List.nth</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the data of the nth element</title>
 		<file>GLib.List.nth_data.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.nth_data.vala</compile>
 		<node>GLib.List.nth_data</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the element n places before a link</title>
 		<file>GLib.List.nth_prev.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.nth_prev.vala</compile>
 		<node>GLib.List.nth_prev</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the position of a link</title>
 		<file>GLib.List.position.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.position.vala</compile>
 		<node>GLib.List.position</node>
@@ -903,13 +903,13 @@
 		<node>GLib.List.remove</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Removes all links</title>
 		<file>GLib.List.remove_all.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.remove_all.vala</compile>
 		<node>GLib.List.remove_all</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove a link</title>
 		<file>GLib.List.remove_link.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.List.remove_link.vala</compile>
 		<node>GLib.List.remove_link</node>
@@ -933,13 +933,13 @@
 		<node>GLib.List.sort_with_data</node>
 	</example>
 	<example>
-		<title></title>
+		<title>MainLoop</title>
 		<file>GLib.MainLoop.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.MainLoop.vala</compile>
 		<node>GLib.MainLoop</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Map a file and print its conent and size</title>
 		<file>GLib.MappedFile.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.MappedFile.vala</compile>
 		<node>GLib.MappedFile</node>
@@ -952,61 +952,55 @@
 		<node>GLib.MarkupParser</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Arc cosine (double)</title>
 		<file>GLib.Math.acos.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.acos.vala</compile>
 		<node>GLib.Math.acos</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Arc cosine (float)</title>
 		<file>GLib.Math.acosf.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.acosf.vala</compile>
 		<node>GLib.Math.acosf</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Arc sine (double)</title>
 		<file>GLib.Math.asin.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.asin.vala</compile>
 		<node>GLib.Math.asin</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Arc sine (float)</title>
 		<file>GLib.Math.asinf.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.asinf.vala</compile>
 		<node>GLib.Math.asinf</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Arc tangent (double)</title>
 		<file>GLib.Math.atan.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.atan.vala</compile>
 		<node>GLib.Math.atan</node>
 	</example>
 	<example>
-		<title></title>
-		<file>GLib.Math.atan2.vala</file>
-		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.atan2.vala</compile>
-		<node>GLib.Math.atan2</node>
-	</example>
-	<example>
-		<title></title>
-		<file>GLib.Math.atan2f.vala</file>
-		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.atan2f.vala</compile>
-		<node>GLib.Math.atan2f</node>
-	</example>
-	<example>
-		<title></title>
+		<title>Arc tangent (float)</title>
 		<file>GLib.Math.atanf.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.atanf.vala</compile>
 		<node>GLib.Math.atanf</node>
 	</example>
 	<example>
-		<title></title>
-		<file>GLib.Math.ceil.vala</file>
-		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.ceil.vala</compile>
-		<node>GLib.Math.ceil</node>
+		<title>Arc tangent of y/x (double)</title>
+		<file>GLib.Math.atan2.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.atan2.vala</compile>
+		<node>GLib.Math.atan2</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Arc tangent of y/x (float)</title>
+		<file>GLib.Math.atan2f.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.atan2f.vala</compile>
+		<node>GLib.Math.atan2f</node>
+	</example>
+	<example>
+		<title>Rounds x upward (float)</title>
 		<file>GLib.Math.ceilf.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.ceilf.vala</compile>
 		<node>GLib.Math.ceilf</node>
@@ -1018,70 +1012,76 @@
 		<node>GLib.Math.cos</node>
 	</example>
 	<example>
+		<title>Rounds x upward (double)</title>
+		<file>GLib.Math.ceil.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.ceil.vala</compile>
+		<node>GLib.Math.ceil</node>
+	</example>
+	<example>
 		<title>Cosine (float)</title>
 		<file>GLib.Math.cosf.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.cosf.vala</compile>
 		<node>GLib.Math.cosf</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Rounds x downward (double)</title>
 		<file>GLib.Math.floor.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.floor.vala</compile>
 		<node>GLib.Math.floor</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Rounds x downward (float)</title>
 		<file>GLib.Math.floorf.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.floorf.vala</compile>
 		<node>GLib.Math.floorf</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Round double to int64</title>
 		<file>GLib.Math.llround.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.llround.vala</compile>
 		<node>GLib.Math.llround</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Round float to int64</title>
 		<file>GLib.Math.llroundf.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.llroundf.vala</compile>
 		<node>GLib.Math.llroundf</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Round double to long</title>
 		<file>GLib.Math.lround.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.lround.vala</compile>
 		<node>GLib.Math.lround</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Round float to long</title>
 		<file>GLib.Math.lroundf.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.lroundf.vala</compile>
 		<node>GLib.Math.lroundf</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Calculate x^y (double)</title>
 		<file>GLib.Math.pow.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.pow.vala</compile>
 		<node>GLib.Math.pow</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Calculate x^y (float)</title>
+		<file>GLib.Math.powf.vala</file>
+		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.powf.vala</compile>
+		<node>GLib.Math.powf</node>
+	</example>
+	<example>
+		<title>Calculate 10^x (double)</title>
 		<file>GLib.Math.pow10.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.pow10.vala</compile>
 		<node>GLib.Math.pow10</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Calculate 10^x (float)</title>
 		<file>GLib.Math.pow10f.vala</file>
 		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.pow10f.vala</compile>
 		<node>GLib.Math.pow10f</node>
-	</example>
-	<example>
-		<title></title>
-		<file>GLib.Math.powf.vala</file>
-		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.powf.vala</compile>
-		<node>GLib.Math.powf</node>
 	</example>
 	<example>
 		<title>Round (double)</title>
@@ -1150,7 +1150,7 @@
 		<node>GLib.Memory.copy</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Copy n bytes</title>
 		<file>GLib.Memory.dup.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Memory.dup.vala</compile>
 		<node>GLib.Memory.dup</node>
@@ -1188,116 +1188,116 @@
 		<node>GLib.OptionEntry</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Build a file name</title>
 		<file>GLib.Path.build_filename.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Path.build_filename.vala</compile>
 		<node>GLib.Path.build_filename</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Build a path</title>
 		<file>GLib.Path.build_path.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Path.build_path.vala</compile>
 		<node>GLib.Path.build_path</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the directory separator</title>
 		<file>GLib.Path.DIR_SEPARATOR.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Path.DIR_SEPARATOR.vala</compile>
 		<node>GLib.Path.DIR_SEPARATOR</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the directory separator as string</title>
 		<file>GLib.Path.DIR_SEPARATOR_S.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Path.DIR_SEPARATOR_S.vala</compile>
 		<node>GLib.Path.DIR_SEPARATOR_S</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the basename</title>
 		<file>GLib.Path.get_basename.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Path.get_basename.vala</compile>
 		<node>GLib.Path.get_basename</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the directory name</title>
 		<file>GLib.Path.get_dirname.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Path.get_dirname.vala</compile>
 		<node>GLib.Path.get_dirname</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Check whether a path is absolute</title>
 		<file>GLib.Path.is_absolute.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Path.is_absolute.vala</compile>
 		<node>GLib.Path.is_absolute</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Check whether a character is a directory separator</title>
 		<file>GLib.Path.is_dir_separator.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Path.is_dir_separator.vala</compile>
 		<node>GLib.Path.is_dir_separator</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the search path separator</title>
 		<file>GLib.Path.SEARCHPATH_SEPARATOR.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Path.SEARCHPATH_SEPARATOR.vala</compile>
 		<node>GLib.Path.SEARCHPATH_SEPARATOR</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the search path separator as string</title>
 		<file>GLib.Path.SEARCHPATH_SEPARATOR_S.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Path.SEARCHPATH_SEPARATOR_S.vala</compile>
 		<node>GLib.Path.SEARCHPATH_SEPARATOR_S</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Skip the root component</title>
 		<file>GLib.Path.skip_root.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Path.skip_root.vala</compile>
 		<node>GLib.Path.skip_root</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Match a string against a pattern</title>
+		<file>GLib.PatternSpec.match_simple.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.PatternSpec.match_simple.vala</compile>
+		<node>GLib.PatternSpec.match_simple</node>
+	</example>
+	<example>
+		<title>Compare two compiled pattern specs</title>
 		<file>GLib.PatternSpec.equal.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PatternSpec.equal.vala</compile>
 		<node>GLib.PatternSpec.equal</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Match a string against a compiled pattern (full)</title>
 		<file>GLib.PatternSpec.match.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PatternSpec.match.vala</compile>
 		<node>GLib.PatternSpec.match</node>
 		<node>GLib.PatternSpec</node>
 	</example>
 	<example>
-		<title></title>
-		<file>GLib.PatternSpec.match_simple.vala</file>
-		<compile>valac --pkg glib-2.0 GLib.PatternSpec.match_simple.vala</compile>
-		<node>GLib.PatternSpec.match_simple</node>
-	</example>
-	<example>
-		<title></title>
+		<title>Match a string against a compiled pattern</title>
 		<file>GLib.PatternSpec.match_string.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PatternSpec.match_string.vala</compile>
 		<node>GLib.PatternSpec.match_string</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Cause abnormal program termination (Abort)</title>
 		<file>GLib.Process.abort.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Process.abort.vala</compile>
 		<node>GLib.Process.abort</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Terminate the program</title>
 		<file>GLib.Process.exit.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Process.exit.vala</compile>
 		<node>GLib.Process.exit</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Spawn, async</title>
 		<file>GLib.Process.spawn_async.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Process.spawn_async.vala</compile>
 		<node>GLib.Process.spawn_async</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Spawn with pipes, async</title>
 		<file>GLib.Process.spawn_async_with_pipes.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Process.spawn_async_with_pipes.vala</compile>
 		<node>GLib.Process.spawn_async_with_pipes</node>
@@ -1305,25 +1305,25 @@
 		<node>GLib.Pid</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Spawn a command line, async</title>
 		<file>GLib.Process.spawn_command_line_async.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Process.spawn_command_line_async.vala</compile>
 		<node>GLib.Process.spawn_command_line_async</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Spawn a command line, sync</title>
 		<file>GLib.Process.spawn_command_line_sync.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Process.spawn_command_line_sync.vala</compile>
 		<node>GLib.Process.spawn_command_line_sync</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Spawn, sync</title>
 		<file>GLib.Process.spawn_sync.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Process.spawn_sync.vala</compile>
 		<node>GLib.Process.spawn_sync</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Add a pointer</title>
 		<file>GLib.PtrArray.add.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.add.vala</compile>
 		<node>GLib.PtrArray.add</node>
@@ -1336,55 +1336,55 @@
 		<node>GLib.PtrArray</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the nth pointer</title>
 		<file>GLib.PtrArray.index.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.index.vala</compile>
 		<node>GLib.PtrArray.index</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the length</title>
 		<file>GLib.PtrArray.len.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.len.vala</compile>
 		<node>GLib.PtrArray.len</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Create a PtrArray with a free-function</title>
 		<file>GLib.PtrArray.PtrArray.with_free_func.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.PtrArray.with_free_func.vala</compile>
 		<node>GLib.PtrArray.PtrArray.with_free_func</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove a value</title>
 		<file>GLib.PtrArray.remove.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove.vala</compile>
 		<node>GLib.PtrArray.remove</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove, fast</title>
 		<file>GLib.PtrArray.remove_fast.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove_fast.vala</compile>
 		<node>GLib.PtrArray.remove_fast</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove index</title>
 		<file>GLib.PtrArray.remove_index.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove_index.vala</compile>
 		<node>GLib.PtrArray.remove_index</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove index, fast</title>
 		<file>GLib.PtrArray.remove_index_fast.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove_index_fast.vala</compile>
 		<node>GLib.PtrArray.remove_index_fast</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove range</title>
 		<file>GLib.PtrArray.remove_range.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove_range.vala</compile>
 		<node>GLib.PtrArray.remove_range</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Set a free func</title>
 		<file>GLib.PtrArray.set_free_func.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.set_free_func.vala</compile>
 		<node>GLib.PtrArray.set_free_func</node>
@@ -1396,7 +1396,7 @@
 		<node>GLib.PtrArray.sort</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Quarks</title>
 		<file>GLib.Quark.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Quark.vala</compile>
 		<node>GLib.Quark</node>
@@ -1414,133 +1414,133 @@
 		<node>GLib.Queue.copy</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Delete a link</title>
 		<file>GLib.Queue.delete_link.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.delete_link.vala</compile>
 		<node>GLib.Queue.delete_link</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Find</title>
 		<file>GLib.Queue.find.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.find.vala</compile>
 		<node>GLib.Queue.find</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Find custom</title>
 		<file>GLib.Queue.find_custom.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.find_custom.vala</compile>
 		<node>GLib.Queue.find_custom</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the length</title>
 		<file>GLib.Queue.get_length.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.get_length.vala</compile>
 		<node>GLib.Queue.get_length</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the index of data</title>
 		<file>GLib.Queue.index.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.index.vala</compile>
 		<node>GLib.Queue.index</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Insert after</title>
 		<file>GLib.Queue.insert_after.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.insert_after.vala</compile>
 		<node>GLib.Queue.insert_after</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Insert before</title>
 		<file>GLib.Queue.insert_before.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.insert_before.vala</compile>
 		<node>GLib.Queue.insert_before</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Insert sorted</title>
 		<file>GLib.Queue.insert_sorted.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.insert_sorted.vala</compile>
 		<node>GLib.Queue.insert_sorted</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Check if a Queue is empty</title>
 		<file>GLib.Queue.is_empty.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.is_empty.vala</compile>
 		<node>GLib.Queue.is_empty</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the length</title>
 		<file>GLib.Queue.length.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.length.vala</compile>
 		<node>GLib.Queue.length</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Peek head</title>
 		<file>GLib.Queue.peek_head.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.peek_head.vala</compile>
 		<node>GLib.Queue.peek_head</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Peek nth</title>
 		<file>GLib.Queue.peek_nth.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.peek_nth.vala</compile>
 		<node>GLib.Queue.peek_nth</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Peek tail</title>
 		<file>GLib.Queue.peek_tail.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.peek_tail.vala</compile>
 		<node>GLib.Queue.peek_tail</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Pop head</title>
 		<file>GLib.Queue.pop_head.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.pop_head.vala</compile>
 		<node>GLib.Queue.pop_head</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Pop nth</title>
 		<file>GLib.Queue.pop_nth.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.pop_nth.vala</compile>
 		<node>GLib.Queue.pop_nth</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Pop tail</title>
 		<file>GLib.Queue.pop_tail.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.pop_tail.vala</compile>
 		<node>GLib.Queue.pop_tail</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Push head</title>
 		<file>GLib.Queue.push_head.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.push_head.vala</compile>
 		<node>GLib.Queue.push_head</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Push nth</title>
 		<file>GLib.Queue.push_nth.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.push_nth.vala</compile>
 		<node>GLib.Queue.push_nth</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Push tail</title>
 		<file>GLib.Queue.push_tail.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.push_tail.vala</compile>
 		<node>GLib.Queue.push_tail</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remvoe</title>
 		<file>GLib.Queue.remove.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.remove.vala</compile>
 		<node>GLib.Queue.remove</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove all</title>
 		<file>GLib.Queue.remove_all.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.remove_all.vala</compile>
 		<node>GLib.Queue.remove_all</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Reverse</title>
 		<file>GLib.Queue.reverse.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.reverse.vala</compile>
 		<node>GLib.Queue.reverse</node>
@@ -1552,13 +1552,13 @@
 		<node>GLib.Queue.sort</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Queues and Stacks</title>
 		<file>GLib.Queue.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.vala</compile>
 		<node>GLib.Queue</node>
 	</example>
 	<example>
-		<title></title>
+		<title>RecMutex, nested critical sections</title>
 		<file>GLib.RecMutex.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.RecMutex.vala</compile>
 		<node>GLib.RecMutex</node>
@@ -1576,25 +1576,25 @@
 		<node>GLib.Regex.match</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Match, simple</title>
 		<file>GLib.Regex.match_simple.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Regex.match_simple.vala</compile>
 		<node>GLib.Regex.match_simple</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Regex, replace</title>
 		<file>GLib.Regex.replace.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Regex.replace.vala</compile>
 		<node>GLib.Regex.replace</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Replace literal</title>
 		<file>GLib.Regex.replace_literal.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Regex.replace_literal.vala</compile>
 		<node>GLib.Regex.replace_literal</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Split simple</title>
 		<file>GLib.Regex.split_simple.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Regex.split_simple.vala</compile>
 		<node>GLib.Regex.split_simple</node>
@@ -1618,61 +1618,55 @@
 		<node>GLib.Sequence.foreach</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Foreach, range</title>
 		<file>GLib.Sequence.foreach_range.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.foreach_range.vala</compile>
 		<node>GLib.Sequence.foreach_range</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get data that a iter points to</title>
 		<file>GLib.Sequence.get.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.get.vala</compile>
 		<node>GLib.Sequence.get</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the begin iterator</title>
 		<file>GLib.Sequence.get_begin_iter.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.get_begin_iter.vala</compile>
 		<node>GLib.Sequence.get_begin_iter</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the end iterator</title>
 		<file>GLib.Sequence.get_end_iter.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.get_end_iter.vala</compile>
 		<node>GLib.Sequence.get_end_iter</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the nth iter</title>
 		<file>GLib.Sequence.get_iter_at_pos.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.get_iter_at_pos.vala</compile>
 		<node>GLib.Sequence.get_iter_at_pos</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the length</title>
 		<file>GLib.Sequence.get_length.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.get_length.vala</compile>
 		<node>GLib.Sequence.get_length</node>
 	</example>
 	<example>
-		<title></title>
-		<file>GLib.Sequence.get_pos_iter.vala</file>
-		<compile>valac --pkg glib-2.0 GLib.Sequence.get_pos_iter.vala</compile>
-		<node>GLib.Sequence.get_pos_iter</node>
-	</example>
-	<example>
-		<title></title>
+		<title>Insert before</title>
 		<file>GLib.Sequence.insert_before.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.insert_before.vala</compile>
 		<node>GLib.Sequence.insert_before</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Insert sorted</title>
 		<file>GLib.Sequence.insert_sorted.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.insert_sorted.vala</compile>
 		<node>GLib.Sequence.insert_sorted</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Insert sorted, iter</title>
 		<file>GLib.Sequence.insert_sorted_iter.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.insert_sorted_iter.vala</compile>
 		<node>GLib.Sequence.insert_sorted_iter</node>
@@ -1690,13 +1684,13 @@
 		<node>GLib.Sequence.lookup_iter</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Move</title>
 		<file>GLib.Sequence.move.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.move.vala</compile>
 		<node>GLib.Sequence.move</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Move a range</title>
 		<file>GLib.Sequence.move_range.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.move_range.vala</compile>
 		<node>GLib.Sequence.move_range</node>
@@ -1708,7 +1702,7 @@
 		<node>GLib.Sequence.prepend</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the midpoint of a range</title>
 		<file>GLib.Sequence.range_get_midpoint.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.range_get_midpoint.vala</compile>
 		<node>GLib.Sequence.range_get_midpoint</node>
@@ -1738,7 +1732,7 @@
 		<node>GLib.Sequence.search_iter</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Set the item at the specified position</title>
 		<file>GLib.Sequence.set.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.set.vala</compile>
 		<node>GLib.Sequence.set</node>
@@ -1751,49 +1745,49 @@
 		<node>GLib.Sequence</node>
 	</example>
 	<example>
-		<title></title>
-		<file>GLib.Sequence.sort_changed.vala</file>
-		<compile>valac --pkg glib-2.0 GLib.Sequence.sort_changed.vala</compile>
-		<node>GLib.Sequence.sort_changed</node>
-	</example>
-	<example>
-		<title></title>
-		<file>GLib.Sequence.sort_changed_iter.vala</file>
-		<compile>valac --pkg glib-2.0 GLib.Sequence.sort_changed_iter.vala</compile>
-		<node>GLib.Sequence.sort_changed_iter</node>
-	</example>
-	<example>
-		<title></title>
+		<title>Sort a single value</title>
 		<file>GLib.Sequence.sort_iter.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.sort_iter.vala</compile>
 		<node>GLib.Sequence.sort_iter</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Moves the data pointed to a new position as indicated by cmp_func</title>
+		<file>GLib.Sequence.sort_changed.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.sort_changed.vala</compile>
+		<node>GLib.Sequence.sort_changed</node>
+	</example>
+	<example>
+		<title>Moves the data pointed to a new position as indicated by cmp_func (iter-based)</title>
+		<file>GLib.Sequence.sort_changed_iter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Sequence.sort_changed_iter.vala</compile>
+		<node>GLib.Sequence.sort_changed_iter</node>
+	</example>
+	<example>
+		<title>Swap</title>
 		<file>GLib.Sequence.swap.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.swap.vala</compile>
 		<node>GLib.Sequence.swap</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Sequence, iter</title>
 		<file>GLib.SequenceIter.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.SequenceIter.vala</compile>
 		<node>GLib.SequenceIter</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Parse a command line into an argument vector</title>
 		<file>GLib.Shell.parse_argv.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Shell.parse_argv.vala</compile>
 		<node>GLib.Shell.parse_argv</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Quote a string</title>
 		<file>GLib.Shell.quote.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Shell.quote.vala</compile>
 		<node>GLib.Shell.quote</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Unquote a string</title>
 		<file>GLib.Shell.unquote.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Shell.unquote.vala</compile>
 		<node>GLib.Shell.unquote</node>
@@ -1805,7 +1799,7 @@
 		<node>GLib.SList.append</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Concatenate two lists</title>
 		<file>GLib.SList.concat.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.SList.concat.vala</compile>
 		<node>GLib.SList.concat</node>
@@ -1823,13 +1817,13 @@
 		<node>GLib.SList.delete_link</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Find the link containing the given data</title>
 		<file>GLib.SList.find.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.SList.find.vala</compile>
 		<node>GLib.SList.find</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Find the link containing the given data, custom</title>
 		<file>GLib.SList.find_custom.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.SList.find_custom.vala</compile>
 		<node>GLib.SList.find_custom</node>
@@ -1841,7 +1835,7 @@
 		<node>GLib.SList.foreach</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the link-position containing the given data</title>
 		<file>GLib.SList.index.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.SList.index.vala</compile>
 		<node>GLib.SList.index</node>
@@ -1883,19 +1877,19 @@
 		<node>GLib.SList.length</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the nth link</title>
 		<file>GLib.SList.nth.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.SList.nth.vala</compile>
 		<node>GLib.SList.nth</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the nth item</title>
 		<file>GLib.SList.nth_data.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.SList.nth_data.vala</compile>
 		<node>GLib.SList.nth_data</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Gets the position of the given link</title>
 		<file>GLib.SList.position.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.SList.position.vala</compile>
 		<node>GLib.SList.position</node>
@@ -1907,13 +1901,13 @@
 		<node>GLib.SList.prepend</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove a entry</title>
 		<file>GLib.SList.remove.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.SList.remove.vala</compile>
 		<node>GLib.SList.remove</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove all</title>
 		<file>GLib.SList.remove_all.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.SList.remove_all.vala</compile>
 		<node>GLib.SList.remove_all</node>
@@ -1925,7 +1919,7 @@
 		<node>GLib.SList.remove_link</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Reverse</title>
 		<file>GLib.SList.reverse.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.SList.reverse.vala</compile>
 		<node>GLib.SList.reverse</node>
@@ -1943,7 +1937,7 @@
 		<node>GLib.SList.sort_with_data</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the closest prime number</title>
 		<file>GLib.SpacedPrimes.closest.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.SpacedPrimes.closest.vala</compile>
 		<node>GLib.SpacedPrimes.closest</node>
@@ -2033,46 +2027,40 @@
 		<node>GLib.StringBuilder.prepend_unichar</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Write a formatted string to the builder</title>
 		<file>GLib.StringBuilder.printf.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.StringBuilder.printf.vala</compile>
 		<node>GLib.StringBuilder.printf</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Cuts off the end of the builder</title>
 		<file>GLib.StringBuilder.truncate.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.StringBuilder.truncate.vala</compile>
 		<node>GLib.StringBuilder.truncate</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Write a formatted string to the builder, va_list</title>
 		<file>GLib.StringBuilder.vprintf.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.StringBuilder.vprintf.vala</compile>
 		<node>GLib.StringBuilder.vprintf</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Register a new test case</title>
 		<file>GLib.Test.add_func.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.add_func.vala</compile>
 		<run>./GLib.Test.add_func --verbose</run>
 		<node>GLib.Test.add_func</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Bug tracker integration</title>
 		<file>GLib.Test.bug.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.bug.vala</compile>
 		<run>./GLib.Test.bug --verbose</run>
+		<node>GLib.Test.bug_base</node>
 		<node>GLib.Test.bug</node>
 	</example>
 	<example>
-		<title></title>
-		<file>GLib.Test.bug_base.vala</file>
-		<compile>valac --pkg glib-2.0 GLib.Test.bug_base.vala</compile>
-		<run>./GLib.Test.bug_base --verbose</run>
-		<node>GLib.Test.bug_base</node>
-	</example>
-	<example>
-		<title></title>
+		<title>Mark a test as failed</title>
 		<file>GLib.Test.fail.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.fail.vala</compile>
 		<run>./GLib.Test.fail --verbose</run>
@@ -2085,14 +2073,14 @@
 		<node>GLib.Test.init</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Print a message</title>
 		<file>GLib.Test.message.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.message.vala</compile>
 		<run>./test --verbose</run>
 		<node>GLib.Test.message</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Timers</title>
 		<file>GLib.Test.minimized_result.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.minimized_result.vala</compile>
 		<run>./GLib.Test.minimized_result --verbose</run>
@@ -2101,108 +2089,107 @@
 		<node>GLib.Test.timer_last</node>
 		<node>GLib.Test.minimized_result</node>
 		<node>GLib.Test.maximized_result</node>
-		<node>GLib.Test.minimized_result</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Reproducible random bits</title>
 		<file>GLib.Test.rand_bit.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.rand_bit.vala</compile>
 		<run>./GLib.Test.rand_bit --verbose --seed R02S855b50e66c1a59011b2cd8f4c28c9996</run>
 		<node>GLib.Test.rand_bit</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Reproducible random doubles</title>
 		<file>GLib.Test.rand_double.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.rand_double.vala</compile>
 		<run>./GLib.Test.rand_double --verbose --seed R02S855b50e66c1a59011b2cd8f4c28c9996</run>
 		<node>GLib.Test.rand_double</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Reproducible random constricted doubles</title>
 		<file>GLib.Test.rand_double_range.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.rand_double_range.vala</compile>
 		<run>./GLib.Test.rand_double_range --verbose --seed R02S855b50e66c1a59011b2cd8f4c28c9996</run>
 		<node>GLib.Test.rand_double_range</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Reproducible random integers</title>
 		<file>GLib.Test.rand_int.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.rand_int.vala</compile>
 		<run>./GLib.Test.rand_int --verbose --seed R02S855b50e66c1a59011b2cd8f4c28c9996</run>
 		<node>GLib.Test.rand_int</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Reproducible random constricted integers</title>
 		<file>GLib.Test.rand_int_range.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.rand_int_range.vala</compile>
 		<run>./GLib.Test.rand_int_range --verbose --seed R02S855b50e66c1a59011b2cd8f4c28c9996</run>
 		<node>GLib.Test.rand_int_range</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Runs all tests under the toplevel suite</title>
 		<file>GLib.Test.run.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.run.vala</compile>
 		<run>./GLib.Test.run --keep-going</run>
 		<node>GLib.Test.run</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Assert that the last test subprocess failed</title>
 		<file>GLib.Test.trap_assert_failed.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.trap_assert_failed.vala</compile>
 		<run>./GLib.Test.trap_assert_failed --verbose</run>
 		<node>GLib.Test.trap_assert_failed</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Assert that the last test subprocess passed</title>
 		<file>GLib.Test.trap_assert_passed.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.trap_assert_passed.vala</compile>
 		<run>./GLib.Test.trap_assert_passed --verbose</run>
 		<node>GLib.Test.trap_assert_passed</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Assert stderr</title>
 		<file>GLib.Test.trap_assert_stderr.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.trap_assert_stderr.vala</compile>
 		<run>./GLib.Test.trap_assert_stderr --verbose</run>
 		<node>GLib.Test.trap_assert_stderr</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Assert stderr, unmatched</title>
 		<file>GLib.Test.trap_assert_stderr_unmatched.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.trap_assert_stderr_unmatched.vala</compile>
 		<run>./GLib.Test.trap_assert_stderr_unmatched --verbose</run>
 		<node>GLib.Test.trap_assert_stderr_unmatched</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Assert stdout</title>
 		<file>GLib.Test.trap_assert_stdout.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.trap_assert_stdout.vala</compile>
 		<run>./GLib.Test.trap_assert_stdout --verbose</run>
 		<node>GLib.Test.trap_assert_stdout</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Assert stdout, unmatched</title>
 		<file>GLib.Test.trap_assert_stdout_unmatched.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.trap_assert_stdout_unmatched.vala</compile>
 		<run>./GLib.Test.trap_assert_stdout_unmatched --verbose</run>
 		<node>GLib.Test.trap_assert_stdout_unmatched</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Run a case in a subprocess (deprecated)</title>
 		<file>GLib.Test.trap_fork.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.trap_fork.vala</compile>
 		<run>./GLib.Test.trap_fork --verbose</run>
 		<node>GLib.Test.trap_fork</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Check the result of the last fork</title>
 		<file>GLib.Test.trap_has_passed.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.trap_has_passed.vala</compile>
 		<run>./GLib.Test.trap_has_passed --verbose</run>
 		<node>GLib.Test.trap_has_passed</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Add a timeout to a test</title>
 		<file>GLib.Test.trap_reached_timeout.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.trap_reached_timeout.vala</compile>
 		<run>./GLib.Test.trap_reached_timeout --verbose</run>
@@ -2246,49 +2233,49 @@
 		<node>GLib.Tree.height</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Inserts a new key and value</title>
 		<file>GLib.Tree.insert.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Tree.insert.vala</compile>
 		<node>GLib.Tree.insert</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Lookup</title>
 		<file>GLib.Tree.lookup.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Tree.lookup.vala</compile>
 		<node>GLib.Tree.lookup</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Lookup, exended</title>
 		<file>GLib.Tree.lookup_extended.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Tree.lookup_extended.vala</compile>
 		<node>GLib.Tree.lookup_extended</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Get the number of nodes</title>
 		<file>GLib.Tree.nnodes.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Tree.nnodes.vala</compile>
 		<node>GLib.Tree.nnodes</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Remove a key/value pair</title>
 		<file>GLib.Tree.remove.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Tree.remove.vala</compile>
 		<node>GLib.Tree.remove</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Inserts/replace a new key and value</title>
 		<file>GLib.Tree.replace.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Tree.replace.vala</compile>
 		<node>GLib.Tree.replace</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Search a Tree using a tree-search-func</title>
 		<file>GLib.Tree.search.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Tree.search.vala</compile>
 		<node>GLib.Tree.search</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Search a Tree using a search-func</title>
 		<file>GLib.Tree.search_key.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Tree.search_key.vala</compile>
 		<node>GLib.Tree.search_key</node>
@@ -2300,7 +2287,7 @@
 		<node>GLib.Uri.escape_string</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Split an URI list</title>
 		<file>GLib.Uri.list_extract_uris.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Uri.list_extract_uris.vala</compile>
 		<node>GLib.Uri.list_extract_uris</node>
@@ -2535,7 +2522,7 @@
 		<node>GLib.VariantBuilder</node>
 	</example>
 	<example>
-		<title></title>
+		<title>Variant iter</title>
 		<file>GLib.VariantIter.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.VariantIter.vala</compile>
 		<node>GLib.VariantIter</node>
@@ -2961,7 +2948,7 @@
 		<node>string._delimit</node>
 	</example>
 	<example>
-		<title>Converts all characters to lowercase.</title>
+		<title>Converts all characters to lowercase</title>
 		<file>string.down.vala</file>
 		<compile>valac --pkg glib-2.0 string.down.vala</compile>
 		<node>string.down</node>
@@ -3015,7 +3002,7 @@
 		<node>string.has_suffix</node>
 	</example>
 	<example>
-		<title>Find the leftmost occurrence of the given string:</title>
+		<title>Find the leftmost occurrence of the given string</title>
 		<file>string.index_of.vala</file>
 		<compile>valac --pkg glib-2.0 string.index_of.vala</compile>
 		<node>string.index_of</node>

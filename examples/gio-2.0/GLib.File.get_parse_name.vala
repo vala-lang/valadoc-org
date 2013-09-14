@@ -3,5 +3,9 @@ public static int main (string[] args) {
 	File file = File.new_for_path ("../my/dir/my-test.txt");
 	string parse_name = file.get_parse_name ();
 	stdout.printf ("%s\n", parse_name);
+
+	File file2 = File.parse_name (parse_name);
+	// ...
+	file2 = null;
 	return 0;
 }

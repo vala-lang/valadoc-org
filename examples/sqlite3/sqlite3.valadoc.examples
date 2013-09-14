@@ -1,0 +1,81 @@
+<examples>
+	<example>
+		<title>Open/Create a database</title>
+		<file>open-create-db.vala</file>
+		<compile>valac --pkg sqlite3 open-create-db.vala</compile>
+		<node>Sqlite.Database.errcode</node>
+		<node>Sqlite.Database.errmsg</node>
+		<node>Sqlite.Database.open</node>
+		<node>Sqlite.OK</node>
+	</example>
+	<example>
+		<title>Open a database, read-only</title>
+		<file>open-db-read-only.vala</file>
+		<compile>valac --pkg sqlite3 open-db-read-only.vala</compile>
+		<node>Sqlite.Database.open_v2</node>
+		<node>Sqlite.OPEN_READONLY</node>
+	</example>
+	<example>
+		<title>Create table</title>
+		<file>create-table.vala</file>
+		<compile>valac --pkg sqlite3 create-table.vala</compile>
+		<node>Sqlite.Database.exec</node>
+	</example>
+	<example>
+		<title>Insert</title>
+		<file>insert.vala</file>
+		<compile>valac --pkg sqlite3 insert.vala</compile>
+		<node>Sqlite.Database.last_insert_rowid</node>
+		<node>Sqlite.Database.exec</node>
+		<node>Sqlite.OK</node>
+	</example>
+	<example>
+		<title>Select</title>
+		<file>select.vala</file>
+		<compile>valac --pkg sqlite3 select.vala</compile>
+		<node>Sqlite.Database.exec</node>
+		<node>Sqlite.Callback</node>
+	</example>
+	<example>
+		<title>Select with get_table</tile>
+		<file>get-table.vala</file>
+		<compile>valac --pkg sqlite3 get-table.vala</compile>
+		<node>Sqlite.Database.get_table</node>
+	</example>
+	<example>
+		<title>Update</title>
+		<file>update.vala</file>
+		<compile>valac --pkg sqlite3 update.vala</compile>
+		<node>Sqlite.Database.exec</node>
+	</example>
+	<example>
+		<title>Delete</title>
+		<file>delete.vala</file>
+		<compile>valac --pkg sqlite3 delete.vala</compile>
+		<node>Sqlite.Database.total_changes</node>
+		<node>Sqlite.Database.exec</node>
+	</example>
+	<example>
+		<title>Prepared statements</title>
+		<file>prepared-satements.vala</file>
+		<compile>valac --pkg sqlite3 prepared-satements.vala</compile>
+		<node>Sqlite.Database</node>
+		<node>Sqlite.Database.prepare</node>
+		<node>Sqlite.Database.prepare_v2</node>
+		<node>Sqlite.Statement</node>
+	</example>
+	<example>
+		<title>Create functions</title>
+		<file>create-function.vala</file>
+		<compile>valac --pkg sqlite3 create-function.vala</compile>
+		<node>Sqlite.Database.create_function</node>
+		<node>Sqlite.Sqlite.UserFuncCallback</node>
+		<node>Sqlite.UTF8</node>
+	</example>
+	<example>
+		<title>Busy timeouts</title>
+		<file>busy-timeout.vala</file>
+		<compile>valac --pkg sqlite3 busy-timeout.vala</compile>
+		<node>Sqlite.Database.busy_timeout</node>
+	</example>
+</examples>

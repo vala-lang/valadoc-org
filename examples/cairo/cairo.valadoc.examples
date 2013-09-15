@@ -68,7 +68,7 @@
 		<compile>valac --pkg cairo clip-image.vala</compile>
 		<node>Cairo.ImageSurface</node>
 		<node>Cairo.Context.paint</node>
-		<node>Cairo.context.new_path</node>
+		<node>Cairo.Context.new_path</node>
 		<node>Cairo.Context.clip</node>
 	</example>
 	<example>
@@ -185,7 +185,7 @@
 		<image>example-mask.png</image>
 		<file>mask.vala</file>
 		<compile>valac --pkg cairo mask.vala</compile>
-		<node>Cairo.Pattern.for_surface</node>
+		<node>Cairo.Pattern.Pattern.for_surface</node>
 		<node>Cairo.Context.mask</node>
 		<node>Cairo.Format</node>
 	</example>
@@ -194,7 +194,7 @@
 		<image>example-mask-surface.png</image>
 		<file>mask-surface.vala</file>
 		<compile>valac --pkg cairo mask-surface.vala</compile>
-		<node>Cairo.Pattern.for_surface</node>
+		<node>Cairo.Pattern.Pattern.for_surface</node>
 		<node>Cairo.Context.mask_surface</node>
 	</example>
 	<example>
@@ -441,7 +441,7 @@
 		<node>Cairo.Context.line_to</node>
 		<node>Cairo.Context.set_line_width</node>
 		<node>Cairo.Context.stroke</node>
-		<node>Cairo.ImageSurface.write_to_png</node>
+		<node>Cairo.Surface.write_to_png</node>
 		<node>Cairo.ImageSurface.ImageSurface</node>
 		<node>Cairo.Context.Context</node>
 	</example>

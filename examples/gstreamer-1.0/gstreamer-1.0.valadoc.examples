@@ -1,0 +1,77 @@
+<examples>
+	<example>
+		<title>Hello World</title>
+		<file>hello-world.vala</file>
+		<compile>valac --pkg gstreamer-1.0 hello-world.vala</compile>
+		<node>Gst.CLOCK_TIME_NONE</node>
+		<node>Gst.MessageType.ERROR</node>
+		<node>Gst.MessageType.EOS</node>
+		<node>Gst.Pipeline.Pipeline</node>
+		<node>Gst.Pipeline</node>
+		<node>Gst.Pipeline.get_bus</node>
+		<node>Gst.Element.set_state</node>
+		<node>Gst.State.PLAYING</node>
+		<node>Gst.State</node>
+		<node>Gst.parse_launch</node>
+		<node>Gst.init</node>
+		<node>Gst.State.NULL</node>
+	</example>
+	<example>
+		<title>GStreamer concepts</title>
+		<image>example-concepts.png</image>
+		<file>gstreamer-concepts.vala</file>
+		<compile>valac --pkg gstreamer-1.0 gstreamer-concepts.vala</compile>
+		<node>Gst.MessageType</node>
+		<node>Gst.ElementFactory.make</node>
+		<node>Gst.ElementFactory</node>
+		<node>Gst.Bin.add_many</node>
+		<node>Gst.StateChangeReturn.FAILURE</node>
+		<node>Gst.StateChangeReturn</node>
+		<node>Gst.Bus.timed_pop_filtered</node>
+		<node>Gst.Message.parse_error</node>
+		<node>Gst.Object.name</node>
+		<node>Gst.Message.type</node>
+	</example>
+	<example>
+		<title>Dynamic pipelines</title>
+		<file>dynamic-pipelines.vala</file>
+		<compile>valac --pkg gstreamer-1.0 dynamic-pipelines.vala</compile>
+		<node>Gst.MessageType.ERROR</node>
+		<node>Gst.Element</node>
+		<node>Gst.Element.get_static_pad</node>
+		<node>Gst.Pad</node>
+		<node>Gst.Pad.is_linked</node>
+		<node>Gst.Pad.query_caps</node>
+		<node>Gst.Caps.get_structure</node>
+		<node>Gst.Structure.get_name</node>
+		<node>Gst.Pad.link</node>
+		<node>Gst.PadLinkReturn</node>
+		<node>Gst.PadLinkReturn.OK</node>
+		<node>Gst.Element.link</node>
+		<node>Gst.Element.pad_added</node>
+		<node>Gst.MessageType.STATE_CHANGED</node>
+	</example>
+	<example>
+		<title>Time management</title>
+		<file>time-management.vala</file>
+		<compile>valac --pkg gstreamer-1.0 --enable-experimental time-management.vala</compile>
+		<node>Gst.Bus.timed_pop_filtered</node>
+		<node>Gst.MessageType.DURATION_CHANGED</node>
+		<node>Gst.SECOND</node>
+		<node>Gst.MSECOND</node>
+		<node>Gst.Format</node>
+		<node>Gst.Format.TIME</node>
+		<node>Gst.TIME_FORMAT</node>
+		<node>Gst.Element.query</node>
+		<node>Gst.Element.query_position</node>
+		<node>Gst.Element.seek_simple</node>
+		<node>Gst.Query.parse_seeking</node>
+		<node>Gst.Query.Query.seeking</node>
+		<node>Gst.Element.state_get_name</node>
+		<node>Gst.Message.src</node>
+		<node>Gst.Message.parse_state_changed</node>
+		<node>Gst.SeekFlags.FLUSH</node>
+		<node>Gst.SeekFlags.KEY_UNIT</node>
+		<node>Gst.Element.query_duration</node>
+	</example>
+</examples>

@@ -1,7 +1,7 @@
 <examples>
 	<example>
 		<title>Antialias</title>
-		<image>cairo/antialias.png</image>
+		<image>example-antialias.png</image>
 		<file>antialias.vala</file>
 		<compile>valac --pkg cairo antialias.vala</compile>
 		<node>Cairo.Antialias</node>
@@ -9,28 +9,28 @@
 	</example>
 	<example>
 		<title>Arc</title>
-		<image>cairo/arc.png</image>
+		<image>example-arc.png</image>
 		<file>arc.vala</file>
 		<compile>valac --pkg cairo arc.vala</compile>
 		<node>Cairo.Context.arc</node>
 	</example>
 	<example>
 		<title>Arc, negative</title>
-		<image>cairo/arc-negative.png</image>
+		<image>example-arc-negative.png</image>
 		<file>arc-negative.vala</file>
 		<compile>valac --pkg cairo arc-negative.vala</compile>
 		<node>Cairo.Context.arc_negative</node>
 	</example>
 	<example>
 		<title>Colours (RGBA)</title>
-		<image>cairo/Cairo.Context.set_source_rgba.png</image>
+		<image>example-Cairo.Context.set_source_rgba.png</image>
 		<file>Cairo.Context.set_source_rgba.vala</file>
 		<compile>valac --pkg cairo Cairo.Context.set_source_rgba.vala</compile>
 		<node>Cairo.Context.set_source_rgba</node>
 	</example>
 	<example>
 		<title>Cartesian coordinate system (I)</title>
-		<image>cairo/cartesian-coordinate-system.png</image>
+		<image>example-cartesian-coordinate-system.png</image>
 		<file>cartesian-coordinate-system.vala</file>
 		<compile>valac --pkg cairo cartesian-coordinate-system.vala</compile>
 		<node>Cairo.Context.translate</node>
@@ -38,7 +38,7 @@
 	</example>
 	<example>
 		<title>Cartesian coordinate system (II)</title>
-		<image>cairo/cartesian-coordinate-system-matrix.png</image>
+		<image>example-cartesian-coordinate-system-matrix.png</image>
 		<file>cartesian-coordinate-system-matrix.vala</file>
 		<compile>valac --pkg cairo cartesian-coordinate-system-matrix.vala</compile>
 		<node>Cairo.Context.set_matrix</node>
@@ -48,22 +48,22 @@
 	</example>
 	<example>
 		<title>Cartesian coordinate system (III)</title>
-		<image>cairo/cartesian-coordinate-system-matrix-transformation.png</image>
+		<image>example-cartesian-coordinate-system-matrix-transformation.png</image>
 		<file>cartesian-coordinate-system-matrix-transformation.vala</file>
 		<compile>valac --pkg cairo cartesian-coordinate-system-matrix-transformation.vala</compile>
 		<node>Cairo.Context.transform</node>
 	</example>
 	<example>
 		<title>Clip regions</title>
-		<image>cairo/clip.png</image>
+		<image>example-clip.png</image>
 		<file>clip.vala</file>
 		<compile>valac --pkg cairo clip.vala</compile>
 		<node>Cairo.Context.clip</node>
 	</example>
 	<example>
 		<title>Clip regions and image surfaces</title>
-		<image>cairo/romedalen.png</image>
-		<image>cairo/clip-image.png</image>
+		<image>example-romedalen.png</image>
+		<image>example-clip-image.png</image>
 		<file>clip-image.vala</file>
 		<compile>valac --pkg cairo clip-image.vala</compile>
 		<node>Cairo.ImageSurface</node>
@@ -73,28 +73,28 @@
 	</example>
 	<example>
 		<title>Closed path</title>
-		<image>cairo/closed-path.png</image>
+		<image>example-closed-path.png</image>
 		<file>closed-path.vala</file>
 		<compile>valac --pkg cairo closed-path.vala</compile>
 		<node>Cairo.Context.close_path</node>
 	</example>
 	<example>
 		<title>Curve to</title>
-		<image>cairo/curve-to.png</image>
+		<image>example-curve-to.png</image>
 		<file>curve-to.vala</file>
 		<compile>valac --pkg cairo curve-to.vala</compile>
 		<node>Cairo.Context.curve_to</node>
 	</example>
 	<example>
 		<title>Line styles</title>
-		<image>cairo/dashed-lines.png</image>
+		<image>example-dashed-lines.png</image>
 		<file>dashed-lines.vala</file>
 		<compile>valac --pkg cairo dashed-lines.vala</compile>
 		<node>Cairo.Context.set_dash</node>
 	</example>
 	<example>
 		<title>Fill (I)</title>
-		<image>cairo/filled-box.png</image>
+		<image>example-filled-box.png</image>
 		<file>filled-box.vala</file>
 		<compile>valac --pkg cairo filled-box.vala</compile>
 		<node>Cairo.Context.rectangle</node>
@@ -102,7 +102,7 @@
 	</example>
 	<example>
 		<title>Fill (II)</title>
-		<image>cairo/fill-extents.png</image>
+		<image>example-fill-extents.png</image>
 		<file>fill-extents.vala</file>
 		<compile>valac --pkg cairo fill-extents.vala</compile>
 		<node>Cairo.Context.fill_extents</node>
@@ -110,7 +110,7 @@
 	</example>
 	<example>
 		<title>Fill preserve</title>
-		<image>cairo/fill-preserve.png</image>
+		<image>example-fill-preserve.png</image>
 		<file>fill-preserve.vala</file>
 		<compile>valac --pkg cairo fill-preserve.vala</compile>
 		<node>Cairo.Context.fill_preserve</node>
@@ -118,7 +118,7 @@
 	</example>
 	<example>
 		<title>Fill rules</title>
-		<image>cairo/fill-rule.png</image>
+		<image>example-fill-rule.png</image>
 		<file>fill-rule.vala</file>
 		<compile>valac --pkg cairo fill-rule.vala</compile>
 		<node>Cairo.Context.new_sub_path</node>
@@ -129,7 +129,7 @@
 	</example>
 	<example>
 		<title>Gradients</title>
-		<image>cairo/gradient.png</image>
+		<image>example-gradient.png</image>
 		<file>gradient.vala</file>
 		<compile>valac --pkg cairo gradient.vala</compile>
 		<node>Cairo.Context.set_source</node>
@@ -137,7 +137,7 @@
 	</example>
 	<example>
 		<title>Pattern</title>
-		<image>cairo/image-pattern.png</image>
+		<image>example-image-pattern.png</image>
 		<file>image-pattern.vala</file>
 		<compile>valac --pkg cairo image-pattern.vala</compile>
 		<node>Cairo.Extend.REPEAT</node>
@@ -145,8 +145,8 @@
 	</example>
 	<example>
 		<title>Scale and rotate</title>
-		<image>cairo/romedalen.png</image>
-		<image>cairo/image-rotate.png</image>
+		<image>example-romedalen.png</image>
+		<image>example-image-rotate.png</image>
 		<file>image-rotate.vala</file>
 		<compile>valac --pkg cairo image-rotate.vala</compile>
 		<node>Cairo.Context.scale</node>
@@ -154,7 +154,7 @@
 	</example>
 	<example>
 		<title>Layers</title>
-		<image>cairo/layers.png</image>
+		<image>example-layers.png</image>
 		<file>layers.vala</file>
 		<compile>valac --pkg cairo layers.vala</compile>
 		<node>Cairo.Context.set_source_surface</node>
@@ -166,7 +166,7 @@
 	</example>
 	<example>
 		<title>Line cap</title>
-		<image>cairo/line-cap.png</image>
+		<image>example-line-cap.png</image>
 		<file>line-cap.vala</file>
 		<compile>valac --pkg cairo line-cap.vala</compile>
 		<node>Cairo.Context.set_line_cap</node>
@@ -174,7 +174,7 @@
 	</example>
 	<example>
 		<title>Set line join</title>
-		<image>cairo/line-joins.png</image>
+		<image>example-line-joins.png</image>
 		<file>line-joins.vala</file>
 		<compile>valac --pkg cairo line-joins.vala</compile>
 		<node>Cairo.Context.set_line_join</node>
@@ -182,7 +182,7 @@
 	</example>
 	<example>
 		<title>Masks</title>
-		<image>cairo/mask.png</image>
+		<image>example-mask.png</image>
 		<file>mask.vala</file>
 		<compile>valac --pkg cairo mask.vala</compile>
 		<node>Cairo.Pattern.for_surface</node>
@@ -191,7 +191,7 @@
 	</example>
 	<example>
 		<title>Mask surfaces</title>
-		<image>cairo/mask-surface.png</image>
+		<image>example-mask-surface.png</image>
 		<file>mask-surface.vala</file>
 		<compile>valac --pkg cairo mask-surface.vala</compile>
 		<node>Cairo.Pattern.for_surface</node>
@@ -199,217 +199,217 @@
 	</example>
 	<example>
 		<title>Add</title>
-		<image>cairo/operator-add.png</image>
+		<image>example-operator-add.png</image>
 		<file>operator-add.vala</file>
 		<compile>valac --pkg cairo operator-add.vala</compile>
 		<node>Cairo.Operator.ADD</node>
 	</example>
 	<example>
 		<title>Atop</title>
-		<image>cairo/operator-atop.png</image>
+		<image>example-operator-atop.png</image>
 		<file>operator-atop.vala</file>
 		<compile>valac --pkg operator-atop.vala</compile>
 		<node>Cairo.Operator.ATOP</node>
 	</example>
 	<example>
 		<title>Clear</title>
-		<image>cairo/operator-clear.png</image>
+		<image>example-operator-clear.png</image>
 		<file>operator-clear.vala</file>
 		<compile>valac --pkg cairo operator-clear.vala</compile>
 		<node>Cairo.Operator.CLEAR</node>
 	</example>
 	<example>
 		<title>Colour burn</title>
-		<image>cairo/operator-color-burn.png</image>
+		<image>example-operator-color-burn.png</image>
 		<file>operator-color-burn.vala</file>
 		<compile>valac --pkg operator-color-burn.vala</compile>
 		<node>Cairo.Operator.COLOR_BURN</node>
 	</example>
 	<example>
 		<title>Colour dodge</title>
-		<image>cairo/operator-color-dodge.png</image>
+		<image>example-operator-color-dodge.png</image>
 		<file>operator-color-dodge.vala</file>
 		<compile>valac --pkg cairo operator-color-dodge.vala</compile>
 		<node>Cairo.Operator.COLOR_DODGE</node>
 	</example>
 	<example>
 		<title>Darken</title>
-		<image>cairo/operator-darken.png</image>
+		<image>example-operator-darken.png</image>
 		<file>operator-darken.vala</file>
 		<compile>valac --pkg cairo operator-darken.vala</compile>
 		<node>Cairo.Operator.DARKEN</node>
 	</example>
 	<example>
 		<title>Dest</title>
-		<image>cairo/operator-dest.png</image>
+		<image>example-operator-dest.png</image>
 		<file>operator-dest.vala</file>
 		<compile>valac --pkg cairo operator-dest.vala</compile>
 		<node>Cairo.Operator.DEST</node>
 	</example>
 	<example>
 		<title>Dest atop</title>
-		<image>cairo/operator-dest-atop.png</image>
+		<image>example-operator-dest-atop.png</image>
 		<file>operator-dest-atop.vala</file>
 		<compile>valac --pkg cairo operator-dest-atop.vala</compile>
 		<node>Cairo.Operator.DEST_ATOP</node>
 	</example>
 	<example>
 		<title>Dest in</title>
-		<image>cairo/operator-dest-in.png</image>
+		<image>example-operator-dest-in.png</image>
 		<file>operator-dest-in.vala</file>
 		<compile>valac --pkg cairo operator-dest-in.vala</compile>
 		<node>Cairo.Operator.DEST_IN</node>
 	</example>
 	<example>
 		<title>Dest out</title>
-		<image>cairo/operator-dest-out.png</image>
+		<image>example-operator-dest-out.png</image>
 		<file>operator-dest-out.vala</file>
 		<compile>valac --pkg cairo operator-dest-out.vala</compile>
 		<node>Cairo.Operator.DEST_OUT</node>
 	</example>
 	<example>
 		<title>Dest over</title>
-		<image>cairo/operator-dest-over.png</image>
+		<image>example-operator-dest-over.png</image>
 		<file>operator-dest-over.vala</file>
 		<compile>valac --pkg cairo operator-dest-over.vala</compile>
 		<node>Cairo.Operator.DEST_OVER</node>
 	</example>
 	<example>
 		<title>Difference</title>
-		<image>cairo/operator-difference.png</image>
+		<image>example-operator-difference.png</image>
 		<file>operator-difference.vala</file>
 		<compile>valac --pkg cairo operator-difference.vala</compile>
 		<node>Cairo.Operator.DIFFERENCE</node>
 	</example>
 	<example>
 		<title>Exclusion</title>
-		<image>cairo/operator-exclusion.png</image>
+		<image>example-operator-exclusion.png</image>
 		<file>operator-exclusion.vala</file>
 		<compile>valac --pkg cairo operator-exclusion.vala</compile>
 		<node>Cairo.Operator.EXCLUSION</node>
 	</example>
 	<example>
 		<title>Hard light</title>
-		<image>cairo/operator-hard-light.png</image>
+		<image>example-operator-hard-light.png</image>
 		<file>operator-hard-light.vala</file>
 		<compile>valac --pkg cairo operator-hard-light.vala</compile>
 		<node>Cairo.Operator.HARD_LIGHT</node>
 	</example>
 	<example>
 		<title>HSL Colour</title>
-		<image>cairo/operator-hsl-color.png</image>
+		<image>example-operator-hsl-color.png</image>
 		<file>operator-hsl-color.vala</file>
 		<compile>valac --pkg cairo operator-hsl-color.vala</compile>
 		<node>Cairo.Operator.HSL_COLOR</node>
 	</example>
 	<example>
 		<title>HSL Hue</title>
-		<image>cairo/operator-hsl-hue.png</image>
+		<image>example-operator-hsl-hue.png</image>
 		<file>operator-hsl-hue.vala</file>
 		<compile>valac --pkg cairo operator-hsl-hue.vala</compile>
 		<node>Cairo.Operator.HSL_HUE</node>
 	</example>
 	<example>
 		<title>HSL Luminosity</title>
-		<image>cairo/operator-hsl-luminosity.png</image>
+		<image>example-operator-hsl-luminosity.png</image>
 		<file>operator-hsl-luminosity.vala</file>
 		<compile>valac --pkg cairo operator-hsl-luminosity.vala</compile>
 		<node>Cairo.Operator.HSL_LUMINOSITY</node>
 	</example>
 	<example>
 		<title>HSL Saturation</title>
-		<image>cairo/operator-hsl-saturation.png</image>
+		<image>example-operator-hsl-saturation.png</image>
 		<file>operator-hsl-saturation.vala</file>
 		<compile>valac --pkg cairo operator-hsl-saturation.vala</compile>
 		<node>Cairo.Operator.HSL_SATURATION</node>
 	</example>
 	<example>
 		<title>In</title>
-		<image>cairo/operator-in.png</image>
+		<image>example-operator-in.png</image>
 		<file>operator-in.vala</file>
 		<compile>valac --pkg cairo operator-in.vala</compile>
 		<node>Cairo.Operator.IN</node>
 	</example>
 	<example>
 		<title>Lighten</title>
-		<image>cairo/operator-lighten.png</image>
+		<image>example-operator-lighten.png</image>
 		<file>operator-lighten.vala</file>
 		<compile>valac --pkg cairo operator-lighten.vala</compile>
 		<node>Cairo.Operator.LIGHTEN</node>
 	</example>
 	<example>
 		<title>Multiply</title>
-		<image>cairo/operator-multiply.png</image>
+		<image>example-operator-multiply.png</image>
 		<file>operator-multiply.vala</file>
 		<compile>valac --pkg cairo operator-multiply.vala</compile>
 		<node>Cairo.Operator.MULTIPLY</node>
 	</example>
 	<example>
 		<title>Out</title>
-		<image>cairo/operator-out.png</image>
+		<image>example-operator-out.png</image>
 		<file>operator-out.vala</file>
 		<compile>valac --pkg cairo operator-out.vala</compile>
 		<node>Cairo.Operator.OUT</node>
 	</example>
 	<example>
 		<title>Over</title>
-		<image>cairo/operator-over.png</image>
+		<image>example-operator-over.png</image>
 		<file>operator-over.vala</file>
 		<compile>valac --pkg cairo operator-over.vala</compile>
 		<node>Cairo.Operator.OVER</node>
 	</example>
 	<example>
 		<title>Overlay</title>
-		<image>cairo/operator-overlay.png</image>
+		<image>example-operator-overlay.png</image>
 		<file>operator-overlay.vala</file>
 		<compile>valac --pkg cairo operator-overlay.vala</compile>
 		<node>Cairo.Operator.OVERLAY</node>
 	</example>
 	<example>
 		<title>Saturate</title>
-		<image>cairo/operator-saturate.png</image>
+		<image>example-operator-saturate.png</image>
 		<file>operator-saturate.vala</file>
 		<compile>valac --pkg cairo operator-saturate.vala</compile>
 		<node>Cairo.Operator.SATURATE</node>
 	</example>
 	<example>
 		<title>Screen</title>
-		<image>cairo/operator-screen.png</image>
+		<image>example-operator-screen.png</image>
 		<file>operator-screen.vala</file>
 		<compile>valac --pkg cairo operator-screen.vala</compile>
 		<node>Cairo.Operator.SCREEN</node>
 	</example>
 	<example>
 		<title>Soft light</title>
-		<image>cairo/operator-soft-light.png</image>
+		<image>example-operator-soft-light.png</image>
 		<file>operator-soft-light.vala</file>
 		<compile>valac --pkg cairo operator-soft-light.vala</compile>
 		<node>Cairo.Operator.SOFT_LIGHT</node>
 	</example>
 	<example>
 		<title>Source</title>
-		<image>cairo/operator-source.png</image>
+		<image>example-operator-source.png</image>
 		<file>operator-source.vala</file>
 		<compile>valac --pkg cairo operator-source.vala</compile>
 		<node>Cairo.Operator.SOURCE</node>
 	</example>
 	<example>
 		<title>XOR</title>
-		<image>cairo/operator-xor.png</image>
+		<image>example-operator-xor.png</image>
 		<file>operator-xor.vala</file>
 		<compile>valac --pkg cairo operator-xor.vala</compile>
 		<node>Cairo.Operator.XOR</node>
 	</example>
 	<example>
 		<title>Curves, relative</title>
-		<image>cairo/relative-curve-to.png</image>
+		<image>example-relative-curve-to.png</image>
 		<file>relative-curve-to.vala</file>
 		<compile>valac --pkg cairo relative-curve-to.vala</compile>
 		<node>Cairo.Context.rel_curve_to</node>
 	</example>
 	<example>
 		<title>Lines, relative</title>
-		<image>cairo/relative-lines.png</image>
+		<image>example-relative-lines.png</image>
 		<file>relative-lines.vala</file>
 		<compile>valac --pkg cairo relative-lines.vala</compile>
 		<node>Cairo.Context.rel_move_to</node>
@@ -417,7 +417,7 @@
 	</example>
 	<example>
 		<title>Rotated text</title>
-		<image>cairo/rotated-text.png</image>
+		<image>example-rotated-text.png</image>
 		<file>rotated-text.vala</file>
 		<compile>valac --pkg cairo rotated-text.vala</compile>
 		<node>Cairo.Context.set_font_matrix</node>
@@ -425,7 +425,7 @@
 	</example>
 	<example>
 		<title>Save and Restore</title>
-		<image>cairo/save-restore.png</image>
+		<image>example-save-restore.png</image>
 		<file>save-restore.vala</file>
 		<compile>valac --pkg cairo save-restore.vala</compile>
 		<node>Cairo.Context.restore</node>
@@ -433,7 +433,7 @@
 	</example>
 	<example>
 		<title>Simple lines</title>
-		<image>cairo/simple-lines.png</image>
+		<image>example-simple-lines.png</image>
 		<file>simple-lines.vala</file>
 		<compile>valac --pkg cairo simple-lines.vala</compile>
 		<node>Cairo.ImageSurface</node>
@@ -447,7 +447,7 @@
 	</example>
 	<example>
 		<title>Simple text</title>
-		<image>cairo/simple-text.png</image>
+		<image>example-simple-text.png</image>
 		<file>simple-text.vala</file>
 		<compile>valac --pkg cairo simple-text.vala</compile>
 		<node>Cairo.Context.set_source_rgb</node>
@@ -457,7 +457,7 @@
 	</example>
 	<example>
 		<title>Stroke-extends and in-stroke</title>
-		<image>cairo/stroke-extents-in-stroke.png</image>
+		<image>example-stroke-extents-in-stroke.png</image>
 		<file>stroke-extents-in-stroke.vala</file>
 		<compile>valac --pkg cairo stroke-extents-in-stroke.vala</compile>
 		<node>Cairo.Context.stroke_extents</node>
@@ -465,14 +465,14 @@
 	</example>
 	<example>
 		<title>Centered text</title>
-		<image>cairo/text-centered.png</image>
+		<image>example-text-centered.png</image>
 		<file>text-centered.vala</file>
 		<compile>valac --pkg cairo text-centered.vala</compile>
 		<node>Cairo.TextExtents</node>
 	</example>
 	<example>
 		<title>TextExtents</title>
-		<image>cairo/text-extends.png</image>
+		<image>example-text-extends.png</image>
 		<file>text-extends.vala</file>
 		<compile>valac --pkg cairo text-extends.vala</compile>
 		<node>Cairo.Context.text_extents</node>

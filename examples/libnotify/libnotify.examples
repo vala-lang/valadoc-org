@@ -1,14 +1,14 @@
 <examples>
 	<example>
 		<title>A basic notification</title>
-		<image>basic.png</image>
+		<image>example-basic.png</image>
 		<file>basic.vala</file>
 		<compile>valac --pkg libnotify basic.vala</compile>
 		<node>Notify.Notification</node>
 	</example>
 	<example>
 		<title>Notification with a button</title>
-		<image>with-button.png</image>
+		<image>example-with-button.png</image>
 		<file>with-button.vala</file>
 		<compile>valac --pkg libnotify with-button.vala</compile>
 		<node>Notify.Notification</node>

@@ -123,11 +123,13 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		}
 
 		ModuleLoader loader = ModuleLoader.get_instance ();
-		Doclet? doclet = loader.create_doclet (doclet_path);
+		Html.BasicDoclet? doclet = loader.create_doclet (doclet_path) as Html.BasicDoclet;
 		if (doclet == null) {
 			reporter.simple_error ("error: failed to load doclet");
 			return false;
 		}
+
+		doclet.wiki_index_name = "devhelp-index.valadoc";
 
 		string settings_directory = settings.directory;
 		string settings_path = settings.path;

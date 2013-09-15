@@ -84,7 +84,7 @@ public class ExampleParser : Object {
 				break;
 
 			case "image":
-				image (str);
+				image (ressource_location (str));
 				break;
 
 			case "title":

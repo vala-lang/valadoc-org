@@ -6,6 +6,14 @@ datadir = $(shell dirname $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_
 
 
 clean:
+	rm -f documentation/*/wiki/example-listing.valadoc
+	rm -f documentation/*/wiki/example-listing-*.valadoc
+	rm -f documentation/*/wiki/widget-gallery.valadoc
+	rm -f documentation/*/wiki/devhelp-index.valadoc
+	rm -f documentation/*/wiki/index.valadoc
+	rm -f documentation/%s/%s.valadoc.metadata
+	rm -R -f documentation/*/gallery-images
+	rm -R -f documentation/*/gir-images
 	rm -f examples/*-examples.valadoc
 	rm -f valadoc-example-gen
 	rm -f configgen
@@ -14,7 +22,6 @@ clean:
 	rm -R -f tmp
 	rm -f *.so
 	rm -f LOG
-
 
 
 example-gen:
@@ -41,5 +48,4 @@ update-girs:
 	else \
 		git clone git://gitorious.org/vala-girs/vala-girs.git girs ; \
 	fi
-
 

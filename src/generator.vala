@@ -594,7 +594,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
-	private void generate_wiki_index (Package pkg, string path) {
+	private void generate_wiki_index (Package pkg, string path, bool has_examples, bool is_devhelp) {
 		FileStream stream = FileStream.open (path, "w");
 		assert (stream != null);
 
@@ -621,15 +621,20 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		if (pkg.maintainers != null) {
 			stream.printf (" * ''Binding-Maintainer(s): %s''\n", pkg.maintainers);
 		}
-		string? catalog = pkg.get_catalog_file ();
-		if (catalog != null) {
-			stream.printf (" * ''[[%s|Install this package]]'' (PackageKit required)\n", catalog);			
-		}
-		if (pkg.devhelp_link != null) {
-			stream.printf (" * ''[[%s|Devhelp-Package download]]''\n", pkg.devhelp_link);
+		if (is_devhelp == false) {
+			string? catalog = pkg.get_catalog_file ();
+			if (catalog != null) {
+				stream.printf (" * ''[[%s|Install this package]]'' (PackageKit required)\n", catalog);			
+			}
+			if (pkg.devhelp_link != null) {
+				stream.printf (" * ''[[%s|Devhelp-Package download]]''\n", pkg.devhelp_link);
+			}
 		}
 		if (pkg.gallery != null) {
 			stream.puts (" * ''[[widget-gallery.valadoc|Widget Gallery]]''\n");
+		}
+		if (has_examples) {
+			stream.puts (" * ''[[example-listing-index.valadoc|Example listing]]''\n");
 		}
 	}
 
@@ -856,16 +861,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			builder.append_printf (" --import \"%s-widget-gallery\"", pkg.name);
 		}
 
-		string wiki_path = "documentation/%s/wiki/index.valadoc".printf (pkg.name);
-		bool delete_wiki_path = false;
-		if (FileUtils.test (wiki_path, FileTest.IS_REGULAR)) {
-			stdout.printf ("  using .valadoc (wiki): documentation/%s/wiki/*.valadoc\n", pkg.name);
-		} else {
-			generate_wiki_index (pkg, wiki_path);
-			delete_wiki_path = true;
-		}
-		builder.append_printf (" --wiki documentation/%s/wiki", pkg.name);
-
+		bool has_examples = false;
 		string example_path = "examples/%s/%s.valadoc.examples".printf (pkg.name, pkg.name);
 		if (FileUtils.test (example_path, FileTest.IS_REGULAR)) {
 			string output = "examples/%s-examples.valadoc".printf (pkg.name); 
@@ -877,7 +873,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				string? standard_output = null;
 				string? standard_error = null;
 
-				Process.spawn_command_line_sync ("./valadoc-example-gen %s %s".printf (example_path, output), out standard_output, out standard_error, out exit_status); 
+				Process.spawn_command_line_sync ("./valadoc-example-gen \"%s\" \"%s\" \"%s\"".printf (example_path, output, "documentation/%s/wiki".printf (pkg.name)), out standard_output, out standard_error, out exit_status); 
 				if (exit_status != 0) {
 					FileStream log = FileStream.open ("LOG", "w");
 					log.printf ("%s\n", builder.str);
@@ -895,7 +891,22 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 
 			builder.append_printf (" --importdir examples --import %s-examples", pkg.name);
+			has_examples = true;
 		}
+
+
+		string wiki_path = "documentation/%s/wiki/index.valadoc".printf (pkg.name);
+		bool delete_wiki_path = false;
+		if (FileUtils.test (wiki_path, FileTest.IS_REGULAR)) {
+			stdout.printf ("  using .valadoc (wiki): documentation/%s/wiki/*.valadoc\n", pkg.name);
+		} else {
+			string devhelp_wiki_path = "documentation/%s/wiki/devhelp-index.valadoc".printf (pkg.name);
+			generate_wiki_index (pkg, devhelp_wiki_path, has_examples, true);
+			generate_wiki_index (pkg, wiki_path, has_examples, false);
+			delete_wiki_path = true;
+		}
+		builder.append_printf (" --wiki documentation/%s/wiki", pkg.name);
+
 
 		try {
 			int exit_status = 0;
@@ -966,9 +977,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		stdout.printf ("  widget gallery\n");
 
-		try {
-			Process.spawn_command_line_sync ("wget -O tmp/c-gallery.html \"%s\"".printf (pkg.gallery));
-		} catch (SpawnError e) {
+		if (!FileUtils.test ("tmp/c-gallery.html", FileTest.EXISTS)) {
+			try {
+				Process.spawn_command_line_sync ("wget -O tmp/c-gallery.html \"%s\"".printf (pkg.gallery));
+			} catch (SpawnError e) {
+				assert_not_reached ();
+			}
 		}
 
 		HashMap<string, string> images = new HashMap<string, string> ();
@@ -1011,17 +1025,19 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		// Download:
 		if (download_images) {
 			images.foreach ((entry) => {
-				try {
-					string link = Path.build_path (Path.DIR_SEPARATOR_S, search_path, entry.value);
-					Process.spawn_command_line_sync ("wget --directory-prefix documentation/%s/gallery-images/ \"%s\"".printf (pkg.name, link));
-				} catch (SpawnError e) {
+			if (!FileUtils.test ("documentation/%s/gallery-images/%s".printf (pkg.name, entry.value), FileTest.EXISTS)) {
+					try {
+						string link = Path.build_path (Path.DIR_SEPARATOR_S, search_path, entry.value);
+						Process.spawn_command_line_sync ("wget --directory-prefix documentation/%s/gallery-images/ \"%s\"".printf (pkg.name, link));
+					} catch (SpawnError e) {
+						assert_not_reached ();
+					}
 				}
-
 				return true;
 			});
 		}
 
-		FileStream stream = FileStream.open ("documentation/%s/widget-gallery.valadoc".printf (pkg.name), "w");
+		FileStream stream = FileStream.open ("documentation/%s/wiki/widget-gallery.valadoc".printf (pkg.name), "w");
 		assert (stream != null);
 
 		stream.puts ("== Widget Gallery ==\n");
@@ -1030,7 +1046,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		images.foreach ((entry) => {
 			stream.printf ("{@link c::%s}:\n", entry.key);
 			stream.putc ('\n');
-			stream.printf ("{{gallery-images/%s|%s}}\n", entry.value, entry.key);
+			stream.printf ("{{../gallery-images/%s|%s}}\n", entry.value, entry.key);
 			stream.putc ('\n');
 			return true;
 		});
@@ -1088,10 +1104,13 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		} while (token != MarkupTokenType.EOF);
 
 		foreach (string image_name in images) {
-			try {
-				string link = Path.build_path (Path.DIR_SEPARATOR_S, pkg.c_docs, image_name);
-				Process.spawn_command_line_sync ("wget --directory-prefix documentation/%s/gir-images/ \"%s\"".printf (pkg.name, link));
-			} catch (SpawnError e) {
+			if (!FileUtils.test ("documentation/%s/gir-images/%s".printf (pkg.name, image_name), FileTest.EXISTS)) {
+				try {
+					string link = Path.build_path (Path.DIR_SEPARATOR_S, pkg.c_docs, image_name);
+					Process.spawn_command_line_sync ("wget --directory-prefix documentation/%s/gir-images/ \"%s\"".printf (pkg.name, link));
+				} catch (SpawnError e) {
+					assert_not_reached ();
+				}
 			}
 		}
 

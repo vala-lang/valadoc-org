@@ -1,23 +1,51 @@
 public class ValadocGen : ExampleParser {
 	private List<string> nodes = new List<string> ();
 	private StringBuilder builder = new StringBuilder ();
+	private FileStream current_example;
+	private FileStream listing;
 	private FileStream output;
+	private string wiki_path;
+	private int sample_count;
 
-	public ValadocGen (string output_path) throws FileError {
+	public ValadocGen (string output_path, string wiki_path) throws FileError {
+		this.wiki_path = wiki_path;
+
 		this.output = FileStream.open (output_path, "w");
 		if (this.output == null) {
 			throw new FileError.FAILED (strerror (errno));
 		}
+
+		string index_path = Path.build_filename (wiki_path, "example-listing-index.valadoc");
+		this.listing = FileStream.open (index_path, "w");
+		if (this.listing == null) {
+			throw new FileError.FAILED (strerror (errno));
+		}
+
+		this.listing.puts ("==Example listing:==\n");
+		this.listing.puts ("\n");
+		write_example_navi (this.listing, false);
+	}
+
+	private void write_example_navi (FileStream stream, bool with_example_index) {
+		stream.puts (" * {{data/package.png}} [[index.valadoc|Package Index]]\n");
+		if (with_example_index) {
+			stream.puts (" * {{data/tip.png}} [[example-listing-index.valadoc|Example Listing]]\n");
+		}
+		stream.puts ("\n");
 	}
 
 	protected override void examples_start () {
+		sample_count = 0;
 	}
 
 	protected override void examples_end () {
+		this.listing.puts ("\n");
+		write_example_navi (this.listing, false);
 	}
 
 	protected override void example_start () {
 		builder.append ("/**\n");
+		sample_count++;
 	}
 
 	protected override void example_end () {
@@ -29,6 +57,18 @@ public class ValadocGen : ExampleParser {
 			output.puts ("::append\n");
 		}
 
+		if (nodes.length () > 0) {
+			current_example.puts ("\n");
+			current_example.puts ("===See:===\n");
+			current_example.puts ("\n");
+			foreach (string node in nodes) {
+				current_example.printf (" * {@link %s}\n", node);
+			}
+			current_example.puts ("\n");
+
+			write_example_navi (current_example, true);
+		}
+
 		nodes = new List<string> ();
 		builder.erase ();
 	}
@@ -36,6 +76,9 @@ public class ValadocGen : ExampleParser {
 	protected override void image (string image) {
 		builder.append (" *\n");
 		builder.append_printf (" * {{%s}}\n" , image);
+
+		current_example.puts ("\n");
+		current_example.printf ("{{%s}}\n", image);
 	}
 
 	protected override void compile (string str) {
@@ -43,34 +86,68 @@ public class ValadocGen : ExampleParser {
 		builder.append (" * {{{\n");
 		builder.append_printf (" * %s\n", str);
 		builder.append (" * }}}\n");
+
+		current_example.puts ("\n");
+		current_example.puts ("{{{\n");
+		current_example.printf (" %s\n", str);
+		current_example.puts ("}}}\n");
 	}
 
 	protected override void title (string? str) {
-		string title;
+		string title = null;
 
-		if (str == null) {
-			title = "''Example:''";
-		} else  {
-			if (str.has_prefix (":") == false) {
-				title = str.strip () + ":";
+		if (str != null) {
+			str._strip ();
+			if (str.has_prefix (":")) {
+				title = str.substring (0, str.length - 1);
 			} else {
-				title = str.strip ();
+				title = str;
 			}
-
-			title = "''Example:'' //%s//".printf (title);
 		}
 
-		builder.append_printf (" * %s\n", title);
+
+		if (title != null) {
+			builder.append_printf (" * ''Example:'' //%s://\n", title);
+		} else {
+			builder.append (" * ''Example:''\n");
+		}
+
+		// We don't care about unexpected chars for now
+		string current_name = "example-listing-%d-%s.valadoc".printf (sample_count,
+			(str == null)? "untitled-example" : str.replace (" ", "-"));
+		string current_path = Path.build_filename (wiki_path, current_name);
+		current_example = FileStream.open (current_path, "w");
+		assert (current_example != null);
+
+		if (title != null) {
+			current_example.printf ("==Example: %s==\n", title);
+		} else {
+			current_example.puts ("==Untitled example:==\n");
+		}
+
+		current_example.puts ("\n");
+		write_example_navi (current_example, true);
+
+		// TODO: General description?
+
+		listing.printf (" i. [[%s|%s]]\n", current_name, title ?? "Untitled example");
 	}
 
 	protected override void note (string note) {
 		builder.append (" *\n");
 		builder.append_printf (" * Note: %s\n", note);
+
+		current_example.puts ("\n");
+		current_example.printf (" Note: %s\n", note);
 	}
 
 	protected override void file (string file) {
 		builder.append (" *\n");
 		builder.append (" * {{{\n");
+
+		current_example.puts ("\n");
+		current_example.puts ("{{{\n");
+
 		FileStream stream = FileStream.open (file, "r");
 		if (stream == null) {
 			// TODO
@@ -78,9 +155,12 @@ public class ValadocGen : ExampleParser {
 			string line;
 			while ((line = stream.read_line ()) != null) {
 				builder.append_printf (" * %s\n", line);
+				current_example.printf ("%s\n", line);
 			}
 		}
 		builder.append (" * }}}\n");
+
+		current_example.puts ("}}}\n");
 	}
 
 	protected override void run (string cmnd) {
@@ -88,6 +168,11 @@ public class ValadocGen : ExampleParser {
 		builder.append (" * {{{\n");
 		builder.append_printf (" * %s\n", cmnd);
 		builder.append (" * }}}\n");
+
+		current_example.puts ("\n");
+		current_example.puts ("{{{\n");
+		current_example.printf ("%s\n", cmnd);
+		current_example.puts ("}}}\n");
 	}
 
 	protected override void node (string node) {
@@ -95,8 +180,8 @@ public class ValadocGen : ExampleParser {
 	}
 
 	public static int main (string[] args) {
-		if (args.length != 3) {
-			stdout.printf ("%s FILE OUTPUT\n", args[0]);
+		if (args.length != 4) {
+			stdout.printf ("%s FILE COMMENT-OUTPUT WIKI-DIR\n", args[0]);
 			return 0;
 		}
 
@@ -110,8 +195,13 @@ public class ValadocGen : ExampleParser {
 			return 0;
 		}
 
+		if (!FileUtils.test (args[3], FileTest.IS_DIR)) {
+			stdout.printf ("%s is not a valid path.\n", args[3]);
+			return 0;
+		}
+
 		try {
-			ValadocGen parser = new ValadocGen (args[2]);
+			ValadocGen parser = new ValadocGen (args[2], args[3]);
 			parser.parse (args[1]);
 		} catch (Error e) {
 			stdout.printf ("Error: %s\n", e.message);

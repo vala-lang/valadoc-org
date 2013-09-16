@@ -1,5 +1,12 @@
 <examples>
 	<example>
+		<title>Custom Container</title>
+		<image>example-custom-container.png</image>
+		<file>gtk-custom-container-sample.vala</file>
+		<compile>valac --pkg gtk+-3.0 gtk-custom-container-sample.vala</compile>
+		<node>Gtk.Container</node>
+	</example>
+	<example>
 		<title>AboutDialog</title>
 		<image>example-Gtk.AboutDialog.png</image>
 		<file>Gtk.AboutDialog.vala</file>

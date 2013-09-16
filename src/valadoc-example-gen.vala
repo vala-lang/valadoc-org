@@ -93,6 +93,21 @@ public class ValadocGen : ExampleParser {
 		current_example.puts ("}}}\n");
 	}
 
+	private string title_to_filename (string? title, int sample_count) {
+		try {
+			string current_name = "example-listing-%d-%s".printf (sample_count,
+				(title == null)? "untitled-example" : title.replace (" ", "-"));
+
+			current_name = current_name.down ();
+			current_name.canon ("abcdefghijklmnopqrstuvwxyz1234567890", '-');
+
+			Regex regex = new Regex ("-+");
+			return regex.replace (current_name, current_name.length, 0, "-") + ".valadoc";
+		} catch (Error e) {
+			assert_not_reached ();
+		}
+	}
+
 	protected override void title (string? str) {
 		string title = null;
 
@@ -113,11 +128,13 @@ public class ValadocGen : ExampleParser {
 		}
 
 		// We don't care about unexpected chars for now
-		string current_name = "example-listing-%d-%s.valadoc".printf (sample_count,
-			(str == null)? "untitled-example" : str.replace (" ", "-"));
+		string current_name = title_to_filename (str, sample_count);
 		string current_path = Path.build_filename (wiki_path, current_name);
 		current_example = FileStream.open (current_path, "w");
-		assert (current_example != null);
+		if (current_example == null) {
+			stdout.printf ("Error: %s\n", strerror (errno));
+			assert_not_reached ();
+		}
 
 		if (title != null) {
 			current_example.printf ("==Example: %s==\n", title);

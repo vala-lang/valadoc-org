@@ -1,0 +1,43 @@
+<examples>
+	<example>
+		<title>Twitter, coninuous</title>
+		<file>continuous-twitter.vala</file>
+		<compile>valac --pkg rest-0.7 continuous-twitter.vala</compile>
+		<node>Rest.OAuthProxy</node>
+	</example>
+	<example>
+		<title>XML-Dump</title>
+		<file>dump-xml.vala</file>
+		<compile>valac --pkg rest-0.7 dump-xml.vala</compile>
+		<node>Rest.XmlNode</node>
+		<node>Rest.XmlParser</node>
+	</example>
+	<example>
+		<title>Fireeagle (outdated)</title>
+		<file>get-fireeagle-location.vala</file>
+		<compile>valac --pkg rest-0.7 get-fireeagle-location.vala</compile>
+		<node>Rest.XmlParser</node>
+	</example>
+	<example>
+		<title>Read raw data, async</title>
+		<file>test-raw-async.vala</file>
+		<compile>valac --pkg rest-0.7 test-raw-async.vala</compile>
+		<node>Rest.Proxy</node>
+		<node>Rest.ProxyCall</node>
+		<node>Rest.ProxyCall.run_async</node>
+	</example>
+	<example>
+		<title>Read raw data, sync</title>
+		<file>test-raw-sync.vala</file>
+		<compile>valac --pkg rest-0.7 test-raw-sync.vala</compile>
+		<node>Rest.Proxy</node>
+		<node>Rest.ProxyCall</node>
+		<node>Rest.ProxyCall.run</node>
+	</example>
+	<example>
+		<title>Flickr example</title>
+		<file>test-xml.vala</file>
+		<compile>valac --pkg rest-0.7 test-xml.vala</compile>
+		<node>Rest.ProxyCallAsyncCallback</node>
+	</example>
+</examples>

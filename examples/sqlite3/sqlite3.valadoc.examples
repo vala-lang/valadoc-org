@@ -37,7 +37,7 @@
 		<node>Sqlite.Callback</node>
 	</example>
 	<example>
-		<title>Select with get_table</tile>
+		<title>Select with get_table</title>
 		<file>get-table.vala</file>
 		<compile>valac --pkg sqlite3 get-table.vala</compile>
 		<node>Sqlite.Database.get_table</node>

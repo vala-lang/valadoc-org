@@ -152,7 +152,7 @@
 		<title>Cookies, sync</title>
 		<file>cookie-sample-sync.vala</file>
 		<compile>valac --pkg libsoup-2.4 cookie-sample-sync.vala</compile>
-		<node>Soup.Cookie
+		<node>Soup.Cookie</node>
 		<node>Soup.cookies_to_request</node>
 		<node>Soup.cookies_from_request</node>
 		<node>Soup.cookies_from_response</node>

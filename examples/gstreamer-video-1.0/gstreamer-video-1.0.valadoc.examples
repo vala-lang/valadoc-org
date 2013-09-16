@@ -1,0 +1,11 @@
+<examples>
+	<example>
+		<title>GTK-Integration</title>
+		<image>example-gtk-integration.png</image>
+		<file>gtk-integration.vala</file>
+		<compile>valac --pkg gstreamer-video-1.0 --pkg gtk+-3.0 --pkg gdk-x11-3.0 gtk-integration.vala</compile>
+		<node>Gst.Video.is_video_overlay_prepare_window_handle_message</node>
+		<node>Gst.Video.Overlay</node>
+		<node>Gst.Video</node>
+	</example>
+</examples>

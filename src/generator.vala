@@ -31,8 +31,15 @@ using Gee;
 
 
 public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
+	private LinkedList<Package> unavailable_packages = new LinkedList<Package> ();
 	private HashMap<string, Package> packages_per_name = new HashMap<string, Package> ();
 	private Collection<Node> sections;
+
+	private void print_stored_messages () {
+		foreach (Package pkg in unavailable_packages) {
+			reporter.simple_warning ("error: Package '%s' not found", pkg.name);
+		}
+	}
 
 	private void register_package (Section? section, Package pkg) {
 		packages_per_name.set (pkg.name, pkg);
@@ -662,6 +669,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				build_doc_for_package (pkg);
 			}
 		}
+
+		print_stored_messages ();
 	}
 
 	private string get_index_name (string pkg_name) {
@@ -814,6 +823,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		foreach (Package pkg in queue) {
 			build_doc_for_package (pkg);
 		}
+
+		print_stored_messages ();
 	}
 
 	private void build_doc_for_package (Package pkg) throws Error {
@@ -821,9 +832,13 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return ;
 		}
 
+		if (pkg.get_vapi_path () == null) {
+			this.unavailable_packages.add (pkg);
+			return ;
+		}
+
 		DirUtils.create ("documentation/%s/".printf (pkg.name), 0755);
 		DirUtils.create ("documentation/%s/wiki".printf (pkg.name), 0755);
-
 
 		StringBuilder builder = new StringBuilder ();
 		builder.append_printf ("valadoc --target-glib %s --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s", target_glib, driver, docletpath, pkg.name, pkg.get_vapi_path (), Path.get_dirname (pkg.get_vapi_path ()), girdir, pkg.flags);
@@ -1243,12 +1258,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return_val = -1;
 		}
 
-		try {
-			Process.spawn_command_line_sync ("rm -r -f tmp");
-		} catch (SpawnError e) {
-		}
-
+		DirUtils.remove ("tmp");
 		return return_val;
 	}
 }
-

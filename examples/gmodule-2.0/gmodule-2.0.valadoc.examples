@@ -1,0 +1,13 @@
+<examples>
+	<example>
+		<title>Loading modules (plugins)</title>
+		<file>library.vala</file>
+		<compile>valac -o libshared.so --pkg gmodule-2.0 --library libshared -H libshared.h -X -fPIC -X --shared library.vala</compile>
+		<file>myplugin.vala</file>
+		<compile>valac -o libmyplugin.so --pkg gmodule-2.0 -X -fPIC -X --shared libshared.vapi myplugin.vala --library myplugin</compile>
+		<file>application.vala</file>
+		<compile>valac application.vala libshared.vapi --pkg gmodule-2.0 -X libshared.so -X -I.</compile>
+		<run>LD_LIBRARY_PATH=. ./application libmyplugin</run>
+		<node>GLib.Module</node>
+	</example>
+</examples>

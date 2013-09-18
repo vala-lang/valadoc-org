@@ -574,6 +574,7 @@
 		<file>GLib.FileUtils.test.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.FileUtils.test.vala</compile>
 		<node>GLib.FileUtils.test</node>
+		<node>GLib.FileTest</node>
 	</example>
 	<example>
 		<title>Add a value to the end of the array</title>

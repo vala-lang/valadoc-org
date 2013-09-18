@@ -13,7 +13,7 @@
 			</package>
 			<external-package deprecated="true" name="gee-1.0" link="/gee-1.0/index.htm">
 				Libgee is a collection library providing GObject-based interfaces and
-				classes for commonly used data structures.
+				classes for commonly used data structures. (Use gee-0.8)
 			</external-package>
 			<external-package name="gee-0.8" link="/gee-0.8/index.htm">
 				Libgee is a collection library providing GObject-based interfaces and
@@ -56,7 +56,8 @@
 			<package name="vte-2.90" gir="Vte-2.90" c-docs="http://developer.gnome.org/vte/unstable/">
 				Terminal emulator widget used by GNOME terminal.
 			</package>
-			<package ignore="true" name="webkitgtk-3.0" gir="http://webkitgtk.org/">
+			<!-- n/A -->
+			<package name="webkitgtk-3.0" ignore="true"gir="http://webkitgtk.org/">
 				WebKitGTK+ is the GNOME platform port of the WebKit rendering engine. Offering WebKit’s full functionality
 				through a set of GObject-based APIs, it is suitable for projects requiring any kind of web integration,
 				from hybrid HTML/CSS applications to full-fledged web browsers, like Epiphany and Midori.
@@ -69,6 +70,9 @@
 			<package name="champlain-gtk-0.14" gir="GtkChamplain-0.14" flags="--pkg gtk+-3.0 --pkg champlain-0.14 --pkg clutter-1.0" home="http://projects.gnome.org/libchamplain/">
 				Libchamplain-gtk is a C library on top of libchamplain providing a Gtk+ widget to display maps
 				in GTK+ applications.
+			</package>
+			<package name="libgnome-menu-3.0" flags="--pkg gio-2.0 --pkg gio-unix-2.0" gir="GnomeDesktop-3.0">
+				Utility library for loading .desktop files.
 			</package>
 		</section>
 
@@ -106,7 +110,7 @@
 			<package name="gstreamer-rtsp-1.0" home="http://gstreamer.freedesktop.org/" gir="GstRtsp-1.0">
 				GStreamer RTSP Library
 			</package>
-			<package ignore="true" name="gstreamer-rtsp-server-1.0" home="http://gstreamer.freedesktop.org/" gir="GstRtspServer-1.0">
+			<package name="gstreamer-rtsp-server-1.0" home="http://gstreamer.freedesktop.org/" gir="GstRtspServer-1.0">
 				GStreamer RTSP Server-Library
 			</package>
 			<package name="gstreamer-sdp-1.0" home="http://gstreamer.freedesktop.org/" gir="GstSdp-1.0">
@@ -201,6 +205,7 @@
 			<package name="ibus-1.0" home="https://code.google.com/p/ibus/" gir="IBus-1.0" c-docs="http://ibus.googlecode.com/svn/docs/ibus-1.5/index.html">
 				Next Generation Input Bus for Linux.
 			</package>
+			<!-- Seems as we do not support callback-elements correctly -->
 			<package ignore="true" name="caribou-1.0" gir="Caribou-1.0" home="https://live.gnome.org/Caribou">
 				Configurable onscreen keyboard with scanning mode.
 			</package>
@@ -214,15 +219,33 @@
 				GNOME Keyring is a collection of components in GNOME that store secrets, passwords, keys,
 				certificates and make them available to applications. 
 			</package>
+			<package name="libsecret-1" gir="Secret-1" home="https://wiki.gnome.org/Libsecret">
+				libsecret is a library for storing and retrieving passwords and other secrets.
+				It communicates with the "Secret Service" using DBus. gnome-keyring and ksecretservice
+				are both implementations of a Secret Service.
+			</package>
+			<package name="libsecret-unstable" gir="SecretUnstable-0" home="https://wiki.gnome.org/Libsecret">
+				libsecret is a library for storing and retrieving passwords and other secrets.
+				It communicates with the "Secret Service" using DBus. gnome-keyring and ksecretservice
+				are both implementations of a Secret Service.
+ 			</package>
 			<package name="dconf" home="https://live.gnome.org/dconf">
 				dconf is a low-level configuration system. Its main purpose is to provide a backend to GSettings on 
 				platforms that don't already have configuration storage systems.
 			</package>
-			<package name="libgdata" flags="--pkg Goa-1.0" gir="GData-0.0" c-docs="http://developer.gnome.org/gdata/unstable/">
-				GData (Google data) is a set of Application Programming Interfaces (APIs) for the Common Language
-				Infrastructure (CLI) which provide a simple protocol for reading and writing data on the web. 
+			<package name="libgda-4.0" gir="Gda-0.5">
+				Libgda is a (relatively small) database access library. 
+			</package>
+			<package name="libgda-report-4.0">
+				GNU Data Access Library, reporter
+			</package>
+			<package name="sqlite3" home="http://www.sqlite.org/" c-docs="http://www.sqlite.org/c3ref/intro.html">
+			 	A C library that implements an SQL database engine.
 			</package>
 			<package name="libebook-1.2" flags="--pkg libedataserver-1.2" gir="EBook-1.2" c-docs="http://developer.gnome.org/libebook/stable/">
+				This package is a client library for evolution addressbooks.
+			</package>
+			<package name="libebook-contacts-1.2" flags="--pkg libedataserver-1.2" gir="EBookContacts-1.2" c-docs="http://developer.gnome.org/libebook-contacts/stable/">
 				This package is a client library for evolution addressbooks.
 			</package>
 			<package name="libecalendar-1.2" gir="ECalendar-1.2" c-docs="http://developer.gnome.org/libecal/stable/" flags="--pkg libedataserver-1.2">
@@ -237,11 +260,15 @@
 				is completely modular, this means that there are modules or 'backends' which are used
 				for indexing specific content types.
 			</package>
-			<package name="tracker-miner-0.12" home="http://projects.gnome.org/tracker/" gir="TrackerMiner-0.12" ignore="true">
+			<package name="tracker-miner-0.16" flags="--pkg tracker-sparql-0.16" home="http://projects.gnome.org/tracker/" gir="TrackerMiner-0.16">
 				This package contains the library that is used by applications that provide data miners for tracker.
 
 				Tracker is an advanced framework for first class objects with associated metadata and tags. It provides
 				a one stop solution for all metadata, tags, shared object databases, search tools and indexing. 
+			</package>
+			<package name="tracker-sparql-0.16" home="http://projects.gnome.org/tracker/" c-docs="https://developer.gnome.org/libtracker-sparql/unstable/tracker-overview.html">
+				The foundation for Tracker querying and inserting into the data store. The data
+				store allows both querying and inserting using SPARQL based on the Nepomuk ontology. 				
 			</package>
 			<external-package name="folks" home="http://telepathy.freedesktop.org/wiki/Folks" maintainers="Travis Reitter" link="http://telepathy.freedesktop.org/doc/folks/vala/">
 				Libfolks is a library that aggregates people from multiple sources (eg, Telepathy connection managers
@@ -272,6 +299,9 @@
 			<package name="rest-extras-0.6" maintainers="Adrien Bustany" gir="RestExtras-0.7">
 				This extra package provides Facebook and Flickr support.
 			</package>
+			<package name="gnutls" maintainer="Jiří Zárevúcky" home="http://www.gnutls.org/" c-docs="http://www.gnutls.org/documentation.html">
+				A library which provides a secure layer over a reliable transport layer
+			</package>
 			<package name="telepathy-glib" gir="TelepathyGLib-0.12">
 				Telepathy is a D-Bus framework for unifying real time communication, including instant messaging,
 				voice calls and video calls. It abstracts differences between protocols to provide a unified
@@ -283,13 +313,11 @@
 				structures, and allows writing clients for Twitter and all the web services offering a Twitter-compatible
 				API, like Identi.ca. 
 			</package>
-			<package name="libgda-4.0" gir="Gda-0.5">
-				Libgda is a (relatively small) database access library. 
+			<package name="libgdata" flags="--pkg Goa-1.0" gir="GData-0.0" c-docs="http://developer.gnome.org/gdata/unstable/">
+				GData (Google data) is a set of Application Programming Interfaces (APIs) for the Common Language
+				Infrastructure (CLI) which provide a simple protocol for reading and writing data on the web. 
 			</package>
-			<package name="libgda-report-4.0">
-				GNU Data Access Library, reporter
-			</package>
-			<package name="gweather-3.0" gir="GWeather-3.0">
+			<package name="gweather-3.0" flags="--pkg gtk+-3.0" gir="GWeather-3.0">
 				Location and timezone database and weather-lookup library.
 			</package>
 		</section>
@@ -318,6 +346,10 @@
 			</package>
 			<package name="gvnc-1.0" gir="GtkVnc-2.0" home="https://live.gnome.org/gtk-vnc">
 				VNC gobject wrapper.
+			</package>
+			<package name="gvncpulse-1.0" flags="--pkg gvnc-1.0" gir="GVncPulse-1.0">
+				A bridge to the Pulse Audio system for VNC.
+				It allows VNC clients to play back audio on the local system
 			</package>
 			<package name="libvirt-glib-1.0" gir="LibvirtGLib-1.0" home="http://libvirt.org/">
 				API for controlling virtualization engines. (openvz,kvm,qemu,virtualbox,xen,etc)
@@ -360,7 +392,8 @@
 			<package name="enchant" home="http://www.abisource.com/projects/enchant/">
 				A wrapper library for generic spell checking.
 			</package>
-			<package name="babl-0.1" home="http://gegl.org/babl/" gir="Babl-0.1" ignore="true">
+			<!-- vapi contains a class without name -->
+			<package ignore="true" name="babl-0.1" home="http://gegl.org/babl/" gir="Babl-0.1">
 				A dynamic, any to any, pixel format translation library.
 			</package>
 			<package name="libepc-1.0" gir="Epc-1.0">
@@ -373,6 +406,9 @@
 				This enables you to plug your laptop or computer into a network and instantly be able to view other people
 				who you can chat with, find printers to print to or find files being shared. Compatible technology is found
 				in Apple MacOS X (branded  Bonjour and sometimes Zeroconf).
+			</package>
+			<package name="avahi-client" flags="--pkg avahi-gobject" home="http://www.avahi.org/" maintainers="Sebastian Noack">
+				The Avahi package is a system which facilitates service discovery on a local network.
 			</package>
 			<package name="champlain-0.14" flags="--pkg clutter-1.0" home="http://projects.gnome.org/libchamplain/" gir="Champlain-0.14">
 				Libchamplain is a C library providing a ClutterActor to display maps.
@@ -419,11 +455,14 @@
 			<package name="libosinfo-1.0" gir="Libosinfo-1.0" flags="--pkg gio-2.0">
 				Library for managing information about operating systems and hypervisors.
 			</package>
-			<package ignore="true" name="packagekit-glib2" gir="PackageKitGlib-1.0" home="http://www.packagekit.org/" c-docs="http://www.packagekit.org/gtk-doc/">
+			<package name="packagekit-glib2" gir="PackageKitGlib-1.0" home="http://www.packagekit.org/" c-docs="http://www.packagekit.org/gtk-doc/">
 				Library for accessing PackageKit using GLib.
 			</package>
 			<package name="accountsservice" gir="AccountsService-1.0">
 				Query and manipulate user account information 
+			</package>
+			<package name="gobject-introspection-1.0" gir="GIRepository-2.0" home="https://wiki.gnome.org/GObjectIntrospection" c-docs="https://developer.gnome.org/gi/unstable/">
+				GObject introspection is a middleware layer between C libraries (using GObject) and language bindings.
 			</package>
 		</section>
 
@@ -483,14 +522,14 @@
 			SQLHeavy is a wrapper on top of SQLite with a GObject-based interface, providing very nice APIs for C and Vala,
 			GObject Introspection support, and additional functionality not present in SQLite. 
 		</external-package>
-		<package name="sqlite3" home="http://www.sqlite.org/" c-docs="http://www.sqlite.org/c3ref/intro.html">
-		 	A C library that implements an SQL database engine.
-		</package>
 		<package name="libpq" home="http://www.postgresql.org/" c-docs="http://www.postgresql.org/docs/8.1/static/libpq.html">
 			Client API for PostgreSQL.
 		</package>
 		<package name="mysql" home="http://www.mysql.com/">
 			Client API for MySQL.
+		</package>
+		<package name="tokyocabinet" home="http://fallabs.com/kyotocabinet/">
+			Kyoto Cabinet is a library of routines for managing a database.
 		</package>
 		<package name="rasqal" home="http://librdf.org/rasqal/" c-docs="http://librdf.org/rasqal/docs/api/index.html">
 			A free library that handles Resource Description Framework (RDF) query syntaxes, query construction and
@@ -520,11 +559,11 @@
 		<package name="linux" maintainers="Michael 'Mickey' Lauer">
 			API for the Linux-based GNU systems.
 		</package>
-		<package name="libnl-1" maintainers="Michael 'Mickey' Lauer">
+		<package deprecated="true" name="libnl-1" maintainers="Michael 'Mickey' Lauer">
 			The libnl suite is a collection of libraries providing APIs to netlink protocol
 			based Linux kernel interfaces. 
 		</package>
-		<package name="libnl-2.0" maintainers="Michael 'Mickey' Lauer">
+		<package deprecated="true" name="libnl-2.0" maintainers="Michael 'Mickey' Lauer">
 			The libnl suite is a collection of libraries providing APIs to netlink protocol
 			based Linux kernel interfaces. 
 		</package>
@@ -538,6 +577,11 @@
 		</package>
 		<package name="x11" home="http://www.x.org" c-docs="http://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html">
 			Binding to the X11 graphics library.
+		</package>
+		<package name="libxklavier" gir="Xkl-1.0" home="http://freedesktop.org/wiki/Software/LibXklavier/">
+			A library providing high-level API for X Keyboard Extension
+			known as XKB. This library is indended to support XFree86 and other commercial
+			X servers. It is useful for creating XKB-related software (layout indicators etc). 
 		</package>
 		<package name="xcb" home="http://xcb.freedesktop.org/" c-docs="http://xcb.freedesktop.org/XcbApi/">
 			X11 client-side library.
@@ -615,14 +659,21 @@
 		<package name="bzlib">
 			Libraries and include files for the bzip2 compressor library.
 		</package>
+		<package name="zlib" home="http://www.zlib.net/">
+			A Massively Spiffy Yet Delicately Unobtrusive Compression Library
+		</package>
 		<package name="lua">
 			Programming language designed for extending applications.
 		</package>
-		<package name="gtkmozembed" home="https://wiki.mozilla.org/Gtkmozembed" c-docs="http://www-archive.mozilla.org/unix/gtk-embedding.html">
+		<package deprecated="true" name="gtkmozembed" home="https://wiki.mozilla.org/Gtkmozembed" c-docs="http://www-archive.mozilla.org/unix/gtk-embedding.html">
 			GtkMozEmbed is an easy-to-use widget that will allow you to embed a Mozilla browser window
 			into your Gtk application. 
 		</package>
 		<package name="mx-1.0" gir="Mx-1.0" c-docs="http://docs.clutter-project.org/docs/mx/unstable/">
+			The Moblin UI Toolkit is a project to create useful widgets for Clutter-based applications.
+			It includes widgets such as edit controls, buttons, and many more.
+		</package>
+		<package name="mx-2.0" gir="Mx-2.0" flags="--pkg gio-2.0 --pkg clutter-1.0" c-docs="http://docs.clutter-project.org/docs/mx/unstable/">
 			The Moblin UI Toolkit is a project to create useful widgets for Clutter-based applications.
 			It includes widgets such as edit controls, buttons, and many more.
 		</package>
@@ -632,6 +683,9 @@
 		</package>
 		<package name="hildon-fm-2" home="http://live.gnome.org/Hildon">
 			Hildon File Management.
+		</package>
+		<package name="gsl" maintainer="Matias De la Puente" home="http://www.gnu.org/software/gsl/manual/html_node/" c-docs="http://www.gnu.org/software/gsl/manual/html_node/">
+			A collection of numerical routines for scientific computing.
 		</package>
 	</section>
 

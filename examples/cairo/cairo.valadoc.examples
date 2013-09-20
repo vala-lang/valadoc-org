@@ -208,7 +208,7 @@
 		<title>Atop</title>
 		<image>example-operator-atop.png</image>
 		<file>operator-atop.vala</file>
-		<compile>valac --pkg operator-atop.vala</compile>
+		<compile>valac --pkg cairo operator-atop.vala</compile>
 		<node>Cairo.Operator.ATOP</node>
 	</example>
 	<example>
@@ -222,7 +222,7 @@
 		<title>Colour burn</title>
 		<image>example-operator-color-burn.png</image>
 		<file>operator-color-burn.vala</file>
-		<compile>valac --pkg operator-color-burn.vala</compile>
+		<compile>valac --pkg cairo operator-color-burn.vala</compile>
 		<node>Cairo.Operator.COLOR_BURN</node>
 	</example>
 	<example>

@@ -9,6 +9,6 @@ public class MyClass : Object {
 }
 
 [ModuleInit]
-Type plugin_init(GLib.TypeModule type_modul) {
+public static Type plugin_init(GLib.TypeModule type_modul) {
 	return typeof(MyClass);
 }

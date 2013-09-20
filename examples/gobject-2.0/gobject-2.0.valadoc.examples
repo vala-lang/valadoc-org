@@ -163,12 +163,11 @@
 	<example>
 		<title>Plugin sample</title>
 		<note>The plugin:</note>
-		<file>GLib.TypeModule.plugin.vala</file>
-		<compile>valac --ccode GLib.TypeModule.plugin.vala</compile>
-		<compile>gcc -fPIC -shared -o libplugin.so GLib.TypeModule.plugin.c $(pkg-config --libs --cflags gobject-2.0 gmodule-2.0)</compile>
+		<file>GLib.TypeModule.0.vala</file>
+		<compile>valac -o libplugin.so --library plugin -X -fPIC -X -shared GLib.TypeModule.0.vala</compile>
 		<note>Plugin loader:</note>
-		<file>GLib.TypeModule.loader.vala</file>
-		<compile>valac -o loader GLib.TypeModule.loader.vala --pkg=gmodule-2.0</compile>
+		<file>GLib.TypeModule.1.vala</file>
+		<compile>valac -o loader GLib.TypeModule.1.vala --pkg=gmodule-2.0</compile>
 		<node>GLib.TypeModule</node>
 	</example>
 	<example>

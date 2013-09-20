@@ -32,7 +32,7 @@ class MyModule : TypeModule {
 	}
 }
 
-// Never unref instance of GTypeModule
+// Never unref instances of GLib.TypeModule
 static TypeModule module = null;
 
 public int main (string[] args) {

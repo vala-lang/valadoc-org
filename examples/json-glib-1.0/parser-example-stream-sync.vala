@@ -22,5 +22,6 @@ public static int main (string[] args) {
 	// manipulate/read the object tree and then exit
 	// ...
 
+	node = null;
 	return 0;
 }

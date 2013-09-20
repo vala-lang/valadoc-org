@@ -22,6 +22,8 @@ public static int main (string[] args) {
 
 					// manipulate/read the object tree and then exit
 					// ...
+
+					node = null;
 				} catch (Error e) {
 					stdout.printf ("Unable to parse `%s': %s\n", args[1], e.message);
 				}

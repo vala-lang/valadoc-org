@@ -1,5 +1,5 @@
 <examples>
-	<example>
+	<example experimental="true">
 		<title>GTK-Integration</title>
 		<image>example-gtk-integration.png</image>
 		<file>gtk-integration.vala</file>

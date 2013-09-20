@@ -170,13 +170,13 @@
 	<example>
 		<title>Check whether the double reperesents a number</title>
 		<file>double.is_nan.vala</file>
-		<compile>valac --pkg glib-2.0 double.is_nan.vala</compile>
+		<compile>valac --pkg glib-2.0 double.is_nan.vala -X -lm</compile>
 		<node>double.is_nan</node>
 	</example>
 	<example>
 		<title>Determines if the given floating point number is normal</title>
 		<file>double.is_normal.vala</file>
-		<compile>valac --pkg glib-2.0 double.is_normal.vala</compile>
+		<compile>valac --pkg glib-2.0 double.is_normal.vala -X -lm</compile>
 		<node>double.is_normal</node>
 	</example>
 	<example>
@@ -248,7 +248,7 @@
 	<example>
 		<title>Check whether the double reperesents a number</title>
 		<file>float.is_nan.vala</file>
-		<compile>valac --pkg glib-2.0 float.is_nan.vala</compile>
+		<compile>valac --pkg glib-2.0 float.is_nan.vala -X -lm</compile>
 		<node>float.is_nan</node>
 	</example>
 	<example>
@@ -357,7 +357,7 @@
 	<example>
 		<title>Async queue</title>
 		<file>GLib.AsyncQueue.vala</file>
-		<compile>valac --pkg glib-2.0 GLib.AsyncQueue.vala</compile>
+		<compile>valac --target-glib 2.32 --pkg glib-2.0 GLib.AsyncQueue.vala</compile>
 		<node>GLib.AsyncQueue</node>
 	</example>
 	<example>
@@ -399,7 +399,7 @@
 	<example>
 		<title>Conditions</title>
 		<file>GLib.Cond.vala</file>
-		<compile>valac --pkg glib-2.0 GLib.Cond.vala</compile>
+		<compile>valac --target-glib 2.32 --pkg glib-2.0 GLib.Cond.vala</compile>
 		<node>GLib.Cond</node>
 	</example>
 	<example>
@@ -479,8 +479,8 @@
 	</example>
 	<example>
 		<title>Flush the stream</title>
-		<compile>valac --pkg glib-2.0 GLib.FileStream.flush.vala</compile>
 		<file>GLib.FileStream.flush.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.FileStream.flush.vala</compile>
 		<node>GLib.FileStream.flush</node>
 	</example>
 	<example>
@@ -599,12 +599,6 @@
 		<file>GLib.GenericArray.get.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.GenericArray.get.vala</compile>
 		<node>GLib.GenericArray.get</node>
-	</example>
-	<example>
-		<title>Get the nth entry</title>
-		<file>GLib.GenericArray.index.vala</file>
-		<compile>valac --pkg glib-2.0 GLib.GenericArray.index.vala</compile>
-		<node>GLib.GenericArray.index</node>
 	</example>
 	<example>
 		<title>Get the number of stored items</title>
@@ -1133,12 +1127,6 @@
 		<node>GLib.Math.tanf</node>
 	</example>
 	<example>
-		<title>Math functions</title>
-		<file>GLib.Math.vala</file>
-		<compile>valac --pkg glib-2.0 -X -lm GLib.Math.vala</compile>
-		<node>GLib.Math</node>
-	</example>
-	<example>
 		<title>Compare two blocks of memory</title>
 		<file>GLib.Memory.cmp.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Memory.cmp.vala</compile>
@@ -1177,7 +1165,7 @@
 	<example>
 		<title>Mutex</title>
 		<file>GLib.Mutex.vala</file>
-		<compile>valac --pkg glib-2.0 GLib.Mutex.vala</compile>
+		<compile>valac --target-glib 2.32 --pkg glib-2.0 GLib.Mutex.vala</compile>
 		<node>GLib.Mutex</node>
 	</example>
 	<example>
@@ -1561,7 +1549,7 @@
 	<example>
 		<title>RecMutex, nested critical sections</title>
 		<file>GLib.RecMutex.vala</file>
-		<compile>valac --pkg glib-2.0 GLib.RecMutex.vala</compile>
+		<compile>valac --target-glib 2.32 --pkg glib-2.0 GLib.RecMutex.vala</compile>
 		<node>GLib.RecMutex</node>
 	</example>
 	<example>
@@ -1603,7 +1591,7 @@
 	<example>
 		<title>RW-Locks</title>
 		<file>GLib.RWLock.vala</file>
-		<compile>valac --target-glib=2.32 GLib.RWLock.vala</compile>
+		<compile>valac --target-glib 2.32 GLib.RWLock.vala</compile>
 		<node>GLib.RWLock</node>
 	</example>
 	<example>
@@ -2175,12 +2163,19 @@
 		<run>./GLib.Test.trap_assert_stdout_unmatched --verbose</run>
 		<node>GLib.Test.trap_assert_stdout_unmatched</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Run a case in a subprocess (deprecated)</title>
 		<file>GLib.Test.trap_fork.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Test.trap_fork.vala</compile>
 		<run>./GLib.Test.trap_fork --verbose</run>
 		<node>GLib.Test.trap_fork</node>
+	</example>
+	<example>
+		<title>Run a case in a subprocess</title>
+		<file>GLib.Test.trap_subprocess.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Test.trap_subprocess.vala</compile>
+		<run>./GLib.Test.trap_subprocess --verbose</run>
+		<node>GLib.Test.trap_subprocess</node>
 	</example>
 	<example>
 		<title>Check the result of the last fork</title>
@@ -2199,7 +2194,7 @@
 	<example>
 		<title>Threads</title>
 		<file>GLib.Thread.vala</file>
-		<compile>valac --pkg glib-2.0 --target-glib=2.32 GLib.Thread.vala</compile>
+		<compile>valac --target-glib 2.32 --pkg glib-2.0 GLib.Thread.vala</compile>
 		<node>GLib.Thread</node>
 	</example>
 	<example>
@@ -2325,9 +2320,9 @@
 	</example>
 	<example>
 		<title>Get a copy of the string array</title>
-		<file>GLib.Variant.dup_strv .vala</file>
-		<compile>valac --pkg glib-2.0 GLib.Variant.dup_strv .vala</compile>
-		<node>GLib.Variant.dup_strv </node>
+		<file>GLib.Variant.dup_strv.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.Variant.dup_strv.vala</compile>
+		<node>GLib.Variant.dup_strv</node>
 	</example>
 	<example>
 		<title>Get a boolean</title>

@@ -8,8 +8,8 @@ public static int main (string[] args) {
 	unowned string? key = null; // stored key
 	unowned string? val = null; // stored value
 	bool res = tree.lookup_extended (needle, out key, out val);
-	// Output: ``needle='1. entry' key='1. entry', val='1. entry'``
-	stdout.printf ("needle='%s' key='%s', val='%s'\n", needle, key, val);
+	// Output: ``res='true' needle='1. entry' key='1. entry', val='1. entry'``
+	stdout.printf ("res='%s' needle='%s' key='%s', val='%s'\n", res.to_string (), needle, key, val);
 
 	return 0;
 }

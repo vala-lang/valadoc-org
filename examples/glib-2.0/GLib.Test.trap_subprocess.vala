@@ -1,21 +1,10 @@
 public static int main (string[] args) {
 	Test.init (ref args);
- 	Test.bug_base ("http://bugzilla.gnome.org/");
+	Test.bug_base ("http://bugzilla.gnome.org/");
+
 
 	Test.add_func ("/valadoc/driver-0.14.x", () => {
-		// start a fork & reduce its runtime to 9000 micro seconds
-		if (Test.trap_fork (9000, TestTrapFlags.SILENCE_STDOUT | TestTrapFlags.SILENCE_STDERR)) {
-			// Simulate driver output:
-			stdout.printf ("warning: unexpected token: ==\n");
-			stderr.printf ("error: unexpected token: ==\n");
-
-			// use assert () and friends to verify your code
-			// assert (false) marks a test as "not-passed"
-
-			// Make sure the fork exists at the end of our test case:
-			Process.exit (0);
-		}
-
+		Test.trap_subprocess ("/valadoc/driver-0.14.x/subprocess", 0, 0);
 
 		//
 		// Optional checks & asserts:
@@ -46,6 +35,19 @@ public static int main (string[] args) {
 		// Make sure the forked output does not match the following patterns:
 		Test.trap_assert_stdout_unmatched ("*debug:*");
 		Test.trap_assert_stderr_unmatched ("*critical-error:*");
+	});
+
+	// Because of the '/subprocess' in the name, this test will
+	// not be run by the Test.run () call below.
+	Test.add_func ("/valadoc/driver-0.14.x/subprocess", () => {
+		// Our testcase:
+		// ...
+		stdout.printf ("warning: unexpected token: ==\n");
+		stderr.printf ("error: unexpected token: ==\n");
+		// ..
+
+		// use assert () and friends to verify your code
+		// assert (false) marks a test as "not-passed"
 	});
 
 	Test.run ();

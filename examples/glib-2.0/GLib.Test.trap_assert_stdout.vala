@@ -2,17 +2,16 @@ public static int main (string[] args) {
 	Test.init (ref args);
 
 	Test.add_func ("/valadoc/driver-0.14.x", () => {
-		if (Test.trap_fork (0, TestTrapFlags.SILENCE_STDOUT | TestTrapFlags.SILENCE_STDERR)) {
-			// Simulate driver output:
-			stdout.printf ("warning: unexpected token: ==\n");
+		Test.trap_subprocess ("/valadoc/driver-0.14.x/subprocess", 0, 0);
+		Test.trap_assert_passed ();
 
-			// Make sure the fork exists at the end of our test case:
-			Process.exit (0);
-		}
-
-		// Make sure the forked output does match the following pattern:
+		// Assert that the stdout output matches the pattern:
 		// See GLib.PatternSpec for details
-		Test.trap_assert_stdout ("*warning:*");
+		Test.trap_assert_stdout ("*error:*");
+	});
+
+	Test.add_func ("/valadoc/driver-0.14.x/subprocess", () => {
+		stdout.printf ("error: unexpected token: ==\n");
 	});
 
 	Test.run ();

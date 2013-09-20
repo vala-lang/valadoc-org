@@ -1,16 +1,11 @@
 public class MyThread : Object {
-	public ThreadPriority priority { get; private set; }
 	public int x_times { get; private set; }
 
-	public MyThread (int times, ThreadPriority priority) {
-		this.priority = priority;
+	public MyThread (int times) {
 		this.x_times = times;
 	}
 
 	public int run () {
-		// set the priority:
-		Thread.self<int> ().set_priority (ThreadPriority.URGENT);
-
 		for (int i = 0; i < this.x_times; i++) {
 			stdout.printf ("ping! %d/%d\n", i + 1, this.x_times);
 			Thread.usleep (10000);
@@ -31,17 +26,8 @@ public static int main (string[] args) {
 
 	try {
 		// Start a thread:
-		MyThread my_thread = new MyThread (10, ThreadPriority.URGENT);
+		MyThread my_thread = new MyThread (10);
 		Thread<int> thread = new Thread<int>.try ("My fst. thread", my_thread.run);
-
-		// Count all running threads:
-		int threads = 0;
-		Thread.foreach (() => {
-			threads++;
-		});
-
-		// Output: ``Running threads: 0``
-		stdout.printf ("Running threads: %d\n", threads);
 
 		// Wait until thread finishes:
 		int result = thread.join ();

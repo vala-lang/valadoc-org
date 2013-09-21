@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<books>
+	<book id="1">
+		<title>The Royal Game</title>
+		<author>Stefan Zweig</author>
+	</book>
+	<book id="2">
+		<title>The Stoker</title>
+		<author>Franz Kafka</author>
+	</book>
+</books>

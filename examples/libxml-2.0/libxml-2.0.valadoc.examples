@@ -1,0 +1,51 @@
+<examples>
+	<example>
+		<title>Tree: Parse an XML-File</title>
+		<file>books.xml</file>
+		<file>parser-dom.vala</file>
+		<compile>valac --pkg libxml-2.0 parser-dom.vala</compile>
+		<node>Xml.Node</node>
+		<node>Xml.ElementType</node>
+		<node>Xml.Parser.parse_file</node>
+		<node>Xml.Doc</node>
+	</example>
+	<example>
+		<title>Tree: Create and dump a XML document to a file</title>
+		<file>write-dom.vala</file>
+		<compile>valac --pkg libxml-2.0 write-dom.vala</compile>
+		<node>Xml.Doc.save_format_file</node>
+		<node>Xml.Doc.Doc</node>
+		<node>Xml.Ns.Ns</node>
+		<node>Xml.Node.Node</node>
+		<node>Xml.Node.Node.comment</node>
+	</example>
+	<example>
+		<title>Tree: Evaluate XPath expressions</title>
+		<file>books.xml</file>
+		<file>xpath.vala</file>
+		<compile>valac --pkg libxml-2.0 xpath.vala</compile>
+		<node>Xml.XPath</node>
+	</example>
+	<example>
+		<title>Tree: XSD based validation</title>
+		<file>books.xml</file>
+		<file>books.xsd</file>
+		<file>schemas.vala</file>
+		<compile>valac --pkg libxml-2.0 schemas.vala</compile>
+		<node>Xml.SchemaParserCtxt</node>
+		<node>Xml.SchemaValidCtxt</node>
+	</example>
+	<example>
+		<title>TextReader: Streaming API</title>
+		<file>books.xml</file>
+		<file>xml-text-reader.vala</file>
+		<compile>valac --pkg libxml-2.0 xml-text-reader.vala</compile>
+		<node>Xml.TextReader</node>
+	</example>
+	<example>
+		<title>TextWriter</title>
+		<file>xml-text-writer.vala</file>
+		<compile>valac --pkg libxml-2.0 xml-text-writer.vala</compile>
+		<node>Xml.TextWriter</node>
+	</example>
+</examples>

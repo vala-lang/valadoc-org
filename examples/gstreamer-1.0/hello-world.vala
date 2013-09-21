@@ -11,7 +11,7 @@ public static int main (string[] args) {
 	try {
 		pipeline = Gst.parse_launch ("playbin uri=http://docs.gstreamer.com/media/sintel_trailer-480p.webm");
 	} catch (Error e) {
-		stderr.puts ("Error: %s\n", e.message);
+		stderr.printf ("Error: %s\n", e.message);
 		return 0;
 	}
 

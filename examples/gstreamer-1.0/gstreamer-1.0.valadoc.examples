@@ -1,5 +1,5 @@
 <examples>
-	<example>
+	<example experimental="true">
 		<title>Hello World</title>
 		<file>hello-world.vala</file>
 		<compile>valac --pkg gstreamer-1.0 hello-world.vala</compile>
@@ -16,11 +16,11 @@
 		<node>Gst.init</node>
 		<node>Gst.State.NULL</node>
 	</example>
-	<example>
+	<example experimental="true">
 		<title>GStreamer concepts</title>
 		<image>example-concepts.png</image>
-		<file>gstreamer-concepts.vala</file>
-		<compile>valac --pkg gstreamer-1.0 gstreamer-concepts.vala</compile>
+		<file>concepts.vala</file>
+		<compile>valac --pkg gstreamer-1.0 concepts.vala</compile>
 		<node>Gst.MessageType</node>
 		<node>Gst.ElementFactory.make</node>
 		<node>Gst.ElementFactory</node>
@@ -32,7 +32,7 @@
 		<node>Gst.Object.name</node>
 		<node>Gst.Message.type</node>
 	</example>
-	<example>
+	<example experimental="true">
 		<title>Dynamic pipelines</title>
 		<file>dynamic-pipelines.vala</file>
 		<compile>valac --pkg gstreamer-1.0 dynamic-pipelines.vala</compile>
@@ -51,7 +51,7 @@
 		<node>Gst.Element.pad_added</node>
 		<node>Gst.MessageType.STATE_CHANGED</node>
 	</example>
-	<example>
+	<example experimental="true">
 		<title>Time management</title>
 		<file>time-management.vala</file>
 		<compile>valac --pkg gstreamer-1.0 --enable-experimental time-management.vala</compile>

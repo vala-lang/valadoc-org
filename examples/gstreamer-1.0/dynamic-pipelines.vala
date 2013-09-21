@@ -24,7 +24,7 @@ public class Main {
 
 		// Check the new pad's type:
 		Gst.Caps new_pad_caps = new_pad.query_caps (null);
-		Gst.Structure new_pad_struct = new_pad_caps.get_structure (0);
+		weak Gst.Structure new_pad_struct = new_pad_caps.get_structure (0);
 		string new_pad_type = new_pad_struct.get_name ();
 		if (!new_pad_type.has_prefix ("audio/x-raw")) {
 			stdout.printf ("  It has type '%s' which is not raw audio. Ignoring.\n", new_pad_type);

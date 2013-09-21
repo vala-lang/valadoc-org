@@ -9,15 +9,15 @@ public static int main (string[] args) {
 
 	address.resolve_async (context, cancellable, (addr, status) => {
 		switch (status) {
-		case Soup.KnownStatusCode.OK:
+		case Soup.Status.OK:
 			stdout.printf ("Resolved! %s\n", addr.get_physical ());
 			break;
 
-		case Soup.KnownStatusCode.CANT_RESOLVE:
+		case Soup.Status.CANT_RESOLVE:
 			stdout.printf ("Error: Unable to resolve destination host name.\n");
 			break;
 
-		case Soup.KnownStatusCode.CANCELLED:
+		case Soup.Status.CANCELLED:
 			stdout.printf ("Error: Message was cancelled locally.\n");
 			break;
 

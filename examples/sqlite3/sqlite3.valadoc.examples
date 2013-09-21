@@ -57,8 +57,8 @@
 	</example>
 	<example>
 		<title>Prepared statements</title>
-		<file>prepared-satements.vala</file>
-		<compile>valac --pkg sqlite3 prepared-satements.vala</compile>
+		<file>prepared-statements.vala</file>
+		<compile>valac --pkg sqlite3 prepared-statements.vala</compile>
 		<node>Sqlite.Database</node>
 		<node>Sqlite.Database.prepare</node>
 		<node>Sqlite.Database.prepare_v2</node>

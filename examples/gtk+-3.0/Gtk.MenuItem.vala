@@ -20,9 +20,9 @@ public class Application : Gtk.Window {
 		item_open.activate.connect (() => {
 			Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
 					"Select your favorite file", this, Gtk.FileChooserAction.OPEN,
-					Gtk.Stock.CANCEL,
+					"_Cancel",
 					Gtk.ResponseType.CANCEL,
-					Gtk.Stock.OPEN,
+					"_Open",
 					Gtk.ResponseType.ACCEPT);
 			chooser.run ();
 			chooser.close ();

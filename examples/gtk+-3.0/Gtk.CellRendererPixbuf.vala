@@ -11,23 +11,23 @@ public class Application : Gtk.Window {
 		Gtk.TreeIter iter;
 
 		list_store.append (out iter);
-		list_store.set (iter, 0, "Burgenland", 1, Gtk.Stock.CANCEL);
+		list_store.set (iter, 0, "Burgenland", 1, "window-close");
 		list_store.append (out iter);
-		list_store.set (iter, 0, "Carinthia", 1, Gtk.Stock.CANCEL);
+		list_store.set (iter, 0, "Carinthia", 1, "window-close");
 		list_store.append (out iter);
-		list_store.set (iter, 0, "Lower Austria", 1, Gtk.Stock.CANCEL);
+		list_store.set (iter, 0, "Lower Austria", 1, "window-close");
 		list_store.append (out iter);
-		list_store.set (iter, 0, "Upper Austria", 1, Gtk.Stock.CANCEL);
+		list_store.set (iter, 0, "Upper Austria", 1, "window-close");
 		list_store.append (out iter);
-		list_store.set (iter, 0, "Salzburg", 1, Gtk.Stock.CANCEL);
+		list_store.set (iter, 0, "Salzburg", 1, "window-close");
 		list_store.append (out iter);
-		list_store.set (iter, 0, "Styria", 1, Gtk.Stock.CANCEL);
+		list_store.set (iter, 0, "Styria", 1, "window-close");
 		list_store.append (out iter);
-		list_store.set (iter, 0, "Tyrol", 1, Gtk.Stock.HOME);
+		list_store.set (iter, 0, "Tyrol", 1, "go-home");
 		list_store.append (out iter);
-		list_store.set (iter, 0, "Vorarlberg", 1, Gtk.Stock.CANCEL);
+		list_store.set (iter, 0, "Vorarlberg", 1, "window-close");
 		list_store.append (out iter);
-		list_store.set (iter, 0, "Vienna", 1, Gtk.Stock.CANCEL);
+		list_store.set (iter, 0, "Vienna", 1, "window-close");
 
 		// The View:
 		Gtk.TreeView view = new Gtk.TreeView.with_model (list_store);
@@ -40,7 +40,7 @@ public class Application : Gtk.Window {
 		Gtk.TreeViewColumn column = new Gtk.TreeViewColumn ();
 		column.set_title ("My Pixbuf");
 		column.pack_start (pixbuf, false);
-		column.add_attribute (pixbuf, "stock-id", 1);
+		column.add_attribute (pixbuf, "icon-name", 1);
 		view.append_column (column);
 	}
 

@@ -12,7 +12,7 @@ public class Application : Gtk.Window {
 		// Get the icon:
 		Gtk.IconTheme icon_theme = Gtk.IconTheme.get_default ();
 		try {
-			Gdk.Pixbuf icon = icon_theme.load_icon (Gtk.Stock.HOME, 48, 0);
+			Gdk.Pixbuf icon = icon_theme.load_icon ("go-home", 48, 0);
 			button.image = new Gtk.Image.from_pixbuf (icon);
 		} catch (Error e) {
 			warning (e.message);

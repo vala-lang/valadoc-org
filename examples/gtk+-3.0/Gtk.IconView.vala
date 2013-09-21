@@ -17,17 +17,24 @@ public class Application : Gtk.Window {
 		this.add (view);
 
 		// Data:
-		Gdk.Pixbuf pixbuf = view.render_icon (Gtk.Stock.ABOUT, Gtk.IconSize.DIALOG, null);
-		model.append (out iter);
-		model.set (iter, 0, pixbuf, 1, "Dialog");
+		Gtk.IconTheme icon_theme = Gtk.IconTheme.get_default ();
 
-		pixbuf = view.render_icon (Gtk.Stock.PRINT, Gtk.IconSize.DIALOG, null);
-		model.append (out iter);
-		model.set (iter, 0, pixbuf, 1, "Print");
+		try {
+			model.append (out iter);
+			Gdk.Pixbuf pixbuf = icon_theme.load_icon ("help-about", 20, 0);
+			model.set (iter, 0, pixbuf, 1, "Dialog");
 
-		pixbuf = view.render_icon (Gtk.Stock.CANCEL, Gtk.IconSize.DIALOG, null);
-		model.append (out iter);
-		model.set (iter, 0, pixbuf, 1, "Cancel");
+			model.append (out iter);
+			pixbuf = icon_theme.load_icon ("document-print", 20, 0);
+			model.set (iter, 0, pixbuf, 1, "Print");
+
+			model.append (out iter);
+			pixbuf = icon_theme.load_icon ("help-about", 20, 0);
+			model.set (iter, 0, pixbuf, 1, "Help");
+		} catch (Error e) {
+			// TODO
+			assert_not_reached ();
+		}
 
 
 		view.selection_changed.connect (() => {

@@ -13,16 +13,20 @@ public class Application : Gtk.Window {
 
 
 		// Toolbar content:
-		Gtk.ToggleToolButton button1 = new Gtk.ToggleToolButton.from_stock (Gtk.Stock.OPEN);
+		Gtk.Image img = new Gtk.Image.from_icon_name ("document-open", Gtk.IconSize.SMALL_TOOLBAR);
+		Gtk.ToggleToolButton button1 = new Gtk.ToggleToolButton ();
+		button1.set_icon_widget (img);
 		button1.toggled.connect (() => {
-			stdout.printf ("Button 1\n");
+			stdout.printf ("Button 1, %s\n", button1.get_active ().to_string ());
 		});
 		bar.add (button1);
 
-		Gtk.ToggleToolButton button2 = new Gtk.ToggleToolButton.from_stock (Gtk.Stock.CLOSE);
+		img = new Gtk.Image.from_icon_name ("window-close", Gtk.IconSize.SMALL_TOOLBAR);
+		Gtk.ToggleToolButton button2 = new Gtk.ToggleToolButton ();
+		button2.set_icon_widget (img);
 		button2.set_active (true);
 		button2.toggled.connect (() => {
-			stdout.printf ("Button 2\n");
+			stdout.printf ("Button 2, %s\n", button2.get_active ().to_string ());
 		});
 		bar.add (button2);
 	}

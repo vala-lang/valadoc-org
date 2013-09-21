@@ -35,9 +35,9 @@ public class SearchDialog : Gtk.Dialog {
 		content.spacing = 10;
 
 		// Add buttons to button area at the bottom
-		add_button (Gtk.Stock.HELP, Gtk.ResponseType.HELP);
-		add_button (Gtk.Stock.CLOSE, Gtk.ResponseType.CLOSE);
-		this.find_button = add_button (Gtk.Stock.FIND, Gtk.ResponseType.APPLY);
+		add_button ("_Help", Gtk.ResponseType.HELP);
+		add_button ("_Close", Gtk.ResponseType.CLOSE);
+		this.find_button = add_button ("_Find", Gtk.ResponseType.APPLY);
 		this.find_button.sensitive = false;
 	}
 

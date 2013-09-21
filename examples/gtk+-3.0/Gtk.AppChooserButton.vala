@@ -13,7 +13,8 @@ public class Application : Gtk.Window {
 		button.append_separator ();
 
 		// Add a custom entry:
-		button.append_custom_item ("my-image-viewer", "My image Viewer", null);
+		ThemedIcon themed_icon = new ThemedIcon ("folder-new");
+		button.append_custom_item ("my-image-viewer", "My image Viewer", themed_icon);
 
 		// Catch custom selections:
 		button.custom_item_activated.connect ((item_name) => {

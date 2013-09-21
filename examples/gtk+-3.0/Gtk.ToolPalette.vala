@@ -15,23 +15,28 @@ public class Application : Gtk.Window {
 		Gtk.ToolItemGroup group = new Gtk.ToolItemGroup ("Group 1");
 		toolpalette.add (group);
 
-		Gtk.ToolButton toolbutton = new Gtk.ToolButton.from_stock (Gtk.Stock.ADD);
+		Gtk.Image img = new Gtk.Image.from_icon_name ("list-add", Gtk.IconSize.SMALL_TOOLBAR);
+		Gtk.ToolButton toolbutton = new Gtk.ToolButton (img, null);
 		group.add (toolbutton);
 
-		toolbutton = new Gtk.ToolButton.from_stock (Gtk.Stock.DELETE);
+		img = new Gtk.Image.from_icon_name ("dialog-password", Gtk.IconSize.SMALL_TOOLBAR);
+		toolbutton = new Gtk.ToolButton (img, null);
 		group.add (toolbutton);
 
 		// ItemGroup 2
 		group = new Gtk.ToolItemGroup ("Group 2");
 		toolpalette.add (group);
 
-		toolbutton = new Gtk.ToolButton.from_stock (Gtk.Stock.CANCEL);
+		img = new Gtk.Image.from_icon_name ("dialog-warning-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+		toolbutton = new Gtk.ToolButton (img, null);
 		group.add (toolbutton);
 
-		toolbutton = new Gtk.ToolButton.from_stock (Gtk.Stock.HOME);
+		img = new Gtk.Image.from_icon_name ("go-home", Gtk.IconSize.SMALL_TOOLBAR);
+		toolbutton = new Gtk.ToolButton (img, null);
 		group.add (toolbutton);
 
-		toolbutton = new Gtk.ToolButton.from_stock (Gtk.Stock.ABOUT);
+		img = new Gtk.Image.from_icon_name ("help-about", Gtk.IconSize.SMALL_TOOLBAR);
+		toolbutton = new Gtk.ToolButton (img, null);
 		group.add(toolbutton);
 	}
 

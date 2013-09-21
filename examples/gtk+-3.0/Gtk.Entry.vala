@@ -15,7 +15,7 @@ public class Application : Gtk.Window {
 		entry.set_text ("hello, world!");
 
 		// Add a delete-button:
-		entry.set_icon_from_stock (Gtk.EntryIconPosition.SECONDARY, Gtk.Stock.CLEAR);
+		entry.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, "edit-clear");
 		entry.icon_press.connect ((pos, event) => {
 			if (pos == Gtk.EntryIconPosition.SECONDARY) {
 				entry.set_text ("");

@@ -13,13 +13,15 @@ public class Application : Gtk.Window {
 
 
 		// Toolbar content:
-		Gtk.ToolButton button1 = new Gtk.ToolButton.from_stock (Gtk.Stock.OPEN);
+		Gtk.Image img = new Gtk.Image.from_icon_name ("document-open", Gtk.IconSize.SMALL_TOOLBAR);
+		Gtk.ToolButton button1 = new Gtk.ToolButton (img, null);
 		button1.clicked.connect (() => {
 			stdout.printf ("Button 1\n");
 		});
 		bar.add (button1);
 
-		Gtk.ToolButton button2 = new Gtk.ToolButton.from_stock (Gtk.Stock.CLOSE);
+		img = new Gtk.Image.from_icon_name ("window-close", Gtk.IconSize.SMALL_TOOLBAR);
+		Gtk.ToolButton button2 = new Gtk.ToolButton (img, null);
 		button2.clicked.connect (() => {
 			stdout.printf ("Button 2\n");
 		});

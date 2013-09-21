@@ -9,9 +9,9 @@ public class Application : Gtk.Window {
 		// The RecentChooserDialog:
 		Gtk.RecentChooserDialog chooser = new Gtk.RecentChooserDialog (
 				"Select your favorite file", this,
-				Gtk.Stock.CANCEL,
+				"_Cancel",
 				Gtk.ResponseType.CANCEL,
-				Gtk.Stock.OPEN,
+				"_Open",
 				Gtk.ResponseType.OK);
 
 		// Process response:

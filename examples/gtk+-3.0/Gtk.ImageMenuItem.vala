@@ -16,13 +16,18 @@ public class Application : Gtk.Window {
 		Gtk.Menu filemenu = new Gtk.Menu ();
 		item_file.set_submenu (filemenu);
 
-		Gtk.MenuItem item_open = new Gtk.ImageMenuItem.from_stock (Gtk.Stock.OPEN, null);
+
+		Gtk.ImageMenuItem item_open = new Gtk.ImageMenuItem.with_label ("Open");
+		Gtk.Image image = new Gtk.Image.from_icon_name ("document-open", Gtk.IconSize.MENU);
+		item_open.always_show_image = true;
+		item_open.set_image (image);
+
 		item_open.activate.connect (() => {
 			Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
 					"Select your favorite file", this, Gtk.FileChooserAction.OPEN,
-					Gtk.Stock.CANCEL,
+					"_Cancel",
 					Gtk.ResponseType.CANCEL,
-					Gtk.Stock.OPEN,
+					"_Open",
 					Gtk.ResponseType.ACCEPT);
 
 			chooser.run ();

@@ -1,5 +1,4 @@
 public class Application : Gtk.Window {
-	private int click_counter = 0;
 
 	public Application () {
 		// Prepare Gtk.Window:

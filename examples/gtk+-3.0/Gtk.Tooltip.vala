@@ -26,7 +26,7 @@ public class Application : Gtk.Window {
 		box.add (button);
 
 		button.query_tooltip.connect ((x, y, keyboard_tooltip, tooltip) => {
-			tooltip.set_icon_from_stock (Gtk.Stock.OK, Gtk.IconSize.LARGE_TOOLBAR); 
+			tooltip.set_icon_from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR); 
 			tooltip.set_markup ("<b>My Tooltip</b>");
 			return true;
 		});

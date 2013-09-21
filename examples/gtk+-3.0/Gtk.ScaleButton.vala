@@ -6,7 +6,7 @@ public class Application : Gtk.Window {
 		this.destroy.connect (Gtk.main_quit);
 
 		// The button:
-		string[] icons = { Gtk.Stock.ZOOM_IN, Gtk.Stock.ZOOM_OUT };
+		string[] icons = { "zoom-out", "zoom-in" };
 		Gtk.ScaleButton button = new Gtk.ScaleButton (Gtk.IconSize.SMALL_TOOLBAR, 0.0, 1.0, 0.2, icons);
 		this.add (button);
 

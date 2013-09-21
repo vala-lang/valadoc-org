@@ -595,7 +595,7 @@
 		<compile>valac --pkg gtk+-3.0 Gtk.Switch.vala</compile>
 		<node>Gtk.Switch</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Table</title>
 		<image>example-Gtk.Table.png</image>
 		<file>Gtk.Table.vala</file>

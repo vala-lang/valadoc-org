@@ -12,10 +12,14 @@ public class Application : Gtk.Window {
 
 
 		// Toolbar content:
-		Gtk.RadioToolButton button1 = new Gtk.RadioToolButton.from_stock (null, Gtk.Stock.OPEN);
+		Gtk.Image img = new Gtk.Image.from_icon_name ("document-open", Gtk.IconSize.SMALL_TOOLBAR);
+		Gtk.RadioToolButton button1 = new Gtk.RadioToolButton (null);
+		button1.set_icon_widget (img);
 		bar.add (button1);
 
-		Gtk.RadioToolButton button2 = new Gtk.RadioToolButton.from_stock (button1.get_group (), Gtk.Stock.CLOSE);
+		img = new Gtk.Image.from_icon_name ("window-close", Gtk.IconSize.SMALL_TOOLBAR);
+		Gtk.RadioToolButton button2 = new Gtk.RadioToolButton (button1.get_group ());
+		button2.set_icon_widget (img);
 		bar.add (button2);
 
 		button1.clicked.connect (() => {

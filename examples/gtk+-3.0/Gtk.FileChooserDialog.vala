@@ -9,9 +9,9 @@ public class Application : Gtk.Window {
 		// The FileChooserDialog:
 		Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
 				"Select your favorite file", this, Gtk.FileChooserAction.OPEN,
-				Gtk.Stock.CANCEL,
+				"_Cancel",
 				Gtk.ResponseType.CANCEL,
-				Gtk.Stock.OPEN,
+				"_Open",
 				Gtk.ResponseType.ACCEPT);
 
 		// Multiple files can be selected:
@@ -28,17 +28,16 @@ public class Application : Gtk.Window {
 		chooser.update_preview.connect (() => {
 			string uri = chooser.get_preview_uri ();
 			// We only display local files:
-			if (uri.has_prefix ("file://") == true) {
+			if (uri != null && uri.has_prefix ("file://") == true) {
 				try {
-					Gdk.Pixbuf pixbuf = new Gdk.Pixbuf.from_file (uri.substring (7));
-					Gdk.Pixbuf scaled = pixbuf.scale_simple (150, 150, Gdk.InterpType.BILINEAR);
-					preview_area.set_from_pixbuf (scaled);
+					Gdk.Pixbuf pixbuf = new Gdk.Pixbuf.from_file_at_scale (uri.substring (7), 150, 	150, true);
+					preview_area.set_from_pixbuf (pixbuf);
 					preview_area.show ();
 				} catch (Error e) {
 					preview_area.hide ();
 				}
 			} else {
-					preview_area.hide ();
+				preview_area.hide ();
 			}
 		});
 

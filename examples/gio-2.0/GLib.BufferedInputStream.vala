@@ -10,17 +10,22 @@ public static int main (string[] args) {
 		return 1;
 	}
 
-	FileInputStream @is = infile.read ();
-	BufferedInputStream bis = new BufferedInputStream (@is);
+	try {
+		FileInputStream @is = infile.read ();
+		BufferedInputStream bis = new BufferedInputStream (@is);
 
-	StringBuilder builder = new StringBuilder ();
-	uint8 buffer[100];
-	ssize_t size;
+		StringBuilder builder = new StringBuilder ();
+		uint8 buffer[100];
+		ssize_t size;
 
-	while ((size = bis.read (buffer)) > 0) {
-		builder.append_len ((string) buffer, size);
+		while ((size = bis.read (buffer)) > 0) {
+			builder.append_len ((string) buffer, size);
+		}
+
+		stdout.puts (builder.str);
+	} catch (Error e) {
+		stderr.printf ("error: %s", e.message);
+		return -1;
 	}
-
-	stdout.puts (builder.str);
 	return 0;
 }

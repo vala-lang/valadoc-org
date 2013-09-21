@@ -1,9 +1,20 @@
-static int main (string[] args) {
-	FileStream stream = FileStream.open ("test.bin", "ab");
-	assert (stream != null);
+public struct Data {
+	public char l;
+	public char h;
 
-	// write binary data to test.bin:
-	uint8[] buf = { 'a', 'b', 'c' };
-	stream.write (buf, buf.length);
+	public Data (char x) {
+		l = x.tolower ();
+		h = x.toupper ();
+	}
+}
+
+public static int main (string[] args) {
+	// array of 5 elements with size 2 bytes (2 * char)
+	Data [] mem = { Data('h'), Data('e'), Data('l'),
+					Data('l'), Data('o') };
+
+	// write array of 5 elements with 2 bytes size
+	stdout.write ((uint8[]) mem, sizeof (Data));	
+	stdout.putc('\n');
 	return 0;
 }

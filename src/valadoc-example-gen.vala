@@ -43,7 +43,7 @@ public class ValadocGen : ExampleParser {
 		write_example_navi (this.listing, false);
 	}
 
-	protected override void example_start () {
+	protected override void example_start (bool deprecated, bool experimental) {
 		builder.append ("/**\n");
 		sample_count++;
 	}

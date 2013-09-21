@@ -1,5 +1,5 @@
 
-default: generator doclet.so update-girs configgen example-gen
+default: generator doclet.so update-girs configgen example-gen example-tester
 
 datadir = $(shell dirname $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))
 
@@ -15,6 +15,7 @@ clean:
 	rm -R -f documentation/*/gallery-images
 	rm -R -f documentation/*/gir-images
 	rm -f examples/*-examples.valadoc
+	rm -f valadoc-example-tester
 	rm -f valadoc-example-gen
 	rm -f configgen
 	rm -f generator
@@ -26,6 +27,9 @@ clean:
 
 example-gen:
 	valac -o valadoc-example-gen src/valadoc-example-parser.vala src/valadoc-example-gen.vala
+
+example-tester:
+	valac -o valadoc-example-tester src/valadoc-example-parser.vala src/valadoc-example-tester.vala
 
 doclet.so:
 	valac -o doclet src/doclet.vala src/linkhelper.vala --pkg gee-0.8 --pkg valadoc-1.0 -C

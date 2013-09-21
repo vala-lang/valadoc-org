@@ -1216,7 +1216,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 		if (DirUtils.create ("tmp", 0777) != 0) {
-			stdout.printf ("error: can't create temp. directory.\n");
+			stdout.printf ("error: can't create tmp/.\n");
 			return -1;
 		}
 

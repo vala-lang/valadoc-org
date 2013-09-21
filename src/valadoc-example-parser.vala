@@ -10,7 +10,7 @@ public class ExampleParser : Object {
 	};
 
 	private MarkupParseContext context;
-	private unowned string filename;
+	protected unowned string filename;
 	private StringBuilder content;
 	private string node3;
 	private int sibling3;
@@ -21,13 +21,39 @@ public class ExampleParser : Object {
 		return Path.build_filename (dir, path);
 	}
 
-	private string build_error_message (string format, ...) {
-		va_list args = va_list ();
+	protected string get_base_dir () {
+		string dir = Path.get_dirname (filename);
+		return dir;
+	}
+
+	protected string pos_as_string () {
 		int line_number;
 		int char_number;
 
 		context.get_position (out line_number, out char_number);
-		return "%s: %d-%d: %s".printf (filename, line_number, char_number, format.vprintf (args));
+		return "%d.%d".printf (line_number, char_number);
+	}
+
+	protected string build_error_message (string format, ...) {
+		va_list args = va_list ();
+
+		string pos = pos_as_string ();
+		return "%s: %s: %s".printf (filename, pos, format.vprintf (args));
+	}
+
+	private bool get_attribute_bool (string[] names, string[] vals, string attribute, bool default_value) throws MarkupError {
+		for (int i = 0; i < vals.length; i++) {
+			if (names[i] == attribute) {
+				bool return_value;
+				if (bool.try_parse (vals[i], out return_value)) {
+					return return_value;
+				} else {
+					throw new MarkupError.PARSE (build_error_message ("%s: invalid value", attribute));
+				}
+			}
+		}
+
+		return default_value;
 	}
 
 	private void visit_start (MarkupParseContext context, string name, string[] attr_names, string[] attr_values) throws MarkupError {
@@ -38,7 +64,9 @@ public class ExampleParser : Object {
 		}
 
 		if (depth == 1 && name == "example") {
-			example_start ();
+			bool deprecated = get_attribute_bool (attr_names, attr_values, "deprecated", false);
+			bool experimental = get_attribute_bool (attr_names, attr_values, "experimental", false);
+			example_start (deprecated, experimental);
 			sibling3 = 0;
 			depth++;
 			return ;
@@ -146,37 +174,37 @@ public class ExampleParser : Object {
 	// Callbacks:
 	//
 	
-	protected virtual void examples_start () {
+	protected virtual void examples_start () throws MarkupError {
 	}
 
-	protected virtual void examples_end () {
+	protected virtual void examples_end () throws MarkupError {
 	}
 
-	protected virtual void example_start () {
+	protected virtual void example_start (bool deprecated, bool experimental) throws MarkupError {
 	}
 
-	protected virtual void example_end () {
+	protected virtual void example_end () throws MarkupError {
 	}
 
-	protected virtual void compile (string cmnd) {
+	protected virtual void compile (string cmnd) throws MarkupError {
 	}
 
-	protected virtual void title (string? str) {
+	protected virtual void title (string? str) throws MarkupError {
 	}
 
-	protected virtual void image (string image) {
+	protected virtual void image (string image) throws MarkupError {
 	}
 
-	protected virtual void note (string note) {
+	protected virtual void note (string note) throws MarkupError {
 	}
 
-	protected virtual void node (string node) {
+	protected virtual void node (string node) throws MarkupError {
 	}
 
-	protected virtual void file (string file) {
+	protected virtual void file (string file) throws MarkupError {
 	}
 
-	protected virtual void run (string cmnd) {
+	protected virtual void run (string cmnd) throws MarkupError {
 	}
 
 	protected virtual void error () {

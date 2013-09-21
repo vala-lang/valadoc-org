@@ -3,6 +3,8 @@
 /documentation/*/widget-gallery.valadoc
 /examples/*-examples.valadoc
 /LOG
+/tmp/*
+/valadoc-example-tester
 /valadoc-example-gen
 /configgen
 /generator

@@ -47,7 +47,7 @@
 		<node>GLib.BufferedInputStream</node>
 	</example>
 	<example>
-		<title>Charset convertions</title>
+		<title>Charset convertion</title>
 		<file>GLib.CharsetConverter.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.CharsetConverter.vala</compile>
 		<node>GLib.CharsetConverter</node>
@@ -161,7 +161,7 @@
 		<node>GLib.File.find_enclosing_mount_async</node>
 	</example>
 	<example>
-		<title>Get the basename</title>
+		<title>Get the base name</title>
 		<file>GLib.File.get_basename.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.get_basename.vala</compile>
 		<node>GLib.File.get_basename</node>
@@ -186,13 +186,13 @@
 		<node>GLib.File.get_path</node>
 	</example>
 	<example>
-		<title>Get the uri</title>
+		<title>Get the URI</title>
 		<file>GLib.File.get_uri.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.get_uri.vala</compile>
 		<node>GLib.File.get_uri</node>
 	</example>
 	<example>
-		<title>Get the uri scheme</title>
+		<title>Get the URI scheme</title>
 		<file>GLib.File.get_uri_scheme.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.get_uri_scheme.vala</compile>
 		<node>GLib.File.get_uri_scheme</node>
@@ -265,7 +265,7 @@
 		<node>GLib.File.new_for_path</node>
 	</example>
 	<example>
-		<title>Construct a File for a given uri</title>
+		<title>Construct a File for a given URI</title>
 		<file>GLib.File.new_for_uri.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.new_for_uri.vala</compile>
 		<node>GLib.File.new_for_uri</node>
@@ -307,13 +307,13 @@
 		<node>GLib.File.query_file_type</node>
 	</example>
 	<example>
-		<title>File infos, sync</title>
+		<title>FileInfo, sync</title>
 		<file>GLib.File.query_info.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.query_info.vala</compile>
 		<node>GLib.File.query_info</node>
 	</example>
 	<example>
-		<title>File infos, async</title>
+		<title>FileInfo, async</title>
 		<file>GLib.File.query_info_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.File.query_info_async.vala</compile>
 		<node>GLib.File.query_info_async</node>
@@ -539,7 +539,7 @@
 		<node>GLib.Socket</node>
 	</example>
 	<example>
-		<title>SocketAddressEnumerators</title>
+		<title>SocketAddressEnumerator</title>
 		<file>GLib.SocketAddressEnumerator.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.SocketAddressEnumerator.vala</compile>
 		<node>GLib.SocketAddressEnumerator</node>

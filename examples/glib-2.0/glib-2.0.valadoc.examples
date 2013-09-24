@@ -168,13 +168,13 @@
 		<node>double.is_infinity</node>
 	</example>
 	<example>
-		<title>Check whether the double reperesents a number</title>
+		<title>Check whether the double represents a number</title>
 		<file>double.is_nan.vala</file>
 		<compile>valac --pkg glib-2.0 double.is_nan.vala -X -lm</compile>
 		<node>double.is_nan</node>
 	</example>
 	<example>
-		<title>Determines if the given floating point number is normal</title>
+		<title>Determines if the given double is normal</title>
 		<file>double.is_normal.vala</file>
 		<compile>valac --pkg glib-2.0 double.is_normal.vala -X -lm</compile>
 		<node>double.is_normal</node>
@@ -246,7 +246,7 @@
 		<node>float.is_infinity</node>
 	</example>
 	<example>
-		<title>Check whether the double reperesents a number</title>
+		<title>Check whether the double represents a number</title>
 		<file>float.is_nan.vala</file>
 		<compile>valac --pkg glib-2.0 float.is_nan.vala -X -lm</compile>
 		<node>float.is_nan</node>
@@ -403,7 +403,7 @@
 		<node>GLib.Cond</node>
 	</example>
 	<example>
-		<title>Logging, ciritical</title>
+		<title>Logging, critical</title>
 		<file>GLib.critical.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.critical.vala</compile>
 		<node>GLib.critical</node>
@@ -765,7 +765,7 @@
 		<node>GLib.IOChannel</node>
 	</example>
 	<example>
-		<title>Keyfile handling</title>
+		<title>KeyFile handling</title>
 		<file>GLib.KeyFile.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.KeyFile.vala</compile>
 		<node>GLib.KeyFile</node>
@@ -934,7 +934,7 @@
 		<node>GLib.MainLoop</node>
 	</example>
 	<example>
-		<title>Map a file and print its conent and size</title>
+		<title>Map a file and print its content and size</title>
 		<file>GLib.MappedFile.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.MappedFile.vala</compile>
 		<node>GLib.MappedFile</node>
@@ -1517,7 +1517,7 @@
 		<node>GLib.Queue.push_tail</node>
 	</example>
 	<example>
-		<title>Remvoe</title>
+		<title>Remove</title>
 		<file>GLib.Queue.remove.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Queue.remove.vala</compile>
 		<node>GLib.Queue.remove</node>
@@ -2241,7 +2241,7 @@
 		<node>GLib.Tree.lookup</node>
 	</example>
 	<example>
-		<title>Lookup, exended</title>
+		<title>Lookup, extended</title>
 		<file>GLib.Tree.lookup_extended.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Tree.lookup_extended.vala</compile>
 		<node>GLib.Tree.lookup_extended</node>
@@ -3154,7 +3154,7 @@
 		<node>string</node>
 	</example>
 	<example>
-		<title>Check positiion for a valid char</title>
+		<title>Check position for a valid char</title>
 		<file>string.valid_char.vala</file>
 		<compile>valac --pkg glib-2.0 string.valid_char.vala</compile>
 		<node>string.valid_char</node>

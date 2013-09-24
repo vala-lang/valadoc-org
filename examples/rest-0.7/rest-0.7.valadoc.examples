@@ -1,6 +1,6 @@
 <examples>
 	<example>
-		<title>Twitter, coninuous</title>
+		<title>Twitter, continuous</title>
 		<file>continuous-twitter.vala</file>
 		<compile>valac --pkg rest-0.7 continuous-twitter.vala</compile>
 		<node>Rest.OAuthProxy</node>

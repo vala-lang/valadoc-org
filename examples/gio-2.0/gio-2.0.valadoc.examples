@@ -419,7 +419,7 @@
 		<compile>valac --pkg gio-2.0 GLib.InetSocketAddress.vala</compile>
 		<node>GLib.InetSocketAddress</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>IOSchedulerJob</title>
 		<file>GLib.IOSchedulerJob.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.IOSchedulerJob.vala</compile>
@@ -508,12 +508,14 @@
 		<compile>valac --pkg gio-2.0 GLib.Resolver.lookup_service_fn.vala</compile>
 		<node>GLib.Resolver.lookup_service_fn</node>
 	</example>
+	<!--
 	<example deprecated="true">
 		<title>Resolver, service-lookup, async, (2)</title>
 		<file>GLib.Resolver.lookup_service_fn_async.vala</file>
 		<compile>valac --pkg gio-2.0 GLib.Resolver.lookup_service_fn_async.vala</compile>
 		<node>GLib.Resolver.lookup_service_fn_async</node>
 	</example>
+	-->
 	<example>
 		<title>Seekable streams</title>
 		<file>GLib.Seekable.vala</file>

@@ -12,18 +12,5 @@ public static int main (string[] args) {
 
 	// Output: ``4. sit``
 	stdout.printf ("%s\n", iter.get ());
-
-	Sequence<string>.insert_before (iter, "3. dolor");
-
-	// Output:
-	//  ``1. Lorem``
-	//  ``2. ipsum``
-	//  ``3. dolor``
-	//  ``4. sit``
-	//  ``5. amet``
-	seq.foreach ((item) => {
-		stdout.printf ("%s\n", item);
-	});
-
 	return 0;
 }

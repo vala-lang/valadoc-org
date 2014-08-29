@@ -655,11 +655,17 @@
 		<node>GLib.GenericArray.sort_with_data</node>
 		<node>GLib.GenericArray</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Add a element to the set</title>
 		<file>GLib.HashTable.add.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.HashTable.add.vala</compile>
 		<node>GLib.HashTable.add</node>
+	</example>
+	<example>
+		<title>Add a element to the set</title>
+		<file>GLib.GenericSet.add.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.GenericSet.add.vala</compile>
+		<node>GLib.GenericSet.add</node>
 	</example>
 	<example>
 		<title>Check if key is in the table</title>
@@ -1311,74 +1317,74 @@
 		<compile>valac --pkg glib-2.0 GLib.Process.spawn_sync.vala</compile>
 		<node>GLib.Process.spawn_sync</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Add a pointer</title>
 		<file>GLib.PtrArray.add.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.add.vala</compile>
 		<node>GLib.PtrArray.add</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Apply a function to each element</title>
 		<file>GLib.PtrArray.foreach.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.foreach.vala</compile>
 		<node>GLib.PtrArray.foreach</node>
 		<node>GLib.PtrArray</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Get the nth pointer</title>
 		<file>GLib.PtrArray.index.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.index.vala</compile>
 		<node>GLib.PtrArray.index</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Get the length</title>
 		<file>GLib.PtrArray.len.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.len.vala</compile>
 		<node>GLib.PtrArray.len</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Create a PtrArray with a free-function</title>
 		<file>GLib.PtrArray.PtrArray.with_free_func.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.PtrArray.with_free_func.vala</compile>
 		<node>GLib.PtrArray.PtrArray.with_free_func</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Remove a value</title>
 		<file>GLib.PtrArray.remove.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove.vala</compile>
 		<node>GLib.PtrArray.remove</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Remove, fast</title>
 		<file>GLib.PtrArray.remove_fast.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove_fast.vala</compile>
 		<node>GLib.PtrArray.remove_fast</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Remove index</title>
 		<file>GLib.PtrArray.remove_index.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove_index.vala</compile>
 		<node>GLib.PtrArray.remove_index</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Remove index, fast</title>
 		<file>GLib.PtrArray.remove_index_fast.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove_index_fast.vala</compile>
 		<node>GLib.PtrArray.remove_index_fast</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Remove range</title>
 		<file>GLib.PtrArray.remove_range.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.remove_range.vala</compile>
 		<node>GLib.PtrArray.remove_range</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Set a free func</title>
 		<file>GLib.PtrArray.set_free_func.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.set_free_func.vala</compile>
 		<node>GLib.PtrArray.set_free_func</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Sort all items</title>
 		<file>GLib.PtrArray.sort.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.PtrArray.sort.vala</compile>
@@ -1606,13 +1612,19 @@
 		<compile>valac --pkg glib-2.0 GLib.Sequence.foreach.vala</compile>
 		<node>GLib.Sequence.foreach</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Foreach, range</title>
 		<file>GLib.Sequence.foreach_range.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.foreach_range.vala</compile>
 		<node>GLib.Sequence.foreach_range</node>
 	</example>
 	<example>
+		<title>Foreach, range</title>
+		<file>GLib.SequenceIter.foreach_range.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SequenceIter.foreach_range.vala</compile>
+		<node>GLib.SequenceIter.foreach_range</node>
+	</example>
+	<example deprecated="true">
 		<title>Get data that a iter points to</title>
 		<file>GLib.Sequence.get.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.get.vala</compile>
@@ -1642,11 +1654,17 @@
 		<compile>valac --pkg glib-2.0 GLib.Sequence.get_length.vala</compile>
 		<node>GLib.Sequence.get_length</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Insert before</title>
 		<file>GLib.Sequence.insert_before.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.insert_before.vala</compile>
 		<node>GLib.Sequence.insert_before</node>
+	</example>
+	<example>
+		<title>Insert before</title>
+		<file>GLib.SequenceIter.insert_before.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SequenceIter.insert_before.vala</compile>
+		<node>GLib.SequenceIter.insert_before</node>
 	</example>
 	<example>
 		<title>Insert sorted</title>
@@ -1672,17 +1690,29 @@
 		<compile>valac --pkg glib-2.0 GLib.Sequence.lookup_iter.vala</compile>
 		<node>GLib.Sequence.lookup_iter</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Move</title>
 		<file>GLib.Sequence.move.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.move.vala</compile>
 		<node>GLib.Sequence.move</node>
 	</example>
 	<example>
+		<title>Move</title>
+		<file>GLib.SequenceIter.move_to.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SequenceIter.move_to.vala</compile>
+		<node>GLib.SequenceIter.move_to</node>
+	</example>
+	<example deprecated="true">
 		<title>Move a range</title>
 		<file>GLib.Sequence.move_range.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.move_range.vala</compile>
 		<node>GLib.Sequence.move_range</node>
+	</example>
+	<example>
+		<title>Move a range</title>
+		<file>GLib.SequenceIter.move_range.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SequenceIter.move_range.vala</compile>
+		<node>GLib.SequenceIter.move_range</node>
 	</example>
 	<example>
 		<title>Prepend</title>
@@ -1690,23 +1720,41 @@
 		<compile>valac --pkg glib-2.0 GLib.Sequence.prepend.vala</compile>
 		<node>GLib.Sequence.prepend</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Get the midpoint of a range</title>
 		<file>GLib.Sequence.range_get_midpoint.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.range_get_midpoint.vala</compile>
 		<node>GLib.Sequence.range_get_midpoint</node>
 	</example>
 	<example>
+		<title>Get the midpoint of a range</title>
+		<file>GLib.SequenceIter.range_get_midpoint.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SequenceIter.range_get_midpoint.vala</compile>
+		<node>GLib.SequenceIter.range_get_midpoint</node>
+	</example>
+	<example deprecated="true">
 		<title>Remove</title>
 		<file>GLib.Sequence.remove.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.remove.vala</compile>
 		<node>GLib.Sequence.remove</node>
 	</example>
 	<example>
+		<title>Remove</title>
+		<file>GLib.SequenceIter.remove.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SequenceIter.remove.vala</compile>
+		<node>GLib.SequenceIter.remove</node>
+	</example>
+	<example deprecated="true">
 		<title>Remove a range</title>
 		<file>GLib.Sequence.remove_range.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.remove_range.vala</compile>
 		<node>GLib.Sequence.remove_range</node>
+	</example>
+	<example>
+		<title>Remove a range</title>
+		<file>GLib.SequenceIter.remove_range.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SequenceIter.remove_range.vala</compile>
+		<node>GLib.SequenceIter.remove_range</node>
 	</example>
 	<example>
 		<title>Search</title>
@@ -1720,11 +1768,17 @@
 		<compile>valac --pkg glib-2.0 GLib.Sequence.search_iter.vala</compile>
 		<node>GLib.Sequence.search_iter</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Set the item at the specified position</title>
 		<file>GLib.Sequence.set.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.set.vala</compile>
 		<node>GLib.Sequence.set</node>
+	</example>
+	<example>
+		<title>Set the item at the specified position</title>
+		<file>GLib.SequenceIter.set.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SequenceIter.set.vala</compile>
+		<node>GLib.SequenceIter.set</node>
 	</example>
 	<example>
 		<title>Sort all items</title>
@@ -1739,23 +1793,41 @@
 		<compile>valac --pkg glib-2.0 GLib.Sequence.sort_iter.vala</compile>
 		<node>GLib.Sequence.sort_iter</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Moves the data pointed to a new position as indicated by cmp_func</title>
 		<file>GLib.Sequence.sort_changed.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.sort_changed.vala</compile>
 		<node>GLib.Sequence.sort_changed</node>
 	</example>
 	<example>
+		<title>Moves the data pointed to a new position as indicated by cmp_func</title>
+		<file>GLib.SequenceIter.sort_changed.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SequenceIter.sort_changed.vala</compile>
+		<node>GLib.SequenceIter.sort_changed</node>
+	</example>
+	<example deprecated="true">
 		<title>Moves the data pointed to a new position as indicated by cmp_func (iter-based)</title>
 		<file>GLib.Sequence.sort_changed_iter.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.sort_changed_iter.vala</compile>
 		<node>GLib.Sequence.sort_changed_iter</node>
 	</example>
 	<example>
+		<title>Moves the data pointed to a new position as indicated by cmp_func (iter-based)</title>
+		<file>GLib.SequenceIter.sort_changed_iter.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SequenceIter.sort_changed_iter.vala</compile>
+		<node>GLib.SequenceIter.sort_changed_iter</node>
+	</example>
+	<example deprecated="true">
 		<title>Swap</title>
 		<file>GLib.Sequence.swap.vala</file>
 		<compile>valac --pkg glib-2.0 GLib.Sequence.swap.vala</compile>
 		<node>GLib.Sequence.swap</node>
+	</example>
+	<example>
+		<title>Swap</title>
+		<file>GLib.SequenceIter.swap.vala</file>
+		<compile>valac --pkg glib-2.0 GLib.SequenceIter.swap.vala</compile>
+		<node>GLib.SequenceIter.swap</node>
 	</example>
 	<example>
 		<title>Sequence, iter</title>

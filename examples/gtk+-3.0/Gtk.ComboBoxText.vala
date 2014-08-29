@@ -14,7 +14,7 @@ public class Application : Gtk.Window {
 		this.add (box);
 
 		box.changed.connect (() => {
-			unowned string title = box.get_active_text ();
+			string title = box.get_active_text ();
 			stdout.printf ("%d: %s\n", box.active, title);
 		});
 	}

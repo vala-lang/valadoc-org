@@ -12,19 +12,19 @@ public class Application : Gtk.Window {
 		button.set_use_alpha (true);
 
 		// Set value to blue:
-		Gdk.Color color;
-		bool tmp = Gdk.Color.parse ("#0066FF", out color);
+		Gdk.RGBA rgba = Gdk.RGBA ();
+		bool tmp = rgba.parse ("#0066FF");
 		assert (tmp == true);
-		button.set_color (color);
+
+		button.rgba = rgba;
 
 		// Sets the title for the color selection dialog:
 		button.set_title ("Select your favourite color");
 
 		// Catch color-changes:
 		button.color_set.connect (() => {
-			button.get_color (out color);
 			uint16 alpha = button.get_alpha ();
-			stdout.printf ("%s, %hu\n", color.to_string (), alpha);
+			stdout.printf ("%s, %hu\n", button.rgba.to_string (), alpha);
 		});
 		this.add (button);
 	}

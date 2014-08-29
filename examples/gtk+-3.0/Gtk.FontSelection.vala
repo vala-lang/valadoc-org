@@ -20,7 +20,7 @@ public class Application : Gtk.Window {
 
 		button.clicked.connect (() => {
 			// Emitted when a font has been chosen:
-			unowned string name = selection.get_font_name ();
+			string name = selection.get_font_name ();
 			stdout.printf ("Selected font: %s\n", name);
 		});
 	}

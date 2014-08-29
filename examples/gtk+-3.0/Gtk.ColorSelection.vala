@@ -19,11 +19,9 @@ public class Application : Gtk.Window {
 		box.add (button);
 
 		button.clicked.connect (() => {
-			string color = widget.current_color.to_string ();
 			string rgba = widget.current_rgba.to_string ();
 			uint alpha = widget.current_alpha;
 			stdout.puts ("Selection\n");
-			stdout.printf ("  %s\n", color);
 			stdout.printf ("  %s\n", rgba);
 			stdout.printf ("  %u\n", alpha);
 		});

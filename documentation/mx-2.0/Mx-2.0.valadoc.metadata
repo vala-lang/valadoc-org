@@ -1,0 +1,4 @@
+[General]
+index_sgml = index.sgml
+index_sgml_online = http://docs.clutter-project.org/docs/mx/unstable/
+is_docbook = true

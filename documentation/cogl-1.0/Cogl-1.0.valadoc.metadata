@@ -1,4 +1,7 @@
 
 [General]
 resources = gir-images/
+index_sgml = index.sgml
+index_sgml_online = http://developer.gnome.org/cogl-2.0-experimental/stable/
+is_docbook = true
 

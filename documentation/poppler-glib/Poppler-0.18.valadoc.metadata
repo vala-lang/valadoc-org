@@ -1,0 +1,7 @@
+
+[General]
+resources = gir-images/
+index_sgml = index.sgml
+index_sgml_online = http://people.freedesktop.org/~ajohnson/docs/poppler-glib/
+is_docbook = true
+

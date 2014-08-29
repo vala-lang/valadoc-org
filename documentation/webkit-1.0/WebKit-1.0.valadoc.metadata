@@ -1,0 +1,7 @@
+
+[General]
+resources = gir-images/
+index_sgml = index.sgml
+index_sgml_online = http://webkitgtk.org/reference/webkitgtk/unstable/
+is_docbook = true
+

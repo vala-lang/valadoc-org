@@ -1,0 +1,4 @@
+[General]
+index_sgml = index.sgml
+index_sgml_online = http://www.freedesktop.org/software/PackageKit/gtk-doc/
+is_docbook = true

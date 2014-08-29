@@ -1,0 +1,4 @@
+[General]
+index_sgml = index.sgml
+index_sgml_online = https://developer.gnome.org/gi/unstable/
+is_docbook = true

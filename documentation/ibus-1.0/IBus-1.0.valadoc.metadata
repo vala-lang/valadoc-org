@@ -1,0 +1,7 @@
+
+[General]
+resources = gir-images/
+index_sgml = index.sgml
+index_sgml_online = http://ibus.googlecode.com/svn/docs/ibus-1.5/
+is_docbook = true
+

@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	// Create a session:
-	Soup.SessionSync session = new Soup.SessionSync ();
+	Soup.Session session = new Soup.Session ();
 
 	// Register authentication handler:
 	int counter = 0;

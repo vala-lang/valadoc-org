@@ -1,7 +1,7 @@
 public static int main (string[] args) {
 	try {
 		// Create a session:
-		Soup.SessionSync session = new Soup.SessionSync ();
+		Soup.Session session = new Soup.Session ();
 
 		// Request a file:
 		Soup.Request request = session.request ("http://api.valadoc.org/soup-samples/my-secret.txt");

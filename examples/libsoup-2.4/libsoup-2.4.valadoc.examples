@@ -59,7 +59,7 @@
 		<node>Soup.AuthNTLM</node>
 		<node>Soup.Auth</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Simple server, sync</title>
 		<file>simple-server-sync.vala</file>
 		<compile>valac --pkg libsoup-2.4 simple-server-sync.vala</compile>
@@ -69,12 +69,18 @@
 		<node>Soup.ServerCallback</node>
 		<node>Soup.Server.status_code</node>
 	</example>
-	<example>
+	<example deprecated="true">
 		<title>Simple server, async</title>
 		<file>simple-server-async.vala</file>
 		<compile>valac --pkg libsoup-2.4 simple-server-async.vala</compile>
-		<node>Soup.Server</node>
 		<node>Soup.Server.run_async</node>
+	</example>
+	<example>
+		<title>Simple server, async</title>
+		<file>simple-server-async-new.vala</file>
+		<compile>valac --pkg libsoup-2.4 simple-server-async-new.vala</compile>
+		<node>Soup.Server</node>
+		<node>Soup.Server.listen_all</node>
 		<node>Soup.Server.unpause_message</node>
 		<node>Soup.Server.pause_message</node>
 	</example>

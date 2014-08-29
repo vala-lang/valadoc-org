@@ -13,7 +13,7 @@ public static int main (string[] args) {
 
 
 	// Create a session:
-	Soup.SessionAsync session = new Soup.SessionAsync ();
+	Soup.Session session = new Soup.Session ();
 
 	// Register authentication handler:
 	session.authenticate.connect ((msg, auth, retrying) => {

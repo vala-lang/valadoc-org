@@ -2,7 +2,7 @@ public static int main (string[] args) {
 	MainLoop loop = new MainLoop ();
 
 	// Create a session:
-	Soup.SessionAsync session = new Soup.SessionAsync ();
+	Soup.Session session = new Soup.Session ();
 
 	// Send a request:
 	Soup.Message msg = new Soup.Message ("GET", "http://gnome.org/");

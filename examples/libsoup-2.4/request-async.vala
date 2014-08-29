@@ -12,7 +12,7 @@ public static int main (string[] args) {
 	MainLoop loop = new MainLoop ();
 
 	// Create a session:
-	Soup.SessionAsync session = new Soup.SessionAsync ();
+	Soup.Session session = new Soup.Session ();
 	session.use_thread_context = true;
 
 	// Request a file:

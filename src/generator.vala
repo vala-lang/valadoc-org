@@ -34,6 +34,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private LinkedList<Package> unavailable_packages = new LinkedList<Package> ();
 	private HashMap<string, Package> packages_per_name = new HashMap<string, Package> ();
 	private Collection<Node> sections;
+	private Regex markdown_img_regex;
 
 	private void print_stored_messages () {
 		foreach (Package pkg in unavailable_packages) {
@@ -64,6 +65,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 	public IndexGenerator (ErrorReporter reporter) {
 		this.reporter = new ErrorReporter ();
+
+
+		try {
+			string label = "([^(\\]\n)](\n[ \t]*)?)*";
+			string path = "(?<img>([^(\\)|\n)])*)";
+			markdown_img_regex = new Regex ("!\\[" + label + "\\][ \t]*\n?[ \t]*\\(" + path + "\\)", RegexCompileFlags.UNGREEDY | RegexCompileFlags.OPTIMIZE);
+		} catch (RegexError e) {
+			assert_not_reached ();
+		}
 	}
 
 	private const GLib.OptionEntry[] options = {
@@ -257,6 +267,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		public bool is_deprecated;
 		public string? gallery;
 		public string[] description;
+		public bool is_docbook = false;
+		public string? sgml_path;
 
 		public virtual string get_documentation_source () {
 			StringBuilder builder = new StringBuilder ();
@@ -285,6 +297,36 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			this.home = home;
 			this.flags = flags ?? "";
 			this.gallery = gallery;
+		}
+
+		public void load_metadata (ErrorReporter reporter) {
+			if (gir_name == null) {
+				return ;
+			}
+
+
+			string meta_path = "documentation/%s/%s.valadoc.metadata".printf (name, gir_name);
+			if (FileUtils.test (meta_path, FileTest.EXISTS)) {
+				stdout.printf ("  load keyfile ...\n");
+
+				try {
+					var key_file = new KeyFile ();
+					key_file.load_from_file (meta_path, KeyFileFlags.NONE);
+
+					if (key_file.has_key ("General", "is_docbook")) {
+						this.is_docbook = key_file.get_boolean ("General", "is_docbook");
+					}
+					if (key_file.has_key ("General", "index_sgml_online")) {
+						this.sgml_path = key_file.get_string ("General", "index_sgml_online");
+						if (this.sgml_path != null) {
+							this.sgml_path = Path.build_path ("/", this.sgml_path, "index.sgml");
+						}
+					}
+				} catch (Error e) {
+					reporter.simple_error ("error: invalid key file: %s", e.message);
+					return ;
+				}
+			}
 		}
 
 		public string? get_gir_file_metadata_path () {
@@ -336,7 +378,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			path = Path.build_path (Path.DIR_SEPARATOR_S, "girs", "vala", "vapi", name + ".vapi");
 			if (FileUtils.test (path, FileTest.IS_REGULAR)) {
 				return path;
-			}			
+			}
 
 			return null;
 		}
@@ -829,6 +871,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 	private void build_doc_for_package (Package pkg) throws Error {
 		if (skip_existing && FileUtils.test (Path.build_filename (output_directory, pkg.name), FileTest.IS_DIR)) {
+			stdout.printf ("skip \'%s\' ...\n", pkg.name);
 			return ;
 		}
 
@@ -837,18 +880,36 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return ;
 		}
 
+		stdout.printf ("create \'%s\' ...\n", pkg.name);
+
+
 		DirUtils.create ("documentation/%s/".printf (pkg.name), 0755);
 		DirUtils.create ("documentation/%s/wiki".printf (pkg.name), 0755);
+
+
+		pkg.load_metadata (reporter);
+
+
+		if (pkg.sgml_path != null) {
+			stdout.printf ("  get index.sgml ...\n");
+
+			if (!FileUtils.test ("documentation/%s/index.sgml".printf (pkg.name), FileTest.EXISTS)) {
+				try {
+					Process.spawn_command_line_sync ("wget -O documentation/%s/index.sgml \"%s\"".printf (pkg.name, pkg.sgml_path));
+				} catch (SpawnError e) {
+					assert_not_reached ();
+				}
+			}
+		}
+
 
 		StringBuilder builder = new StringBuilder ();
 		builder.append_printf ("valadoc --target-glib %s --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s", target_glib, driver, docletpath, pkg.name, pkg.get_vapi_path (), Path.get_dirname (pkg.get_vapi_path ()), girdir, pkg.flags);
 
 
-		stdout.printf ("creating \'%s\' ...\n", pkg.name);
-
 		string external_docu_path = pkg.get_valadoc_file ();
 		if (external_docu_path != null) {
-			stdout.printf ("  using .valadoc:        %s\n".printf (external_docu_path));
+			stdout.printf ("  select .valadoc:        %s\n".printf (external_docu_path));
 
 			builder.append_printf (" --importdir documentation/%s", pkg.name);
 			builder.append_printf (" --import %s", pkg.name);
@@ -856,7 +917,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		string gir_path = pkg.get_gir_file ();
 		if (gir_path != null) {
-			stdout.printf ("  using .gir:            %s\n", gir_path);
+			stdout.printf ("  select .gir:            %s\n", gir_path);
 
 			builder.append_printf (" --importdir \"%s\"", girdir);
 			builder.append_printf (" --import %s", pkg.gir_name);
@@ -880,7 +941,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		string example_path = "examples/%s/%s.valadoc.examples".printf (pkg.name, pkg.name);
 		if (FileUtils.test (example_path, FileTest.IS_REGULAR)) {
 			string output = "examples/%s-examples.valadoc".printf (pkg.name); 
-			stdout.printf ("  using example.valadoc: %s\n", output);
+			stdout.printf ("  select example.valadoc: %s\n", output);
 			FileUtils.remove (output);
 
 			try {
@@ -913,7 +974,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		string wiki_path = "documentation/%s/wiki/index.valadoc".printf (pkg.name);
 		bool delete_wiki_path = false;
 		if (FileUtils.test (wiki_path, FileTest.IS_REGULAR)) {
-			stdout.printf ("  using .valadoc (wiki): documentation/%s/wiki/*.valadoc\n", pkg.name);
+			stdout.printf ("  select .valadoc (wiki): documentation/%s/wiki/*.valadoc\n", pkg.name);
 		} else {
 			string devhelp_wiki_path = "documentation/%s/wiki/devhelp-index.valadoc".printf (pkg.name);
 			generate_wiki_index (pkg, devhelp_wiki_path, has_examples, true);
@@ -928,6 +989,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			string? standard_output = null;
 			string? standard_error = null;
 
+			stdout.puts ("  run valadoc ...\n");
 			Process.spawn_command_line_sync (builder.str, out standard_output, out standard_error, out exit_status); 
 
 			FileStream log = FileStream.open ("LOG", "w");
@@ -959,20 +1021,33 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
-	private void collect_images (string content, HashSet<string> images) {
-		Gtkdoc.Scanner scanner = new Gtkdoc.Scanner ();
-		scanner.reset (content);
+	private void collect_images (string content, HashSet<string> images, bool is_docbook) {
+		if (is_docbook) {
+			// Docbook:
+			Gtkdoc.Scanner scanner = new Gtkdoc.Scanner ();
+			scanner.reset (content);
 
-		for (Gtkdoc.Token token = scanner.next (); token.type != Gtkdoc.TokenType.EOF; token = scanner.next ()) {
-			if (token.type == Gtkdoc.TokenType.XML_OPEN && (token.content == "inlinegraphic" || token.content == "graphic")) {
-				if (token.attributes == null) {
-					continue ;
-				}
+			for (Gtkdoc.Token token = scanner.next (); token.type != Gtkdoc.TokenType.EOF; token = scanner.next ()) {
+				if (token.type == Gtkdoc.TokenType.XML_OPEN && (token.content == "inlinegraphic" || token.content == "graphic")) {
+					if (token.attributes == null) {
+						continue ;
+					}
 
-				string? link = token.attributes.get ("fileref");
-				if (link != null) {
-					images.add (link);
+					string? link = token.attributes.get ("fileref");
+					if (link != null) {
+						images.add (link);
+					}
 				}
+			}
+		} else {
+			// Markdown:
+			MatchInfo info;
+			markdown_img_regex.match (content, 0, out info);
+			int path_num = markdown_img_regex.get_string_number ("img");
+			while (info.matches ()) {
+				string link = info.fetch (path_num);
+				images.add (link);
+				info.next ();
 			}
 		}
 	}
@@ -1088,17 +1163,18 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	}
 
 	private void load_images (Package pkg) {
-		if (!download_images) {
-			return ;
-		}
-
 		if (pkg.c_docs == null || pkg.gir_name == null) {
 			return ;
 		}
 
+		if (!download_images) {
+			return ;
+		}
+
+
 		string gir_path = pkg.get_gir_file ();
 
-		stdout.printf ("  download images\n");
+		stdout.printf ("  download images ...\n");
 
 		var markup_reader = new Valadoc.MarkupReader (gir_path, reporter);
 		MarkupTokenType token = MarkupTokenType.EOF;
@@ -1113,7 +1189,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			if (token == MarkupTokenType.START_ELEMENT && markup_reader.name == "doc") {
 				token = markup_reader.read_token (out token_begin, out token_end);
 				if (token == MarkupTokenType.TEXT) {
-					this.collect_images (markup_reader.content, images);
+					this.collect_images (markup_reader.content, images, pkg.is_docbook);
 				}
 			}
 		} while (token != MarkupTokenType.EOF);

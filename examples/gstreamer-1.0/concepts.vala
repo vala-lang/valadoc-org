@@ -7,8 +7,8 @@ public static int main (string[] args) {
 	Gst.init (ref args);
 
 	// Create the elements:
-	weak Gst.Element source = Gst.ElementFactory.make ("videotestsrc", "source");
-	weak Gst.Element sink = Gst.ElementFactory.make ("autovideosink", "sink");
+	Gst.Element source = Gst.ElementFactory.make ("videotestsrc", "source");
+	Gst.Element sink = Gst.ElementFactory.make ("autovideosink", "sink");
 
 	// Create the empty pipeline:
 	Gst.Pipeline pipeline = new Gst.Pipeline ("test-pipeline");

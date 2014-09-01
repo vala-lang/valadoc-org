@@ -370,12 +370,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 		public virtual string? get_vapi_path () {
-			string path = Path.build_filename (vapidir, name + ".vapi");
+			string path = Path.build_path (Path.DIR_SEPARATOR_S, "girs", "vala", "vapi", name + ".vapi");
 			if (FileUtils.test (path, FileTest.IS_REGULAR)) {
 				return path;
 			}
 
-			path = Path.build_path (Path.DIR_SEPARATOR_S, "girs", "vala", "vapi", name + ".vapi");
+			path = Path.build_filename (vapidir, name + ".vapi");
 			if (FileUtils.test (path, FileTest.IS_REGULAR)) {
 				return path;
 			}

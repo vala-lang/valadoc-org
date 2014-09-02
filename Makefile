@@ -1,5 +1,5 @@
 
-VALAC_VERSION = 0.24
+VALAC_VERSION = 0.26
 PREFIX = "stable"
 
 
@@ -54,7 +54,7 @@ update-girs:
 		git pull ; \
 		cd .. ; \
 	else \
-		git clone git://gitorious.org/vala-girs/vala-girs.git girs ; \
+		git clone https://github.com/nemequ/vala-girs.git girs ; \
 	fi
 
 

@@ -2,6 +2,6 @@
 [General]
 resources = gir-images/
 index_sgml = index.sgml
-index_sgml_online = https://developer.gnome.org/libsecret/unstable/
+index_sgml_online = https://developer.gnome.org/grilo/unstable/
 is_docbook = true
 

@@ -519,7 +519,7 @@ a.virtual_method,
 
 .navi_main .abstract_method,
 .navi_inline .abstract_method {
-    list-style-image: url( abstractmethod.png );
+    list-style-image: url(abstractmethod.png);
 }
 
 .navi_main .creation_method,

@@ -6,9 +6,10 @@ Stays crunchy even in milk.
 Building
 ========
 
-In order to build the docs you will need the following packages:
+In order to build the docs you will need the following:
 * `valadoc` past [this](https://git.gnome.org/browse/valadoc/commit/?id=1ecd5955) commit
 * `php`
+* 4 GB of free space
 
 On elementary OS or Ubuntu run:
 ```bash
@@ -27,10 +28,20 @@ $ make
 $ make build-docs
 ```
 
-and grab yourself a cup of coffee. This will take a bit of time. If you encounter an error at this step, please see the [common pitfalls](#Common-Pitfalls) section. After you completed building you should see a `valadoc.org` folder.
+and grab yourself a cup of coffee. This will take a bit of time. If you encounter an error at this step, please see the [common pitfalls](#common-pitfalls) section. After you completed building you should see a `valadoc.org` folder.
 
 To access the documentation run
 ```bash
 $ make serve
 ```
 and navigate your browser to `localhost:7777`.
+
+Common Pitfalls
+===============
+
+`Uncaught Error: Class 'mysqli' not found`
+- Uncomment `extension=mysqli.so` in your OS's php.ini (check `/etc/php.ini` or `/etc/php/php.ini`)
+
+Other errors
+- Check `LOG` in the root of this repo for more information
+- Have you run out of disk space?

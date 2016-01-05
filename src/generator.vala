@@ -441,8 +441,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		while ((dir = dirptr.read_name ()) != null) {
 			string dir_path = Path.build_path (Path.DIR_SEPARATOR_S, path, dir);
-			if (dir == ".sphinx") {
-				continue ;
+			if (dir == ".sphinx" || dir == "scripts" || dir == "styles" || dir == "images" || dir == "templates") {
+				continue;
 			}
 
 			if (FileUtils.test (dir_path, FileTest.IS_DIR)) {

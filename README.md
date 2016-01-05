@@ -31,10 +31,9 @@ and grab yourself a cup of coffee. This will take a bit of time. If you encounte
 
 To access the documentation run
 ```bash
-$ cd valadoc.org
-$ php -S localhost:8000
+$ make serve
 ```
-and navigate your browser to `localhost:8000`.
+and navigate your browser to `localhost:7777`.
 
 Common Pitfalls
 ===============

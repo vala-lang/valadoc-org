@@ -24,17 +24,12 @@ $ yaourt -S valadoc-git php
 After you have `valadoc` installed, you can move to building the documentation. Simply run:
 
 ```bash
-$ make
-$ make build-docs
+$ make serve
 ```
 
 and grab yourself a cup of coffee. This will take a bit of time. If you encounter an error at this step, please see the [common pitfalls](#common-pitfalls) section. After you completed building you should see a `valadoc.org` folder.
 
-To access the documentation run
-```bash
-$ make serve
-```
-and navigate your browser to `localhost:7777`.
+To access the documentation navigate your browser to http://localhost:7777.
 
 Common Pitfalls
 ===============

@@ -34,18 +34,3 @@ To access the documentation run
 $ make serve
 ```
 and navigate your browser to `localhost:7777`.
-
-Common Pitfalls
-===============
-
-```bash
-ERROR: Can't generate documentation for packagekit-glib2. See LOG for details.
-```
-Comment out packagekit-glib2 in `documentation/package.xml`. It should look like this:
-```xml
-<!--
-<package name="packagekit-glib2" gir="PackageKitGlib-1.0" home="http://www.packagekit.org/" c-docs="http://www.freedesktop.org/software/PackageKit/gtk-doc/">
-	Library for accessing PackageKit using GLib.
-</package>
--->
-```

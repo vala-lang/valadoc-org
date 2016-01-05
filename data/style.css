@@ -54,7 +54,6 @@ a {
 }
 
 .site_header {
-    font-size: 25px;
     padding-bottom: 10px;
     padding-top: 10px;
     background-color: #aaaaff;
@@ -84,12 +83,13 @@ a {
 #topbar {
     list-style-type: none;
     background-color: #3a416f;
-    height: 32px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12),
                 0 1px 2px rgba(0,0,0,0.24);
     border-radius: 3px;
+    font-size: 14px;
     margin: 6px;
     text-align: center;
+    padding: 6px;
     position: relative;
 }
 
@@ -109,37 +109,36 @@ a {
 #topbar a,
 #topbar a:visited,
 #topbar a:active {
-    color: white;
-    font-size: 13px;
-    text-decoration: none;
-    padding: 4px 8px;
     border-radius: 4px;
+    color: #fff;
+    opacity: 0.8;
+    padding: 4px 8px;
+    text-decoration: none;
 }
 
 #topbar a:hover {
     background-color: rgba(255,255,255,0.2);
+    opacity: 1;
 }
 
 #content {
     margin-top: -50px;
 }
 
+#eveninmilk,
 #stayscrunchy {
-    color: white;
+    color: #fff;
     opacity: 0.5;
     font-style: italic;
-    font-size: 90%;
     float: left;
     position: absolute;
+}
+
+#stayscrunchy {
     left: 20px;
 }
 
 #eveninmilk {
-    color: white;
-    opacity: 0.5;
-    font-style: italic;
-    font-size: 90%;
-    position: absolute;
     right: 20px;
 }
 
@@ -156,7 +155,6 @@ a {
 .tooltip * {
     padding: 0;
     margin: 0;
-    font-size: 0.95em;
 }
 
 .tooltip p {
@@ -185,7 +183,7 @@ a {
 #search-field {
     border: 1px solid rgba(0,0,0,0.15);
     border-radius: 3px;
-    font-size: 16px;
+    font-size: 14px;
     margin: 6px;
     padding: 6px;
     transition: all 200ms ease-in-out;
@@ -240,14 +238,12 @@ a {
 
 .search-result a .search-package {
     display: inline;
-    font-size: 90%;
     font-style: italic;
     color: #555753;
 }
 
 .search-result a .search-desc {
     color: #888A85;
-    font-size: 80%;
     margin: -1.5% 0 0 0;
     padding: 0 0 2% 3%;
     min-height: 12px;
@@ -282,7 +278,6 @@ a {
 
 .site_title {
     text-align: left;
-    font-size: 40;
 }
 
 .site_footer {
@@ -290,16 +285,11 @@ a {
     clear: left;
 }
 
-.site_body {
-    font-size: 10;
-}
-
 .site_navigation {
     width: 100%;
 }
 
 #content-wrapper {
-    font-size: 14px;
     text-align: left;
     overflow: auto;
     overflow-y: scroll;
@@ -343,10 +333,6 @@ span.leaf_code_definition {
 div.leaf_brief_description {
     display: block;
     margin-left: 40px;
-}
-
-h1.main_title {
-    font-size: 20px;
 }
 
 h1.main_title,
@@ -534,7 +520,7 @@ a.virtual_method,
 }
 
 .navi_main .package_index {
-    list-style-image: url(packages.png);
+    list-style-image: url(packages.svg);
 }
 
 .navi_main .virtual_method,
@@ -628,26 +614,28 @@ a.virtual_method,
 }
 
 .navi_main {
+    font-size: 12px;
+    line-height: 16px;
     margin-top: 10px;
     margin-bottom: 10px;
     padding-left: 30px;
 }
 
 .navi_hr {
+    background-color: #dedede;
     border: 0;
-    color: #aaaaff;
-    background-color: #aaaaff;
+    border-bottom: 1px solid #fff;
     height: 1px;
-    margin: 5px 10px;
+    margin: 6px 0;
 }
 
 .navi_main a,
 .navi_inline a,
 .external_link {
     color: #666;
-    font-size: 90%;
     text-decoration: none;
     padding-right: 6px;
+    vertical-align: top
 }
 
 .navi_main .abstract_class > a,

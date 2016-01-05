@@ -1218,13 +1218,24 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
-	private void copy_data () throws FileError {
-		Dir dir = Dir.open ("data");
+	private static void copy_dir (string path, string output) throws FileError {
+		Dir dir = Dir.open (path);
 		for (string? file = dir.read_name (); file != null; file = dir.read_name ()) {
-			string src_file_path = Path.build_filename ("data", file);
-			string dest_file_path = Path.build_filename (output_directory, file);
-			Valadoc.copy_file (src_file_path, dest_file_path);
+			string src_file_path = Path.build_filename (path, file);
+			string dest_file_path = Path.build_filename (output, file);
+			if (FileUtils.test (src_file_path, FileTest.IS_DIR)) {
+				if (!FileUtils.test (dest_file_path, FileTest.EXISTS)) { // mkdir if necessary
+					File.new_for_path (dest_file_path).make_directory (null);
+				}
+				copy_dir (src_file_path, dest_file_path); // copy directories recursively
+			} else {
+				Valadoc.copy_file (src_file_path, dest_file_path);
+			}
 		}
+	}
+
+	private void copy_data () throws FileError {
+		copy_dir ("data", output_directory);
 	}
 
 	public static int main (string[] args) {

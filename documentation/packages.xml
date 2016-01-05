@@ -578,9 +578,6 @@
 			<package name="libosinfo-1.0" gir="Libosinfo-1.0" flags="--pkg gio-2.0">
 				Library for managing information about operating systems and hypervisors.
 			</package>
-			<package name="packagekit-glib2" gir="PackageKitGlib-1.0" home="http://www.packagekit.org/" c-docs="http://www.freedesktop.org/software/PackageKit/gtk-doc/">
-				Library for accessing PackageKit using GLib.
-			</package>
 			<package name="pkcs11" gir="P11Kit-1.0" c-docs="http://p11-glue.freedesktop.org/doc/p11-kit/reference.html" home="http://p11-glue.freedesktop.org/p11-kit.html">
 				Provides a way to load and enumerate PKCS#11 modules.
 				Provides a standard configuration setup for installing PKCS#11

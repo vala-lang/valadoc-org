@@ -1,29 +1,26 @@
-* {
-	font-family: "Open Sans", "Droid Sans", Helvetica, sans-serif;
-	font-size: 12pt;
+html {
+    font-family: "Open Sans", "Droid Sans", Helvetica, sans-serif;
+    font-size: 12pt;
 }
 
 body {
     overflow: hidden;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-}
-
-ul.external_link {
+    margin: 0;
+    padding: 0;
 }
 
 .main_optional_parameter {
-	font-style: italic;
+    font-style: italic;
 }
 
 .main_diagram {
-	border-style: none;
-	display: block;
-	margin: 0px auto;
+    border-style: none;
+    display: block;
+    margin: 0px auto;
 }
 
 .site_navi {
-	text-align: right;
+    text-align: right;
 }
 
 .main_notification {

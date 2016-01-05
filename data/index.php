@@ -50,12 +50,7 @@ function get_title () {
 	<head>
 		<title><?php echo get_title (); ?></title>
 		<meta name="fragment" content="!">
-		<script type="text/javascript" src="/jquery.min.js"></script>
-		<script type="text/javascript" src="/jquery.ba-hashchange.min.js"></script>
-		<script type="text/javascript" src="/jquery.spinner.js"></script>
-		<script type="text/javascript" src="/wtooltip.js"></script>
-		<script type="text/javascript" src="/valadoc.js"></script>
-		<link href="/style.css" rel="stylesheet" type="text/css">
+		<link href="/styles/main.css" rel="stylesheet" type="text/css">
 		<link rel="apple-touch-icon" href="devhelp.png" />
 	</head>
 	<body>
@@ -106,7 +101,11 @@ function get_title () {
 	      </td>
 	    </tr>
 	  </table>
-  
+		<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/scripts/jquery.ba-hashchange.min.js"></script>
+		<script type="text/javascript" src="/scripts/jquery.spinner.js"></script>
+		<script type="text/javascript" src="/scripts/wtooltip.js"></script>
+		<script type="text/javascript" src="/scripts/valadoc.js"></script>
 	  <script type="text/javascript">
 	    //if (document.location.hash != '') {
 	    load_link (hash_to_url (window.location.hash), window.location.hostname);

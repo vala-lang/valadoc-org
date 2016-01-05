@@ -42,8 +42,8 @@ a {
     border-collapse: collapse;
     border: 1px solid #aaaaff;
     background: #eeeeff;
-    margin-right:auto;
-    margin-left:auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .main_sourcesample {
@@ -401,12 +401,12 @@ a.abstract_class,
 
 .description a.namespace,
 .brief_description a.namespace {
-    background-image:url(namespace.png);
+    background-image: url(namespace.png);
 }
 
 .description a.struct,
 .brief_description a.struct {
-    background-image:url(struct.png);
+    background-image: url(struct.png);
 }
 
 .description a.interface,
@@ -421,95 +421,95 @@ a.abstract_class,
 
 .description a.errordomain,
 .brief_description a.errordomain {
-    background-image:url(errordomain.png);
+    background-image: url(errordomain.png);
 }
 
 .description a.delegate,
 .brief_description a.delegate {
-    background-image:url(delegate.png);
+    background-image: url(delegate.png);
 }
 
 .description a.signal,
 .brief_description a.signal {
-    background-image:url(signal.png);
+    background-image: url(signal.png);
 }
 
 .description a.field,
 .brief_description a.field {
-    background-image:url(field.png);
+    background-image: url(field.png);
 }
 
 .description a.enumvalue,
 .brief_description a.enumvalue {
-    background-image:url(enumvalue.png);
+    background-image: url(enumvalue.png);
 }
 
 .description a.errorcode,
 .brief_description a.errorcode {
-    background-image:url(errorcode.png);
+    background-image: url(errorcode.png);
 }
 
 .description a.class,
 .brief_description a.class {
-    background-image:url(class.png);
+    background-image: url(class.png);
 }
 
 a.abstract_class,
 .description a.abstract_class,
 .brief_description a.abstract_class {
-    background-image:url(abstractclass.png);
+    background-image: url(abstractclass.png);
     font-style: italic;
 }
 
 .description a.property,
 .brief_description a.property {
-    background-image:url(property.png);
+    background-image: url(property.png);
 }
 
 .description a.virtual_property,
 .brief_description a.virtual_property {
-    background-image:url(virtualproperty.png);
+    background-image: url(virtualproperty.png);
 }
 
 .description a.abstract_property,
 .brief_description a.abstract_property {
-    background-image:url(abstractproperty.png);
+    background-image: url(abstractproperty.png);
 }
 
 .description a.method,
 .brief_description a.method {
-    background-image:url(method.png);
+    background-image: url(method.png);
 }
 
 .description a.static_method,
 .brief_description a.static_method {
-    background-image:url(staticmethod.png);
+    background-image: url(staticmethod.png);
 }
 
 a.virtual_method,
 .description a.virtual_method,
 .brief_description a.virtual_method {
-    background-image:url(virtualmethod.png);
+    background-image: url(virtualmethod.png);
 }
 
 .description a.abstract_method,
 .brief_description a.abstract_method {
-    background-image:url(abstractmethod.png);
+    background-image: url(abstractmethod.png);
 }
 
 .description a.creation_method,
 .brief_description a.creation_method {
-    background-image:url(constructor.png);
+    background-image: url(constructor.png);
 }
 
 .navi_main .errorcode,
 .navi_inline .errorcode {
-    list-style-image:url(errorcode.png);
+    list-style-image: url(errorcode.png);
 }
 
 .navi_main .enumvalue,
 .navi_inline .enumvalue {
-    list-style-image:url(enumvalue.png);
+    list-style-image: url(enumvalue.png);
 }
 
 .navi_main .abstract_class,
@@ -718,6 +718,6 @@ code {
 }
 
 .deprecated {
-    text-decoration:line-through;
+    text-decoration: line-through;
 }
 

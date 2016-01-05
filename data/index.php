@@ -80,7 +80,6 @@ function get_title () {
 	      <td width="100%" valign="top">
 		<div id="content-wrapper">
 		<div id="header">
-		  <div class="space"></div>
 		  <div id="topbar"><div class="space"></div>
 		    <div id="stayscrunchy">Stays crunchy ...</div>
 		    <div id="eveninmilk">... even in milk.</div>

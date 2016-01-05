@@ -1,12 +1,16 @@
 html {
     font-family: "Open Sans", "Droid Sans", Helvetica, sans-serif;
-    font-size: 12pt;
+    font-size: 12px;
 }
 
 body {
     overflow: hidden;
     margin: 0;
     padding: 0;
+}
+
+a {
+    color: #7633DB;
 }
 
 .main_optional_parameter {
@@ -69,18 +73,12 @@ body {
 	width: 100%;
 }
 
-
-div {
-	font-size: 12pt;
-}
-
 .space {
     clear: both;
     height: 10px;
 }
 
 #header {
-    background: url("html-bg.png") repeat-x scroll 0 0 #ffffff;
     height: 100px;
 }
 
@@ -97,11 +95,12 @@ div {
 
 #topbar {
     list-style-type: none;
-    background: url("top_bar-bg.png") repeat-x scroll center top #2E3436;
-    height: 33px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 6px 6px 6px 6px;
-    margin: 0 10px 0 10px;
+    background-color: #3a416f;
+    height: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12),
+                0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 3px;
+    margin: 6px;
     text-align: center;
     position: relative;
 }
@@ -218,6 +217,7 @@ div {
     position: absolute;
     margin-left: -31px;
     margin-top: 9px;
+    width: 20px;
 }
 
 #search-results {

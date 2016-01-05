@@ -20,7 +20,7 @@ a {
 .main_diagram {
     border-style: none;
     display: block;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 .site_navi {
@@ -118,7 +118,9 @@ a {
     display: inline;
 }
 
-#topbar a, #topbar a:visited, #topbar a:active {
+#topbar a,
+#topbar a:visited,
+#topbar a:active {
     color: white;
     font-size: 13px;
     text-decoration: none;
@@ -127,7 +129,7 @@ a {
 }
 
 #topbar a:hover {
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.2);
+    background: none repeat scroll 0 0 rgba(255,255,255,0.2);
 }
 
 #content {
@@ -156,8 +158,8 @@ a {
 }
 
 .tooltip {
-    background-color: rgb(238, 238, 255);
-    border: 1px solid rgb(170, 170, 255);
+    background-color: rgb(238,238,255);
+    border: 1px solid rgb(170,170,255);
     filter: alpha (opacity = 95);
     opacity: 0.95;
     zIndex: 1000;
@@ -177,7 +179,7 @@ a {
 }
 
 .highlight:hover {
-    background-color: rgb(238, 238, 255);
+    background-color: rgb(238,238,255);
 }
 
 #navigation {
@@ -313,7 +315,6 @@ div.site_navigation {
     width: 100%;
 }
 
-
 #content-wrapper {
     font-size: 14px;
     text-align: left;
@@ -344,7 +345,6 @@ div.site_navigation {
     color: #a52a2a;
 }
 
-
 div.main_code_definition {
     padding-right: 10px;
     padding-left: 10px;
@@ -359,17 +359,14 @@ div.main_code_definition {
     margin: 10px;
 }
 
-
 span.leaf_code_definition {
     font-family: monospace;
 }
-
 
 div.leaf_brief_description {
     display: block;
     margin-left: 40px;
 }
-
 
 h1.main_title {
     font-size: 20px;
@@ -414,7 +411,6 @@ h3.main_title {
     color: grey;
 }
 
-
 .description a.constant,
 .brief_description a.constant {
     background-image: url(constant.png);
@@ -442,7 +438,7 @@ h3.main_title {
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
 
 .description a.interface,
@@ -464,6 +460,7 @@ h3.main_title {
     background-position: center right;
     border: 0;
 }
+
 .description a.errordomain,
 .brief_description a.errordomain {
     background-image:url(errordomain.png);
@@ -471,201 +468,286 @@ h3.main_title {
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-.description a.delegate, .brief_description a.delegate {
+
+.description a.delegate,
+.brief_description a.delegate {
     background-image:url(delegate.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-.description a.signal, .brief_description a.signal {
+
+.description a.signal,
+.brief_description a.signal {
     background-image:url(signal.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-.description a.field, .brief_description a.field {
+
+.description a.field,
+.brief_description a.field {
     background-image:url(field.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-.description a.enumvalue, .brief_description a.enumvalue {
+
+.description a.enumvalue,
+.brief_description a.enumvalue {
     background-image:url(enumvalue.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-.description a.errorcode, .brief_description a.errorcode {
+
+.description a.errorcode,
+.brief_description a.errorcode {
     background-image:url(errorcode.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-.description a.class, .brief_description a.class {
+
+.description a.class,
+.brief_description a.class {
     background-image:url(class.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-a.abstract_class, .description a.abstract_class, .brief_description a.abstract_class {
+
+a.abstract_class,
+.description a.abstract_class,
+.brief_description a.abstract_class {
     background-image:url(abstractclass.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
     font-style: italic;
 }
-.description a.property, .brief_description a.property {
+
+.description a.property,
+.brief_description a.property {
     background-image:url(property.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-.description a.virtual_property, .brief_description a.virtual_property {
+
+.description a.virtual_property,
+.brief_description a.virtual_property {
     background-image:url(virtualproperty.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-.description a.abstract_property, .brief_description a.abstract_property {
+
+.description a.abstract_property,
+.brief_description a.abstract_property {
     background-image:url(abstractproperty.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-.description a.method, .brief_description a.method {
+
+.description a.method,
+.brief_description a.method {
     background-image:url(method.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-.description a.static_method, .brief_description a.static_method {
+
+.description a.static_method,
+.brief_description a.static_method {
     background-image:url(staticmethod.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-a.virtual_method, .description a.virtual_method, .brief_description a.virtual_method {
+
+a.virtual_method,
+.description a.virtual_method,
+.brief_description a.virtual_method {
     background-image:url(virtualmethod.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-.description a.abstract_method, .brief_description a.abstract_method {
+
+.description a.abstract_method,
+.brief_description a.abstract_method {
     background-image:url(abstractmethod.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
-.description a.creation_method, .brief_description a.creation_method {
+
+.description a.creation_method,
+.brief_description a.creation_method {
     background-image:url(constructor.png);
     display:inline-block;
     padding-right:17px;
     background-repeat:no-repeat;
     background-position:center right;
-    border:0px;
+    border: 0;
 }
 
-.navi_main .errorcode, .navi_inline .errorcode {
+.navi_main .errorcode,
+.navi_inline .errorcode {
     list-style-image:url(errorcode.png);
 }
-.navi_main .enumvalue, .navi_inline .enumvalue {
+
+.navi_main .enumvalue,
+.navi_inline .enumvalue {
     list-style-image:url(enumvalue.png);
 }
-.navi_main .abstract_class, .navi_inline .abstract_class {
+
+.navi_main .abstract_class,
+.navi_inline .abstract_class {
     list-style-image: url(abstractclass.png);
 }
-.navi_main .abstract_method, .navi_inline .abstract_method {
+
+.navi_main .abstract_method,
+.navi_inline .abstract_method {
     list-style-image: url( abstractmethod.png );
 }
-.navi_main .creation_method, .navi_inline .creation_method, .main_list_m {
+
+.navi_main .creation_method,
+.navi_inline .creation_method,
+.main_list_m {
     list-style-image: url(constructor.png);
 }
-.navi_main .static_method, .navi_inline .static_method {
+
+.navi_main .static_method,
+.navi_inline .static_method {
     list-style-image: url(staticmethod.png);
 }
+
 .navi_main .package_index {
     list-style-image: url(packages.png);
 }
-.navi_main .virtual_method, .navi_inline .virtual_method {
+
+.navi_main .virtual_method,
+.navi_inline .virtual_method {
     list-style-image: url(virtualmethod.png);
 }
-.navi_main .errordomain, .navi_inline .errordomain, .main_list_errdom {
+
+.navi_main .errordomain,
+.navi_inline .errordomain,
+.main_list_errdom {
     list-style-image: url(errordomain.png);
 }
-.navi_main .namespace, .navi_inline .namespace, .main_list_ns {
+
+.navi_main .namespace,
+.navi_inline .namespace,
+.main_list_ns {
     list-style-image: url(namespace.png);
 }
-.navi_main .method, .navi_inline .method {
+
+.navi_main .method,
+.navi_inline .method {
     list-style-image: url(method.png);
 }
-.navi_main .struct, .navi_inline .struct, .main_list_stru {
+
+.navi_main .struct,
+.navi_inline .struct,
+.main_list_stru {
     list-style-image: url(struct.png);
 }
-.navi_main .interface, .navi_inline .interface, .main_list_iface {
+
+.navi_main .interface,
+.navi_inline .interface,
+.main_list_iface {
     list-style-image: url(interface.png);
 }
-.navi_main .field, .navi_inline .field, .main_list_field {
+
+.navi_main .field,
+.navi_inline .field,
+.main_list_field {
     list-style-image: url(field.png);
 }
-.navi_main .class, .navi_inline .class, .main_list_cl {
+
+.navi_main .class,
+.navi_inline .class,
+.main_list_cl {
     list-style-image: url(class.png);
 }
-.navi_main .enum, .navi_inline .enum, .main_list_en {
+
+.navi_main .enum,
+.navi_inline .enum,
+.main_list_en {
     list-style-image: url(enum.png);
 }
-.navi_main .property, .navi_inline .property, .main_list_prop {
+
+.navi_main .property,
+.navi_inline .property,
+.main_list_prop {
     list-style-image: url(property.png);
 }
-.navi_main .abstract_property, .navi_inline .abstract_property {
+
+.navi_main .abstract_property,
+.navi_inline .abstract_property {
     list-style-image: url(abstractproperty.png);
 }
-.navi_main .virtual_property, .navi_inline .virtual_property {
+
+.navi_main .virtual_property,
+.navi_inline .virtual_property {
     list-style-image: url(virtualproperty.png);
 }
-.navi_main .delegate, .navi_inline .delegate, .main_list_del {
+
+.navi_main .delegate,
+.navi_inline .delegate,
+.main_list_del {
     list-style-image: url(delegate.png);
 }
-.navi_main .signal, .navi_inline .signal, .main_list_sig {
+
+.navi_main .signal,
+.navi_inline .signal,
+.main_list_sig {
     list-style-image: url(signal.png);
 }
+
 .navi_main .package,
 .navi_inline .package {
     list-style-image: url(package.svg);
 }
-.navi_main .constant, .navi_inline .constant {
+
+.navi_main .constant,
+.navi_inline .constant {
     list-style-image: url(constant.png);
 }
-
 
 .navi_main {
     margin-top: 10px;
@@ -683,8 +765,6 @@ a.virtual_method, .description a.virtual_method, .brief_description a.virtual_me
     margin-top: 5px;
     margin-bottom: 5px;
 }
-
-
 
 .navi_main a,
 .navi_inline a,
@@ -718,12 +798,14 @@ code {
     font-family: monospace;
 }
 
-.main_code_definition a, .leaf_code_definition a {
+.main_code_definition a,
+.leaf_code_definition a {
     text-decoration: none;
     color: inherit;
 }
 
-.main_code_definition a:hover, .leaf_code_definition a:hover {
+.main_code_definition a:hover,
+.leaf_code_definition a:hover {
     text-decoration: underline;
 }
 

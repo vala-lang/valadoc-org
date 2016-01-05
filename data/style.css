@@ -1,4 +1,5 @@
 * {
+	font-family: "Open Sans", "Droid Sans", Helvetica, sans-serif;
 	font-size: 12pt;
 }
 
@@ -10,7 +11,6 @@ body {
 
 ul.external_link {
 }
-
 
 .main_optional_parameter {
 	font-style: italic;
@@ -74,7 +74,6 @@ ul.external_link {
 
 
 div {
-	font-family:'Times New Roman';
 	font-size: 12pt;
 }
 
@@ -187,11 +186,8 @@ div {
 }
 
 #navigation {
-    border-color: #aaaaff;
-    border-style: solid;
-    border-width: 1px;
-    background-color: #eeeeff;
-
+    background-color: #fcfcfc;
+    border-right: 1px solid #f0f0f0;
     width: 240px;
 }
 
@@ -200,27 +196,28 @@ div {
 }
 
 #search-box {
-    background-color: #E8E8E8;
     display: none;
-    width: 240px;
-    height: 42px;
+    width: auto;
 }
 
 #search-field {
-    font-family: Dejavu Sans;
-    font-size: 23px;
-    font-style: normal;
-    line-height: 34px;
-    height: 34px;
-    width: 226px;
-    margin: 4px 6px 4px 6px;
-    padding-right: 1.1em;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 3px;
+    font-size: 16px;
+    margin: 6px;
+    padding: 6px;
+    transition: all 200ms ease-in-out;
+    width: calc(240px - 12px);
+}
+
+#search-field:focus {
+    border-color: rgba(58,65,111,0.5);
+    box-shadow: 0 1px 3px rgba(58,65,111,0.12);
+    outline: none;
 }
 
 #search-field-clear {
     cursor: pointer;
-    height: 24px;
-    width: 21px;
     position: absolute;
     margin-left: -31px;
     margin-top: 9px;

@@ -7,7 +7,7 @@ Building
 ========
 
 In order to build the docs you will need the following packages:
-* `valadoc` past [this](https://git.gnome.org/browse/valadoc/commit/) patch
+* `valadoc` past [this](https://git.gnome.org/browse/valadoc/commit/?id=1ecd5955) commit
 * `php`
 
 On elementary OS or Ubuntu run:

@@ -216,8 +216,13 @@ a {
     cursor: pointer;
     position: absolute;
     margin-left: -31px;
-    margin-top: 9px;
-    width: 20px;
+    margin-top: 14px;
+    opacity: 0.3;
+    transition: all 200ms ease-in-out;
+}
+
+#search-field:focus ~ #search-field-clear {
+    opacity: 0.75;
 }
 
 #search-results {

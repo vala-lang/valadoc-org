@@ -59,7 +59,7 @@ function get_title () {
 	      <td width="240" valign="top">
 		<div id="navigation">
 		<div id="search-box">
-		  <input id="search-field" type="text" placeholder="Search" autofocus="autofocus" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/clean.svg" />
+		  <input id="search-field" type="text" placeholder="Search" autofocus="autofocus" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
 		</div>
 		<ul id="search-results"></ul>
 		<div id="navigation-content">

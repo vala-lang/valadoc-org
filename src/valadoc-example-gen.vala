@@ -27,9 +27,9 @@ public class ValadocGen : ExampleParser {
 	}
 
 	private void write_example_navi (FileStream stream, bool with_example_index) {
-		stream.puts (" * {{data/package.png}} [[index.valadoc|Package Index]]\n");
+		stream.puts (" * {{data/images/package.png}} [[index.valadoc|Package Index]]\n");
 		if (with_example_index) {
-			stream.puts (" * {{data/tip.png}} [[example-listing-index.valadoc|Example Listing]]\n");
+			stream.puts (" * {{data/images/tip.png}} [[example-listing-index.valadoc|Example Listing]]\n");
 		}
 		stream.puts ("\n");
 	}

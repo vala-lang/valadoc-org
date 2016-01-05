@@ -62,4 +62,3 @@ public class Valadoc.ValadocOrgLinkHelper : Valadoc.Html.LinkHelper {
 		return Path.build_filename ("/", to.package.name, to.get_full_name() + ".html");
 	}
  }
-

@@ -1,29 +1,30 @@
-* {
-	font-size: 12pt;
+html {
+    font-family: "Open Sans", "Droid Sans", Helvetica, sans-serif;
+    font-size: 12px;
 }
 
 body {
     overflow: hidden;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
+    margin: 0;
+    padding: 0;
 }
 
-ul.external_link {
+a {
+    color: #7633DB;
 }
-
 
 .main_optional_parameter {
-	font-style: italic;
+    font-style: italic;
 }
 
 .main_diagram {
-	border-style: none;
-	display: block;
-	margin: 0px auto;
+    border-style: none;
+    display: block;
+    margin: 0px auto;
 }
 
 .site_navi {
-	text-align: right;
+    text-align: right;
 }
 
 .main_notification {
@@ -72,19 +73,12 @@ ul.external_link {
 	width: 100%;
 }
 
-
-div {
-	font-family:'Times New Roman';
-	font-size: 12pt;
-}
-
 .space {
     clear: both;
     height: 10px;
 }
 
 #header {
-    background: url("html-bg.png") repeat-x scroll 0 0 #ffffff;
     height: 100px;
 }
 
@@ -101,11 +95,12 @@ div {
 
 #topbar {
     list-style-type: none;
-    background: url("top_bar-bg.png") repeat-x scroll center top #2E3436;
-    height: 33px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 6px 6px 6px 6px;
-    margin: 0 10px 0 10px;
+    background-color: #3a416f;
+    height: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12),
+                0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 3px;
+    margin: 6px;
     text-align: center;
     position: relative;
 }
@@ -187,11 +182,8 @@ div {
 }
 
 #navigation {
-    border-color: #aaaaff;
-    border-style: solid;
-    border-width: 1px;
-    background-color: #eeeeff;
-
+    background-color: #fcfcfc;
+    border-right: 1px solid #f0f0f0;
     width: 240px;
 }
 
@@ -200,30 +192,37 @@ div {
 }
 
 #search-box {
-    background-color: #E8E8E8;
     display: none;
-    width: 240px;
-    height: 42px;
+    width: auto;
 }
 
 #search-field {
-    font-family: Dejavu Sans;
-    font-size: 23px;
-    font-style: normal;
-    line-height: 34px;
-    height: 34px;
-    width: 226px;
-    margin: 4px 6px 4px 6px;
-    padding-right: 1.1em;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 3px;
+    font-size: 16px;
+    margin: 6px;
+    padding: 6px;
+    transition: all 200ms ease-in-out;
+    width: calc(240px - 12px);
+}
+
+#search-field:focus {
+    border-color: rgba(58,65,111,0.5);
+    box-shadow: 0 1px 3px rgba(58,65,111,0.12);
+    outline: none;
 }
 
 #search-field-clear {
     cursor: pointer;
-    height: 24px;
-    width: 21px;
     position: absolute;
     margin-left: -31px;
-    margin-top: 9px;
+    margin-top: 14px;
+    opacity: 0.3;
+    transition: all 200ms ease-in-out;
+}
+
+#search-field:focus ~ #search-field-clear {
+    opacity: 0.75;
 }
 
 #search-results {

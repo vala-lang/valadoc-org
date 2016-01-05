@@ -67,7 +67,7 @@ function get_title () {
 	      <td width="240" valign="top">
 		<div id="navigation">
 		<div id="search-box">
-		  <input id="search-field" type="text" placeholder="Search" autofocus="autofocus" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/clean.png" />
+		  <input id="search-field" type="text" placeholder="Search" autofocus="autofocus" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/clean.svg" />
 		</div>
 		<ul id="search-results"></ul>
 		<div id="navigation-content">
@@ -80,7 +80,6 @@ function get_title () {
 	      <td width="100%" valign="top">
 		<div id="content-wrapper">
 		<div id="header">
-		  <div class="space"></div>
 		  <div id="topbar"><div class="space"></div>
 		    <div id="stayscrunchy">Stays crunchy ...</div>
 		    <div id="eveninmilk">... even in milk.</div>

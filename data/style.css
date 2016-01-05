@@ -117,7 +117,7 @@ a {
 }
 
 #topbar a:hover {
-    background: none repeat scroll 0 0 rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.2);
 }
 
 #content {
@@ -147,7 +147,7 @@ a {
     background-color: rgb(238,238,255);
     border: 1px solid rgb(170,170,255);
     opacity: 0.95;
-    zIndex: 1000;
+    z-index: 1000;
     text-align: left;
     padding: 0 4px 4px 4px;
     max-width: 30em;
@@ -238,14 +238,14 @@ a {
     display: block;
 }
 
-.search-result a span.search-package {
+.search-result a .search-package {
     display: inline;
     font-size: 90%;
     font-style: italic;
     color: #555753;
 }
 
-.search-result a span.search-desc {
+.search-result a .search-desc {
     color: #888A85;
     font-size: 80%;
     margin: -1.5% 0 0 0;
@@ -285,18 +285,16 @@ a {
     font-size: 40;
 }
 
-div.site_footer {
+.site_footer {
     height: 15px;
     clear: left;
 }
 
-
-div.site_body {
+.site_body {
     font-size: 10;
 }
 
-
-div.site_navigation {
+.site_navigation {
     width: 100%;
 }
 
@@ -379,12 +377,11 @@ h3.main_title {
 .main_parameter_table,
 .main_errordomain_table,
 .main_enum_table {
-    margin-weight: 20px;
     margin-left: 20px;
 }
 
 .main_parameter_table_unknown_parameter {
-    color: grey;
+    color: gray;
 }
 
 a.abstract_class,
@@ -646,7 +643,7 @@ a.virtual_method,
 
 .navi_main a,
 .navi_inline a,
-a.external_link {
+.external_link {
     color: #666;
     font-size: 90%;
     text-decoration: none;
@@ -658,12 +655,12 @@ a.external_link {
     font-style: italic;
 }
 
-a.navi_link:hover,
-a.external_link:hover {
+.navi_link:hover,
+.external_link:hover {
     text-decoration: underline;
 }
 
-ul.no_bullet li {
+.no_bullet li {
     list-style-type: none;
 }
 

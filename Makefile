@@ -101,3 +101,11 @@ build-docs:
         --skip-existing \
         --all
 
+
+#
+# Run a local webserver serving valadoc.org
+#
+
+serve: default build-docs
+	-php -S localhost:7777 -t ./valadoc.org
+

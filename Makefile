@@ -1,5 +1,5 @@
 
-VALAC_VERSION = 0.26
+VALAC_VERSION = 0.30
 PREFIX = "stable"
 
 

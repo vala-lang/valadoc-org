@@ -1218,7 +1218,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
-	private static void copy_dir (string path, string output) throws FileError {
+	private static void copy_dir (string path, string output) throws Error {
 		Dir dir = Dir.open (path);
 		for (string? file = dir.read_name (); file != null; file = dir.read_name ()) {
 			string src_file_path = Path.build_filename (path, file);
@@ -1234,7 +1234,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
-	private void copy_data () throws FileError {
+	private void copy_data () throws Error {
 		copy_dir ("data", output_directory);
 	}
 

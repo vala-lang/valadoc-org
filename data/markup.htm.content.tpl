@@ -162,7 +162,7 @@
 
 
 <br />
-<h3>Lists:</h3>
+<h3>Code:</h3>
 <hr class=\"main_hr\" />
 <h4>Comment:</h4>
 <div class=\"main_code_definition\">

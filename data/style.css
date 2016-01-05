@@ -120,7 +120,6 @@ a {
 
 #topbar a, #topbar a:visited, #topbar a:active {
     color: white;
-    font-family: sans;
     font-size: 13px;
     text-decoration: none;
     padding: 4px 8px 4px 8px;
@@ -306,7 +305,7 @@ div.site_navigation {
 
 
 #content-wrapper {
-	font-size: 12px;
+	font-size: 14px;
 	text-align: left;
 	overflow: auto;
 	overflow-y: scroll;
@@ -640,8 +639,9 @@ a.virtual_method, .description a.virtual_method, .brief_description a.virtual_me
 .navi_main .signal, .navi_inline .signal, .main_list_sig {
 	list-style-image: url(signal.png);
 }
-.navi_main .package, .navi_inline .package {
-	list-style-image: url(package.png);
+.navi_main .package,
+.navi_inline .package {
+    list-style-image: url(package.svg);
 }
 .navi_main .constant, .navi_inline .constant {
 	list-style-image: url(constant.png);
@@ -667,17 +667,21 @@ a.virtual_method, .description a.virtual_method, .brief_description a.virtual_me
 
 
 
-.navi_main a, .navi_inline a, a.external_link
-{
-	text-decoration: none;
-	color: 	#214b87;
+.navi_main a,
+.navi_inline a,
+a.external_link {
+    color: #666;
+    font-size: 90%;
+    text-decoration: none;
+    padding-right: 6px;
 }
 
 .navi_main .abstract_class > a, .navi_inline .abstract_class > a {
 	font-style: italic;
 }
 
-a.navi_link:hover, a.external_link:hover {
+a.navi_link:hover,
+a.external_link:hover {
 	text-decoration: underline;
 }
 

@@ -43,7 +43,7 @@ doclet.so:
 
 
 generator: doclet.so
-	valac -o generator src/doclet.vala src/linkhelper.vala src/generator.vala --pkg gee-0.8 --pkg valadoc-1.0 --enable-experimental
+	valac -o generator src/doclet.vala src/linkhelper.vala src/generator.vala --pkg gee-0.8 --pkg valadoc-1.0 --pkg gio-2.0 --enable-experimental
 
 configgen:
 	valac -o configgen src/configgen.vala -X -D -X datadir=\"$(datadir)\" --vapidir src/ --pkg config

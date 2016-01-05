@@ -61,7 +61,7 @@ var content_data = null;
 var RESULTS_BULK = 20;
 
 function close_spinner () {
-    $("body > img[src='/images/pinner.gif']").remove();
+    $("body > img[src='/images/spinner.gif']").remove();
 }
 
 function check_loaded (path) {
@@ -123,7 +123,6 @@ function load_content (href) {
     }
 
     abort_loading ();
-    $("#content-wrapper").spinner ({position:'center',width:16,height:16})
     replace_navigation (href + ".navi.tpl");
     replace_content (href + ".content.tpl");
 }

@@ -214,136 +214,21 @@ nav .subtitle {
     margin: 6px 0;
 }
 
-.navi_main .errorcode,
-.navi_inline .errorcode {
-    list-style-image: url(/images/errorcode.png);
-}
-
-.navi_main .enumvalue,
-.navi_inline .enumvalue {
-    list-style-image: url(/images/enumvalue.svg);
-}
-
-.navi_main .abstract_class,
-.navi_inline .abstract_class {
-    list-style-image: url(/images/abstractclass.png);
-}
-
-.navi_main .abstract_method,
-.navi_inline .abstract_method {
-    list-style-image: url(/images/abstractmethod.png);
-}
-
-.navi_main .creation_method,
-.navi_inline .creation_method,
-.main_list_m {
-    list-style-image: url(/images/constructor.png);
-}
-
-.navi_main .static_method,
-.navi_inline .static_method {
-    list-style-image: url(/images/staticmethod.png);
-}
-
-.navi_main .package_index {
-    list-style-image: url(/images/packages.svg);
-}
-
-.navi_main .virtual_method,
-.navi_inline .virtual_method {
-    list-style-image: url(/images/virtualmethod.png);
-}
-
-.navi_main .errordomain,
-.navi_inline .errordomain,
-.main_list_errdom {
-    list-style-image: url(/images/errordomain.svg);
-}
-
-.navi_main .namespace,
-.navi_inline .namespace,
-.main_list_ns {
-    list-style-image: url(/images/namespace.svg);
-}
-
-.navi_main .method,
-.navi_inline .method {
-    list-style-image: url(/images/method.png);
-}
-
-.navi_main .struct,
-.navi_inline .struct,
-.main_list_stru {
-    list-style-image: url(/images/struct.png);
-}
-
-.navi_main .interface,
-.navi_inline .interface,
-.main_list_iface {
-    list-style-image: url(/images/interface.png);
-}
-
-.navi_main .field,
-.navi_inline .field,
-.main_list_field {
-    list-style-image: url(/images/field.png);
-}
-
-.navi_main .class,
-.navi_inline .class,
-.main_list_cl {
-    list-style-image: url(/images/class.png);
-}
-
-.navi_main .enum,
-.navi_inline .enum,
-.main_list_en {
-    list-style-image: url(/images/enum.svg);
-}
-
-.navi_main .property,
-.navi_inline .property,
-.main_list_prop {
-    list-style-image: url(/images/property.png);
-}
-
-.navi_main .abstract_property,
-.navi_inline .abstract_property {
-    list-style-image: url(/images/abstractproperty.png);
-}
-
-.navi_main .virtual_property,
-.navi_inline .virtual_property {
-    list-style-image: url(/images/virtualproperty.png);
-}
-
-.navi_main .delegate,
-.navi_inline .delegate,
-.main_list_del {
-    list-style-image: url(/images/delegate.png);
-}
-
-.navi_main .signal,
-.navi_inline .signal,
-.main_list_sig {
-    list-style-image: url(/images/signal.png);
-}
-
-.navi_main .package,
-.navi_inline .package {
-    list-style-image: url(/images/package.svg);
-}
-
-.navi_main .constant,
-.navi_inline .constant {
-    list-style-image: url(/images/constant.png);
-}
-
+.navi_inline,
 .navi_main {
     font-size: 12px;
     line-height: 16px;
+    list-style: none;
     margin: 12px 3px;
-    padding-left: 30px;
+    padding-left: 6px;
+}
+
+.navi_inline {
+    padding-left: 12px;
+}
+
+.navi_main a {
+    vertical-align: top;
 }
 
 .navi_main a,
@@ -354,13 +239,121 @@ nav .subtitle {
     padding-right: 6px;
 }
 
-.navi_main a {
-    vertical-align: top;
+.navi_inline li:before,
+.navi_main li:before {
+    content: '';
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin-right: 6px;
 }
 
 .navi_main .abstract_class > a,
 .navi_inline .abstract_class > a {
     font-style: italic;
+}
+
+.abstract_class:before {
+    background-image: url(/images/abstractclass.png);
+}
+
+.abstract_method:before {
+    background-image: url(/images/abstractmethod.png);
+}
+
+.abstract_property:before {
+    background-image: url(/images/abstractproperty.png);
+}
+
+.class:before,
+.main_list_cl:before {
+    background-image: url(/images/class.png);
+}
+
+.constant:before {
+    background-image: url(/images/constant.png);
+}
+
+.creation_method:before,
+.main_list_m:before {
+    background-image: url(/images/constructor.png);
+}
+
+.delegate:before,
+.main_list_del:before {
+    background-image: url(/images/delegate.png);
+}
+
+.enum:before,
+.main_list_en:before {
+    background-image: url(/images/enum.svg);
+}
+
+.enumvalue:before {
+    background-image: url(/images/enumvalue.svg);
+}
+
+.errorcode:before {
+    background-image: url(/images/errorcode.png);
+}
+
+.errordomain:before,
+.main_list_errdom:before {
+    background-image: url(/images/errordomain.svg);
+}
+
+.field:before,
+.main_list_field:before {
+    background-image: url(/images/field.png);
+}
+
+.interface:before,
+.main_list_iface:before {
+    background-image: url(/images/interface.png);
+}
+
+.method:before {
+    background-image: url(/images/method.png);
+}
+
+.namespace:before,
+.main_list_ns:before {
+    background-image: url(/images/namespace.svg);
+}
+
+.package:before {
+    background-image: url(/images/package.svg);
+}
+
+.package_index:before {
+    background-image: url(/images/packages.svg);
+}
+
+.property:before,
+.main_list_prop:before {
+    background-image: url(/images/property.png);
+}
+
+.signal:before,
+.main_list_sig:before {
+    background-image: url(/images/signal.png);
+}
+
+.static_method:before {
+    background-image: url(/images/staticmethod.png);
+}
+
+.struct:before,
+.main_list_stru:before {
+    background-image: url(/images/struct.png);
+}
+
+.virtual_method:before {
+    background-image: url(/images/virtualmethod.png);
+}
+
+.virtual_property:before {
+    background-image: url(/images/virtualproperty.png);
 }
 
 .main_optional_parameter {

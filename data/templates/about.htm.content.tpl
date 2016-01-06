@@ -7,7 +7,6 @@
 
 	<h2>Credits:</h2>
 	<p>The search is inspired by <a href="http://www.jqapi.com">jQAPI</a>.</p>
-	<p>The top bar is stolen from <a href="http://www.gnome.org">gnome.org</a></p>
 
 	<h2>Source:</h2>
 	<p><a href="https://github.com/flobrosch/valadoc-org">https://github.com/flobrosch/valadoc-org</a></p>

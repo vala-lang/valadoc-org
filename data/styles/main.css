@@ -80,21 +80,6 @@ nav .subtitle {
     vertical-align: -webkit-baseline-middle;
 }
 
-/***********
- * Sidebar *
- ***********/
-
-#navigation {
-    background-color: #fcfcfc;
-    border-right: 1px solid #dedede;
-    display: inline-block;
-    width: 240px;
-}
-
-#navigation-content {
-    overflow: auto;
-}
-
 #search-box {
     display: none;
     width: auto;
@@ -127,6 +112,21 @@ nav .subtitle {
 
 #search-field:focus ~ #search-field-clear {
     opacity: 0.75;
+}
+
+/***********
+ * Sidebar *
+ ***********/
+
+#sidebar {
+    background-color: #fcfcfc;
+    border-right: 1px solid #dedede;
+    display: inline-block;
+    width: 240px;
+}
+
+#sidebar-content {
+    overflow: auto;
 }
 
 #search-results {
@@ -336,13 +336,8 @@ nav .subtitle {
 .navi_main {
     font-size: 12px;
     line-height: 16px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 12px 3px;
     padding-left: 30px;
-}
-
-.navi_main:first-of-type {
-    padding-top: 4px;
 }
 
 .navi_main a,

@@ -76,35 +76,34 @@ a {
     height: 52px;
 }
 
-#topbar {
+nav {
     list-style-type: none;
     background-color: #3a416f;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12),
                 0 1px 2px rgba(0,0,0,0.24);
-    border-radius: 3px;
     font-size: 14px;
-    margin: 6px;
-    text-align: center;
-    padding: 6px;
+    padding: 12px 6px;
     position: relative;
 }
 
-#topbar div.space {
-    height: 7px !important;
+#nav-links {
+    display: inline-block;
+    width: calc(100% - 245px);
+    text-align: center;
 }
 
-#topbar ul {
+nav ul {
     padding: 0;
     margin: 0;
 }
 
-#topbar li {
+nav li {
     display: inline;
 }
 
-#topbar a,
-#topbar a:visited,
-#topbar a:active {
+nav a,
+nav a:visited,
+nav a:active {
     border-radius: 4px;
     color: #fff;
     opacity: 0.8;
@@ -112,7 +111,7 @@ a {
     text-decoration: none;
 }
 
-#topbar a:hover {
+nav a:hover {
     background-color: rgba(255,255,255,0.2);
     opacity: 1;
 }
@@ -131,7 +130,7 @@ a {
 }
 
 #stayscrunchy {
-    left: 20px;
+    left: 255px;
 }
 
 #eveninmilk {
@@ -178,10 +177,10 @@ a {
 }
 
 #search-field {
-    border: 1px solid rgba(0,0,0,0.15);
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,0.05);
     border-radius: 3px;
     font-size: 14px;
-    margin: 6px;
     padding: 6px;
     transition: all 200ms ease-in-out;
     width: calc(240px - 12px);
@@ -196,8 +195,8 @@ a {
 #search-field-clear {
     cursor: pointer;
     position: absolute;
-    margin-left: -31px;
-    margin-top: 14px;
+    margin-left: -24px;
+    margin-top: 8px;
     opacity: 0.3;
     transition: all 200ms ease-in-out;
 }

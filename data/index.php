@@ -54,10 +54,23 @@ function get_title () {
     <link rel="apple-touch-icon" href="devhelp.png" />
   </head>
   <body>
-    <div id="navigation">
+    <nav>
       <div id="search-box">
         <input id="search-field" type="text" placeholder="Search" autofocus="autofocus" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
       </div>
+      <div id="nav-links">
+        <div id="stayscrunchy">Stays crunchy ...</div>
+        <div id="eveninmilk">... even in milk.</div>
+        <ul>
+          <li><a href="/index.htm">Home</a></li>
+          <li><a href="https://live.gnome.org/Vala/Documentation">Tutorial</a></li>
+          <li><a href="/markup.htm">Markup</a></li>
+          <li><a href="http://live.gnome.org/Vala">About Vala</a></li>
+          <li><a href="/about.htm">About Valadoc</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="navigation">
       <ul id="search-results"></ul>
       <div id="navigation-content">
         <noscript>
@@ -66,19 +79,6 @@ function get_title () {
       </div>
     </div>
     <div id="content-wrapper">
-      <div id="topbar">
-        <div id="stayscrunchy">Stays crunchy ...</div>
-        <div id="eveninmilk">... even in milk.</div>
-        <ul>
-          <li><a href="http://live.gnome.org/Valadoc">Valadoc</a></li>
-          <li><a href="http://live.gnome.org/Vala">Vala</a></li>
-          <li><a href="https://live.gnome.org/Vala/Documentation">Tutorial</a></li>
-          <li><a href="http://valajournal.blogspot.com/">Vala Journal</a></li>
-          <li><a href="/index.htm">API-References</a></li>
-          <li><a href="/markup.htm">Markup</a></li>
-          <li><a href="/about.htm">About</a></li>
-        </ul>
-      </div>
       <div id="content">
         <noscript>
         <?php @readfile ($_GET['page'] . '.content.tpl'); ?>

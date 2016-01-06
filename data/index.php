@@ -63,10 +63,10 @@ function get_title () {
         <div id="eveninmilk">... even in milk.</div>
         <ul>
           <li><a href="/index.htm">Home</a></li>
-          <li><a href="https://live.gnome.org/Vala/Documentation">Tutorial</a></li>
-          <li><a href="/markup.htm">Markup</a></li>
-          <li><a href="http://live.gnome.org/Vala">About Vala</a></li>
-          <li><a href="/about.htm">About Valadoc</a></li>
+          <li><a href="https://wiki.gnome.org/Projects/Vala/Tutorial">Tutorial</a></li>
+          <li><a href="templates/markup.htm">Markup</a></li>
+          <li><a href="https://wiki.gnome.org/Projects/Vala">About Vala</a></li>
+          <li><a href="templates/about.htm">About Valadoc</a></li>
         </ul>
       </div>
     </nav>

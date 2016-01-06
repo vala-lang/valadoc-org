@@ -143,6 +143,9 @@ div.site_navigation {
 	text-align: left;
 }
 
+.site_content td img {
+	width: 16px;
+}
 
 .main_type {
 	text-decoration: none;
@@ -481,7 +484,7 @@ h3.main_title {
 	list-style-image: url(/images/signal.png);
 }
 .navi_package, .main_inline_navigation_package {
-	list-style-image: url(/images/package.png);
+	list-style-image: url(/images/package.svg);
 }
 
 .main_inline_navigation_constant, .navi_constant {

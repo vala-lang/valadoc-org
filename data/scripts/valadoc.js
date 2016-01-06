@@ -47,13 +47,8 @@ var navi_data = null
 var content_data = null
 var RESULTS_BULK = 20
 
-function close_spinner () {
-  $("body > img[src='/images/pinner.gif']").remove()
-}
-
 function check_loaded (path) {
   if (navi_data !== null && content_data !== null) {
-    close_spinner()
 
     $('#navigation-content').html(navi_data)
     var new_navi_content = $('#navigation-content').text()
@@ -110,11 +105,6 @@ function load_content (href) {
   }
 
   abort_loading()
-  $('#content-wrapper').spinner({
-    position: 'center',
-    width: 16,
-    height: 16
-  })
   replace_navigation(href + '.navi.tpl')
   replace_content(href + '.content.tpl')
 }
@@ -174,7 +164,6 @@ $(document).ready(function () {
     }
     abort_loading()
     close_tooltips()
-    close_spinner()
     var page = window.location.hash.split('=')[1]
     $(this).html('Error ' + xhr.status + ': <strong>' + xhr.statusText + '</strong>. When loading <em>' + page + '</em>.<br>' +
       "<a href='/#!wiki=index'>Click here to go to the homepage</a>")
@@ -360,7 +349,6 @@ $(document).ready(function () {
       }
       var numresults = sr.children().length
       var curpkg = hash_to_url(window.location.hash).split('/')[0]
-      sr.append("<li class='search-more'><center><img src='/images/spinner.gif'></center></li>")
       scrollxhr = $.post('/search.php', { query: value, curpkg: curpkg, offset: numresults }, function (data) {
         scrollxhr = null
         $('.search-more').remove()

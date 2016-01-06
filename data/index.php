@@ -84,7 +84,6 @@ function get_title () {
         <?php @readfile ($_GET['page'] . '.content.tpl'); ?>
         </noscript>
       </div>
-
       <div id="comments" style="margin: 10px;" />
 
       <div class="site_footer">
@@ -93,7 +92,6 @@ function get_title () {
     </div>
   <script type="text/javascript" src="/scripts/jquery.min.js"></script>
   <script type="text/javascript" src="/scripts/jquery.ba-hashchange.min.js"></script>
-  <script type="text/javascript" src="/scripts/jquery.spinner.js"></script>
   <script type="text/javascript" src="/scripts/wtooltip.js"></script>
   <script type="text/javascript" src="/scripts/valadoc.js"></script>
   <script type="text/javascript">

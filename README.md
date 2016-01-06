@@ -35,7 +35,7 @@ Common Pitfalls
 ===============
 
 `Uncaught Error: Class 'mysqli' not found`
-- Uncomment `extension=mysqli.so` in your OS's php.ini (check `/etc/php.ini` or `/etc/php/php.ini` or `/etc/php5/cli/php.ini`)
+- Uncomment `extension=mysqli.so` in your OS's php.ini (`find /etc -name php.ini`)
 
 Other errors
 - Check `LOG` in the root of this repo for more information

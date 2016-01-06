@@ -51,7 +51,7 @@ function get_title () {
     <title><?php echo get_title (); ?></title>
     <meta name="fragment" content="!">
     <link href="/styles/main.css" rel="stylesheet" type="text/css">
-    <link rel="apple-touch-icon" href="devhelp.png" />
+    <link rel="apple-touch-icon" href="/images/devhelp.png" />
   </head>
   <body>
     <div id="navigation">
@@ -94,6 +94,7 @@ function get_title () {
   <script type="text/javascript" src="/scripts/jquery.ba-hashchange.min.js"></script>
   <script type="text/javascript" src="/scripts/wtooltip.js"></script>
   <script type="text/javascript" src="/scripts/valadoc.js"></script>
+  <script type="text/javascript" src="/scripts/main.js"></script>
   <script type="text/javascript">
   //if (document.location.hash != '') {
   load_link (hash_to_url (window.location.hash), window.location.hostname);

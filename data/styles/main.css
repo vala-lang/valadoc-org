@@ -21,6 +21,10 @@ h3 {
     font-weight: 300;
 }
 
+p {
+    font-size: 14px;
+}
+
 /***********
  * Nav Bar *
  ***********/
@@ -215,7 +219,7 @@ nav .subtitle {
 
 .navi_main .enumvalue,
 .navi_inline .enumvalue {
-    list-style-image: url(/images/enumvalue.png);
+    list-style-image: url(/images/enumvalue.svg);
 }
 
 .navi_main .abstract_class,
@@ -251,13 +255,13 @@ nav .subtitle {
 .navi_main .errordomain,
 .navi_inline .errordomain,
 .main_list_errdom {
-    list-style-image: url(/images/errordomain.png);
+    list-style-image: url(/images/errordomain.svg);
 }
 
 .navi_main .namespace,
 .navi_inline .namespace,
 .main_list_ns {
-    list-style-image: url(/images/namespace.png);
+    list-style-image: url(/images/namespace.svg);
 }
 
 .navi_main .method,
@@ -292,7 +296,7 @@ nav .subtitle {
 .navi_main .enum,
 .navi_inline .enum,
 .main_list_en {
-    list-style-image: url(/images/enum.png);
+    list-style-image: url(/images/enum.svg);
 }
 
 .navi_main .property,
@@ -421,7 +425,8 @@ nav .subtitle {
 }
 
 #content {
-    margin-left: 10px;
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
 .tooltip {
@@ -468,7 +473,6 @@ nav .subtitle {
 .main_type {
     text-decoration: none;
     font-style: italic;
-    color: #000;
 }
 
 .main_basic_type {
@@ -480,15 +484,15 @@ nav .subtitle {
 .main_keyword {
     text-decoration: none;
     font-weight: bold;
-    color: #a52a2a;
+    color: #dc322f;
 }
 
-div.main_code_definition {
-    background-color: #eeeeff;
-    border: 1px solid #aaaaff;
+.main_code_definition {
+    background-color: #eee;
+    border-radius: 6px;
     font-family: "Droid Sans Mono", monospace;
-    margin: 10px;
-    padding: 5px 10px;
+    margin: 12px;
+    padding: 12px;
 }
 
 span.leaf_code_definition {
@@ -550,7 +554,7 @@ a.abstract_class,
 
 .description a.namespace,
 .brief_description a.namespace {
-    background-image: url(/images/namespace.png);
+    background-image: url(/images/namespace.svg);
 }
 
 .description a.struct,
@@ -565,12 +569,12 @@ a.abstract_class,
 
 .description a.enum,
 .brief_description a.enum {
-    background-image: url(/images/enum.png);
+    background-image: url(/images/enum.svg);
 }
 
 .description a.errordomain,
 .brief_description a.errordomain {
-    background-image: url(/images/errordomain.png);
+    background-image: url(/images/errordomain.svg);
 }
 
 .description a.delegate,
@@ -590,7 +594,7 @@ a.abstract_class,
 
 .description a.enumvalue,
 .brief_description a.enumvalue {
-    background-image: url(/images/enumvalue.png);
+    background-image: url(/images/enumvalue.svg);
 }
 
 .description a.errorcode,

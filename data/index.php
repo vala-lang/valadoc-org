@@ -48,21 +48,23 @@ function get_title () {
 ?>
 <html>
   <head>
-    <title><?php echo get_title (); ?></title>
+    <meta charset="UTF-8">
     <meta name="fragment" content="!">
-    <link href="/styles/main.css" rel="stylesheet" type="text/css">
+    <title><?php echo get_title (); ?></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans:300,400|Droid+Serif:400|Droid+Sans:400,700|Droid+Sans+Mono">
+    <link rel="stylesheet" href="/styles/main.css" type="text/css">
     <link rel="apple-touch-icon" href="/images/devhelp.png" />
+    <link rel="shortcut icon" href="images/favicon.ico">
   </head>
   <body>
     <nav>
       <div id="search-box">
         <input id="search-field" type="text" placeholder="Search" autofocus="autofocus" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
       </div>
-      <div id="nav-links">
-        <div id="stayscrunchy">Stays crunchy ...</div>
-        <div id="eveninmilk">... even in milk.</div>
+      <span class="title"><a href="/index.htm">Valadoc</a></span>
+      <span class="subtitle">Stays crunchy, even in milk.</span>
+      <div id="links">
         <ul>
-          <li><a href="/index.htm">Home</a></li>
           <li><a href="https://wiki.gnome.org/Projects/Vala/Tutorial">Tutorial</a></li>
           <li><a href="templates/markup.htm">Markup</a></li>
           <li><a href="https://wiki.gnome.org/Projects/Vala">About Vala</a></li>
@@ -70,7 +72,7 @@ function get_title () {
         </ul>
       </div>
     </nav>
-    <div id="navigation">
+    <div id="sidebar">
       <ul id="search-results"></ul>
       <div id="navigation-content">
         <noscript>

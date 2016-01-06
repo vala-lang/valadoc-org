@@ -1,6 +1,7 @@
 html {
     font-family: "Open Sans", "Droid Sans", Helvetica, sans-serif;
     font-size: 12px;
+    font-weight: 400;
 }
 
 body {
@@ -14,83 +15,47 @@ a {
     text-decoration: none;
 }
 
-.main_optional_parameter {
-    font-style: italic;
+h2,
+h3 {
+    font-family: "Droid Serif", serif;
+    font-weight: 300;
 }
 
-.main_diagram {
-    border-style: none;
-    display: block;
-    margin: 0 auto;
-}
-
-.site_navi {
-    text-align: right;
-}
-
-.main_notification {
-    background-color: #eeeeff;
-    background-image: url(/images/warning.png);
-    background-position: 6px 0.5em;
-    background-repeat: no-repeat;
-    border: 1px solid #aaaaff;
-    margin: 10px;
-    min-height: 48px;
-    padding: 5px 10px 5px 60px;
-}
-
-.main_table {
-    border-collapse: collapse;
-    border: 1px solid #aaaaff;
-    background: #eeeeff;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.main_sourcesample {
-    background-color: #eeeeff;
-    border: 1px solid #aaaaff;
-    margin: 10px;
-    padding: 5px 10px 5px 5px;
-}
-
-.site_header {
-    padding-bottom: 10px;
-    padding-top: 10px;
-    background-color: #aaaaff;
-    width: 100%;
-}
-
-.space {
-    clear: both;
-    height: 10px;
-}
-
-#logo {
-    float: left;
-    margin-left: 17px;
-    display: none;
-}
-
-#logo img {
-    width: 203px;
-    height: 52px;
-}
+/***********
+ * Nav Bar *
+ ***********/
 
 nav {
     list-style-type: none;
-    background-color: #3a416f;
+    background-color: #403757;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12),
                 0 1px 2px rgba(0,0,0,0.24);
+    color: rgba(255,255,255,0.8);
     font-size: 14px;
-    padding: 12px 6px;
+    height: 56px;
+    line-height: 56px;
+    padding: 0 6px;
     position: relative;
 }
 
-#nav-links {
-    display: inline-block;
-    width: calc(100% - 245px);
-    text-align: center;
+nav a,
+nav a:visited,
+nav a:active {
+    border-radius: 4px;
+    color: rgba(255,255,255,0.9);
+    padding: 4px 8px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+nav li,
+nav span {
+    display: inline;
+    vertical-align: middle;
 }
 
 nav ul {
@@ -98,78 +63,21 @@ nav ul {
     margin: 0;
 }
 
-nav li {
+nav #links {
     display: inline;
-}
-
-nav a,
-nav a:visited,
-nav a:active {
-    border-radius: 4px;
-    color: #fff;
-    opacity: 0.8;
-    padding: 4px 8px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    background-color: rgba(255,255,255,0.2);
-    opacity: 1;
-}
-
-#content {
-    margin-left: 10px;
-}
-
-#eveninmilk,
-#stayscrunchy {
-    color: #fff;
-    opacity: 0.5;
-    font-style: italic;
-    float: left;
     position: absolute;
+    right: 0;
 }
 
-#stayscrunchy {
-    left: 255px;
+nav .title {
+    color: rgba(255,255,255,0.9);
+    font-family: "Lobster";
+    font-size: 36px;
+    padding: 0 3px;
 }
 
-#eveninmilk {
-    right: 20px;
-}
-
-.tooltip {
-    background-color: rgb(238,238,255);
-    border: 1px solid rgb(170,170,255);
-    opacity: 0.95;
-    z-index: 1000;
-    text-align: left;
-    padding: 0 4px 4px 4px;
-    max-width: 30em;
-}
-
-.tooltip * {
-    padding: 0;
-    margin: 0;
-}
-
-.tooltip p {
-    margin-top: 4px;
-}
-
-.highlight:hover {
-    background-color: rgb(238,238,255);
-}
-
-#navigation {
-    background-color: #fcfcfc;
-    border-right: 1px solid #f0f0f0;
-    display: inline-block;
-    width: 240px;
-}
-
-#navigation-content {
-    overflow: auto;
+nav .subtitle {
+    vertical-align: -webkit-baseline-middle;
 }
 
 #search-box {
@@ -204,6 +112,21 @@ nav a:hover {
 
 #search-field:focus ~ #search-field-clear {
     opacity: 0.75;
+}
+
+/***********
+ * Sidebar *
+ ***********/
+
+#sidebar {
+    background-color: #fcfcfc;
+    border-right: 1px solid #dedede;
+    display: inline-block;
+    width: 240px;
+}
+
+#navigation-content {
+    overflow: auto;
 }
 
 #search-results {
@@ -273,15 +196,6 @@ nav a:hover {
     color: #eeeeec !important;
 }
 
-.site_title {
-    text-align: left;
-}
-
-.site_footer {
-    height: 15px;
-    clear: left;
-}
-
 .site_navigation {
     width: 100%;
 }
@@ -292,6 +206,254 @@ nav a:hover {
     border-bottom: 1px solid #fff;
     height: 1px;
     margin: 6px 0;
+}
+
+.navi_main .errorcode,
+.navi_inline .errorcode {
+    list-style-image: url(/images/errorcode.png);
+}
+
+.navi_main .enumvalue,
+.navi_inline .enumvalue {
+    list-style-image: url(/images/enumvalue.png);
+}
+
+.navi_main .abstract_class,
+.navi_inline .abstract_class {
+    list-style-image: url(/images/abstractclass.png);
+}
+
+.navi_main .abstract_method,
+.navi_inline .abstract_method {
+    list-style-image: url(/images/abstractmethod.png);
+}
+
+.navi_main .creation_method,
+.navi_inline .creation_method,
+.main_list_m {
+    list-style-image: url(/images/constructor.png);
+}
+
+.navi_main .static_method,
+.navi_inline .static_method {
+    list-style-image: url(/images/staticmethod.png);
+}
+
+.navi_main .package_index {
+    list-style-image: url(/images/packages.svg);
+}
+
+.navi_main .virtual_method,
+.navi_inline .virtual_method {
+    list-style-image: url(/images/virtualmethod.png);
+}
+
+.navi_main .errordomain,
+.navi_inline .errordomain,
+.main_list_errdom {
+    list-style-image: url(/images/errordomain.png);
+}
+
+.navi_main .namespace,
+.navi_inline .namespace,
+.main_list_ns {
+    list-style-image: url(/images/namespace.png);
+}
+
+.navi_main .method,
+.navi_inline .method {
+    list-style-image: url(/images/method.png);
+}
+
+.navi_main .struct,
+.navi_inline .struct,
+.main_list_stru {
+    list-style-image: url(/images/struct.png);
+}
+
+.navi_main .interface,
+.navi_inline .interface,
+.main_list_iface {
+    list-style-image: url(/images/interface.png);
+}
+
+.navi_main .field,
+.navi_inline .field,
+.main_list_field {
+    list-style-image: url(/images/field.png);
+}
+
+.navi_main .class,
+.navi_inline .class,
+.main_list_cl {
+    list-style-image: url(/images/class.png);
+}
+
+.navi_main .enum,
+.navi_inline .enum,
+.main_list_en {
+    list-style-image: url(/images/enum.png);
+}
+
+.navi_main .property,
+.navi_inline .property,
+.main_list_prop {
+    list-style-image: url(/images/property.png);
+}
+
+.navi_main .abstract_property,
+.navi_inline .abstract_property {
+    list-style-image: url(/images/abstractproperty.png);
+}
+
+.navi_main .virtual_property,
+.navi_inline .virtual_property {
+    list-style-image: url(/images/virtualproperty.png);
+}
+
+.navi_main .delegate,
+.navi_inline .delegate,
+.main_list_del {
+    list-style-image: url(/images/delegate.png);
+}
+
+.navi_main .signal,
+.navi_inline .signal,
+.main_list_sig {
+    list-style-image: url(/images/signal.png);
+}
+
+.navi_main .package,
+.navi_inline .package {
+    list-style-image: url(/images/package.svg);
+}
+
+.navi_main .constant,
+.navi_inline .constant {
+    list-style-image: url(/images/constant.png);
+}
+
+.navi_main {
+    font-size: 12px;
+    line-height: 16px;
+    margin: 12px 3px;
+    padding-left: 30px;
+}
+
+.navi_main a,
+.navi_inline a,
+.external_link {
+    color: #666;
+    text-decoration: none;
+    padding-right: 6px;
+}
+
+.navi_main a {
+    vertical-align: top;
+}
+
+.navi_main .abstract_class > a,
+.navi_inline .abstract_class > a {
+    font-style: italic;
+}
+
+.main_optional_parameter {
+    font-style: italic;
+}
+
+.main_diagram {
+    border-style: none;
+    display: block;
+    margin: 0 auto;
+}
+
+.site_navi {
+    text-align: right;
+}
+
+.main_notification {
+    background-color: #eeeeff;
+    background-image: url(/images/warning.png);
+    background-position: 6px 0.5em;
+    background-repeat: no-repeat;
+    border: 1px solid #aaaaff;
+    margin: 10px;
+    min-height: 48px;
+    padding: 5px 10px 5px 60px;
+}
+
+.main_table {
+    border-collapse: collapse;
+    border: 1px solid #aaaaff;
+    background: #eeeeff;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main_sourcesample {
+    background-color: #eeeeff;
+    border: 1px solid #aaaaff;
+    margin: 10px;
+    padding: 5px 10px 5px 5px;
+}
+
+.site_header {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #aaaaff;
+    width: 100%;
+}
+
+.space {
+    clear: both;
+    height: 10px;
+}
+
+#logo {
+    float: left;
+    margin-left: 17px;
+    display: none;
+}
+
+#logo img {
+    width: 203px;
+    height: 52px;
+}
+
+#content {
+    margin-left: 10px;
+}
+
+.tooltip {
+    background-color: rgb(238,238,255);
+    border: 1px solid rgb(170,170,255);
+    opacity: 0.95;
+    z-index: 1000;
+    text-align: left;
+    padding: 0 4px 4px 4px;
+    max-width: 30em;
+}
+
+.tooltip * {
+    padding: 0;
+    margin: 0;
+}
+
+.tooltip p {
+    margin-top: 4px;
+}
+
+.highlight:hover {
+    background-color: rgb(238,238,255);
+}
+
+.site_title {
+    text-align: left;
+}
+
+.site_footer {
+    height: 15px;
+    clear: left;
 }
 
 #content-wrapper {
@@ -324,13 +486,13 @@ nav a:hover {
 div.main_code_definition {
     background-color: #eeeeff;
     border: 1px solid #aaaaff;
-    font-family: monospace;
+    font-family: "Droid Sans Mono", monospace;
     margin: 10px;
     padding: 5px 10px;
 }
 
 span.leaf_code_definition {
-    font-family: monospace;
+    font-family: "Droid Sans Mono", monospace;
 }
 
 div.leaf_brief_description {
@@ -338,9 +500,7 @@ div.leaf_brief_description {
     margin-left: 40px;
 }
 
-h1.main_title,
-h2.main_title,
-h3.main_title {
+.main_title {
     margin-bottom: 0;
 }
 
@@ -491,160 +651,6 @@ a.virtual_method,
     background-image: url(/images/constructor.png);
 }
 
-.navi_main .errorcode,
-.navi_inline .errorcode {
-    list-style-image: url(/images/errorcode.png);
-}
-
-.navi_main .enumvalue,
-.navi_inline .enumvalue {
-    list-style-image: url(/images/enumvalue.png);
-}
-
-.navi_main .abstract_class,
-.navi_inline .abstract_class {
-    list-style-image: url(/images/abstractclass.png);
-}
-
-.navi_main .abstract_method,
-.navi_inline .abstract_method {
-    list-style-image: url(/images/abstractmethod.png);
-}
-
-.navi_main .creation_method,
-.navi_inline .creation_method,
-.main_list_m {
-    list-style-image: url(/images/constructor.png);
-}
-
-.navi_main .static_method,
-.navi_inline .static_method {
-    list-style-image: url(/images/staticmethod.png);
-}
-
-.navi_main .package_index {
-    list-style-image: url(/images/packages.svg);
-}
-
-.navi_main .virtual_method,
-.navi_inline .virtual_method {
-    list-style-image: url(/images/virtualmethod.png);
-}
-
-.navi_main .errordomain,
-.navi_inline .errordomain,
-.main_list_errdom {
-    list-style-image: url(/images/errordomain.png);
-}
-
-.navi_main .namespace,
-.navi_inline .namespace,
-.main_list_ns {
-    list-style-image: url(/images/namespace.png);
-}
-
-.navi_main .method,
-.navi_inline .method {
-    list-style-image: url(/images/method.png);
-}
-
-.navi_main .struct,
-.navi_inline .struct,
-.main_list_stru {
-    list-style-image: url(/images/struct.png);
-}
-
-.navi_main .interface,
-.navi_inline .interface,
-.main_list_iface {
-    list-style-image: url(/images/interface.png);
-}
-
-.navi_main .field,
-.navi_inline .field,
-.main_list_field {
-    list-style-image: url(/images/field.png);
-}
-
-.navi_main .class,
-.navi_inline .class,
-.main_list_cl {
-    list-style-image: url(/images/class.png);
-}
-
-.navi_main .enum,
-.navi_inline .enum,
-.main_list_en {
-    list-style-image: url(/images/enum.png);
-}
-
-.navi_main .property,
-.navi_inline .property,
-.main_list_prop {
-    list-style-image: url(/images/property.png);
-}
-
-.navi_main .abstract_property,
-.navi_inline .abstract_property {
-    list-style-image: url(/images/abstractproperty.png);
-}
-
-.navi_main .virtual_property,
-.navi_inline .virtual_property {
-    list-style-image: url(/images/virtualproperty.png);
-}
-
-.navi_main .delegate,
-.navi_inline .delegate,
-.main_list_del {
-    list-style-image: url(/images/delegate.png);
-}
-
-.navi_main .signal,
-.navi_inline .signal,
-.main_list_sig {
-    list-style-image: url(/images/signal.png);
-}
-
-.navi_main .package,
-.navi_inline .package {
-    list-style-image: url(/images/package.svg);
-}
-
-.navi_main .constant,
-.navi_inline .constant {
-    list-style-image: url(/images/constant.png);
-}
-
-.navi_main {
-    font-size: 12px;
-    line-height: 16px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-left: 30px;
-}
-
-.navi_main:first-of-type {
-    padding-top: 4px;
-}
-
-.navi_main a,
-.navi_inline a,
-.external_link {
-    color: #666;
-    text-decoration: none;
-    padding-right: 6px;
-}
-
-.navi_main a {
-    vertical-align: top;
-}
-
-.navi_main .abstract_class > a,
-.navi_inline .abstract_class > a {
-    font-style: italic;
-}
-
 .navi_link:hover,
 .external_link:hover {
     text-decoration: underline;
@@ -655,12 +661,12 @@ a.virtual_method,
 }
 
 .css_content_literal {
-    font-family: monospace;
+    font-family: "Droid Sans Mono", monospace;
     color: #ff01ff;
 }
 
 code {
-    font-family: monospace;
+    font-family: "Droid Sans Mono", monospace;
 }
 
 .main_code_definition a,

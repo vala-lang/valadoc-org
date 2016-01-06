@@ -1,6 +1,7 @@
 html {
     font-family: "Open Sans", "Droid Sans", Helvetica, sans-serif;
     font-size: 12px;
+    font-weight: 400;
 }
 
 body {
@@ -14,83 +15,47 @@ a {
     text-decoration: none;
 }
 
-.main_optional_parameter {
-    font-style: italic;
+h2,
+h3 {
+    font-family: "Droid Serif", serif;
+    font-weight: 300;
 }
 
-.main_diagram {
-    border-style: none;
-    display: block;
-    margin: 0 auto;
-}
-
-.site_navi {
-    text-align: right;
-}
-
-.main_notification {
-    background-color: #eeeeff;
-    background-image: url(/images/warning.png);
-    background-position: 6px 0.5em;
-    background-repeat: no-repeat;
-    border: 1px solid #aaaaff;
-    margin: 10px;
-    min-height: 48px;
-    padding: 5px 10px 5px 60px;
-}
-
-.main_table {
-    border-collapse: collapse;
-    border: 1px solid #aaaaff;
-    background: #eeeeff;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.main_sourcesample {
-    background-color: #eeeeff;
-    border: 1px solid #aaaaff;
-    margin: 10px;
-    padding: 5px 10px 5px 5px;
-}
-
-.site_header {
-    padding-bottom: 10px;
-    padding-top: 10px;
-    background-color: #aaaaff;
-    width: 100%;
-}
-
-.space {
-    clear: both;
-    height: 10px;
-}
-
-#logo {
-    float: left;
-    margin-left: 17px;
-    display: none;
-}
-
-#logo img {
-    width: 203px;
-    height: 52px;
-}
+/***********
+ * Nav Bar *
+ ***********/
 
 nav {
     list-style-type: none;
-    background-color: #3a416f;
+    background-color: #403757;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12),
                 0 1px 2px rgba(0,0,0,0.24);
+    color: rgba(255,255,255,0.8);
     font-size: 14px;
-    padding: 12px 6px;
+    height: 56px;
+    line-height: 56px;
+    padding: 0 6px;
     position: relative;
 }
 
-#nav-links {
-    display: inline-block;
-    width: calc(100% - 245px);
-    text-align: center;
+nav a,
+nav a:visited,
+nav a:active {
+    border-radius: 4px;
+    color: rgba(255,255,255,0.9);
+    padding: 4px 8px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+nav li,
+nav span {
+    display: inline;
+    vertical-align: middle;
 }
 
 nav ul {
@@ -98,72 +63,30 @@ nav ul {
     margin: 0;
 }
 
-nav li {
+nav #links {
     display: inline;
-}
-
-nav a,
-nav a:visited,
-nav a:active {
-    border-radius: 4px;
-    color: #fff;
-    opacity: 0.8;
-    padding: 4px 8px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    background-color: rgba(255,255,255,0.2);
-    opacity: 1;
-}
-
-#content {
-    margin-left: 10px;
-}
-
-#eveninmilk,
-#stayscrunchy {
-    color: #fff;
-    opacity: 0.5;
-    font-style: italic;
-    float: left;
     position: absolute;
+    right: 0;
 }
 
-#stayscrunchy {
-    left: 255px;
+nav .title {
+    color: rgba(255,255,255,0.9);
+    font-family: "Lobster";
+    font-size: 32px;
+    padding: 0 6px;
 }
 
-#eveninmilk {
-    right: 20px;
+nav .subtitle {
+    vertical-align: -webkit-baseline-middle;
 }
 
-.tooltip {
-    background-color: rgb(238,238,255);
-    border: 1px solid rgb(170,170,255);
-    opacity: 0.95;
-    z-index: 1000;
-    text-align: left;
-    padding: 0 4px 4px 4px;
-    max-width: 30em;
-}
-
-.tooltip * {
-    padding: 0;
-    margin: 0;
-}
-
-.tooltip p {
-    margin-top: 4px;
-}
-
-.highlight:hover {
-    background-color: rgb(238,238,255);
-}
+/***********
+ * Sidebar *
+ ***********/
 
 #navigation {
     background-color: #fcfcfc;
-    border-right: 1px solid #f0f0f0;
+    border-right: 1px solid #dedede;
     display: inline-block;
     width: 240px;
 }
@@ -273,15 +196,6 @@ nav a:hover {
     color: #eeeeec !important;
 }
 
-.site_title {
-    text-align: left;
-}
-
-.site_footer {
-    height: 15px;
-    clear: left;
-}
-
 .site_navigation {
     width: 100%;
 }
@@ -292,203 +206,6 @@ nav a:hover {
     border-bottom: 1px solid #fff;
     height: 1px;
     margin: 6px 0;
-}
-
-#content-wrapper {
-    display: inline-block;
-    overflow: auto;
-    overflow-y: scroll;
-    text-align: left;
-    vertical-align: top;
-    width: calc(100% - 245px);
-}
-
-.main_type {
-    text-decoration: none;
-    font-style: italic;
-    color: #000;
-}
-
-.main_basic_type {
-    text-decoration: none;
-    font-weight: bold;
-    color: #2e8b57;
-}
-
-.main_keyword {
-    text-decoration: none;
-    font-weight: bold;
-    color: #a52a2a;
-}
-
-div.main_code_definition {
-    background-color: #eeeeff;
-    border: 1px solid #aaaaff;
-    font-family: monospace;
-    margin: 10px;
-    padding: 5px 10px;
-}
-
-span.leaf_code_definition {
-    font-family: monospace;
-}
-
-div.leaf_brief_description {
-    display: block;
-    margin-left: 40px;
-}
-
-h1.main_title,
-h2.main_title,
-h3.main_title {
-    margin-bottom: 0;
-}
-
-.main_hr {
-    border: 0;
-    color: #aaaaff;
-    background-color: #aaaaff;
-    height: 1px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.main_parameter_table_name,
-.main_errordomain_table_name,
-.main_enum_table_name {
-    vertical-align: top;
-    text-align: right;
-    font-weight: bold;
-    width: 120px;
-    padding-right: 10px;
-}
-
-.main_parameter_table,
-.main_errordomain_table,
-.main_enum_table {
-    margin-left: 20px;
-}
-
-.main_parameter_table_unknown_parameter {
-    color: gray;
-}
-
-a.abstract_class,
-.brief_description a,
-.description a {
-    display: inline-block;
-    padding-right: 17px;
-    background-repeat: no-repeat;
-    background-position: center right;
-    border: 0;
-}
-
-.description a.constant,
-.brief_description a.constant {
-    background-image: url(/images/constant.png);
-}
-
-.description a.namespace,
-.brief_description a.namespace {
-    background-image: url(/images/namespace.png);
-}
-
-.description a.struct,
-.brief_description a.struct {
-    background-image: url(/images/struct.png);
-}
-
-.description a.interface,
-.brief_description a.interface {
-    background-image: url(/images/interface.png);
-}
-
-.description a.enum,
-.brief_description a.enum {
-    background-image: url(/images/enum.png);
-}
-
-.description a.errordomain,
-.brief_description a.errordomain {
-    background-image: url(/images/errordomain.png);
-}
-
-.description a.delegate,
-.brief_description a.delegate {
-    background-image: url(/images/delegate.png);
-}
-
-.description a.signal,
-.brief_description a.signal {
-    background-image: url(/images/signal.png);
-}
-
-.description a.field,
-.brief_description a.field {
-    background-image: url(/images/field.png);
-}
-
-.description a.enumvalue,
-.brief_description a.enumvalue {
-    background-image: url(/images/enumvalue.png);
-}
-
-.description a.errorcode,
-.brief_description a.errorcode {
-    background-image: url(/images/errorcode.png);
-}
-
-.description a.class,
-.brief_description a.class {
-    background-image: url(/images/class.png);
-}
-
-a.abstract_class,
-.description a.abstract_class,
-.brief_description a.abstract_class {
-    background-image: url(/images/abstractclass.png);
-    font-style: italic;
-}
-
-.description a.property,
-.brief_description a.property {
-    background-image: url(/images/property.png);
-}
-
-.description a.virtual_property,
-.brief_description a.virtual_property {
-    background-image: url(/images/virtualproperty.png);
-}
-
-.description a.abstract_property,
-.brief_description a.abstract_property {
-    background-image: url(/images/abstractproperty.png);
-}
-
-.description a.method,
-.brief_description a.method {
-    background-image: url(/images/method.png);
-}
-
-.description a.static_method,
-.brief_description a.static_method {
-    background-image: url(/images/staticmethod.png);
-}
-
-a.virtual_method,
-.description a.virtual_method,
-.brief_description a.virtual_method {
-    background-image: url(/images/virtualmethod.png);
-}
-
-.description a.abstract_method,
-.brief_description a.abstract_method {
-    background-image: url(/images/abstractmethod.png);
-}
-
-.description a.creation_method,
-.brief_description a.creation_method {
-    background-image: url(/images/constructor.png);
 }
 
 .navi_main .errorcode,
@@ -645,6 +362,300 @@ a.virtual_method,
     font-style: italic;
 }
 
+.main_optional_parameter {
+    font-style: italic;
+}
+
+.main_diagram {
+    border-style: none;
+    display: block;
+    margin: 0 auto;
+}
+
+.site_navi {
+    text-align: right;
+}
+
+.main_notification {
+    background-color: #eeeeff;
+    background-image: url(/images/warning.png);
+    background-position: 6px 0.5em;
+    background-repeat: no-repeat;
+    border: 1px solid #aaaaff;
+    margin: 10px;
+    min-height: 48px;
+    padding: 5px 10px 5px 60px;
+}
+
+.main_table {
+    border-collapse: collapse;
+    border: 1px solid #aaaaff;
+    background: #eeeeff;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main_sourcesample {
+    background-color: #eeeeff;
+    border: 1px solid #aaaaff;
+    margin: 10px;
+    padding: 5px 10px 5px 5px;
+}
+
+.site_header {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #aaaaff;
+    width: 100%;
+}
+
+.space {
+    clear: both;
+    height: 10px;
+}
+
+#logo {
+    float: left;
+    margin-left: 17px;
+    display: none;
+}
+
+#logo img {
+    width: 203px;
+    height: 52px;
+}
+
+#content {
+    margin-left: 10px;
+}
+
+.tooltip {
+    background-color: rgb(238,238,255);
+    border: 1px solid rgb(170,170,255);
+    opacity: 0.95;
+    z-index: 1000;
+    text-align: left;
+    padding: 0 4px 4px 4px;
+    max-width: 30em;
+}
+
+.tooltip * {
+    padding: 0;
+    margin: 0;
+}
+
+.tooltip p {
+    margin-top: 4px;
+}
+
+.highlight:hover {
+    background-color: rgb(238,238,255);
+}
+
+.site_title {
+    text-align: left;
+}
+
+.site_footer {
+    height: 15px;
+    clear: left;
+}
+
+#content-wrapper {
+    display: inline-block;
+    overflow: auto;
+    overflow-y: scroll;
+    text-align: left;
+    vertical-align: top;
+    width: calc(100% - 245px);
+}
+
+.main_type {
+    text-decoration: none;
+    font-style: italic;
+    color: #000;
+}
+
+.main_basic_type {
+    text-decoration: none;
+    font-weight: bold;
+    color: #2e8b57;
+}
+
+.main_keyword {
+    text-decoration: none;
+    font-weight: bold;
+    color: #a52a2a;
+}
+
+div.main_code_definition {
+    background-color: #eeeeff;
+    border: 1px solid #aaaaff;
+    font-family: "Droid Sans Mono", monospace;
+    margin: 10px;
+    padding: 5px 10px;
+}
+
+span.leaf_code_definition {
+    font-family: "Droid Sans Mono", monospace;
+}
+
+div.leaf_brief_description {
+    display: block;
+    margin-left: 40px;
+}
+
+.main_title {
+    margin-bottom: 0;
+}
+
+.main_hr {
+    border: 0;
+    color: #aaaaff;
+    background-color: #aaaaff;
+    height: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.main_parameter_table_name,
+.main_errordomain_table_name,
+.main_enum_table_name {
+    vertical-align: top;
+    text-align: right;
+    font-weight: bold;
+    width: 120px;
+    padding-right: 10px;
+}
+
+.main_parameter_table,
+.main_errordomain_table,
+.main_enum_table {
+    margin-left: 20px;
+}
+
+.main_parameter_table_unknown_parameter {
+    color: gray;
+}
+
+a.abstract_class,
+.brief_description a,
+.description a {
+    display: inline-block;
+    padding-right: 17px;
+    background-repeat: no-repeat;
+    background-position: center right;
+    border: 0;
+}
+
+.description a.constant,
+.brief_description a.constant {
+    background-image: url(/images/constant.png);
+}
+
+.description a.namespace,
+.brief_description a.namespace {
+    background-image: url(/images/namespace.png);
+}
+
+.description a.struct,
+.brief_description a.struct {
+    background-image: url(/images/struct.png);
+}
+
+.description a.interface,
+.brief_description a.interface {
+    background-image: url(/images/interface.png);
+}
+
+.description a.enum,
+.brief_description a.enum {
+    background-image: url(/images/enum.png);
+}
+
+.description a.errordomain,
+.brief_description a.errordomain {
+    background-image: url(/images/errordomain.png);
+}
+
+.description a.delegate,
+.brief_description a.delegate {
+    background-image: url(/images/delegate.png);
+}
+
+.description a.signal,
+.brief_description a.signal {
+    background-image: url(/images/signal.png);
+}
+
+.description a.field,
+.brief_description a.field {
+    background-image: url(/images/field.png);
+}
+
+.description a.enumvalue,
+.brief_description a.enumvalue {
+    background-image: url(/images/enumvalue.png);
+}
+
+.description a.errorcode,
+.brief_description a.errorcode {
+    background-image: url(/images/errorcode.png);
+}
+
+.description a.class,
+.brief_description a.class {
+    background-image: url(/images/class.png);
+}
+
+a.abstract_class,
+.description a.abstract_class,
+.brief_description a.abstract_class {
+    background-image: url(/images/abstractclass.png);
+    font-style: italic;
+}
+
+.description a.property,
+.brief_description a.property {
+    background-image: url(/images/property.png);
+}
+
+.description a.virtual_property,
+.brief_description a.virtual_property {
+    background-image: url(/images/virtualproperty.png);
+}
+
+.description a.abstract_property,
+.brief_description a.abstract_property {
+    background-image: url(/images/abstractproperty.png);
+}
+
+.description a.method,
+.brief_description a.method {
+    background-image: url(/images/method.png);
+}
+
+.description a.static_method,
+.brief_description a.static_method {
+    background-image: url(/images/staticmethod.png);
+}
+
+a.virtual_method,
+.description a.virtual_method,
+.brief_description a.virtual_method {
+    background-image: url(/images/virtualmethod.png);
+}
+
+.description a.abstract_method,
+.brief_description a.abstract_method {
+    background-image: url(/images/abstractmethod.png);
+}
+
+.description a.creation_method,
+.brief_description a.creation_method {
+    background-image: url(/images/constructor.png);
+}
+
 .navi_link:hover,
 .external_link:hover {
     text-decoration: underline;
@@ -655,12 +666,12 @@ a.virtual_method,
 }
 
 .css_content_literal {
-    font-family: monospace;
+    font-family: "Droid Sans Mono", monospace;
     color: #ff01ff;
 }
 
 code {
-    font-family: monospace;
+    font-family: "Droid Sans Mono", monospace;
 }
 
 .main_code_definition a,

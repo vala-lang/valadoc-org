@@ -246,6 +246,7 @@ nav .subtitle {
     height: 16px;
     width: 16px;
     margin-right: 6px;
+    vertical-align: middle;
 }
 
 .navi_main .abstract_class > a,

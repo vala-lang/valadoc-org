@@ -566,7 +566,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			//string maintainers = pkg.maintainers ?? "-";
 			writer.start_tag ("tr");
 			writer.start_tag ("td").end_tag ("td"); // space
-			writer.start_tag ("td").simple_tag ("img", {"src", "/images/package.png"}).end_tag ("td");
+			writer.start_tag ("td").simple_tag ("img", {"src", "/images/package.svg"}).end_tag ("td");
 
 			writer.start_tag ("td");
 			if (pkg.is_deprecated) {

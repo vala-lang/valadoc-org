@@ -231,7 +231,7 @@ $(document).ready(function () {
   var scrollxhr = null
   var max_results_reached = false
 
-  $('#search-box').show()
+  $('#search-box').css('display', 'inline-block');
   $('#search-field').bind('keydown change paste cut', function (e) {
     if (curtimeout !== null) {
       clearTimeout(curtimeout)

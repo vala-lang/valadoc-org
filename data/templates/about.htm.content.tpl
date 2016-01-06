@@ -10,7 +10,7 @@
 	<p>The top bar is stolen from <a href="http://www.gnome.org">gnome.org</a></p>
 
 	<h2>Source:</h2>
-	<p><a href="https://gitorious.org/valadoc-org/valadoc-org">https://gitorious.org/valadoc-org/valadoc-org</a></p>
+	<p><a href="https://github.com/flobrosch/valadoc-org">https://github.com/flobrosch/valadoc-org</a></p>
 
 	<h2>Contact:</h2>
 	<p>valadoc.org is maintained by Florian Brosch.</p>

@@ -10,7 +10,8 @@ body {
 }
 
 a {
-    color: #7633DB;
+    color: #08c;
+    text-decoration: none;
 }
 
 .main_optional_parameter {
@@ -283,6 +284,14 @@ nav a:hover {
 
 .site_navigation {
     width: 100%;
+}
+
+.site_navigation hr {
+    background-color: #dedede;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    height: 1px;
+    margin: 6px 0;
 }
 
 #content-wrapper {
@@ -619,21 +628,16 @@ a.virtual_method,
     padding-top: 4px;
 }
 
-.navi_hr {
-    background-color: #dedede;
-    border: 0;
-    border-bottom: 1px solid #fff;
-    height: 1px;
-    margin: 6px 0;
-}
-
 .navi_main a,
 .navi_inline a,
 .external_link {
     color: #666;
     text-decoration: none;
     padding-right: 6px;
-    vertical-align: top
+}
+
+.navi_main a {
+    vertical-align: top;
 }
 
 .navi_main .abstract_class > a,

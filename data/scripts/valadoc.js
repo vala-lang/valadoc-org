@@ -332,8 +332,8 @@ $(document).ready (function () {
     $(window).resize (function () {
 	var winh = $(window).height ();
 	$("#content-wrapper").height(winh - content_top);
-	$("#search-results").height(winh - nav_top);
-	$("#navigation-content").height(winh - nav_top);
+	$("#search-results").height(winh - content_top);
+	$("#navigation-content").height(winh - content_top);
     }).trigger ("resize");
 
     $("#search-field").focus (function () {

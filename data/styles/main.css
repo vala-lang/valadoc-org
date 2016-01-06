@@ -615,6 +615,10 @@ a.virtual_method,
     padding-left: 30px;
 }
 
+.navi_main:first-of-type {
+    padding-top: 4px;
+}
+
 .navi_hr {
     background-color: #dedede;
     border: 0;

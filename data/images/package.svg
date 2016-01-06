@@ -5,34 +5,10 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="16.036167"
-   version="1.1"
-   id="svg7384"
    height="16"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="package.svg">
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="704"
-     inkscape:window-height="480"
-     id="namedview27"
-     showgrid="false"
-     inkscape:zoom="14.75"
-     inkscape:cx="-1.1683571"
-     inkscape:cy="8"
-     inkscape:window-x="0"
-     inkscape:window-y="30"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="svg7384" />
+   id="svg7384"
+   version="1.1"
+   width="16.036167">
   <metadata
      id="metadata90">
     <rdf:RDF>
@@ -48,88 +24,63 @@
   <title
      id="title9167">elementary Symbolic Icon Theme</title>
   <defs
-     id="defs7386">
-    <filter
-       id="filter7554"
-       color-interpolation-filters="sRGB">
-      <feBlend
-         mode="darken"
-         in2="BackgroundImage"
-         id="feBlend7556" />
-    </filter>
-    <filter
-       id="filter7554-7"
-       color-interpolation-filters="sRGB">
-      <feBlend
-         mode="darken"
-         in2="BackgroundImage"
-         id="feBlend7556-6" />
-    </filter>
-    <filter
-       color-interpolation-filters="sRGB"
-       id="filter7554-3">
-      <feBlend
-         id="feBlend7556-5"
-         in2="BackgroundImage"
-         mode="darken" />
-    </filter>
-  </defs>
+     id="defs7386" />
   <g
-     transform="translate(-433.00039,12)"
-     style="display:inline"
+     id="layer9"
      label="status"
-     id="layer9" />
-  <g
-     transform="translate(-433.00039,12)"
      style="display:inline"
-     id="layer10" />
+     transform="translate(-433.00039,12)" />
   <g
-     transform="translate(-433.00039,12)"
+     id="layer10"
      style="display:inline"
-     id="layer13" />
+     transform="translate(-433.00039,12)" />
   <g
-     transform="translate(-433.00039,12)"
-     id="layer14" />
-  <g
-     transform="translate(-433.00039,12)"
+     id="layer13"
      style="display:inline"
-     id="layer15" />
+     transform="translate(-433.00039,12)" />
   <g
-     transform="translate(-433.00039,12)"
+     id="layer14"
+     transform="translate(-433.00039,12)" />
+  <g
+     id="layer15"
      style="display:inline"
-     id="g71291" />
+     transform="translate(-433.00039,12)" />
+  <g
+     id="g71291"
+     style="display:inline"
+     transform="translate(-433.00039,12)" />
   <path
-     id="rect4170-91"
+     style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#403757;fill-opacity:1;stroke:none;stroke-width:1;marker:none;enable-background:accumulate;clip-rule:nonzero;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill-rule:nonzero;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter-blend-mode:normal;filter-gaussianBlur-deviation:0;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto"
      d="m 1.78125,0.99804688 c -0.40685,0 -0.75,0.34315002 -0.75,0.75000002 l 0,0.21875 -0.25,0 c -0.40685,0 -0.75,0.34315 -0.75,0.75 L 0,14.466797 c 3e-5,0.26179 0.23821,0.49997 0.5,0.5 1.52148,0 9.70378,0.04885 14.96875,0.03125 0.011,-4e-5 0.02035,4e-5 0.03125,0 10e-4,-7.7e-4 -0.002,-0.03015 0,-0.03125 0.0612,-0.035 0.40613,-0.21854 0.40625,-0.21875 1.3e-4,-2.3e-4 0.056,-0.10297 0.0625,-0.125 0.013,-0.0441 -0.002,-0.0489 0,-0.0625 0.004,-0.0272 0.03035,-0.0494 0.03125,-0.0625 0.002,-0.0261 -10e-4,-0.0323 0,-0.0625 0.002,-0.0604 -0.002,-0.14682 0,-0.25 L 16.03125,2.7167969 c 0,-0.40685 -0.34315,-0.75 -0.75,-0.75 l -6.25,0 0,-0.21875 c 0,-0.40685 -0.34315,-0.75000002 -0.75,-0.75000002 z m 0.25,1.00000002 6,0 0,0.46875 0,0.5 0.5,0 6.5,0 0,2.0332031 -14,0 0,-2.0332031 0.5,0 0.5,0 0,-0.5 z"
-     style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#403757;fill-opacity:1;stroke:none;stroke-width:1;marker:none;enable-background:accumulate;clip-rule:nonzero;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill-rule:nonzero;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter-blend-mode:normal;filter-gaussianBlur-deviation:0;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto" />
+     id="rect4170-91" />
   <g
-     transform="translate(-701.76365,603.60207)"
+     id="layer9-2-2"
      style="display:inline"
-     id="layer9-2-2" />
+     transform="translate(-701.76365,603.60207)" />
   <g
-     transform="translate(-701.76365,603.60207)"
+     id="layer10-0-6"
      style="display:inline"
-     id="layer10-0-6" />
+     transform="translate(-701.76365,603.60207)" />
   <g
-     transform="translate(-701.76365,603.60207)"
-     id="layer11-5" />
+     id="layer11-5"
+     transform="translate(-701.76365,603.60207)" />
   <g
-     transform="translate(-701.76365,603.60207)"
-     id="layer14-7-9" />
+     id="layer14-7-9"
+     transform="translate(-701.76365,603.60207)" />
   <g
-     transform="translate(-701.76365,603.60207)"
+     id="layer15-5-2"
      style="display:inline"
-     id="layer15-5-2" />
+     transform="translate(-701.76365,603.60207)" />
   <g
-     transform="translate(-701.76365,603.60207)"
+     id="g71291-8-4"
      style="display:inline"
-     id="g71291-8-4" />
+     transform="translate(-701.76365,603.60207)" />
   <g
-     transform="translate(-701.76365,603.60207)"
+     id="g4953-5"
      style="display:inline"
-     id="g4953-5" />
+     transform="translate(-701.76365,603.60207)" />
   <g
-     transform="translate(-701.76365,603.60207)"
+     id="layer12-4"
      style="display:inline"
-     id="layer12-4" />
+     transform="translate(-701.76365,603.60207)" />
 </svg>

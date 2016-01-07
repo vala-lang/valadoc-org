@@ -52,7 +52,7 @@ function get_title () {
     <title><?php echo get_title (); ?></title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Droid+Serif:400|Droid+Sans+Mono">
     <link rel="stylesheet" href="/styles/main.css" type="text/css">
-    <link rel="apple-touch-icon" href="/images/devhelp.png" />
+    <link rel="apple-touch-icon" href="/images/icon.png" />
     <link rel="shortcut icon" href="images/favicon.ico">
   </head>
   <body>

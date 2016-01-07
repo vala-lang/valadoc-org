@@ -109,11 +109,10 @@ nav .subtitle {
 
 #search-field-clear {
     cursor: pointer;
-    position: absolute;
     margin-left: -24px;
-    margin-top: 8px;
     opacity: 0.3;
     transition: all 200ms ease-in-out;
+    vertical-align: middle;
 }
 
 #search-field:focus ~ #search-field-clear {

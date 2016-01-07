@@ -1,7 +1,7 @@
 Valadoc-org
 ===========
 
-Stays crunchy even in milk.
+Stays crunchy, even in milk.
 
 Building
 ========

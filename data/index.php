@@ -50,7 +50,7 @@ function get_title () {
     <meta charset="UTF-8">
     <meta name="fragment" content="!">
     <title><?php echo get_title (); ?></title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans:300,400|Droid+Serif:400|Droid+Sans:400,700|Droid+Sans+Mono">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Droid+Serif:400|Droid+Sans+Mono">
     <link rel="stylesheet" href="/styles/main.css" type="text/css">
     <link rel="apple-touch-icon" href="/images/devhelp.png" />
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -60,7 +60,7 @@ function get_title () {
       <div id="search-box">
         <input id="search-field" type="text" placeholder="Search" autofocus="autofocus" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
       </div>
-      <span class="title"><a href="/index.htm">Valadoc</a></span>
+      <span class="title"><a href="/index.htm"><img alt="Valadoc" src="images/logo.svg"/></a></span>
       <span class="subtitle">Stays crunchy, even in milk.</span>
       <div id="links">
         <ul>

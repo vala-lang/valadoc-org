@@ -264,7 +264,7 @@ nav .subtitle {
 }
 
 .abstract_property:before {
-    background-image: url(/images/abstractproperty.png);
+    background-image: url(/images/abstractproperty.svg);
 }
 
 .class:before,
@@ -333,7 +333,7 @@ nav .subtitle {
 
 .property:before,
 .main_list_prop:before {
-    background-image: url(/images/property.png);
+    background-image: url(/images/property.svg);
 }
 
 .signal:before,
@@ -355,7 +355,7 @@ nav .subtitle {
 }
 
 .virtual_property:before {
-    background-image: url(/images/virtualproperty.png);
+    background-image: url(/images/virtualproperty.svg);
 }
 
 .main_optional_parameter {
@@ -613,17 +613,17 @@ a.abstract_class,
 
 .description a.property,
 .brief_description a.property {
-    background-image: url(/images/property.png);
+    background-image: url(/images/property.svg);
 }
 
 .description a.virtual_property,
 .brief_description a.virtual_property {
-    background-image: url(/images/virtualproperty.png);
+    background-image: url(/images/virtualproperty.svg);
 }
 
 .description a.abstract_property,
 .brief_description a.abstract_property {
-    background-image: url(/images/abstractproperty.png);
+    background-image: url(/images/abstractproperty.svg);
 }
 
 .description a.method,

@@ -254,7 +254,7 @@ nav .subtitle {
 }
 
 .abstract_class:before {
-    background-image: url(/images/abstractclass.png);
+    background-image: url(/images/abstractclass.svg);
 }
 
 .abstract_method:before {
@@ -267,11 +267,11 @@ nav .subtitle {
 
 .class:before,
 .main_list_cl:before {
-    background-image: url(/images/class.png);
+    background-image: url(/images/class.svg);
 }
 
 .constant:before {
-    background-image: url(/images/constant.png);
+    background-image: url(/images/constant.svg);
 }
 
 .creation_method:before,
@@ -281,7 +281,7 @@ nav .subtitle {
 
 .delegate:before,
 .main_list_del:before {
-    background-image: url(/images/delegate.png);
+    background-image: url(/images/delegate.svg);
 }
 
 .enum:before,
@@ -304,12 +304,12 @@ nav .subtitle {
 
 .field:before,
 .main_list_field:before {
-    background-image: url(/images/field.png);
+    background-image: url(/images/field.svg);
 }
 
 .interface:before,
 .main_list_iface:before {
-    background-image: url(/images/interface.png);
+    background-image: url(/images/interface.svg);
 }
 
 .method:before {
@@ -345,7 +345,7 @@ nav .subtitle {
 
 .struct:before,
 .main_list_stru:before {
-    background-image: url(/images/struct.png);
+    background-image: url(/images/struct.svg);
 }
 
 .virtual_method:before {
@@ -544,7 +544,7 @@ a.abstract_class,
 
 .description a.constant,
 .brief_description a.constant {
-    background-image: url(/images/constant.png);
+    background-image: url(/images/constant.svg);
 }
 
 .description a.namespace,
@@ -554,12 +554,12 @@ a.abstract_class,
 
 .description a.struct,
 .brief_description a.struct {
-    background-image: url(/images/struct.png);
+    background-image: url(/images/struct.svg);
 }
 
 .description a.interface,
 .brief_description a.interface {
-    background-image: url(/images/interface.png);
+    background-image: url(/images/interface.svg);
 }
 
 .description a.enum,
@@ -574,7 +574,7 @@ a.abstract_class,
 
 .description a.delegate,
 .brief_description a.delegate {
-    background-image: url(/images/delegate.png);
+    background-image: url(/images/delegate.svg);
 }
 
 .description a.signal,
@@ -584,7 +584,7 @@ a.abstract_class,
 
 .description a.field,
 .brief_description a.field {
-    background-image: url(/images/field.png);
+    background-image: url(/images/field.svg);
 }
 
 .description a.enumvalue,
@@ -599,13 +599,13 @@ a.abstract_class,
 
 .description a.class,
 .brief_description a.class {
-    background-image: url(/images/class.png);
+    background-image: url(/images/class.svg);
 }
 
 a.abstract_class,
 .description a.abstract_class,
 .brief_description a.abstract_class {
-    background-image: url(/images/abstractclass.png);
+    background-image: url(/images/abstractclass.svg);
     font-style: italic;
 }
 

@@ -101,7 +101,7 @@ function load_content (href) {
   } else if (href.substr(-10) === '/index.htm') {
     document.title = href.substr(0, href.length - 10)
   } else {
-    document.title = 'Valadoc - Stays crunchy. Even in milk.'
+    document.title = 'Valadoc – Stays crunchy. Even in milk.'
   }
 
   abort_loading()

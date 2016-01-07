@@ -216,9 +216,9 @@ nav .subtitle {
 .navi_inline,
 .navi_main {
     font-size: 12px;
-    line-height: 16px;
+    line-height: 21px;
     list-style: none;
-    margin: 12px 3px;
+    margin: 6px 3px;
     padding-left: 6px;
 }
 
@@ -258,7 +258,7 @@ nav .subtitle {
 }
 
 .abstract_method:before {
-    background-image: url(/images/abstractmethod.png);
+    background-image: url(/images/abstractmethod.svg);
 }
 
 .abstract_property:before {
@@ -276,7 +276,7 @@ nav .subtitle {
 
 .creation_method:before,
 .main_list_m:before {
-    background-image: url(/images/constructor.png);
+    background-image: url(/images/constructor.svg);
 }
 
 .delegate:before,
@@ -294,7 +294,7 @@ nav .subtitle {
 }
 
 .errorcode:before {
-    background-image: url(/images/errorcode.png);
+    background-image: url(/images/errorcode.svg);
 }
 
 .errordomain:before,
@@ -313,7 +313,7 @@ nav .subtitle {
 }
 
 .method:before {
-    background-image: url(/images/method.png);
+    background-image: url(/images/method.svg);
 }
 
 .namespace:before,
@@ -336,11 +336,11 @@ nav .subtitle {
 
 .signal:before,
 .main_list_sig:before {
-    background-image: url(/images/signal.png);
+    background-image: url(/images/signal.svg);
 }
 
 .static_method:before {
-    background-image: url(/images/staticmethod.png);
+    background-image: url(/images/staticmethod.svg);
 }
 
 .struct:before,
@@ -349,7 +349,7 @@ nav .subtitle {
 }
 
 .virtual_method:before {
-    background-image: url(/images/virtualmethod.png);
+    background-image: url(/images/virtualmethod.svg);
 }
 
 .virtual_property:before {
@@ -579,7 +579,7 @@ a.abstract_class,
 
 .description a.signal,
 .brief_description a.signal {
-    background-image: url(/images/signal.png);
+    background-image: url(/images/signal.svg);
 }
 
 .description a.field,
@@ -594,7 +594,7 @@ a.abstract_class,
 
 .description a.errorcode,
 .brief_description a.errorcode {
-    background-image: url(/images/errorcode.png);
+    background-image: url(/images/errorcode.svg);
 }
 
 .description a.class,
@@ -626,28 +626,28 @@ a.abstract_class,
 
 .description a.method,
 .brief_description a.method {
-    background-image: url(/images/method.png);
+    background-image: url(/images/method.svg);
 }
 
 .description a.static_method,
 .brief_description a.static_method {
-    background-image: url(/images/staticmethod.png);
+    background-image: url(/images/staticmethod.svg);
 }
 
 a.virtual_method,
 .description a.virtual_method,
 .brief_description a.virtual_method {
-    background-image: url(/images/virtualmethod.png);
+    background-image: url(/images/virtualmethod.svg);
 }
 
 .description a.abstract_method,
 .brief_description a.abstract_method {
-    background-image: url(/images/abstractmethod.png);
+    background-image: url(/images/abstractmethod.svg);
 }
 
 .description a.creation_method,
 .brief_description a.creation_method {
-    background-image: url(/images/constructor.png);
+    background-image: url(/images/constructor.svg);
 }
 
 .navi_link:hover,

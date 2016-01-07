@@ -216,18 +216,14 @@ nav .subtitle {
 .navi_inline,
 .navi_main {
     font-size: 12px;
-    line-height: 16px;
+    line-height: 21px;
     list-style: none;
-    margin: 12px 3px;
+    margin: 6px 3px;
     padding-left: 6px;
 }
 
 .navi_inline {
     padding-left: 12px;
-}
-
-.navi_main a {
-    vertical-align: top;
 }
 
 .navi_main a,
@@ -236,6 +232,12 @@ nav .subtitle {
     color: #666;
     text-decoration: none;
     padding-right: 6px;
+}
+
+.navi_main li {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .navi_inline li:before,
@@ -254,34 +256,34 @@ nav .subtitle {
 }
 
 .abstract_class:before {
-    background-image: url(/images/abstractclass.png);
+    background-image: url(/images/abstractclass.svg);
 }
 
 .abstract_method:before {
-    background-image: url(/images/abstractmethod.png);
+    background-image: url(/images/abstractmethod.svg);
 }
 
 .abstract_property:before {
-    background-image: url(/images/abstractproperty.png);
+    background-image: url(/images/abstractproperty.svg);
 }
 
 .class:before,
 .main_list_cl:before {
-    background-image: url(/images/class.png);
+    background-image: url(/images/class.svg);
 }
 
 .constant:before {
-    background-image: url(/images/constant.png);
+    background-image: url(/images/constant.svg);
 }
 
 .creation_method:before,
 .main_list_m:before {
-    background-image: url(/images/constructor.png);
+    background-image: url(/images/constructor.svg);
 }
 
 .delegate:before,
 .main_list_del:before {
-    background-image: url(/images/delegate.png);
+    background-image: url(/images/delegate.svg);
 }
 
 .enum:before,
@@ -294,7 +296,7 @@ nav .subtitle {
 }
 
 .errorcode:before {
-    background-image: url(/images/errorcode.png);
+    background-image: url(/images/errorcode.svg);
 }
 
 .errordomain:before,
@@ -304,16 +306,16 @@ nav .subtitle {
 
 .field:before,
 .main_list_field:before {
-    background-image: url(/images/field.png);
+    background-image: url(/images/field.svg);
 }
 
 .interface:before,
 .main_list_iface:before {
-    background-image: url(/images/interface.png);
+    background-image: url(/images/interface.svg);
 }
 
 .method:before {
-    background-image: url(/images/method.png);
+    background-image: url(/images/method.svg);
 }
 
 .namespace:before,
@@ -331,29 +333,29 @@ nav .subtitle {
 
 .property:before,
 .main_list_prop:before {
-    background-image: url(/images/property.png);
+    background-image: url(/images/property.svg);
 }
 
 .signal:before,
 .main_list_sig:before {
-    background-image: url(/images/signal.png);
+    background-image: url(/images/signal.svg);
 }
 
 .static_method:before {
-    background-image: url(/images/staticmethod.png);
+    background-image: url(/images/staticmethod.svg);
 }
 
 .struct:before,
 .main_list_stru:before {
-    background-image: url(/images/struct.png);
+    background-image: url(/images/struct.svg);
 }
 
 .virtual_method:before {
-    background-image: url(/images/virtualmethod.png);
+    background-image: url(/images/virtualmethod.svg);
 }
 
 .virtual_property:before {
-    background-image: url(/images/virtualproperty.png);
+    background-image: url(/images/virtualproperty.svg);
 }
 
 .main_optional_parameter {
@@ -372,7 +374,7 @@ nav .subtitle {
 
 .main_notification {
     background-color: #eeeeff;
-    background-image: url(/images/warning.png);
+    background-image: url(/images/warning.svg);
     background-position: 6px 0.5em;
     background-repeat: no-repeat;
     border: 1px solid #aaaaff;
@@ -544,7 +546,7 @@ a.abstract_class,
 
 .description a.constant,
 .brief_description a.constant {
-    background-image: url(/images/constant.png);
+    background-image: url(/images/constant.svg);
 }
 
 .description a.namespace,
@@ -554,12 +556,12 @@ a.abstract_class,
 
 .description a.struct,
 .brief_description a.struct {
-    background-image: url(/images/struct.png);
+    background-image: url(/images/struct.svg);
 }
 
 .description a.interface,
 .brief_description a.interface {
-    background-image: url(/images/interface.png);
+    background-image: url(/images/interface.svg);
 }
 
 .description a.enum,
@@ -574,17 +576,17 @@ a.abstract_class,
 
 .description a.delegate,
 .brief_description a.delegate {
-    background-image: url(/images/delegate.png);
+    background-image: url(/images/delegate.svg);
 }
 
 .description a.signal,
 .brief_description a.signal {
-    background-image: url(/images/signal.png);
+    background-image: url(/images/signal.svg);
 }
 
 .description a.field,
 .brief_description a.field {
-    background-image: url(/images/field.png);
+    background-image: url(/images/field.svg);
 }
 
 .description a.enumvalue,
@@ -594,60 +596,60 @@ a.abstract_class,
 
 .description a.errorcode,
 .brief_description a.errorcode {
-    background-image: url(/images/errorcode.png);
+    background-image: url(/images/errorcode.svg);
 }
 
 .description a.class,
 .brief_description a.class {
-    background-image: url(/images/class.png);
+    background-image: url(/images/class.svg);
 }
 
 a.abstract_class,
 .description a.abstract_class,
 .brief_description a.abstract_class {
-    background-image: url(/images/abstractclass.png);
+    background-image: url(/images/abstractclass.svg);
     font-style: italic;
 }
 
 .description a.property,
 .brief_description a.property {
-    background-image: url(/images/property.png);
+    background-image: url(/images/property.svg);
 }
 
 .description a.virtual_property,
 .brief_description a.virtual_property {
-    background-image: url(/images/virtualproperty.png);
+    background-image: url(/images/virtualproperty.svg);
 }
 
 .description a.abstract_property,
 .brief_description a.abstract_property {
-    background-image: url(/images/abstractproperty.png);
+    background-image: url(/images/abstractproperty.svg);
 }
 
 .description a.method,
 .brief_description a.method {
-    background-image: url(/images/method.png);
+    background-image: url(/images/method.svg);
 }
 
 .description a.static_method,
 .brief_description a.static_method {
-    background-image: url(/images/staticmethod.png);
+    background-image: url(/images/staticmethod.svg);
 }
 
 a.virtual_method,
 .description a.virtual_method,
 .brief_description a.virtual_method {
-    background-image: url(/images/virtualmethod.png);
+    background-image: url(/images/virtualmethod.svg);
 }
 
 .description a.abstract_method,
 .brief_description a.abstract_method {
-    background-image: url(/images/abstractmethod.png);
+    background-image: url(/images/abstractmethod.svg);
 }
 
 .description a.creation_method,
 .brief_description a.creation_method {
-    background-image: url(/images/constructor.png);
+    background-image: url(/images/constructor.svg);
 }
 
 .navi_link:hover,
@@ -694,7 +696,6 @@ code {
 
 .box .toggle {
     text-align: right;
-    float: clear;
 }
 
 .box .content {
@@ -714,4 +715,8 @@ code {
 
 .deprecated {
     text-decoration: line-through;
+}
+
+.deprecated a {
+    opacity: 0.5;
 }

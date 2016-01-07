@@ -226,16 +226,18 @@ nav .subtitle {
     padding-left: 12px;
 }
 
-.navi_main a {
-    vertical-align: top;
-}
-
 .navi_main a,
 .navi_inline a,
 .external_link {
     color: #666;
     text-decoration: none;
     padding-right: 6px;
+}
+
+.navi_main li {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .navi_inline li:before,
@@ -713,4 +715,8 @@ code {
 
 .deprecated {
     text-decoration: line-through;
+}
+
+.deprecated a {
+    opacity: 0.5;
 }

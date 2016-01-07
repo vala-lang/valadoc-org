@@ -374,7 +374,7 @@ nav .subtitle {
 
 .main_notification {
     background-color: #eeeeff;
-    background-image: url(/images/warning.png);
+    background-image: url(/images/warning.svg);
     background-position: 6px 0.5em;
     background-repeat: no-repeat;
     border: 1px solid #aaaaff;

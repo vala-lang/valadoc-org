@@ -549,14 +549,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.start_tag ("table", {"style", "width: 100%; margin: auto;"});
 
 			writer.start_tag ("tr");
-			writer.start_tag ("td", {"width", "10"}).end_tag ("td");
 			writer.start_tag ("td", {"width", "20"}).end_tag ("td");
 			writer.start_tag ("td").end_tag ("td");
 			writer.start_tag ("td", {"width", "160"}).end_tag ("td");
 			writer.start_tag ("td", {"width", "100"}).end_tag ("td");
 			writer.start_tag ("td", {"width", "50"}).end_tag ("td");
 			writer.start_tag ("td", {"width", "110"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "10"}).end_tag ("td");
 			writer.end_tag ("tr");
 		}
 
@@ -565,10 +563,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			//string maintainers = pkg.maintainers ?? "-";
 			writer.start_tag ("tr");
-			writer.start_tag ("td").end_tag ("td"); // space
-			writer.start_tag ("td").simple_tag ("img", {"src", "/images/package.svg"}).end_tag ("td");
+			writer.start_tag ("td").end_tag ("td");
 
-			writer.start_tag ("td");
+			writer.start_tag ("td", {"class", "package"});
 			if (pkg.is_deprecated) {
 				writer.start_tag ("s").start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("s");
 			} else {
@@ -580,9 +577,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 			writer.end_tag ("td");
 
-			writer.start_tag ("td", {"style", "white-space:no wrap"}).text (pkg.get_documentation_source ()).end_tag ("td");
+			writer.start_tag ("td", {"style", "white-space:nowrap"}).text (pkg.get_documentation_source ()).end_tag ("td");
 
-			writer.start_tag ("td", {"style", "white-space:no wrap"});
+			writer.start_tag ("td", {"style", "white-space:nowrap"});
 
 			bool first = true;
 			if (pkg.home != null) {
@@ -606,19 +603,18 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			string? install_link = pkg.get_catalog_file ();
 			if (install_link != null) {
 				string html_link = Path.build_filename (pkg.name, Path.get_basename (install_link));
-				writer.start_tag ("td", {"style", "white-space:no wrap"}).start_tag ("a", {"href", html_link}).text ("Install").end_tag ("a").end_tag ("td");
+				writer.start_tag ("td", {"style", "white-space:nowrap"}).start_tag ("a", {"href", html_link}).text ("Install").end_tag ("a").end_tag ("td");
 				Valadoc.copy_file (install_link, Path.build_filename (output_directory, html_link));
 			} else {
-				writer.start_tag ("td", {"style", "white-space:no wrap"}).text ("-").end_tag ("td");
+				writer.start_tag ("td", {"style", "white-space:nowrap"}).text ("-").end_tag ("td");
 			}
 
 			if (pkg.devhelp_link != null) {
-				writer.start_tag ("td", {"style", "white-space:no wrap"}).start_tag ("a", {"href", pkg.devhelp_link}).text ("devhelp-package").end_tag ("a").end_tag ("td");
+				writer.start_tag ("td", {"style", "white-space:nowrap"}).start_tag ("a", {"href", pkg.devhelp_link}).text ("devhelp-package").end_tag ("a").end_tag ("td");
 			} else {
-				writer.start_tag ("td", {"style", "white-space:no wrap"}).text ("-").end_tag ("td");
+				writer.start_tag ("td", {"style", "white-space:nowrap"}).text ("-").end_tag ("td");
 			}
 
-			writer.start_tag ("td").end_tag ("td"); // space
 			writer.end_tag ("tr");
 
 			if (pkg.description != null) {

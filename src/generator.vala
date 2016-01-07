@@ -565,21 +565,21 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.start_tag ("tr");
 			writer.start_tag ("td").end_tag ("td");
 
-			writer.start_tag ("td", {"class", "package"});
 			if (pkg.is_deprecated) {
-				writer.start_tag ("s").start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("s");
+				writer.start_tag ("td", {"class", "package deprecated"});
 			} else {
-				writer.start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a");
+				writer.start_tag ("td", {"class", "package"});
 			}
+			writer.start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a");
 
 			if (pkg is ExternalPackage) {
 				writer.simple_tag ("img", {"src", "/images/external_link.png"});
 			}
 			writer.end_tag ("td");
 
-			writer.start_tag ("td", {"style", "white-space:nowrap"}).text (pkg.get_documentation_source ()).end_tag ("td");
+			writer.start_tag ("td", {"class", "nowrap"}).text (pkg.get_documentation_source ()).end_tag ("td");
 
-			writer.start_tag ("td", {"style", "white-space:nowrap"});
+			writer.start_tag ("td", {"class", "nowrap"});
 
 			bool first = true;
 			if (pkg.home != null) {
@@ -603,16 +603,16 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			string? install_link = pkg.get_catalog_file ();
 			if (install_link != null) {
 				string html_link = Path.build_filename (pkg.name, Path.get_basename (install_link));
-				writer.start_tag ("td", {"style", "white-space:nowrap"}).start_tag ("a", {"href", html_link}).text ("Install").end_tag ("a").end_tag ("td");
+				writer.start_tag ("td", {"class", "nowrap"}).start_tag ("a", {"href", html_link}).text ("Install").end_tag ("a").end_tag ("td");
 				Valadoc.copy_file (install_link, Path.build_filename (output_directory, html_link));
 			} else {
-				writer.start_tag ("td", {"style", "white-space:nowrap"}).text ("-").end_tag ("td");
+				writer.start_tag ("td", {"class", "nowrap"}).text ("-").end_tag ("td");
 			}
 
 			if (pkg.devhelp_link != null) {
-				writer.start_tag ("td", {"style", "white-space:nowrap"}).start_tag ("a", {"href", pkg.devhelp_link}).text ("devhelp-package").end_tag ("a").end_tag ("td");
+				writer.start_tag ("td", {"class", "nowrap"}).start_tag ("a", {"href", pkg.devhelp_link}).text ("devhelp-package").end_tag ("a").end_tag ("td");
 			} else {
-				writer.start_tag ("td", {"style", "white-space:nowrap"}).text ("-").end_tag ("td");
+				writer.start_tag ("td", {"class", "nowrap"}).text ("-").end_tag ("td");
 			}
 
 			writer.end_tag ("tr");

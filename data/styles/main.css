@@ -240,7 +240,6 @@ nav .subtitle {
     overflow: hidden;
 }
 
-.highlight td:before,
 .navi_inline li:before,
 .navi_main li:before {
     content: '';
@@ -249,10 +248,6 @@ nav .subtitle {
     width: 16px;
     margin-right: 6px;
     vertical-align: middle;
-}
-
-.highlight td:before {
-    margin-left: -22px;
 }
 
 .navi_main .abstract_class > a,
@@ -361,6 +356,25 @@ nav .subtitle {
 
 .virtual_property:before {
     background-image: url(/images/virtualproperty.svg);
+}
+
+
+/***********
+ * Content *
+ ***********/
+
+.highlight .package:before {
+    content: '';
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin-left: -22px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 
 .main_optional_parameter {

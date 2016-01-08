@@ -494,11 +494,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			GLib.FileStream file = GLib.FileStream.open (path, "w");
 			writer = new Html.MarkupWriter (file);
 
-			writer.start_tag ("div", {"class", "site_content"});
-
 			// Intro:
-			writer.start_tag ("h1", {"class", "main_title"}).text ("Packages").end_tag ("h1");
-			writer.simple_tag ("hr", {"class", "main_hr"});
+			writer.start_tag ("h1").text ("Packages").end_tag ("h1");
+			writer.simple_tag ("hr");
 
 			writer.start_tag ("h2").text ("Submitting API-Bugs and Patches").end_tag ("h2");
 			writer.start_tag ("p").text ("For all bindings where the status is not marked as external, and unless otherwise noted, bugs and patches should be submitted to the bindings component in the Vala product in the GNOME Bugzilla.").end_tag ("p");
@@ -510,13 +508,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				node.render (this);
 			}
 
-			writer.end_tag ("div");
 			writer = null;
 		}
 
 		public override void render_section (Section section) {
 			if (header_level == HEADER_LEVEL_START) {
-				writer.simple_tag ("hr", {"class", "main_hr"});
+				writer.simple_tag ("hr");
 			}
 
 			string tag = "h%d".printf (header_level);

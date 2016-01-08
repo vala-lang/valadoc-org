@@ -378,6 +378,19 @@ nav .subtitle {
     margin-right: 12px;
 }
 
+#content h1 {
+    margin-bottom: 0;
+}
+
+#content hr {
+    border: 0;
+    color: #B4A0C1;
+    background-color: #B4A0C1;
+    height: 1px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
 .highlight {
     border-radius: 6px;
     padding: 6px;
@@ -559,19 +572,6 @@ span.leaf_code_definition {
 div.leaf_brief_description {
     display: block;
     margin-left: 40px;
-}
-
-.main_title {
-    margin-bottom: 0;
-}
-
-.main_hr {
-    border: 0;
-    color: #aaaaff;
-    background-color: #aaaaff;
-    height: 1px;
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 
 .main_parameter_table_name,

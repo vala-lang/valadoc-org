@@ -48,7 +48,13 @@ function get_title () {
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta itemprop="image" content="/images/preview.png">
     <meta name="fragment" content="!">
+    <meta name="twitter:image" content="/images/preview.png">
+    <meta name="theme-color" content="#403757">
+    <meta property="og:image" content="/images/preview.png">
+    <meta property="og:title" content="<?php echo get_title (); ?>">
+    <meta property="og:type" content="website">
     <title><?php echo get_title (); ?></title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Droid+Serif:400|Droid+Sans+Mono">
     <link rel="stylesheet" href="/styles/main.css" type="text/css">

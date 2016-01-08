@@ -423,16 +423,13 @@ nav .subtitle {
     margin: 0 6px;
 }
 
-.highlight .cdocs {
-    width: 45px;
+.highlight .cdocs,
+.highlight .homepage {
+    width: 48px;
 }
 
 .highlight .devhelp {
     width: 115px;
-}
-
-.highlight .homepage {
-    width: 40px;
 }
 
 .highlight .description {

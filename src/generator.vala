@@ -573,7 +573,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			writer.start_tag ("p", {"class", "devhelp"});
 				if (pkg.devhelp_link != null) {
-					writer.start_tag ("a", {"href", pkg.devhelp_link}).text ("devhelp-package").end_tag ("a");
+					writer.start_tag ("a", {"href", pkg.devhelp_link}).text ("Devhelp Package").end_tag ("a");
 				}
 			writer.end_tag ("p");
 

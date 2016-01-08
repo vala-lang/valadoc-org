@@ -1,5 +1,13 @@
 <?php
 
+if (!empty(getenv('FWD_TOOLTIP'))) {
+  $url = 'http://valadoc.org/tooltip.php?fullname=' . $_GET['fullname'];
+  $curl = curl_init($url);
+  curl_exec($curl);
+  curl_close($curl);
+  return;
+}
+
 include 'constants.php';
 
 function strip_links ($str) {

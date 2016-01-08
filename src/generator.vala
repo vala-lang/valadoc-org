@@ -1224,9 +1224,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			string src_file_path = Path.build_filename (path, file);
 			string dest_file_path = Path.build_filename (output, file);
 			if (FileUtils.test (src_file_path, FileTest.IS_DIR)) {
-				if (!FileUtils.test (dest_file_path, FileTest.EXISTS)) { // mkdir if necessary
-					File.new_for_path (dest_file_path).make_directory (null);
-				}
+				DirUtils.create_with_parents (dest_file_path, 0755); // mkdir if necessary
 				copy_dir (src_file_path, dest_file_path); // copy directories recursively
 			} else {
 				Valadoc.copy_file (src_file_path, dest_file_path);

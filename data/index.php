@@ -50,7 +50,7 @@ function get_title () {
     <meta charset="UTF-8">
     <meta name="fragment" content="!">
     <title><?php echo get_title (); ?></title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Droid+Serif:400|Droid+Sans+Mono">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Droid+Serif:400|Roboto+Mono:400,500,700">
     <link rel="stylesheet" href="/styles/main.css" type="text/css">
     <link rel="apple-touch-icon" href="/images/icon.png" />
     <link rel="shortcut icon" href="images/favicon.ico">

@@ -7,7 +7,7 @@ if (!empty(getenv('FWD_SEARCH'))) {
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $_POST,
   ]);
-  echo curl_exec($curl);
+  curl_exec($curl);
   curl_close($curl);
   return;
 }

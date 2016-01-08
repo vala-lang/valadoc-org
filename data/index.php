@@ -51,6 +51,7 @@ function get_title () {
     <meta itemprop="image" content="/images/preview.png">
     <meta name="fragment" content="!">
     <meta name="twitter:image" content="/images/preview.png">
+    <meta name="theme-color" content="#403757">
     <meta property="og:image" content="/images/preview.png">
     <title><?php echo get_title (); ?></title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Droid+Serif:400|Droid+Sans+Mono">

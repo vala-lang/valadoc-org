@@ -494,11 +494,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			GLib.FileStream file = GLib.FileStream.open (path, "w");
 			writer = new Html.MarkupWriter (file);
 
-			writer.start_tag ("div", {"class", "site_content"});
-
 			// Intro:
-			writer.start_tag ("h1", {"class", "main_title"}).text ("Packages").end_tag ("h1");
-			writer.simple_tag ("hr", {"class", "main_hr"});
+			writer.start_tag ("h1").text ("Packages").end_tag ("h1");
+			writer.simple_tag ("hr");
 
 			writer.start_tag ("h2").text ("Submitting API-Bugs and Patches").end_tag ("h2");
 			writer.start_tag ("p").text ("For all bindings where the status is not marked as external, and unless otherwise noted, bugs and patches should be submitted to the bindings component in the Vala product in the GNOME Bugzilla.").end_tag ("p");
@@ -510,13 +508,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				node.render (this);
 			}
 
-			writer.end_tag ("div");
 			writer = null;
 		}
 
 		public override void render_section (Section section) {
 			if (header_level == HEADER_LEVEL_START) {
-				writer.simple_tag ("hr", {"class", "main_hr"});
+				writer.simple_tag ("hr");
 			}
 
 			string tag = "h%d".printf (header_level);
@@ -528,11 +525,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				node.render (this);
 			}
 
-			render_table_begin ();
 			foreach (Package pkg in section.sorted_package_list ()) {
 				pkg.render (this);
 			}
-			render_table_end ();
 
 			header_level--;
 		}
@@ -545,101 +540,55 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			render_table_entry (pkg);
 		}
 
-		private void render_table_begin () {
-			writer.start_tag ("table", {"style", "width: 100%; margin: auto;"});
-
-			writer.start_tag ("tr");
-			writer.start_tag ("td", {"width", "10"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "20"}).end_tag ("td");
-			writer.start_tag ("td").end_tag ("td");
-			writer.start_tag ("td", {"width", "160"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "100"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "50"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "110"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "10"}).end_tag ("td");
-			writer.end_tag ("tr");
-		}
-
 		private void render_table_entry (Package pkg) {
-			writer.start_tag ("tbody", {"class", "highlight"});
 
-			//string maintainers = pkg.maintainers ?? "-";
-			writer.start_tag ("tr");
-			writer.start_tag ("td").end_tag ("td"); // space
-			writer.start_tag ("td").simple_tag ("img", {"src", "/images/package.svg"}).end_tag ("td");
+			writer.start_tag ("div", {"class", "highlight"});
 
-			writer.start_tag ("td");
 			if (pkg.is_deprecated) {
-				writer.start_tag ("s").start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("s");
+				writer.start_tag ("a", {"class", "deprecated package", "href", pkg.online_link}).text (pkg.name).end_tag ("a");
 			} else {
-				writer.start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a");
+				writer.start_tag ("a", {"class", "package", "href", pkg.online_link}).text (pkg.name).end_tag ("a");
 			}
 
 			if (pkg is ExternalPackage) {
 				writer.simple_tag ("img", {"src", "/images/external_link.png"});
 			}
-			writer.end_tag ("td");
 
-			writer.start_tag ("td", {"style", "white-space:no wrap"}).text (pkg.get_documentation_source ()).end_tag ("td");
+			writer.start_tag ("div", {"class", "links"});
 
-			writer.start_tag ("td", {"style", "white-space:no wrap"});
+			writer.start_tag ("p", {"class", "source"}).text (pkg.get_documentation_source ()).end_tag ("p");
 
-			bool first = true;
+
+			writer.start_tag ("p", {"class", "homepage"});
 			if (pkg.home != null) {
 				writer.start_tag ("a", {"href", pkg.home}).text ("Home").end_tag ("a");
-				first = false;
 			}
+			writer.end_tag ("p");
+
+			writer.start_tag ("p", {"class", "cdocs"});
 			if (pkg.c_docs != null) {
-				if (first == false) {
-					writer.text (", ");
+				writer.start_tag ("a", {"href", pkg.c_docs}).text ("C Docs").end_tag ("a");
+			}
+			writer.end_tag ("p");
+
+			writer.start_tag ("p", {"class", "devhelp"});
+				if (pkg.devhelp_link != null) {
+					writer.start_tag ("a", {"href", pkg.devhelp_link}).text ("Devhelp Package").end_tag ("a");
 				}
+			writer.end_tag ("p");
 
-				writer.start_tag ("a", {"href", pkg.c_docs}).text ("C-docs").end_tag ("a");
-				first = false;
-			}
-			if (first == true) {
-				writer.text ("-");
-			}
-			writer.end_tag ("td");
-
-
-			string? install_link = pkg.get_catalog_file ();
-			if (install_link != null) {
-				string html_link = Path.build_filename (pkg.name, Path.get_basename (install_link));
-				writer.start_tag ("td", {"style", "white-space:no wrap"}).start_tag ("a", {"href", html_link}).text ("Install").end_tag ("a").end_tag ("td");
-				Valadoc.copy_file (install_link, Path.build_filename (output_directory, html_link));
-			} else {
-				writer.start_tag ("td", {"style", "white-space:no wrap"}).text ("-").end_tag ("td");
-			}
-
-			if (pkg.devhelp_link != null) {
-				writer.start_tag ("td", {"style", "white-space:no wrap"}).start_tag ("a", {"href", pkg.devhelp_link}).text ("devhelp-package").end_tag ("a").end_tag ("td");
-			} else {
-				writer.start_tag ("td", {"style", "white-space:no wrap"}).text ("-").end_tag ("td");
-			}
-
-			writer.start_tag ("td").end_tag ("td"); // space
-			writer.end_tag ("tr");
+			writer.end_tag ("div");
 
 			if (pkg.description != null) {
-				writer.start_tag ("tr");
-				writer.start_tag ("td").end_tag ("td");
-				writer.start_tag ("td").end_tag ("td");
-				writer.start_tag ("td", {"colspan", "5"});
+				writer.start_tag ("div", {"class", "description"});
 				foreach (string line in pkg.description) {
 					line._strip ();
 					writer.start_tag ("p").text (line).end_tag ("p");
 				}
-				writer.end_tag ("td");
-				writer.start_tag ("td").end_tag ("td");
-				writer.end_tag ("tr");
+				writer.end_tag ("div");
 			}
 
-			writer.end_tag ("tbody");
-		}
-
-		private void render_table_end () {
-			writer.end_tag ("table");
+			writer.end_tag ("div");
 		}
 	}
 

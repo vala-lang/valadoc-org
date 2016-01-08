@@ -1,4 +1,5 @@
 html {
+    color: #111;
     font-family: "Open Sans", "Droid Sans", Helvetica, sans-serif;
     font-size: 12px;
     font-weight: 400;
@@ -359,6 +360,87 @@ nav .subtitle {
     background-image: url(/images/virtualproperty.svg);
 }
 
+
+/***********
+ * Content *
+ ***********/
+
+#content-wrapper {
+    display: inline-block;
+    overflow: auto;
+    overflow-y: scroll;
+    text-align: left;
+    vertical-align: top;
+    width: calc(100% - 245px);
+}
+
+#content {
+    margin: 12px;
+}
+
+#content h1 {
+    margin-bottom: 0;
+}
+
+#content hr {
+    border: 0;
+    color: #B4A0C1;
+    background-color: #B4A0C1;
+    height: 1px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.highlight {
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.highlight:hover {
+    background-color: #eee;
+}
+
+.highlight .package {
+    font-size: 14px;
+    padding-right: 6px;
+}
+
+.highlight .package:before {
+    content: '';
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.highlight .links {
+    float: right;
+}
+
+.highlight .links p {
+    display: inline-block;
+    margin: 0 6px;
+}
+
+.highlight .cdocs,
+.highlight .homepage {
+    width: 48px;
+}
+
+.highlight .devhelp {
+    width: 115px;
+}
+
+.highlight .description {
+    margin-left: 22px;
+}
+
+.highlight .description p {
+    font-size: 12px;
+    margin-top: 6px;
+}
+
 .main_optional_parameter {
     font-style: italic;
 }
@@ -422,9 +504,8 @@ nav .subtitle {
     height: 52px;
 }
 
-#content {
-    margin-left: 12px;
-    margin-right: 12px;
+#comments {
+    margin: 12px;
 }
 
 .tooltip {
@@ -446,10 +527,6 @@ nav .subtitle {
     margin-top: 4px;
 }
 
-.highlight:hover {
-    background-color: rgb(238,238,255);
-}
-
 .site_title {
     text-align: left;
 }
@@ -457,15 +534,6 @@ nav .subtitle {
 .site_footer {
     height: 15px;
     clear: left;
-}
-
-#content-wrapper {
-    display: inline-block;
-    overflow: auto;
-    overflow-y: scroll;
-    text-align: left;
-    vertical-align: top;
-    width: calc(100% - 245px);
 }
 
 .main_type {
@@ -500,20 +568,6 @@ span.leaf_code_definition {
 div.leaf_brief_description {
     display: block;
     margin-left: 40px;
-}
-
-.main_title {
-    margin-bottom: 0;
-}
-
-.main_hr {
-    border: 0;
-    border-color: #aaaaff;
-    color: #aaaaff;
-    background-color: #aaaaff;
-    height: 1px;
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 
 .main_parameter_table_name,
@@ -716,9 +770,6 @@ code {
 }
 
 .deprecated {
-    text-decoration: line-through;
-}
-
-.deprecated a {
     opacity: 0.5;
+    text-decoration: line-through;
 }

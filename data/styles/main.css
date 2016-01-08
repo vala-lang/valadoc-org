@@ -132,9 +132,7 @@ nav .subtitle {
 
 #sidebar a {
     color: #666;
-    display: inline-block;
     text-decoration: none;
-    width: 100%;
 }
 
 #sidebar hr {
@@ -162,6 +160,16 @@ nav .subtitle {
 
 #sidebar li:hover {
     background: rgba(0,0,0,0.1);
+}
+
+#sidebar .external-link:after {
+    background-image: url(/images/external_link.png);
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    margin-left: 3px;
+    vertical-align: middle;
 }
 
 #navigation-content {

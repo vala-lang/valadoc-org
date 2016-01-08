@@ -580,15 +580,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 			writer.end_tag ("p");
 
-			writer.start_tag ("p", {"class", "install"});
-				string? install_link = pkg.get_catalog_file ();
-				if (install_link != null) {
-					string html_link = Path.build_filename (pkg.name, Path.get_basename (install_link));
-					writer.start_tag ("a", {"href", html_link}).text ("Install").end_tag ("a");
-					Valadoc.copy_file (install_link, Path.build_filename (output_directory, html_link));
-				}
-			writer.end_tag ("p");
-
 			writer.start_tag ("p", {"class", "devhelp"});
 				if (pkg.devhelp_link != null) {
 					writer.start_tag ("a", {"href", pkg.devhelp_link}).text ("devhelp-package").end_tag ("a");

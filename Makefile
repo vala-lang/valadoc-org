@@ -107,5 +107,4 @@ build-docs:
 #
 
 serve: default build-docs
-	-php -S localhost:7777 -t ./valadoc.org
-
+	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org

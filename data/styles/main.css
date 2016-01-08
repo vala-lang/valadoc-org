@@ -636,7 +636,6 @@ a.abstract_class,
     background-image: url(/images/staticmethod.svg);
 }
 
-a.virtual_method,
 .description a.virtual_method,
 .brief_description a.virtual_method {
     background-image: url(/images/virtualmethod.svg);

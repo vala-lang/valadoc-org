@@ -546,10 +546,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 		private void render_table_begin () {
-			writer.start_tag ("table", {"style", "width: 100%; margin: auto;"});
+			writer.start_tag ("table");
 
 			writer.start_tag ("tr");
-			writer.start_tag ("td", {"width", "20"}).end_tag ("td");
 			writer.start_tag ("td").end_tag ("td");
 			writer.start_tag ("td", {"width", "160"}).end_tag ("td");
 			writer.start_tag ("td", {"width", "100"}).end_tag ("td");
@@ -563,7 +562,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			//string maintainers = pkg.maintainers ?? "-";
 			writer.start_tag ("tr");
-			writer.start_tag ("td").end_tag ("td");
 
 			if (pkg.is_deprecated) {
 				writer.start_tag ("td", {"class", "package deprecated"});
@@ -619,15 +617,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			if (pkg.description != null) {
 				writer.start_tag ("tr");
-				writer.start_tag ("td").end_tag ("td");
-				writer.start_tag ("td").end_tag ("td");
-				writer.start_tag ("td", {"colspan", "5"});
+				writer.start_tag ("td", {"class", "description", "colspan", "5"});
 				foreach (string line in pkg.description) {
 					line._strip ();
 					writer.start_tag ("p").text (line).end_tag ("p");
 				}
 				writer.end_tag ("td");
-				writer.start_tag ("td").end_tag ("td");
 				writer.end_tag ("tr");
 			}
 

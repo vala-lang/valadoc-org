@@ -363,6 +363,25 @@ nav .subtitle {
  * Content *
  ***********/
 
+#content-wrapper {
+    display: inline-block;
+    overflow: auto;
+    overflow-y: scroll;
+    text-align: left;
+    vertical-align: top;
+    width: calc(100% - 245px);
+}
+
+#content {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+#content table {
+    width: calc(100% - 20px);
+    margin-left: 20px;
+}
+
 .highlight .package:before {
     content: '';
     display: inline-block;
@@ -371,6 +390,10 @@ nav .subtitle {
     margin-left: -22px;
     margin-right: 6px;
     vertical-align: middle;
+}
+
+.highlight .description {
+    font-size: 12px;
 }
 
 .nowrap {
@@ -444,11 +467,6 @@ nav .subtitle {
     margin: 12px;
 }
 
-#content {
-    margin-left: 12px;
-    margin-right: 12px;
-}
-
 .tooltip {
     background-color: rgb(238,238,255);
     border: 1px solid rgb(170,170,255);
@@ -479,15 +497,6 @@ nav .subtitle {
 .site_footer {
     height: 15px;
     clear: left;
-}
-
-#content-wrapper {
-    display: inline-block;
-    overflow: auto;
-    overflow-y: scroll;
-    text-align: left;
-    vertical-align: top;
-    width: calc(100% - 245px);
 }
 
 .main_type {

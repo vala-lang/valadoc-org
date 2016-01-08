@@ -60,7 +60,7 @@ function get_title () {
       <div id="search-box">
         <input id="search-field" type="text" placeholder="Search" autofocus="autofocus" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
       </div>
-      <span class="title"><a href="/index.htm"><img alt="Valadoc" src="images/logo.svg"/></a></span>
+      <a class="title" href="/index.htm"><img alt="Valadoc" src="images/logo.svg"/></a>
       <span class="subtitle">Stays crunchy, even in milk.</span>
       <div id="links">
         <ul>

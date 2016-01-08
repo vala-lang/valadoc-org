@@ -75,7 +75,9 @@ nav #links {
 }
 
 nav .title {
-    font-size: 36px;
+    display: inline-block;
+    height: 28px;
+    vertical-align: middle;
 }
 
 nav .title a {
@@ -111,6 +113,7 @@ nav .subtitle {
 #search-field-clear {
     cursor: pointer;
     margin-left: -24px;
+    margin-right: 12px;
     opacity: 0.3;
     transition: all 200ms ease-in-out;
     vertical-align: middle;
@@ -211,7 +214,7 @@ nav .subtitle {
     border: 0;
     border-bottom: 1px solid #fff;
     border-top: 1px solid #dedede;
-    height: 1px;
+    height: 0;
     margin: 6px 0;
 }
 

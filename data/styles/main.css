@@ -84,6 +84,7 @@ nav .title a {
 
 nav .subtitle {
     vertical-align: -webkit-baseline-middle;
+    vertical-align: -moz-middle-with-baseline;
 }
 
 #search-box {
@@ -109,11 +110,10 @@ nav .subtitle {
 
 #search-field-clear {
     cursor: pointer;
-    position: absolute;
     margin-left: -24px;
-    margin-top: 8px;
     opacity: 0.3;
     transition: all 200ms ease-in-out;
+    vertical-align: middle;
 }
 
 #search-field:focus ~ #search-field-clear {
@@ -210,6 +210,7 @@ nav .subtitle {
     background-color: #dedede;
     border: 0;
     border-bottom: 1px solid #fff;
+    border-top: 1px solid #dedede;
     height: 1px;
     margin: 6px 0;
 }
@@ -577,6 +578,7 @@ div.leaf_brief_description {
 .main_enum_table_name {
     vertical-align: top;
     text-align: right;
+    font-size: 14px;
     font-weight: bold;
     width: 120px;
     padding-right: 10px;
@@ -694,7 +696,6 @@ a.abstract_class,
     background-image: url(/images/staticmethod.svg);
 }
 
-a.virtual_method,
 .description a.virtual_method,
 .brief_description a.virtual_method {
     background-image: url(/images/virtualmethod.svg);

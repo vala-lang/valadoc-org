@@ -1,4 +1,5 @@
 html {
+    color: #111;
     font-family: "Open Sans", "Droid Sans", Helvetica, sans-serif;
     font-size: 12px;
     font-weight: 400;
@@ -377,9 +378,19 @@ nav .subtitle {
     margin-right: 12px;
 }
 
-#content table {
-    width: calc(100% - 20px);
-    margin-left: 20px;
+.highlight {
+    border-radius: 6px;
+    padding: 6px;
+    width: auto;
+}
+
+.highlight:hover {
+    background-color: #eee;
+}
+
+.highlight .package {
+    font-size: 14px;
+    padding-right: 6px;
 }
 
 .highlight .package:before {
@@ -387,17 +398,42 @@ nav .subtitle {
     display: inline-block;
     height: 16px;
     width: 16px;
-    margin-left: -22px;
     margin-right: 6px;
     vertical-align: middle;
 }
 
-.highlight .description {
-    font-size: 12px;
+.highlight .links {
+    float: right;
 }
 
-.nowrap {
-    white-space: nowrap;
+.highlight .links p {
+    display: inline-block;
+    margin: 0 6px;
+}
+
+.highlight .cdocs {
+    width: 45px;
+}
+
+.highlight .devhelp {
+    width: 111px;
+}
+
+.highlight .homepage {
+    width: 40px;
+}
+
+.highlight .install {
+    width: 40px;
+}
+
+.highlight .description {
+    font-size: 12px;
+    margin-left: 22px;
+}
+
+.highlight .description p {
+    margin-top: 6px;
 }
 
 .main_optional_parameter {
@@ -484,10 +520,6 @@ nav .subtitle {
 
 .tooltip p {
     margin-top: 4px;
-}
-
-.highlight:hover {
-    background-color: rgb(238,238,255);
 }
 
 .site_title {
@@ -746,9 +778,6 @@ code {
 }
 
 .deprecated {
-    text-decoration: line-through;
-}
-
-.deprecated a {
     opacity: 0.5;
+    text-decoration: line-through;
 }

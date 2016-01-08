@@ -547,86 +547,66 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		private void render_table_begin () {
 			writer.start_tag ("table");
-
-			writer.start_tag ("tr");
-			writer.start_tag ("td").end_tag ("td");
-			writer.start_tag ("td", {"width", "160"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "100"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "50"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "110"}).end_tag ("td");
-			writer.end_tag ("tr");
 		}
 
 		private void render_table_entry (Package pkg) {
-			writer.start_tag ("tbody", {"class", "highlight"});
 
-			//string maintainers = pkg.maintainers ?? "-";
-			writer.start_tag ("tr");
+			writer.start_tag ("div", {"class", "highlight"});
 
 			if (pkg.is_deprecated) {
-				writer.start_tag ("td", {"class", "package deprecated"});
+				writer.start_tag ("a", {"class", "deprecated package", "href", pkg.online_link}).text (pkg.name).end_tag ("a");
 			} else {
-				writer.start_tag ("td", {"class", "package"});
+				writer.start_tag ("a", {"class", "package", "href", pkg.online_link}).text (pkg.name).end_tag ("a");
 			}
-			writer.start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a");
 
 			if (pkg is ExternalPackage) {
 				writer.simple_tag ("img", {"src", "/images/external_link.png"});
 			}
-			writer.end_tag ("td");
 
-			writer.start_tag ("td", {"class", "nowrap"}).text (pkg.get_documentation_source ()).end_tag ("td");
+			writer.start_tag ("div", {"class", "links"});
 
-			writer.start_tag ("td", {"class", "nowrap"});
+			writer.start_tag ("p", {"class", "source"}).text (pkg.get_documentation_source ()).end_tag ("p");
 
-			bool first = true;
+
+			writer.start_tag ("p", {"class", "homepage"});
 			if (pkg.home != null) {
 				writer.start_tag ("a", {"href", pkg.home}).text ("Home").end_tag ("a");
-				first = false;
 			}
+			writer.end_tag ("p");
+
+			writer.start_tag ("p", {"class", "cdocs"});
 			if (pkg.c_docs != null) {
-				if (first == false) {
-					writer.text (", ");
+				writer.start_tag ("a", {"href", pkg.c_docs}).text ("C Docs").end_tag ("a");
+			}
+			writer.end_tag ("p");
+
+			writer.start_tag ("p", {"class", "install"});
+				string? install_link = pkg.get_catalog_file ();
+				if (install_link != null) {
+					string html_link = Path.build_filename (pkg.name, Path.get_basename (install_link));
+					writer.start_tag ("a", {"href", html_link}).text ("Install").end_tag ("a");
+					Valadoc.copy_file (install_link, Path.build_filename (output_directory, html_link));
 				}
+			writer.end_tag ("p");
 
-				writer.start_tag ("a", {"href", pkg.c_docs}).text ("C-docs").end_tag ("a");
-				first = false;
-			}
-			if (first == true) {
-				writer.text ("-");
-			}
-			writer.end_tag ("td");
+			writer.start_tag ("p", {"class", "devhelp"});
+				if (pkg.devhelp_link != null) {
+					writer.start_tag ("a", {"href", pkg.devhelp_link}).text ("devhelp-package").end_tag ("a");
+				}
+			writer.end_tag ("p");
 
-
-			string? install_link = pkg.get_catalog_file ();
-			if (install_link != null) {
-				string html_link = Path.build_filename (pkg.name, Path.get_basename (install_link));
-				writer.start_tag ("td", {"class", "nowrap"}).start_tag ("a", {"href", html_link}).text ("Install").end_tag ("a").end_tag ("td");
-				Valadoc.copy_file (install_link, Path.build_filename (output_directory, html_link));
-			} else {
-				writer.start_tag ("td", {"class", "nowrap"}).text ("-").end_tag ("td");
-			}
-
-			if (pkg.devhelp_link != null) {
-				writer.start_tag ("td", {"class", "nowrap"}).start_tag ("a", {"href", pkg.devhelp_link}).text ("devhelp-package").end_tag ("a").end_tag ("td");
-			} else {
-				writer.start_tag ("td", {"class", "nowrap"}).text ("-").end_tag ("td");
-			}
-
-			writer.end_tag ("tr");
+			writer.end_tag ("div");
 
 			if (pkg.description != null) {
-				writer.start_tag ("tr");
-				writer.start_tag ("td", {"class", "description", "colspan", "5"});
+				writer.start_tag ("div", {"class", "description"});
 				foreach (string line in pkg.description) {
 					line._strip ();
 					writer.start_tag ("p").text (line).end_tag ("p");
 				}
-				writer.end_tag ("td");
-				writer.end_tag ("tr");
+				writer.end_tag ("div");
 			}
 
-			writer.end_tag ("tbody");
+			writer.end_tag ("div");
 		}
 
 		private void render_table_end () {

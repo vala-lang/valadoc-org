@@ -528,11 +528,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				node.render (this);
 			}
 
-			render_table_begin ();
 			foreach (Package pkg in section.sorted_package_list ()) {
 				pkg.render (this);
 			}
-			render_table_end ();
 
 			header_level--;
 		}
@@ -543,10 +541,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		public override void render_external_package (ExternalPackage pkg) {
 			render_table_entry (pkg);
-		}
-
-		private void render_table_begin () {
-			writer.start_tag ("table");
 		}
 
 		private void render_table_entry (Package pkg) {
@@ -598,10 +592,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 
 			writer.end_tag ("div");
-		}
-
-		private void render_table_end () {
-			writer.end_tag ("table");
 		}
 	}
 

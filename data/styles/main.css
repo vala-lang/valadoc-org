@@ -374,8 +374,7 @@ nav .subtitle {
 }
 
 #content {
-    margin-left: 12px;
-    margin-right: 12px;
+    margin: 12px;
 }
 
 #content h1 {
@@ -394,7 +393,6 @@ nav .subtitle {
 .highlight {
     border-radius: 6px;
     padding: 6px;
-    width: auto;
 }
 
 .highlight:hover {
@@ -429,7 +427,7 @@ nav .subtitle {
 }
 
 .highlight .devhelp {
-    width: 111px;
+    width: 115px;
 }
 
 .highlight .homepage {

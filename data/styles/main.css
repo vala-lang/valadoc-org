@@ -83,6 +83,7 @@ nav .title a {
 
 nav .subtitle {
     vertical-align: -webkit-baseline-middle;
+    vertical-align: -moz-middle-with-baseline;
 }
 
 #search-box {
@@ -209,6 +210,7 @@ nav .subtitle {
     background-color: #dedede;
     border: 0;
     border-bottom: 1px solid #fff;
+    border-top: 1px solid #dedede;
     height: 1px;
     margin: 6px 0;
 }
@@ -507,6 +509,7 @@ div.leaf_brief_description {
 
 .main_hr {
     border: 0;
+    border-color: #aaaaff;
     color: #aaaaff;
     background-color: #aaaaff;
     height: 1px;
@@ -519,6 +522,7 @@ div.leaf_brief_description {
 .main_enum_table_name {
     vertical-align: top;
     text-align: right;
+    font-size: 14px;
     font-weight: bold;
     width: 120px;
     padding-right: 10px;

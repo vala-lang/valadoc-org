@@ -80,10 +80,6 @@ nav .title {
     vertical-align: middle;
 }
 
-nav .title a {
-    padding: 0 12px;
-}
-
 nav .subtitle {
     vertical-align: -webkit-baseline-middle;
     vertical-align: -moz-middle-with-baseline;

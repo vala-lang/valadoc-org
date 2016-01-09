@@ -163,7 +163,7 @@ nav .subtitle {
 }
 
 #sidebar .external-link:after {
-    background-image: url(/images/external_link.png);
+    background-image: url(/images/external_link.svg);
     content: '';
     display: inline-block;
     height: 12px;

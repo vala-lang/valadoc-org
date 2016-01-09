@@ -551,7 +551,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 
 			if (pkg is ExternalPackage) {
-				writer.simple_tag ("img", {"src", "/images/external_link.png"});
+				writer.simple_tag ("img", {"src", "/images/external_link.svg"});
 			}
 
 			writer.start_tag ("div", {"class", "links"});

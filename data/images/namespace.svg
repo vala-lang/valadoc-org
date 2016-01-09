@@ -5,10 +5,10 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   id="svg2"
+   width="16.036"
    height="16"
-   width="16.036">
+   id="svg2"
+   version="1.1">
   <metadata
      id="metadata12">
     <rdf:RDF>
@@ -26,14 +26,11 @@
   <title
      id="title4">elementary Symbolic Icon Theme</title>
   <path
-     id="path6"
-     fill-rule="evenodd"
-     fill="#403757"
-     overflow="visible"
-     white-space="normal"
-     font-family="sans-serif"
-     font-weight="400"
-     color="#000"
-     style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;isolation:auto;mix-blend-mode:normal"
-     d="M5 1s-.46-.014-.947.23C3.563 1.475 3 2.167 3 3v4H1v2h2v4c0 .833.564 1.525 1.053 1.77.488.244.947.23.947.23h2v-2H5V3h2V1H5zm4.014 0v2h2v10h-2v2h2s.458.014.947-.23c.49-.245 1.055-.937 1.055-1.77V9h2V7h-2V3c0-.833-.565-1.525-1.053-1.77-.488-.244-.946-.23-.946-.23h-2z" />
+     id="path8069"
+     d="m 5.500034,14.5 0,0 c -1.500034,0.03125 -2,-0.9375 -2,-2 l 0,-2.5 C 3.500034,9.15625 2.499966,8.5 1,8.5 2.2202282,8.480454 3.510011,8.0690658 3.500034,7 l 0,-2.5 c -0.03125,-1.09375 0.499966,-2 2,-2"
+     style="fill:none;fill-rule:evenodd;stroke:#403757;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#403757;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 10.491992,14.5 0,0 c 1.500034,0.03125 2,-0.9375 2,-2 l 0,-2.5 c 0,-0.84375 1.000068,-1.5 2.500034,-1.5 C 13.771798,8.480454 12.482015,8.0690658 12.491992,7 l 0,-2.5 c 0.03125,-1.09375 -0.499966,-2 -2,-2"
+     id="path8075" />
 </svg>

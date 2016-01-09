@@ -6,10 +6,10 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   height="16"
-   id="svg7384"
+   width="16.036167"
    version="1.1"
-   width="16.036167">
+   id="svg7384"
+   height="16">
   <metadata
      id="metadata90">
     <rdf:RDF>
@@ -27,100 +27,100 @@
   <defs
      id="defs7386">
     <linearGradient
-       osb:paint="solid"
-       id="linearGradient4526">
+       id="linearGradient4526"
+       osb:paint="solid">
       <stop
-         id="stop4528"
+         style="stop-color:#ffffff;stop-opacity:1;"
          offset="0"
-         style="stop-color:#ffffff;stop-opacity:1;" />
+         id="stop4528" />
     </linearGradient>
   </defs>
   <g
-     id="layer9"
+     transform="translate(-433.00039,12)"
+     style="display:inline"
      label="status"
+     id="layer9" />
+  <g
+     transform="translate(-433.00039,12)"
      style="display:inline"
-     transform="translate(-433.00039,12)" />
+     id="layer10" />
   <g
-     id="layer10"
+     transform="translate(-433.00039,12)"
      style="display:inline"
-     transform="translate(-433.00039,12)" />
+     id="layer13" />
   <g
-     id="layer13"
+     transform="translate(-433.00039,12)"
+     id="layer14" />
+  <g
+     transform="translate(-433.00039,12)"
      style="display:inline"
-     transform="translate(-433.00039,12)" />
+     id="layer15" />
   <g
-     id="layer14"
-     transform="translate(-433.00039,12)" />
-  <g
-     id="layer15"
+     transform="translate(-433.00039,12)"
      style="display:inline"
-     transform="translate(-433.00039,12)" />
+     id="g71291" />
   <g
-     id="g71291"
+     transform="translate(-701.76365,603.60207)"
      style="display:inline"
-     transform="translate(-433.00039,12)" />
+     id="layer9-2-2" />
   <g
-     id="layer9-2-2"
+     transform="translate(-701.76365,603.60207)"
      style="display:inline"
-     transform="translate(-701.76365,603.60207)" />
+     id="layer10-0-6" />
   <g
-     id="layer10-0-6"
+     transform="translate(-701.76365,603.60207)"
+     id="layer11-5" />
+  <g
+     transform="translate(-701.76365,603.60207)"
+     id="layer14-7-9" />
+  <g
+     transform="translate(-701.76365,603.60207)"
      style="display:inline"
-     transform="translate(-701.76365,603.60207)" />
+     id="layer15-5-2" />
   <g
-     id="layer11-5"
-     transform="translate(-701.76365,603.60207)" />
-  <g
-     id="layer14-7-9"
-     transform="translate(-701.76365,603.60207)" />
-  <g
-     id="layer15-5-2"
+     transform="translate(-701.76365,603.60207)"
      style="display:inline"
-     transform="translate(-701.76365,603.60207)" />
+     id="g71291-8-4" />
   <g
-     id="g71291-8-4"
+     transform="translate(-701.76365,603.60207)"
      style="display:inline"
-     transform="translate(-701.76365,603.60207)" />
+     id="g4953-5" />
   <g
-     id="g4953-5"
+     transform="translate(-701.76365,603.60207)"
      style="display:inline"
-     transform="translate(-701.76365,603.60207)" />
+     id="layer12-4" />
   <g
-     id="layer12-4"
+     transform="translate(-288.02844,406.39676)"
      style="display:inline"
-     transform="translate(-701.76365,603.60207)" />
+     id="layer10-2" />
   <g
-     id="layer10-2"
+     transform="translate(-288.02844,406.39676)"
+     id="layer11" />
+  <g
+     transform="translate(-288.02844,406.39676)"
      style="display:inline"
-     transform="translate(-288.02844,406.39676)" />
+     id="layer13-0" />
   <g
-     id="layer11"
-     transform="translate(-288.02844,406.39676)" />
+     transform="translate(-288.02844,406.39676)"
+     id="layer14-3" />
   <g
-     id="layer13-0"
+     transform="translate(-288.02844,406.39676)"
      style="display:inline"
-     transform="translate(-288.02844,406.39676)" />
+     id="layer15-1" />
   <g
-     id="layer14-3"
-     transform="translate(-288.02844,406.39676)" />
-  <g
-     id="layer15-1"
+     transform="translate(-288.02844,406.39676)"
      style="display:inline"
-     transform="translate(-288.02844,406.39676)" />
+     id="g71291-5" />
   <g
-     id="g71291-5"
+     transform="translate(-288.02844,406.39676)"
      style="display:inline"
-     transform="translate(-288.02844,406.39676)" />
+     id="g4953" />
   <g
-     id="g4953"
+     transform="translate(-288.02844,406.39676)"
      style="display:inline"
-     transform="translate(-288.02844,406.39676)" />
-  <g
-     id="layer12"
-     style="display:inline"
-     transform="translate(-288.02844,406.39676)" />
+     id="layer12" />
   <path
-     id="rect3361"
-     d="m 5.0175781,2 c -0.554,0 -1,0.446 -1,1 l 0,2 L 3,5 C 2.446,5 2,5.446 2,6 l 0,7 c 0,0.554 0.446,1 1,1 l 10,0 c 0.554,0 1,-0.446 1,-1 L 14,6 C 14,5.446 13.494761,5 13,5 l -0.982422,0 0,-2 c 0,-0.554 -0.446,-1 -1,-1 z m 0.5,1 4.9999999,0 c 0.277,0 0.5,0.223 0.5,0.5 l 0,1.5 -5.9999999,0 0,-1.5 c 0,-0.277 0.223,-0.5 0.5,-0.5 z"
-     style="color:#fbc02d;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#844cc8;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+     id="rect8278"
+     d="M 6 3 C 5.446 3 5 3.446 5 4 L 5 5 L 2.7929688 5 C 2.353664 5 2 5.3536642 2 5.7929688 L 4.2070312 8 L 6 8 L 7 8 L 7 7 L 9 7 L 9 8 L 10 8 L 11.792969 8 L 14 5.7929688 C 14 5.3536642 13.646336 5 13.207031 5 L 11 5 L 11 4 C 11 3.446 10.554 3 10 3 L 6 3 z M 6.5 4 L 9.5 4 C 9.777 4 10 4.223 10 4.5 L 10 5 L 6 5 L 6 4.5 C 6 4.223 6.223 4 6.5 4 z M 2 7.2070312 L 2 13.207031 C 2 13.646336 2.3536642 14 2.7929688 14 L 13.207031 14 C 13.646336 14 14 13.646336 14 13.207031 L 14 7.2070312 L 12.207031 9 L 9 9 L 9 10 L 7 10 L 7 9 L 3.7929688 9 L 2 7.2070312 z "
+     style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#814cc8;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
 </svg>

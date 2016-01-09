@@ -473,7 +473,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		ArrayList<Package> packages = get_sorted_package_list ();
 		foreach (Package pkg in packages) {
 			if (pkg is ExternalPackage) {
-				writer.start_tag ("li", {"class", "package"}).start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").simple_tag ("img", {"src", "/images/external_link.png"}).end_tag ("li");
+				writer.start_tag ("li", {"class", "package external-link"}).start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
 			} else {
 				writer.start_tag ("li", {"class", "package"}).start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
 			}

@@ -555,13 +555,13 @@ nav .subtitle {
 .main_code_definition {
     background-color: #eee;
     border-radius: 6px;
-    font-family: "Droid Sans Mono", monospace;
+    font-family: "Roboto Mono", monospace;
     margin: 12px;
     padding: 12px;
 }
 
 span.leaf_code_definition {
-    font-family: "Droid Sans Mono", monospace;
+    font-family: "Roboto Mono", monospace;
 }
 
 div.leaf_brief_description {
@@ -717,12 +717,12 @@ a.abstract_class,
 }
 
 .css_content_literal {
-    font-family: "Droid Sans Mono", monospace;
+    font-family: "Roboto Mono", monospace;
     color: #ff01ff;
 }
 
 code {
-    font-family: "Droid Sans Mono", monospace;
+    font-family: "Roboto Mono", monospace;
 }
 
 .main_code_definition a,

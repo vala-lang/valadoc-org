@@ -131,7 +131,7 @@ nav .subtitle {
     display: inline-block;
     overflow-y: auto;
     width: 240px;
-    height: calc(100vh - 48px);
+    height: 100%;
 }
 
 #sidebar a {
@@ -343,7 +343,7 @@ nav .subtitle {
 
 #content-wrapper {
     display: inline-block;
-    height: calc(100vh - 48px);
+    height: 100%;
     overflow-y: scroll;
     text-align: left;
     vertical-align: top;

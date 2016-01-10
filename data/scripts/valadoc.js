@@ -311,13 +311,6 @@ $(document).ready(function () {
     $('#search-field').val('').trigger('change')
   })
 
-  $(window).resize(function () {
-    var winh = $(window).height()
-    var nav_top = $('nav').height()
-    $('#content-wrapper').height(winh - nav_top)
-    $('#sidebar').height(winh - nav_top)
-  }).trigger('resize')
-
   $('#sidebar').hover(function () {
     $('#search-field').focus()
   })

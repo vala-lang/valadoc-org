@@ -307,17 +307,21 @@ $(document).ready(function () {
     }, 1)
   }).trigger('change')
 
+  var searchField = $('#search-field')
+
   $('#search-field-clear').click(function () {
-    $('#search-field').val('').trigger('change')
+    searchField.val('').trigger('change')
   })
 
   $('#sidebar').hover(function () {
-    $('#search-field').focus()
+    searchField.focus()
   })
 
   $(document).keypress(function (e) {
-    if (e.keyCode === 27) { // escape
-      $('#search-field').val('').focus()
+    if (searchField.is(':focus') && e.keyCode === 27) { // escape
+      searchField.val('').focus()
+    } else {
+      searchField.focus()
     }
   })
 

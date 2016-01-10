@@ -159,8 +159,19 @@ public class ValadocGen : ExampleParser {
 	}
 
 	protected override void file (string file) {
+		string lang = "";
+		if (file.has_suffix (".c") || file.has_suffix (".h")) {
+			lang = "#!C";
+		} else if (file.has_suffix (".vala") || file.has_suffix (".vapi")) {
+			lang = "#!vala";
+		} else if (file.has_suffix (".xml") || file.has_suffix (".ui")) {
+			lang = "#!xml";
+		} else {
+			lang = "";
+		}
+
 		builder.append (" *\n");
-		builder.append (" * {{{\n");
+		builder.append_printf (" * {{{%s\n", lang);
 
 		current_example.puts ("\n");
 		current_example.puts ("{{{\n");

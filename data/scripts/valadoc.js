@@ -311,17 +311,14 @@ $(document).ready(function () {
     $('#search-field').val('').trigger('change')
   })
 
-  var content_top = $('#content-wrapper').position().top
-  var nav_top = $('#search-results').position().top
-
   $(window).resize(function () {
     var winh = $(window).height()
-    $('#content-wrapper').height(winh - content_top)
-    $('#search-results').height(winh - nav_top)
-    $('#navigation-content').height(winh - nav_top)
+    var nav_top = $('nav').height()
+    $('#content-wrapper').height(winh - nav_top)
+    $('#sidebar').height(winh - nav_top)
   }).trigger('resize')
 
-  $('#navigation').hover(function () {
+  $('#sidebar').hover(function () {
     $('#search-field').focus()
   })
 

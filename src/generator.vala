@@ -49,6 +49,50 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
+	private static string[] get_vapi_directories () {
+		int exit_status = 0;
+		string? standard_output = null;
+		string? standard_error = null;
+		string[] paths = new string[0];
+
+		// Local vapi directory:
+		paths += vapidir;
+		paths += default_vapidir;
+
+
+		// Unversioned vapi directory:
+		try {
+			Process.spawn_command_line_sync ("pkg-config --variable=vapidir vapigen", out standard_output, out standard_error, out exit_status);
+			if (exit_status == 0) {
+				paths += standard_output.strip ();
+			}
+		} catch (Error e) {
+		}
+
+
+		// Versioned vapi directory:
+		try {
+			Process.spawn_command_line_sync ("pkg-config --variable=vapidir libvala-%s".printf (driver), out standard_output, out standard_error, out exit_status);
+			if (exit_status == 0) {
+				paths += standard_output.strip ();
+			}
+		} catch (Error e) {
+		}
+
+		return paths;
+	}
+
+	private string? get_vapi_path (Package pkg) {
+		foreach (string dir in vapidirs) {
+			string path = Path.build_path (Path.DIR_SEPARATOR_S, dir, pkg.name + ".vapi");
+			if (FileUtils.test (path, FileTest.EXISTS)) {
+				return path;
+			}
+		}
+
+		return null;
+	}
+
 	[CCode (array_length = false, array_null_terminated = true)]
 	private static string[] requested_packages;
 	private static bool regenerate_all_packages;
@@ -61,11 +105,13 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private static string prefix;
 	private static bool skip_existing;
 	private static string girdir = "girs/gir-1.0";
+	private static string default_vapidir = "girs/vala/vapi";
 	private static string target_glib;
+	private string[] vapidirs;
 
 	public IndexGenerator (ErrorReporter reporter) {
 		this.reporter = new ErrorReporter ();
-
+		this.vapidirs = get_vapi_directories ();
 
 		try {
 			string label = "([^(\\]\n)](\n[ \t]*)?)*";
@@ -99,6 +145,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			string? maintainers = reader.get_attribute ("maintainers");
 			string? name = reader.get_attribute ("name");
 			string? c_docs = reader.get_attribute ("c-docs");
+			string? vapi_image_source = reader.get_attribute ("vapi-image-source");
 			string? home = reader.get_attribute ("home");
 			string? deprecated_str = reader.get_attribute ("deprecated");
 			bool is_deprecated = false;
@@ -126,7 +173,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				string? gallery = reader.get_attribute ("gallery");
 				string? gir_name = reader.get_attribute ("gir");
 				string? flags = reader.get_attribute ("flags");
-				pkg = new Package (name, gir_name, maintainers, home, c_docs, gallery, flags, is_deprecated);
+				pkg = new Package (name, gir_name, maintainers, home, c_docs, vapi_image_source, gallery, flags, is_deprecated);
 				register_package (section, pkg);
 			}
 		}
@@ -264,6 +311,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		public string name;
 		public string? home;
 		public string? c_docs;
+		public string? vapi_image_source;
 		public string flags;
 		public bool is_deprecated;
 		public string? gallery;
@@ -287,13 +335,14 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		protected Package.dummy () {}
 
-		public Package (string name, string? gir_name = null, string? maintainers = null, string? home = null, string? c_docs = null, string? gallery = null, string? flags = null, bool is_deprecated = false) {
+		public Package (string name, string? gir_name = null, string? maintainers = null, string? home = null, string? c_docs = null, string? vapi_image_source = null, string? gallery = null, string? flags = null, bool is_deprecated = false) {
 			devhelp_link = "/" + name + "/" + name + ".tar.bz2";
 			online_link = "/" + name + "/index.htm";
 			this.is_deprecated = is_deprecated;
 			this.maintainers = maintainers;
 			this.gir_name = gir_name;
 			this.c_docs = c_docs;
+			this.vapi_image_source = vapi_image_source;
 			this.name = name;
 			this.home = home;
 			this.flags = flags ?? "";
@@ -872,11 +921,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			builder.append_printf (" --importdir \"%s\"", girdir);
 			builder.append_printf (" --import %s", pkg.gir_name);
 
-			load_images (pkg);
+			load_images_gir (pkg);
 
 			string metadata_path = pkg.get_gir_file_metadata_path ();
 			if (metadata_path != null) {
 				builder.append_printf (" --metadatadir %s", metadata_path);
+			}
+		} else {
+			if (load_images_vapi (pkg)) {
+				builder.append_printf (" --alternative-ressource-dir documentation/%s/vapi-images/", pkg.name);
 			}
 		}
 
@@ -1112,7 +1165,103 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		});
 	}
 
-	private void load_images (Package pkg) {
+
+	private Regex cmnt_regex;
+	private Regex content_regex;
+
+	private bool load_images_vapi (Package pkg) {
+		if (pkg.vapi_image_source == null) {
+			return false;
+		}
+
+		if (!download_images) {
+			return false;
+		}
+
+		string? vapi_path = get_vapi_path (pkg);
+		if (vapi_path == null) {
+			return false;
+		}
+
+		// {{[path]}}
+		// {{[path]|[description]}}
+
+		stdout.printf ("  download images (vapi) ...\n");
+
+		bool has_images = false;
+		try {
+			string file_content;
+			FileUtils.get_contents (vapi_path, out file_content);
+
+			if (cmnt_regex == null) {
+				cmnt_regex = new Regex ("/\\*\\*(.*?)\\*/", RegexCompileFlags.OPTIMIZE | RegexCompileFlags.DOTALL);
+			}
+			MatchInfo cmnt_info;
+			int cmnt_start;
+			int cmnt_end;
+
+			if (content_regex == null) {
+				content_regex = new Regex ("{{{(.*?)}}}|{{(.*?)(\\|.*?)?}}", RegexCompileFlags.OPTIMIZE);
+			}
+			MatchInfo content_info;
+
+			cmnt_regex.match (file_content, 0, out cmnt_info);
+			while (cmnt_info.matches ()) {
+				cmnt_info.fetch_pos (1, out cmnt_start, out cmnt_end);
+				cmnt_info.next ();
+
+				// All links:
+				content_regex.match_full (file_content, cmnt_end, cmnt_start, 0, out content_info);
+				while (content_info.matches ()) {
+					string source = content_info.fetch (1);
+					string image_name = content_info.fetch (2);
+					if (source != "") {
+						// TODO: download external source code
+					} else if (image_name != "") {
+						image_name = Path.get_basename (image_name);
+
+						if (!FileUtils.test ("documentation/%s/vapi-images/%s".printf (pkg.name, image_name), FileTest.EXISTS)) {
+							string link = get_image_link (pkg.vapi_image_source, image_name);
+							Process.spawn_command_line_sync ("wget --directory-prefix documentation/%s/vapi-images/ \"%s\"".printf (pkg.name, link));
+							has_images = true;
+						}
+					}
+					content_info.next ();
+				}
+			}
+
+		} catch (Error e) {
+			assert_not_reached ();
+		}
+
+		return has_images;
+	}
+
+	private Regex regex_launchpad_link;
+
+	private string get_image_link (string base_url, string image_name) {
+		string url = Path.build_path ("/", base_url, image_name);
+		if (url.has_prefix ("http://bazaar.launchpad.net/")) {
+			uint8[] _content;
+			File page_file = File.new_for_uri (url);
+			page_file.load_contents (null, out _content, null);
+			unowned string content = (string) _content;
+
+			if (regex_launchpad_link == null) {
+				regex_launchpad_link = new Regex ("<a href=\"(.*?)\">download file</a>", RegexCompileFlags.OPTIMIZE);
+			}
+
+			MatchInfo info;
+			regex_launchpad_link.match (content, 0, out info);
+			NetworkAddress address = NetworkAddress.parse_uri (base_url, 80) as NetworkAddress; // cast is required by vala <= 0.28
+			assert (address != null); 
+			return address.get_scheme () + "://" + Path.build_path ("/", address.get_hostname (), info.fetch (1));
+		}
+
+		return url;
+	}
+
+	private void load_images_gir (Package pkg) {
 		if (pkg.c_docs == null || pkg.gir_name == null) {
 			return ;
 		}
@@ -1124,7 +1273,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		string gir_path = pkg.get_gir_file ();
 
-		stdout.printf ("  download images ...\n");
+		stdout.printf ("  download images (gir) ...\n");
 
 		var markup_reader = new Valadoc.MarkupReader (gir_path, reporter);
 		MarkupTokenType token = MarkupTokenType.EOF;
@@ -1147,7 +1296,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		foreach (string image_name in images) {
 			if (!FileUtils.test ("documentation/%s/gir-images/%s".printf (pkg.name, image_name), FileTest.EXISTS)) {
 				try {
-					string link = Path.build_path (Path.DIR_SEPARATOR_S, pkg.c_docs, image_name);
+					string link = get_image_link (pkg.c_docs, image_name);
 					Process.spawn_command_line_sync ("wget --directory-prefix documentation/%s/gir-images/ \"%s\"".printf (pkg.name, link));
 				} catch (SpawnError e) {
 					assert_not_reached ();
@@ -1229,6 +1378,11 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return -1;
 		}
 
+		if (Regex.match_simple ("^[0-9]+\\.[0-9]+$", driver) == false) {
+			stdout.printf ("error: unexpected driver format\n");
+			return -1;
+		}
+
 		if (metadata_path == null) {
 			metadata_path = "documentation/packages.xml";
 		}
@@ -1241,7 +1395,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			stdout.printf ("error: --vapidir is missing\n");
 			return -1;
 		}
-
 
 		if (!FileUtils.test (output_directory, FileTest.IS_DIR)) {
 			if (DirUtils.create_with_parents (output_directory, 0777) != 0) {

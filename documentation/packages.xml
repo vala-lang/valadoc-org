@@ -48,9 +48,9 @@
 			<package name="clutter-gtk-1.0" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/">
 				GTK clutter widget.
 			</package>
-			<package name="clutter-gtk-0.10" deprecated="true" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/">
+			<!--package name="clutter-gtk-0.10" deprecated="true" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/">
 				GTK clutter widget.
-			</package>
+			</package-->
 			<package name="clutter-json-1.0" home="http://www.clutter-project.org/">
 				Clutters Json-interface, see json-glib.
 			</package>

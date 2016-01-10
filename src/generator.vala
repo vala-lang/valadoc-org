@@ -108,7 +108,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 
 			if (name == null) {
-				reporter.simple_error ("error: %s: Missing attribute: name=\"\"", start_tag);
+				xml_error (reader, current_token, begin, end, "error: %s: Missing attribute: name=\"\"".printf (start_tag));
 				return ;
 			}
 
@@ -150,7 +150,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 		if (current_token != MarkupTokenType.END_ELEMENT || reader.name != start_tag) {
-			reporter.simple_error ("error: Expected: </%s> (got: %s '%s')", start_tag, current_token.to_string (), reader.name);				return ;
+			xml_error (reader, current_token, begin, end, "Expected: </%s> (got: %s '%s')".printf (start_tag, current_token.to_string (), reader.name));
+			return ;
 		}
 
 		current_token = reader.read_token (out begin, out end);
@@ -159,7 +160,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private void parse_metadata_section (Section parent_section, MarkupReader reader, ref MarkupTokenType current_token, ref MarkupSourceLocation begin, ref MarkupSourceLocation end) {
 		string name = reader.get_attribute ("name");
 		if (name == null) {
-			reporter.simple_error ("error: Expected: <section name=\"...\"");
+			xml_error (reader, current_token, begin, end, "Expected: <section name=\"...\"");
 			return ;
 		}
 
@@ -170,7 +171,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		while (current_token != MarkupTokenType.END_ELEMENT && current_token != MarkupTokenType.EOF) {
 			if (current_token != MarkupTokenType.START_ELEMENT || !(reader.name == "package" || reader.name == "external-package" || reader.name == "section")) {
-				reporter.simple_error ("error: Expected: <section>|<package>|<external-package> (got: %s '%s')", current_token.to_string (), reader.name);
+				xml_error (reader, current_token, begin, end, "Expected: <section>|<package>|<external-package> (got: %s '%s')".printf (current_token.to_string (), reader.name));
 				return ;
 			}
 
@@ -184,7 +185,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 		if (current_token != MarkupTokenType.END_ELEMENT || reader.name != "section") {
-			reporter.simple_error ("error: Expected: </section> (got: %s '%s')", current_token.to_string (), reader.name);
+			xml_error (reader, current_token, begin, end, "error: Expected: </section> (got: %s '%s')".printf (current_token.to_string (), reader.name));
 			return ;
 		}
 
@@ -202,7 +203,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		current_token = reader.read_token (out begin, out end);
 
 		if (current_token != MarkupTokenType.START_ELEMENT || reader.name != "packages") {
-			reporter.simple_error ("error: Expected: <packages>");
+			reporter.simple_error (null, "error: Expected: <packages>");
 			return ;
 		}
 
@@ -212,7 +213,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		while (current_token != MarkupTokenType.END_ELEMENT && current_token != MarkupTokenType.EOF) {
 			if (current_token != MarkupTokenType.START_ELEMENT || reader.name != "section") {
-				reporter.simple_error ("error: Expected: <section> (got: %s '%s')", current_token.to_string (), reader.name);
+				reporter.simple_error (null, "Expected: <section> (got: %s '%s')", current_token.to_string (), reader.name);
 				return ;
 			}
 
@@ -222,7 +223,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		this.sections = section.sections;
 
 		if (current_token != MarkupTokenType.END_ELEMENT || reader.name != "packages") {
-			reporter.simple_error ("error: Expected: </packages> (got: %s '%s')", current_token.to_string (), reader.name);
+			reporter.simple_error (null, "Expected: </packages> (got: %s '%s')", current_token.to_string (), reader.name);
 			return ;
 		}
 	}
@@ -323,7 +324,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 						}
 					}
 				} catch (Error e) {
-					reporter.simple_error ("error: invalid key file: %s", e.message);
+					reporter.simple_error (null, "error: invalid key file: %s", e.message);
 					return ;
 				}
 			}
@@ -643,7 +644,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		try {
 			copy_data ();
 		} catch (Error e) {
-			reporter.simple_error ("error: Can't copy data: %s", e.message);
+			reporter.simple_error (null, "error: Can't copy data: %s", e.message);
 		}
 	}
 
@@ -801,7 +802,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		foreach (string pkg_name in packages) {
 			Package? pkg = packages_per_name.get (pkg_name);
 			if (pkg == null) {
-				reporter.simple_error ("error: Unknown package %s", pkg_name);
+				reporter.simple_error (null, "error: Unknown package %s", pkg_name);
 			}
 
 			queue.add (pkg);
@@ -1008,7 +1009,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		int pos = pkg.gallery.last_index_of_char ('/');
 		if (pos < 0) {
-			reporter.simple_error ("Invalid widget gallery path\n");
+			reporter.simple_error (null, "Invalid widget gallery path\n");
 			throw new FileError.FAILED ("Invalid widget gallery path");
 		}
 		string search_path = pkg.gallery.substring (0, pos);
@@ -1294,5 +1295,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		DirUtils.remove ("tmp");
 		return return_val;
+	}
+
+	private void xml_warning (MarkupReader reader, MarkupTokenType current_token, MarkupSourceLocation begin, MarkupSourceLocation end, string message) {
+		reporter.warning (reader.filename, begin.line, begin.column, end.column,
+						  reader.get_line_content (begin.line), message);
+	}
+
+	private void xml_error (MarkupReader reader, MarkupTokenType current_token, MarkupSourceLocation begin, MarkupSourceLocation end, string message) {
+		reporter.error (reader.filename, begin.line, begin.column, end.column,
+						reader.get_line_content (begin.line), message);
 	}
 }

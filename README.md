@@ -7,7 +7,7 @@ Building
 ========
 
 In order to build the docs you will need the following:
-* `valadoc` past [this](https://git.gnome.org/browse/valadoc/commit/?id=1ecd5955) commit
+* `valadoc` past [this](https://git.gnome.org/browse/valadoc/commit/?id=7d4ff2b0d1443c6996ec99c6bf3a71ceb12206be) commit
 * `php`
 * 4 GB of free space
 

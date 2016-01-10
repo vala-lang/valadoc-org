@@ -458,6 +458,62 @@ nav .subtitle {
     color: #dc322f;
 }
 
+.main_literal {
+    text-decoration: none;
+    color: #2BA199;
+}
+
+.main_escape {
+    text-decoration: none;
+    color: #dc322f;
+}
+
+.main_comment {
+    text-decoration: none;
+    color: #93AABC;
+}
+
+.main_preprocessor {
+    text-decoration: none;
+    color: #dc322f;
+}
+
+.xml_cdata {
+    text-decoration: none;
+    font-weight: normal;
+    color: #93AABC;
+}
+
+.xml_escape {
+    text-decoration: none;
+    font-weight: normal;
+    color: #dc322f;
+}
+
+.xml_element {
+    text-decoration: none;
+    font-weight: normal;
+    color: #258BD2;
+}
+
+.xml_attribute {
+    text-decoration: none;
+    font-weight: bold;
+    color: #93AABC;
+}
+
+.xml_attribute_value {
+    text-decoration: none;
+    font-weight: normal;
+    color: #2BA199;
+}
+
+.xml_comment {
+    text-decoration: none;
+    font-weight: normal;
+    color: #93AABC;
+}
+
 .main_code_definition {
     background-color: #eee;
     border-radius: 6px;

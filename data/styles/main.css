@@ -1,0 +1,748 @@
+html {
+    color: #111;
+    font-family: "Open Sans", "Droid Sans", Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #08c;
+    text-decoration: none;
+}
+
+h2,
+h3 {
+    font-family: "Droid Serif", serif;
+    font-weight: 300;
+}
+
+p {
+    font-size: 14px;
+}
+
+/***********
+ * Nav Bar *
+ ***********/
+
+nav {
+    list-style-type: none;
+    background-color: #403757;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12),
+                0 1px 2px rgba(0,0,0,0.24);
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 6px;
+    position: relative;
+}
+
+nav a,
+nav a:visited,
+nav a:active {
+    border-radius: 4px;
+    color: rgba(255,255,255,0.9);
+    padding: 4px 8px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+nav li,
+nav span {
+    display: inline;
+    vertical-align: middle;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav #links {
+    display: inline;
+    position: absolute;
+    right: 0;
+}
+
+nav .title {
+    display: inline-block;
+    height: 28px;
+    vertical-align: middle;
+}
+
+nav .subtitle {
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: -moz-middle-with-baseline;
+}
+
+#search-box {
+    display: none;
+    width: auto;
+}
+
+#search-field {
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 6px;
+    transition: all 200ms ease-in-out;
+    width: calc(240px - 12px);
+}
+
+#search-field:focus {
+    border-color: rgba(58,65,111,0.5);
+    box-shadow: 0 1px 3px rgba(58,65,111,0.12);
+    outline: none;
+}
+
+#search-field-clear {
+    cursor: pointer;
+    margin-left: -24px;
+    margin-right: 12px;
+    opacity: 0.3;
+    transition: all 200ms ease-in-out;
+    vertical-align: middle;
+}
+
+#search-field:focus ~ #search-field-clear {
+    opacity: 0.75;
+}
+
+/***********
+ * Sidebar *
+ ***********/
+
+#sidebar {
+    background-color: #fcfcfc;
+    border-right: 1px solid #dedede;
+    display: inline-block;
+    width: 240px;
+}
+
+#sidebar a {
+    color: #666;
+    text-decoration: none;
+}
+
+#sidebar hr {
+    background-color: #dedede;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #dedede;
+    height: 0;
+    margin: 6px 0;
+}
+
+#sidebar ul {
+    font-size: 12px;
+    list-style: none;
+    margin: 6px 0;
+    padding: 0;
+}
+
+#sidebar li {
+    overflow: hidden;
+    padding: 3px 6px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#sidebar li:hover {
+    background: rgba(0,0,0,0.1);
+}
+
+#sidebar .external-link:after {
+    background-image: url(/images/external_link.svg);
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    margin-left: 3px;
+    vertical-align: middle;
+}
+
+#navigation-content {
+    overflow: auto;
+}
+
+.search-result:nth-child(even) {
+    background-color: rgba(0,0,0,0.02);
+}
+
+.search-result a .search-package {
+    display: inline;
+    font-style: italic;
+}
+
+.search-result a .search-desc {
+    display: block;
+    font-size: 10px;
+    opacity: 0.75;
+}
+
+.search-selected {
+    background-color: #776C93 !important;
+}
+
+.search-selected span {
+    color: #eeeeec;
+}
+
+.site_navigation {
+    width: 100%;
+}
+
+.navi_inline {
+    font-size: 12px;
+    line-height: 21px;
+    list-style: none;
+    margin: 6px 3px;
+    padding-left: 6px;
+}
+
+.navi_inline {
+    padding-left: 12px;
+}
+
+.navi_inline li:before,
+.navi_main li:before {
+    content: '';
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.navi_main .abstract_class > a,
+.navi_inline .abstract_class > a {
+    font-style: italic;
+}
+
+.abstract_class:before {
+    background-image: url(/images/abstractclass.svg);
+}
+
+.abstract_method:before {
+    background-image: url(/images/abstractmethod.svg);
+}
+
+.abstract_property:before {
+    background-image: url(/images/abstractproperty.svg);
+}
+
+.class:before,
+.main_list_cl:before {
+    background-image: url(/images/class.svg);
+}
+
+.constant:before {
+    background-image: url(/images/constant.svg);
+}
+
+.creation_method:before,
+.main_list_m:before {
+    background-image: url(/images/constructor.svg);
+}
+
+.delegate:before,
+.main_list_del:before {
+    background-image: url(/images/delegate.svg);
+}
+
+.enum:before,
+.main_list_en:before {
+    background-image: url(/images/enum.svg);
+}
+
+.enumvalue:before {
+    background-image: url(/images/enumvalue.svg);
+}
+
+.errorcode:before {
+    background-image: url(/images/errorcode.svg);
+}
+
+.errordomain:before,
+.main_list_errdom:before {
+    background-image: url(/images/errordomain.svg);
+}
+
+.field:before,
+.main_list_field:before {
+    background-image: url(/images/field.svg);
+}
+
+.interface:before,
+.main_list_iface:before {
+    background-image: url(/images/interface.svg);
+}
+
+.method:before {
+    background-image: url(/images/method.svg);
+}
+
+.namespace:before,
+.main_list_ns:before {
+    background-image: url(/images/namespace.svg);
+}
+
+.package:before {
+    background-image: url(/images/package.svg);
+}
+
+.package_index:before {
+    background-image: url(/images/packages.svg);
+}
+
+.property:before,
+.main_list_prop:before {
+    background-image: url(/images/property.svg);
+}
+
+.signal:before,
+.main_list_sig:before {
+    background-image: url(/images/signal.svg);
+}
+
+.static_method:before {
+    background-image: url(/images/staticmethod.svg);
+}
+
+.struct:before,
+.main_list_stru:before {
+    background-image: url(/images/struct.svg);
+}
+
+.virtual_method:before {
+    background-image: url(/images/virtualmethod.svg);
+}
+
+.virtual_property:before {
+    background-image: url(/images/virtualproperty.svg);
+}
+
+/***********
+ * Content *
+ ***********/
+
+#content-wrapper {
+    display: inline-block;
+    overflow: auto;
+    overflow-y: scroll;
+    text-align: left;
+    vertical-align: top;
+    width: calc(100% - 245px);
+}
+
+#content {
+    margin: 12px;
+}
+
+#content h1 {
+    margin-bottom: 0;
+}
+
+#content hr {
+    border: 0;
+    color: #B4A0C1;
+    background-color: #B4A0C1;
+    height: 1px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.highlight {
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.highlight:hover {
+    background-color: #eee;
+}
+
+.highlight .package {
+    font-size: 14px;
+    padding-right: 6px;
+}
+
+.highlight .package:before {
+    content: '';
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.highlight .links {
+    float: right;
+}
+
+.highlight .links p {
+    display: inline-block;
+    margin: 0 6px;
+}
+
+.highlight .cdocs,
+.highlight .homepage {
+    width: 48px;
+}
+
+.highlight .devhelp {
+    width: 115px;
+}
+
+.highlight .description {
+    margin-left: 22px;
+}
+
+.highlight .description p {
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.main_optional_parameter {
+    font-style: italic;
+}
+
+.main_diagram {
+    border-style: none;
+    display: block;
+    margin: 0 auto;
+}
+
+.site_navi {
+    text-align: right;
+}
+
+.main_notification {
+    background-color: #eeeeff;
+    background-image: url(/images/warning.svg);
+    background-position: 6px 0.5em;
+    background-repeat: no-repeat;
+    border: 1px solid #aaaaff;
+    margin: 10px;
+    min-height: 48px;
+    padding: 5px 10px 5px 60px;
+}
+
+.main_table {
+    border-collapse: collapse;
+    border: 1px solid #aaaaff;
+    background: #eeeeff;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main_sourcesample {
+    background-color: #eeeeff;
+    border: 1px solid #aaaaff;
+    margin: 10px;
+    padding: 5px 10px 5px 5px;
+}
+
+.site_header {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #aaaaff;
+    width: 100%;
+}
+
+.space {
+    clear: both;
+    height: 10px;
+}
+
+#logo {
+    float: left;
+    margin-left: 17px;
+    display: none;
+}
+
+#logo img {
+    width: 203px;
+    height: 52px;
+}
+
+#comments {
+    margin: 12px;
+}
+
+.tooltip {
+    background-color: rgba(250,250,250,0.95);
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12),
+                0 1px 2px rgba(0,0,0,0.24);
+    max-width: 30em;
+    padding: 12px;
+    text-align: left;
+    z-index: 1000;
+}
+
+.tooltip * {
+    padding: 0;
+    margin: 0;
+}
+
+.tooltip p {
+    margin-top: 4px;
+}
+
+.site_title {
+    text-align: left;
+}
+
+.site_footer {
+    height: 15px;
+    clear: left;
+}
+
+.main_type {
+    text-decoration: none;
+    font-style: italic;
+}
+
+.main_basic_type {
+    text-decoration: none;
+    font-weight: bold;
+    color: #2e8b57;
+}
+
+.main_keyword {
+    text-decoration: none;
+    font-weight: bold;
+    color: #dc322f;
+}
+
+.main_code_definition {
+    background-color: #eee;
+    border-radius: 6px;
+    font-family: "Roboto Mono", monospace;
+    margin: 12px;
+    padding: 12px;
+}
+
+span.leaf_code_definition {
+    font-family: "Roboto Mono", monospace;
+}
+
+div.leaf_brief_description {
+    display: block;
+    margin-left: 40px;
+}
+
+.main_parameter_table_name,
+.main_errordomain_table_name,
+.main_enum_table_name {
+    vertical-align: top;
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+    width: 120px;
+    padding-right: 10px;
+}
+
+.main_parameter_table,
+.main_errordomain_table,
+.main_enum_table {
+    margin-left: 20px;
+}
+
+.main_parameter_table_unknown_parameter {
+    color: gray;
+}
+
+a.abstract_class,
+.brief_description a,
+.description a {
+    display: inline-block;
+    padding-right: 17px;
+    background-repeat: no-repeat;
+    background-position: center right;
+    border: 0;
+}
+
+.description a.constant,
+.brief_description a.constant {
+    background-image: url(/images/constant.svg);
+}
+
+.description a.namespace,
+.brief_description a.namespace {
+    background-image: url(/images/namespace.svg);
+}
+
+.description a.struct,
+.brief_description a.struct {
+    background-image: url(/images/struct.svg);
+}
+
+.description a.interface,
+.brief_description a.interface {
+    background-image: url(/images/interface.svg);
+}
+
+.description a.enum,
+.brief_description a.enum {
+    background-image: url(/images/enum.svg);
+}
+
+.description a.errordomain,
+.brief_description a.errordomain {
+    background-image: url(/images/errordomain.svg);
+}
+
+.description a.delegate,
+.brief_description a.delegate {
+    background-image: url(/images/delegate.svg);
+}
+
+.description a.signal,
+.brief_description a.signal {
+    background-image: url(/images/signal.svg);
+}
+
+.description a.field,
+.brief_description a.field {
+    background-image: url(/images/field.svg);
+}
+
+.description a.enumvalue,
+.brief_description a.enumvalue {
+    background-image: url(/images/enumvalue.svg);
+}
+
+.description a.errorcode,
+.brief_description a.errorcode {
+    background-image: url(/images/errorcode.svg);
+}
+
+.description a.class,
+.brief_description a.class {
+    background-image: url(/images/class.svg);
+}
+
+a.abstract_class,
+.description a.abstract_class,
+.brief_description a.abstract_class {
+    background-image: url(/images/abstractclass.svg);
+    font-style: italic;
+}
+
+.description a.property,
+.brief_description a.property {
+    background-image: url(/images/property.svg);
+}
+
+.description a.virtual_property,
+.brief_description a.virtual_property {
+    background-image: url(/images/virtualproperty.svg);
+}
+
+.description a.abstract_property,
+.brief_description a.abstract_property {
+    background-image: url(/images/abstractproperty.svg);
+}
+
+.description a.method,
+.brief_description a.method {
+    background-image: url(/images/method.svg);
+}
+
+.description a.static_method,
+.brief_description a.static_method {
+    background-image: url(/images/staticmethod.svg);
+}
+
+.description a.virtual_method,
+.brief_description a.virtual_method {
+    background-image: url(/images/virtualmethod.svg);
+}
+
+.description a.abstract_method,
+.brief_description a.abstract_method {
+    background-image: url(/images/abstractmethod.svg);
+}
+
+.description a.creation_method,
+.brief_description a.creation_method {
+    background-image: url(/images/constructor.svg);
+}
+
+.navi_link:hover,
+.external_link:hover {
+    text-decoration: underline;
+}
+
+.no_bullet li {
+    list-style-type: none;
+}
+
+.css_content_literal {
+    font-family: "Roboto Mono", monospace;
+    color: #ff01ff;
+}
+
+code {
+    font-family: "Roboto Mono", monospace;
+}
+
+.main_code_definition a,
+.leaf_code_definition a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main_code_definition a:hover,
+.leaf_code_definition a:hover {
+    text-decoration: underline;
+}
+
+.box .headline {
+    background-color: #eeeeff;
+    border: 1px solid #aaaaff;
+    margin: auto;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.box .text {
+    font-weight: bold;
+    float: left;
+}
+
+.box .toggle {
+    text-align: right;
+}
+
+.box .content {
+    border-color: #aaaaff;
+    border-width: 0 1 1 1;
+    border-style: solid;
+    overflow: auto;
+    display: none;
+    margin: auto;
+    width: 90%;
+}
+
+.box .column {
+    float: left;
+    width: 33%;
+}
+
+.deprecated {
+    opacity: 0.5;
+    text-decoration: line-through;
+}

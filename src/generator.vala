@@ -233,8 +233,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 	private class Section : Node {
 		public string name;
-		public Collection<Package> packages = new ArrayList<Package> (); 
-		public Collection<Section> sections = new ArrayList<Section> (); 
+		public Collection<Package> packages = new ArrayList<Package> ();
+		public Collection<Section> sections = new ArrayList<Section> ();
 
 		public Section (string name) {
 			this.name = name;
@@ -441,8 +441,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		while ((dir = dirptr.read_name ()) != null) {
 			string dir_path = Path.build_path (Path.DIR_SEPARATOR_S, path, dir);
-			if (dir == ".sphinx") {
-				continue ;
+			if (dir == ".sphinx" || dir == "scripts" || dir == "styles" || dir == "images" || dir == "templates") {
+				continue;
 			}
 
 			if (FileUtils.test (dir_path, FileTest.IS_DIR)) {
@@ -473,7 +473,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		ArrayList<Package> packages = get_sorted_package_list ();
 		foreach (Package pkg in packages) {
 			if (pkg is ExternalPackage) {
-				writer.start_tag ("li", {"class", "package"}).start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").simple_tag ("img", {"src", "/external_link.png"}).end_tag ("li");
+				writer.start_tag ("li", {"class", "package external-link"}).start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
 			} else {
 				writer.start_tag ("li", {"class", "package"}).start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
 			}
@@ -494,11 +494,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			GLib.FileStream file = GLib.FileStream.open (path, "w");
 			writer = new Html.MarkupWriter (file);
 
-			writer.start_tag ("div", {"class", "site_content"});
-
 			// Intro:
-			writer.start_tag ("h1", {"class", "main_title"}).text ("Packages").end_tag ("h1");
-			writer.simple_tag ("hr", {"class", "main_hr"});
+			writer.start_tag ("h1").text ("Packages").end_tag ("h1");
+			writer.simple_tag ("hr");
 
 			writer.start_tag ("h2").text ("Submitting API-Bugs and Patches").end_tag ("h2");
 			writer.start_tag ("p").text ("For all bindings where the status is not marked as external, and unless otherwise noted, bugs and patches should be submitted to the bindings component in the Vala product in the GNOME Bugzilla.").end_tag ("p");
@@ -510,13 +508,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				node.render (this);
 			}
 
-			writer.end_tag ("div");
 			writer = null;
 		}
 
 		public override void render_section (Section section) {
 			if (header_level == HEADER_LEVEL_START) {
-				writer.simple_tag ("hr", {"class", "main_hr"});
+				writer.simple_tag ("hr");
 			}
 
 			string tag = "h%d".printf (header_level);
@@ -528,11 +525,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				node.render (this);
 			}
 
-			render_table_begin ();
 			foreach (Package pkg in section.sorted_package_list ()) {
 				pkg.render (this);
 			}
-			render_table_end ();
 
 			header_level--;
 		}
@@ -545,101 +540,55 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			render_table_entry (pkg);
 		}
 
-		private void render_table_begin () {
-			writer.start_tag ("table", {"style", "width: 100%; margin: auto;"});
-
-			writer.start_tag ("tr");
-			writer.start_tag ("td", {"width", "10"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "20"}).end_tag ("td");
-			writer.start_tag ("td").end_tag ("td");
-			writer.start_tag ("td", {"width", "160"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "100"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "50"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "110"}).end_tag ("td");
-			writer.start_tag ("td", {"width", "10"}).end_tag ("td");
-			writer.end_tag ("tr");
-		}
-
 		private void render_table_entry (Package pkg) {
-			writer.start_tag ("tbody", {"class", "highlight"});
 
-			//string maintainers = pkg.maintainers ?? "-";
-			writer.start_tag ("tr");
-			writer.start_tag ("td").end_tag ("td"); // space
-			writer.start_tag ("td").simple_tag ("img", {"src", "/package.png"}).end_tag ("td");
+			writer.start_tag ("div", {"class", "highlight"});
 
-			writer.start_tag ("td");
 			if (pkg.is_deprecated) {
-				writer.start_tag ("s").start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("s");
+				writer.start_tag ("a", {"class", "deprecated package", "href", pkg.online_link}).text (pkg.name).end_tag ("a");
 			} else {
-				writer.start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a");
+				writer.start_tag ("a", {"class", "package", "href", pkg.online_link}).text (pkg.name).end_tag ("a");
 			}
 
 			if (pkg is ExternalPackage) {
-				writer.simple_tag ("img", {"src", "/external_link.png"});
+				writer.simple_tag ("img", {"src", "/images/external_link.svg"});
 			}
-			writer.end_tag ("td");
 
-			writer.start_tag ("td", {"style", "white-space:no wrap"}).text (pkg.get_documentation_source ()).end_tag ("td");
+			writer.start_tag ("div", {"class", "links"});
 
-			writer.start_tag ("td", {"style", "white-space:no wrap"});
+			writer.start_tag ("p", {"class", "source"}).text (pkg.get_documentation_source ()).end_tag ("p");
 
-			bool first = true;
+
+			writer.start_tag ("p", {"class", "homepage"});
 			if (pkg.home != null) {
 				writer.start_tag ("a", {"href", pkg.home}).text ("Home").end_tag ("a");
-				first = false;
 			}
+			writer.end_tag ("p");
+
+			writer.start_tag ("p", {"class", "cdocs"});
 			if (pkg.c_docs != null) {
-				if (first == false) {
-					writer.text (", ");
+				writer.start_tag ("a", {"href", pkg.c_docs}).text ("C Docs").end_tag ("a");
+			}
+			writer.end_tag ("p");
+
+			writer.start_tag ("p", {"class", "devhelp"});
+				if (pkg.devhelp_link != null) {
+					writer.start_tag ("a", {"href", pkg.devhelp_link}).text ("Devhelp Package").end_tag ("a");
 				}
+			writer.end_tag ("p");
 
-				writer.start_tag ("a", {"href", pkg.c_docs}).text ("C-docs").end_tag ("a");
-				first = false;
-			}
-			if (first == true) {
-				writer.text ("-");
-			}
-			writer.end_tag ("td");
-			
-
-			string? install_link = pkg.get_catalog_file ();
-			if (install_link != null) {
-				string html_link = Path.build_filename (pkg.name, Path.get_basename (install_link));
-				writer.start_tag ("td", {"style", "white-space:no wrap"}).start_tag ("a", {"href", html_link}).text ("Install").end_tag ("a").end_tag ("td");
-				Valadoc.copy_file (install_link, Path.build_filename (output_directory, html_link));
-			} else {
-				writer.start_tag ("td", {"style", "white-space:no wrap"}).text ("-").end_tag ("td");
-			}
-
-			if (pkg.devhelp_link != null) {
-				writer.start_tag ("td", {"style", "white-space:no wrap"}).start_tag ("a", {"href", pkg.devhelp_link}).text ("devhelp-package").end_tag ("a").end_tag ("td");
-			} else {
-				writer.start_tag ("td", {"style", "white-space:no wrap"}).text ("-").end_tag ("td");
-			}
-
-			writer.start_tag ("td").end_tag ("td"); // space
-			writer.end_tag ("tr");
+			writer.end_tag ("div");
 
 			if (pkg.description != null) {
-				writer.start_tag ("tr");
-				writer.start_tag ("td").end_tag ("td");
-				writer.start_tag ("td").end_tag ("td");
-				writer.start_tag ("td", {"colspan", "5"});
+				writer.start_tag ("div", {"class", "description"});
 				foreach (string line in pkg.description) {
 					line._strip ();
 					writer.start_tag ("p").text (line).end_tag ("p");
 				}
-				writer.end_tag ("td");
-				writer.start_tag ("td").end_tag ("td");
-				writer.end_tag ("tr");
+				writer.end_tag ("div");
 			}
 
-			writer.end_tag ("tbody");
-		}
-
-		private void render_table_end () {
-			writer.end_tag ("table");
+			writer.end_tag ("div");
 		}
 	}
 
@@ -673,7 +622,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		if (is_devhelp == false) {
 			string? catalog = pkg.get_catalog_file ();
 			if (catalog != null) {
-				stream.printf (" * ''[[%s|Install this package]]'' (PackageKit required)\n", catalog);			
+				stream.printf (" * ''[[%s|Install this package]]'' (PackageKit required)\n", catalog);
 			}
 			if (pkg.devhelp_link != null) {
 				stream.printf (" * ''[[%s|Devhelp-Package download]]''\n", pkg.devhelp_link);
@@ -940,7 +889,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		bool has_examples = false;
 		string example_path = "examples/%s/%s.valadoc.examples".printf (pkg.name, pkg.name);
 		if (FileUtils.test (example_path, FileTest.IS_REGULAR)) {
-			string output = "examples/%s-examples.valadoc".printf (pkg.name); 
+			string output = "examples/%s-examples.valadoc".printf (pkg.name);
 			stdout.printf ("  select example.valadoc: %s\n", output);
 			FileUtils.remove (output);
 
@@ -949,7 +898,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				string? standard_output = null;
 				string? standard_error = null;
 
-				Process.spawn_command_line_sync ("./valadoc-example-gen \"%s\" \"%s\" \"%s\"".printf (example_path, output, "documentation/%s/wiki".printf (pkg.name)), out standard_output, out standard_error, out exit_status); 
+				Process.spawn_command_line_sync ("./valadoc-example-gen \"%s\" \"%s\" \"%s\"".printf (example_path, output, "documentation/%s/wiki".printf (pkg.name)), out standard_output, out standard_error, out exit_status);
 				if (exit_status != 0) {
 					FileStream log = FileStream.open ("LOG", "w");
 					log.printf ("%s\n", builder.str);
@@ -990,7 +939,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			string? standard_error = null;
 
 			stdout.puts ("  run valadoc ...\n");
-			Process.spawn_command_line_sync (builder.str, out standard_output, out standard_error, out exit_status); 
+			Process.spawn_command_line_sync (builder.str, out standard_output, out standard_error, out exit_status);
 
 			FileStream log = FileStream.open ("LOG", "w");
 			log.printf ("%s\n", builder.str);
@@ -1010,14 +959,14 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			Process.spawn_command_line_sync ("rm -r -f %s".printf (Path.build_path (Path.DIR_SEPARATOR_S, output_directory, pkg.name)));
 			Process.spawn_command_line_sync ("mv LOG tmp/%s/%s".printf (pkg.name, pkg.name));
-			Process.spawn_command_line_sync ("mv tmp/%s/%s \"%s\"".printf (pkg.name, pkg.name, output_directory)); 
+			Process.spawn_command_line_sync ("mv tmp/%s/%s \"%s\"".printf (pkg.name, pkg.name, output_directory));
 		} catch (SpawnError e) {
 			stdout.printf ("ERROR: Can't generate documentation for %s. See LOG for details.\n", pkg.name);
 			throw e;
 		} finally {
 			if (delete_wiki_path) {
 				FileUtils.unlink (wiki_path);
-			}		
+			}
 		}
 	}
 
@@ -1150,7 +1099,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		images.foreach ((entry) => {
 			if (first_entry == false) {
 				stream.puts ("\n\n");
-			}			
+			}
 
 			stream.puts ("/**\n");
 			stream.printf (" * {{../documentation/%s/gallery-images/%s|%s}}\n", pkg.name, entry.value, entry.key);
@@ -1218,13 +1167,22 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
-	private void copy_data () throws FileError {
-		Dir dir = Dir.open ("data");
+	private static void copy_dir (string path, string output) throws Error {
+		Dir dir = Dir.open (path);
 		for (string? file = dir.read_name (); file != null; file = dir.read_name ()) {
-			string src_file_path = Path.build_filename ("data", file);
-			string dest_file_path = Path.build_filename (output_directory, file);
-			Valadoc.copy_file (src_file_path, dest_file_path);
+			string src_file_path = Path.build_filename (path, file);
+			string dest_file_path = Path.build_filename (output, file);
+			if (FileUtils.test (src_file_path, FileTest.IS_DIR)) {
+				DirUtils.create_with_parents (dest_file_path, 0755); // mkdir if necessary
+				copy_dir (src_file_path, dest_file_path); // copy directories recursively
+			} else {
+				Valadoc.copy_file (src_file_path, dest_file_path);
+			}
 		}
+	}
+
+	private void copy_data () throws Error {
+		copy_dir ("data", output_directory);
 	}
 
 	public static int main (string[] args) {

@@ -1,5 +1,17 @@
 <?php
 
+if (!empty(getenv('FWD_SEARCH'))) {
+  $curl = curl_init();
+  curl_setopt_array($curl, [
+    CURLOPT_URL => 'http://valadoc.org/search.php',
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => $_POST,
+  ]);
+  curl_exec($curl);
+  curl_close($curl);
+  return;
+}
+
 //$allpkgs = "glib20, gio20";
 include 'constants.php';
 

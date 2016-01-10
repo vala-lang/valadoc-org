@@ -96,7 +96,7 @@ namespace Generator {
 	}
 
 	public static int main (string[] args) {
-		try {  
+		try {
 			var opt_context = new OptionContext ("- Vala Documentation Tool");
 			opt_context.set_help_enabled (true);
 			opt_context.add_main_entries (options, null);
@@ -145,7 +145,6 @@ namespace Generator {
 			}
 		}
 
-		return 0; 
+		return 0;
 	}
 }
-

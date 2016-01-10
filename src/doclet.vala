@@ -27,17 +27,17 @@ using Gee;
 
 
 public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
-	public const string css_path_package = "style.css";
-	public const string css_path_wiki = "../style.css";
-	public const string css_path = "../style.css";
+	public const string css_path_package = "styles/main.css";
+	public const string css_path_wiki = "../styles/main.css";
+	public const string css_path = "../styles/main.css";
 
-	public const string image_path_package = "../logo.png";
-	public const string image_path_wiki = "../logo.png";
-	public const string image_path = "../logo.png";
+	public const string image_path_package = "../images/logo.png";
+	public const string image_path_wiki = "../images/logo.png";
+	public const string image_path = "../images/logo.png";
 
-	public const string js_path_package = "scripts.js";
-	public const string js_path_wiki = "../scripts.js";
-	public const string js_path = "../scripts.js";
+	public const string js_path_package = "scripts/main.js";
+	public const string js_path_wiki = "../scripts/main.js";
+	public const string js_path = "../scripts/main.js";
 
 	private IndexMarkupWriter index_xml;
 
@@ -80,7 +80,7 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		renderer.set_container (node.package);
 		renderer.set_writer (writer);
 		writer.set_wrap (false);
-		
+
 		renderer.render (node.signature);
 		string signature = builder.str;
 		builder.erase ();
@@ -339,4 +339,3 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 public Type register_plugin (Valadoc.ModuleLoader module_loader) {
 	return typeof (Valadoc.ValadocOrgDoclet);
 }
-

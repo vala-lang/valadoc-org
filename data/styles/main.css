@@ -6,9 +6,9 @@ html {
 }
 
 body {
-    overflow: hidden;
     margin: 0;
-    padding: 0;
+    overflow: hidden;
+    padding: 48px 0 0;
 }
 
 a {
@@ -40,7 +40,9 @@ nav {
     height: 48px;
     line-height: 48px;
     padding: 0 6px;
-    position: relative;
+    position: fixed;
+    top: 0;
+    width: calc(100% - 12px);
 }
 
 nav a,
@@ -127,7 +129,9 @@ nav .subtitle {
     background-color: #fcfcfc;
     border-right: 1px solid #dedede;
     display: inline-block;
+    overflow-y: auto;
     width: 240px;
+    height: 100%;
 }
 
 #sidebar a {
@@ -260,7 +264,7 @@ nav .subtitle {
 
 #content-wrapper {
     display: inline-block;
-    overflow: auto;
+    height: 100%;
     overflow-y: scroll;
     text-align: left;
     vertical-align: top;

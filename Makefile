@@ -2,6 +2,9 @@
 VALAC_VERSION = 0.30
 PREFIX = "stable"
 
+gee-version = 0.18.0
+gee-pc-version = 0.8
+
 
 default: generator doclet.so update-girs configgen example-gen example-tester
 
@@ -100,6 +103,14 @@ build-docs:
         --download-images \
         --skip-existing \
         --all
+	if ! test -d valadoc.org/gee-$(gee-pc-version); then \
+		wget https://git.gnome.org/browse/libgee/snapshot/libgee-$(gee-version).zip ; \
+		unzip libgee-$(gee-version).zip ; \
+		valadoc -o libgee-$(gee-version)/gee-$(gee-pc-version) --target-glib=2.99 --pkg gio-2.0 libgee-$(gee-version)/gee/*.vala libgee-$(gee-version)/utils/geeutils.vapi --wiki libgee-$(gee-version)/doc/ --doclet . ; \
+		mv libgee-$(gee-version)/gee-$(gee-pc-version)/gee-$(gee-pc-version) valadoc.org/ ; \
+		rm -r libgee-$(gee-version) libgee-$(gee-version).zip ; \
+	fi
+
 
 
 #

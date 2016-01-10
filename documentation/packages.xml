@@ -11,10 +11,6 @@
 			<package name="gobject-2.0" home="http://www.gtk.org/" gir="GObject-2.0" c-docs="http://developer.gnome.org/gobject/unstable/">
 				GObject provides the object system used for Pango and GTK+.
 			</package>
-			<external-package deprecated="true" name="gee-1.0" link="/gee-1.0/index.htm">
-				Libgee is a collection library providing GObject-based interfaces and
-				classes for commonly used data structures. (Use gee-0.8)
-			</external-package>
 			<external-package name="gee-0.8" link="/gee-0.8/index.htm">
 				Libgee is a collection library providing GObject-based interfaces and
 				classes for commonly used data structures.
@@ -48,9 +44,9 @@
 			<package name="clutter-gtk-1.0" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/">
 				GTK clutter widget.
 			</package>
-			<package name="clutter-gtk-0.10" deprecated="true" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/">
+			<!--package name="clutter-gtk-0.10" deprecated="true" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/">
 				GTK clutter widget.
-			</package>
+			</package-->
 			<package name="clutter-json-1.0" home="http://www.clutter-project.org/">
 				Clutters Json-interface, see json-glib.
 			</package>
@@ -400,6 +396,9 @@
 				 The libmediaart library is the foundation for media art caching,
 				 extraction and lookup for applications on the desktop. 
 			</package>
+			<package name="libaccounts-glib" gir="Accounts-1.0" home="https://gitlab.com/accounts-sso/libaccounts-glib" c-docs="https://gitlab.com/accounts-sso/docs/tree/master/libaccounts-glib/html">
+				Accounts management library for online services.
+			</package>
 		</section>
 
 		<section name="Web Services &amp; HTTP">
@@ -442,6 +441,12 @@
 			</package>
 			<package name="mock-service-0">
 				Mock service
+			</package>
+			<package name="gsignond" gir="gSignond-1.0" home="https://gitlab.com/accounts-sso/gsignond" c-docs="https://gitlab.com/accounts-sso/gsignon-docs/tree/master/gsignond">
+				Single signon daemon library.
+			</package>
+			<package name="libgsignon-glib" gir="gSignon-1.0" home="https://gitlab.com/accounts-sso/libgsignon-glib" c-docs="https://gitlab.com/accounts-sso/gsignon-docs/tree/master/libgsignon-glib">
+				Single signon authentication library for online services.
 			</package>
 		</section>
 
@@ -655,6 +660,15 @@
 			A small little library that was created by pulling out some comon code out of indicator-applet.
 			It passes a menu structure across DBus so that a program can create a menu simply without worrying
 			about how it is displayed on the other side of the bus.
+		</package>
+	</section>
+
+	<section name="Pantheon">
+		<package name="granite" vapi-image-source="http://bazaar.launchpad.net/~elementary-pantheon/granite/granite/view/head:/doc/images/" home="https://launchpad.net/granite">
+			Granite is an extension of GTK+. Among other things, it provides complex widgets and convenience functions designed for use in apps built for elementary OS.
+		</package>
+		<package name="switchboard-2.0" gir="Switchboard-1.0" home="https://launchpad.net/switchboard">
+			Switchboard is a modular system settings hub containing plugs (settings panels)
 		</package>
 	</section>
 

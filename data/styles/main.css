@@ -6,8 +6,9 @@ html {
 }
 
 body {
+    overflow-y: hidden;
     margin: 0;
-    overflow: hidden;
+    min-width: 720px;
     padding: 48px 0 0;
 }
 
@@ -85,6 +86,12 @@ nav .title {
 nav .subtitle {
     vertical-align: -webkit-baseline-middle;
     vertical-align: -moz-middle-with-baseline;
+}
+
+@media (max-width: 912px) {
+    nav .subtitle {
+        display: none;
+    }
 }
 
 #search-box {

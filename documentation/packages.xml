@@ -11,10 +11,6 @@
 			<package name="gobject-2.0" home="http://www.gtk.org/" gir="GObject-2.0" c-docs="http://developer.gnome.org/gobject/unstable/">
 				GObject provides the object system used for Pango and GTK+.
 			</package>
-			<external-package deprecated="true" name="gee-1.0" link="/gee-1.0/index.htm">
-				Libgee is a collection library providing GObject-based interfaces and
-				classes for commonly used data structures. (Use gee-0.8)
-			</external-package>
 			<external-package name="gee-0.8" link="/gee-0.8/index.htm">
 				Libgee is a collection library providing GObject-based interfaces and
 				classes for commonly used data structures.

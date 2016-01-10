@@ -132,7 +132,19 @@ nav .subtitle {
 
 #sidebar a {
     color: #666;
+    display: inline-block;
     text-decoration: none;
+    padding: 3px 6px;
+    width: 100%;
+}
+
+#sidebar .site_navigation a:before {
+    content: '';
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
 }
 
 #sidebar hr {
@@ -153,7 +165,6 @@ nav .subtitle {
 
 #sidebar li {
     overflow: hidden;
-    padding: 3px 6px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
@@ -215,6 +226,19 @@ nav .subtitle {
     padding-left: 12px;
 }
 
+#sidebar .navi_main a {
+    display: initial;
+    padding: 0;
+}
+
+#sidebar .navi_main a:before {
+    display: none;
+}
+
+#sidebar .navi_main li {
+    padding: 3px 6px;
+}
+
 .navi_inline li:before,
 .navi_main li:before {
     content: '';
@@ -225,7 +249,7 @@ nav .subtitle {
     vertical-align: middle;
 }
 
-.navi_main .abstract_class > a,
+#sidebar .abstract_class > a,
 .navi_inline .abstract_class > a {
     font-style: italic;
 }

@@ -468,14 +468,14 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		var writer = new Html.MarkupWriter (file);
 
 		writer.start_tag ("div", {"class", "site_navigation"});
-		writer.start_tag ("ul", {"class", "navi_main"});
+		writer.start_tag ("ul");
 
 		ArrayList<Package> packages = get_sorted_package_list ();
 		foreach (Package pkg in packages) {
 			if (pkg is ExternalPackage) {
-				writer.start_tag ("li", {"class", "package external-link"}).start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
+				writer.start_tag ("li").start_tag ("a", {"class", "package external-link", "href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
 			} else {
-				writer.start_tag ("li", {"class", "package"}).start_tag ("a", {"href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
+				writer.start_tag ("li").start_tag ("a", {"class", "package", "href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
 			}
 		}
 

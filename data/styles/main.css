@@ -6,7 +6,6 @@ html {
 }
 
 body {
-    overflow-y: hidden;
     margin: 0;
     min-width: 720px;
     padding: 48px 0 0;
@@ -44,6 +43,7 @@ nav {
     position: fixed;
     top: 0;
     width: calc(100% - 12px);
+    z-index: 1000;
 }
 
 nav a,
@@ -137,6 +137,8 @@ nav .subtitle {
     border-right: 1px solid #dedede;
     display: inline-block;
     overflow-y: auto;
+    position: fixed;
+    top: 48;
     width: 240px;
     height: 100%;
 }
@@ -270,12 +272,10 @@ nav .subtitle {
  ***********/
 
 #content-wrapper {
-    display: inline-block;
-    height: 100%;
-    overflow-y: scroll;
+    margin-left: 240px;
     text-align: left;
     vertical-align: top;
-    width: calc(100% - 245px);
+    width: calc(100% - 240px);
 }
 
 #content {

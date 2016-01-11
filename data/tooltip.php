@@ -11,7 +11,11 @@ if (!empty(getenv('FWD_TOOLTIP'))) {
 include 'constants.php';
 
 function strip_links ($str) {
-        $dom = new DOMDocument();
+		if ($str === '' || $str === null) {
+				return '';
+		}
+
+		$dom = new DOMDocument();
         $dom->loadHTML($str);
         $xpath = new DOMXPath($dom);
         foreach ($xpath->query('//a | //body | //html') as $link) {

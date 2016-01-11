@@ -674,10 +674,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			stream.printf (" * ''Binding-Maintainer(s): %s''\n", pkg.maintainers);
 		}
 		if (is_devhelp == false) {
-			string? catalog = pkg.get_catalog_file ();
-			if (catalog != null) {
-				stream.printf (" * ''[[%s|Install this package]]'' (PackageKit required)\n", catalog);
-			}
 			if (pkg.devhelp_link != null) {
 				stream.printf (" * ''[[%s|Devhelp-Package download]]''\n", pkg.devhelp_link);
 			}

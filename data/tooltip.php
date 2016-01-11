@@ -1,6 +1,7 @@
 <?php
 
-if (!empty(getenv('FWD_TOOLTIP'))) {
+$FWD_TOOLTIP = getenv('FWD_TOOLTIP');
+if (!empty($FWD_TOOLTIP)) {
   $url = 'http://valadoc.org/tooltip.php?fullname=' . urlencode($_GET['fullname']);
   $curl = curl_init($url);
   curl_exec($curl);

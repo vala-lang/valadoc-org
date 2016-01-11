@@ -1,6 +1,7 @@
 <?php
 
-if (!empty(getenv('FWD_SEARCH'))) {
+$FWD_TOOLTIP = getenv('FWD_TOOLTIP');
+if (!empty($FWD_TOOLTIP)) {
   $curl = curl_init();
   curl_setopt_array($curl, [
     CURLOPT_URL => 'http://valadoc.org/search.php',

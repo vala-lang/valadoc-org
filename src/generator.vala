@@ -929,7 +929,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 		} else {
 			if (load_images_vapi (pkg)) {
-				builder.append_printf (" --alternative-ressource-dir documentation/%s/vapi-images/", pkg.name);
+				builder.append_printf (" --alternative-resource-dir documentation/%s/vapi-images/", pkg.name);
 			}
 		}
 

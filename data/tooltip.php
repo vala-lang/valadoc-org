@@ -28,7 +28,7 @@ function strip_links ($str) {
 
 
 
-$fullname = $_GET['fullname'];
+$fullname = str_replace ('@', '', $_GET['fullname']);
 $splitted = explode ('/', $fullname);
 $pkg = $splitted[0];
 if (preg_match ("/[^+0-9A-Za-z.-]/", $pkg))

@@ -35,6 +35,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private HashMap<string, Package> packages_per_name = new HashMap<string, Package> ();
 	private Collection<Node> sections;
 	private Regex markdown_img_regex;
+	private string global_wget_flags;
 
 	private void print_stored_messages () {
 		foreach (Package pkg in unavailable_packages) {
@@ -107,9 +108,11 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private static string girdir = "girs/gir-1.0";
 	private static string default_vapidir = "girs/vala/vapi";
 	private static string target_glib;
+	private static bool wget_no_check_certificate;
 	private string[] vapidirs;
 
 	public IndexGenerator (ErrorReporter reporter) {
+		this.global_wget_flags = wget_no_check_certificate? "--no-check-certificate" : "";
 		this.reporter = new ErrorReporter ();
 		this.vapidirs = get_vapi_directories ();
 
@@ -132,6 +135,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		{ "doclet", 0, 0, OptionArg.STRING, ref docletpath, "Name of an included doclet or path to custom doclet", "PLUGIN"},
 		{ "vapidir", 0, 0, OptionArg.STRING, ref vapidir, "Look for package bindings in DIRECTORY", "DIRECTORY"},
 		{ "skip-existing", 0, 0, OptionArg.NONE, ref skip_existing, "Skip existing packages", null },
+		{ "no-check-certificate", 0, 0, OptionArg.NONE, ref wget_no_check_certificate, "Pass --no-check-certificate to wget", null },
 		{ "", 0, 0, OptionArg.FILENAME_ARRAY, ref requested_packages, null, "FILE..." },
 		{ null }
 	};
@@ -894,7 +898,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			if (!FileUtils.test ("documentation/%s/index.sgml".printf (pkg.name), FileTest.EXISTS)) {
 				try {
-					Process.spawn_command_line_sync ("wget -O documentation/%s/index.sgml \"%s\"".printf (pkg.name, pkg.sgml_path));
+					Process.spawn_command_line_sync ("wget %s -O documentation/%s/index.sgml \"%s\"".printf (global_wget_flags, pkg.name, pkg.sgml_path));
 				} catch (SpawnError e) {
 					assert_not_reached ();
 				}
@@ -1072,7 +1076,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		if (!FileUtils.test ("tmp/c-gallery.html", FileTest.EXISTS)) {
 			try {
-				Process.spawn_command_line_sync ("wget -O tmp/c-gallery.html \"%s\"".printf (pkg.gallery));
+				Process.spawn_command_line_sync ("wget %s -O tmp/c-gallery.html \"%s\"".printf (global_wget_flags, pkg.gallery));
 			} catch (SpawnError e) {
 				assert_not_reached ();
 			}
@@ -1121,7 +1125,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			if (!FileUtils.test ("documentation/%s/gallery-images/%s".printf (pkg.name, entry.value), FileTest.EXISTS)) {
 					try {
 						string link = Path.build_path (Path.DIR_SEPARATOR_S, search_path, entry.value);
-						Process.spawn_command_line_sync ("wget --directory-prefix documentation/%s/gallery-images/ \"%s\"".printf (pkg.name, link));
+						Process.spawn_command_line_sync ("wget %s --directory-prefix documentation/%s/gallery-images/ \"%s\"".printf (global_wget_flags, pkg.name, link));
 					} catch (SpawnError e) {
 						assert_not_reached ();
 					}
@@ -1222,7 +1226,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 						if (!FileUtils.test ("documentation/%s/vapi-images/%s".printf (pkg.name, image_name), FileTest.EXISTS)) {
 							string link = get_image_link (pkg.vapi_image_source, image_name);
-							Process.spawn_command_line_sync ("wget --directory-prefix documentation/%s/vapi-images/ \"%s\"".printf (pkg.name, link));
+							Process.spawn_command_line_sync ("wget %s --directory-prefix documentation/%s/vapi-images/ \"%s\"".printf (global_wget_flags, pkg.name, link));
 							has_images = true;
 						}
 					}
@@ -1297,7 +1301,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			if (!FileUtils.test ("documentation/%s/gir-images/%s".printf (pkg.name, image_name), FileTest.EXISTS)) {
 				try {
 					string link = get_image_link (pkg.c_docs, image_name);
-					Process.spawn_command_line_sync ("wget --directory-prefix documentation/%s/gir-images/ \"%s\"".printf (pkg.name, link));
+					Process.spawn_command_line_sync ("wget %s --directory-prefix documentation/%s/gir-images/ \"%s\"".printf (global_wget_flags, pkg.name, link));
 				} catch (SpawnError e) {
 					assert_not_reached ();
 				}

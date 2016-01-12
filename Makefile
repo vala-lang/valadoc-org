@@ -102,6 +102,7 @@ build-docs:
         --target-glib 2.99 \
         --download-images \
         --skip-existing \
+        --no-check-certificate \
         --all
 	if ! test -d valadoc.org/gee-$(gee-pc-version); then \
 		wget https://git.gnome.org/browse/libgee/snapshot/libgee-$(gee-version).zip ; \

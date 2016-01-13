@@ -927,10 +927,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			if (metadata_path != null) {
 				builder.append_printf (" --metadatadir %s", metadata_path);
 			}
-		} else {
-			if (load_images_vapi (pkg)) {
-				builder.append_printf (" --alternative-resource-dir documentation/%s/vapi-images/", pkg.name);
-			}
+		} else if (pkg.vapi_image_source != null) {
+			load_images_vapi (pkg);
+			builder.append_printf (" --alternative-resource-dir documentation/%s/vapi-images/", pkg.name);
 		}
 
 		if (pkg.gallery != null) {

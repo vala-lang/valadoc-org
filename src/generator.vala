@@ -164,13 +164,14 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 
 			if (start_tag == "external-package") {
-				string? external_link = reader.get_attribute ("link");;
+				bool is_local = "true".ascii_casecmp (reader.get_attribute ("local") ?? "false") == 0;
+				string? external_link = reader.get_attribute ("link");
 				string? devhelp_link = reader.get_attribute ("devhelp");
 				if (external_link == null) {
 					reporter.simple_error ("error: %s: Missing attribute: link=\"\" in %s", start_tag, name);
 					return ;
 				} else {
-					pkg = new ExternalPackage (name, external_link, maintainers, devhelp_link, home, c_docs, is_deprecated);
+					pkg = new ExternalPackage (name, external_link, maintainers, devhelp_link, home, c_docs, is_deprecated, is_local);
 					register_package (section, pkg);
 				}
 			} else {
@@ -322,6 +323,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		public string[] description;
 		public bool is_docbook = false;
 		public string? sgml_path;
+		public bool is_local;
 
 		public virtual string get_documentation_source () {
 			StringBuilder builder = new StringBuilder ();
@@ -351,6 +353,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			this.home = home;
 			this.flags = flags ?? "";
 			this.gallery = gallery;
+			this.is_local = true;
 		}
 
 		public void load_metadata (ErrorReporter reporter) {
@@ -444,13 +447,14 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 	private class ExternalPackage : Package {
 
-		public ExternalPackage (string name, string online_link, string? maintainers, string? devhelp_link, string? home, string? c_docs, bool is_deprecated) {
+		public ExternalPackage (string name, string online_link, string? maintainers, string? devhelp_link, string? home, string? c_docs, bool is_deprecated, bool is_local) {
 			Package.dummy ();
 
 			this.is_deprecated = is_deprecated;
 			this.devhelp_link = devhelp_link;
 			this.online_link = online_link;
 			this.maintainers = maintainers;
+			this.is_local = is_local;
 			this.c_docs = c_docs;
 			this.home = home;
 			this.name = name;
@@ -526,10 +530,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		ArrayList<Package> packages = get_sorted_package_list ();
 		foreach (Package pkg in packages) {
-			if (pkg is ExternalPackage) {
-				writer.start_tag ("li").start_tag ("a", {"class", "package external-link", "href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
-			} else {
+			if (pkg.is_local) {
 				writer.start_tag ("li").start_tag ("a", {"class", "package", "href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
+			} else {
+				writer.start_tag ("li").start_tag ("a", {"class", "package external-link", "href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
 			}
 		}
 
@@ -740,16 +744,14 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		php.printf ("\t$prefix = \"%s\";\n", prefix);
 		php.printf ("\t$allpkgs = \"");
 		foreach (Package pkg in packages_per_name.values) {
-			if (pkg is ExternalPackage) {
-				continue ;
-			}
+			if (pkg.is_local) {
+				if (first == false) {
+					php.printf (",");
+				}
 
-			if (first == false) {
-				php.printf (",");
+				php.printf ("%s%s", prefix, get_index_name (pkg.name));
+				first = false;
 			}
-
-			php.printf ("%s%s", prefix, get_index_name (pkg.name));
-			first = false;
 		}
 		php.printf ("\";\n");
 		php.printf ("?>\n");

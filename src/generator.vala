@@ -317,21 +317,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		public string? sgml_path;
 		public bool is_local;
 
-		public virtual string get_documentation_source () {
-			StringBuilder builder = new StringBuilder ();
-
-			if (get_gir_file () != null) {
-				builder.append (".gir");
-			}
-
-			if (get_valadoc_file () != null) {
-				builder.append ((builder.len == 0)? ".valadoc" : ", .valadoc");
-			}
-
-			return (builder.len == 0)? "none" : builder.str;
+		protected Package.dummy () {
 		}
-
-		protected Package.dummy () {}
 
 		public Package (string name, string? gir_name = null, string? maintainers = null, string? home = null, string? c_docs = null, string? vapi_image_source = null, string? gallery = null, string? flags = null, bool is_deprecated = false) {
 			devhelp_link = "/" + name + "/" + name + ".tar.bz2";
@@ -447,10 +434,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			this.c_docs = c_docs;
 			this.home = home;
 			this.name = name;
-		}
-
-		public override string get_documentation_source () {
-			return "unknown";
 		}
 
 		public override string? get_gir_file () {
@@ -609,9 +592,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			writer.start_tag ("div", {"class", "links"});
 
-			writer.start_tag ("p", {"class", "source"}).text (pkg.get_documentation_source ()).end_tag ("p");
-
-
 			writer.start_tag ("p", {"class", "homepage"});
 			if (pkg.home != null) {
 				writer.start_tag ("a", {"href", pkg.home}).text ("Home").end_tag ("a");
@@ -624,11 +604,11 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 			writer.end_tag ("p");
 
-			writer.start_tag ("p", {"class", "devhelp"});
 			if (pkg.devhelp_link != null && disable_devhelp == false) {
+				writer.start_tag ("p", {"class", "devhelp"});
 				writer.start_tag ("a", {"href", pkg.devhelp_link}).text ("Devhelp Package").end_tag ("a");
+				writer.end_tag ("p");
 			}
-			writer.end_tag ("p");
 
 			writer.end_tag ("div");
 

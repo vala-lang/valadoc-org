@@ -111,7 +111,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			string path = "(?<img>([^(\\)|\n)])*)";
 			markdown_img_regex = new Regex ("!\\[" + label + "\\][ \t]*\n?[ \t]*\\(" + path + "\\)", RegexCompileFlags.UNGREEDY | RegexCompileFlags.OPTIMIZE);
 		} catch (RegexError e) {
-			assert_not_reached ();
+			error (e.message);
 		}
 	}
 
@@ -185,7 +185,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 						pkg.description[i] = tmp.strip ();
 					}
 				} catch (Error e) {
-					assert_not_reached ();
+					error (e.message);
 				}
 			}
 			current_token = reader.read_token (out begin, out end);
@@ -398,14 +398,14 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return null;
 		}
 
-		public virtual string? get_catalog_file () {
-			string path = Path.build_path (Path.DIR_SEPARATOR_S, "documentation", name, name + ".catalog");
-			if (FileUtils.test (path, FileTest.IS_REGULAR)) {
-				return path;
-			}
-
-			return null;
-		}
+		//public virtual string? get_catalog_file () {
+		//	string path = Path.build_path (Path.DIR_SEPARATOR_S, "documentation", name, name + ".catalog");
+		//	if (FileUtils.test (path, FileTest.IS_REGULAR)) {
+		//		return path;
+		//	}
+		//
+		//	return null;
+		//}
 
 		public virtual string? get_valadoc_file () {
 			string path = Path.build_path (Path.DIR_SEPARATOR_S, "documentation", name, name + ".valadoc");
@@ -463,9 +463,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return null;
 		}
 
-		public override string? get_catalog_file () {
-			return null;
-		}
+		//public override string? get_catalog_file () {
+		//	return null;
+		//}
 
 		public override void render (Renderer renderer) {
 			renderer.render_external_package (this);
@@ -479,7 +479,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		public abstract void render_external_package (ExternalPackage pkg);
 	}
 
-	// TODO
 	public void load (string path) throws Error {
 		Dir dirptr = Dir.open (path);
 		string? dir;
@@ -751,96 +750,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		php.printf ("?>\n");
 	}
 
-	/*
-	public void generate_configs (string config_path) throws Error {
-		string htaccess_path = Path.build_filename (config_path, ".htaccess");
-		string sphinx_path = Path.build_filename (config_path, "sphinx.conf");
-		string php_path = Path.build_filename (config_path, "constants.php");
-
-		if (FileUtils.test (config_path, FileTest.EXISTS)) {
-			FileUtils.unlink (htaccess_path);
-			FileUtils.unlink (sphinx_path);
-			FileUtils.unlink (php_path);
-		}
-
-		DirUtils.create (config_path, 0777);
-
-		var php = FileStream.open (php_path, "w");
-		php.printf ("<?php\n");
-		php.printf ("\t$allpkgs = \"");
-
-
-		var writer = FileStream.open (htaccess_path, "w");
-		writer.printf ("Options -Indexes\n");
-		writer.printf ("\n");
-		writer.printf ("<Files ~ \"^\\.conf\">\n");
-		writer.printf ("        Order allow,deny\n");
-		writer.printf ("        Deny from all\n");
-		writer.printf ("        Satisfy All\n");
-		writer.printf ("</Files>\n");
-		writer.printf ("\n\n");
-
-		writer = FileStream.open (sphinx_path, "w");
-		writer.printf ("searchd {\n");
-		writer.printf ("        listen = 0.0.0.0:51413:mysql41\n");
-		writer.printf ("        log = ./searchd.log\n");
-		writer.printf ("        query_log = ./query.log\n");
-		writer.printf ("        pid_file = ./searcd.pid\n");
-		writer.printf ("}\n");
-
-		writer.printf ("\n\n");
-
-		writer.printf ("index base {\n");
-		writer.printf ("        charset_type = utf-8\n");
-		writer.printf ("        enable_star = 1\n");
-		writer.printf ("        min_infix_len = 1\n");
-		writer.printf ("        html_strip = 1\n");
-		writer.printf ("        charset_table = 0..9, A..Z->a..z, ., _, a..z\n");
-		writer.printf ("}\n");
-
-		writer.printf ("source main {\n");
-		writer.printf ("        type = xmlpipe2\n");
-		writer.printf ("        xmlpipe_command = cat ../empty.xml\n");
-		writer.printf ("}\n");
-
-		writer.printf ("index main : base {\n");
-		writer.printf ("        source = main\n");
-		writer.printf ("        path = ./sphinx-main\n");
-		writer.printf ("}\n");
-
-
-		writer.printf ("\n\n");
-		writer.printf ("\n\n");
-
-		int startid = 0;
-
-		foreach (var pkg in packages_per_name.values) {
-			if (pkg is ExternalPackage == false) {
-				string name = get_index_name (pkg.name);
-				writer.printf ("source %s {\n", name);
-				writer.printf ("        type = xmlpipe2\n");
-				writer.printf ("        xmlpipe_command = xsltproc --stringparam startid %d ./sphinx.xsl ./../%s/index.xml\n", startid, pkg.name);
-				writer.printf ("}\n");
-				writer.printf ("\n\n");
-
-				writer.printf ("index %s : base {\n", name);
-				writer.printf ("        source = %s\n", name);
-				writer.printf ("        path = ./sphinx-%s\n", name);
-				writer.printf ("}\n");
-				writer.printf ("\n\n");
-
-				if (startid != 0) {
-					php.printf (", ");
-				}
-				php.printf ("%s ", name);
-
-				startid += 1000000;
-			}
-		}
-		php.printf ("\";\n");
-		php.printf ("?>\n");
-	} */
-
 	public void regenerate_packages (string[] packages) throws Error {
 		LinkedList<Package> queue = new LinkedList<Package> ();
 
@@ -892,7 +801,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				try {
 					Process.spawn_command_line_sync ("wget %s -O documentation/%s/index.sgml \"%s\"".printf (global_wget_flags, pkg.name, pkg.sgml_path));
 				} catch (SpawnError e) {
-					assert_not_reached ();
+					error (e.message);
 				}
 			}
 		}
@@ -1040,13 +949,17 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 		} else {
 			// Markdown:
-			MatchInfo info;
-			markdown_img_regex.match (content, 0, out info);
-			int path_num = markdown_img_regex.get_string_number ("img");
-			while (info.matches ()) {
-				string link = info.fetch (path_num);
-				images.add (link);
-				info.next ();
+			try {
+				MatchInfo info;
+				markdown_img_regex.match (content, 0, out info);
+				int path_num = markdown_img_regex.get_string_number ("img");
+				while (info.matches ()) {
+					string link = info.fetch (path_num);
+					images.add (link);
+					info.next ();
+				}
+			} catch (GLib.RegexError e) {
+				error (e.message);
 			}
 		}
 	}
@@ -1070,7 +983,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			try {
 				Process.spawn_command_line_sync ("wget %s -O tmp/c-gallery.html \"%s\"".printf (global_wget_flags, pkg.gallery));
 			} catch (SpawnError e) {
-				assert_not_reached ();
+				error (e.message);
 			}
 		}
 
@@ -1119,7 +1032,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 						string link = Path.build_path (Path.DIR_SEPARATOR_S, search_path, entry.value);
 						Process.spawn_command_line_sync ("wget %s --directory-prefix documentation/%s/gallery-images/ \"%s\"".printf (global_wget_flags, pkg.name, link));
 					} catch (SpawnError e) {
-						assert_not_reached ();
+						error (e.message);
 					}
 				}
 				return true;
@@ -1227,7 +1140,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 
 		} catch (Error e) {
-			assert_not_reached ();
+			error (e.message);
 		}
 
 		return has_images;
@@ -1238,20 +1151,24 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private string get_image_link (string base_url, string image_name) {
 		string url = Path.build_path ("/", base_url, image_name);
 		if (url.has_prefix ("http://bazaar.launchpad.net/")) {
-			uint8[] _content;
-			File page_file = File.new_for_uri (url);
-			page_file.load_contents (null, out _content, null);
-			unowned string content = (string) _content;
+			try {
+				uint8[] _content;
+				File page_file = File.new_for_uri (url);
+				page_file.load_contents (null, out _content, null);
+				unowned string content = (string) _content;
 
-			if (regex_launchpad_link == null) {
-				regex_launchpad_link = new Regex ("<a href=\"(.*?)\">download file</a>", RegexCompileFlags.OPTIMIZE);
+				if (regex_launchpad_link == null) {
+					regex_launchpad_link = new Regex ("<a href=\"(.*?)\">download file</a>", RegexCompileFlags.OPTIMIZE);
+				}
+
+				MatchInfo info;
+				regex_launchpad_link.match (content, 0, out info);
+				NetworkAddress address = NetworkAddress.parse_uri (base_url, 80) as NetworkAddress; // cast is required by vala <= 0.28
+				assert (address != null); 
+				return address.get_scheme () + "://" + Path.build_path ("/", address.get_hostname (), info.fetch (1));
+			} catch (Error e) {
+				error (e.message);
 			}
-
-			MatchInfo info;
-			regex_launchpad_link.match (content, 0, out info);
-			NetworkAddress address = NetworkAddress.parse_uri (base_url, 80) as NetworkAddress; // cast is required by vala <= 0.28
-			assert (address != null); 
-			return address.get_scheme () + "://" + Path.build_path ("/", address.get_hostname (), info.fetch (1));
 		}
 
 		return url;
@@ -1295,7 +1212,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 					string link = get_image_link (pkg.c_docs, image_name);
 					Process.spawn_command_line_sync ("wget %s --directory-prefix documentation/%s/gir-images/ \"%s\"".printf (global_wget_flags, pkg.name, link));
 				} catch (SpawnError e) {
-					assert_not_reached ();
+					error (e.message);
 				}
 			}
 		}
@@ -1446,10 +1363,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		return return_val;
 	}
 
-	private void xml_warning (MarkupReader reader, MarkupTokenType current_token, MarkupSourceLocation begin, MarkupSourceLocation end, string message) {
-		reporter.warning (reader.filename, begin.line, begin.column, end.column,
-						  reader.get_line_content (begin.line), message);
-	}
+	//private void xml_warning (MarkupReader reader, MarkupTokenType current_token, MarkupSourceLocation begin, MarkupSourceLocation end, string message) {
+	//	reporter.warning (reader.filename, begin.line, begin.column, end.column,
+	//					  reader.get_line_content (begin.line), message);
+	//}
 
 	private void xml_error (MarkupReader reader, MarkupTokenType current_token, MarkupSourceLocation begin, MarkupSourceLocation end, string message) {
 		reporter.error (reader.filename, begin.line, begin.column, end.column,

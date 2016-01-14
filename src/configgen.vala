@@ -71,11 +71,15 @@ namespace Generator {
 	}
 
 	private string? get_prefix (string _path) {
-		string path = Path.build_filename (_path, "..", "prefix.conf");
-		string content;
+		try {
+			string path = Path.build_filename (_path, "..", "prefix.conf");
+			string content;
 
-		FileUtils.get_contents (path, out content);
-		return content;
+			FileUtils.get_contents (path, out content);
+			return content;
+		} catch (FileError e) {
+			error (e.message);
+		}
 	}
 
 	private void scan_dir (string path) {
@@ -84,14 +88,18 @@ namespace Generator {
 			return ;
 		}
 
-		Dir dir = Dir.open (path);
-		string? name = null;
+		try {
+			Dir dir = Dir.open (path);
+			string? name = null;
 
-		while ((name = dir.read_name ()) != null) {
-			string subpath = Path.build_filename (path, name);
-			if (FileUtils.test (subpath, FileTest.IS_DIR)) {
-				scan_dir (subpath);
+			while ((name = dir.read_name ()) != null) {
+				string subpath = Path.build_filename (path, name);
+				if (FileUtils.test (subpath, FileTest.IS_DIR)) {
+					scan_dir (subpath);
+				}
 			}
+		} catch (FileError e) {
+			error (e.message);
 		}
 	}
 
@@ -114,10 +122,14 @@ namespace Generator {
 				return -1;
 			}
 
-			string content = null;
-			FileUtils.get_contents (template, out content);
-			config.printf (content);
-			config.printf ("\n\n");
+			try {
+				string content = null;
+				FileUtils.get_contents (template, out content);
+				config.printf (content);
+				config.printf ("\n\n");
+			} catch (Error e) {
+				error (e.message);
+			}
 		}
 
 		config.printf ("index base {\n");

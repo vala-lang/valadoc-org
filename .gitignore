@@ -10,6 +10,7 @@
 /valadoc-example-gen
 /configgen
 /generator
+/extra-vapis/
 /girs/
 /libdoclet.so
 /sphinx.conf

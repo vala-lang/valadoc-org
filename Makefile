@@ -133,6 +133,7 @@ build-docs-mini:
         --download-images \
         --skip-existing \
         --no-check-certificate \
+        --disable-devhelp \
         "glib-2.0" "gio-2.0"
 
 

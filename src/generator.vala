@@ -99,6 +99,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private static string default_vapidir = "girs/vala/vapi";
 	private static string target_glib;
 	private static bool wget_no_check_certificate;
+	private static bool disable_devhelp;
 	private string[] vapidirs;
 
 	public IndexGenerator (ErrorReporter reporter) {
@@ -126,6 +127,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		{ "vapidir", 0, 0, OptionArg.STRING, ref vapidir, "Look for package bindings in DIRECTORY", "DIRECTORY"},
 		{ "skip-existing", 0, 0, OptionArg.NONE, ref skip_existing, "Skip existing packages", null },
 		{ "no-check-certificate", 0, 0, OptionArg.NONE, ref wget_no_check_certificate, "Pass --no-check-certificate to wget", null },
+		{ "disable-devhelp", 0, 0, OptionArg.NONE, ref disable_devhelp, "Do not generate devhelp-packages", null },
 		{ "", 0, 0, OptionArg.FILENAME_ARRAY, ref requested_packages, null, "FILE..." },
 		{ null }
 	};
@@ -623,9 +625,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.end_tag ("p");
 
 			writer.start_tag ("p", {"class", "devhelp"});
-				if (pkg.devhelp_link != null) {
-					writer.start_tag ("a", {"href", pkg.devhelp_link}).text ("Devhelp Package").end_tag ("a");
-				}
+			if (pkg.devhelp_link != null && disable_devhelp == false) {
+				writer.start_tag ("a", {"href", pkg.devhelp_link}).text ("Devhelp Package").end_tag ("a");
+			}
 			writer.end_tag ("p");
 
 			writer.end_tag ("div");
@@ -670,7 +672,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		if (pkg.maintainers != null) {
 			stream.printf (" * ''Binding-Maintainer(s): %s''\n", pkg.maintainers);
 		}
-		if (is_devhelp == false) {
+		if (is_devhelp == false && disable_devhelp == false) {
 			if (pkg.devhelp_link != null) {
 				stream.printf (" * ''[[%s|Devhelp-Package download]]''\n", pkg.devhelp_link);
 			}
@@ -811,6 +813,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		builder.append_printf ("valadoc --target-glib %s --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s",
 			target_glib, driver, docletpath, pkg.name, pkg.get_vapi_path (vapidirs), Path.get_dirname (pkg.get_vapi_path (vapidirs)), girdir, pkg.flags);
 
+		if (disable_devhelp == true) {
+			builder.append (" -X --disable-devhelp");
+		}
 
 		string external_docu_path = pkg.get_valadoc_file ();
 		if (external_docu_path != null) {

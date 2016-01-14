@@ -206,8 +206,11 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		string pkg_name = package.name;
 		string path = GLib.Path.build_filename (this.settings.path, pkg_name);
 
-		if (!build_devhelp_book ()) {
-			return ;
+
+		if (settings.pluginargs == null || ("--disable-devhelp" in settings.pluginargs) == false) {
+			if (!build_devhelp_book ()) {
+				return ;
+			}
 		}
 
 		var rt = DirUtils.create (path, 0777);

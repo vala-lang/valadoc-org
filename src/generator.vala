@@ -517,12 +517,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		ArrayList<Package> packages = get_sorted_package_list ();
 		foreach (Package pkg in packages) {
-			if (pkg.is_local) {
-				writer.start_tag ("li").start_tag ("a", {"class", "package", "href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
-			} else {
-				writer.start_tag ("li").start_tag ("a", {"class", "package external-link", "href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
+			if (!pkg.is_local || regenerate_all_packages || pkg.name in requested_packages) {
+				if (pkg.is_local) {
+					writer.start_tag ("li").start_tag ("a", {"class", "package", "href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
+				} else {
+					writer.start_tag ("li").start_tag ("a", {"class", "package external-link", "href", pkg.online_link}).text (pkg.name).end_tag ("a").end_tag ("li");
+				}
 			}
 		}
+
 
 		writer.end_tag ("ul");
 		writer.end_tag ("div");
@@ -578,13 +581,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 		public override void render_package (Package pkg) {
-			if (???  || ???) {
+			if (regenerate_all_packages || pkg.name in requested_packages) {
 				render_table_entry (pkg);
 			}
 		}
 
 		public override void render_external_package (ExternalPackage pkg) {
-			render_table_entry (pkg);
+			if (!pkg.is_local || regenerate_all_packages || pkg.name in requested_packages) {
+				render_table_entry (pkg);
+			}
 		}
 
 		private void render_table_entry (Package pkg) {

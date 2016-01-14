@@ -122,6 +122,20 @@ build-docs:
 	fi
 
 
+build-docs-mini:
+	rm -r -f tmp/
+	./generator \
+        --vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
+        --vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
+        --driver $(VALAC_VERSION) \
+        --prefix $(PREFIX) \
+        --target-glib 2.99 \
+        --download-images \
+        --skip-existing \
+        --no-check-certificate \
+        "glib-2.0" "gio-2.0"
+
+
 #
 # Run a local webserver serving valadoc.org
 #

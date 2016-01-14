@@ -26,6 +26,7 @@ clean:
 	rm -f valadoc-example-gen
 	rm -f configgen
 	rm -f generator
+	rm -R -f extra-vapis
 	rm -R -f girs
 	rm -R -f tmp
 	rm -f *.so
@@ -58,6 +59,13 @@ update-girs:
 		cd .. ; \
 	else \
 		git clone https://github.com/nemequ/vala-girs.git girs ; \
+	fi
+	if test -d extra-vapis; then \
+		cd extra-vapis ; \
+		git pull ; \
+		cd .. ; \
+	else \
+		git clone https://github.com/nemequ/vala-extra-vapis.git extra-vapis ; \
 	fi
 
 

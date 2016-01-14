@@ -80,19 +80,13 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		} catch (Error e) {
 		}
 
+		// fetched gir repos:
+		paths += "extra-vapis/";
+		paths += "girs/vala/vapi/";
+
 		return paths;
 	}
 
-	private string? get_vapi_path (Package pkg) {
-		foreach (string dir in vapidirs) {
-			string path = Path.build_path (Path.DIR_SEPARATOR_S, dir, pkg.name + ".vapi");
-			if (FileUtils.test (path, FileTest.EXISTS)) {
-				return path;
-			}
-		}
-
-		return null;
-	}
 
 	[CCode (array_length = false, array_null_terminated = true)]
 	private static string[] requested_packages;
@@ -426,15 +420,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return null;
 		}
 
-		public virtual string? get_vapi_path () {
-			string path = Path.build_path (Path.DIR_SEPARATOR_S, "girs", "vala", "vapi", name + ".vapi");
-			if (FileUtils.test (path, FileTest.IS_REGULAR)) {
-				return path;
-			}
-
-			path = Path.build_filename (vapidir, name + ".vapi");
-			if (FileUtils.test (path, FileTest.IS_REGULAR)) {
-				return path;
+		public virtual string? get_vapi_path (string[] vapidirs) {
+			foreach (string dir in vapidirs) {
+				string path = Path.build_path (Path.DIR_SEPARATOR_S, dir, name + ".vapi");
+				if (FileUtils.test (path, FileTest.EXISTS)) {
+					return path;
+				}
 			}
 
 			return null;
@@ -472,7 +463,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return null;
 		}
 
-		public override string? get_vapi_path () {
+		public override string? get_vapi_path (string[] vapidirs) {
 			return null;
 		}
 
@@ -876,7 +867,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return ;
 		}
 
-		if (pkg.get_vapi_path () == null) {
+		if (pkg.get_vapi_path (vapidirs) == null) {
 			this.unavailable_packages.add (pkg);
 			return ;
 		}
@@ -905,7 +896,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 
 		StringBuilder builder = new StringBuilder ();
-		builder.append_printf ("valadoc --target-glib %s --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s", target_glib, driver, docletpath, pkg.name, pkg.get_vapi_path (), Path.get_dirname (pkg.get_vapi_path ()), girdir, pkg.flags);
+		builder.append_printf ("valadoc --target-glib %s --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s",
+			target_glib, driver, docletpath, pkg.name, pkg.get_vapi_path (vapidirs), Path.get_dirname (pkg.get_vapi_path (vapidirs)), girdir, pkg.flags);
 
 
 		string external_docu_path = pkg.get_valadoc_file ();
@@ -1179,7 +1171,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return false;
 		}
 
-		string? vapi_path = get_vapi_path (pkg);
+		string? vapi_path = pkg.get_vapi_path (vapidirs);
 		if (vapi_path == null) {
 			return false;
 		}

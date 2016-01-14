@@ -56,10 +56,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		string? standard_error = null;
 		string[] paths = new string[0];
 
-		// Local vapi directory:
-		paths += vapidir;
-		paths += default_vapidir;
-
 
 		// Unversioned vapi directory:
 		try {
@@ -90,22 +86,30 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private static string output_directory;
 	private static string metadata_path;
 	private static string docletpath;
-	private static string vapidir;
 	private static string driver;
 	private static bool download_images;
 	private static string prefix;
 	private static bool skip_existing;
 	private static string girdir = "girs/gir-1.0";
-	private static string default_vapidir = "girs/vala/vapi";
 	private static string target_glib;
 	private static bool wget_no_check_certificate;
 	private static bool disable_devhelp;
-	private string[] vapidirs;
+	[CCode (array_length = false, array_null_terminated = true)]
+	private static string[] vapidirs;
 
 	public IndexGenerator (ErrorReporter reporter) {
 		this.global_wget_flags = wget_no_check_certificate? "--no-check-certificate" : "";
 		this.reporter = new ErrorReporter ();
-		this.vapidirs = get_vapi_directories ();
+
+		// TODO: += is broken for LHS array_length = false
+		//foreach (string dir in get_vapi_directories ()) {
+		//	vapidirs += dir;
+		//}
+		string[] tmp_vapidirs = get_vapi_directories ();
+		foreach (string dir in vapidirs) {
+			tmp_vapidirs += dir;
+		}
+		vapidirs = tmp_vapidirs;
 
 		try {
 			string label = "([^(\\]\n)](\n[ \t]*)?)*";
@@ -124,7 +128,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		{ "driver", 'o', 0, OptionArg.FILENAME, ref driver, "Output directory", "DIRECTORY" },
 		{ "download-images", 0, 0, OptionArg.NONE, ref download_images, "Downlaod images", null },
 		{ "doclet", 0, 0, OptionArg.STRING, ref docletpath, "Name of an included doclet or path to custom doclet", "PLUGIN"},
-		{ "vapidir", 0, 0, OptionArg.STRING, ref vapidir, "Look for package bindings in DIRECTORY", "DIRECTORY"},
+		{ "vapidir", 0, 0, OptionArg.FILENAME_ARRAY, ref vapidirs, "Look for package bindings in DIRECTORY", "[DIRECTORY]"},
 		{ "skip-existing", 0, 0, OptionArg.NONE, ref skip_existing, "Skip existing packages", null },
 		{ "no-check-certificate", 0, 0, OptionArg.NONE, ref wget_no_check_certificate, "Pass --no-check-certificate to wget", null },
 		{ "disable-devhelp", 0, 0, OptionArg.NONE, ref disable_devhelp, "Do not generate devhelp-packages", null },
@@ -1289,7 +1293,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			docletpath = ".";
 		}
 
-		if (vapidir == null) {
+		if (vapidirs == null) {
 			stdout.printf ("error: --vapidir is missing\n");
 			return -1;
 		}

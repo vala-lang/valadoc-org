@@ -80,10 +80,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		} catch (Error e) {
 		}
 
-		// fetched gir repos:
-		paths += "extra-vapis/";
-		paths += "girs/vala/vapi/";
-
 		return paths;
 	}
 
@@ -582,7 +578,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 		public override void render_package (Package pkg) {
-			render_table_entry (pkg);
+			if (???  || ???) {
+				render_table_entry (pkg);
+			}
 		}
 
 		public override void render_external_package (ExternalPackage pkg) {
@@ -1337,7 +1335,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			opt_context.add_main_entries (options, null);
 			opt_context.parse (ref args);
 		} catch (OptionError e) {
-			stdout.printf ("error: %s", e.message);
+			stdout.printf ("error: %s\n", e.message);
 			stdout.printf ("Run '%s --help' to see a full list of available command line options.\n", args[0]);
 			return -1;
 		}

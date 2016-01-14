@@ -105,6 +105,7 @@ build-docs:
 	rm -r -f tmp/
 	./generator \
         --vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
+        --vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
         --driver $(VALAC_VERSION) \
         --prefix $(PREFIX) \
         --target-glib 2.99 \
@@ -121,10 +122,11 @@ build-docs:
 	fi
 
 
-
 #
 # Run a local webserver serving valadoc.org
 #
 
 serve: default build-docs
+	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org
+serve-mini: default build-docs-mini
 	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org

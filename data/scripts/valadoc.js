@@ -116,7 +116,6 @@ function load_link (pathname, hostname) {
 
   load_content(pathname)
   close_tooltips()
-  $('#search-field').focus()
 }
 
 function open_link (pathname, hostname) {
@@ -311,10 +310,6 @@ $(document).ready(function () {
 
   $('#search-field-clear').click(function () {
     searchField.val('').trigger('change')
-  })
-
-  $('#sidebar').hover(function () {
-    searchField.focus()
   })
 
   $(document).keypress(function (e) {

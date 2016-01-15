@@ -664,7 +664,7 @@
 	</section>
 
 	<section name="Pantheon">
-		<package name="granite" vapi-image-source="http://bazaar.launchpad.net/~elementary-pantheon/granite/granite/view/head:/doc/images/" home="https://launchpad.net/granite">
+		<package name="granite" vapi-image-source="https://bazaar.launchpad.net/~elementary-pantheon/granite/granite/view/head:/doc/images/" home="https://launchpad.net/granite">
 			Granite is an extension of GTK+. Among other things, it provides complex widgets and convenience functions designed for use in apps built for elementary OS.
 		</package>
 		<package name="switchboard-2.0" gir="Switchboard-1.0" home="https://launchpad.net/switchboard">

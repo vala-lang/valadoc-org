@@ -72,13 +72,13 @@ if ($curpkg != '') {
 }
 
 $query = $mysqli->real_escape_string ($query);
-if (!($q = $mysqli->query("SELECT type, name, shortdesc, path, signature, typeorder, {$orderby} FROM {$allpkgs} WHERE MATCH('{$query}') ORDER BY @weight DESC, {$orderby} ASC, typeorder ASC LIMIT {$offset},20 OPTION ranker=proximity{$indexweights}")))
+if (!($q = $mysqli->query("SELECT type, css, name, shortdesc, path, signature, typeorder, {$orderby} FROM {$allpkgs} WHERE MATCH('{$query}') ORDER BY @weight DESC, {$orderby} ASC, typeorder ASC LIMIT {$offset},20 OPTION ranker=proximity{$indexweights}")))
   die("Query failed: (" . $mysqli->errno . ") " . $mysqli->error);
 
 while ($row = $q->fetch_assoc()) {
   $splitted = explode ("/", $row["path"]);
   $pkg = $splitted[1];
-  echo '<li class="search-result"><a href="'.$row["path"].'">';
+  echo '<li class="search-result '.$row["css"].'"><a href="'.$row["path"].'">';
   echo '<span class="search-name">'.$row["name"].' <span class="search-package">('.$pkg.')</span></span>';
   if (trim($row["shortdesc"]) != "") {
     echo '<span class="search-desc">'.strip_tags($row["shortdesc"]).'</span>';

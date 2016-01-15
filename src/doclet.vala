@@ -94,8 +94,9 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 
 		string path = get_link (node, node.package);
 
-		index_xml.simple_tag ("node", {"name", node.get_full_name ().replace ("@", ""), "type", this.cssresolver.resolve (node), "path", path,
-			"signature", MarkupWriter.escape (signature), "shortdesc", MarkupWriter.escape (shortdesc)});
+		index_xml.simple_tag ("node", {"name", node.get_full_name ().replace ("@", ""), "css", this.cssresolver.resolve (node),
+			"type", node.node_type.to_string (), "path", path, "signature", MarkupWriter.escape (signature), "shortdesc",
+			MarkupWriter.escape (shortdesc)});
 	}
 
 	private string? create_checksum_for_file (string file_path) {

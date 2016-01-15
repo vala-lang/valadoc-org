@@ -78,7 +78,7 @@ function get_title () {
       </div>
     </nav>
     <div id="sidebar">
-      <ul id="search-results"></ul>
+      <ul class="navi_main" id="search-results"></ul>
       <div id="navigation-content">
         <noscript>
           <?php @readfile ($_GET['page'] . '.navi.tpl'); ?>

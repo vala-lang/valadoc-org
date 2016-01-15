@@ -44,8 +44,6 @@ doclet.so:
 	gcc -shared -fPIC `pkg-config --cflags --libs glib-2.0 gmodule-2.0 gee-0.8 valadoc-1.0` -o libdoclet.so src/doclet.c src/linkhelper.c -w
 	rm -R -f src/*.c
 
-
-
 generator: doclet.so
 	valac -o generator src/doclet.vala src/linkhelper.vala src/generator.vala --pkg gee-0.8 --pkg valadoc-1.0 --pkg gio-2.0 --enable-experimental -X -w
 
@@ -136,6 +134,10 @@ build-docs-mini:
         --disable-devhelp \
         "glib-2.0" "gio-2.0"
 
+
+test-examples:
+	-./valadoc-example-tester examples/*/*.valadoc.examples  
+	rm -f -R tmp/
 
 #
 # Run a local webserver serving valadoc.org

@@ -11,12 +11,7 @@ public int main (string[] args) {
 	uint val = 0;
 	uint *handle = &val;
 	win.realize.connect (() => {
-		handle = (uint*) Gdk.X11.Window.get_xid (win.get_window ());
-
-unowned Gdk.X11.Window x11window = lookup_for_display (Gdk.X11.Display display, X.Window window);
-handle = (uint*) x11window.get_xid ();
-
-
+		handle = (uint*) ((Gdk.X11.Window) win.get_window ()).get_xid ();
 	});
 	var e = Gst.ElementFactory.make ("playbin","playbin");
 	e.bus.add_watch(0,(bus,message) => {

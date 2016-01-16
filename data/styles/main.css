@@ -213,6 +213,7 @@ nav .subtitle {
     display: block;
     font-size: 10px;
     opacity: 0.75;
+    padding-left: 22px;
 }
 
 .search-selected {

@@ -1,9 +1,9 @@
 <div class="site_content">
 
-<h2 class=\"main_title\">Comment Markup:</h2>
+<h1 class=\"main_title\">Comment Markup:</h1>
 <hr class=\"main_hr\" />
 
-<h3>Documentation comment structure:</h3>
+<h2>Documentation comment structure:</h2>
 <hr class=\"main_hr\" />
 <div class=\"main_code_definition\">
 <pre>/**
@@ -17,9 +17,9 @@
 
 <br />
 
-<h3>Linebreaks and paragraphs:</h3>
+<h2>Linebreaks and paragraphs:</h2>
 <hr class=\"main_hr\" />
-<h4>Comment:</h4>
+<h3>Comment:</h3>
 <div class=\"main_code_definition\">
 <pre>/**
  * First paragraph,
@@ -29,7 +29,7 @@
  * second paragraph, second line
  */</pre>
 </div>
-<h4>Output:</h4>
+<h3>Output:</h3>
 <div class=\"main_code_definition\">
 <p>First paragraph, still the first paragraph</p>
 <p>Second paragraph, first line, <br /> second paragraph, second line</p>
@@ -37,9 +37,9 @@
 
 <br />
 
-<h3>Text highlighting:</h3>
+<h2>Text highlighting:</h2>
 <hr class=\"main_hr\" />
-<h4>Comment:</h4>
+<h3>Comment:</h3>
 <div class=\"main_code_definition\">
 <pre>/**
  * ''bold'' //italic// __underlined__ ``block quote``,
@@ -47,17 +47,17 @@
  */
 </pre>
 </div>
-<h4>Output:</h4>
+<h3>Output:</h3>
 <div class=\"main_code_definition\">
 <p><b>bold</b> <i>italic</i> <u>underlined</u> <span>block quote</span> <b><i><u>bold italic underlined</u></i></b></p>
 </div>
 
 <br />
 
-<h3>Lists:</h3>
+<h2>Lists:</h2>
 <hr class=\"main_hr\" />
 <p>Two spaces are required after newlines.</p>
-<h4>Comment:</h4>
+<h3>Comment:</h3>
 <div class=\"main_code_definition\">
 <pre>/**
  * short description
@@ -100,7 +100,7 @@
  */
 </pre>
 </div>
-<h4>Output:</h4>
+<h3>Output:</h3>
 <div class=\"main_code_definition\">
 <ol type=\"1\">
   <li>numbered list</li>
@@ -162,9 +162,9 @@
 
 
 <br />
-<h3>Code:</h3>
+<h2>Code:</h2>
 <hr class=\"main_hr\" />
-<h4>Comment:</h4>
+<h3>Comment:</h3>
 <div class=\"main_code_definition\">
 <pre>/**
  * Short description
@@ -177,7 +177,7 @@
  *
  */</pre>
 </div>
-<h4>Output:</h4>
+<h3>Output:</h3>
 <div class=\"main_code_definition\">
  <p>Short description</p>
 
@@ -200,7 +200,7 @@
  */
 </pre>
 </div>
-<h4>Output:</h4>
+<h3>Output:</h3>
 <div class="main_code_definition">
 <p><a href="http://google.at">google</a> <a href="http://google.at">http://google.at</a></p>
 <p><img src="http://valadoc.org/logo.png" /> <img src="logo.png" alt="alt-message" /></p>
@@ -216,7 +216,7 @@
 
 <h2>Tables:</h2>
 <hr class=\"main_hr\" />
-<h4>Comment:</h4>
+<h3>Comment:</h3>
 <div class=\"main_code_definition\">
 <pre>/**
  * Short description
@@ -227,7 +227,7 @@
  *
  */</pre>
 </div>
-<h4>Output:</h4>
+<h3>Output:</h3>
 <div class=\"main_code_definition\">
 <p>Short description</p>
 
@@ -261,9 +261,9 @@
 
 
 <br />
-<h3>Headlines:</h3>
+<h2>Headlines:</h2>
 <hr class=\"main_hr\" />
-<h4>Comment:</h4>
+<h3>Comment:</h3>
 <div class=\"main_code_definition\">
 <pre>= headline 1 =
 == healdline 2 ==
@@ -322,7 +322,7 @@
 </table>
 
 <br />
-<h2>Block Taglets:</h2>
+<h3>Block Taglets:</h3>
 <hr class=\"main_hr\" />
 
 <table style=\"margin: auto; width: 80%;\">

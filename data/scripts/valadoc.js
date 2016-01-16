@@ -313,17 +313,28 @@ $(document).ready(function () {
     searchField.val('').trigger('change')
   })
 
-  $('#sidebar').hover(function () {
-    searchField.focus()
-  })
-
-  $(document).keypress(function (e) {
-    if (searchField.is(':focus') && e.keyCode === 27) { // escape
+  var ctrlDown = 0;
+  $(document).keydown(function (e) {
+    var c = String.fromCharCode(e.which)
+    var focused = searchField.is(':focus')
+    if (focused && e.keyCode === 27) {
       searchField.val('').focus()
-    } else {
-      searchField.focus()
+    } else if (e.keyCode === 27) { // escape
+      searchField.val('')
+      searchField.trigger ('change')
+    } else if (e.keyCode === 17) {
+      ctrlDown++;
+    } else if (!focused && ctrlDown == 0 && ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '.' || c == '_')) {
+      searchField.focus ()
+      searchField.trigger ('change')
     }
   })
+  $(document).keyup(function (e) {
+    if (e.keyCode === 17) {
+      ctrlDown--
+    }
+  })
+
 
   $('#search-results').scroll(function () {
     if (scrolltimeout) {

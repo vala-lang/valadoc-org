@@ -598,13 +598,13 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			writer.start_tag ("p", {"class", "homepage"});
 			if (pkg.home != null) {
-				writer.start_tag ("a", {"href", pkg.home}).text ("Home").end_tag ("a");
+				writer.start_tag ("a", {"href", pkg.home, "target", "_blank"}).text ("Home").end_tag ("a");
 			}
 			writer.end_tag ("p");
 
 			writer.start_tag ("p", {"class", "cdocs"});
 			if (pkg.c_docs != null) {
-				writer.start_tag ("a", {"href", pkg.c_docs}).text ("C Docs").end_tag ("a");
+				writer.start_tag ("a", {"href", pkg.c_docs, "target", "_blank"}).text ("C Docs").end_tag ("a");
 			}
 			writer.end_tag ("p");
 

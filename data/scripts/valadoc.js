@@ -2,7 +2,10 @@
 
 if (document.location.pathname !== '/' && document.location.pathname !== '/index.php') {
   window.location = '/#' + url_to_hash(document.location.pathname)
+} else if (document.location.pathname == '' || document.location.pathname == '/') {
+  window.location = '#!wiki=index'
 }
+
 
 function hash_to_url (hash) {
   if (hash[0] === '#') {

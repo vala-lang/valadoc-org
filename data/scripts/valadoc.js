@@ -218,9 +218,7 @@ $(document).ready(function () {
   })
 
   $(window).hashchange(function () {
-    if (window.location.hash) {
-      load_link(hash_to_url(window.location.hash), window.location.hostname)
-    }
+    load_link(hash_to_url(window.location.hash), window.location.hostname)
   })
 
   var curtext = ''

@@ -598,21 +598,19 @@ code {
     text-decoration: underline;
 }
 
+.box {
+}
+
 .box .headline {
+    background-image: url("/images/coll_open.svg");
+    background-position: calc(100% - 1px) center;
+    background-repeat: no-repeat;
     background-color: #eeeeff;
     border: 1px solid #aaaaff;
     margin: auto;
     width: 90%;
     margin-top: 20px;
-}
-
-.box .text {
-    font-weight: bold;
-    float: left;
-}
-
-.box .toggle {
-    text-align: right;
+    font-weight: bold;  
 }
 
 .box .content {

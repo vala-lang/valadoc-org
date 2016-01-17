@@ -70,15 +70,15 @@ function get_title () {
       <span class="subtitle">Stays crunchy, even in milk.</span>
       <div id="links">
         <ul>
-          <li><a href="https://wiki.gnome.org/Projects/Vala/Tutorial">Tutorial</a></li>
+          <li><a href="https://wiki.gnome.org/Projects/Vala/Tutorial" target="_blank">Tutorial</a></li>
           <li><a href="templates/markup.htm">Markup</a></li>
-          <li><a href="https://wiki.gnome.org/Projects/Vala">About Vala</a></li>
+          <li><a href="https://wiki.gnome.org/Projects/Vala" target="_blank">About Vala</a></li>
           <li><a href="templates/about.htm">About Valadoc</a></li>
         </ul>
       </div>
     </nav>
     <div id="sidebar">
-      <ul id="search-results"></ul>
+      <ul class="navi_main" id="search-results"></ul>
       <div id="navigation-content">
         <noscript>
           <?php @readfile ($_GET['page'] . '.navi.tpl'); ?>

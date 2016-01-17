@@ -116,7 +116,6 @@ function load_link (pathname, hostname) {
 
   load_content(pathname)
   close_tooltips()
-  $('#search-field').focus()
 }
 
 function open_link (pathname, hostname) {
@@ -317,7 +316,7 @@ $(document).ready(function () {
   $(document).keydown(function (e) {
     var c = String.fromCharCode(e.which)
     var focused = searchField.is(':focus')
-    if (focused && e.keyCode === 27) {
+    if (focused && e.keyCode === 27) { // escape
       searchField.val('').focus()
     } else if (e.keyCode === 27) { // escape
       searchField.val('')

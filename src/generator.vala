@@ -598,13 +598,13 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			writer.start_tag ("p", {"class", "homepage"});
 			if (pkg.home != null) {
-				writer.start_tag ("a", {"href", pkg.home}).text ("Home").end_tag ("a");
+				writer.start_tag ("a", {"href", pkg.home, "target", "_blank"}).text ("Home").end_tag ("a");
 			}
 			writer.end_tag ("p");
 
 			writer.start_tag ("p", {"class", "cdocs"});
 			if (pkg.c_docs != null) {
-				writer.start_tag ("a", {"href", pkg.c_docs}).text ("C Docs").end_tag ("a");
+				writer.start_tag ("a", {"href", pkg.c_docs, "target", "_blank"}).text ("C Docs").end_tag ("a");
 			}
 			writer.end_tag ("p");
 
@@ -899,10 +899,11 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 			standard_output = null;
 			standard_error = null;
+			log.flush ();
 			log = null;
 
 			if (exit_status != 0) {
-				throw new SpawnError.FAILED ("Exit status != 0");
+				throw new SpawnError.FAILED ("Exit status %d != 0", exit_status);
 			}
 
 			Process.spawn_command_line_sync ("rm -r -f %s".printf (Path.build_path (Path.DIR_SEPARATOR_S, output_directory, pkg.name)));
@@ -910,6 +911,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			Process.spawn_command_line_sync ("mv tmp/%s/%s \"%s\"".printf (pkg.name, pkg.name, output_directory));
 		} catch (SpawnError e) {
 			stdout.printf ("ERROR: Can't generate documentation for %s. See LOG for details.\n", pkg.name);
+			stdout.printf ("%s\n", e.message);
 			throw e;
 		} finally {
 			if (delete_wiki_path) {

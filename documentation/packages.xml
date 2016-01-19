@@ -433,6 +433,11 @@
 				GData (Google data) is a set of Application Programming Interfaces (APIs) for the Common Language
 				Infrastructure (CLI) which provide a simple protocol for reading and writing data on the web. 
 			</package>
+			<package name="goa-1.0" gir="Goa-1.0" home="https://wiki.gnome.org/Projects/GnomeOnlineAccounts" c-docs="https://developer.gnome.org/goa/stable/">
+				A centralized service that allows a set of online accounts to be configured for use with core GNOME applications.
+				In UX terms, GOA provides a static list of online accounts that can be setup by users (through the Online Accounts panel in System Settings).
+				These accounts can then be used by core GNOME applications.
+ 			</package>
 			<package name="gweather-3.0" flags="--pkg gtk+-3.0" gir="GWeather-3.0">
 				Location and timezone database and weather-lookup library.
 			</package>

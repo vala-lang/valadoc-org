@@ -10,12 +10,11 @@ public static int main (string[] args) {
 
 	// Use property names as keys
 	Gtk.show_about_dialog (window,
-		"program-name", ("SWMS"),
-		"copyright", ("Copyright © 1998-2000 Gyro Gearloose"),
-		"authors", authors,
-		"website", "http://en.wikipedia.org/wiki/Scrooge_McDuck",
-		"website-label", ("Scrooge McDuck and Co.")
-		);
+		program_name: "SWMS",
+		copyright: "Copyright © 1998-2000 Gyro Gearloose",
+		authors: authors,
+		website: "http://en.wikipedia.org/wiki/Scrooge_McDuck",
+		website_label: "Scrooge McDuck and Co.");
 
 	window.show_all ();
 	Gtk.main ();

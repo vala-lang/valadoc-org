@@ -460,6 +460,10 @@
 			    Powerful and feature complete XML handling library.
 			</package>
 		</section>
+			<package name="gxml-0.10" maintainers="Daniel Espinosa" gir="GXml-0.10">
+			    GObject XML library and serialization framework.
+			</package>
+		</section>
 
 		<section name="Remote Display Systems &amp; Virtualization">
 			<package name="spice-client-glib-2.0" gir="SpiceClientGLib-2.0" home="http://spice-space.org/">

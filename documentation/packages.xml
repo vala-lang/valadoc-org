@@ -84,6 +84,9 @@
 			<package name="libgnome-menu-3.0" flags="--pkg gio-2.0 --pkg gio-unix-2.0" gir="GnomeDesktop-3.0">
 				Utility library for loading .desktop files.
 			</package>
+			<package name="libgdaui-5.0" gir="Gdaui-5.0">
+				Libgda is a (relatively small) database access library. This package provides GTK+ widgets to database access.
+			</package>
 		</section>
 
 		<section name="Multimedia">
@@ -328,11 +331,8 @@
 				dconf is a low-level configuration system. Its main purpose is to provide a backend to GSettings on 
 				platforms that don't already have configuration storage systems.
 			</package>
-			<package name="libgda-4.0" deprecated="true" gir="Gda-5.0">
-				Libgda is a (relatively small) database access library. 
-			</package>
-			<package name="libgda-report-4.0" deprecated="true">
-				GNU Data Access Library, reporter
+			<package name="libgda-5.0" gir="Gda-5.0">
+				Libgda is a (relatively small) database access library.
 			</package>
 			<package name="sqlite3" home="http://www.sqlite.org/" c-docs="http://www.sqlite.org/c3ref/intro.html">
 			 	A C library that implements an SQL database engine.
@@ -461,6 +461,10 @@
 			</package>
 			<package name="libxml-2.0" maintainers="Tomaž Vajngerl" gir="libxml2-2.0" c-docs="http://xmlsoft.org/html/">
 			    Powerful and feature complete XML handling library.
+			</package>
+		</section>
+			<package name="gxml-0.10" maintainers="Daniel Espinosa" gir="GXml-0.10">
+			    GObject XML library and serialization framework.
 			</package>
 		</section>
 

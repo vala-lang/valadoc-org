@@ -1,0 +1,4 @@
+[PackageKit Catalog]
+
+InstallPackages(fedora)=libgda-devel
+InstallPackages(debian)=libgda-5.0-dev

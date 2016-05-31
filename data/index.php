@@ -2,11 +2,11 @@
 //	ini_set("display_errors","1");
 //	ERROR_REPORTING(E_ALL);
 
-if ($_GET['page'] == '') {
+if ( isset($_GET['page']) && $_GET['page'] == '' ) {
   $_GET['page'] = 'index.htm';
 }
-$hash_frag = $_GET['_escaped_fragment_'];
-if (isset ($hash_frag)) {
+$hash_frag = isset($_GET['_escaped_fragment_']) ? htmlentities($_GET['_escaped_fragment_'], ENT_QUOTES, 'UTF-8') : false;
+if ( isset($hash_frag) ) {
   if ($hash_frag == '') {
     $_GET['page'] = 'index.htm';
   } else {

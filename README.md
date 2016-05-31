@@ -17,23 +17,25 @@ In order to build the docs you will need the following:
 
 On elementary OS or Ubuntu run:
 ```bash
-$ sudo apt-get install libvaladoc-dev php5
+sudo add-apt-repository ppa:vala-team;
+sudo apt-get update;
+sudo apt-get install valac valadoc libvaladoc-dev;
 ```
 
 Arch or derivatives run:
 ```bash
-$ yaourt -S valadoc-git php
+yaourt -S valadoc-git php
 ```
 
 After you have `valadoc` installed, you can move to building the documentation. Simply run:
 ```bash
-$ make serve
+make serve
 ```
 
 and grab yourself a cup of coffee, or:
 
 ```bash
-$ make serve-mini
+make serve-mini
 ```
 
 for a minimal test version. This will take a bit of time. If you

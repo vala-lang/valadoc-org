@@ -19,7 +19,7 @@ On elementary OS or Ubuntu run:
 ```bash
 sudo add-apt-repository ppa:vala-team;
 sudo apt-get update;
-sudo apt-get install valac valadoc libvaladoc-dev;
+sudo apt-get install valac valadoc libvaladoc-dev unzip;
 ```
 
 Arch or derivatives run:

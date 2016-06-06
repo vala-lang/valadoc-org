@@ -14,14 +14,11 @@ function toggle_box (self, id) {
 	}
 
 	var style = self.currentStyle || window.getComputedStyle (self, false);
-	var orig_path = /url[ \t]*\(('(.*)'|"(.*)")\)/.exec (style.backgroundImage)[1].slice(1, -1);
-	var orig_dir = get_path (orig_path);
 	if (element.style.display == 'block') {
 		element.style.display = 'none';
-		self.style.backgroundImage = "url('" + orig_dir + 'coll_open.svg' + "')";
+		self.style.backgroundImage = style.backgroundImage.replace('coll_close', 'coll_open');
 	} else {
 		element.style.display = 'block';
-		self.style.backgroundImage = "url('" + orig_dir + 'coll_close.svg' + "')";
+		self.style.backgroundImage = style.backgroundImage.replace('coll_open', 'coll_close');
 	}
 }
-

@@ -103,10 +103,5 @@ function get_title () {
   <script type="text/javascript" src="/scripts/wtooltip.js"></script>
   <script type="text/javascript" src="/scripts/valadoc.js"></script>
   <script type="text/javascript" src="/scripts/main.js"></script>
-  <script type="text/javascript">
-  //if (document.location.hash != '') {
-  load_link (hash_to_url (window.location.hash), window.location.hostname);
-  //}
-  </script>
   </body>
 </html>

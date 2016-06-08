@@ -1,11 +1,12 @@
 /* globals $ */
 
-if (document.location.pathname !== '/' && document.location.pathname !== '/index.php') {
-  window.location = '/#' + url_to_hash(document.location.pathname)
-} else if (document.location.pathname == '' || document.location.pathname == '/') {
-  window.location = '#!wiki=index'
+if (window.location.hash.indexOf('!') !== -1) {
+  load_link(hash_to_url(window.location.hash), window.location.hostname)
+} else if (window.location.pathname === '/') {
+  load_link('index.htm', window.location.hostname)
+} else {
+  window.location.pathname = '/'
 }
-
 
 function hash_to_url (hash) {
   if (hash[0] === '#') {

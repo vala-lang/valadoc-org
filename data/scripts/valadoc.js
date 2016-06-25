@@ -68,7 +68,7 @@ function check_loaded (path) {
         this.src = path.split('/')[0] + '/img/' + tmp[tmp.length - 1]
       }
     })
-    $('#content-wrapper').scrollTop(0)
+    $('body').scrollTop(0)
   }
 }
 

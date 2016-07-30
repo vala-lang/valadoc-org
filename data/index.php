@@ -1,31 +1,47 @@
 <?php
+
 //	ini_set("display_errors","1");
 //	ERROR_REPORTING(E_ALL);
 
-if ( isset($_GET['page']) && $_GET['page'] == '' ) {
-  $_GET['page'] = 'index.htm';
+// Page parsing
+$requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+$segments = explode('/', $requestUri);
+$end = end($segments);
+
+if ($requestUri === '' || $requestUri === '/' || strpos($end, 'htm') !== false) {
+  $page = 'index.htm';
+} else {
+  return false; // Stop here to avoid trying to load non existant things
 }
-$hash_frag = isset($_GET['_escaped_fragment_']) ? htmlentities($_GET['_escaped_fragment_'], ENT_QUOTES, 'UTF-8') : false;
-if ( isset($hash_frag) ) {
-  if ($hash_frag == '') {
-    $_GET['page'] = 'index.htm';
-  } else {
-    $parts = explode ('=', $hash_frag);
-    $key = $parts[0];
-    $value = $parts[1];
-    if ($key == 'wiki') {
-      $_GET['page'] = $value.".htm";
-    } else if ($key == 'api') {
-      $_GET['page'] = $value.".html";
-    } else {
-      $_GET['page'] = 'index.htm';
+
+if ( $requestUri === '' || $requestUri === '/' ) { // Homepage
+    $page = 'index.htm';
+} else if (count($segments) === 2 && strpos($end, 'htm') !== false) {
+    $p = str_replace('.htm', '', $segments[1]);
+
+    if (file_exists(__DIR__."/templates/$p.htm.content.tpl")) {
+        $page = "templates/$p.htm";
     }
-  }
+} else if ( $end === 'index.htm' ) { // Page index
+    $api = str_replace('.htm', '', $segments[1]);
+
+    if (file_exists(__DIR__."/$api/index.htm.content.tpl")) {
+        $page = "$api/index.htm";
+    }
+} else { // a page value (api value)
+    $api = $segments[1];
+    $sub = str_replace('.html', '', $end);
+
+    if (file_exists(__DIR__."/$api/$sub.html.content.tpl")) {
+        $page = "$api/$sub.html";
+    }
 }
 
 function get_title () {
-  $is_wiki = substr($_GET['page'], -4) === '.htm';
-  $segments = explode ('/', $_GET['page']);
+  global $page;
+
+  $is_wiki = substr($page, -4) === '.htm';
+  $segments = explode('/', $page);
 
   for ($i = 0; $i < count ($segments) ; $i++) {
     $segments[$i] = htmlentities ($segments[$i]);
@@ -60,37 +76,33 @@ function get_title () {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Droid+Serif:400|Roboto+Mono:400,500,700,400italic">
     <link rel="stylesheet" href="/styles/main.css" type="text/css">
     <link rel="apple-touch-icon" href="/images/icon.png" />
-    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="shortcut icon" href="/images/favicon.ico">
   </head>
   <body>
     <nav>
       <div id="search-box">
         <input id="search-field" type="text" placeholder="Search" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
       </div>
-      <a class="title" href="/index.htm"><img alt="Valadoc" src="images/logo.svg"/></a>
+      <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
       <span class="subtitle">Stays crunchy, even in milk.</span>
       <div id="links">
         <ul>
           <li><a href="https://wiki.gnome.org/Projects/Vala/Tutorial" target="_blank">Tutorial</a></li>
-          <li><a href="templates/markup.htm">Markup</a></li>
+          <li><a href="/markup.htm">Markup</a></li>
           <li><a href="https://wiki.gnome.org/Projects/Vala" target="_blank">About Vala</a></li>
-          <li><a href="templates/about.htm">About Valadoc</a></li>
+          <li><a href="/about.htm">About Valadoc</a></li>
         </ul>
       </div>
     </nav>
     <div id="sidebar">
       <ul class="navi_main" id="search-results"></ul>
       <div id="navigation-content">
-        <noscript>
-          <?php @readfile ($_GET['page'] . '.navi.tpl'); ?>
-        </noscript>
+        <?php @readfile (include __DIR__ . "/" . $page . ".navi.tpl"); ?>
       </div>
     </div>
     <div id="content-wrapper">
       <div id="content">
-        <noscript>
-        <?php @readfile ($_GET['page'] . '.content.tpl'); ?>
-        </noscript>
+        <?php @readfile (__DIR__ . "/" . $page . ".content.tpl"); ?>
       </div>
       <div id="comments" />
 
@@ -103,10 +115,5 @@ function get_title () {
   <script type="text/javascript" src="/scripts/wtooltip.js"></script>
   <script type="text/javascript" src="/scripts/valadoc.js"></script>
   <script type="text/javascript" src="/scripts/main.js"></script>
-  <script type="text/javascript">
-  //if (document.location.hash != '') {
-  load_link (hash_to_url (window.location.hash), window.location.hostname);
-  //}
-  </script>
   </body>
 </html>

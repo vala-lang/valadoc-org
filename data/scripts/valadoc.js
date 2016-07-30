@@ -1,45 +1,25 @@
 /* globals $ */
 
-if (document.location.pathname !== '/' && document.location.pathname !== '/index.php') {
-  window.location = '/#' + url_to_hash(document.location.pathname)
-} else if (document.location.pathname == '' || document.location.pathname == '/') {
-  window.location = '#!wiki=index'
-}
+// The old way. Please gracefully fall into oblivion
+if (window.location.hash.indexOf('!') !== -1) {
+  var hash = window.location.hash
+  var path = window.location.pathname
 
+  if (hash[0] === '#') hash = hash.substr(1)
+  if (hash[0] === '!') hash = hash.substr(1)
 
-function hash_to_url (hash) {
-  if (hash[0] === '#') {
-    hash = hash.substr(1)
-  }
+  if (hash !== '') {
+    var parts = hash.split('=')
 
-  if (hash === '') {
-    return '/index.htm'
-  }
+    if (parts[0] === 'wiki') {
+      path = parts[1] + '.htm'
+  } else if (parts[0] === 'api') {
+      path = parts[1] + '.html'
+    } else {
+      path = 'index.htm'
+    }
 
-  var parts = hash.split('=')
-  var key = parts.shift()
-  var value = parts.join('=')
-
-  if (key === '!wiki') {
-    return value + '.htm'
-  } else if (key === '!api') {
-    return value + '.html'
-  } else {
-    return 'index.htm'
-  }
-}
-
-function url_to_hash (url) {
-  if (url[0] === '/') {
-    url = url.substr(1)
-  }
-
-  if (url.substr(-4) === '.htm') {
-    return '!wiki=' + url.substr(0, url.length - 4)
-  } else if (url.substr(-5) === '.html') {
-    return '!api=' + url.substr(0, url.length - 5)
-  } else {
-    return '!wiki=index'
+    load_link(path, window.location.hostname)
   }
 }
 
@@ -49,6 +29,10 @@ var content_xhr = null
 var navi_data = null
 var content_data = null
 var RESULTS_BULK = 20
+
+function clean_path () {
+    return window.location.pathname.replace(/(.html|.htm)/, '')
+}
 
 function check_loaded (path) {
   if (navi_data !== null && content_data !== null) {
@@ -67,7 +51,7 @@ function check_loaded (path) {
         this.src = path.split('/')[0] + '/img/' + tmp[tmp.length - 1]
       }
     })
-    $('#content-wrapper').scrollTop(0)
+    $('body').scrollTop(0)
   }
 }
 
@@ -98,18 +82,23 @@ function abort_loading () {
   }
 }
 
-function load_content (href) {
-  if (href.substr(-5) === '.html') {
-    document.title = href.substr(0, href.length - 5).split('/').reverse().join(' ' + decodeURIComponent('%E2%80%93') + ' ')
-  } else if (href.substr(-10) === '/index.htm') {
-    document.title = href.substr(0, href.length - 10)
-  } else {
-    document.title = 'Valadoc – Stays crunchy. Even in milk.'
-  }
+function load_content (href, push) {
+  if (push == null) push = true
 
   abort_loading()
   replace_navigation(href + '.navi.tpl')
   replace_content(href + '.content.tpl')
+
+  var title = href.replace(/(.html|.htm)/, '')
+  if (title.substr(-5) === 'index') title = title.substr(0, title.length - 5)
+  if (title[0] === '/') title = title.substr(1)
+  if (title.substr(-1) === '/') title = title.substr(0, title.length - 1)
+  if (title === '') title = 'Valadoc – Stays crunchy. Even in milk.'
+  window.title = title
+
+  if (push && history.pushState != null) {
+    history.pushState(null, title, href)
+  }
 }
 
 function load_link (pathname, hostname) {
@@ -134,7 +123,7 @@ function open_link (pathname, hostname) {
     return true
   }
 
-  window.location.hash = url_to_hash(pathname)
+  load_content(pathname)
   return false
 }
 
@@ -160,13 +149,21 @@ function scroll_to_selected () {
 }
 
 $(document).ready(function () {
+  $(window).bind('popstate', function (event) {
+    if (window.location.pathname === '' || window.location.pathname === '/') {
+        load_content('index.htm', false)
+    } else {
+        load_content(window.location.pathname, false)
+    }
+  })
+
   $('#content').ajaxError(function (e, xhr, settings) {
     if (xhr.status === 0) {
       return
     }
     abort_loading()
     close_tooltips()
-    var page = window.location.hash.split('=')[1]
+    var page = clean_path()
     $(this).html('Error ' + xhr.status + ': <strong>' + xhr.statusText + '</strong>. When loading <em>' + page + '</em>.<br>' +
       "<a href='/#!wiki=index'>Click here to go to the homepage</a>")
     $(this).scrollTop(0)
@@ -218,10 +215,6 @@ $(document).ready(function () {
       })
       return false
     }
-  })
-
-  $(window).hashchange(function () {
-    load_link(hash_to_url(window.location.hash), window.location.hostname)
   })
 
   var curtext = ''
@@ -289,7 +282,7 @@ $(document).ready(function () {
         curpost.abort()
         curpost = null
       }
-      var curpkg = hash_to_url(window.location.hash).split('/')[0]
+      var curpkg = clean_path()[0]
       curpost = $.post('/search.php', { query: value, curpkg: curpkg }, function (data) {
         if (scrollxhr) {
           scrollxhr.abort()

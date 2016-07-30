@@ -90,7 +90,7 @@ check-examples:
                          examples/libsoup-2.4/libsoup-2.4.valadoc.examples \
                          examples/libxml-2.0/libxml-2.0.valadoc.examples \
                          examples/rest-0.7/rest-0.7.valadoc.examples \
-                         examples/sqlite3/sqlite3.valadoc.examples 
+                         examples/sqlite3/sqlite3.valadoc.examples
 
 
 
@@ -136,7 +136,7 @@ build-docs-mini:
 
 
 test-examples:
-	-./valadoc-example-tester examples/*/*.valadoc.examples  
+	-./valadoc-example-tester examples/*/*.valadoc.examples
 	rm -f -R tmp/
 
 #
@@ -144,6 +144,6 @@ test-examples:
 #
 
 serve: default build-docs
-	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org
+	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org valadoc.org/router.php
 serve-mini: default build-docs-mini
-	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org
+	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org valadoc.org/router.php

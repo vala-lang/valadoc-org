@@ -1,5 +1,5 @@
 
-VALAC_VERSION = 0.30
+VALAC_VERSION = 0.32
 PREFIX = "stable"
 
 gee-version = 0.18.0

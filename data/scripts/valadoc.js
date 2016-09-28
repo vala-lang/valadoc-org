@@ -1,27 +1,15 @@
 /* globals $ */
 
 // The old way. Please gracefully fall into oblivion
-if (window.location.hash.indexOf('!') !== -1) {
-  var hash = window.location.hash
-  var path = window.location.pathname
-
-  if (hash[0] === '#') hash = hash.substr(1)
-  if (hash[0] === '!') hash = hash.substr(1)
-
-  if (hash !== '') {
-    var parts = hash.split('=')
-
-    if (parts[0] === 'wiki') {
-      path = parts[1] + '.htm'
-  } else if (parts[0] === 'api') {
-      path = parts[1] + '.html'
-    } else {
-      path = 'index.htm'
-    }
-
-    load_link(path, window.location.hostname)
+window.addEventListener('load', function() {
+  if (
+    location.hash.substr(2, 3) == 'api' ||
+    location.hash.substr(2, 4) == 'wiki'
+  ) {
+    redirect_to = location.hash.split('=')
+    location = '/' + redirect_to[1]
   }
-}
+})
 
 var last_navi_content = ''
 var navi_xhr = null
@@ -31,7 +19,7 @@ var content_data = null
 var RESULTS_BULK = 20
 
 function clean_path () {
-    return window.location.pathname.replace(/(.html|.htm)/, '')
+  return window.location.pathname.replace(/(.html|.htm)/, '')
 }
 
 function check_loaded (path) {
@@ -151,9 +139,9 @@ function scroll_to_selected () {
 $(document).ready(function () {
   $(window).bind('popstate', function (event) {
     if (window.location.pathname === '' || window.location.pathname === '/') {
-        load_content('index.htm', false)
+      load_content('index.htm', false)
     } else {
-        load_content(window.location.pathname, false)
+      load_content(window.location.pathname, false)
     }
   })
 
@@ -165,7 +153,7 @@ $(document).ready(function () {
     close_tooltips()
     var page = clean_path()
     $(this).html('Error ' + xhr.status + ': <strong>' + xhr.statusText + '</strong>. When loading <em>' + page + '</em>.<br>' +
-      "<a href='/#!wiki=index'>Click here to go to the homepage</a>")
+    "<a href='/#!wiki=index'>Click here to go to the homepage</a>")
     $(this).scrollTop(0)
   })
 

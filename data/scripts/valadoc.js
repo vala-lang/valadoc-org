@@ -77,12 +77,21 @@ function load_content (href, push) {
   replace_navigation(href + '.navi.tpl')
   replace_content(href + '.content.tpl')
 
+  // Standardize the href to a simple `glib-2.0/Glib.Envionment.get_home_dir` like string
   var title = href.replace(/(.html|.htm)/, '')
-  if (title.substr(-5) === 'index') title = title.substr(0, title.length - 5)
   if (title[0] === '/') title = title.substr(1)
   if (title.substr(-1) === '/') title = title.substr(0, title.length - 1)
-  if (title === '') title = 'Valadoc – Stays crunchy. Even in milk.'
-  window.title = title
+
+  if (title.substr(-5) === 'index') { // An API index page
+    title = title.substr(0, title.length - 6)
+  } else if (title.split('/').length > 1) { // An API page
+    title = title.split('/').reverse().join(' – ')
+  }
+
+  if (title == null || title === '') { // Any other page
+    title = 'Valadoc.org – Stays crunchy. Even in milk.'
+  }
+  document.title = title
 
   if (push && history.pushState != null) {
     history.pushState(null, title, href)
@@ -112,7 +121,7 @@ function open_link (pathname, hostname) {
   }
 
   // TODO: don't hardcode paths to ignore. It's unmaintable like the rest of this code
-  var path = pathname.split('/')[1].replace('.html', '').replace('.htm', '').toLowerCase()
+  var path = pathname.split('/')[1].replace(/(.html|.htm)/, '').toLowerCase()
   if (path === 'markup' || path === 'about') {
     return true
   }

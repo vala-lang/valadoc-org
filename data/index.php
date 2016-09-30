@@ -22,7 +22,7 @@ function get_title ($page) {
     }
 
   } else {
-    return  "Valadoc.org - Stays crunchy. Even in milk.";
+    return  "Valadoc.org &ndash; Stays crunchy. Even in milk.";
   }
 }
 

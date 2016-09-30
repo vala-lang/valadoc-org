@@ -111,6 +111,12 @@ function open_link (pathname, hostname) {
     return true
   }
 
+  // TODO: don't hardcode paths to ignore. It's unmaintable like the rest of this code
+  var path = pathname.split('/')[1].replace('.html', '').replace('.htm', '').toLowerCase()
+  if (path === 'markup' || path === 'about') {
+    return true
+  }
+
   load_content(pathname)
   return false
 }

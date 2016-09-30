@@ -144,6 +144,6 @@ test-examples:
 #
 
 serve: default build-docs
-	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org valadoc.org/router.php
+	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php
 serve-mini: default build-docs-mini
-	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org valadoc.org/router.php
+	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php

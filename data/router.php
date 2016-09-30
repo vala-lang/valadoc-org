@@ -9,7 +9,7 @@ $requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 if ($requestUri === '' || $requestUri === '/') {
     include __DIR__."/index.php";
-} else if (file_exists(__DIR__."/$requestUri")) {
+} else if (file_exists(__DIR__."/".$requestUri)) {
     return false;
 } else {
     include __DIR__."/index.php";

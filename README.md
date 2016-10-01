@@ -1,5 +1,6 @@
-Valadoc-org
-===========
+# Valadoc.org
+
+[![Bountysource](https://www.bountysource.com/badge/tracker?tracker_id=45574303)](https://www.bountysource.com/trackers/45574303-valadoc-org)
 
 Stays crunchy, even in milk.
 

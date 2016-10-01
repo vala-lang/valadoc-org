@@ -9,7 +9,7 @@
 	<p>The search is inspired by <a href="http://www.jqapi.com" target="_blank">jQAPI</a>.</p>
 
 	<h2>Source:</h2>
-	<p><a href="https://github.com/flobrosch/valadoc-org" target="_blank">https://github.com/flobrosch/valadoc-org</a></p>
+	<p><a href="https://github.com/Valadoc/valadoc-org" target="_blank">https://github.com/Valadoc/valadoc-org</a></p>
 
 	<h2>Contact:</h2>
 	<p>valadoc.org is maintained by Florian Brosch.</p>

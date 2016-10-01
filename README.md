@@ -159,8 +159,8 @@ Other errors:
 Contact And Help
 =================
 
-- [Homepage](http://www.valadoc.org), [GIT](https://github.com/flobrosch/valadoc-org)
-- [Issue Tracker, valadoc.org](https://github.com/flobrosch/valadoc-org/issues)
+- [Homepage](http://www.valadoc.org), [GIT](https://github.com/Valadoc/valadoc-org)
+- [Issue Tracker, valadoc.org](https://github.com/Valadcoc/valadoc-org/issues)
 - [Issue Tracker, valadoc](https://bugzilla.gnome.org/page.cgi?id=browse.html&product=valadoc)
 - IRC: irc.gnome.org, #vala (flo, UTC+01:00)
 - Mail: flo.brosch@gmail.com

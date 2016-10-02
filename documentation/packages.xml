@@ -630,6 +630,10 @@
 			<package name="ggit-1.0" gir="Ggit-1.0">
 				-
 			</package>
+			<package name="appstream" gir="AppStream-1.0" home="https://www.freedesktop.org/wiki/Distributions/AppStream/" c-docs="https://www.freedesktop.org/software/appstream/docs/api/html/">
+				AppStream is a cross-distro effort for enhancing the way we interact with the software
+				repositories provided by the distribution by standardizing sets of additional metadata.
+			</package>
 		</section>
 	</section>
 

@@ -1,6 +1,7 @@
 # Valadoc.org
 
 [![Bountysource](https://www.bountysource.com/badge/tracker?tracker_id=45574303)](https://www.bountysource.com/trackers/45574303-valadoc-org)
+[![Build Status](https://travis-ci.org/Valadoc/valadoc-org.svg?branch=master)](https://travis-ci.org/Valadoc/valadoc-org)
 
 Stays crunchy, even in milk.
 

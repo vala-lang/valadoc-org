@@ -106,7 +106,7 @@ nav .subtitle {
     font-size: 14px;
     padding: 6px;
     transition: all 200ms ease-in-out;
-    width: calc(240px - 12px);
+    width: calc(240px - 24px);
 }
 
 #search-field:focus {

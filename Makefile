@@ -132,7 +132,7 @@ build-docs-mini:
         --skip-existing \
         --no-check-certificate \
         --disable-devhelp \
-        "glib-2.0" "gio-2.0"
+        "glib-2.0" "gio-2.0" "gobject-2.0"
 
 
 test-examples:

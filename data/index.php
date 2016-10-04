@@ -46,7 +46,8 @@ if ($first == null || $first === "index") { // Homepage
 }
 
 ?>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta itemprop="image" content="http://valadoc.org/images/preview.png">

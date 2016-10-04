@@ -614,9 +614,8 @@ code {
 }
 
 .box .content {
-    border-color: #aaaaff;
-    border-width: 0 1 1 1;
-    border-style: solid;
+    border: 1px solid #aaaaff;
+    border-top: none;
     overflow: auto;
     display: none;
     margin: auto;

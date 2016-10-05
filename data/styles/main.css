@@ -106,7 +106,7 @@ nav .subtitle {
     font-size: 14px;
     padding: 6px;
     transition: all 200ms ease-in-out;
-    width: calc(240px - 12px);
+    width: 214px;
 }
 
 #search-field:focus {
@@ -610,7 +610,7 @@ code {
     margin: auto;
     width: 90%;
     margin-top: 20px;
-    font-weight: bold;  
+    font-weight: bold;
 }
 
 .box .content {

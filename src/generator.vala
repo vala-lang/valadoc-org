@@ -530,46 +530,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			GLib.FileStream file = GLib.FileStream.open (path, "w");
 			writer = new Html.MarkupWriter (file);
 
-			// Intro:
-			writer.start_tag ("h1").text ("Guides & References").end_tag ("h1");
-
-			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala", "target", "_blank"}).text ("About Vala").end_tag ("a");
-			writer.end_tag ("p");
-
-			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/Tutorial", "target", "_blank"}).text ("The Vala Tutorial by GNOME").end_tag ("a");
-			writer.end_tag ("p");
-
-			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://chebizarro.gitbooks.io/the-vala-tutorial/content/", "target", "_blank"}).text ("The Vala Tutorial by Valadate").end_tag ("a");
-			writer.end_tag ("p");
-
-			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/ValaForCSharpProgrammers", "target", "_blank"}).text ("Vala for C# Programmers by GNOME").end_tag ("a");
-			writer.end_tag ("p");
-
-			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/ValaForJavaProgrammers", "target", "_blank"}).text ("Vala for Java Programmers by GNOME").end_tag ("a");
-			writer.end_tag ("p");
-
-			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "video", "href", "https://vimeo.com/9617309", "target", "_blank"}).text ("Gtk+ Kick-Start Tutorial for Vala by Alberto Ruiz").end_tag ("a");
-			writer.end_tag ("p");
-
-			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "video", "href", "https://www.youtube.com/watch?v=Eqa38B0GV6U", "target", "_blank"}).text ("Vala Language Introduction by Andre Masella").end_tag ("a");
-			writer.end_tag ("p");
-
-			writer.simple_tag ("hr/");
-			writer.start_tag ("h1").text ("Packages").end_tag ("h1");
-
-			writer.start_tag ("h2").text ("Submitting API-Bugs and Patches").end_tag ("h2");
-			writer.start_tag ("p").text ("For all bindings where the status is not marked as external, and unless otherwise noted, bugs and patches should be submitted to the bindings component in the Vala product in the GNOME Bugzilla.").end_tag ("p");
-
-			writer.start_tag ("h2").text ("Bindings without maintainer(s) listed").end_tag ("h2");
-			writer.start_tag ("p").text ("The general bindings maintainer is Evan Nemerson (IRC nickname: nemequ). If you would like to adopt some bindings, please contact him.").end_tag ("p");
-
 			foreach (Node node in sections) {
 				node.render (this);
 			}

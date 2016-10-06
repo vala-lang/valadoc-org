@@ -86,7 +86,7 @@ if ($first == null || $first === "index") { // Homepage
   </div>
   <div id="content-wrapper">
     <div id="content">
-      <h1>Guides & Reference</h1>
+      <h1>Guides &amp; Reference</h1>
       <p><a class="document" href="https://wiki.gnome.org/Projects/Vala" target="_blank">About Vala</a></p>
       <p><a class="document" href="https://wiki.gnome.org/Projects/Vala/Tutorial" target="_blank">The Vala Tutorial by GNOME</a></p>
       <p><a class="document" href="https://chebizarro.gitbooks.io/the-vala-tutorial/content/" target="_blank">The Vala Tutorial by Valadate</a></p>

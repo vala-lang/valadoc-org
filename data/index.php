@@ -73,9 +73,7 @@ if ($first == null || $first === "index") { // Homepage
     <span class="subtitle">Stays crunchy, even in milk.</span>
     <div id="links">
       <ul>
-        <li><a href="https://wiki.gnome.org/Projects/Vala/Tutorial" target="_blank">Tutorial</a></li>
         <li><a href="/markup.htm">Markup</a></li>
-        <li><a href="https://wiki.gnome.org/Projects/Vala" target="_blank">About Vala</a></li>
         <li><a href="/about.htm">About Valadoc</a></li>
       </ul>
     </div>

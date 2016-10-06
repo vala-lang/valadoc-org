@@ -310,7 +310,9 @@ nav .subtitle {
     padding-right: 6px;
 }
 
-.highlight .package:before {
+.highlight .package:before,
+.document:before,
+.video:before {
     content: '';
     display: inline-block;
     height: 16px;
@@ -683,6 +685,10 @@ a.abstract_class,
     background-image: url(/images/delegate.svg);
 }
 
+.document:before {
+    background-image: url(/images/document.svg);
+}
+
 .enum:before,
 .main_list_en:before,
 .description a.enum,
@@ -769,6 +775,10 @@ a.abstract_class,
 .description a.struct,
 .brief_description a.struct {
     background-image: url(/images/struct.svg);
+}
+
+.video:before {
+    background-image: url(/images/video.svg);
 }
 
 .virtual_method:before,

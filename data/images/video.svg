@@ -5,104 +5,56 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="16"
-   id="svg7384"
-   version="1.1"
    width="16.036167"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="video.svg">
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1624"
-     inkscape:window-height="1233"
-     id="namedview9"
-     showgrid="false"
-     inkscape:zoom="14.75"
-     inkscape:cx="-2.9988656"
-     inkscape:cy="8"
-     inkscape:window-x="0"
-     inkscape:window-y="60"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="svg7384" />
-  <metadata
-     id="metadata90">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>elementary Symbolic Icon Theme</dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <title
-     id="title9167">elementary Symbolic Icon Theme</title>
+   version="1.1"
+   id="svg7384"
+   height="16">
   <defs
-     id="defs7386">
-    <filter
-       id="filter7554"
-       color-interpolation-filters="sRGB">
-      <feBlend
-         mode="darken"
-         in2="BackgroundImage"
-         id="feBlend7556" />
-    </filter>
-  </defs>
+     id="defs7386" />
   <g
-     id="g3357"
+     style="fill:#c6262e;fill-opacity:1"
      transform="translate(0.01806357,-0.5)"
-     style="fill:#c6262e;fill-opacity:1">
+     id="g3357">
     <g
-       transform="translate(-793.00018,584)"
+       id="layer9"
        style="display:inline;fill:#c6262e;fill-opacity:1"
-       id="layer9" />
+       transform="translate(-793.00018,584)" />
     <g
-       transform="translate(-793.00018,584)"
+       id="layer10"
        style="display:inline;fill:#c6262e;fill-opacity:1"
-       id="layer10" />
+       transform="translate(-793.00018,584)" />
     <g
-       transform="translate(-793.00018,584)"
+       style="fill:#c6262e;fill-opacity:1"
        id="layer11"
-       style="fill:#c6262e;fill-opacity:1" />
+       transform="translate(-793.00018,584)" />
     <g
-       transform="translate(-793.00018,584)"
+       id="layer13"
        style="display:inline;fill:#c6262e;fill-opacity:1"
-       id="layer13">
+       transform="translate(-793.00018,584)">
       <path
-         style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:#c6262e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
-         id="rect3032"
          d="m 794.7502,-583 c -0.4155,0 -0.75,0.3345 -0.75,0.75 l 0,13.5 c 0,0.4155 0.3345,0.75 0.75,0.75 l 12.5,0 c 0.4155,0 0.75,-0.3345 0.75,-0.75 l 0,-13.5 c 0,-0.4155 -0.3345,-0.75 -0.75,-0.75 l -12.5,0 z m 0.25,1 1,0 0,1 -1,0 0,-1 z m 2.5,0 7,0 c 0.277,0 0.5,0.223 0.5,0.5 l 0,5 c 0,0.277 -0.223,0.5 -0.5,0.5 l -7,0 c -0.277,0 -0.5,-0.223 -0.5,-0.5 l 0,-5 c 0,-0.277 0.223,-0.5 0.5,-0.5 z m 8.5,0 1,0 0,1 -1,0 0,-1 z m -11,2 1,0 0,1 -1,0 0,-1 z m 11,0 1,0 0,1 -1,0 0,-1 z m -11,2 1,0 0,1 -1,0 0,-1 z m 11,0 1,0 0,1 -1,0 0,-1 z m -11,2 1,0 0,1 -1,0 0,-1 z m 11,0 1,0 0,1 -1,0 0,-1 z m -8.5,1 7,0 c 0.277,0 0.5,0.223 0.5,0.5 l 0,5 c 0,0.277 -0.223,0.5 -0.5,0.5 l -7,0 c -0.277,0 -0.5,-0.223 -0.5,-0.5 l 0,-5 c 0,-0.277 0.223,-0.5 0.5,-0.5 z m -2.5,1 1,0 0,1 -1,0 0,-1 z m 11,0 1,0 0,1 -1,0 0,-1 z m -11,2 1,0 0,1 -1,0 0,-1 z m 11,0 1,0 0,1 -1,0 0,-1 z m -11,2 1,0 0,1 -1,0 0,-1 z m 11,0 1,0 0,1 -1,0 0,-1 z"
-         inkscape:connector-curvature="0" />
+         id="rect3032"
+         style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:#c6262e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:accumulate" />
     </g>
     <g
-       transform="translate(-793.00018,584)"
+       style="fill:#c6262e;fill-opacity:1"
        id="layer14"
-       style="fill:#c6262e;fill-opacity:1" />
+       transform="translate(-793.00018,584)" />
     <g
-       transform="translate(-793.00018,584)"
+       id="layer15"
        style="display:inline;fill:#c6262e;fill-opacity:1"
-       id="layer15" />
+       transform="translate(-793.00018,584)" />
     <g
-       transform="translate(-793.00018,584)"
+       id="g71291"
        style="display:inline;fill:#c6262e;fill-opacity:1"
-       id="g71291" />
+       transform="translate(-793.00018,584)" />
     <g
-       transform="translate(-793.00018,584)"
+       id="g4953"
        style="display:inline;fill:#c6262e;fill-opacity:1"
-       id="g4953" />
+       transform="translate(-793.00018,584)" />
     <g
-       transform="translate(-793.00018,584)"
+       id="layer12"
        style="display:inline;fill:#c6262e;fill-opacity:1"
-       id="layer12" />
+       transform="translate(-793.00018,584)" />
   </g>
 </svg>

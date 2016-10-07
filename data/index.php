@@ -74,6 +74,10 @@ if ($first == null || $first === "index") { // Homepage
     <div id="links">
       <ul>
         <li><a href="/markup.htm">Markup</a></li>
+<<<<<<< HEAD
+=======
+        <li><a href="https://wiki.gnome.org/Projects/Vala" target="_blank">About Vala</a></li>
+>>>>>>> 4c538c71cb3b799c62b7eceb936ba05954373f4b
       </ul>
     </div>
   </nav>

@@ -273,13 +273,17 @@ nav .subtitle {
  ***********/
 
 #content-wrapper {
+    display: flex;
+    flex-direction: column;
     margin-left: 240px;
+    min-height: calc(100vh - 48px);
     text-align: left;
     vertical-align: top;
     width: calc(100% - 240px);
 }
 
 #content {
+    flex: 1;
     margin: 12px;
 }
 
@@ -439,9 +443,10 @@ nav .subtitle {
     text-align: left;
 }
 
-.site_footer {
-    height: 15px;
-    clear: left;
+footer {
+    background-color: #fafafa;
+    color: #666;
+    padding: 16px;
 }
 
 .main_source {

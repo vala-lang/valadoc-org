@@ -86,20 +86,6 @@ if ($first == null || $first === "index") { // Homepage
   </div>
   <div id="content-wrapper">
     <div id="content">
-      <h1>Guides &amp; Reference</h1>
-      <p><a class="document" href="https://wiki.gnome.org/Projects/Vala" target="_blank">About Vala</a></p>
-      <p><a class="document" href="https://wiki.gnome.org/Projects/Vala/Tutorial" target="_blank">The Vala Tutorial by GNOME</a></p>
-      <p><a class="document" href="https://chebizarro.gitbooks.io/the-vala-tutorial/content/" target="_blank">The Vala Tutorial by Valadate</a></p>
-      <p><a class="document" href="https://wiki.gnome.org/Projects/Vala/ValaForCSharpProgrammers" target="_blank">Vala for C# Programmers by GNOME</a></p>
-      <p><a class="document" href="https://wiki.gnome.org/Projects/Vala/ValaForJavaProgrammers" target="_blank">Vala for Java Programmers by GNOME</a></p>
-      <p><a class="video" href="https://vimeo.com/9617309" target="_blank">Gtk+ Kick-Start Tutorial for Vala by Alberto Ruiz</a></p>
-      <p><a class="video" href="https://www.youtube.com/watch?v=Eqa38B0GV6U" target="_blank">Vala Language Introduction by Andre Masella</a></p>
-      <hr/>
-      <h1>Packages</h1>
-      <h2>Submitting API-Bugs and Patches</h2>
-      <p>For all bindings where the status is not marked as external, and unless otherwise noted, bugs and patches should be submitted to the bindings component in the Vala product in the GNOME Bugzilla.</p>
-      <h2>Bindings without maintainer(s) listed</h2>
-      <p>The general bindings maintainer is Evan Nemerson (IRC nickname: nemequ). If you would like to adopt some bindings, please contact him.</p>
       <?php @readfile (__DIR__ . "/" . $page . ".content.tpl"); ?>
     </div>
     <div id="comments" />

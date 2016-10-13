@@ -889,7 +889,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				}
 			} catch (SpawnError e) {
 				stdout.printf ("ERROR: Can't generate documentation for %s. See LOG for details.\n", pkg.name);
-				throw e;
 			}
 
 			builder.append_printf (" --importdir examples --import %s-examples", pkg.name);
@@ -941,7 +940,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		} catch (SpawnError e) {
 			stdout.printf ("ERROR: Can't generate documentation for %s. See LOG for details.\n", pkg.name);
 			stdout.printf ("%s\n", e.message);
-			throw e;
 		} finally {
 			if (delete_wiki_path) {
 				FileUtils.unlink (wiki_path);
@@ -1184,7 +1182,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				MatchInfo info;
 				regex_launchpad_link.match (content, 0, out info);
 				NetworkAddress address = NetworkAddress.parse_uri (base_url, 80) as NetworkAddress; // cast is required by vala <= 0.28
-				assert (address != null); 
+				assert (address != null);
 				return address.get_scheme () + "://" + Path.build_path ("/", address.get_hostname (), info.fetch (1));
 			} catch (Error e) {
 				error (e.message);

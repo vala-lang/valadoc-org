@@ -106,7 +106,7 @@ nav .subtitle {
     font-size: 14px;
     padding: 6px;
     transition: all 200ms ease-in-out;
-    width: calc(240px - 12px);
+    width: 214px;
 }
 
 #search-field:focus {
@@ -273,13 +273,17 @@ nav .subtitle {
  ***********/
 
 #content-wrapper {
+    display: flex;
+    flex-direction: column;
     margin-left: 240px;
+    min-height: calc(100vh - 48px);
     text-align: left;
     vertical-align: top;
     width: calc(100% - 240px);
 }
 
 #content {
+    flex: 1;
     margin: 12px;
 }
 
@@ -310,7 +314,9 @@ nav .subtitle {
     padding-right: 6px;
 }
 
-.highlight .package:before {
+.highlight .package:before,
+.document:before,
+.video:before {
     content: '';
     display: inline-block;
     height: 16px;
@@ -437,9 +443,10 @@ nav .subtitle {
     text-align: left;
 }
 
-.site_footer {
-    height: 15px;
-    clear: left;
+footer {
+    background-color: #fafafa;
+    color: #666;
+    padding: 16px;
 }
 
 .main_source {
@@ -610,13 +617,12 @@ code {
     margin: auto;
     width: 90%;
     margin-top: 20px;
-    font-weight: bold;  
+    font-weight: bold;
 }
 
 .box .content {
-    border-color: #aaaaff;
-    border-width: 0 1 1 1;
-    border-style: solid;
+    border: 1px solid #aaaaff;
+    border-top: none;
     overflow: auto;
     display: none;
     margin: auto;
@@ -682,6 +688,10 @@ a.abstract_class,
 .description a.delegate,
 .brief_description a.delegate {
     background-image: url(/images/delegate.svg);
+}
+
+.document:before {
+    background-image: url(/images/document.svg);
 }
 
 .enum:before,
@@ -770,6 +780,10 @@ a.abstract_class,
 .description a.struct,
 .brief_description a.struct {
     background-image: url(/images/struct.svg);
+}
+
+.video:before {
+    background-image: url(/images/video.svg);
 }
 
 .virtual_method:before,

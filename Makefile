@@ -1,5 +1,4 @@
-
-VALAC_VERSION = 0.32
+VALAC_VERSION := $(shell vala --version | awk -F. '{ print "0."$$2 }')
 PREFIX = "stable"
 
 gee-version = 0.18.0
@@ -90,7 +89,7 @@ check-examples:
                          examples/libsoup-2.4/libsoup-2.4.valadoc.examples \
                          examples/libxml-2.0/libxml-2.0.valadoc.examples \
                          examples/rest-0.7/rest-0.7.valadoc.examples \
-                         examples/sqlite3/sqlite3.valadoc.examples 
+                         examples/sqlite3/sqlite3.valadoc.examples
 
 
 
@@ -132,11 +131,11 @@ build-docs-mini:
         --skip-existing \
         --no-check-certificate \
         --disable-devhelp \
-        "glib-2.0" "gio-2.0"
+        "glib-2.0" "gio-2.0" "gobject-2.0"
 
 
 test-examples:
-	-./valadoc-example-tester examples/*/*.valadoc.examples  
+	-./valadoc-example-tester examples/*/*.valadoc.examples
 	rm -f -R tmp/
 
 #
@@ -144,6 +143,6 @@ test-examples:
 #
 
 serve: default build-docs
-	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org
+	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php
 serve-mini: default build-docs-mini
-	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org
+	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php

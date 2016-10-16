@@ -525,14 +525,43 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		private Html.MarkupWriter writer;
 		private int header_level = HEADER_LEVEL_START;
 
-
 		public override void render (string path, Collection<Node> sections) {
 			GLib.FileStream file = GLib.FileStream.open (path, "w");
 			writer = new Html.MarkupWriter (file);
 
 			// Intro:
+			writer.start_tag ("h1").text ("Guides & References").end_tag ("h1");
+
+			writer.start_tag ("p");
+			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala", "target", "_blank"}).text ("About Vala").end_tag ("a");
+			writer.end_tag ("p");
+
+			writer.start_tag ("p");
+			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/Tutorial", "target", "_blank"}).text ("The Vala Tutorial by GNOME").end_tag ("a");
+			writer.end_tag ("p");
+
+			writer.start_tag ("p");
+			writer.start_tag ("a", {"class", "document", "href", "https://chebizarro.gitbooks.io/the-vala-tutorial/content/", "target", "_blank"}).text ("The Vala Tutorial by Valadate").end_tag ("a");
+			writer.end_tag ("p");
+
+			writer.start_tag ("p");
+			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/ValaForCSharpProgrammers", "target", "_blank"}).text ("Vala for C# Programmers by GNOME").end_tag ("a");
+			writer.end_tag ("p");
+
+			writer.start_tag ("p");
+			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/ValaForJavaProgrammers", "target", "_blank"}).text ("Vala for Java Programmers by GNOME").end_tag ("a");
+			writer.end_tag ("p");
+
+			writer.start_tag ("p");
+			writer.start_tag ("a", {"class", "video", "href", "https://vimeo.com/9617309", "target", "_blank"}).text ("Gtk+ Kick-Start Tutorial for Vala by Alberto Ruiz").end_tag ("a");
+			writer.end_tag ("p");
+
+			writer.start_tag ("p");
+			writer.start_tag ("a", {"class", "video", "href", "https://www.youtube.com/watch?v=Eqa38B0GV6U", "target", "_blank"}).text ("Vala Language Introduction by Andre Masella").end_tag ("a");
+			writer.end_tag ("p");
+
+			writer.simple_tag ("hr/");
 			writer.start_tag ("h1").text ("Packages").end_tag ("h1");
-			writer.simple_tag ("hr");
 
 			writer.start_tag ("h2").text ("Submitting API-Bugs and Patches").end_tag ("h2");
 			writer.start_tag ("p").text ("For all bindings where the status is not marked as external, and unless otherwise noted, bugs and patches should be submitted to the bindings component in the Vala product in the GNOME Bugzilla.").end_tag ("p");
@@ -860,7 +889,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				}
 			} catch (SpawnError e) {
 				stdout.printf ("ERROR: Can't generate documentation for %s. See LOG for details.\n", pkg.name);
-				throw e;
 			}
 
 			builder.append_printf (" --importdir examples --import %s-examples", pkg.name);
@@ -912,7 +940,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		} catch (SpawnError e) {
 			stdout.printf ("ERROR: Can't generate documentation for %s. See LOG for details.\n", pkg.name);
 			stdout.printf ("%s\n", e.message);
-			throw e;
 		} finally {
 			if (delete_wiki_path) {
 				FileUtils.unlink (wiki_path);
@@ -1155,7 +1182,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				MatchInfo info;
 				regex_launchpad_link.match (content, 0, out info);
 				NetworkAddress address = NetworkAddress.parse_uri (base_url, 80) as NetworkAddress; // cast is required by vala <= 0.28
-				assert (address != null); 
+				assert (address != null);
 				return address.get_scheme () + "://" + Path.build_path ("/", address.get_hostname (), info.fetch (1));
 			} catch (Error e) {
 				error (e.message);

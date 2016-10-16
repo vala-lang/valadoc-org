@@ -1,15 +1,1 @@
-RewriteEngine ON
-
-rewritecond %{REQUEST_URI} [A-Za-z0-9-_\.]*\.htm$
-RewriteRule ^([A-Za-z0-9-_\.+]*)\.htm$ index.php?page=$1.htm
-
-
-rewritecond %{REQUEST_URI} [A-Za-z0-9-_\.+]*/[A-Za-z0-9-_\.]*\.html$
-RewriteRule ^([A-Za-z0-9-_\.+]*)/([A-Za-z0-9-_\.+]*)\.html$ index.php?page=$1/$2.html
-
-
-rewritecond %{REQUEST_URI} [A-Za-z0-9-_\.+]*/[A-Za-z0-9-_\.]*\.htm$
-RewriteRule ^([A-Za-z0-9-_\.+]*)/([A-Za-z0-9-_\.]*)\.htm$ index.php?page=$1/$2.htm
-
-
 AddType application/x-catalog .catalog

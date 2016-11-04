@@ -7,7 +7,7 @@
     <sphinx:attr name="namelen" type="int"/>
     <sphinx:attr name="shortnamelen" type="int"/>
     <sphinx:attr name="shortdesc" type="string"/>
-    <sphinx:attr name="type" type="str2ordinal"/>
+    <sphinx:attr name="type" type="string"/>
     <sphinx:attr name="path" type="string"/>
     <sphinx:attr name="signature" type="string"/>
   </sphinx:schema>

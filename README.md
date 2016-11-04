@@ -47,6 +47,27 @@ you completed building, you should see a `valadoc.org` folder.
 To access the documentation navigate your browser to http://localhost:7777.
 
 
+Searching
+=========
+
+For a more complete experience, you will need to install `sphinxsearch` and `xsltproc`.
+
+On elementary OS or Ubuntu run:
+```bash
+sudo apt install sphinxsearch xsltproc
+```
+
+The run the following commands to generate search indexes:
+```bash
+make configgen
+./configgen ./valadoc.org/
+indexer --config ./sphinx.conf --all
+searchd --config sphinx.conf
+```
+
+This will start a sphinx daemon on port `51413`.
+
+
 Add New Packages
 ================
 

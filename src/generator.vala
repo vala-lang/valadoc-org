@@ -755,10 +755,11 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
     php.printf ("\t$mysqli = new mysqli('p:127.0.0.1', '', '', '', 51413);\n");
     php.printf ("\t$res = mysqli_query($mysqli, \"SHOW TABLES\");\n");
-    php.printf ("\t$pkgs= array();\n");
+    php.printf ("\t$pkgs = array();\n");
     php.printf ("\twhile ($row = $res->fetch_assoc()) {\n");
     php.printf ("\t\t$pkgs[] = $row['Index'];\n");
     php.printf ("\t}\n");
+    php.printf ("\t$res->close ();\n");
     php.printf ("\t$allpkgs = implode(', ', $pkgs);\n\n");
 
     php.printf ("?>\n");

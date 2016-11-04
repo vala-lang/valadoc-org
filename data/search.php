@@ -28,10 +28,6 @@ if (isset ($_POST["offset"])) {
   $offset = intval ($_POST["offset"]);
 }
 
-$mysqli = new mysqli("p:127.0.0.1", "", "", "", 51413);
-if ($mysqli->connect_errno)
-  die("Failed to connect to MySQL: " . $mysqli->connect_error);
-
 $trimmedquery = trim($query);
 $query = trim($trimmedquery, ".");
 $tokens = preg_split ("/([\s.])/", $query, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
@@ -77,7 +73,7 @@ $qq = "SELECT type, name, shortdesc, path, signature, typeorder,
        FROM {$allpkgs}
        WHERE MATCH('{$query}')
        ORDER BY WEIGHT() DESC, {$orderby} ASC, typeorder ASC
-       LIMIT {$offset},20 OPTION ranker=proximity";
+       LIMIT {$offset},20 OPTION ranker=proximity{$indexweights}";
 
 if (!($q = $mysqli->query($qq)))
   die("Query failed: (" . $mysqli->errno . ") " . $mysqli->error);
@@ -92,8 +88,8 @@ while ($row = $q->fetch_assoc()) {
   }
   echo '</a></li>';
 }
-$q->close ();
 
+$q->close ();
 $mysqli->close ();
 
 ?>

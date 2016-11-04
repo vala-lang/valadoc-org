@@ -61,6 +61,7 @@ The run the following commands to generate search indexes:
 ```bash
 make configgen
 ./configgen ./valadoc.org/
+mkdir ./sphinx/storage
 indexer --config ./sphinx.conf --all
 searchd --config sphinx.conf
 ```

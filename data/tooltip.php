@@ -43,10 +43,6 @@ $name = $splitted[1];
 $namelen = strlen($name);
 $index = str_replace('.', '', str_replace ('-', '', str_replace ('+', '', $prefix.$pkg)));
 
-$mysqli = new mysqli("p:127.0.0.1", "", "", "", 51413);
-if ($mysqli->connect_errno)
-  die("Failed to connect to MySQL: " . $mysqli->connect_error);
-
 $name = str_replace (".", " << . << ", $name);
 $name = $mysqli->real_escape_string ($name);
 if (!($q = $mysqli->query("SELECT type, name, shortdesc, path, signature, namelen FROM {$index} WHERE MATCH('{$name}') AND namelen={$namelen} LIMIT 1 OPTION max_matches=1,ranker=none")))

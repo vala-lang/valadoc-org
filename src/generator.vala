@@ -748,21 +748,20 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		var php = FileStream.open (constants_path, "w");
 		bool first = true;
 
-		php.printf ("<?php\n");
-		php.printf ("\t$prefix = \"%s\";\n", prefix);
-		php.printf ("\t$allpkgs = \"");
-		foreach (Package pkg in packages_per_name.values) {
-			if (pkg.is_local) {
-				if (first == false) {
-					php.printf (",");
-				}
+    php.printf ("<?php\n");
+    php.printf ("\t// Vala generated file. I'm sorry. Look at generator.vala line 752-ish\n\n");
+    php.printf ("\t$prefix = \"%s\";\n", prefix);
+    php.printf ("\n");
 
-				php.printf ("%s%s", prefix, get_index_name (pkg.name));
-				first = false;
-			}
-		}
-		php.printf ("\";\n");
-		php.printf ("?>\n");
+    php.printf ("\t$mysqli = new mysqli('p:127.0.0.1', '', '', '', 51413);\n");
+    php.printf ("\t$res = mysqli_query($mysqli, \"SHOW TABLES\");\n");
+    php.printf ("\t$pkgs= array();\n");
+    php.printf ("\twhile ($row = $res->fetch_assoc()) {\n");
+    php.printf ("\t\t$pkgs[] = $row['Index'];\n");
+    php.printf ("\t}\n");
+    php.printf ("\t$allpkgs = implode(', ', $pkgs);\n\n");
+
+    php.printf ("?>\n");
 	}
 
 	public void regenerate_packages (string[] packages) throws Error {

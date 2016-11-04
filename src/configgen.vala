@@ -39,7 +39,8 @@ namespace Generator {
 
 		config.printf ("index %s%s : base {\n", prefix, name);
 		config.printf ("\tsource = %s%s\n", prefix, name);
-		config.printf ("\tpath = ./sphinx-%s-%s\n", prefix, name);
+		config.printf ("\tpath = ./sphinx/storage/sphinx-%s-%s\n", prefix, name);
+
 		config.printf ("}\n");
 		config.printf ("\n\n");
 
@@ -132,12 +133,17 @@ namespace Generator {
 			}
 		}
 
+    config.printf ("searchd {\n");
+    config.printf ("\tlisten = 51413:mysql41\n");
+    config.printf ("\tpid_file = ./sphinx/storage/searchd.pid\n");
+    config.printf ("}\n");
+    config.printf ("\n\n");
+
 		config.printf ("index base {\n");
-		config.printf ("\tcharset_type = utf-8\n");
-		config.printf ("\tenable_star = 1\n");
 		config.printf ("\tmin_infix_len = 1\n");
 		config.printf ("\thtml_strip = 1\n");
 		config.printf ("\tcharset_table = 0..9, A..Z->a..z, ., _, a..z\n");
+    config.printf ("\tpath = ./sphinx/storage/sphinx-base\n");
 		config.printf ("}\n");
 		config.printf ("\n\n");
 
@@ -147,7 +153,7 @@ namespace Generator {
 		config.printf ("}\n");
 		config.printf ("index main : base {\n");
 		config.printf ("\tsource = main\n");
-		config.printf ("\tpath = ./sphinx-main\n");
+    config.printf ("\tpath = ./sphinx/storage/sphinx-main\n");
 		config.printf ("}\n");
 		config.printf ("\n\n");
 

@@ -285,7 +285,7 @@ $(document).ready(function () {
         curpost.abort()
         curpost = null
       }
-      var curpkg = clean_path()[0]
+      var curpkg = clean_path().split('/')[1]
       curpost = $.post('/search.php', { query: value, curpkg: curpkg }, function (data) {
         if (scrollxhr) {
           scrollxhr.abort()
@@ -349,8 +349,8 @@ $(document).ready(function () {
         return
       }
       var numresults = sr.children().length
-      var curpkg = hash_to_url(window.location.hash).split('/')[0]
-      scrollxhr = $.post('/search.php', { query: value, curpkg: curpkg, offset: numresults }, function (data) {
+      var curpkg = clean_path().split('/')[1]
+        scrollxhr = $.post('/search.php', { query: value, curpkg: curpkg, offset: numresults }, function (data) {
         scrollxhr = null
         $('.search-more').remove()
         sr.append(data)

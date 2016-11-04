@@ -13,8 +13,13 @@ if (!empty($FWD_TOOLTIP)) {
   return;
 }
 
-//$allpkgs = "glib20, gio20";
 include 'constants.php';
+
+function escapestring($str) {
+  $from = array ( '\\', '(',')','|','-','!','@','~','"','&', '/', '^', '$', '=' );
+  $to   = array ( '\\\\', '\(','\)','\|','\-','\!','\@','\~','\"', '\&', '\/', '\^', '\$', '\=' );
+  return str_replace ($from, $to, $str);
+}
 
 $query = $_POST["query"];
 $curpkg = trim($_POST["curpkg"]);
@@ -26,12 +31,6 @@ if (isset ($_POST["offset"])) {
 $mysqli = new mysqli("p:127.0.0.1", "", "", "", 51413);
 if ($mysqli->connect_errno)
   die("Failed to connect to MySQL: " . $mysqli->connect_error);
-
-function escapestring($str) {
-  $from = array ( '\\', '(',')','|','-','!','@','~','"','&', '/', '^', '$', '=' );
-  $to   = array ( '\\\\', '\(','\)','\|','\-','\!','\@','\~','\"', '\&', '\/', '\^', '\$', '\=' );
-  return str_replace ($from, $to, $str);
-}
 
 $trimmedquery = trim($query);
 $query = trim($trimmedquery, ".");
@@ -72,13 +71,21 @@ if ($curpkg != '') {
 }
 
 $query = $mysqli->real_escape_string ($query);
-if (!($q = $mysqli->query("SELECT type, css, name, shortdesc, path, signature, typeorder, {$orderby} FROM {$allpkgs} WHERE MATCH('{$query}') ORDER BY @weight DESC, {$orderby} ASC, typeorder ASC LIMIT {$offset},20 OPTION ranker=proximity{$indexweights}")))
+
+$qq = "SELECT type, name, shortdesc, path, signature, typeorder,
+       {$orderby}
+       FROM {$allpkgs}
+       WHERE MATCH('{$query}')
+       ORDER BY WEIGHT() DESC, {$orderby} ASC, typeorder ASC
+       LIMIT {$offset},20 OPTION ranker=proximity";
+
+if (!($q = $mysqli->query($qq)))
   die("Query failed: (" . $mysqli->errno . ") " . $mysqli->error);
 
 while ($row = $q->fetch_assoc()) {
   $splitted = explode ("/", $row["path"]);
   $pkg = $splitted[1];
-  echo '<li class="search-result '.$row["css"].'"><a href="'.$row["path"].'">';
+  echo '<li class="search-result"><a href="'.$row["path"].'">';
   echo '<span class="search-name">'.$row["name"].' <span class="search-package">('.$pkg.')</span></span>';
   if (trim($row["shortdesc"]) != "") {
     echo '<span class="search-desc">'.strip_tags($row["shortdesc"]).'</span>';

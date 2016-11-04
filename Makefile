@@ -21,6 +21,7 @@ clean:
 	rm -R -f documentation/*/gallery-images
 	rm -R -f documentation/*/gir-images
 	rm -f examples/*-examples.valadoc
+	rm -R sphinx/storage
 	rm -f valadoc-example-tester
 	rm -f valadoc-example-gen
 	rm -f configgen

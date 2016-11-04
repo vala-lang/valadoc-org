@@ -759,7 +759,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
     php.printf ("\twhile ($row = $res->fetch_assoc()) {\n");
     php.printf ("\t\t$pkgs[] = $row['Index'];\n");
     php.printf ("\t}\n");
-		php.printf ("\t$res->close ();\n");
+    php.printf ("\t$res->close ();\n");
     php.printf ("\t$allpkgs = implode(', ', $pkgs);\n\n");
 
     php.printf ("?>\n");

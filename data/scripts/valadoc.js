@@ -33,12 +33,6 @@ function check_loaded (path) {
     last_navi_content = new_navi_content
 
     $('#content').html(content_data)
-    $('#content img').each(function () {
-      var tmp = this.src.split('/')
-      if (tmp[tmp.length - 2] === 'img') {
-        this.src = path.split('/')[0] + '/img/' + tmp[tmp.length - 1]
-      }
-    })
     $('body').scrollTop(0)
   }
 }

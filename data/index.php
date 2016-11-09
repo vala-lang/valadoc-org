@@ -80,7 +80,7 @@ if ($first == null || $first === "index") { // Homepage
   <div id="sidebar">
     <ul class="navi_main" id="search-results"></ul>
     <div id="navigation-content">
-      <?php @readfile (include __DIR__ . "/" . $page . ".navi.tpl"); ?>
+      <?php @readfile (__DIR__ . "/" . $page . ".navi.tpl"); ?>
     </div>
   </div>
   <div id="content-wrapper">

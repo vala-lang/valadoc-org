@@ -5,7 +5,7 @@ gee-version = 0.18.0
 gee-pc-version = 0.8
 
 
-default: generator doclet.so update-girs configgen example-gen example-tester
+default: app generator doclet.so update-girs configgen example-gen example-tester
 
 datadir = $(shell dirname $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))
 
@@ -31,7 +31,10 @@ clean:
 	rm -R -f tmp
 	rm -f *.so
 	rm -f LOG
+	rm -f app
 
+app: src/valadoc-app.vala
+	valac -o $@ $< --pkg=valum-0.3
 
 example-gen:
 	valac -o valadoc-example-gen src/valadoc-example-parser.vala src/valadoc-example-gen.vala -X -w
@@ -144,6 +147,6 @@ test-examples:
 #
 
 serve: default build-docs
-	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php
+	FWD_SEARCH=1 FWD_TOOLTIP=1 ./app --address localhost:7777 
 serve-mini: default build-docs-mini
-	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php
+	FWD_SEARCH=1 FWD_TOOLTIP=1 ./app --address localhost:7777 

@@ -19,7 +19,7 @@ var content_data = null
 var RESULTS_BULK = 20
 
 function clean_path () {
-  return window.location.pathname.replace(/(.html|.htm)/, '')
+  return window.location.pathname.replace(/(index)?(.html|.htm)/, '')
 }
 
 function check_loaded (path) {

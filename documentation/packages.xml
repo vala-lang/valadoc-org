@@ -453,6 +453,12 @@
 			<package name="libgsignon-glib" gir="gSignon-1.0" home="https://gitlab.com/accounts-sso/libgsignon-glib" c-docs="https://gitlab.com/accounts-sso/gsignon-docs/tree/master/libgsignon-glib">
 				Single signon authentication library for online services.
 			</package>
+			<package name="vsgi-0.3" home="https://github.com/valum-framework/valum">
+				Middleware that interfaces various Web server technologies
+			</package>
+			<package name="valum-0.3" home="https://github.com/valum-framework/valum">
+				Web micro-framework written in Vala
+			</package>
 		</section>
 
 		<section name="Markup">

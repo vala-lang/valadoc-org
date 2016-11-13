@@ -1,80 +1,76 @@
+VALAC = valac
 VALAC_VERSION := $(shell vala --version | awk -F. '{ print "0."$$2 }')
+VALAFLAGS = -X -w
 PREFIX = "stable"
 
 gee-version = 0.18.0
 gee-pc-version = 0.8
 
 
-default: generator doclet.so update-girs configgen example-gen example-tester
+default: generator libdoclet.so update-girs configgen valadoc-example-gen valadoc-example-tester
 
-datadir = $(shell dirname $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))
-
+datadir := $(shell dirname $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))
 
 
 clean:
-	rm -f documentation/*/wiki/example-listing.valadoc
-	rm -f documentation/*/wiki/example-listing-*.valadoc
-	rm -f documentation/*/wiki/widget-gallery.valadoc
-	rm -f documentation/*/wiki/devhelp-index.valadoc
-	rm -f documentation/*/wiki/index.valadoc
-	rm -f documentation/%s/%s.valadoc.metadata
-	rm -R -f documentation/*/gallery-images
-	rm -R -f documentation/*/gir-images
-	rm -f examples/*-examples.valadoc
-	rm -R sphinx/storage
-	rm -f valadoc-example-tester
-	rm -f valadoc-example-gen
-	rm -f configgen
-	rm -f generator
-	rm -R -f extra-vapis
-	rm -R -f girs
-	rm -R -f tmp
-	rm -f *.so
-	rm -f LOG
+	$(RM) documentation/*/wiki/example-listing.valadoc
+	$(RM) documentation/*/wiki/example-listing-*.valadoc
+	$(RM) documentation/*/wiki/widget-gallery.valadoc
+	$(RM) documentation/*/wiki/devhelp-index.valadoc
+	$(RM) documentation/*/wiki/index.valadoc
+	$(RM) -r documentation/*/gallery-images
+	$(RM) -r documentation/*/gir-images
+	$(RM) examples/*-examples.valadoc
+	$(RM) -r sphinx/storage
+	$(RM) valadoc-example-tester
+	$(RM) valadoc-example-gen
+	$(RM) configgen
+	$(RM) generator
+	$(RM) -r extra-vapis
+	$(RM) -r girs
+	$(RM) -r tmp
+	$(RM) *.so
+	$(RM) LOG
 
 
-example-gen:
-	valac -o valadoc-example-gen src/valadoc-example-parser.vala src/valadoc-example-gen.vala -X -w
+valadoc-example-gen: src/valadoc-example-parser.vala src/valadoc-example-gen.vala
+	$(VALAC) $(VALAFLAGS) -o $@ $^
 
-example-tester:
-	valac -o valadoc-example-tester src/valadoc-example-parser.vala src/valadoc-example-tester.vala -X -w
+valadoc-example-tester: src/valadoc-example-parser.vala src/valadoc-example-tester.vala
+	$(VALAC) $(VALAFLAGS) -o $@ $^
 
-doclet.so:
-	valac src/doclet.vala src/linkhelper.vala --pkg gee-0.8 --pkg valadoc-1.0 -C
-	gcc -shared -fPIC `pkg-config --cflags --libs glib-2.0 gmodule-2.0 gee-0.8 valadoc-1.0` -o libdoclet.so src/doclet.c src/linkhelper.c -w
-	rm -R -f src/*.c
 
-generator: doclet.so
-	valac -o generator src/doclet.vala src/linkhelper.vala src/generator.vala --pkg gee-0.8 --pkg valadoc-1.0 --pkg gio-2.0 --enable-experimental -X -w
+DOCLET_DEPS = gee-0.8 valadoc-1.0
+DOCLET_VALAFLAGS := $(patsubst %,--pkg=%,$(DOCLET_DEPS))
+DOCLET_CFLAGS := $(shell pkg-config --cflags --libs $(DOCLET_DEPS)) -shared -fPIC -w
 
-configgen:
-	valac -o configgen src/configgen.vala -X -D -X datadir=\"$(datadir)\" --vapidir src/ --pkg config -X -w --enable-experimental
+libdoclet.so: src/doclet.vala src/linkhelper.vala
+	$(VALAC) $(VALAFLAGS) $(DOCLET_VALAFLAGS) -C $^
+	$(CC) $(DOCLET_CFLAGS) -o $@ $(patsubst %.vala,%.c,$^)
+	$(RM) $(patsubst %.vala,%.c,$^)
+
+
+GENERATOR_DEPS = gee-0.8 valadoc-1.0 gio-2.0
+GENERATOR_VALAFLAGS := $(patsubst %,--pkg=%,$(GENERATOR_DEPS)) --enable-experimental
+
+generator: src/doclet.vala src/linkhelper.vala src/generator.vala
+	$(VALAC) $(VALAFLAGS) $(GENERATOR_VALAFLAGS) -o $@ $^
+
+
+configgen: src/configgen.vala
+	$(VALAC) $(VALAFLAGS) -o $@ $^ -X -D -X datadir=\"$(datadir)\" --vapidir src/ --pkg config --enable-experimental
+
 
 update-girs:
-	if test -d girs; then \
-		cd girs ; \
-		git pull ; \
-		cd .. ; \
-	else \
-		git clone https://github.com/nemequ/vala-girs.git girs ; \
-	fi
-	if test -d extra-vapis; then \
-		cd extra-vapis ; \
-		git pull ; \
-		cd .. ; \
-	else \
-		git clone https://github.com/nemequ/vala-extra-vapis.git extra-vapis ; \
-	fi
-
-
-
+	[ -d girs ]        && git -C girs pull        || git clone https://github.com/nemequ/vala-girs.git girs 
+	[ -d extra-vapis ] && git -C extra-vapis pull || git clone https://github.com/nemequ/vala-extra-vapis.git extra-vapis 
 
 
 #
 # Example checks:
 #
 
-check-examples:
+check-examples: valadoc-example-tester
 	./valadoc-example-tester --keep-running --force \
                          examples/cairo/cairo.valadoc.examples \
                          examples/gio-2.0/gio-2.0.valadoc.examples \
@@ -99,8 +95,8 @@ check-examples:
 #
 
 
-build-docs:
-	rm -r -f tmp/
+build-docs: generator libdoclet.so
+	$(RM) -r tmp/
 	./generator \
         --vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
         --vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
@@ -120,8 +116,8 @@ build-docs:
 	fi
 
 
-build-docs-mini:
-	rm -r -f tmp/
+build-docs-mini: generator libdoclet.so
+	$(RM) -r tmp/
 	./generator \
         --vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
         --vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
@@ -135,9 +131,9 @@ build-docs-mini:
         "glib-2.0" "gio-2.0" "gobject-2.0"
 
 
-test-examples:
+test-examples: valadoc-example-tester
 	-./valadoc-example-tester examples/*/*.valadoc.examples
-	rm -f -R tmp/
+	$(RM) -r tmp/
 
 #
 # Run a local webserver serving valadoc.org

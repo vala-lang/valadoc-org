@@ -955,7 +955,7 @@
 			A fast key-value storage library written at Google that provides an
 			ordered mapping from string keys to string values.
 		</package>
-		<package name="libcoloumbus" home="https://launchpad.net/libcolumbus">
+		<package name="libcolumbus" home="https://launchpad.net/libcolumbus">
 			A lightweight library for document indexing and fuzzy searching.
 		</package>
 		<package name="libcouchbase" home="http://www.couchbase.com/communities/c/getting-started">

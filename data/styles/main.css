@@ -95,7 +95,7 @@ nav .subtitle {
 }
 
 #search-box {
-    display: none;
+    display: inline-block;
     width: auto;
 }
 

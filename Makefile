@@ -1,7 +1,7 @@
 VALAC_VERSION := $(shell vala --version | awk -F. '{ print "0."$$2 }')
 PREFIX = "stable"
 
-gee-version = 0.18.0
+gee-version = 0.18.1
 gee-pc-version = 0.8
 
 

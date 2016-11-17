@@ -11,10 +11,10 @@
 			<package name="gobject-2.0" home="http://www.gtk.org/" gir="GObject-2.0" c-docs="http://developer.gnome.org/gobject/unstable/">
 				GObject provides the object system used for Pango and GTK+.
 			</package>
-			<external-package name="gee-0.8" link="/gee-0.8/index.htm" local="true">
+			<package name="gee-0.8" home="https://wiki.gnome.org/Projects/Libgee">
 				Libgee is a collection library providing GObject-based interfaces and
 				classes for commonly used data structures.
-			</external-package>
+			</package>
 			<package name="gio-2.0" home="http://www.gtk.org/" gir="Gio-2.0" c-docs="http://developer.gnome.org/gio/unstable/">
 				GIO provides a modern and easy-to-use VFS API. It provides a file system abstraction which
 				allows applications to access local and remote files with a single consistent API.

@@ -24,9 +24,7 @@ namespace Valadoc {
 </div>""") (req, res, next, ctx);
 		}))));
 
-		var serve_flags = Static.ServeFlags.ENABLE_ETAG;
-
-		app.get ("/<path:path>", Static.serve_from_file (docroot));
+		app.get ("/<path:path>", Static.serve_from_file (docroot, Static.ServeFlags.ENABLE_ETAG));
 
 		app.register_type ("pkg", /[\w-.]+/);
 		app.register_type ("sym", /[\w.]+/);

@@ -702,6 +702,7 @@ a.abstract_class,
 }
 
 .enumvalue:before,
+.enum_value:before,
 .description a.enumvalue,
 .brief_description a.enumvalue {
     background-image: url(/images/enumvalue.svg);

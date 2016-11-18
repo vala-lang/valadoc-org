@@ -130,7 +130,8 @@ namespace Valadoc {
   </div>
   <footer>
     Copyright © 2016 Valadoc.org | Documentation is licensed under the same terms as its upstream |
-    <a href="https://github.com/Valadoc/valadoc-org/issues" target="_blank">Report an Issue</a>
+    <a href="https://github.com/Valadoc/valadoc-org/issues" target="_blank">Report an Issue</a> |
+    Powered by <a href="https://github.com/valum-framework/valum" target="_blank">Valum</a>
   </footer>
   <script type="text/javascript" src="/scripts/jquery.min.js"></script>
   <script type="text/javascript" src="/scripts/jquery.ba-hashchange.min.js"></script>

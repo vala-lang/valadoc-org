@@ -80,10 +80,11 @@ Vagrant.configure("2") do |config|
 
     pip3 install meson
 
+    rm -rf ninja-linux.zip v0.3.0.zip valum-0.3.0
+
     wget https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-linux.zip
     unzip ninja-linux.zip -d /usr/local/bin
 
-    rm -rf valum-master
     wget https://github.com/valum-framework/valum/archive/v0.3.0.zip
     unzip v0.3.0.zip
     cd valum-0.3.0

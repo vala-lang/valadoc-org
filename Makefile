@@ -35,7 +35,7 @@ clean:
 
 
 app: src/valadoc-app.vala
-	$(VALAC) -o $@ $< --pkg=valum-0.3
+	$(VALAC) -o $@ $< --pkg=valum-0.3 --pkg=libgda-5.0
 
 
 valadoc-example-gen: src/valadoc-example-parser.vala src/valadoc-example-gen.vala

@@ -75,6 +75,71 @@ namespace Valadoc {
 			return render_template (title.str, (string) navi, (string) content) (req, res, next, ctx);
 		}));
 
+		var db = new Gda.Connection.from_string ("mysql",
+		                                         Environment.get_variable ("DATABASE_CONNECTION") ?? "HOST=localhost",
+		                                         Environment.get_variable ("DATABASE_AUTH"),
+		                                         Gda.ConnectionOptions.READ_ONLY);
+
+		app.use ((req, res, next) => {
+			try {
+				return next ();
+			} catch (Error err) {
+				res.headers.set_content_type ("text/plain", null);
+				return res.expand_utf8 ("Query failed: (%s) ".printf (err.message));
+			}
+		});
+
+		app.post ("/search.php", accept ("text/html", (req, res) => {
+			var form = Soup.Form.decode (req.flatten_utf8 ());
+			Gda.Set search_params;
+			var search_statement = db.parse_sql_string ("""
+			SELECT type, name, shortdesc, path, signature, typeorder,
+			{$orderby}
+			FROM {$allpkgs}
+			WHERE MATCH('{$query}')
+			ORDER BY WEIGHT() DESC, {$orderby} ASC, typeorder ASC
+			LIMIT {$offset},20 OPTION ranker=proximity{$indexweights}""", out search_params);
+
+			var model = db.statement_execute_select (search_statement, search_params);
+			var iter  = model.create_iter ();
+
+			while (iter.move_next ()) {
+				res.append_utf8 ("""<li class="search-result %s">
+				                      <a href="%s">
+				                        <span class="search-name">
+				                          %s
+				                          <span class="search-package">%s</span>
+				                        </span>
+				                        <span class="search-desc">%s</span>
+				                      </a>
+				                    </li>""".printf ("todo", "todo", "todo", "todo", "todo"));
+			}
+
+			return res.end ();
+		}));
+
+		app.post ("/tooltip.php", accept ("text/html", (req, res) => {
+			Gda.Set tooltip_params;
+			var tooltip_statement = db.parse_sql_string ("""
+			SELECT type, name, shortdesc, path, signature, namelen
+			FROM {$index}
+			WHERE MATCH('{$name}') AND namelen={$namelen}
+			LIMIT 1 OPTION max_matches=1,ranker=none""", out tooltip_params);
+
+			var model = db.statement_execute_select (tooltip_statement, tooltip_params);
+			var iter  = model.create_iter ();
+
+			if (!iter.move_next ()) {
+				return res.expand_utf8 ("no result");
+			}
+
+			do {
+				res.append_utf8 ("<p>%s</p>%s".printf ("todo", "todo"));
+			} while (iter.move_next ());
+
+			return res.end ();
+		}));
+
 		return Server.@new ("http", handler: app, interface: new Soup.Address.any (Soup.AddressFamily.IPV4, 7777)).run (args);
 	}
 

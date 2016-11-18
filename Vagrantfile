@@ -67,16 +67,30 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     add-apt-repository --yes ppa:vala-team
     apt-get update -y
-    apt-get install -y \
-        libglib2.0-dev \
-        libsoup2.4-dev \
-        libgee-0.8-dev \
-        libvaladoc-dev \
-        git            \
-        python3-pip    \
-        unzip          \
-        valac          \
+    apt-get install -y         \
+        libglib2.0-dev         \
+        libgirepository1.0-dev \
+        libsoup2.4-dev         \
+        libgee-0.8-dev         \
+        libgda-5.0-dev         \
+        libvaladoc-dev         \
+        git                    \
+        python3-pip            \
+        unzip                  \
+        valac                  \
         valadoc
+
+    cat > Gda-5.0.metadata <<- END
+XaTransaction skip
+ServerProviderXa skip
+XaTransactionId skip
+XaTransactionError skip
+ServerProviderMeta skip
+END
+
+    vapigen --library=libgda-5.0 --directory=/usr/share/vala/vapi --metadatadir=. \
+        /usr/share/gir-1.0/Gda-5.0.gir                                            \
+        /usr/share/gir-1.0/libxml2-2.0.gir
 
     pip3 install meson
 

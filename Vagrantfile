@@ -72,6 +72,7 @@ Vagrant.configure("2") do |config|
         libsoup2.4-dev \
         libgee-0.8-dev \
         libvaladoc-dev \
+        git            \
         python3-pip    \
         unzip          \
         valac          \

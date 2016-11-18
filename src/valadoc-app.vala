@@ -65,7 +65,14 @@ namespace Valadoc {
 				throw new ClientError.NOT_FOUND (""); // ignored in the 404 handler
 			}
 
-			// TODO: Generate 'ETag' header
+			if (navi_etag != null && content_etag != null) {
+				var etag = "\"%s\"".printf (navi_etag + content_etag);
+				if (etag == req.headers.get_one ("If-None-Match")) {
+					throw new Redirection.NOT_MODIFIED ("");
+				} else {
+					res.headers.replace ("ETag", etag);
+				}
+			}
 
 			return render_template (title.str, (string) navi, (string) content) (req, res, next, ctx);
 		}));

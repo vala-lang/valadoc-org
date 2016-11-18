@@ -83,9 +83,9 @@ Vagrant.configure("2") do |config|
     unzip ninja-linux.zip -d /usr/local/bin
 
     rm -rf valum-master
-    wget https://github.com/valum-framework/valum/archive/master.zip
-    unzip master.zip
-    cd valum-master
+    wget https://github.com/valum-framework/valum/archive/v0.3.0.zip
+    unzip v0.3.0.zip
+    cd valum-0.3.0
     mkdir build
     meson --prefix=/usr --buildtype=release build
     ninja -C build

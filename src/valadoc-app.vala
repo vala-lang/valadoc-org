@@ -78,7 +78,7 @@ namespace Valadoc {
 			return render_template (title.str, (string) navi, (string) content) (req, res, next, ctx);
 		});
 
-		return Server.@new ("http", handler: app).run (args);
+		return Server.@new ("http", handler: app, interface: new Soup.Address.any (Soup.AddressFamily.IPV4, 7777)).run (args);
 	}
 
 	public HandlerCallback render_template (string title, string navi, string content) {

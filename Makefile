@@ -147,6 +147,6 @@ test-examples:
 #
 
 serve: default build-docs
-	FWD_SEARCH=1 FWD_TOOLTIP=1 ./app --address localhost:7777 
+	FWD_SEARCH=1 FWD_TOOLTIP=1 ./app
 serve-mini: default build-docs-mini
-	FWD_SEARCH=1 FWD_TOOLTIP=1 ./app --address localhost:7777 
+	FWD_SEARCH=1 FWD_TOOLTIP=1 ./app

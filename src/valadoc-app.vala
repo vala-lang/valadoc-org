@@ -9,9 +9,8 @@ namespace Valadoc {
 		var docroot = File.new_for_path ("valadoc.org");
 
 		app.use (basic ());
-		app.use (accept ("text/html"));
 
-		app.use (status (404, (req, res, next, ctx) => {
+		app.use (status (404, forward_with<Error> (accept ("text/html", (req, res, next, ctx, err) => {
 			uint8[] navi_contents;
 			string  navi_etag;
 			docroot.get_child ("index.htm.navi.tpl").load_contents (null, out navi_contents, out navi_etag);
@@ -23,18 +22,16 @@ namespace Valadoc {
   <h2>Page not found</h2>
   <p>The page your are looking for can not be found.</p>
 </div>""") (req, res, next, ctx);
-		}));
+		}))));
 
 		var serve_flags = Static.ServeFlags.ENABLE_ETAG;
 
-		app.get ("/styles/<path:path>",  Static.serve_from_file (docroot.get_child ("styles"),  serve_flags));
-		app.get ("/images/<path:path>",  Static.serve_from_file (docroot.get_child ("images"),  serve_flags));
-		app.get ("/scripts/<path:path>", Static.serve_from_file (docroot.get_child ("scripts"), serve_flags));
+		app.get ("/<path:path>", Static.serve_from_file (docroot));
 
 		app.register_type ("pkg", /[\w-.]+/);
 		app.register_type ("sym", /[\w.]+/);
 
-		app.get ("/(<pkg:package>(/<sym:symbol>.html)?)?(/index.htm)?", (req, res, next, ctx) => {
+		app.get ("/(<pkg:package>/(<sym:symbol>.html)?)?(index.htm)?", accept ("text/html", (req, res, next, ctx) => {
 			var title = new StringBuilder ("Valadoc.org");
 			File navi_file;
 			File content_file;
@@ -59,24 +56,19 @@ namespace Valadoc {
 
 			uint8[] navi;
 			string  navi_etag;
-			try {
-				navi_file.load_contents (null, out navi, out navi_etag);
-			} catch (IOError.NOT_FOUND err) {
-				throw new ClientError.NOT_FOUND ("...");
-			}
-
 			uint8[] content;
 			string  content_etag;
 			try {
+				navi_file.load_contents (null, out navi, out navi_etag);
 				content_file.load_contents (null, out content, out content_etag);
 			} catch (IOError.NOT_FOUND err) {
-				throw new ClientError.NOT_FOUND ("...");
+				throw new ClientError.NOT_FOUND (""); // ignored in the 404 handler
 			}
 
 			// TODO: Generate 'ETag' header
 
 			return render_template (title.str, (string) navi, (string) content) (req, res, next, ctx);
-		});
+		}));
 
 		return Server.@new ("http", handler: app, interface: new Soup.Address.any (Soup.AddressFamily.IPV4, 7777)).run (args);
 	}

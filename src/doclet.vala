@@ -31,10 +31,6 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 	public const string css_path_wiki = "../styles/main.css";
 	public const string css_path = "../styles/main.css";
 
-	public const string image_path_package = "../images/logo.png";
-	public const string image_path_wiki = "../images/logo.png";
-	public const string image_path = "../images/logo.png";
-
 	public const string js_path_package = "scripts/main.js";
 	public const string js_path_wiki = "../scripts/main.js";
 	public const string js_path = "../scripts/main.js";

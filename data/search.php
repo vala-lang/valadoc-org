@@ -4,7 +4,7 @@ $FWD_TOOLTIP = getenv('FWD_TOOLTIP');
 if (!empty($FWD_TOOLTIP)) {
   $curl = curl_init();
   curl_setopt_array($curl, [
-    CURLOPT_URL => 'http://valadoc.org/search.php',
+    CURLOPT_URL => 'https://valadoc.org/search.php',
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => $_POST,
   ]);

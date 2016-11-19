@@ -50,12 +50,12 @@ if ($first == null || $first === "index") { // Homepage
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta itemprop="image" content="http://valadoc.org/images/preview.png">
+  <meta itemprop="image" content="https://valadoc.org/images/preview.png">
   <meta name="fragment" content="!">
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#403757">
   <meta property="og:description" content="The canonical source for Vala API references.">
-  <meta property="og:image" content="http://valadoc.org/images/preview.png">
+  <meta property="og:image" content="https://valadoc.org/images/preview.png">
   <meta property="og:title" content="<?php echo get_title ($page); ?>">
   <meta property="og:type" content="website">
   <title><?php echo get_title ($page); ?></title>

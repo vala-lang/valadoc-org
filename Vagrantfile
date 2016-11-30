@@ -76,9 +76,11 @@ Vagrant.configure("2") do |config|
         libvaladoc-dev         \
         git                    \
         python3-pip            \
+        sphinxsearch           \
         unzip                  \
         valac                  \
-        valadoc
+        valadoc                \
+        xsltproc
 
     cat > Gda-5.0.metadata <<- END
 XaTransaction skip
@@ -101,11 +103,20 @@ END
 
     wget https://github.com/valum-framework/valum/archive/v0.3.0.zip
     unzip v0.3.0.zip
-    cd valum-0.3.0
+    pushd valum-0.3.0
     mkdir build
     meson --prefix=/usr --buildtype=release build
     ninja -C build
     ninja -C build test
     ninja -C build install
+    popd
+
+    pushd valadoc-org
+    make app
+    make build-docs
+    mkdir -p sphinx/storage
+    ./configgen valadoc.org
+    indexer --config sphinx.conf --all
+    popd
   SHELL
 end

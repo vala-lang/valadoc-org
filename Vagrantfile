@@ -96,14 +96,14 @@ END
 
     pip3 install meson
 
-    rm -rf ninja-linux.zip v0.3.0.zip valum-0.3.0
+    rm -rf ninja-linux.zip v0.3.1.zip valum-0.3.1
 
     wget https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-linux.zip
     unzip ninja-linux.zip -d /usr/local/bin
 
-    wget https://github.com/valum-framework/valum/archive/v0.3.0.zip
-    unzip v0.3.0.zip
-    pushd valum-0.3.0
+    wget https://github.com/valum-framework/valum/archive/v0.3.1.zip
+    unzip v0.3.1.zip
+    pushd valum-0.3.1
     mkdir build
     meson --prefix=/usr --buildtype=release build
     ninja -C build

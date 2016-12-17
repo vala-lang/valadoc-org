@@ -195,7 +195,7 @@ $(document).ready(function () {
         hovered = false
       })
       self.attr('title', '') // hide browser-tooltips
-      $.get('/tooltip.php?fullname=' + encodeURIComponent(fullname), function (data) {
+      $.get('/tooltip?fullname=' + encodeURIComponent(fullname), function (data) {
         self.wTooltip({
           content: data,
           className: 'tooltip',
@@ -280,7 +280,7 @@ $(document).ready(function () {
         curpost = null
       }
       var curpkg = clean_path().split('/')[1]
-      curpost = $.post('/search.php', { query: value, curpkg: curpkg }, function (data) {
+      curpost = $.post('/search', { query: value, curpkg: curpkg }, function (data) {
         if (scrollxhr) {
           scrollxhr.abort()
           scrollxhr = null
@@ -344,7 +344,7 @@ $(document).ready(function () {
       }
       var numresults = sr.children().length
       var curpkg = clean_path().split('/')[1]
-        scrollxhr = $.post('/search.php', { query: value, curpkg: curpkg, offset: numresults }, function (data) {
+        scrollxhr = $.post('/search', { query: value, curpkg: curpkg, offset: numresults }, function (data) {
         scrollxhr = null
         $('.search-more').remove()
         sr.append(data)

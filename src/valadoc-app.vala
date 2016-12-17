@@ -89,7 +89,7 @@ namespace Valadoc {
 			}
 		});
 
-		app.post ("/search.php", accept ("text/html", (req, res) => {
+		app.post ("/search", accept ("text/html", (req, res) => {
 			var form = Soup.Form.decode (req.flatten_utf8 ());
 			Gda.Set search_params;
 			var search_statement = db.parse_sql_string ("""
@@ -118,7 +118,7 @@ namespace Valadoc {
 			return res.end ();
 		}));
 
-		app.post ("/tooltip.php", accept ("text/html", (req, res) => {
+		app.post ("/tooltip", accept ("text/html", (req, res) => {
 			Gda.Set tooltip_params;
 			var tooltip_statement = db.parse_sql_string ("""
 			SELECT type, name, shortdesc, path, signature, namelen

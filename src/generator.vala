@@ -105,8 +105,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		//foreach (string dir in get_vapi_directories ()) {
 		//	vapidirs += dir;
 		//}
-		string[] tmp_vapidirs = get_vapi_directories ();
-		foreach (string dir in vapidirs) {
+		string[] tmp_vapidirs = vapidirs;
+		foreach (string dir in get_vapi_directories ()) {
 			tmp_vapidirs += dir;
 		}
 		vapidirs = tmp_vapidirs;

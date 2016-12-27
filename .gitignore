@@ -6,6 +6,7 @@
 /configgen
 /documentation/*/gallery-images/*
 /documentation/*/gir-images/*
+/documentation/*/vapi-images/*
 /documentation/*/index.sgml
 /documentation/*/widget-gallery.valadoc
 /documentation/*/wiki

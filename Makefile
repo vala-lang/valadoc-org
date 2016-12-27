@@ -6,7 +6,6 @@ PREFIX = "stable"
 gee-version = 0.18.1
 gee-pc-version = 0.8
 
-
 default: app generator libdoclet.so update-girs configgen valadoc-example-gen valadoc-example-tester
 
 datadir := $(shell dirname $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))
@@ -67,8 +66,8 @@ configgen: src/configgen.vala
 
 
 update-girs:
-	[ -d girs ]        && git -C girs pull        || git clone https://github.com/nemequ/vala-girs.git girs 
-	[ -d extra-vapis ] && git -C extra-vapis pull || git clone https://github.com/nemequ/vala-extra-vapis.git extra-vapis 
+	[ -d girs ]        && git -C girs pull        || git clone https://github.com/nemequ/vala-girs.git girs
+	[ -d extra-vapis ] && git -C extra-vapis pull || git clone https://github.com/nemequ/vala-extra-vapis.git extra-vapis
 
 
 #
@@ -77,21 +76,21 @@ update-girs:
 
 check-examples: valadoc-example-tester
 	./valadoc-example-tester --keep-running --force \
-                         examples/cairo/cairo.valadoc.examples \
-                         examples/gio-2.0/gio-2.0.valadoc.examples \
-                         examples/glib-2.0/glib-2.0.valadoc.examples \
-                         examples/gmodule-2.0/gmodule-2.0.valadoc.examples \
-                         examples/gmodule-2.0/gmodule-2.0.valadoc.examples \
-                         examples/gobject-2.0/gobject-2.0.valadoc.examples \
-                         examples/gstreamer-1.0/gstreamer-1.0.valadoc.examples \
-                         examples/gstreamer-video-1.0/gstreamer-video-1.0.valadoc.examples \
-                         examples/gtk+-3.0/gtk+-3.0.valadoc.examples \
-                         examples/json-glib-1.0/json-glib-1.0.valadoc.examples \
-                         examples/libnotify/libnotify.valadoc.examples \
-                         examples/libsoup-2.4/libsoup-2.4.valadoc.examples \
-                         examples/libxml-2.0/libxml-2.0.valadoc.examples \
-                         examples/rest-0.7/rest-0.7.valadoc.examples \
-                         examples/sqlite3/sqlite3.valadoc.examples
+		examples/cairo/cairo.valadoc.examples \
+		examples/gio-2.0/gio-2.0.valadoc.examples \
+		examples/glib-2.0/glib-2.0.valadoc.examples \
+		examples/gmodule-2.0/gmodule-2.0.valadoc.examples \
+		examples/gmodule-2.0/gmodule-2.0.valadoc.examples \
+		examples/gobject-2.0/gobject-2.0.valadoc.examples \
+		examples/gstreamer-1.0/gstreamer-1.0.valadoc.examples \
+		examples/gstreamer-video-1.0/gstreamer-video-1.0.valadoc.examples \
+		examples/gtk+-3.0/gtk+-3.0.valadoc.examples \
+		examples/json-glib-1.0/json-glib-1.0.valadoc.examples \
+		examples/libnotify/libnotify.valadoc.examples \
+		examples/libsoup-2.4/libsoup-2.4.valadoc.examples \
+		examples/libxml-2.0/libxml-2.0.valadoc.examples \
+		examples/rest-0.7/rest-0.7.valadoc.examples \
+		examples/sqlite3/sqlite3.valadoc.examples
 
 
 
@@ -103,37 +102,29 @@ check-examples: valadoc-example-tester
 build-docs: generator libdoclet.so
 	$(RM) -r tmp/
 	./generator \
-        --vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
-        --vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
-        --driver $(VALAC_VERSION) \
-        --prefix $(PREFIX) \
-        --target-glib 2.99 \
-        --download-images \
-        --skip-existing \
-        --no-check-certificate \
-        --all
-	if ! test -d valadoc.org/gee-$(gee-pc-version); then \
-		wget https://git.gnome.org/browse/libgee/snapshot/libgee-$(gee-version).zip ; \
-		unzip libgee-$(gee-version).zip ; \
-		valadoc -o libgee-$(gee-version)/gee-$(gee-pc-version) --target-glib=2.99 --pkg gio-2.0 libgee-$(gee-version)/gee/*.vala libgee-$(gee-version)/utils/geeutils.vapi --wiki libgee-$(gee-version)/doc/ --doclet . ; \
-		mv libgee-$(gee-version)/gee-$(gee-pc-version)/gee-$(gee-pc-version) valadoc.org/ ; \
-		rm -r libgee-$(gee-version) libgee-$(gee-version).zip ; \
-	fi
-
+		--vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
+		--vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
+		--driver $(VALAC_VERSION) \
+		--prefix $(PREFIX) \
+		--target-glib 2.99 \
+		--download-images \
+		--skip-existing \
+		--no-check-certificate \
+		--all
 
 build-docs-mini: generator libdoclet.so
 	$(RM) -r tmp/
 	./generator \
-        --vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
-        --vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
-        --driver $(VALAC_VERSION) \
-        --prefix $(PREFIX) \
-        --target-glib 2.99 \
-        --download-images \
-        --skip-existing \
-        --no-check-certificate \
-        --disable-devhelp \
-        "glib-2.0" "gio-2.0" "gobject-2.0"
+		--vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
+		--vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
+		--driver $(VALAC_VERSION) \
+		--prefix $(PREFIX) \
+		--target-glib 2.99 \
+		--download-images \
+		--skip-existing \
+		--no-check-certificate \
+		--disable-devhelp \
+		"glib-2.0" "gio-2.0" "gobject-2.0"
 
 
 test-examples: valadoc-example-tester

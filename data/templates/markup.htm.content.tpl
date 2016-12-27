@@ -196,14 +196,14 @@
 <pre>/**
  * [[http://google.at|google]] [[http://google.at]]
  *
- * {{/images/logo.png}} {{/images/logo.png|alt-message}}
+ * {{/images/favicon.png}} {{/images/favicon.png|alt-message}}
  */
 </pre>
 </div>
 <h3>Output:</h3>
 <div class="main_code_definition">
 <p><a href="http://google.at">google</a> <a href="http://google.at">http://google.at</a></p>
-<p><img src="http://valadoc.org/logo.png" /> <img src="logo.png" alt="alt-message" /></p>
+<p><img src="/images/favicon.png" /> <img src="/images/favicon.png" alt="alt-message" /></p>
 </div>
 
 

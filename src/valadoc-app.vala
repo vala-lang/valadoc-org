@@ -84,9 +84,14 @@ namespace Valadoc {
 			try {
 				return next ();
 			} catch (Error err) {
+				critical ("%s (%s, %d)", err.message, err.domain.to_string (), err.code);
 				res.headers.set_content_type ("text/plain", null);
 				return res.expand_utf8 ("Query failed: (%s) ".printf (err.message));
 			}
+		});
+
+		app.use ((req, res, next) => {
+			return db.open () && next ();
 		});
 
 		app.post ("/search", accept ("text/html", (req, res) => {

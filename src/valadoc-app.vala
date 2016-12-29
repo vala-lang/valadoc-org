@@ -196,7 +196,7 @@ namespace Valadoc {
     <div id="comments" />
   </div>
   <footer>
-    Copyright © 2016 Valadoc.org | Documentation is licensed under the same terms as its upstream |
+    Copyright © %d Valadoc.org | Documentation is licensed under the same terms as its upstream |
     <a href="https://github.com/Valadoc/valadoc-org/issues" target="_blank">Report an Issue</a> |
     Powered by <a href="https://github.com/valum-framework/valum" target="_blank">Valum</a>
   </footer>
@@ -206,7 +206,7 @@ namespace Valadoc {
   <script type="text/javascript" src="/scripts/valadoc.js"></script>
   <script type="text/javascript" src="/scripts/main.js"></script>
 </body>
-</html>""".printf (title, title, navi, content));
+</html>""".printf (title, title, navi, content, new DateTime.now_local ().get_year ()));
 		};
 	}
 }

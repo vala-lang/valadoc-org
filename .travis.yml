@@ -10,8 +10,8 @@ install:
   - sudo add-apt-repository ppa:vala-team -y
   - sudo apt-get update -qq
   - sudo apt-get install -y -qq valac valadoc libvaladoc-dev unzip python3-pip
-  - sudo pip3 install meson
-  - sudo unzip ninja-linux.zip -d /usr/local/lib
+  - pip3 install meson==0.36.0
+  - unzip ninja-linux.zip -d ${HOME}/.local/bin
   - unzip valum-0.3.0.zip
   - cd valum-0.3.0 && mkdir build && meson --prefix=/usr --buildtype=release build && ninja -C build && sudo ninja -C build install
 

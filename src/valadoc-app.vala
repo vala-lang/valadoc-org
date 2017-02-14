@@ -108,11 +108,11 @@ namespace Valadoc.App {
 			FROM %s
 			WHERE MATCH(?)
 			ORDER BY WEIGHT() DESC, namelen ASC, typeorder ASC
-			LIMIT 0,20 OPTION ranker=proximity,index_weights=(%s=2)""".printf ("namelen", string.joinv (",", allpkgs), "stablezlib"),
+			LIMIT ?,20 OPTION ranker=proximity,index_weights=(%s=2)""".printf ("namelen", string.joinv (",", allpkgs), "stablezlib"),
 			form.lookup ("query"), form.lookup ("offset") ?? "0");
 
-			while (result.next ()) {
-				var path    = result["path"];
+			foreach (var row in result) {
+				var path    = row["path"];
 				var package = path.substring (0, path.index_of_char ('/'));
 				var symbol  = path.substring (path.index_of_char ('/') + 1);
 				res.append_utf8 ("""<li class="search-result %s">
@@ -123,11 +123,11 @@ namespace Valadoc.App {
 				                        </span>
 				                        <span class="search-desc">%s</span>
 				                      </a>
-				                    </li>""".printf (result["type"].down (),
+				                    </li>""".printf (row["type"].down (),
 				                                     path,
-				                                     result["name"],
+				                                     row["name"],
 				                                     package,
-				                                     result["shortdesc"]));
+				                                     row["shortdesc"]));
 			}
 
 			return res.end ();
@@ -148,9 +148,9 @@ namespace Valadoc.App {
 				return res.expand_utf8 ("no result");
 			}
 
-			while (result.next ()) {
-				res.append_utf8 ("<p>%s</p>%s".printf (result["signature"], 
-				                                       result["shortdesc"]));
+			foreach (var row in result) {
+				res.append_utf8 ("<p>%s</p>%s".printf (row["signature"], 
+				                                       row["shortdesc"]));
 			}
 
 			return res.end ();

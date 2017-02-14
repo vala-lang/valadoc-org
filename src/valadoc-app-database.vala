@@ -57,7 +57,11 @@ namespace Valadoc.App {
 					throw new DatabaseError.FAILED ("Could not escape the value for position '%u'.", pos);
 				}
 
-				statement_builder.append_printf ("'%s'", str_dest);
+				if (bool.try_parse (str_dest) || int64.try_parse (str_dest) || double.try_parse (str_dest)) {
+					statement_builder.append (str_dest);
+				} else {
+					statement_builder.append_printf ("'%s'", str_dest);
+				}
 
 				statement_offset = pos + 1; // just right after the '?'
 			}

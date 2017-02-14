@@ -2,7 +2,7 @@ using Valum;
 using Valum.ContentNegotiation;
 using VSGI;
 
-namespace Valadoc {
+namespace Valadoc.App {
 
 	public int main (string[] args) {
 		var app = new Router ();
@@ -75,10 +75,18 @@ namespace Valadoc {
 			return render_template (title.str, (string) navi, (string) content) (req, res, next, ctx);
 		}));
 
-		var db = new Gda.Connection.from_string ("mysql",
-		                                         Environment.get_variable ("DATABASE_CONNECTION") ?? "HOST=localhost",
-		                                         Environment.get_variable ("DATABASE_AUTH"),
-		                                         Gda.ConnectionOptions.READ_ONLY);
+		Database db;
+		try {
+			db = new Database ("127.0.0.1", 51413);
+		} catch (Error err) {
+			critical ("%s (%s, %d)", err.message, err.domain.to_string (), err.code);
+			return 1;
+		}
+
+		app.use ((req, res, next) => {
+			db.ping (); /* keep-alive */
+			return next ();
+		});
 
 		app.use ((req, res, next) => {
 			try {
@@ -90,25 +98,23 @@ namespace Valadoc {
 			}
 		});
 
-		app.use ((req, res, next) => {
-			return db.open () && next ();
-		});
-
 		app.post ("/search", accept ("text/html", (req, res) => {
 			var form = Soup.Form.decode (req.flatten_utf8 ());
-			Gda.Set search_params;
-			var search_statement = db.parse_sql_string ("""
-			SELECT type, name, shortdesc, path, signature, typeorder,
-			{$orderby}
-			FROM {$allpkgs}
-			WHERE MATCH('{$query}')
-			ORDER BY WEIGHT() DESC, {$orderby} ASC, typeorder ASC
-			LIMIT {$offset},20 OPTION ranker=proximity{$indexweights}""", out search_params);
 
-			var model = db.statement_execute_select (search_statement, search_params);
-			var iter  = model.create_iter ();
+			string[] allpkgs = {"stablezlib"}; // TODO: move that into the query
 
-			while (iter.move_next ()) {
+			var result = db.query ("""
+			SELECT type, name, shortdesc, path, signature, typeorder, %s
+			FROM %s
+			WHERE MATCH(?)
+			ORDER BY WEIGHT() DESC, namelen ASC, typeorder ASC
+			LIMIT 0,20 OPTION ranker=proximity,index_weights=(%s=2)""".printf ("namelen", string.joinv (",", allpkgs), "stablezlib"),
+			form.lookup ("query"), form.lookup ("offset") ?? "0");
+
+			while (result.next ()) {
+				var path    = result["path"];
+				var package = path.substring (0, path.index_of_char ('/'));
+				var symbol  = path.substring (path.index_of_char ('/') + 1);
 				res.append_utf8 ("""<li class="search-result %s">
 				                      <a href="%s">
 				                        <span class="search-name">
@@ -117,30 +123,35 @@ namespace Valadoc {
 				                        </span>
 				                        <span class="search-desc">%s</span>
 				                      </a>
-				                    </li>""".printf ("todo", "todo", "todo", "todo", "todo"));
+				                    </li>""".printf (result["type"].down (),
+				                                     path,
+				                                     result["name"],
+				                                     package,
+				                                     result["shortdesc"]));
 			}
 
 			return res.end ();
 		}));
 
 		app.post ("/tooltip", accept ("text/html", (req, res) => {
-			Gda.Set tooltip_params;
-			var tooltip_statement = db.parse_sql_string ("""
+			var form = Soup.Form.decode (req.flatten_utf8 ());
+
+			var result = db.query ("""
 			SELECT type, name, shortdesc, path, signature, namelen
-			FROM {$index}
-			WHERE MATCH('{$name}') AND namelen={$namelen}
-			LIMIT 1 OPTION max_matches=1,ranker=none""", out tooltip_params);
+			FROM %s
+			WHERE MATCH(?) AND namelen=?
+			LIMIT 1 OPTION max_matches=1,ranker=none""", form.lookup ("index"), 
+			form.lookup ("name"),
+			form.lookup ("namelen"));
 
-			var model = db.statement_execute_select (tooltip_statement, tooltip_params);
-			var iter  = model.create_iter ();
-
-			if (!iter.move_next ()) {
+			if (result.is_empty ()) {
 				return res.expand_utf8 ("no result");
 			}
 
-			do {
-				res.append_utf8 ("<p>%s</p>%s".printf ("todo", "todo"));
-			} while (iter.move_next ());
+			while (result.next ()) {
+				res.append_utf8 ("<p>%s</p>%s".printf (result["signature"], 
+				                                       result["shortdesc"]));
+			}
 
 			return res.end ();
 		}));

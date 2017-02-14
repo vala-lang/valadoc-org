@@ -33,9 +33,8 @@ clean:
 	$(RM) LOG
 
 
-app: src/valadoc-app.vala
-	$(VALAC) -o $@ $< --pkg=valum-0.3 --pkg=libgda-5.0
-
+app: src/valadoc-app.vala src/valadoc-app-database.vala
+	$(VALAC) --pkg=valum-0.3 --pkg=mysql -X -L/usr/lib64/mysql -X -lmysqlclient -o $@ $^
 
 valadoc-example-gen: src/valadoc-example-parser.vala src/valadoc-example-gen.vala
 	$(VALAC) $(VALAFLAGS) -o $@ $^

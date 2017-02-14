@@ -144,10 +144,6 @@ namespace Valadoc.App {
 			form.lookup ("name"),
 			form.lookup ("namelen"));
 
-			if (result.is_empty ()) {
-				return res.expand_utf8 ("no result");
-			}
-
 			foreach (var row in result) {
 				res.append_utf8 ("<p>%s</p>%s".printf (row["signature"], 
 				                                       row["shortdesc"]));

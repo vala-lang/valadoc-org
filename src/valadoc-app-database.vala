@@ -88,10 +88,6 @@ namespace Valadoc.App {
 				this.result   = (owned) result;
 			}
 
-			public bool is_empty () {
-				return result.eof ();
-			}
-
 			public ResultIter iterator () {
 				return new ResultIter (database, result);
 			}
@@ -116,17 +112,16 @@ namespace Valadoc.App {
 			}
 
 			public bool next () throws DatabaseError {
-				if (result.eof ()) {
-					return false;
-				} else {
-					var fields = result.fetch_fields ();
-					var row = result.fetch_row ();
-					if (row == null) {
+				var row = result.fetch_row ();
+				if (row == null) {
+					if (result.eof ()) {
+						return false;
+					} else {
 						throw new DatabaseError.FAILED (database.error ());
 					}
-					current_row = new Row (fields, row);
-					return true;
 				}
+				current_row = new Row (fields, row);
+				return true;
 			}
 		}
 

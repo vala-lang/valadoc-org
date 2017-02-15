@@ -133,23 +133,34 @@ namespace Valadoc.App {
 			return res.end ();
 		}));
 
-		app.post ("/tooltip", accept ("text/html", (req, res) => {
-			var form = Soup.Form.decode (req.flatten_utf8 ());
-
-			var result = db.query ("""
-			SELECT type, name, shortdesc, path, signature, namelen
-			FROM %s
-			WHERE MATCH(?) AND namelen=?
-			LIMIT 1 OPTION max_matches=1,ranker=none""", form.lookup ("index"), 
-			form.lookup ("name"),
-			form.lookup ("namelen"));
-
-			foreach (var row in result) {
-				res.append_utf8 ("<p>%s</p>%s".printf (row["signature"], 
-				                                       row["shortdesc"]));
+		app.get ("/tooltip", accept ("text/html", (req, res) => {
+			var fullname = req.lookup_query ("fullname") ?? "/";
+			if (fullname == null) {
+				throw new ClientError.BAD_REQUEST ("The 'fullname' field is required.");
+			}
+			if (fullname.index_of_char ('/') == -1) {
+				throw new ClientError.BAD_REQUEST ("The 'fullname' field is not correctly formed.");
 			}
 
-			return res.end ();
+			var package = fullname.split ("/")[0];
+			var name    = fullname.split ("/")[1];
+
+			var result = db.query ("""
+			SELECT shortdesc, signature
+			FROM %s
+			WHERE MATCH(?) AND namelen=?
+			LIMIT 1 OPTION max_matches=1,ranker=none""".printf ("stable" + package.replace ("-", "").replace (".", "")),
+			name.replace (".", " << . << "),
+			name.length.to_string ());
+
+			var result_iter = result.iterator ();
+
+			if (result_iter.next ()) {
+				return res.expand_utf8 ("<p>%s</p>%s".printf (result_iter.get ()["signature"],
+				                                              result_iter.get ()["shortdesc"]));
+			} else {
+				return res.expand_utf8 ("<p>No results for %s in %s.</p>".printf (name, package));
+			}
 		}));
 
 		return Server.@new ("http", handler: app, interface: new Soup.Address.any (Soup.AddressFamily.IPV4, 7777)).run (args);

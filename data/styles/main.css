@@ -80,7 +80,7 @@ nav span {
 
 nav .title {
     display: inline-block;
-    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
     height: 28px;

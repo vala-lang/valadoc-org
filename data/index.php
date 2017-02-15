@@ -60,6 +60,7 @@ if ($first == null || $first === "index") { // Homepage
   <meta property="og:type" content="website">
   <title><?php echo get_title ($page); ?></title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Droid+Serif:400|Roboto+Mono:400,500,700,400italic">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/styles/main.css" type="text/css">
   <link rel="apple-touch-icon" href="/images/icon.png" />
   <link rel="shortcut icon" href="/images/favicon.ico">
@@ -71,7 +72,10 @@ if ($first == null || $first === "index") { // Homepage
     </div>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
     <ul>
-      <li><a href="/markup.htm">Markup</a></li>
+      <li><a href="https://plus.google.com/communities/113287185626826620884" title="Google+"><i class="fa fa-google-plus"></i></a>
+      <li><a href="http://stackoverflow.com/documentation/vala/" title="stackoverflow"><i class="fa fa-stack-overflow"></i></a>
+      <li><a href="https://www.reddit.com/r/vala/" title="reddit"><i class="fa fa-reddit"></i></a>
+      <li><a href="/markup.htm" title="Markup Info"><i class="fa fa-info-circle"></i></a>
     </ul>
   </nav>
   <div id="sidebar">

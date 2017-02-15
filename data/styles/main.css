@@ -41,7 +41,7 @@ nav {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    font-size: 14px;
+    font-size: 16px;
     height: 48px;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;

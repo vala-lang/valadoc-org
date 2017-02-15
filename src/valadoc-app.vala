@@ -24,7 +24,16 @@ namespace Valadoc.App {
 </div>""") (req, res, next, ctx);
 		}))));
 
-		app.get ("/<path:path>", Static.serve_from_file (docroot, Static.ServeFlags.ENABLE_ETAG));
+		app.get ("/favicon.ico", () => {
+			throw new Redirection.MOVED_PERMANENTLY ("/images/favicon.ico");
+		});
+
+		app.get ("/<path:path>", Static.serve_from_file (docroot, Static.ServeFlags.ENABLE_ETAG, (req, res, next, ctx, file) => {
+			if (file.get_basename ().has_suffix (".tpl")) {
+				res.headers.set_content_type ("text/html", null);
+			}
+			return next ();
+		}));
 
 		app.register_type ("pkg", /[\w-.]+/);
 		app.register_type ("sym", /[\w.]+/);

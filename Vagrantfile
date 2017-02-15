@@ -79,7 +79,8 @@ Vagrant.configure("2") do |config|
         sphinxsearch           \
         unzip                  \
         valac                  \
-        valadoc
+        valadoc                \
+        xsltproc
 
     wget https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-linux.zip
     unzip ninja-linux.zip -d /usr/local/bin

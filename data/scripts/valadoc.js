@@ -280,7 +280,7 @@ $(document).ready(function () {
         curpost = null
       }
       var curpkg = clean_path().split('/')[1]
-      curpost = $.post('/search', { query: value, curpkg: curpkg }, function (data) {
+      curpost = $.get('/search', { query: value, package: curpkg }, function (data) {
         if (scrollxhr) {
           scrollxhr.abort()
           scrollxhr = null
@@ -344,7 +344,7 @@ $(document).ready(function () {
       }
       var numresults = sr.children().length
       var curpkg = clean_path().split('/')[1]
-        scrollxhr = $.post('/search', { query: value, curpkg: curpkg, offset: numresults }, function (data) {
+        scrollxhr = $.get('/search', { query: value, package: curpkg, offset: numresults }, function (data) {
         scrollxhr = null
         $('.search-more').remove()
         sr.append(data)

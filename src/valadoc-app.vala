@@ -107,23 +107,47 @@ namespace Valadoc.App {
 			}
 		});
 
-		app.post ("/search", accept ("text/html", (req, res) => {
-			var form = Soup.Form.decode (req.flatten_utf8 ());
+		app.get ("/search", accept ("text/html", (req, res) => {
+			var query = req.lookup_query ("query");
+			if (query == null) {
+				throw new ClientError.BAD_REQUEST ("The 'query' field is required.");
+			}
 
-			string[] allpkgs = {"stablezlib"}; // TODO: move that into the query
+			string[] options = {"ranker=proximity"};
 
-			var result = db.query ("""
-			SELECT type, name, shortdesc, path, signature, typeorder, %s
+			var package = req.lookup_query ("package");
+			if (package != null && package != "") {
+				options += "index_weights=(%s=2)".printf ("stable" + package.replace ("-", "").replace (".", ""));
+			}
+
+			var offset = req.lookup_query ("offset") ?? "0";
+			if (!uint64.try_parse (offset)) {
+				throw new ClientError.BAD_REQUEST ("The 'offset' field is not a valid integer.");
+			}
+
+			var orderby = "namelen";
+
+			string[] all_packages = {};
+			var result = db.query ("SHOW TABLES");
+			foreach (var row in result) {
+				if (row.get ("Index").has_prefix ("stable")) {
+					all_packages += row.get ("Index");
+				}
+			}
+
+			result = db.query ("""
+			SELECT type, name, shortdesc, path
 			FROM %s
 			WHERE MATCH(?)
-			ORDER BY WEIGHT() DESC, namelen ASC, typeorder ASC
-			LIMIT ?,20 OPTION ranker=proximity,index_weights=(%s=2)""".printf ("namelen", string.joinv (",", allpkgs), "stablezlib"),
-			form.lookup ("query"), form.lookup ("offset") ?? "0");
+			ORDER BY WEIGHT() DESC, %s ASC, typeorder ASC
+			LIMIT ?,20 OPTION %s""".printf (string.joinv (", ", all_packages), orderby, string.joinv (",", options)),
+			"@ftsname " + "*" + query.replace (".", "* << . << *") + "*",
+			offset);
 
 			foreach (var row in result) {
-				var path    = row["path"];
-				var package = path.substring (0, path.index_of_char ('/'));
-				var symbol  = path.substring (path.index_of_char ('/') + 1);
+				var path   = row["path"];
+				var pkg    = path.substring (0, path.index_of_char ('/'));
+				var symbol = path.substring (path.index_of_char ('/') + 1);
 				res.append_utf8 ("""<li class="search-result %s">
 				                      <a href="%s">
 				                        <span class="search-name">
@@ -135,7 +159,7 @@ namespace Valadoc.App {
 				                    </li>""".printf (row["type"].down (),
 				                                     path,
 				                                     row["name"],
-				                                     package,
+				                                     pkg,
 				                                     row["shortdesc"]));
 			}
 

@@ -70,12 +70,9 @@ if ($first == null || $first === "index") { // Homepage
       <input id="search-field" type="text" placeholder="Search" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
     </div>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
-    <span class="subtitle">Stays crunchy, even in milk.</span>
-    <div id="links">
-      <ul>
-        <li><a href="/markup.htm">Markup</a></li>
-      </ul>
-    </div>
+    <ul>
+      <li><a href="/markup.htm">Markup</a></li>
+    </ul>
   </nav>
   <div id="sidebar">
     <ul class="navi_main" id="search-results"></ul>

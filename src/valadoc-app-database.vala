@@ -51,16 +51,19 @@ namespace Valadoc.App {
 
 				statement_builder.append (statement[statement_offset:pos]);
 
-				var str_dest = (string) new uint8[2 * str.length];
+				var str_dest     = (string) new uint8[2 * str.length + 1];
+				var str_dest_len = (long) database.real_escape_string (str_dest, str, str.length);
 
-				if ((long) database.real_escape_string (str_dest, str, str.length) == -1) {
+				if (str_dest_len == -1) {
 					throw new DatabaseError.FAILED ("Could not escape the value for position '%u'.", pos);
 				}
 
 				if (bool.try_parse (str_dest) || int64.try_parse (str_dest) || double.try_parse (str_dest)) {
-					statement_builder.append (str_dest);
+					statement_builder.append_len (str_dest, str_dest_len);
 				} else {
-					statement_builder.append_printf ("'%s'", str_dest);
+					statement_builder.append_c ('\'');
+					statement_builder.append_len (str_dest, str_dest_len);
+					statement_builder.append_c ('\'');
 				}
 
 				statement_offset = pos + 1; // just right after the '?'

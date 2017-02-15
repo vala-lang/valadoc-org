@@ -344,7 +344,8 @@ $(document).ready(function () {
       }
       var numresults = sr.children().length
       var curpkg = clean_path().split('/')[1]
-        scrollxhr = $.get('/search?query=' + encodeURIComponent(value) + '&package=' + encodeURIComponent(curpkg) + '&offset=' + encodeURIComponent(offset), function (data) {
+      var offset = offset || 0
+      scrollxhr = $.get('/search?query=' + encodeURIComponent(value) + '&package=' + encodeURIComponent(curpkg) + '&offset=' + encodeURIComponent(offset), function (data) {
         scrollxhr = null
         $('.search-more').remove()
         sr.append(data)

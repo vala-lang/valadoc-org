@@ -102,6 +102,7 @@ namespace Valadoc.App {
 				return next ();
 			} catch (Error err) {
 				critical ("%s (%s, %d)", err.message, err.domain.to_string (), err.code);
+				res.status = 500;
 				res.headers.set_content_type ("text/plain", null);
 				return res.expand_utf8 ("Query failed: (%s) ".printf (err.message));
 			}
@@ -145,9 +146,11 @@ namespace Valadoc.App {
 			offset);
 
 			foreach (var row in result) {
-				var path   = row["path"];
-				var pkg    = path.substring (0, path.index_of_char ('/'));
-				var symbol = path.substring (path.index_of_char ('/') + 1);
+				var html_regex  = new Regex("<.*?>");
+				var path        = row["path"];
+				var pkg         = path.substring (0, path.index_of_char ('/'));
+				var symbol      = path.substring (path.index_of_char ('/') + 1);
+				var description = html_regex.replace (row["shortdesc"], row["shortdesc"].length, 0, "");
 				res.append_utf8 ("""<li class="search-result %s">
 				                      <a href="%s">
 				                        <span class="search-name">
@@ -160,7 +163,7 @@ namespace Valadoc.App {
 				                                     path,
 				                                     row["name"],
 				                                     pkg,
-				                                     row["shortdesc"]));
+				                                     description));
 			}
 
 			return res.end ();

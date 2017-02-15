@@ -79,19 +79,17 @@ Vagrant.configure("2") do |config|
         sphinxsearch           \
         unzip                  \
         valac                  \
-        valadoc                \
-        xsltproc
-
-    pip3 install meson
-
-    rm -rf ninja-linux.zip v0.3.1.zip valum-0.3.1
+        valadoc
 
     wget https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-linux.zip
     unzip ninja-linux.zip -d /usr/local/bin
 
-    wget https://github.com/valum-framework/valum/archive/v0.3.1.zip
-    unzip v0.3.1.zip
-    pushd valum-0.3.1
+    pip3 install meson==0.36.0
+
+    rm -rf valum-0.3.5
+    wget https://github.com/valum-framework/valum/archive/v0.3.5.zip
+    unzip v0.3.5.zip
+    pushd valum-0.3.5
     mkdir build
     meson --prefix=/usr --buildtype=release build
     ninja -C build

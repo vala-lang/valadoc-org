@@ -65,8 +65,8 @@ configgen: src/configgen.vala
 
 
 update-girs:
-	[ -d girs ]        && git -C girs pull        || git clone https://github.com/nemequ/vala-girs.git girs
-	[ -d extra-vapis ] && git -C extra-vapis pull || git clone https://github.com/nemequ/vala-extra-vapis.git extra-vapis
+	[ -d girs ]        && git -C girs pull        || git clone https://github.com/nemequ/vala-girs.git girs --depth 1
+	[ -d extra-vapis ] && git -C extra-vapis pull || git clone https://github.com/nemequ/vala-extra-vapis.git extra-vapis --depth 1
 
 
 #

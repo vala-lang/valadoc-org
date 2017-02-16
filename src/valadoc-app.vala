@@ -100,6 +100,8 @@ namespace Valadoc.App {
 		app.use ((req, res, next) => {
 			try {
 				return next ();
+			} catch (ClientError err) {
+				throw err;
 			} catch (Error err) {
 				critical ("%s (%s, %d)", err.message, err.domain.to_string (), err.code);
 				res.status = 500;

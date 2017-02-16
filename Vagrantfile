@@ -98,11 +98,12 @@ Vagrant.configure("2") do |config|
     cd /home/vagrant
 
     cd /home/ubuntu/valadoc-org
+    make
     make clean
     make app
     make build-docs
-    make configgen
-    mkdir -p sphinx/storage
+    rm -rf sphinx/storage
+    mkdir sphinx/storage
     ./configgen valadoc.org
     indexer --config sphinx.conf --all
   SHELL

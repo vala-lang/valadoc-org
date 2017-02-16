@@ -95,11 +95,10 @@ Vagrant.configure("2") do |config|
     ninja -C build
     ninja -C build test
     ninja -C build install
-    cd /home/vagrant
 
     cd /home/ubuntu/valadoc-org
-    make
     make clean
+    make
     make app
     make build-docs
     rm -rf sphinx/storage

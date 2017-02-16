@@ -71,6 +71,7 @@ Vagrant.configure("2") do |config|
         libgee-0.8-dev         \
         libgirepository1.0-dev \
         libglib2.0-dev         \
+        libjson-glib-dev       \
         libmysqlclient-dev     \
         libsoup2.4-dev         \
         libvaladoc-dev         \

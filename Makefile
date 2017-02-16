@@ -34,7 +34,7 @@ clean:
 
 
 app: src/valadoc-app.vala src/valadoc-app-database.vala
-	$(VALAC) --pkg=valum-0.3 --pkg=mysql -X -L/usr/lib64/mysql -X -lmysqlclient -o $@ $^
+	$(VALAC) --pkg=valum-0.3 --pkg=mysql -X -L/usr/lib64/mysql -X -lmysqlclient --pkg=json-glib-1.0 -o $@ $^
 
 valadoc-example-gen: src/valadoc-example-parser.vala src/valadoc-example-gen.vala
 	$(VALAC) $(VALAFLAGS) -o $@ $^

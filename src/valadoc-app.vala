@@ -116,7 +116,7 @@ namespace Valadoc.App {
 			}
 		});
 
-		app.get ("/search", accept ("text/html", (req, res) => {
+		app.get ("/search", accept ("application/json, text/plain", (req, res) => {
 			var query = req.lookup_query ("query");
 			if (query == null) {
 				throw new ClientError.BAD_REQUEST ("The 'query' field is required.");
@@ -161,31 +161,62 @@ namespace Valadoc.App {
 			"@(shortname,ftsname) %s".printf (query),
 			offset);
 
-			foreach (var row in result) {
-				var html_regex  = new Regex("<.*?>");
-				var path        = row["path"];
-				var pkg         = path.substring (0, path.index_of_char ('/'));
-				var symbol      = path.substring (path.index_of_char ('/') + 1);
-				var description = html_regex.replace (row["shortdesc"], row["shortdesc"].length, 0, "");
-				res.append_utf8 ("""<li class="search-result %s">
-				                      <a href="%s">
-				                        <span class="search-name">
-				                          %s
-				                          <span class="search-package">%s</span>
-				                        </span>
-				                        <span class="search-desc">%s</span>
-				                      </a>
-				                    </li>""".printf (row["type"].down (),
-				                                     path,
-				                                     row["name"],
-				                                     pkg,
-				                                     description));
+			if (res.headers.get_content_type (null) == "text/plain") {
+				foreach (var row in result) {
+					var html_regex  = new Regex("<.*?>");
+					var path        = row["path"];
+					var pkg         = path.substring (0, path.index_of_char ('/'));
+					var symbol      = path.substring (path.index_of_char ('/') + 1);
+					var description = html_regex.replace (row["shortdesc"], row["shortdesc"].length, 0, "");
+					res.append_utf8 ("""<li class="search-result %s">
+					                      <a href="%s">
+					                        <span class="search-name">
+					                          %s
+					                          <span class="search-package">%s</span>
+					                        </span>
+					                        <span class="search-desc">%s</span>
+					                      </a>
+					                    </li>""".printf (row["type"].down (),
+					                                     path,
+					                                     row["name"],
+					                                     pkg,
+					                                     description));
+
+				}
+			} else {
+				var builder = new Json.Builder ();
+
+				builder.begin_array ();
+				foreach (var row in result) {
+					builder.begin_object ();
+
+					builder.set_member_name ("type");
+					builder.add_string_value (row["type"]);
+
+					builder.set_member_name ("path");
+					builder.add_string_value (row["path"]);
+
+					builder.set_member_name ("name");
+					builder.add_string_value (row["name"]);
+
+					builder.set_member_name ("description");
+					builder.add_string_value (row["shortdesc"]);
+
+					builder.end_object ();
+				}
+				builder.end_array ();
+
+				var gen = new Json.Generator ();
+
+				gen.root = builder.get_root ();
+
+				return gen.to_stream (res.body);
 			}
 
 			return res.end ();
 		}));
 
-		app.get ("/tooltip", accept ("text/html", (req, res) => {
+		app.get ("/tooltip", accept ("text/plain", (req, res) => {
 			var fullname = req.lookup_query ("fullname") ?? "/";
 			if (fullname == null) {
 				throw new ClientError.BAD_REQUEST ("The 'fullname' field is required.");

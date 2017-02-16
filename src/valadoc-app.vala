@@ -134,8 +134,6 @@ namespace Valadoc.App {
 				throw new ClientError.BAD_REQUEST ("The 'offset' field is not a valid integer.");
 			}
 
-			var orderby = "namelen";
-
 			string[] all_packages = {};
 			var result = db.query ("SHOW TABLES");
 			foreach (var row in result) {
@@ -144,13 +142,23 @@ namespace Valadoc.App {
 				}
 			}
 
+			// escape character for Sphinx's match
+			query = new Regex ("[\\()|\\-!@~\"&/^$=]").replace_eval (query, -1, 0, 0, (match_info, builder) => {
+				builder.append_printf ("\\%s", match_info.fetch (0));
+				return false;
+			});
+
+			// don't consider dots
+			query = query.replace (".", " << . << ") + "*";
+
 			result = db.query ("""
 			SELECT type, name, shortdesc, path
 			FROM %s
 			WHERE MATCH(?)
-			ORDER BY WEIGHT() DESC, %s ASC, typeorder ASC
-			LIMIT ?,20 OPTION %s""".printf (string.joinv (", ", all_packages), orderby, string.joinv (",", options)),
-			"@ftsname " + "*" + query.replace (".", "* << . << *") + "*",
+			GROUP BY name
+			ORDER BY WEIGHT() DESC, typeorder ASC, namelen ASC, shortdesc DESC
+			LIMIT ?,20 OPTION %s""".printf (string.joinv (", ", all_packages), string.joinv (",", options)),
+			"@(shortname,ftsname) %s".printf (query),
 			offset);
 
 			foreach (var row in result) {

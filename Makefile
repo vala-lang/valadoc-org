@@ -135,6 +135,6 @@ test-examples: valadoc-example-tester
 #
 
 serve: default build-docs
-	FWD_SEARCH=1 FWD_TOOLTIP=1 ./app
+	./app --address=0.0.0.0:7777
 serve-mini: default build-docs-mini
-	FWD_SEARCH=1 FWD_TOOLTIP=1 ./app
+	./app --address=0.0.0.0:7777

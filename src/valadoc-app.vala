@@ -207,7 +207,7 @@ namespace Valadoc.App {
 			}
 		}));
 
-		return Server.@new ("http", handler: app, interface: new Soup.Address.any (Soup.AddressFamily.IPV4, 7777)).run (args);
+		return Server.@new ("http", handler: app).run (args);
 	}
 
 	public HandlerCallback render_template (string title, string navi, string content) {

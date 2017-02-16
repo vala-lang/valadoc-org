@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  # config.vm.network "private_network", ip: "192.168.13.2"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -37,19 +37,16 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder ".", "/home/vagrant/valadoc-org"
+  config.vm.synced_folder ".", "/home/ubuntu/valadoc-org"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
-  # end
+  config.vm.provider "virtualbox" do |vb|
+    # Customize the amount of memory on the VM:
+    vb.memory = "2048"
+  end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
@@ -65,6 +62,8 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
+    cd /home/ubuntu
+
     add-apt-repository --yes ppa:vala-team
     apt-get update -y
     apt-get install -y         \
@@ -90,15 +89,15 @@ Vagrant.configure("2") do |config|
     rm -rf valum-0.3.5
     wget https://github.com/valum-framework/valum/archive/v0.3.5.zip
     unzip v0.3.5.zip
-    pushd valum-0.3.5
+    cd /home/ubuntu/valum-0.3.5
     mkdir build
     meson --prefix=/usr --buildtype=release build
     ninja -C build
     ninja -C build test
     ninja -C build install
-    popd
+    cd /home/vagrant
 
-    pushd valadoc-org
+    cd /home/ubuntu/valadoc-org
     make clean
     make app
     make build-docs
@@ -106,6 +105,5 @@ Vagrant.configure("2") do |config|
     mkdir -p sphinx/storage
     ./configgen valadoc.org
     indexer --config sphinx.conf --all
-    popd
   SHELL
 end

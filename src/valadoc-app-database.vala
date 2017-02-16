@@ -22,6 +22,7 @@ namespace Valadoc.App {
 		}
 
 		public bool init (Cancellable? cancellable = null) throws Error {
+			database.options (Mysql.Option.OPT_RECONNECT, "1");
 			if (!database.real_connect (hostname, null, null, null, port)) {
 				throw new DatabaseError.FAILED (database.error ());
 			}

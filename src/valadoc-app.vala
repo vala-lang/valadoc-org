@@ -92,9 +92,15 @@ namespace Valadoc.App {
 			return 1;
 		}
 
+    var database_mutex = Mutex ();
 		app.use ((req, res, next) => {
-			db.ping (); /* keep-alive */
-			return next ();
+			database_mutex.lock ();
+			try {
+				db.ping (); /* keep-alive */
+				return next ();
+			} finally {
+				database_mutex.unlock ();
+			}
 		});
 
 		app.use ((req, res, next) => {

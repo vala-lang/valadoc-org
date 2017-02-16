@@ -135,8 +135,7 @@ namespace Valadoc.App {
 			}
 
 			string[] all_packages = {};
-			var result = db.query ("SHOW TABLES");
-			foreach (var row in result) {
+			foreach (var row in db.query ("SHOW TABLES")) {
 				if (row.get ("Index").has_prefix ("stable")) {
 					all_packages += row.get ("Index");
 				}
@@ -151,7 +150,7 @@ namespace Valadoc.App {
 			// don't consider dots
 			query = query.replace (".", " << . << ") + "*";
 
-			result = db.query ("""
+			var result = db.query ("""
 			SELECT type, name, shortdesc, path
 			FROM %s
 			WHERE MATCH(?)

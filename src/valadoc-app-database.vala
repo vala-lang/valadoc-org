@@ -29,6 +29,10 @@ namespace Valadoc.App {
 			return true;
 		}
 
+		public unowned Mysql.Database get_mysql_database () {
+			return database;
+		}
+
 		private void _handle_return_code (int rc) throws DatabaseError {
 			if (rc != 0)  {
 				throw new DatabaseError.FAILED (database.error ());
@@ -75,71 +79,86 @@ namespace Valadoc.App {
 
 			_handle_return_code (database.real_query (statement_builder.str, statement_builder.len));
 
-			return new Result (database, database.use_result ());
+			var result = database.use_result ();
+
+			if (result == null) {
+				throw new DatabaseError.FAILED (database.error ());
+			}
+
+			return new Result (this, (owned) result);
 		}
 
 		public Result? query (string statement, ...) throws DatabaseError {
 			return query_valist (statement, va_list ());
 		}
 
-		public class Result {
+		public class Result : Object {
 
-			private unowned Mysql.Database database;
-			private Mysql.Result result;
+			private         Mysql.Result  result;
+			private unowned Mysql.Field[] fields;
 
-			internal Result (Mysql.Database database, owned Mysql.Result result) {
-				this.database = database;
-				this.result   = (owned) result;
+			public Database database { construct; get; }
+
+			internal Result (Database database, owned Mysql.Result result) {
+				base (database: database);
+				this.result = (owned) result;
+				this.fields = this.result.fetch_fields ();
+			}
+
+			public unowned Mysql.Result get_mysql_result () {
+				return result;
+			}
+
+			public unowned Mysql.Field[] get_mysql_fields () {
+				return fields;
 			}
 
 			public ResultIter iterator () {
-				return new ResultIter (database, result);
+				return new ResultIter (this);
 			}
 		}
 
-		public class ResultIter {
+		public class ResultIter : Object {
 
-			private unowned Mysql.Database database;
-			private unowned Mysql.Result   result;
-			private Mysql.Field[]          fields;
-			private Row?                   current_row;
+			private Row? current_row;
 
-			internal ResultIter (Mysql.Database database, Mysql.Result result) {
-				this.database    = database;
-				this.result      = result;
-				this.fields      = result.fetch_fields ();
+			public Result result { construct; get; }
+
+			internal ResultIter (Result result) {
+				base (result: result);
 				this.current_row = null;
 			}
 
-			public Row? get () {
+			public new Row? get () {
 				return current_row;
 			}
 
 			public bool next () throws DatabaseError {
-				var row = result.fetch_row ();
+				var row = result.get_mysql_result ().fetch_row ();
 				if (row == null) {
-					if (result.eof ()) {
+					if (result.get_mysql_result ().eof ()) {
 						return false;
 					} else {
-						throw new DatabaseError.FAILED (database.error ());
+						throw new DatabaseError.FAILED (result.database.get_mysql_database ().error ());
 					}
 				}
-				current_row = new Row (fields, row);
+				current_row = new Row (result, row);
 				return true;
 			}
 		}
 
-		public class Row {
+		public class Row : Object {
 
-			private Mysql.Field[] fields;
-			private string[]      row;
+			public Result result { construct; get; }
 
-			internal Row (Mysql.Field[] fields, string[] row) {
-				this.fields = fields;
-				this.row = row;
+			public string[] row { construct; get; }
+
+			internal Row (Result result, string[] row) {
+				base (result: result, row: row);
 			}
 
-			public string? get (string column) {
+			public new string? get (string column) {
+				unowned Mysql.Field[] fields = result.get_mysql_fields ();
 				for (var i = 0; i < fields.length; i++) {
 					if (fields[i].name == column) {
 						return row[i];

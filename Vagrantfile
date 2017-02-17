@@ -62,8 +62,6 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    cd /home/ubuntu
-
     add-apt-repository --yes ppa:vala-team
     apt-get update -y
     apt-get install -y         \
@@ -82,15 +80,27 @@ Vagrant.configure("2") do |config|
         valadoc                \
         xsltproc
 
-    wget https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-linux.zip
+    wget -nc https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-linux.zip
     unzip ninja-linux.zip -d /usr/local/bin
 
     pip3 install meson==0.36.0
 
+    cd /home/ubuntu
     rm -rf valum-0.3.5
-    wget https://github.com/valum-framework/valum/archive/v0.3.5.zip
+    wget -nc https://github.com/valum-framework/valum/archive/v0.3.5.zip
     unzip v0.3.5.zip
     cd /home/ubuntu/valum-0.3.5
+    mkdir build
+    meson --prefix=/usr --buildtype=release build
+    ninja -C build
+    ninja -C build test
+    ninja -C build install
+
+    cd /home/ubuntu
+    rm -rf compose-master
+    wget -O compose-master.zip https://github.com/arteymix/compose/archive/master.zip
+    unzip compose-master.zip
+    cd /home/ubuntu/compose-master
     mkdir build
     meson --prefix=/usr --buildtype=release build
     ninja -C build
@@ -100,7 +110,6 @@ Vagrant.configure("2") do |config|
     cd /home/ubuntu/valadoc-org
     make clean
     make
-    make app
     make build-docs
     rm -rf sphinx/storage
     mkdir sphinx/storage

@@ -1,3 +1,4 @@
+using Compose.HTML5;
 using Valum;
 using Valum.ContentNegotiation;
 using VSGI;
@@ -116,7 +117,7 @@ namespace Valadoc.App {
 			}
 		});
 
-		app.get ("/search", accept ("application/json, text/plain", (req, res) => {
+		app.get ("/search", accept ("text/html, application/json, text/plain", (req, res, next, ctx) => {
 			var query = req.lookup_query ("query");
 			if (query == null) {
 				throw new ClientError.BAD_REQUEST ("The 'query' field is required.");
@@ -160,7 +161,37 @@ namespace Valadoc.App {
 			"@(shortname,ftsname) %s".printf (query),
 			offset);
 
-			if (res.headers.get_content_type (null) == "text/plain") {
+			if (res.headers.get_content_type (null) == "text/html") {
+				uint8[] search_result_navi;
+				if (package != null) {
+					docroot.get_child (package).get_child ("index.htm.navi.tpl").load_contents (null, out search_result_navi, null);
+				} else {
+					docroot.get_child ("index.htm.navi.tpl").load_contents (null, out search_result_navi, null);
+				}
+				var search_result_content = new StringBuilder ();
+				foreach (var row in result) {
+					var html_regex  = new Regex("<.*?>");
+					var path        = row["path"];
+					var pkg         = path.substring (0, path.index_of_char ('/'));
+					var symbol      = path.substring (path.index_of_char ('/') + 1);
+					var description = html_regex.replace (row["shortdesc"], row["shortdesc"].length, 0, "");
+					search_result_content.append_printf (
+					"""<li class="search-result %s">
+					     <a href="%s">
+					       <span class="search-name">
+					         %s
+					         <span class="search-package">%s</span>
+					       </span>
+					       <span class="search-desc">%s</span>
+					     </a>
+					   </li>""".printf (row["type"].down (),
+					                 path,
+					                 row["name"],
+					                 pkg,
+					                 description));
+				}
+				return render_template ("Search Results", (string) search_result_navi, search_result_content.str) (req, res, next, ctx);
+			} else if (res.headers.get_content_type (null) == "text/plain") {
 				foreach (var row in result) {
 					var html_regex  = new Regex("<.*?>");
 					var path        = row["path"];
@@ -270,9 +301,9 @@ namespace Valadoc.App {
 </head>
 <body>
   <nav>
-    <div id="search-box">
-      <input id="search-field" type="text" placeholder="Search" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
-    </div>
+    <form id="search-box" action="/search">
+      <input id="search-field" name="query" type="text" placeholder="Search" autocompletion="off" autosave="search" value="%s" /><img id="search-field-clear" src="/images/clean.svg" />
+    </form>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
     <span class="subtitle">Stays crunchy, even in milk.</span>
     <div id="links">
@@ -306,7 +337,7 @@ namespace Valadoc.App {
   <script type="text/javascript" src="/scripts/valadoc.js"></script>
   <script type="text/javascript" src="/scripts/main.js"></script>
 </body>
-</html>""".printf (title, title, navi, content, new DateTime.now_local ().get_year ()));
+</html>""".printf (title, title, e (req.lookup_query ("query") ?? ""), navi, content, new DateTime.now_local ().get_year ()));
 		};
 	}
 }

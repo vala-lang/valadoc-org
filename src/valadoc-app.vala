@@ -257,7 +257,7 @@ namespace Valadoc.App {
 			if (result_iter.next ()) {
 				return res.expand_utf8 (p ({}, result_iter.get ()["signature"]) + result_iter.get ()["shortdesc"]);
 			} else {
-				return res.expand_utf8 (p ({}, "No results for ", name, " in ", package, "."));
+				return res.expand_utf8 (p ({}, "No results for ", e (name), " in ", e (package), "."));
 			}
 		}));
 

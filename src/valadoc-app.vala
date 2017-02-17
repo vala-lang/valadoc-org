@@ -17,12 +17,12 @@ namespace Valadoc.App {
 			docroot.get_child ("index.htm.navi.tpl").load_contents (null, out navi_contents, out navi_etag);
 			res.status = 404;
 			res.headers.append ("ETag", navi_etag);
-			return render_template ("Page not found", (string) navi_contents, """<div id="site_content">
-  <h1 class="main_title">404</h1>
-  <hr class="main_hr">
-  <h2>Page not found</h2>
-  <p>The page your are looking for can not be found.</p>
-</div>""") (req, res, next, ctx);
+			return render_template ("Page not found", (string) navi_contents,
+				div ({"id=site_content"},
+					 h1 ({"class=main_title"}, "404"),
+					 hr ({"class=main_hr"}),
+					 h2 ({}, "Page not found"),
+					 p ({}, "The page you are looking for cannot be found."))) (req, res, next, ctx);
 		}))));
 
 		app.get ("/favicon.ico", () => {
@@ -175,20 +175,13 @@ namespace Valadoc.App {
 					var pkg         = path.substring (0, path.index_of_char ('/'));
 					var symbol      = path.substring (path.index_of_char ('/') + 1);
 					var description = html_regex.replace (row["shortdesc"], row["shortdesc"].length, 0, "");
-					search_result_content.append_printf (
-					"""<li class="search-result %s">
-					     <a href="%s">
-					       <span class="search-name">
-					         %s
-					         <span class="search-package">%s</span>
-					       </span>
-					       <span class="search-desc">%s</span>
-					     </a>
-					   </li>""".printf (row["type"].down (),
-					                 path,
-					                 row["name"],
-					                 pkg,
-					                 description));
+					search_result_content.append (
+						li ({"class=search-result %s".printf (row["type"].down ())},
+						a (path, {},
+						   span ({"class=search-name"},
+								 e (row["name"]),
+								 span ({"class=search-package"}, e (pkg))),
+						   span ({"class=search-desc"}, e (description)))));
 				}
 				return render_template ("Search Results", (string) search_result_navi, search_result_content.str) (req, res, next, ctx);
 			} else if (res.headers.get_content_type (null) == "text/plain") {
@@ -198,20 +191,13 @@ namespace Valadoc.App {
 					var pkg         = path.substring (0, path.index_of_char ('/'));
 					var symbol      = path.substring (path.index_of_char ('/') + 1);
 					var description = html_regex.replace (row["shortdesc"], row["shortdesc"].length, 0, "");
-					res.append_utf8 ("""<li class="search-result %s">
-					                      <a href="%s">
-					                        <span class="search-name">
-					                          %s
-					                          <span class="search-package">%s</span>
-					                        </span>
-					                        <span class="search-desc">%s</span>
-					                      </a>
-					                    </li>""".printf (row["type"].down (),
-					                                     path,
-					                                     row["name"],
-					                                     pkg,
-					                                     description));
-
+					res.append_utf8 (
+						li ({"class=search-result %s".printf (row["type"].down ())},
+						a (path, {},
+						   span ({"class=search-name"},
+								 e (row["name"]),
+								 span ({"class=search-package"}, e (pkg))),
+						   span ({"class=search-desc"}, e (description)))));
 				}
 			} else {
 				var builder = new Json.Builder ();
@@ -269,10 +255,9 @@ namespace Valadoc.App {
 			var result_iter = result.iterator ();
 
 			if (result_iter.next ()) {
-				return res.expand_utf8 ("<p>%s</p>%s".printf (result_iter.get ()["signature"],
-				                                              result_iter.get ()["shortdesc"]));
+				return res.expand_utf8 (p ({}, result_iter.get ()["signature"]) + result_iter.get ()["shortdesc"]);
 			} else {
-				return res.expand_utf8 ("<p>No results for %s in %s.</p>".printf (name, package));
+				return res.expand_utf8 (p ({}, "No results for ", name, " in ", package, "."));
 			}
 		}));
 

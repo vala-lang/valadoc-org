@@ -5,6 +5,7 @@ language: c
 before_install:
   - wget https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-linux.zip
   - wget -O valum-0.3.0.zip https://github.com/valum-framework/valum/archive/v0.3.0.zip
+  - wget -O compose-master.zip https://github.com/arteymix/compose/archive/master.zip
 
 install:
   - sudo add-apt-repository ppa:vala-team -y
@@ -15,6 +16,8 @@ install:
   - sudo unzip ninja-linux.zip -d /usr/local/bin
   - unzip valum-0.3.0.zip
   - cd valum-0.3.0 && mkdir build && meson --prefix=/usr --buildtype=release build && ninja -C build && sudo ninja -C build install && cd ..
+  - unzip compose-master.zip
+  - cd compose-master && mkdir build && meson --prefix=/usr --buildtype=release build && ninja -C build && sudo ninja -C build install && cd ..
 
 script:
   - make

@@ -83,13 +83,13 @@ Vagrant.configure("2") do |config|
     wget -nc https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-linux.zip
     unzip ninja-linux.zip -d /usr/local/bin
 
-    pip3 install meson==0.36.0
+    pip3 install meson
 
     cd /home/ubuntu
-    rm -rf valum-0.3.5
-    wget -nc https://github.com/valum-framework/valum/archive/v0.3.5.zip
-    unzip v0.3.5.zip
-    cd /home/ubuntu/valum-0.3.5
+    rm -rf valum-0.3.6
+    wget -nc https://github.com/valum-framework/valum/archive/v0.3.6.zip
+    unzip v0.3.6.zip
+    cd /home/ubuntu/valum-0.3.6
     mkdir build
     meson --prefix=/usr --buildtype=release build
     ninja -C build

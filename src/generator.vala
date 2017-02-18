@@ -428,7 +428,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private class ExternalPackage : Package {
 
 		public ExternalPackage (string name, string online_link, string? maintainers, string? devhelp_link, string? home, string? c_docs, bool is_deprecated, bool is_local) {
-			Package.dummy ();
+			base.dummy ();
 
 			this.is_deprecated = is_deprecated;
 			this.devhelp_link = devhelp_link;

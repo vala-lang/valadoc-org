@@ -99,7 +99,7 @@ build-data:
 #
 
 
-build-docs: generator libdoclet.so
+build-docs: generator libdoclet.so valadoc-example-gen
 	$(RM) -r tmp/
 	./generator \
 		--vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
@@ -112,7 +112,7 @@ build-docs: generator libdoclet.so
 		--no-check-certificate \
 		--all
 
-build-docs-mini: generator libdoclet.so
+build-docs-mini: generator libdoclet.so valadoc-example-gen
 	$(RM) -r tmp/
 	./generator \
 		--vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \

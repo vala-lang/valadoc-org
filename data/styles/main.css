@@ -279,6 +279,7 @@ nav .title {
     max-width: 1000px;
     margin: 12px auto;
     padding: 0 24px;
+    width: 100%;
 }
 
 #content h1 {

@@ -5,19 +5,39 @@ using VSGI;
 
 namespace Valadoc.App {
 
+	public struct DocCacheEntry {
+		uint8[] contents;
+		string? etag;
+	}
+
 	public int main (string[] args) {
 		var app = new Router ();
 		var docroot = File.new_for_path ("valadoc.org");
 
+		var doc_cache = new GLru.Cache<string, DocCacheEntry?> (str_hash, str_equal, (path) => {
+			uint8[] contents;
+			string etag;
+			try {
+				docroot.resolve_relative_path (path).load_contents (null, out contents, out etag);
+				return {(owned) contents, etag};
+			} catch (Error err) {
+				critical ("%s (%s, %d)", err.message, err.domain.to_string (), err.code);
+				return null;
+			}
+		});
+
+		doc_cache.max_size = 512;
+
 		app.use (basic ());
 
 		app.use (status (404, forward_with<Error> (accept ("text/html", (req, res, next, ctx, err) => {
-			uint8[] navi_contents;
-			string  navi_etag;
-			docroot.get_child ("index.htm.navi.tpl").load_contents (null, out navi_contents, out navi_etag);
+			var navi = doc_cache["index.htm.navi.tpl"];
+			if (navi == null) {
+				throw new ServerError.INTERNAL_SERVER_ERROR ("Could not retreive the content...");
+			}
 			res.status = 404;
-			res.headers.append ("ETag", navi_etag);
-			return render_template ("Page not found", (string) navi_contents,
+			res.headers.append ("ETag", navi.etag);
+			return render_template ("Page not found", (string) navi.contents,
 				div ({"id=site_content"},
 					 h1 ({"class=main_title"}, "404"),
 					 hr ({"class=main_hr"}),
@@ -41,40 +61,33 @@ namespace Valadoc.App {
 
 		app.get ("/(<pkg:package>/(<sym:symbol>.html)?)?(index.htm)?", accept ("text/html", (req, res, next, ctx) => {
 			var title = new StringBuilder ("Valadoc.org");
-			File navi_file;
-			File content_file;
+			DocCacheEntry? navi;
+			DocCacheEntry? content;
 			if ("package" in ctx) {
 				title.append_printf (" &dash; %s", ctx["package"].get_string ());
 				if ("symbol" in ctx) {
 					// symbol
 					title.append_printf (" &dash; %s", ctx["symbol"].get_string ());
-					navi_file    = docroot.get_child (ctx["package"].get_string ()).get_child ("%s.html.navi.tpl".printf (ctx["symbol"].get_string ()));
-					content_file = docroot.get_child (ctx["package"].get_string ()).get_child ("%s.html.content.tpl".printf (ctx["symbol"].get_string ()));
+					navi    = doc_cache["%s/%s.html.navi.tpl".printf (ctx["package"].get_string (), ctx["symbol"].get_string ())];
+					content = doc_cache["%s/%s.html.content.tpl".printf (ctx["package"].get_string (), ctx["symbol"].get_string ())];
 				} else {
 					// package index
-					navi_file    = docroot.get_child (ctx["package"].get_string ()).get_child ("index.htm.navi.tpl");
-					content_file = docroot.get_child (ctx["package"].get_string ()).get_child ("index.htm.content.tpl");
+					navi    = doc_cache["%s/index.htm.navi.tpl".printf (ctx["package"].get_string ())];
+					content = doc_cache["%s/index.htm.content.tpl".printf(ctx["package"].get_string ())];
 				}
 			} else {
 				// index
 				title.append (" &dash; Stays crunchy. Even in milk.");
-				navi_file    = docroot.get_child ("index.htm.navi.tpl");
-				content_file = docroot.get_child ("index.htm.content.tpl");
+				navi    = doc_cache["index.htm.navi.tpl"];
+				content = doc_cache["index.htm.content.tpl"];
 			}
 
-			uint8[] navi;
-			string  navi_etag;
-			uint8[] content;
-			string  content_etag;
-			try {
-				navi_file.load_contents (null, out navi, out navi_etag);
-				content_file.load_contents (null, out content, out content_etag);
-			} catch (IOError.NOT_FOUND err) {
-				throw new ClientError.NOT_FOUND (""); // ignored in the 404 handler
+			if (navi == null || content == null) {
+				throw new ClientError.NOT_FOUND ("Could not retreive the document.");
 			}
 
-			if (navi_etag != null && content_etag != null) {
-				var etag = "\"%s\"".printf (navi_etag + content_etag);
+			if (navi.etag != null && content.etag != null) {
+				var etag = "\"%s\"".printf (navi.etag + content.etag);
 				if (etag == req.headers.get_one ("If-None-Match")) {
 					throw new Redirection.NOT_MODIFIED ("");
 				} else {
@@ -82,7 +95,7 @@ namespace Valadoc.App {
 				}
 			}
 
-			return render_template (title.str, (string) navi, (string) content) (req, res, next, ctx);
+			return render_template (title.str, (string) navi.contents, (string) content.contents) (req, res, next, ctx);
 		}));
 
 		Database db;

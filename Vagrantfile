@@ -107,6 +107,15 @@ Vagrant.configure("2") do |config|
     ninja -C build test
     ninja -C build install
 
+    cd /home/ubuntu
+    rm -rf glrucache-master
+    wget -O glrucache-master.zip https://github.com/chergert/glrucache/archive/master.zip
+    unzip glrucache-master.zip
+    cd /home/ubuntu/glrucache-master
+    meson --prefix=/usr --buildtype=release build
+    ninja -C build
+    ninja -C build install
+
     cd /home/ubuntu/valadoc-org
     make clean
     make

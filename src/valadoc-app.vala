@@ -22,7 +22,7 @@ namespace Valadoc.App {
 				return {(owned) contents, etag};
 			} catch (Error err) {
 				critical ("%s (%s, %d)", err.message, err.domain.to_string (), err.code);
-				return null;
+				return {"".data, null};
 			}
 		});
 
@@ -30,10 +30,10 @@ namespace Valadoc.App {
 
 		app.use (basic ());
 
-		app.use (status (404, forward_with<Error> (accept ("text/html", (req, res, next, ctx, err) => {
+		app.use (accept ("text/html", forward_with<string> (status (404, (req, res, next, ctx, err) => {
 			var navi = doc_cache["index.htm.navi.tpl"];
-			if (navi == null) {
-				throw new ServerError.INTERNAL_SERVER_ERROR ("Could not retreive the content...");
+			if (navi.contents == null) {
+				throw err;
 			}
 			res.status = 404;
 			res.headers.append ("ETag", navi.etag);
@@ -42,7 +42,7 @@ namespace Valadoc.App {
 					 h1 ({"class=main_title"}, "404"),
 					 hr ({"class=main_hr"}),
 					 h2 ({}, "Page not found"),
-					 p ({}, "The page you are looking for cannot be found."))) (req, res, next, ctx);
+					 p ({}, e (err.message)))) (req, res, next, ctx);
 		}))));
 
 		app.get ("/favicon.ico", () => {
@@ -82,8 +82,8 @@ namespace Valadoc.App {
 				content = doc_cache["index.htm.content.tpl"];
 			}
 
-			if (navi == null || content == null) {
-				throw new ClientError.NOT_FOUND ("Could not retreive the document.");
+			if (navi.contents == null || content.contents == null) {
+				throw new ClientError.NOT_FOUND ("The page you are looking for cannot be found.");
 			}
 
 			if (navi.etag != null && content.etag != null) {

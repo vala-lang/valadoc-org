@@ -19,7 +19,8 @@ namespace Valadoc.App {
 			string etag;
 			try {
 				docroot.resolve_relative_path (path).load_contents (null, out contents, out etag);
-				return {(owned) contents, etag};
+				contents.length += 1; /* include null-terminator from 'load_contents' */
+				return {contents, etag};
 			} catch (Error err) {
 				critical ("%s (%s, %d)", err.message, err.domain.to_string (), err.code);
 				return {"".data, null};

@@ -35,7 +35,6 @@ namespace Valadoc.App {
 				throw err;
 			}
 			res.status = 404;
-			res.headers.append ("ETag", navi.etag);
 			return render_template ("Page not found", (string) navi.contents,
 				div ({"id=site_content"},
 					 h1 ({"class=main_title"}, "404"),
@@ -85,17 +84,14 @@ namespace Valadoc.App {
 				throw new ClientError.NOT_FOUND ("The page you are looking for cannot be found.");
 			}
 
-			if (navi.etag != null && content.etag != null) {
-				var etag = "\"%s\"".printf (navi.etag + content.etag);
-				if (etag == req.headers.get_one ("If-None-Match")) {
-					throw new Redirection.NOT_MODIFIED ("");
-				} else {
-					res.headers.replace ("ETag", etag);
-				}
-			}
-
-			return render_template (title.str, (string) navi.contents, (string) content.contents) (req, res, next, ctx);
+			return render_template (title.str, (string) navi.contents, (string) content.contents, navi.etag + content.etag) (req, res, next, ctx);
 		}));
+
+		app.get ("/<path:template>.htm", (req, res, next, ctx) => {
+			var navi    = doc_cache["templates/%s.htm.navi.tpl".printf (ctx["template"].get_string ())];
+			var content = doc_cache["templates/%s.htm.content.tpl".printf (ctx["template"].get_string ())];
+			return render_template ("Markup", (string) navi.contents, (string) content.contents, navi.etag + content.etag) (req, res, next, ctx);
+		});
 
 		Database db;
 		try {
@@ -119,6 +115,8 @@ namespace Valadoc.App {
 		app.use ((req, res, next) => {
 			try {
 				return next ();
+			} catch (Redirection err) {
+				throw err;
 			} catch (ClientError err) {
 				throw err;
 			} catch (Error err) {
@@ -276,8 +274,16 @@ namespace Valadoc.App {
 		return Server.@new ("http", handler: app).run (args);
 	}
 
-	public HandlerCallback render_template (string title, string navi, string content) {
+	public HandlerCallback render_template (string title, string navi, string content, string? etag = null) {
 		return (req ,res) => {
+			if (etag != null) {
+				var _etag = "\"%s\"".printf (etag);
+				if (_etag == req.headers.get_one ("If-None-Match")) {
+					throw new Redirection.NOT_MODIFIED ("");
+				} else {
+					res.headers.replace ("ETag", _etag);
+				}
+			}
 			return res.expand_utf8 ("""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -304,8 +310,6 @@ namespace Valadoc.App {
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
     <span class="subtitle">Stays crunchy, even in milk.</span>
     <div id="links">
-      <ul>
-        <li><a href="/markup.htm">Markup</a></li>
       <ul>
         <li><a href="/markup.htm">Markup</a></li>
       </ul>

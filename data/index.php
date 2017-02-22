@@ -50,6 +50,7 @@ if ($first == null || $first === "index") { // Homepage
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta itemprop="image" content="https://valadoc.org/images/preview.png">
   <meta name="fragment" content="!">
   <meta name="twitter:card" content="summary_large_image" />

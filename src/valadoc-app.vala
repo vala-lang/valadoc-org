@@ -17,14 +17,9 @@ namespace Valadoc.App {
 		var doc_cache = new GLru.Cache<string, DocCacheEntry?> (str_hash, str_equal, (path) => {
 			uint8[] contents;
 			string etag;
-			try {
-				docroot.resolve_relative_path (path).load_contents (null, out contents, out etag);
-				contents.length += 1; /* include null-terminator from 'load_contents' */
-				return {contents, etag};
-			} catch (Error err) {
-				critical ("%s (%s, %d)", err.message, err.domain.to_string (), err.code);
-				return {"".data, null};
-			}
+			docroot.resolve_relative_path (path).load_contents (null, out contents, out etag);
+			contents.length += 1; /* include null-terminator from 'load_contents' */
+			return {contents, etag};
 		});
 
 		doc_cache.max_size = 512;
@@ -32,8 +27,11 @@ namespace Valadoc.App {
 		app.use (basic ());
 
 		app.use (accept ("text/html", forward_with<string> (status (404, (req, res, next, ctx, err) => {
-			var navi = doc_cache["index.htm.navi.tpl"];
-			if (navi.contents == null) {
+			DocCacheEntry navi;
+			try {
+				navi = doc_cache["index.htm.navi.tpl"];
+			} catch (Error cache_err) {
+				critical ("%s, (%s, %d)", cache_err.message, cache_err.domain.to_string (), cache_err.code);
 				throw err;
 			}
 			res.status = 404;
@@ -62,28 +60,28 @@ namespace Valadoc.App {
 
 		app.get ("/(<pkg:package>/(<sym:symbol>.html)?)?(index.htm)?", accept ("text/html", (req, res, next, ctx) => {
 			var title = new StringBuilder ("Valadoc.org");
-			DocCacheEntry? navi;
-			DocCacheEntry? content;
-			if ("package" in ctx) {
-				title.append_printf (" &dash; %s", ctx["package"].get_string ());
-				if ("symbol" in ctx) {
-					// symbol
-					title.append_printf (" &dash; %s", ctx["symbol"].get_string ());
-					navi    = doc_cache["%s/%s.html.navi.tpl".printf (ctx["package"].get_string (), ctx["symbol"].get_string ())];
-					content = doc_cache["%s/%s.html.content.tpl".printf (ctx["package"].get_string (), ctx["symbol"].get_string ())];
+			DocCacheEntry navi;
+			DocCacheEntry content;
+			try {
+				if ("package" in ctx) {
+					title.append_printf (" &dash; %s", ctx["package"].get_string ());
+					if ("symbol" in ctx) {
+						// symbol
+						title.append_printf (" &dash; %s", ctx["symbol"].get_string ());
+						navi    = doc_cache["%s/%s.html.navi.tpl".printf (ctx["package"].get_string (), ctx["symbol"].get_string ())];
+						content = doc_cache["%s/%s.html.content.tpl".printf (ctx["package"].get_string (), ctx["symbol"].get_string ())];
+					} else {
+						// package index
+						navi    = doc_cache["%s/index.htm.navi.tpl".printf (ctx["package"].get_string ())];
+						content = doc_cache["%s/index.htm.content.tpl".printf(ctx["package"].get_string ())];
+					}
 				} else {
-					// package index
-					navi    = doc_cache["%s/index.htm.navi.tpl".printf (ctx["package"].get_string ())];
-					content = doc_cache["%s/index.htm.content.tpl".printf(ctx["package"].get_string ())];
+					// index
+					title.append (" &dash; Stays crunchy. Even in milk.");
+					navi    = doc_cache["index.htm.navi.tpl"];
+					content = doc_cache["index.htm.content.tpl"];
 				}
-			} else {
-				// index
-				title.append (" &dash; Stays crunchy. Even in milk.");
-				navi    = doc_cache["index.htm.navi.tpl"];
-				content = doc_cache["index.htm.content.tpl"];
-			}
-
-			if (navi.contents == null || content.contents == null) {
+			} catch (Error err) {
 				throw new ClientError.NOT_FOUND ("The page you are looking for cannot be found.");
 			}
 

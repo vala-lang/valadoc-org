@@ -1,5 +1,5 @@
 VALAC = valac
-VALAC_VERSION := $(shell vala --version | awk -F. '{ print "0."$$2 }')
+VALAC_VERSION := $(shell vala --api-version | awk -F. '{ print "0."$$2 }')
 VALAFLAGS = -X -w
 PREFIX = "stable"
 

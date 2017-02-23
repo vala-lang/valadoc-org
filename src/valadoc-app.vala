@@ -88,11 +88,11 @@ namespace Valadoc.App {
 			return render_template (title.str, (string) navi.contents, (string) content.contents, navi.etag + content.etag) (req, res, next, ctx);
 		}));
 
-		app.get ("/<path:template>.htm", (req, res, next, ctx) => {
-			var navi    = doc_cache["templates/%s.htm.navi.tpl".printf (ctx["template"].get_string ())];
+		app.get ("/<path:template>.htm", accept ("text/html", (req, res, next, ctx) => {
+			var navi    = doc_cache["index.htm.navi.tpl"];
 			var content = doc_cache["templates/%s.htm.content.tpl".printf (ctx["template"].get_string ())];
 			return render_template ("Markup", (string) navi.contents, (string) content.contents, navi.etag + content.etag) (req, res, next, ctx);
-		});
+		}));
 
 		Database db;
 		try {

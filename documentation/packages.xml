@@ -44,9 +44,6 @@
 			<!--package name="clutter-gtk-0.10" deprecated="true" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/">
 				GTK clutter widget.
 			</package-->
-			<package name="clutter-json-1.0" home="http://www.clutter-project.org/">
-				Clutters Json-interface, see json-glib.
-			</package>
 			<package name="gtksourceview-3.0" home="http://projects.gnome.org/gtksourceview/" gir="GtkSource-3.0" c-docs="http://developer.gnome.org/gtksourceview/unstable/">
 				GtkSourceView is a portable C library that extends the standard GTK+ framework for multiline text editing
 				with support for configurable syntax highlighting, unlimited undo/redo, search and replace, a completion

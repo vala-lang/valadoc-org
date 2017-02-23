@@ -87,30 +87,30 @@ nav .title {
 }
 
 #search-box {
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 3px;
     display: none;
-    width: auto;
 }
 
 #search-field {
-    background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,0.05);
-    border-radius: 3px;
+    background-color: transparent;
+    border: none;
     font-size: 14px;
-    padding: 6px;
+    line-height: 26px;
+    padding-left: 6px;
     transition: all 200ms ease-in-out;
-    width: 214px;
+    width: 200px;
 }
 
 #search-field:focus {
-    border-color: rgba(58,65,111,0.5);
-    box-shadow: 0 1px 3px rgba(58,65,111,0.12);
     outline: none;
 }
 
 #search-field-clear {
     cursor: pointer;
-    margin-left: -24px;
-    margin-right: 12px;
+    margin-right: 6px;
     opacity: 0.3;
     transition: all 200ms ease-in-out;
     vertical-align: middle;
@@ -164,7 +164,7 @@ nav .title {
 #sidebar ul {
     font-size: 12px;
     list-style: none;
-    margin: 6px 0;
+    margin: 0;
     padding: 0;
 }
 
@@ -198,14 +198,13 @@ nav .title {
 
 .search-result a .search-package {
     display: inline;
-    font-style: italic;
+    font-size: 10px;
+    margin-left: 6px;
+    opacity: 0.8;
 }
 
 .search-result a .search-desc {
-    display: block;
-    font-size: 10px;
-    opacity: 0.75;
-    padding-left: 22px;
+    display: none;
 }
 
 .search-selected {
@@ -242,7 +241,7 @@ nav .title {
 }
 
 #sidebar .navi_main li {
-    padding: 3px 6px;
+    padding: 6px;
 }
 
 .navi_inline li:before,

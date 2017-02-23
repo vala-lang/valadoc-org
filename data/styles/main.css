@@ -120,8 +120,8 @@ nav .title {
  ***********/
 
 #sidebar {
-    background-color: #fcfcfc;
-    border-right: 1px solid #dedede;
+    background-color: #f7f6f8;
+    border-right: 1px solid #eceaf0;
     display: inline-block;
     overflow-y: auto;
     position: fixed;
@@ -173,6 +173,7 @@ nav .title {
 
 #sidebar li {
     overflow: hidden;
+    padding: 3px 0;
     text-overflow: ellipsis;
     white-space: nowrap;
 }

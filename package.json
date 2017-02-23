@@ -6,7 +6,7 @@
   "repository": "Valadoc/valadoc-org",
   "author": "Valadoc",
   "scripts": {
-    "test": "stylelint data/styles/*.css",
+    "test": "stylelint --config .stylelintrc.json data/styles/*.css",
     "build": "gulp",
     "start": "php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php"
   },

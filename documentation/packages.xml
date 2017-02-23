@@ -22,9 +22,6 @@
 			<package name="gio-unix-2.0" home="http://www.gtk.org/" gir="Gio-2.0" c-docs="http://developer.gnome.org/gio/unstable/">
 				UNIX-specific file abstractions for GIO.
 			</package>
-			<package name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer.gnome.org/dbus-glib/unstable/">
-				D-Bus Support
-			</package>
 			<package name="gmodule-2.0" home="http://www.gtk.org/" gir="GModule-2.0" c-docs="http://developer.gnome.org/glib/unstable/">
 				Portable method for dynamically loading 'plug-ins'
 			</package>
@@ -588,6 +585,9 @@
 			<package name="appstream" gir="AppStream-1.0" home="https://www.freedesktop.org/wiki/Distributions/AppStream/" c-docs="https://www.freedesktop.org/software/appstream/docs/api/html/">
 				AppStream is a cross-distro effort for enhancing the way we interact with the software
 				repositories provided by the distribution by standardizing sets of additional metadata.
+			</package>
+			<package name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer.gnome.org/dbus-glib/unstable/">
+				D-Bus Support
 			</package>
 		</section>
 	</section>

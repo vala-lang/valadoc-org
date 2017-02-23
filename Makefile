@@ -85,6 +85,14 @@ check-examples: valadoc-example-tester
 		examples/sqlite3/sqlite3.valadoc.examples
 
 
+#
+# Build local assets
+#
+
+build-data:
+	npm install
+	./node_modules/.bin/gulp
+
 
 #
 # Documentation generation:
@@ -123,11 +131,13 @@ test-examples: valadoc-example-tester
 	-./valadoc-example-tester examples/*/*.valadoc.examples
 	$(RM) -r tmp/
 
+
 #
 # Run a local webserver serving valadoc.org
 #
 
-serve: default build-docs
+
+serve: default build-docs build-data
 	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php
-serve-mini: default build-docs-mini
+serve-mini: default build-docs-mini build-data
 	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php

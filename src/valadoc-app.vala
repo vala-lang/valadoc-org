@@ -26,22 +26,23 @@ namespace Valadoc.App {
 
 		app.use (basic ());
 
-		app.use (accept ("text/html", forward_with<string> (status (404, (req, res, next, ctx, err) => {
-			DocCacheEntry navi;
-			try {
-				navi = doc_cache["index.htm.navi.tpl"];
-			} catch (Error cache_err) {
-				critical ("%s, (%s, %d)", cache_err.message, cache_err.domain.to_string (), cache_err.code);
-				throw err;
-			}
-			res.status = 404;
-			return render_template ("Page not found", (string) navi.contents,
-				div ({"id=site_content"},
-					 h1 ({"class=main_title"}, "404"),
-					 hr ({"class=main_hr"}),
-					 h2 ({}, "Page not found"),
-					 p ({}, e (err.message)))) (req, res, next, ctx);
-		}))));
+		app.use (status (404, (req, res, next, ctx, err) => {
+			return accept ("text/html", (req, res, next, ctx) => {
+				DocCacheEntry navi;
+				try {
+					navi = doc_cache["index.htm.navi.tpl"];
+				} catch (Error cache_err) {
+					critical ("%s, (%s, %d)", cache_err.message, cache_err.domain.to_string (), cache_err.code);
+					throw err;
+				}
+				res.status = 404;
+				return render_template ("Page not found", (string) navi.contents,
+					div ({"id=site_content"},
+						 h1 ({"class=main_title"}, "404"),
+						 hr ({"class=main_hr"}),
+						 h2 ({}, "Page not found"),
+						 p ({}, e (err.message)))) (req, res, next, ctx);
+		}) (req, res, next, ctx); }));
 
 		app.get ("/favicon.ico", () => {
 			throw new Redirection.MOVED_PERMANENTLY ("/images/favicon.ico");

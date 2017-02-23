@@ -32,6 +32,7 @@ gulp.task('images', () => {
 /**
  * scripts
  * Copies scripts to production folder
+ * TODO: build files with babel
  *
  * @return {Task} - a gulp task
  */

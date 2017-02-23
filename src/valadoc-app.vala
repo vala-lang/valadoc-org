@@ -180,18 +180,20 @@ namespace Valadoc.App {
 					docroot.get_child ("index.htm.navi.tpl").load_contents (null, out search_result_navi, null);
 				}
 				var search_result_content = new StringBuilder ();
+				search_result_content.append (h1 ({}, "Search Results for ", e ("\"" + req.lookup_query ("query") + "\"")));
+				search_result_content.append (hr ());
 				foreach (var row in result) {
 					var html_regex  = new Regex("<.*?>");
 					var path        = row["path"];
-					var pkg         = path.substring (0, path.index_of_char ('/'));
-					var symbol      = path.substring (path.index_of_char ('/') + 1);
+					var pkg         = path.substring (1, path.last_index_of_char ('/') - 1);
+					var symbol      = path.substring (path.last_index_of_char ('/') + 1);
 					var description = html_regex.replace (row["shortdesc"], row["shortdesc"].length, 0, "");
 					search_result_content.append (
-						li ({"class=search-result %s".printf (row["type"].down ())},
+						div ({"class=highlight search-result %s".printf (row["type"].down ())},
 						a (path, {},
 						   span ({"class=search-name"},
 								 e (row["name"]),
-								 span ({"class=search-package"}, e (pkg))),
+								 span ({"class=search-package"}, " ", "(", e (pkg), ")")),
 						   span ({"class=search-desc"}, e (description)))));
 				}
 				return render_template ("Search Results", (string) search_result_navi, search_result_content.str) (req, res, next, ctx);
@@ -199,15 +201,15 @@ namespace Valadoc.App {
 				foreach (var row in result) {
 					var html_regex  = new Regex("<.*?>");
 					var path        = row["path"];
-					var pkg         = path.substring (0, path.index_of_char ('/'));
-					var symbol      = path.substring (path.index_of_char ('/') + 1);
+					var pkg         = path.substring (1, path.last_index_of_char ('/') - 1);
+					var symbol      = path.substring (path.last_index_of_char ('/') + 1);
 					var description = html_regex.replace (row["shortdesc"], row["shortdesc"].length, 0, "");
 					res.append_utf8 (
 						li ({"class=search-result %s".printf (row["type"].down ())},
 						a (path, {},
 						   span ({"class=search-name"},
 								 e (row["name"]),
-								 span ({"class=search-package"}, e (pkg))),
+								 span ({"class=search-package"}, " ", "(", e (pkg), ")")),
 						   span ({"class=search-desc"}, e (description)))));
 				}
 			} else {

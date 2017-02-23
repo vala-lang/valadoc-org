@@ -468,7 +468,7 @@
 			<package name="libxml-2.0" maintainers="Tomaž Vajngerl" gir="libxml2-2.0" c-docs="http://xmlsoft.org/html/">
 			    Powerful and feature complete XML handling library.
 			</package>
-			<package name="gxml-0.10" maintainers="Daniel Espinosa">
+			<package name="gxml-0.14" maintainers="Daniel Espinosa">
 			    GObject XML library and serialization framework.
 			</package>
 		</section>

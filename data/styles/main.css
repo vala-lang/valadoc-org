@@ -35,16 +35,11 @@ nav {
     -ms-flex-align: center;
     align-items: center;
     background-color: #403757;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12),
-                0 1px 2px rgba(0,0,0,0.24);
-    color: rgba(255,255,255,0.8);
-    display: -webkit-flex;
-    display: -ms-flexbox;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    color: rgba(255, 255, 255, 0.8);
     display: flex;
     font-size: 16px;
     height: 48px;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 0 6px;
     position: fixed;
@@ -93,7 +88,7 @@ nav .title {
 
 #search-field {
     background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 3px;
     font-size: 14px;
     padding: 6px;
@@ -102,8 +97,8 @@ nav .title {
 }
 
 #search-field:focus {
-    border-color: rgba(58,65,111,0.5);
-    box-shadow: 0 1px 3px rgba(58,65,111,0.12);
+    border-color: rgba(58, 65, 111, 0.5);
+    box-shadow: 0 1px 3px rgba(58, 65, 111, 0.12);
     outline: none;
 }
 
@@ -143,7 +138,7 @@ nav .title {
     width: 100%;
 }
 
-#sidebar .site_navigation a:before {
+#sidebar .site_navigation a::before {
     content: '';
     display: inline-block;
     height: 16px;
@@ -175,10 +170,10 @@ nav .title {
 }
 
 #sidebar li:hover {
-    background: rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.1);
 }
 
-#sidebar .external-link:after {
+#sidebar .external-link::after {
     background-image: url(/images/external_link.svg);
     content: '';
     display: inline-block;
@@ -193,7 +188,7 @@ nav .title {
 }
 
 .search-result:nth-child(even) {
-    background-color: rgba(0,0,0,0.02);
+    background-color: rgba(0, 0, 0, 0.02);
 }
 
 .search-result a .search-package {
@@ -209,7 +204,7 @@ nav .title {
 }
 
 .search-selected {
-    background-color: #776C93 !important;
+    background-color: #776c93 !important;
 }
 
 .search-selected span {
@@ -237,7 +232,7 @@ nav .title {
     padding: 0;
 }
 
-#sidebar .navi_main a:before {
+#sidebar .navi_main a::before {
     display: none;
 }
 
@@ -245,8 +240,8 @@ nav .title {
     padding: 3px 6px;
 }
 
-.navi_inline li:before,
-.navi_main li:before {
+.navi_inline li::before,
+.navi_main li::before {
     content: '';
     display: inline-block;
     height: 16px;
@@ -288,8 +283,8 @@ nav .title {
 
 #content hr {
     border: 0;
-    color: #B4A0C1;
-    background-color: #B4A0C1;
+    color: #b4a0c1;
+    background-color: #b4a0c1;
     height: 1px;
     margin-top: 6px;
     margin-bottom: 6px;
@@ -309,9 +304,9 @@ nav .title {
     padding-right: 6px;
 }
 
-.highlight .package:before,
-.document:before,
-.video:before {
+.highlight .package::before,
+.document::before,
+.video::before {
     content: '';
     display: inline-block;
     height: 16px;
@@ -362,11 +357,11 @@ nav .title {
 }
 
 .main_notification {
-    background-color: #eeeeff;
+    background-color: #eef;
     background-image: url(/images/warning.svg);
     background-position: 6px 0.5em;
     background-repeat: no-repeat;
-    border: 1px solid #aaaaff;
+    border: 1px solid #aaf;
     margin: 10px;
     min-height: 48px;
     padding: 5px 10px 5px 60px;
@@ -374,15 +369,15 @@ nav .title {
 
 .main_table {
     border-collapse: collapse;
-    border: 1px solid #aaaaff;
-    background: #eeeeff;
+    border: 1px solid #aaf;
+    background: #eef;
     margin-right: auto;
     margin-left: auto;
 }
 
 .main_sourcesample {
-    background-color: #eeeeff;
-    border: 1px solid #aaaaff;
+    background-color: #eef;
+    border: 1px solid #aaf;
     margin: 10px;
     padding: 5px 10px 5px 5px;
 }
@@ -390,7 +385,7 @@ nav .title {
 .site_header {
     padding-bottom: 10px;
     padding-top: 10px;
-    background-color: #aaaaff;
+    background-color: #aaf;
     width: 100%;
 }
 
@@ -415,10 +410,9 @@ nav .title {
 }
 
 .tooltip {
-    background-color: rgba(250,250,250,0.95);
+    background-color: rgba(250, 250, 250, 0.95);
     border-radius: 3px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12),
-                0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     max-width: 30em;
     padding: 12px;
     text-align: left;
@@ -469,7 +463,7 @@ footer {
 
 .main_literal {
     text-decoration: none;
-    color: #2BA199;
+    color: #2ba199;
 }
 
 .main_escape {
@@ -479,7 +473,7 @@ footer {
 
 .main_comment {
     text-decoration: none;
-    color: #93AABC;
+    color: #93aabc;
 }
 
 .main_preprocessor {
@@ -490,7 +484,7 @@ footer {
 .xml_cdata {
     text-decoration: none;
     font-weight: normal;
-    color: #93AABC;
+    color: #93aabc;
 }
 
 .xml_escape {
@@ -502,25 +496,25 @@ footer {
 .xml_element {
     text-decoration: none;
     font-weight: normal;
-    color: #258BD2;
+    color: #258bd2;
 }
 
 .xml_attribute {
     text-decoration: none;
     font-weight: bold;
-    color: #93AABC;
+    color: #93aabc;
 }
 
 .xml_attribute_value {
     text-decoration: none;
     font-weight: normal;
-    color: #2BA199;
+    color: #2ba199;
 }
 
 .xml_comment {
     text-decoration: none;
     font-weight: normal;
-    color: #93AABC;
+    color: #93aabc;
 }
 
 .main_code_definition {
@@ -600,15 +594,12 @@ code {
     text-decoration: underline;
 }
 
-.box {
-}
-
 .box .headline {
     background-image: url("/images/coll_open.svg");
     background-position: calc(100% - 1px) center;
     background-repeat: no-repeat;
-    background-color: #eeeeff;
-    border: 1px solid #aaaaff;
+    background-color: #eef;
+    border: 1px solid #aaf;
     margin: auto;
     width: 90%;
     margin-top: 20px;
@@ -616,7 +607,7 @@ code {
 }
 
 .box .content {
-    border: 1px solid #aaaaff;
+    border: 1px solid #aaf;
     border-top: none;
     overflow: auto;
     display: none;
@@ -638,7 +629,7 @@ code {
  * Icons *
  *********/
 
-.abstract_class:before,
+.abstract_class::before,
 a.abstract_class,
 .description a.abstract_class,
 .brief_description a.abstract_class {
@@ -646,149 +637,149 @@ a.abstract_class,
     font-style: italic;
 }
 
-.abstract_method:before,
+.abstract_method::before,
 .description a.abstract_method,
 .brief_description a.abstract_method {
     background-image: url(/images/abstractmethod.svg);
 }
 
-.abstract_property:before,
+.abstract_property::before,
 .description a.abstract_property,
 .brief_description a.abstract_property {
     background-image: url(/images/abstractproperty.svg);
 }
 
-.class:before,
-.main_list_cl:before,
+.class::before,
+.main_list_cl::before,
 .description a.class,
 .brief_description a.class {
     background-image: url(/images/class.svg);
 }
 
-.constant:before,
+.constant::before,
 .description a.constant,
 .brief_description a.constant {
     background-image: url(/images/constant.svg);
 }
 
-.creation_method:before,
-.main_list_m:before,
+.creation_method::before,
+.main_list_m::before,
 .description a.creation_method,
 .brief_description a.creation_method {
     background-image: url(/images/constructor.svg);
 }
 
-.delegate:before,
-.main_list_del:before,
+.delegate::before,
+.main_list_del::before,
 .description a.delegate,
 .brief_description a.delegate {
     background-image: url(/images/delegate.svg);
 }
 
-.document:before {
+.document::before {
     background-image: url(/images/document.svg);
 }
 
-.enum:before,
-.main_list_en:before,
+.enum::before,
+.main_list_en::before,
 .description a.enum,
 .brief_description a.enum {
     background-image: url(/images/enum.svg);
 }
 
-.enumvalue:before,
-.enum_value:before,
+.enumvalue::before,
+.enum_value::before,
 .description a.enumvalue,
 .brief_description a.enumvalue {
     background-image: url(/images/enumvalue.svg);
 }
 
-.errorcode:before,
+.errorcode::before,
 .description a.errorcode,
 .brief_description a.errorcode {
     background-image: url(/images/errorcode.svg);
 }
 
-.errordomain:before,
-.main_list_errdom:before,
+.errordomain::before,
+.main_list_errdom::before,
 .description a.errordomain,
 .brief_description a.errordomain {
     background-image: url(/images/errordomain.svg);
 }
 
-.field:before,
-.main_list_field:before,
+.field::before,
+.main_list_field::before,
 .description a.field,
 .brief_description a.field {
     background-image: url(/images/field.svg);
 }
 
-.interface:before,
-.main_list_iface:before,
+.interface::before,
+.main_list_iface::before,
 .description a.interface,
 .brief_description a.interface {
     background-image: url(/images/interface.svg);
 }
 
-.method:before,
+.method::before,
 .description a.method,
 .brief_description a.method {
     background-image: url(/images/method.svg);
 }
 
-.namespace:before,
-.main_list_ns:before,
+.namespace::before,
+.main_list_ns::before,
 .description a.namespace,
 .brief_description a.namespace {
     background-image: url(/images/namespace.svg);
 }
 
-.package:before {
+.package::before {
     background-image: url(/images/package.svg);
 }
 
-.package_index:before {
+.package_index::before {
     background-image: url(/images/packages.svg);
 }
 
-.property:before,
-.main_list_prop:before,
+.property::before,
+.main_list_prop::before,
 .description a.property,
 .brief_description a.property {
     background-image: url(/images/property.svg);
 }
 
-.signal:before,
-.main_list_sig:before,
+.signal::before,
+.main_list_sig::before,
 .description a.signal,
 .brief_description a.signal {
     background-image: url(/images/signal.svg);
 }
 
-.static_method:before,
+.static_method::before,
 .description a.static_method,
 .brief_description a.static_method {
     background-image: url(/images/staticmethod.svg);
 }
 
-.struct:before,
-.main_list_stru:before,
+.struct::before,
+.main_list_stru::before,
 .description a.struct,
 .brief_description a.struct {
     background-image: url(/images/struct.svg);
 }
 
-.video:before {
+.video::before {
     background-image: url(/images/video.svg);
 }
 
-.virtual_method:before,
+.virtual_method::before,
 .description a.virtual_method,
 .brief_description a.virtual_method {
     background-image: url(/images/virtualmethod.svg);
 }
 
-.virtual_property:before,
+.virtual_property::before,
 .description a.virtual_property,
 .brief_description a.virtual_property {
     background-image: url(/images/virtualproperty.svg);

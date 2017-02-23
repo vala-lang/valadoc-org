@@ -82,30 +82,29 @@ nav .title {
 }
 
 #search-box {
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 3px;
     display: none;
-    width: auto;
 }
 
 #search-field {
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
+    background-color: transparent;
+    border: none;
     font-size: 14px;
-    padding: 6px;
-    transition: all 200ms ease-in-out;
-    width: 214px;
+    line-height: 26px;
+    padding-left: 6px;
+    width: 200px;
 }
 
 #search-field:focus {
-    border-color: rgba(58, 65, 111, 0.5);
-    box-shadow: 0 1px 3px rgba(58, 65, 111, 0.12);
     outline: none;
 }
 
 #search-field-clear {
     cursor: pointer;
-    margin-left: -24px;
-    margin-right: 12px;
+    margin-right: 6px;
     opacity: 0.3;
     transition: all 200ms ease-in-out;
     vertical-align: middle;

@@ -127,7 +127,7 @@ nav .title {
     position: fixed;
     top: 48px;
     width: 240px;
-    height: 100%;
+    height: calc(100% - 48px);
 }
 
 #sidebar a {
@@ -161,6 +161,14 @@ nav .title {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+#sidebar .site_navigation > ul:first-of-type {
+    margin-top: 7px;
+}
+
+#sidebar .site_navigation > ul:last-of-type {
+    margin-bottom: 7px;
 }
 
 #sidebar li {

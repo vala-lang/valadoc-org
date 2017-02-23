@@ -308,7 +308,7 @@ namespace Valadoc.App {
 <body>
   <nav>
     <form id="search-box" action="/search">
-      <input id="search-field" name="query" type="text" placeholder="Search" autocompletion="off" autosave="search" value="%s" /><img id="search-field-clear" src="/images/clean.svg" />
+      <input id="search-field" name="query" type="text" placeholder="Search" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
     </form>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
     <span class="subtitle">Stays crunchy, even in milk.</span>
@@ -341,7 +341,7 @@ namespace Valadoc.App {
   <script type="text/javascript" src="/scripts/valadoc.js"></script>
   <script type="text/javascript" src="/scripts/main.js"></script>
 </body>
-</html>""".printf (title, title, e (req.lookup_query ("query") ?? ""), navi, content, new DateTime.now_local ().get_year ()));
+</html>""".printf (title, title, navi, content, new DateTime.now_local ().get_year ()));
 		};
 	}
 }

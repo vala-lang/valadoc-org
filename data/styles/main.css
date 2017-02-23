@@ -198,14 +198,13 @@ nav .title {
 
 .search-result a .search-package {
     display: inline;
-    font-style: italic;
+    font-size: 10px;
+    margin-left: 6px;
+    opacity: 0.8;
 }
 
 .search-result a .search-desc {
-    display: block;
-    font-size: 10px;
-    opacity: 0.75;
-    padding-left: 22px;
+    display: none;
 }
 
 .search-selected {
@@ -242,7 +241,7 @@ nav .title {
 }
 
 #sidebar .navi_main li {
-    padding: 3px 6px;
+    padding: 6px;
 }
 
 .navi_inline li:before,

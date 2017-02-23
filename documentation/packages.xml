@@ -96,6 +96,9 @@
 			<package name="gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GstBase-1.0" c-docs="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-plugins/html/">
 				GStreamer Multimedia Framework Base plugin libraries.
 			</package>
+			<package name="gstreamer-allocators-1.0" gir="GstAllocators-1.0" c-docs="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/">
+				GStreamer Allocators Library
+			</package>
 			<package name="gstreamer-app-1.0" home="http://gstreamer.freedesktop.org/" gir="GstApp-1.0" c-docs="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/">
 				GStreamer App Library
 			</package>
@@ -120,6 +123,9 @@
 			<package name="gstreamer-pbutils-1.0" home="http://gstreamer.freedesktop.org/" gir="GstPbutils-1.0">
 				General Application and Plugin Utility Library
 			</package>
+			<package name="gstreamer-player-1.0" home="http://gstreamer.freedesktop.org/" gir="GstPlayer-1.0">
+				GStreamer Player Library
+			</package>
 			<package name="gstreamer-rtp-1.0" home="http://gstreamer.freedesktop.org/" gir="GstRtp-1.0" c-docs="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/">
 				GStreamer RTP Library
 			</package>
@@ -138,66 +144,6 @@
 			<package name="gstreamer-video-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GstVideo-1.0" c-docs="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/">
 				Support library for video operations
 			</package>
-			<package name="gstreamer-allocators-1.0" gir="GstAllocators-1.0" c-docs="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/">
-				 Allocators Library
-			</package>
-			<package name="gstreamer-0.10" gir="Gst-0.10">
-				Powerful framework for creating multimedia applications. Supports both Audio and Video.
-			</package>
-			<package name="gstreamer-base-0.10" gir="GstBase-0.10">
-				GStreamer Multimedia Framework Base plugin libraries.
-			</package>
-			<package name="gstreamer-app-0.10" gir="GstApp-0.10">
-				GStreamer App Library
-			</package>
-			<package name="gstreamer-audio-0.10" gir="GstAudio-0.10">
-				GStreamer Audio Library
-			</package>
-			<package name="gstreamer-check-0.10" gir="GstCheck-0.10">
-				GStreamer Check Unit Testing
-			</package>
-			<package name="gstreamer-cdda-0.10">
-				GStreamer CDDA Library
-			</package>
-			<package name="gstreamer-controller-0.10" gir="GstController-0.10">
-				GStreamer Dynamic Parameter Control
-			</package>
-			<package name="gstreamer-dataprotocol-0.10">
-				Data Protocol
-			</package>
-			<package name="gstreamer-fft-0.10" gir="GstFft-0.10">
-				GStreamer FFT Library
-			</package>
-			<package name="gstreamer-interfaces-0.10" gir="GstInterfaces-0.10">
-				GStreamer interfaces
-			</package>
-			<package name="gstreamer-net-0.10" gir="GstNet-0.10">
-				GStreamer Network Classes
-			</package>
-			<package name="gstreamer-netbuffer-0.10" gir="GstNetbuffer-0.10">
-				GStreamer Network Buffer Library
-			</package>
-			<package name="gstreamer-pbutils-0.10" gir="GstPbutils-0.10">
-				General Application and Plugin Utility Library
-			</package>
-			<package name="gstreamer-riff-0.10" gir="GstRiff-0.10">
-				GStreamer RIFF Library
-			</package>
-			<package name="gstreamer-rtp-0.10" gir="GstRtp-0.10">
-				GStreamer RTP Library
-			</package>
-			<package name="gstreamer-rtsp-0.10" gir="GstRtsp-0.10">
-				GStreamer RTSP Library
-			</package>
-			<package name="gstreamer-sdp-0.10" gir="GstSdp-0.10">
-				GStreamer SDP Library
-			</package>
-			<package name="gstreamer-tag-0.10" gir="GstTag-0.10">
-				GStreamer Tag Support Library
-			</package>
-			<package name="gstreamer-video-0.10" gir="GstVideo-0.10">
-				Support library for video operations
-			</package>
 			<package name="grilo-0.2" gir="Grl-0.2" c-docs="https://developer.gnome.org/grilo/unstable/">
 				Framework that provides access to various sources of multimedia content
 			</package>
@@ -210,7 +156,10 @@
 			<package name="libcanberra" home="http://0pointer.de/lennart/projects/libcanberra/" c-docs="http://developer.gnome.org/libcanberra/unstable/">
 				A small and lightweight implementation of the XDG Sound Theme Specification.
 			</package>
-			<package name="clutter-gst-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-1.0" c-docs="http://developer.gnome.org/clutter-gst/unstable/">
+			<package name="clutter-gst-2.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-2.0" c-docs="http://developer.gnome.org/clutter-gst/unstable/">
+				GStreamer bindings for clutter.
+			</package>
+			<package name="clutter-gst-3.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-3.0" c-docs="http://developer.gnome.org/clutter-gst/unstable/">
 				GStreamer bindings for clutter.
 			</package>
 			<package name="gupnp-1.0" home="http://gupnp.org/" gir="GUPnP-1.0">

@@ -1,3 +1,5 @@
+---
+
 dist: trusty
 sudo: required
 
@@ -7,6 +9,9 @@ install:
   - sudo add-apt-repository ppa:vala-team -y
   - sudo apt-get update -qq
   - sudo apt-get install -y -qq valac valadoc libvaladoc-dev unzip
+  - "bash -c 'source ~/.nvm/nvm.sh; nvm install 6'"
+  - "bash -c 'source ~/.nvm/nvm.sh; nvm use 6; npm install'"
 
 script:
   - make
+  - "bash -c 'source ~/.nvm/nvm.sh; nvm use 6; npm test'"

@@ -1,0 +1,24 @@
+{
+  "name": "valadoc-org",
+  "version": "1.0.0",
+  "description": "https://valadoc.org",
+  "main": "valadoc.org/router.php",
+  "repository": "Valadoc/valadoc-org",
+  "author": "Valadoc",
+  "scripts": {
+    "test": "stylelint data/styles/*.css",
+    "build": "gulp",
+    "start": "php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php"
+  },
+  "dependencies": {
+    "babel-core": "^6.23.1",
+    "babel-env": "^1.3.1",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-postcss": "^6.3.0",
+    "postcss-cssnext": "^2.9.0"
+  },
+  "devDependencies": {
+    "stylelint": "^7.9.0"
+  }
+}

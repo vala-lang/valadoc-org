@@ -164,11 +164,11 @@ nav .title {
 }
 
 #sidebar .site_navigation > ul:first-of-type {
-    margin-top: 7px;
+    margin-top: 6px;
 }
 
 #sidebar .site_navigation > ul:last-of-type {
-    margin-bottom: 7px;
+    margin-bottom: 6px;
 }
 
 #sidebar li {

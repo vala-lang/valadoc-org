@@ -259,6 +259,8 @@ namespace Valadoc.App {
 			var package = fullname.split ("/")[0];
 			var name    = fullname.split ("/")[1];
 
+			name = name.replace ("@", "");
+
 			var result = db.query ("""
 			SELECT shortdesc, signature
 			FROM %s

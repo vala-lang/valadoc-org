@@ -48,6 +48,8 @@ namespace Valadoc.App {
 			throw new Redirection.MOVED_PERMANENTLY ("/images/favicon.ico");
 		});
 
+		app.register_type ("path", /(?:\.?[\w-\s\/@])+/);
+
 		app.get ("/<path:path>", Static.serve_from_file (docroot, Static.ServeFlags.ENABLE_ETAG, (req, res, next, ctx, file) => {
 			if (file.get_basename ().has_suffix (".tpl")) {
 				res.headers.set_content_type ("text/html", null);
@@ -56,7 +58,7 @@ namespace Valadoc.App {
 		}));
 
 		app.register_type ("pkg", /[\w-.]+/);
-		app.register_type ("sym", /[\w.]+/);
+		app.register_type ("sym", /[\w.@]+/);
 
 		app.get ("/(<pkg:package>/(<sym:symbol>.html)?)?(index.htm)?", accept ("text/html", (req, res, next, ctx) => {
 			var title = new StringBuilder ("Valadoc.org");

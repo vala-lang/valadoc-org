@@ -180,7 +180,7 @@ namespace Valadoc.App {
 					docroot.get_child ("index.htm.navi.tpl").load_contents (null, out search_result_navi, null);
 				}
 				var search_result_content = new StringBuilder ();
-				search_result_content.append (h1 ({}, "Search Results for ", e ("\"" + req.lookup_query ("query") + "\"")));
+				search_result_content.append (h1 ({}, "Search Results for ", e ("\"" + req.lookup_query ("query") + "\""), Compose.when (package != null, () => { return " in " + package; })));
 				search_result_content.append (hr ());
 				foreach (var row in result) {
 					var html_regex  = new Regex("<.*?>");
@@ -278,7 +278,7 @@ namespace Valadoc.App {
 	}
 
 	public HandlerCallback render_template (string title, string navi, string content, string? etag = null) {
-		return (req ,res) => {
+		return (req, res, next, ctx) => {
 			if (etag != null) {
 				var _etag = "\"%s\"".printf (etag);
 				if (_etag == req.headers.get_one ("If-None-Match")) {
@@ -309,6 +309,7 @@ namespace Valadoc.App {
   <nav>
     <form id="search-box" action="/search">
       <input id="search-field" name="query" type="text" placeholder="Search" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
+      <input name="package" type="hidden" value="%s">
     </form>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
     <span class="subtitle">Stays crunchy, even in milk.</span>
@@ -341,7 +342,7 @@ namespace Valadoc.App {
   <script type="text/javascript" src="/scripts/valadoc.js"></script>
   <script type="text/javascript" src="/scripts/main.js"></script>
 </body>
-</html>""".printf (title, title, navi, content, new DateTime.now_local ().get_year ()));
+</html>""".printf (title, title, "package" in ctx ? ctx["package"].get_string () : "", navi, content, new DateTime.now_local ().get_year ()));
 		};
 	}
 }

@@ -195,7 +195,7 @@ $(document).ready(function () {
         hovered = false
       })
       self.attr('title', '') // hide browser-tooltips
-      $.get('/tooltip?fullname=' + encodeURIComponent(fullname), function (data) {
+      $.get('/tooltip?' + $.param({fullname: fullname}), function (data) {
         self.wTooltip({
           content: data,
           className: 'tooltip',
@@ -279,8 +279,7 @@ $(document).ready(function () {
         curpost.abort()
         curpost = null
       }
-      var curpkg = clean_path().split('/')[1]
-      curpost = $.get('/search?query=' + encodeURIComponent(value) + '&package=' + encodeURIComponent(curpkg), function (data) {
+      curpost = $.get('/search?' + $.param({query: value, package: $('input[name=package]').val()}), function (data) {
         if (scrollxhr) {
           scrollxhr.abort()
           scrollxhr = null
@@ -343,9 +342,8 @@ $(document).ready(function () {
         return
       }
       var numresults = sr.children().length
-      var curpkg = clean_path().split('/')[1]
       var offset = offset || 0
-      scrollxhr = $.get('/search?query=' + encodeURIComponent(value) + '&package=' + encodeURIComponent(curpkg) + '&offset=' + encodeURIComponent(offset), function (data) {
+      scrollxhr = $.get('/search?' + $.param({query: value, package: $('input[name=package]').val(), offset: offset}), function (data) {
         scrollxhr = null
         $('.search-more').remove()
         sr.append(data)

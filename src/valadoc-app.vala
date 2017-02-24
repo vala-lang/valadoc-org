@@ -27,7 +27,7 @@ namespace Valadoc.App {
 		app.use (basic ());
 
 		app.use (status (404, (req, res, next, ctx, err) => {
-			return accept ("text/html", (req, res, next, ctx) => {
+			return accept ("text/html, application/json, text/plain", (req, res, next, ctx, content_type) => {
 				DocCacheEntry navi;
 				try {
 					navi = doc_cache["index.htm.navi.tpl"];
@@ -36,12 +36,21 @@ namespace Valadoc.App {
 					throw err;
 				}
 				res.status = 404;
-				return render_template ("Page not found", (string) navi.contents,
-					div ({"id=site_content"},
-						 h1 ({"class=main_title"}, "404"),
-						 hr ({"class=main_hr"}),
-						 h2 ({}, "Page not found"),
-						 p ({}, e (err.message)))) (req, res, next, ctx);
+				switch (content_type) {
+					case "text/html":
+						return render_template ("Page not found", (string) navi.contents,
+							div ({"id=site_content"},
+								 h1 ({"class=main_title"}, "404"),
+								 hr ({"class=main_hr"}),
+								 h2 ({}, "Page not found"),
+								 p ({}, e (err.message)))) (req, res, next, ctx);
+					case "application/json":
+						return res.expand_utf8 ("{}");
+					case "text/plain":
+						return res.expand_utf8 (err.message);
+					default:
+						assert_not_reached ();
+				}
 		}) (req, res, next, ctx); }));
 
 		app.get ("/favicon.ico", () => {
@@ -138,8 +147,8 @@ namespace Valadoc.App {
 
 			string[] options = {"ranker=proximity"};
 
-			var package = req.lookup_query ("package");
-			if (package != null && package != "") {
+			var package = req.lookup_query ("package") ?? "";
+			if (package != "") {
 				options += "index_weights=(%s=2)".printf ("stable" + package.replace ("-", "").replace (".", ""));
 			}
 
@@ -153,6 +162,10 @@ namespace Valadoc.App {
 				if (row.get ("Index").has_prefix ("stable")) {
 					all_packages += row.get ("Index");
 				}
+			}
+
+			if (package != "" && !GLib.strv_contains (all_packages, "stable" + package.replace ("-", "").replace (".", ""))) {
+				throw new ClientError.NOT_FOUND ("The requested package '%s' cannot be found.", package);
 			}
 
 			// escape character for Sphinx's match
@@ -259,6 +272,18 @@ namespace Valadoc.App {
 			var package = fullname.split ("/")[0];
 			var name    = fullname.split ("/")[1];
 
+			var package_found = false;
+			foreach (var row in db.query ("SHOW TABLES")) {
+				if (row["Index"] == "stable" + package.replace ("-", "").replace (".", "")) {
+					package_found = true;
+					break;
+				}
+			}
+
+			if (!package_found) {
+				throw new ClientError.NOT_FOUND ("The requested package '%s' cannot be found.", package);
+			}
+
 			name = name.replace ("@", "");
 
 			var result = db.query ("""
@@ -274,7 +299,7 @@ namespace Valadoc.App {
 			if (result_iter.next ()) {
 				return res.expand_utf8 (p ({}, result_iter.get ()["signature"]) + result_iter.get ()["shortdesc"]);
 			} else {
-				return res.expand_utf8 (p ({}, "No results for ", e (name), " in ", e (package), "."));
+				throw new ClientError.NOT_FOUND ("No results for '%s' in '%s'.", name, package);
 			}
 		}));
 

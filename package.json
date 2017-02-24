@@ -19,6 +19,9 @@
     "postcss-cssnext": "^2.9.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.2.0",
     "stylelint": "^7.9.0"
   }
 }

@@ -68,7 +68,7 @@ if ($curpkg != '') {
 
 $query = $mysqli->real_escape_string ($query);
 
-$qq = "SELECT type, name, shortdesc, path, signature, type, typeorder,
+$qq = "SELECT type, name, path, signature, type, typeorder,
        {$orderby}
        FROM {$allpkgs}
        WHERE MATCH('{$query}')
@@ -85,9 +85,6 @@ while ($row = $q->fetch_assoc()) {
 
   echo '<li class="search-result '.$class.'"><a href="'.$row["path"].'">';
   echo '<span class="search-name">'.$row["name"].' <span class="search-package">('.$pkg.')</span></span>';
-  if (trim($row["shortdesc"]) != "") {
-    echo '<span class="search-desc">'.strip_tags($row["shortdesc"]).'</span>';
-  }
   echo '</a></li>';
 }
 

@@ -1,4 +1,7 @@
+---
+
 dist: trusty
+sudo: required
 
 language: c
 
@@ -21,6 +24,9 @@ install:
   - cd compose-master && mkdir build && meson --prefix=/usr --buildtype=release build && ninja -C build && sudo ninja -C build install && cd ..
   - unzip glrucache-master.zip
   - cd glrucache-master && mkdir build && meson --prefix=/usr --buildtype=release build && ninja -C build && sudo ninja -C build install && cd ..
+  - "bash -c 'source ~/.nvm/nvm.sh; nvm install 6'"
+  - "bash -c 'source ~/.nvm/nvm.sh; nvm use 6; npm install'"
 
 script:
   - make
+  - "bash -c 'source ~/.nvm/nvm.sh; nvm use 6; npm test'"

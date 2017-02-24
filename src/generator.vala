@@ -39,7 +39,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 	private void print_stored_messages () {
 		foreach (Package pkg in unavailable_packages) {
-			reporter.simple_warning ("error: Package '%s' not found", pkg.name);
+			reporter.simple_warning (null, "error: Package '%s' not found", pkg.name);
 		}
 	}
 
@@ -164,7 +164,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				string? external_link = reader.get_attribute ("link");
 				string? devhelp_link = reader.get_attribute ("devhelp");
 				if (external_link == null) {
-					reporter.simple_error ("error: %s: Missing attribute: link=\"\" in %s", start_tag, name);
+					reporter.simple_error (null, "error: %s: Missing attribute: link=\"\" in %s", start_tag, name);
 					return ;
 				} else {
 					pkg = new ExternalPackage (name, external_link, maintainers, devhelp_link, home, c_docs, is_deprecated, is_local);

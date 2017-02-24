@@ -72,9 +72,9 @@ if ($first == null || $first === "index") { // Homepage
     </div>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
     <ul>
-      <li><a href="https://plus.google.com/communities/113287185626826620884" title="Google+"><i class="fa fa-google-plus"></i></a>
-      <li><a href="http://stackoverflow.com/documentation/vala/" title="stackoverflow"><i class="fa fa-stack-overflow"></i></a>
-      <li><a href="https://www.reddit.com/r/vala/" title="reddit"><i class="fa fa-reddit"></i></a>
+      <li><a href="https://plus.google.com/communities/113287185626826620884" target="_blank" title="Google+"><i class="fa fa-google-plus"></i></a>
+      <li><a href="http://stackoverflow.com/documentation/vala/" target="_blank" title="stackoverflow"><i class="fa fa-stack-overflow"></i></a>
+      <li><a href="https://www.reddit.com/r/vala/" target="_blank" title="reddit"><i class="fa fa-reddit"></i></a>
       <li><a href="/markup.htm" title="Markup Info"><i class="fa fa-info-circle"></i></a>
     </ul>
   </nav>
@@ -91,7 +91,7 @@ if ($first == null || $first === "index") { // Homepage
     <div id="comments" />
   </div>
   <footer>
-    Copyright © 2016 Valadoc.org | Documentation is licensed under the same terms as its upstream |
+    Copyright © <?php echo date('Y'); ?> Valadoc.org | Documentation is licensed under the same terms as its upstream |
     <a href="https://github.com/Valadoc/valadoc-org/issues" target="_blank">Report an Issue</a>
   </footer>
   <script type="text/javascript" src="/scripts/jquery.min.js"></script>

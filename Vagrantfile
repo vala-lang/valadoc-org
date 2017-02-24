@@ -64,6 +64,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     add-apt-repository --yes ppa:vala-team
     apt-get update -y
+    curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
     apt-get install -y         \
         git                    \
         libgee-0.8-dev         \
@@ -73,6 +74,7 @@ Vagrant.configure("2") do |config|
         libmysqlclient-dev     \
         libsoup2.4-dev         \
         libvaladoc-dev         \
+        nodejs                 \
         python3-pip            \
         sphinxsearch           \
         unzip                  \

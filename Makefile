@@ -1,5 +1,5 @@
 VALAC = valac
-VALAC_VERSION := $(shell vala --version | awk -F. '{ print "0."$$2 }')
+VALAC_VERSION := $(shell vala --api-version | awk -F. '{ print "0."$$2 }')
 VALAFLAGS = -X -w
 PREFIX = "stable"
 
@@ -92,6 +92,14 @@ check-examples: valadoc-example-tester
 		examples/sqlite3/sqlite3.valadoc.examples
 
 
+#
+# Build local assets
+#
+
+build-data:
+	npm install
+	./node_modules/.bin/gulp
+
 
 #
 # Documentation generation:
@@ -130,11 +138,13 @@ test-examples: valadoc-example-tester
 	-./valadoc-example-tester examples/*/*.valadoc.examples
 	$(RM) -r tmp/
 
+
 #
 # Run a local webserver serving valadoc.org
 #
 
-serve: default build-docs
+serve: default build-docs build-data
 	./app --address=0.0.0.0:7777
-serve-mini: default build-docs-mini
+serve-mini: default build-docs-mini build-data
 	./app --address=0.0.0.0:7777
+

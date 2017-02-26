@@ -207,8 +207,8 @@ namespace Valadoc.App {
 						div ({"class=highlight search-result %s".printf (row["type"].down ())},
 						a (path, {},
 						   span ({"class=search-name"},
-								 e (row["name"]),
-								 span ({"class=search-package"}, " ", "(", e (pkg), ")")),
+						         e (row["name"]),
+						         span ({"class=search-package"}, " ", "(", e (pkg), ")")),
 						   span ({"class=search-desc"}, e (description)))));
 				}
 				return render_template ("Search Results", (string) search_result_navi, search_result_content.str) (req, res, next, ctx);
@@ -223,8 +223,8 @@ namespace Valadoc.App {
 						li ({"class=search-result %s".printf (row["type"].down ())},
 						a (path, {},
 						   span ({"class=search-name"},
-								 e (row["name"]),
-								 span ({"class=search-package"}, " ", "(", e (pkg), ")")),
+						         e (row["name"]),
+						         span ({"class=search-package"}, " ", "(", e (pkg), ")")),
 						   span ({"class=search-desc"}, e (description)))));
 				}
 			} else {
@@ -320,15 +320,16 @@ namespace Valadoc.App {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta itemprop="image" content="http://valadoc.org/images/preview.png">
+  <meta itemprop="image" content="https://valadoc.org/images/preview.png">
   <meta name="fragment" content="!">
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#403757">
   <meta property="og:description" content="The canonical source for Vala API references.">
-  <meta property="og:image" content="http://valadoc.org/images/preview.png">
+  <meta property="og:image" content="https://valadoc.org/images/preview.png">
   <meta property="og:title" content="%s">
   <meta property="og:type" content="website">
   <title>%s</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Droid+Serif:400|Roboto+Mono:400,500,700,400italic">
   <link rel="stylesheet" href="/styles/main.css" type="text/css">
   <link rel="apple-touch-icon" href="/images/icon.png" />
@@ -336,17 +337,14 @@ namespace Valadoc.App {
 </head>
 <body>
   <nav>
-    <form id="search-box" action="/search">
-      <input id="search-field" name="query" type="text" placeholder="Search" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
-      <input name="package" type="hidden" value="%s">
-    </form>
+    %s
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
-    <span class="subtitle">Stays crunchy, even in milk.</span>
-    <div id="links">
-      <ul>
-        <li><a href="/markup.htm">Markup</a></li>
-      </ul>
-    </div>
+    <ul>
+      <li><a href="https://plus.google.com/communities/113287185626826620884" target="_blank" title="Google+"><i class="fa fa-google-plus"></i></a>
+      <li><a href="http://stackoverflow.com/documentation/vala/" target="_blank" title="stackoverflow"><i class="fa fa-stack-overflow"></i></a>
+      <li><a href="https://www.reddit.com/r/vala/" target="_blank" title="reddit"><i class="fa fa-reddit"></i></a>
+      <li><a href="/markup.htm" title="Markup Info"><i class="fa fa-info-circle"></i></a>
+    </ul>
   </nav>
   <div id="sidebar">
     <ul class="navi_main" id="search-results"></ul>
@@ -371,7 +369,15 @@ namespace Valadoc.App {
   <script type="text/javascript" src="/scripts/valadoc.js"></script>
   <script type="text/javascript" src="/scripts/main.js"></script>
 </body>
-</html>""".printf (title, title, "package" in ctx ? ctx["package"].get_string () : "", navi, content, new DateTime.now_local ().get_year ()));
+</html>""".printf (title,
+			       title,
+			       form ({"id=search-box", "action=/search"},
+			             input ("query", null, {"id=search-field", "type=text", "placeholder=Search in %s...".printf ("package" in ctx ? ctx["package"].get_string () : "all packages"), "autocompletion=off", "autosave=search"}),
+			             img ("/images/clean.svg", {"id=search-field-clear"}),
+			             input ("package", "package" in ctx ? ctx["package"].get_string () : null, {"type=hidden"})),
+			       navi,
+			       content,
+			       new DateTime.now_local ().get_year ()));
 		};
 	}
 }

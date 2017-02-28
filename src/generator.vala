@@ -831,7 +831,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 
 		StringBuilder builder = new StringBuilder ();
-		builder.append_printf ("valadoc --target-glib %s --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s",
+		builder.append_printf ("valadoc --target-glib %s --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s --use-svg-images",
 			target_glib, driver, docletpath, pkg.name, pkg.get_vapi_path (vapidirs), Path.get_dirname (pkg.get_vapi_path (vapidirs)), girdir, pkg.flags);
 
 		if (disable_devhelp == true) {

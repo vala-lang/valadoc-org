@@ -82,6 +82,15 @@ function load_content (href, push) {
     title = title.split('/').reverse().join(' – ')
   }
 
+  if (href.match(/(.+\/index\.htm|\.html)$/)) {
+    var package = href.split('/')[1];
+    $('[name=query]').attr('placeholder', 'Search in ' + package + '...');
+    $('[name=package]').val(package.replace(/[.-]/g, ''));
+  } else {
+    $('[name=query]').attr('placeholder', 'Search in all packages...');
+    $('[name=package]').val('');
+  }
+
   if (title == null || title === '') { // Any other page
     title = 'Valadoc.org – Stays crunchy. Even in milk.'
   }

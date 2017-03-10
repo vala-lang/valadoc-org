@@ -10,6 +10,10 @@ namespace Valadoc.App {
 		string? etag;
 	}
 
+	public string sphinx_index_from_package_name (string package) {
+		return "stable" + package.replace (" ", "").replace ("-", "").replace (".", "").replace ("+", "");
+	}
+
 	public int main (string[] args) {
 		var app = new Router ();
 		var docroot = File.new_for_path ("valadoc.org");
@@ -57,8 +61,6 @@ namespace Valadoc.App {
 			throw new Redirection.MOVED_PERMANENTLY ("/images/favicon.ico");
 		});
 
-		app.register_type ("path", /(?:\.?[\w-\s\/@])+/);
-
 		app.get ("/<path:path>", Static.serve_from_file (docroot, Static.ServeFlags.ENABLE_ETAG, (req, res, next, ctx, file) => {
 			if (file.get_basename ().has_suffix (".tpl")) {
 				res.headers.set_content_type ("text/html", null);
@@ -66,7 +68,7 @@ namespace Valadoc.App {
 			return next ();
 		}));
 
-		app.register_type ("pkg", /[\w-.]+/);
+		app.register_type ("pkg", /[\w-.+]+/);
 		app.register_type ("sym", /[\w.@]+/);
 
 		app.get ("/(<pkg:package>/(<sym:symbol>.html)?)?(index.htm)?", accept ("text/html", (req, res, next, ctx) => {
@@ -149,7 +151,7 @@ namespace Valadoc.App {
 
 			var package = req.lookup_query ("package") ?? "";
 			if (package != "") {
-				options += "index_weights=(%s=2)".printf ("stable" + package.replace ("-", "").replace (".", ""));
+				options += "index_weights=(%s=2)".printf (sphinx_index_from_package_name (package));
 			}
 
 			var offset = req.lookup_query ("offset") ?? "0";
@@ -164,7 +166,7 @@ namespace Valadoc.App {
 				}
 			}
 
-			if (package != "" && !GLib.strv_contains (all_packages, "stable" + package.replace ("-", "").replace (".", ""))) {
+			if (package != "" && !GLib.strv_contains (all_packages, sphinx_index_from_package_name (package))) {
 				throw new ClientError.NOT_FOUND ("The requested package '%s' cannot be found.", package);
 			}
 
@@ -274,7 +276,7 @@ namespace Valadoc.App {
 
 			var package_found = false;
 			foreach (var row in db.query ("SHOW TABLES")) {
-				if (row["Index"] == "stable" + package.replace ("-", "").replace (".", "")) {
+				if (row["Index"] == sphinx_index_from_package_name (package)) {
 					package_found = true;
 					break;
 				}
@@ -290,7 +292,7 @@ namespace Valadoc.App {
 			SELECT shortdesc, signature
 			FROM %s
 			WHERE MATCH(?) AND namelen=?
-			LIMIT 1 OPTION max_matches=1,ranker=none""".printf ("stable" + package.replace ("-", "").replace (".", "")),
+			LIMIT 1 OPTION max_matches=1,ranker=none""".printf (sphinx_index_from_package_name (package)),
 			name.replace (".", " << . << "),
 			name.length.to_string ());
 

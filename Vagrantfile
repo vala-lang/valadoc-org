@@ -88,10 +88,10 @@ Vagrant.configure("2") do |config|
     pip3 install meson
 
     cd /home/ubuntu
-    rm -rf valum-0.3.7
-    wget -nc https://github.com/valum-framework/valum/archive/v0.3.7.zip
-    unzip v0.3.7.zip
-    cd /home/ubuntu/valum-0.3.7
+    rm -rf valum-0.3.8
+    wget -nc https://github.com/valum-framework/valum/archive/v0.3.8.zip
+    unzip v0.3.8.zip
+    cd /home/ubuntu/valum-0.3.8
     mkdir build
     meson --prefix=/usr --buildtype=release build
     ninja -C build

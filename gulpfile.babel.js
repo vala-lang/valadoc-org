@@ -5,10 +5,13 @@
 
 import gulp from 'gulp'
 
+import rename from 'gulp-rename'
 import imagemin from 'gulp-imagemin'
 
 import postcss from 'gulp-postcss'
 import cssnext from 'postcss-cssnext'
+
+import babel from 'gulp-babel'
 
 // All browsers we should _try_ to build for
 const browsers = ['last 4 version', 'not ie <= 11']
@@ -42,6 +45,12 @@ gulp.task('scripts', () => {
   const dest = 'valadoc.org/scripts'
 
   return gulp.src(src, { base })
+  .pipe(babel({
+    presets: ['latest']
+  }))
+  .pipe(rename(path => {
+    path.basename = path.basename.replace('.babel', '')
+  }))
   .pipe(gulp.dest(dest))
 })
 

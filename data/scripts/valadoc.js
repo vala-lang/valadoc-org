@@ -1,6 +1,7 @@
 // Some configuration that shouldn't be modified at runtime.
 const config = {
-  searchDelay: 1000 // time (in milliseconds) after which a new search request is triggered
+  searchDelay: 1000, // time (in milliseconds) after which a new search request is triggered
+  appName: 'Valadoc'
 }
 
 const curpkg = location.pathname.split('/')[1]
@@ -72,30 +73,32 @@ function setupLink (link) {
     }
   })
 
-  link.addEventListener('click', evt => {
+  link.addEventListener('click', loadPage(link))
+}
 
-    const title = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
-    loadPage(`${link.href}.content.tpl`, title)
+function loadPage (link) {
+  return evt => {
+    const pageTitle = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
+    const title = `${pageTitletitle.length ? `${pageTitle} — ` : ''}${config.appName}`
+    const url = `${link.pathname}.content.tpl`
+
+    fetch(url).then(res => res.text()).then(page => {
+      html.content.innerHTML = page
+      history.pushState(null, title, url.replace('.content.tpl', ''))
+      document.title = title
+
+      // Init new tooltips
+      document.querySelectorAll('body > div a').forEach(setupLink)
+      document.querySelectorAll('body > div area').forEach(setupLink)
+    }).catch(err => {
+      html.content.innerHTML = `<h1>Sorry, an error occured</h1><p>${err.message}</p>`
+    })
+
     evt.preventDefault()
-  })
+  }
 }
 
-/*
-* Loads the content of the page at `url` into the document.
-*/
-function loadPage (url, title = url) {
-  fetch(url).then(res => res.text()).then(page => {
-    html.content.innerHTML = page
-    history.pushState(null, title, url.replace('.content.tpl', ''))
-    document.title = title
-
-    // Init new tooltips
-    document.querySelectorAll('body > div a').forEach(setupLink)
-    document.querySelectorAll('body > div area').forEach(setupLink)
-  }).catch(err => {
-    html.content.innerHTML = `<h1>Sorry, an error occured</h1><p>${err.message}</p>`
-  })
-}
+document.addEventListener('popstate', () => loadPage(window.location))
 
 // Initialize everything when document is ready
 document.addEventListener('DOMContentLoaded', () => {

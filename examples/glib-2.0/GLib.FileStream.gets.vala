@@ -6,9 +6,8 @@ public static int main (string[] args) {
 	// buffered:
 	char buf[100];
 	while (stream.gets (buf) != null) {
-		stdout.puts ((string) buf);
+		print ((string) buf);
 	}
 
 	return 0;
 }
-

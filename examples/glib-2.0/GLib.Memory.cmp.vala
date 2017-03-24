@@ -14,7 +14,7 @@ public static int main (string[] args) {
 
 	// Output: ``0``
 	int res = Memory.cmp (&a, &b, sizeof (TestStruct));
-	stdout.printf ("cmp (a, b) = %d\n", res);
+	print ("cmp (a, b) = %d\n", res);
 
 	return 0;
 }

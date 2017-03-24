@@ -14,7 +14,7 @@ public class NoodleSoupServer : Soup.Server {
 		unowned NoodleSoupServer self = server as NoodleSoupServer;
 
 		uint id = self.access_counter++;
-		stdout.printf ("Default handler start (%u)\n", id);
+		print ("Default handler start (%u)\n", id);
 
 		// Simulate asynchronous input / time consuming operations:
 		// See GLib.IOSchedulerJob for time consuming operations
@@ -25,7 +25,7 @@ public class NoodleSoupServer : Soup.Server {
 
 			// Resumes HTTP I/O on msg:
 			self.unpause_message (msg);
-			stdout.printf ("Default handler end (%u)\n", id);
+			print ("Default handler end (%u)\n", id);
 			return false;
 		}, Priority.DEFAULT);
 

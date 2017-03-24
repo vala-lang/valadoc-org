@@ -56,7 +56,7 @@ public static int main (string[] args) {
 
 	Xml.TextWriter writer = new Xml.TextWriter.filename ("my-books.xml", false);
 	if (writer == null) {
-		stdout.printf ("Error: Xml.TextWriter.filename () == null\n");
+		print ("Error: Xml.TextWriter.filename () == null\n");
 		return 0;
 	}
 
@@ -66,7 +66,7 @@ public static int main (string[] args) {
 		books.write (writer);
 		ret_to_ex (writer.flush ());
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

@@ -9,7 +9,7 @@ public static int main (string[] args) {
 			FileOutputStream os = file.append_to_async.end (res);
 			os.write ("My new line\n".data);
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

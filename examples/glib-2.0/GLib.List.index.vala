@@ -7,13 +7,13 @@ public static int main (string[] args) {
 	// Output:
 	//  `` 3 => 3 (found)``
 	int index = list.index (3); // available
-	stdout.printf (" %d => 3 (found)\n", index);
+	print (" %d => 3 (found)\n", index);
 
 
 	// Output:
 	//  ``-1 => 4  (not found)``
 	index = list.index (4); // not available
-	stdout.printf ("%d => 4 (not found)\n", index);
+	print ("%d => 4 (not found)\n", index);
 
 	return 0;
 }

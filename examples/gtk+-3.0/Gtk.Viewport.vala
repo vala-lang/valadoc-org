@@ -24,7 +24,7 @@ public class Application : Gtk.Window {
 		Gtk.init (ref args);
 
 		if (args[1] == null) {
-			stdout.printf ("Error: Use `./Gtk.Viewport <image-path>`\n");
+			print ("Error: Use `./Gtk.Viewport <image-path>`\n");
 			return 0;
 		}
 

@@ -10,7 +10,7 @@ public class Application : Gtk.Window {
 		if (dialog.run () == Gtk.ResponseType.OK) {
 			string alpha = dialog.use_alpha.to_string ();
 			string col = dialog.rgba.to_string ();
-			stdout.printf ("Color: %s, Alpha: %s\n", col, alpha);
+			print ("Color: %s, Alpha: %s\n", col, alpha);
 		}
 		dialog.close ();
 	}

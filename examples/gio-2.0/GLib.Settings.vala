@@ -5,7 +5,7 @@ public static int main (string[] args) {
 		SettingsSchemaSource sss = new SettingsSchemaSource.from_directory (settings_dir, null, false);
 		SettingsSchema schema = sss.lookup ("org.example.glib-settings-schema-source", false);
 		if (sss.lookup == null) {
-			stdout.printf ("ID not found.");
+			print ("ID not found.");
 			return 0;
 		}
 
@@ -14,19 +14,19 @@ public static int main (string[] args) {
 		// Default location: (XDG_DATA_DIRS)
 		// Settings settings = new Settings ("org.example.glib-settings-schema-source");
 
-	
+
 
 		// Output: ``Hello, earthlings``
 		string greeting = settings.get_string ("greeting");
-		stdout.printf ("%s\n", greeting);
+		print ("%s\n", greeting);
 
 		// Output: ``99``
 		int bottles = settings.get_int ("bottles-of-beer");
-		stdout.printf ("%d\n", bottles);
+		print ("%d\n", bottles);
 
 		// Output: ``false``
 		bool lighting = settings.get_boolean ("lighting");
-		stdout.printf ("%s\n", lighting.to_string ());
+		print ("%s\n", lighting.to_string ());
 
 
 
@@ -53,10 +53,10 @@ public static int main (string[] args) {
 		settings.set_string ("greeting", "hello, world");
 
 
-		stdout.puts ("\nPlease start 'dconf-editor' and edit keys in /org/example/my-app/\n");
+		print ("\nPlease start 'dconf-editor' and edit keys in /org/example/my-app/\n");
 		new MainLoop ().run ();
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 	return 0;
 }

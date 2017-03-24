@@ -4,10 +4,10 @@ public static int main (string[] args) {
 	//  ``99``
 	//  ``1``
 	//  ``9``
-	stdout.printf ("%d\n", 10.abs ());
-	stdout.printf ("%d\n", 99.abs ());
-	stdout.printf ("%d\n", (-1).abs ());
-	stdout.printf ("%d\n", (-9).abs ());
+	print ("%d\n", 10.abs ());
+	print ("%d\n", 99.abs ());
+	print ("%d\n", (-1).abs ());
+	print ("%d\n", (-9).abs ());
 
 	return 0;
 }

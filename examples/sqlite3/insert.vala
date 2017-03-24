@@ -28,7 +28,7 @@ public static int main (string[] args) {
 	}
 
 	int64 last_id = db.last_insert_rowid ();
-	stdout.printf ("Last inserted id: %" + int64.FORMAT + "\n", last_id);
+	print ("Last inserted id: %" + int64.FORMAT + "\n", last_id);
 
 	return 0;
 }

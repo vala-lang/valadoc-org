@@ -17,7 +17,7 @@ public static int main (string[] args) {
 	//  ``3. entry``
 	//  ``1. entry``
 	foreach (string str in list) {
-		stdout.printf ("%s\n", str);
+		print ("%s\n", str);
 	}
 
 

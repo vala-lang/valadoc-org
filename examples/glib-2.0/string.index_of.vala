@@ -5,23 +5,23 @@ public static int main (string[] args) {
 
 	// Output: ``0``
 	index = haystack.index_of (needle);
-	stdout.printf ("%d\n", index);
+	print ("%d\n", index);
 
 	// Output: ``30``
 	index = haystack.index_of (needle, 5);
-	stdout.printf ("%d\n", index);
+	print ("%d\n", index);
 
 	// Output: ``-1``
 	index = haystack.index_of ("NOT-AVAILABLE", 5);
-	stdout.printf ("%d\n", index);
+	print ("%d\n", index);
 
 	// Output: ``0 30 -1``
 	index = 0;
 	do {
 		index = haystack.index_of (needle, index);
-		stdout.printf ("%d ", index);
+		print ("%d ", index);
 	} while (index++ >= 0);
-	stdout.putc ('\n');
+	print ("\n");
 
 	return 0;
 }

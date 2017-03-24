@@ -6,7 +6,7 @@ public static int main (string[] args) {
 	// You may break your ref counters / lose array lenght information / etc
 	void* copy = try_malloc (sizeof (char)*data.length);
 	Memory.copy (copy, data, sizeof (char)*data.length);
-	stdout.printf ("%s\n", (string) copy);
+	print ("%s\n", (string) copy);
 	free (copy);
 
 	return 0;

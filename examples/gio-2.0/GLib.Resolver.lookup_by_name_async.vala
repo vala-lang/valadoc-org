@@ -13,10 +13,10 @@ public static int main () {
 			//  ``2a00:1450:4016:801::1013``
 			List<InetAddress> addresses = resolver.lookup_by_name_async.end (res);
 			foreach (InetAddress address in addresses) {
-				stdout.printf ("%s\n", address.to_string ());
+				print ("%s\n", address.to_string ());
 			}
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

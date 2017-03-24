@@ -6,8 +6,8 @@ public static int main (string[] args) {
 	//   ``' Gallifrey. I've not heard of it. Perhaps it's in Ireland.  	 '``
 	//   ``' Gallifrey. I've not heard of it. Perhaps it's in Ireland.'``
 
-	stdout.printf ("'%s'\n", my_wisdom);
-	stdout.printf ("'%s'\n", res);
+	print ("'%s'\n", my_wisdom);
+	print ("'%s'\n", res);
 
 	return 0;
 }

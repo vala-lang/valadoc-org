@@ -10,9 +10,9 @@ public static int main (string[] args) {
     //  ``               0x???????.next: (nil)``
 	unowned List<string>? element = list.last ();
 	assert (element != null);
-	stdout.printf ("Search result: %p.data: '%s'\n", element, element.data);
-	stdout.printf ("               %p.prev: %p:'%s'\n", element, element.prev, element.prev.data);
-	stdout.printf ("               %p.next: %p\n", element, element.next);
+	print ("Search result: %p.data: '%s'\n", element, element.data);
+	print ("               %p.prev: %p:'%s'\n", element, element.prev, element.prev.data);
+	print ("               %p.next: %p\n", element, element.next);
 
 	return 0;
 }

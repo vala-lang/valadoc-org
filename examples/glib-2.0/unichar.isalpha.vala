@@ -4,8 +4,8 @@ public static int main (string[] args) {
 
 	// Output: ``true true false false true true``
 	foreach (unichar c in chars) {
-		stdout.printf ("%s ", c.isalpha ().to_string ());
+		print ("%s ", c.isalpha ().to_string ());
 	}
-	stdout.putc ('\n');
+	print ("\n");
 	return 0;
 }

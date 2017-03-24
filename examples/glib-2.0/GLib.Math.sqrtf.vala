@@ -5,6 +5,6 @@ public static int main (string[] args) {
 
 	// Output: ``sqrtf (4.0f) = 2.000000f``
 	float res = Math.sqrtf (4.0f);
-	stdout.printf ("sqrtf (4.0f) = %lff\n", res);
+	print ("sqrtf (4.0f) = %lff\n", res);
 	return 0;
 }

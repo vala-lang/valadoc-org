@@ -4,17 +4,17 @@ public static int main (string[] args) {
 	// Output: ``true``
 	string str = "dilbert-1999/39/01.png";
 	bool res = spec.match (str.length, str, str.reverse ());
-	stdout.printf ("%s\n", res.to_string ());
+	print ("%s\n", res.to_string ());
 
 	// Output: ``true``
 	str = "dilbert-1999/39/01.jpg";
 	res = spec.match (str.length, str, null);
-	stdout.printf ("%s\n", res.to_string ());
+	print ("%s\n", res.to_string ());
 
 	// Output: ``false``
 	str = "dilbert-1999X/39/01.jpg";
 	res = spec.match (str.length, str, null);
-	stdout.printf ("%s\n", res.to_string ());
+	print ("%s\n", res.to_string ());
 
 	return 0;
 }

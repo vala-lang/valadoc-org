@@ -4,11 +4,11 @@ public static int main (string[] args) {
 		string[]? argvp = null;
 		Shell.parse_argv ("rm -R \"my dir\"", out argvp);
 		foreach (unowned string arg in argvp) {
-			stdout.printf ("'%s', ", arg);
+			print ("'%s', ", arg);
 		}
-		stdout.putc ('\n');
+		print ("\n");
 	} catch (ShellError e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	// Output: ``Error: Text ended before matching quote was found for ". (The text was 'rm -R "my dir')``
@@ -17,7 +17,7 @@ public static int main (string[] args) {
 		Shell.parse_argv ("rm -R \"my dir", out argvp);
 		assert_not_reached ();
 	} catch (ShellError e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

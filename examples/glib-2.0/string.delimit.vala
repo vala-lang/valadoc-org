@@ -5,7 +5,7 @@ public static int main (string[] args) {
 	// Output:
 	//  ``ABCDEFG``
 	//  ``xBCxxFx``
-	stdout.printf ("%s\n", str1);
-	stdout.printf ("%s\n", str2);
+	print ("%s\n", str1);
+	print ("%s\n", str2);
 	return 0;
 }

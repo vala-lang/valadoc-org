@@ -5,6 +5,6 @@ static int main (string[] args) {
 
 	// Output: ``器に従い、``
 	string res = wisdom.substring (start, end - start);
-	stdout.printf ("%s\n", res);
+	print ("%s\n", res);
 	return 0;
 }

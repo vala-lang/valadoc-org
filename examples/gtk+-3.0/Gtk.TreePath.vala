@@ -55,19 +55,19 @@ public static int main (string[] args) {
 
 	store.get_iter (out iter, path);
 	store.get_value (iter, 0, out val); 
-	stdout.printf ("%s: %s\n", path.to_string (), (string) val);
+	print ("%s: %s\n", path.to_string (), (string) val);
 
 	// Output: ``0:0:1: Heart of Darkness``
 	path = new Gtk.TreePath.from_indices (0, 0, 1);
 	store.get_iter (out iter, path);
 	store.get_value (iter, 0, out val); 
-	stdout.printf ("%s: %s\n", path.to_string (), (string) val);
+	print ("%s: %s\n", path.to_string (), (string) val);
 
 	// Output: ``0:1:2: Vertigo``
 	path = new Gtk.TreePath.from_string ("0:1:2");
 	store.get_iter (out iter, path);
 	store.get_value (iter, 0, out val); 
-	stdout.printf ("%s: %s\n", path.to_string (), (string) val);
+	print ("%s: %s\n", path.to_string (), (string) val);
 
 	return 0;
 }

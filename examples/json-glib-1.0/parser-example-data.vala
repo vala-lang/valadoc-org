@@ -41,7 +41,7 @@ public static void process_role (Json.Node node, uint number) throws Error {
 		throw new MyError.INVALID_FORMAT ("Expected: firstName, lastName");
 	}
 
-	stdout.printf ("\t%s %s\n", first, last);
+	print ("\t%s %s\n", first, last);
 }
 
 public static void process_role_array (Json.Node node) throws Error {
@@ -59,12 +59,12 @@ public static void process_role_array (Json.Node node) throws Error {
 }
 
 public static void process_good (Json.Node node) throws Error {
-	stdout.puts ("Good:\n");
+	print ("Good:\n");
 	process_role_array (node);
 }
 
 public static void process_bad (Json.Node node) throws Error {
-	stdout.puts ("Bad:\n");
+	print ("Bad:\n");
 	process_role_array (node);
 }
 
@@ -123,7 +123,7 @@ public static int main (string[] args) {
 		// Process (print) the file:
 		process (node);
 	} catch (Error e) {
-		stdout.printf ("Unable to parse the string: %s\n", e.message);
+		print ("Unable to parse the string: %s\n", e.message);
 		return -1;
 	}
 	return 0;

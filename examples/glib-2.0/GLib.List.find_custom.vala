@@ -8,7 +8,7 @@ public static int main (string[] args) {
 	//  ``Search result: 0x??????: '3. entry'``
 	unowned List<string>? element = list.find_custom ("3. entry", strcmp);
 	assert (element != null);
-	stdout.printf ("Search result: %p: '%s'\n", element, element.data);
+	print ("Search result: %p: '%s'\n", element, element.data);
 
 	return 0;
 }

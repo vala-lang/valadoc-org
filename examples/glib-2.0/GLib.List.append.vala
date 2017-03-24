@@ -9,7 +9,7 @@ public static int main (string[] args) {
 	//  ``2. entry``
 	//  ``3. entry``
 	foreach (unowned string e in list) {
-		stdout.printf ("%s\n", e);
+		print ("%s\n", e);
 	}
 
 	return 0;

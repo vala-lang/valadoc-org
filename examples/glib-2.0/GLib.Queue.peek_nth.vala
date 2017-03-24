@@ -6,7 +6,7 @@ public static int main () {
 
 	// Output: ``pop: 2; size: 3``
 	int i = queue.peek_nth (1);
-	stdout.printf ("peek: %d; size: %u\n", i, queue.get_length ());
+	print ("peek: %d; size: %u\n", i, queue.get_length ());
 
 	return 0;
 }

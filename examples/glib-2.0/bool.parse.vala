@@ -6,12 +6,12 @@ public int main (string[] args) {
 	// Output: ``true``
 	string str = "true";
 	bool val = bool.parse (str);
-	stdout.printf ("%s\n", val.to_string ());
+	print ("%s\n", val.to_string ());
 
 	// Output: ``false``
 	str = "false";
 	val = bool.parse (str);
-	stdout.printf ("%s\n", val.to_string ());
+	print ("%s\n", val.to_string ());
 
 
 	//
@@ -21,18 +21,18 @@ public int main (string[] args) {
 	// Output: ``false``
 	str = "TRUE";
 	val = bool.parse (str);
-	stdout.printf ("%s\n", val.to_string ());
+	print ("%s\n", val.to_string ());
 
 	// Output: ``false``
 	str = "a string";
 	val = bool.parse (str);
-	stdout.printf ("%s\n", val.to_string ());
+	print ("%s\n", val.to_string ());
 
 	// numeric constants are not interpreted as bool!
 	// Output: ``false``
 	str = "1";
 	val = bool.parse (str);
-	stdout.printf ("%s\n", val.to_string ());
+	print ("%s\n", val.to_string ());
 
 	return 0;
 }

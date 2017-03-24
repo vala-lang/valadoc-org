@@ -9,7 +9,7 @@ public static int main (string[] args) {
 	//  ``second entry``
 	//  ``third entry``
 	array.foreach ((ptr) => {
-		stdout.printf ("%s\n", (string) ptr);
+		print ("%s\n", (string) ptr);
 	});
 
 	return 0;

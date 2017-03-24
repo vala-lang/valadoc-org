@@ -6,9 +6,9 @@ public static int main (string[] args) {
 	while (direct_equal (wisdom, end) == false) {
 		end = end.prev_char ();
 		unichar c = end.get_char (0);
-		stdout.puts (c.to_string ());
+		print (c.to_string ());
 	}
-	stdout.putc ('\n');
+	print ("\n");
 
 	return 0;
 }

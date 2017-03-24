@@ -5,7 +5,7 @@ public static int main (string[] args) {
 	// Do not copy arrays / classes / etc when you do not know what you are doing.
 	// You may break your ref counters / lose array lenght information / etc
 	void* copy = Memory.dup (data, (uint) (sizeof (char)*data.length));
-	stdout.printf ("%s\n", (string) copy);
+	print ("%s\n", (string) copy);
 	free (copy);
 
 	return 0;

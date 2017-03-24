@@ -4,9 +4,9 @@ public static int main () {
 		InetAddress address = new InetAddress.from_string ("208.80.152.201");
 		Resolver resolver = Resolver.get_default ();
 		string hostname = resolver.lookup_by_address (address, null);
-		stdout.printf ("host: %s\n", hostname);
+		print ("host: %s\n", hostname);
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

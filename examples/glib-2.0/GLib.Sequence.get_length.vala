@@ -7,7 +7,7 @@ public static int main (string[] args) {
 	seq.prepend ("Lorem");
 
 	// Output: ``5``
-	stdout.printf ("%d\n", seq.get_length ());
+	print ("%d\n", seq.get_length ());
 
 	return 0;
 }

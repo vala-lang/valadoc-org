@@ -1,6 +1,6 @@
 private static int exec_callback (int n_columns, string[] values, string[] column_names) {
 	for (int i = 0; i < n_columns; i++) {
-		stdout.printf ("%s: %s\n", column_names[i], values[i]);
+		print ("%s: %s\n", column_names[i], values[i]);
 	}
 	return 0;
 }

@@ -1,13 +1,13 @@
 private void print_array (string title, string[] arr) {
-	stdout.printf ("%s:\n", title);
+	print ("%s:\n", title);
 	foreach (string str in arr) {
-		stdout.printf (" %s\n", str);
+		print (" %s\n", str);
 	}
 }
 
 public static int main (string[] args) {
 		if (args.length != 2) {
-			stdout.printf ("%s [PATH-PREFIX]\n", args[0]);
+			print ("%s [PATH-PREFIX]\n", args[0]);
 			return 0;
 		}
 

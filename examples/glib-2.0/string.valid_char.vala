@@ -12,8 +12,8 @@ public static int main (string[] args) {
 	//  ``false``
 	//  ``false``
 	for (int i = 0; i < wisdom.length; i++) {
-		stdout.puts (wisdom.valid_char (i).to_string ());
-		stdout.putc ('\n');
+		print (wisdom.valid_char (i).to_string ());
+		print ("\n");
 	}
 	return 0;
 }

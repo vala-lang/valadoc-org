@@ -23,11 +23,11 @@ public class Application : Gtk.Window {
 		bar.add (button2);
 
 		button1.clicked.connect (() => {
-			stdout.puts ("Button 1, clicked\n");
+			print ("Button 1, clicked\n");
 		});
 
 		button2.clicked.connect (() => {
-			stdout.puts ("Button 2, clicked\n");
+			print ("Button 2, clicked\n");
 		});
 	}
 

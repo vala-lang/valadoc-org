@@ -44,7 +44,7 @@ Gdk.Pixbuf open_image (string file) {
 
 public static int main (string[] args) {
 	if (args[1] == null) {
-		stdout.printf ("Error: Use: ./Gtk.CellRenderer <filename>\n");
+		print ("Error: Use: ./Gtk.CellRenderer <filename>\n");
 		return 0;
 	}
 

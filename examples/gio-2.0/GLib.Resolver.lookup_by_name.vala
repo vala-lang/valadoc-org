@@ -12,10 +12,10 @@ public static int main () {
 		//  ``173.194.35.180``
 		//  ``2a00:1450:4016:801::1013``
 		foreach (InetAddress address in addresses) {
-			stdout.printf ("%s\n", address.to_string ());
+			print ("%s\n", address.to_string ());
 		}
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

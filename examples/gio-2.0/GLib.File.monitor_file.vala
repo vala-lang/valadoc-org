@@ -2,19 +2,19 @@ public static int main (string[] args) {
 	try {
 		File file = File.new_for_path ("test.txt");
 		FileMonitor monitor = file.monitor_file (FileMonitorFlags.NONE, null);
-		stdout.printf ("Monitoring: %s\n", file.get_path ());
+		print ("Monitoring: %s\n", file.get_path ());
 
 		monitor.changed.connect ((src, dest, event) => {
 			if (dest != null) {
-				stdout.printf ("%s: %s, %s\n", event.to_string (), src.get_path (), dest.get_path ());
+				print ("%s: %s, %s\n", event.to_string (), src.get_path (), dest.get_path ());
 			} else {
-				stdout.printf ("%s: %s\n", event.to_string (), src.get_path ());
+				print ("%s: %s\n", event.to_string (), src.get_path ());
 			}
 		});
 
 		new MainLoop ().run ();
 	} catch (Error err) {
-		stdout.printf ("Error: %s\n", err.message);
+		print ("Error: %s\n", err.message);
 	}
 	return 0;
 }

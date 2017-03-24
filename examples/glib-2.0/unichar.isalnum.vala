@@ -6,8 +6,8 @@ public static int main (string[] args) {
 
 	// Output: ``true true true true true true true true true true false false false``
 	foreach (unichar c in chars) {
-		stdout.printf ("%s ", c.isalnum ().to_string ());
+		print ("%s ", c.isalnum ().to_string ());
 	}
-	stdout.putc ('\n');
+	print ("\n");
 	return 0;
 }

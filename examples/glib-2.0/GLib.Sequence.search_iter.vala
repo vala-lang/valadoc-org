@@ -11,7 +11,7 @@ public static int main (string[] args) {
 	});
 
 	// Output: ``4. sit``
-	stdout.printf ("%s\n", iter.get ());
+	print ("%s\n", iter.get ());
 
 	return 0;
 }

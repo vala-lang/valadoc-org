@@ -11,9 +11,9 @@ public class Application : Gtk.Window {
 
 		_switch.notify["active"].connect (() => {
 			if (_switch.active) {
-				stdout.printf ("The switch is on!\n");
+				print ("The switch is on!\n");
 			} else {
-				stdout.printf ("The switch is off!\n");
+				print ("The switch is off!\n");
 			}
 		});
 

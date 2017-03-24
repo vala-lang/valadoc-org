@@ -5,7 +5,7 @@ public static int main (string[] args) {
 	try {
 		channel = new IOChannel.file ("my-io-channel-test-file.txt", "r");
 	} catch (FileError e) {
-		stdout.printf ("FileError: %s\n", e.message);
+		print ("FileError: %s\n", e.message);
 		return 0;
 	}
 
@@ -15,7 +15,7 @@ public static int main (string[] args) {
 		size_t length = -1;
 
 		if (condition == IOCondition.HUP) {
-			stdout.printf ("The connection has been broken.\n");
+			print ("The connection has been broken.\n");
 			return false;
 		}
 
@@ -27,19 +27,19 @@ public static int main (string[] args) {
 				return false;
 			}
 
-			stdout.printf ("watch: %s", str_return);
+			print ("watch: %s", str_return);
 			return true;
 		} catch (IOChannelError e) {
-			stdout.printf ("IOChannelError: %s\n", e.message);
+			print ("IOChannelError: %s\n", e.message);
 			return false;
 		} catch (ConvertError e) {
-			stdout.printf ("ConvertError: %s\n", e.message);
+			print ("ConvertError: %s\n", e.message);
 			return false;
 		}
 	});
 
 	if(stat == 0) {
-		stdout.printf ("Cannot add watch on IOChannel.\n");
+		print ("Cannot add watch on IOChannel.\n");
 		return 0;
 	}
 

@@ -3,12 +3,12 @@ public static int main (string[] args) {
 
 	// Output: ``Password: password``
 	unowned string passwd = uri.get_password ();
-	stdout.printf ("Password: %s\n", passwd);
+	print ("Password: %s\n", passwd);
 
 	// Output: ``URI: http://username@localhost:8088/foo/bar.html?foo=f&bar=b#frag``
 	uri.set_password ("123");
 	string uri_str = uri.to_string (false); 
-	stdout.printf ("URI: %s\n", uri_str);
+	print ("URI: %s\n", uri_str);
 
 	return 0;
 }

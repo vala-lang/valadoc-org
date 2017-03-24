@@ -7,7 +7,7 @@ public class MyThread : Object {
 
 	public int run () {
 		for (int i = 0; i < this.x_times; i++) {
-			stdout.printf ("ping! %d/%d\n", i + 1, this.x_times);
+			print ("ping! %d/%d\n", i + 1, this.x_times);
 			Thread.usleep (10000);
 		}
 
@@ -32,9 +32,9 @@ public static int main (string[] args) {
 		// Wait until thread finishes:
 		int result = thread.join ();
 		// Output: `Thread stopped! Return value: 42`
-		stdout.printf ("Thread stopped! Return value: %d\n", result);
+		print ("Thread stopped! Return value: %d\n", result);
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

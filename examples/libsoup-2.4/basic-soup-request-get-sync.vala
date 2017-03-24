@@ -12,11 +12,11 @@ public static int main (string[] args) {
 
 	// Process the result:
     msg.response_headers.foreach ((name, val) => {
-        stdout.printf ("%s = %s\n", name, val);
+        print ("%s = %s\n", name, val);
     });
 
-	stdout.printf ("Status Code: %u\n", msg.status_code);
-	stdout.printf ("Message length: %lld\n", msg.response_body.length);
-    stdout.printf ("Data: \n%s\n", (string) msg.response_body.data);
+	print ("Status Code: %u\n", msg.status_code);
+	print ("Message length: %lld\n", msg.response_body.length);
+    print ("Data: \n%s\n", (string) msg.response_body.data);
 	return 0;
 }

@@ -16,38 +16,38 @@ public static void write_data (DataOutputStream dos) throws GLib.IOError {
 }
 
 public static void read_data (DataInputStream dis) throws GLib.IOError {
-	stdout.printf ("%d (Expected: %d)\n", dis.read_int16 (), int16.MIN);
-	stdout.printf ("%d (Expected: %d)\n", dis.read_int32 (), int32.MIN);
-	stdout.printf ("%"+int64.FORMAT+" (Expected: %"+int64.FORMAT+")\n", dis.read_int64 (), int64.MIN);
+	print ("%d (Expected: %d)\n", dis.read_int16 (), int16.MIN);
+	print ("%d (Expected: %d)\n", dis.read_int32 (), int32.MIN);
+	print ("%"+int64.FORMAT+" (Expected: %"+int64.FORMAT+")\n", dis.read_int64 (), int64.MIN);
 
-	stdout.printf ("%u (Expected: %u)\n", dis.read_uint16 (), uint16.MAX);
-	stdout.printf ("%u (Expected: %u)\n", dis.read_uint32 (), uint32.MAX);
-	stdout.printf ("%"+uint64.FORMAT+" (Expected: %"+uint64.FORMAT+")\n", dis.read_uint64 (), uint64.MAX);
+	print ("%u (Expected: %u)\n", dis.read_uint16 (), uint16.MAX);
+	print ("%u (Expected: %u)\n", dis.read_uint32 (), uint32.MAX);
+	print ("%"+uint64.FORMAT+" (Expected: %"+uint64.FORMAT+")\n", dis.read_uint64 (), uint64.MAX);
 
-	stdout.printf ("%c\n", dis.read_byte ());
+	print ("%c\n", dis.read_byte ());
 
-	stdout.printf ("%s\n", dis.read_upto ("\0", 1, null));
+	print ("%s\n", dis.read_upto ("\0", 1, null));
 	dis.read_byte (); // Consume '\0'
 
-	stdout.printf ("%s\n", dis.read_upto ("\0", 1, null));
+	print ("%s\n", dis.read_upto ("\0", 1, null));
 	dis.read_byte (); // Consume '\0'
 }
 
 public static async void read_data_async (DataInputStream dis) throws GLib.IOError {
-	stdout.printf ("%d (Expected: %d)\n", dis.read_int16 (), int16.MIN);
-	stdout.printf ("%d (Expected: %d)\n", dis.read_int32 (), int32.MIN);
-	stdout.printf ("%"+int64.FORMAT+" (Expected: %"+int64.FORMAT+")\n", dis.read_int64 (), int64.MIN);
+	print ("%d (Expected: %d)\n", dis.read_int16 (), int16.MIN);
+	print ("%d (Expected: %d)\n", dis.read_int32 (), int32.MIN);
+	print ("%"+int64.FORMAT+" (Expected: %"+int64.FORMAT+")\n", dis.read_int64 (), int64.MIN);
 
-	stdout.printf ("%u (Expected: %u)\n", dis.read_uint16 (), uint16.MAX);
-	stdout.printf ("%u (Expected: %u)\n", dis.read_uint32 (), uint32.MAX);
-	stdout.printf ("%"+uint64.FORMAT+" (Expected: %"+uint64.FORMAT+")\n", dis.read_uint64 (), uint64.MAX);
+	print ("%u (Expected: %u)\n", dis.read_uint16 (), uint16.MAX);
+	print ("%u (Expected: %u)\n", dis.read_uint32 (), uint32.MAX);
+	print ("%"+uint64.FORMAT+" (Expected: %"+uint64.FORMAT+")\n", dis.read_uint64 (), uint64.MAX);
 
-	stdout.printf ("%c\n", dis.read_byte ());
+	print ("%c\n", dis.read_byte ());
 
-	stdout.printf ("%s\n", yield dis.read_upto_async ("\0", 1, Priority.DEFAULT, null, null));
+	print ("%s\n", yield dis.read_upto_async ("\0", 1, Priority.DEFAULT, null, null));
 	dis.read_byte (); // Consume '\0'
 
-	stdout.printf ("%s\n", yield dis.read_upto_async ("\0", 1, Priority.DEFAULT, null, null));
+	print ("%s\n", yield dis.read_upto_async ("\0", 1, Priority.DEFAULT, null, null));
 	dis.read_byte (); // Consume '\0'
 }
 
@@ -76,7 +76,7 @@ public static int main (string[] args) {
 
 		loop.run ();
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

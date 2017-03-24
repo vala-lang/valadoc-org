@@ -11,7 +11,7 @@ public class Application : Gtk.Window {
 
 		chooser.selection_changed.connect (() => {
 			string uri = chooser.get_current_uri ();
-			stdout.printf ("%s\n", uri);
+			print ("%s\n", uri);
 		});
 	}
 

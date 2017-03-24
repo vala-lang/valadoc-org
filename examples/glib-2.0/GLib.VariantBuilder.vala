@@ -12,7 +12,7 @@ public static int main (string[] args) {
 
 	VariantIter iter = dictionary.iterator ();
 	while (iter.next ("{sv}", &key, &val)) {
-		stdout.printf ("Item '%s' has type '%s'\n", key, val.get_type_string ());
+		print ("Item '%s' has type '%s'\n", key, val.get_type_string ());
 	}
 
 	return 0;

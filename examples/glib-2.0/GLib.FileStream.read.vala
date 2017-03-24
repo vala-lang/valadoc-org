@@ -14,7 +14,7 @@ public static int main (string[] args) {
 	assert (size == read);
 
 	// display content:
-	stdout.puts ((string) buf);	
+	print ((string) buf);	
 
 	return 0;
 }

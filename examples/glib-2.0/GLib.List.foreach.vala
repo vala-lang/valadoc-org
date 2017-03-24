@@ -1,5 +1,5 @@
 public static int main (string[] args) {
-	List<string> list = new List<string> ();	
+	List<string> list = new List<string> ();
 	list.append ("1. entry");
 	list.append ("2. entry");
 	list.append ("3. entry");
@@ -10,8 +10,7 @@ public static int main (string[] args) {
 	//  ``3. entry``
 
 	list.foreach ((entry) => {
-		stdout.puts (entry);
-		stdout.putc ('\n');
+		print (@"$entry\n");
 	});
 
 	return 0;

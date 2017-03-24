@@ -5,11 +5,11 @@ public static int main () {
 	queue.push_tail ("3");
 
 	// Output: ``3``
-	stdout.printf ("%u\n", queue.get_length ());
+	print ("%u\n", queue.get_length ());
 
 	// Output: ``0``
 	queue.clear ();
-	stdout.printf ("%u\n", queue.get_length ());
+	print ("%u\n", queue.get_length ());
 
 	return 0;
 }

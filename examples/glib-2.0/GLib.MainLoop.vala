@@ -3,7 +3,7 @@ public static int main (string[] args) {
     TimeoutSource time = new TimeoutSource (2000);
 
     time.set_callback (() => {
-        stdout.printf ("Time!\n");
+        print ("Time!\n");
         loop.quit ();
         return false;
     });

@@ -11,7 +11,7 @@ public static int main (string[] args) {
 	//  ``key=key2, value=val2``
 	//  ``key=key3, value=val3``
 	tree.@foreach ((key, val) => {
-		stdout.printf ("key=%s, value=%s\n", (string) key, (string) val);
+		print ("key=%s, value=%s\n", (string) key, (string) val);
 		return false;
 	});
 

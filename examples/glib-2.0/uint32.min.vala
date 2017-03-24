@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	// Output: ``min ('100, 900) = 100``
 	uint32 min = uint32.min (100, 900);
-	stdout.printf ("min (100, 900) = %lu\n", min);
+	print ("min (100, 900) = %lu\n", min);
 	return 0;
 }

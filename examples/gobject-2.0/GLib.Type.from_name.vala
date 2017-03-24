@@ -5,7 +5,7 @@ public static int main (string[] args) {
 	Type? type = typeof (MyClass);
 
 	// Output: ``MyClass``
-	stdout.printf ("%s\n", Type.from_name ("MyClass").name ());
+	print ("%s\n", Type.from_name ("MyClass").name ());
 	type = null;
 	return 0;
 }

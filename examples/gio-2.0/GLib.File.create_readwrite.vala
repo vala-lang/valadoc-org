@@ -5,7 +5,7 @@ public static int main (string[] args) {
 		FileIOStream stream = file.create_readwrite (FileCreateFlags.PRIVATE);
 		stream.output_stream.write ("My first line\n".data);
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

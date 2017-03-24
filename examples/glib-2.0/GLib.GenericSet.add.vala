@@ -21,7 +21,7 @@ public static int main (string[] args) {
 	//  ``third string => 0x809d600``
 	//  ``first string => 0x809d5b8``
 	table.foreach ((key) => {
-		stdout.printf ("%s => %p\n", key, key);
+		print ("%s => %p\n", key, key);
 	});
 
 	return 0;

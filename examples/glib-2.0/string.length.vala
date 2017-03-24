@@ -4,6 +4,6 @@ public static int main (string[] args) {
 	int bytes = str.length;
 
 	// Output: ``letters: 9, bytes: 19``
-	stdout.printf ("letters: %d, bytes: %d\n", letters, bytes);
+	print ("letters: %d, bytes: %d\n", letters, bytes);
 	return 0;
 }

@@ -13,7 +13,7 @@ public static int main (string[] args) {
 	//  ``sit``
 	//  ``amet``
 	for (SequenceIter<string> iter = seq.get_begin_iter (); !iter.is_end (); iter = iter.next ()) {
-		stdout.printf ("%d: %s\n", iter.get_position (), iter.get ());
+		print ("%d: %s\n", iter.get_position (), iter.get ());
 	}
 
 	return 0;

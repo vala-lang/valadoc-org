@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	// Output: ``'my str'``
 	string quote = Shell.quote ("my str");
-	stdout.printf ("%s\n", quote);
+	print ("%s\n", quote);
 	return 0;
 }

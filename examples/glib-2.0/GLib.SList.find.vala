@@ -7,7 +7,7 @@ public static int main (string[] args) {
 	// See find_custom for strings, etc
 	// Output: ``0x???????: 3``
 	unowned SList<int> list3 = list.find (3);
-	stdout.printf ("%p: %d\n", list3, list3.data);
+	print ("%p: %d\n", list3, list3.data);
 
 	return 0;
 }

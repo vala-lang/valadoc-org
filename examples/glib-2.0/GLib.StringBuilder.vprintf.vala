@@ -8,6 +8,6 @@ public static string myprintf (string str, ...) {
 public static int main (string[] args) {
 	// Output: ``hello, world!``
 	string str = myprintf ("%s, %s!\n", "hello", "world");
-	stdout.puts (str);
+	print (str);
 	return 0;
 }

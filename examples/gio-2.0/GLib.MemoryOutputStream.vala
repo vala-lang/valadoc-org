@@ -15,11 +15,11 @@ public static int main (string[] args) {
 
 		MemoryInputStream @is = new MemoryInputStream.from_data (data, GLib.free);
 		DataInputStream dis = new DataInputStream (@is);
-		stdout.printf ("%d (Expected: %d)\n", dis.read_int16 (), int16.MIN);
-		stdout.printf ("%d (Expected: %d)\n", dis.read_int32 (), int32.MIN);
-		stdout.printf ("%"+int64.FORMAT+" (Expected: %"+int64.FORMAT+")\n", dis.read_int64 (), int64.MIN);
+		print ("%d (Expected: %d)\n", dis.read_int16 (), int16.MIN);
+		print ("%d (Expected: %d)\n", dis.read_int32 (), int32.MIN);
+		print ("%"+int64.FORMAT+" (Expected: %"+int64.FORMAT+")\n", dis.read_int64 (), int64.MIN);
 	} catch (IOError e) {
-		stdout.printf ("IOError %s\n", e.message);
+		print ("IOError %s\n", e.message);
 	}
 	return 0;
 }

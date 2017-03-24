@@ -15,7 +15,7 @@ public class Application : Gtk.Window {
 		// Method called on pressing [X]
 		this.destroy.connect (() => {
 			// Print "Bye!" to our console: 
-			stdout.printf ("Bye!\n");
+			print ("Bye!\n");
 
 			// Terminate the mainloop: (main returns 0)
 			Gtk.main_quit ();

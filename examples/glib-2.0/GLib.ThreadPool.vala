@@ -11,7 +11,7 @@ class Worker {
 
 	public void run () {
 		for (int i = 0; i < this.x_times ; i++) {
-			stdout.printf ("%s: %d/%d\n", this.thread_name, i + 1, this.x_times);
+			print ("%s: %d/%d\n", this.thread_name, i + 1, this.x_times);
 			Thread.usleep (1000000); // wait a second
 		}
 	}
@@ -40,9 +40,9 @@ public static int main (string[] args) {
 		uint waiting = pool.unprocessed ();		// unfinished workers = 4
 		uint allowed = pool.get_max_threads (); // max running threads = 3
 		uint running = pool.get_num_threads (); // running threads = 3
-		stdout.printf ("%u/%u threads are running, %u outstanding.\n", running, allowed, waiting);
+		print ("%u/%u threads are running, %u outstanding.\n", running, allowed, waiting);
 	} catch (ThreadError e) {
-		stdout.printf ("ThreadError: %s\n", e.message);
+		print ("ThreadError: %s\n", e.message);
 	}
 	
 	return 0;

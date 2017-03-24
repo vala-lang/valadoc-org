@@ -98,8 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // Init tooltips
-  document.querySelectorAll('a').forEach(setupTooltip)
-  document.querySelectorAll('area').forEach(setupTooltip)
+  document.querySelectorAll('body > div a').forEach(setupTooltip)
+  document.querySelectorAll('body > div area').forEach(setupTooltip)
 
   // register some usefull shortcuts
   document.addEventListener('keyup', evt => {

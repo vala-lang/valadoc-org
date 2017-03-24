@@ -5,7 +5,6 @@
 
 import gulp from 'gulp'
 
-import rename from 'gulp-rename'
 import imagemin from 'gulp-imagemin'
 
 import postcss from 'gulp-postcss'
@@ -47,9 +46,6 @@ gulp.task('scripts', () => {
   return gulp.src(src, { base })
   .pipe(babel({
     presets: ['latest']
-  }))
-  .pipe(rename(path => {
-    path.basename = path.basename.replace('.babel', '')
   }))
   .pipe(gulp.dest(dest))
 })

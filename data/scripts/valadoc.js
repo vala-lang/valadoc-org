@@ -4,7 +4,7 @@ const config = {
   appName: 'Valadoc'
 }
 
-const curpkg = location.pathname.split('/')[1]
+const curpkg = window.location.pathname.split('/')[1]
 
 // This object will contain the html elements of the interface
 const html = {}
@@ -58,7 +58,7 @@ function setupLink (link) {
   }
 
   link.addEventListener('mouseenter', () => {
-    if (link.getAttribute('data-init') != 'yes') {
+    if (link.getAttribute('data-init') !== 'yes') {
       // fullname = path without the / at the beggining and the .htm(l)
       const fullname = link.pathname.substring(1).replace(/\.html?$/, '')
       link.setAttribute('data-init', 'yes')
@@ -78,7 +78,7 @@ function setupLink (link) {
 function loadPage (link) {
   return evt => {
     const pageTitle = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
-    const title = `${pageTitletitle.length ? `${pageTitle} — ` : ''}${config.appName}`
+    const title = `${pageTitle.length ? `${pageTitle} — ` : ''}${config.appName}`
     const url = `${link.pathname}.content.tpl`
 
     fetch(url).then(res => res.text()).then(page => {
@@ -166,8 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
         break
       case 13: // enter
         if (html.searchFocused) { // if we have a search item selected, we load its page
-          location = html.searchFocused.children[0].href
+          loadPage(html.searchFocused.children[0])
         }
+        break
       case 17: // ctrl
         html.searchField.focus() // we focus the search
         break

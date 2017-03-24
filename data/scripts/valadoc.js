@@ -64,8 +64,7 @@ function setupLink (link) {
       link.setAttribute('data-init', 'yes')
       fetch(`/tooltip.php?fullname=${encodeURIComponent(fullname)}`, {
         method: 'POST'
-      })
-      .then(res => {
+      }).then(res => {
         return res.text()
       }).then(res => {
         tooltip(link, res)
@@ -118,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   html.searchField.addEventListener('keyup', evt => {
     // only if the pressed key isn't up/down arrow, because we use them to select next/previous search result and not to trigger search
     if (evt.keyCode !== 40 && evt.keyCode !== 38) {
-      updateSearch ()
+      updateSearch()
     }
   })
 
@@ -189,10 +188,10 @@ function updateSearch () {
   if (html.searchField.value != null && html.searchField.value !== '') {
     // if search isn't empty, we display results after `config.searchDelay` milliseconds
     searchDelay = setTimeout(() => {
-        search(html.searchField.value).then(res => {
-          html.searchResults.innerHTML = res
-        })
-        html.navigation.style.display = 'none'
+      search(html.searchField.value).then(res => {
+        html.searchResults.innerHTML = res
+      })
+      html.navigation.style.display = 'none'
     }, config.searchDelay)
   } else {
     // if the search field is empty, we display the symbols list again

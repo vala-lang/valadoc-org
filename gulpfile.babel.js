@@ -45,7 +45,7 @@ gulp.task('scripts', () => {
 
   return gulp.src(src, { base })
   .pipe(babel({
-    presets: ['latest']
+    presets: ['env']
   }))
   .pipe(gulp.dest(dest))
 })

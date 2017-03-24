@@ -41,8 +41,8 @@ function tooltip (element, content) {
 
   element.addEventListener('mousemove', evt => {
     tip.style.display = 'block'
-    tip.style.top = `${evt.clientY}px`
-    tip.style.left = `${evt.clientX}px`
+    tip.style.top = `${window.scrollY + evt.clientY}px`
+    tip.style.left = `${window.scrollX + evt.clientX}px`
   })
 
   element.addEventListener('mouseleave', () => {
@@ -51,7 +51,11 @@ function tooltip (element, content) {
   return tip
 }
 
-function setupTooltip (link) {
+function setupLink (link) {
+  if (link.hostname !== location.hostname) {
+    return
+  }
+
   link.addEventListener('mouseenter', () => {
     if (link.getAttribute('data-init') != 'yes') {
       // fullname = path without the / at the beggining and the .htm(l)
@@ -67,6 +71,30 @@ function setupTooltip (link) {
       })
     }
   })
+
+  link.addEventListener('click', evt => {
+
+    const title = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
+    loadPage(`${link.href}.content.tpl`, title)
+    evt.preventDefault()
+  })
+}
+
+/*
+* Loads the content of the page at `url` into the document.
+*/
+function loadPage (url, title = url) {
+  fetch(url).then(res => res.text()).then(page => {
+    html.content.innerHTML = page
+    history.pushState(null, title, url.replace('.content.tpl', ''))
+    document.title = title
+
+    // Init new tooltips
+    document.querySelectorAll('body > div a').forEach(setupLink)
+    document.querySelectorAll('body > div area').forEach(setupLink)
+  }).catch(err => {
+    html.content.innerHTML = `<h1>Sorry, an error occured</h1><p>${err.message}</p>`
+  })
 }
 
 // Initialize everything when document is ready
@@ -78,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
   html.searchClear = document.getElementById('search-field-clear')
   html.navigation = document.getElementById('navigation-content')
   html.searchFocused = null // The search result that is currently focused
+  html.content = document.getElementById('content')
 
   // Init search
   html.searchBox.style.display = 'inline-block' // display it (we do it here, so the user without javascript won't see a non-working search box)
@@ -98,8 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // Init tooltips
-  document.querySelectorAll('body > div a').forEach(setupTooltip)
-  document.querySelectorAll('body > div area').forEach(setupTooltip)
+  document.querySelectorAll('body > div a').forEach(setupLink)
+  document.querySelectorAll('body > div area').forEach(setupLink)
 
   // register some usefull shortcuts
   document.addEventListener('keyup', evt => {

@@ -8,7 +8,8 @@
   "scripts": {
     "test": "stylelint data/styles/*.css",
     "build": "gulp",
-    "start": "php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php"
+    "start": "php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php",
+    "lint": "./node_modules/.bin/eslint data/scripts/*.js"
   },
   "dependencies": {
     "babel-core": "^6.23.1",
@@ -22,6 +23,10 @@
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
     "stylelint": "^7.9.0"
   }
 }

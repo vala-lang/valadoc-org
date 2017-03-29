@@ -99,7 +99,7 @@ build-data:
 #
 
 
-build-docs: generator libdoclet.so
+build-docs: default
 	$(RM) -r tmp/
 	./generator \
 		--vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
@@ -112,7 +112,7 @@ build-docs: generator libdoclet.so
 		--no-check-certificate \
 		--all
 
-build-docs-mini: generator libdoclet.so
+build-docs-mini: default
 	$(RM) -r tmp/
 	./generator \
 		--vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
@@ -137,7 +137,7 @@ test-examples: valadoc-example-tester
 #
 
 
-serve: default build-docs build-data
+serve: build-docs build-data
 	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php
-serve-mini: default build-docs-mini build-data
+serve-mini: build-docs-mini build-data
 	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php

@@ -79,21 +79,35 @@ function loadPage (link) {
   return evt => {
     const pageTitle = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
     const title = `${pageTitle.length ? `${pageTitle} — ` : ''}${config.appName}`
-    const url = `${link.pathname}.content.tpl`
+    const pageUrl = `${link.pathname}.content.tpl`
+    const sidebarUrl = `${link.pathname}.navi.tpl`
 
-    fetch(url).then(res => res.text()).then(page => {
+    fetch(pageUrl).then(res => res.text()).then(page => {
       html.content.innerHTML = page
-      history.pushState(null, title, url.replace('.content.tpl', ''))
+      history.pushState(null, title, pageUrl.replace('.content.tpl', ''))
       document.title = title
 
       // Init new tooltips
-      document.querySelectorAll('body > div a').forEach(setupLink)
-      document.querySelectorAll('body > div area').forEach(setupLink)
+      document.querySelectorAll('#content a').forEach(setupLink)
+      document.querySelectorAll('#content area').forEach(setupLink)
     }).catch(err => {
       html.content.innerHTML = `<h1>Sorry, an error occured</h1><p>${err.message}</p>`
     })
 
-    evt.preventDefault()
+    if (html.searchField.value !== '') {
+      fetch(sidebarUrl).then(res => res.text()).then(sidebar => {
+        html.navigation.innerHTML = sidebar
+
+        // Init new tooltips
+        document.querySelectorAll('#navigation-content a').forEach(setupLink)
+        document.querySelectorAll('#navigation-content area').forEach(setupLink)
+      }).catch(err => {
+        console.error('Unable to load sidebar')
+        console.error(err)
+      })
+
+      evt.preventDefault()
+    }
   }
 }
 

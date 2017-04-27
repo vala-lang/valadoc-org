@@ -37,6 +37,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private Regex markdown_img_regex;
 	private string global_wget_flags;
 
+	private bool has_error = false;
+
 	private void print_stored_messages () {
 		foreach (Package pkg in unavailable_packages) {
 			reporter.simple_warning (null, "error: Package '%s' not found", pkg.name);
@@ -723,6 +725,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 					build_doc_for_package (pkg);
 				} catch (Error e) {
 					stderr.printf ("%s\n", e.message);
+					has_error = true;
 				}
 			}
 		}
@@ -790,6 +793,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				build_doc_for_package (pkg);
 			} catch (Error e) {
 				stderr.printf ("%s\n", e.message);
+				has_error = true;
 			}
 		}
 
@@ -831,7 +835,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 
 		StringBuilder builder = new StringBuilder ();
-		builder.append_printf ("valadoc --target-glib %s --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s",
+		builder.append_printf ("valadoc --target-glib %s --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s --use-svg-images",
 			target_glib, driver, docletpath, pkg.name, pkg.get_vapi_path (vapidirs), Path.get_dirname (pkg.get_vapi_path (vapidirs)), girdir, pkg.flags);
 
 		if (disable_devhelp == true) {
@@ -1382,6 +1386,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			if (reporter.errors > 0) {
 				return -1;
+			}
+
+			if (generator.has_error) {
+				return_val = -1;
 			}
 
 		} catch (Error e) {

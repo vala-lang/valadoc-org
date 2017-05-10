@@ -78,7 +78,7 @@
 			<package name="libgnome-menu-3.0" flags="--pkg gio-2.0 --pkg gio-unix-2.0" gir="GnomeDesktop-3.0">
 				Utility library for loading .desktop files.
 			</package>
-			<package name="libgdaui-5.0" gir="Gdaui-5.0">
+			<package name="libgda-ui-5.0" gir="Gdaui-5.0">
 				Libgda is a (relatively small) database access library. This package provides GTK+ widgets to database access.
 			</package>
 		</section>

@@ -1,0 +1,4 @@
+[wrap-git]
+directory=compose
+url=https://github.com/arteymix/compose.git
+revision=master

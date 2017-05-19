@@ -6,10 +6,7 @@ sudo: required
 language: c
 
 before_install:
-  - wget https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-linux.zip
-  - wget -O valum-0.3.6.zip https://github.com/valum-framework/valum/archive/v0.3.6.zip
-  - wget -O compose-master.zip https://github.com/arteymix/compose/archive/master.zip
-  - wget -O glrucache-master.zip https://github.com/chergert/glrucache/archive/master.zip
+  - wget https://github.com/ninja-build/ninja/releases/download/v1.7.2/ninja-linux.zip
 
 install:
   - sudo add-apt-repository ppa:vala-team -y
@@ -18,12 +15,6 @@ install:
     libglib2.0-dev libsoup2.4-dev libmysqlclient-dev sphinxsearch libjson-glib-dev
   - pip3 install meson
   - sudo unzip ninja-linux.zip -d /usr/local/bin
-  - unzip valum-0.3.6.zip
-  - cd valum-0.3.6 && mkdir build && meson --prefix=/usr --buildtype=release build && ninja -C build && sudo ninja -C build install && cd ..
-  - unzip compose-master.zip
-  - cd compose-master && mkdir build && meson --prefix=/usr --buildtype=release build && ninja -C build && sudo ninja -C build install && cd ..
-  - unzip glrucache-master.zip
-  - cd glrucache-master && mkdir build && meson --prefix=/usr --buildtype=release build && ninja -C build && sudo ninja -C build install && cd ..
   - "bash -c 'source ~/.nvm/nvm.sh; nvm install 6'"
   - "bash -c 'source ~/.nvm/nvm.sh; nvm use 6; npm install'"
 

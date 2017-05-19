@@ -1,0 +1,4 @@
+[wrap-git]
+directory=glrucache
+url=https://gitlab.gnome.org/chergert/glrucache.git
+revision=master

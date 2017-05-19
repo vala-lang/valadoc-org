@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder ".", "/home/ubuntu/valadoc-org"
+  config.vm.synced_folder ".", "/home/vagrant/valadoc-org"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -73,6 +73,8 @@ Vagrant.configure("2") do |config|
         libjson-glib-dev       \
         libmysqlclient-dev     \
         libsoup2.4-dev         \
+        libssl-dev             \
+        libxml2-dev            \
         libvaladoc-dev         \
         nodejs                 \
         python3-pip            \
@@ -82,43 +84,13 @@ Vagrant.configure("2") do |config|
         valadoc                \
         xsltproc
 
-    wget -nc https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-linux.zip
+    wget -nc https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip
     unzip ninja-linux.zip -d /usr/local/bin
+    chmod +x /usr/local/bin/ninja
 
     pip3 install --upgrade meson
 
-    cd /home/ubuntu
-    rm -rf valum-0.3.8
-    wget -nc https://github.com/valum-framework/valum/archive/v0.3.8.zip
-    unzip v0.3.8.zip
-    cd /home/ubuntu/valum-0.3.8
-    mkdir build
-    meson --prefix=/usr --buildtype=release build
-    ninja -C build
-    ninja -C build test
-    ninja -C build install
-
-    cd /home/ubuntu
-    rm -rf compose-master
-    wget -O compose-master.zip https://github.com/arteymix/compose/archive/master.zip
-    unzip compose-master.zip
-    cd /home/ubuntu/compose-master
-    mkdir build
-    meson --prefix=/usr --buildtype=release build
-    ninja -C build
-    ninja -C build test
-    ninja -C build install
-
-    cd /home/ubuntu
-    rm -rf glrucache-master
-    wget -O glrucache-master.zip https://github.com/chergert/glrucache/archive/master.zip
-    unzip glrucache-master.zip
-    cd /home/ubuntu/glrucache-master
-    meson --prefix=/usr --buildtype=release build
-    ninja -C build
-    ninja -C build install
-
-    cd /home/ubuntu/valadoc-org
+    cd /home/vagrant/valadoc-org
     make clean
     make
     make build-docs

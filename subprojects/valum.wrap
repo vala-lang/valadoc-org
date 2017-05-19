@@ -1,0 +1,4 @@
+[wrap-git]
+directory=valum
+url=https://github.com/valum-framework/valum.git
+revision=master

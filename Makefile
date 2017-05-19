@@ -33,8 +33,6 @@ clean:
 	$(RM) LOG
 
 
-app: src/valadoc-app.vala src/valadoc-app-database.vala
-	$(VALAC) --pkg=valum-0.3 --pkg=mysql $(addprefix -X ,$(shell mysql_config --cflags --libs)) --pkg=json-glib-1.0 --pkg=compose-1.0 --pkg=glrucache -o $@ $^
 
 valadoc-example-gen: src/valadoc-example-parser.vala src/valadoc-example-gen.vala
 	$(VALAC) $(VALAFLAGS) -o $@ $^
@@ -144,7 +142,7 @@ test-examples: valadoc-example-tester
 #
 
 serve: default build-docs build-data
-	./app --address=0.0.0.0:7777
+	./build/src/valadoc-app --address=0.0.0.0:7777
 serve-mini: default build-docs-mini build-data
-	./app --address=0.0.0.0:7777
+	./build/src/valadoc-app --address=0.0.0.0:7777
 

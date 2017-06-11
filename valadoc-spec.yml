@@ -1,0 +1,89 @@
+swagger: '2.0'
+info:
+  title: Valadoc.org
+  version: 1.0.0-dev
+  description: >
+    The Valadoc.org API specifies how documentation is provided and structured
+    in the in JSON format.
+host: valadoc.org
+basePath: /
+schemes:
+  - http
+  - https
+produces:
+  - application/vnd.api+json
+  - text/html
+paths:
+  /search:
+    get:
+      summary: >
+        Perform a search among packages and their symbols.
+      responses:
+        200:
+          description: >
+            Corresponding packages and symbols for the search query.
+          schema:
+            $ref: '#/definitions/SearchResult'
+        404:
+          description: >
+            The 'package' parameters was provided, but it does have a corresponding index.
+      parameters:
+        - name: queryParam
+          in: query
+          required: true
+          type: string
+        - name: package
+          in: query
+          required: false
+          type: string
+
+  /{package}:
+    get:
+      summary: >
+        Obtain a package and all of its defined symbols.
+      responses:
+        200:
+          description: >
+            The package and all of its defined symbols.
+          schema:
+            $ref: '#/definitions/Package'
+        404:
+          description: >
+            The package does not exist.
+      parameters:
+        - name: package
+          in: path
+          required: true
+          type: string
+
+  /{package}/{symbol}:
+    get:
+      summary: >
+        Obtain a symbol defined in a package.
+      responses:
+        200:
+          description: >
+            The symbol defined in the specified package.
+          schema:
+            $ref: '#/definitions/Symbol'
+        404:
+          description: >
+            Either the package does not exist or it does not contain the
+            requested symbol.
+      parameters:
+        - name: package
+          in: path
+          required: true
+          type: string
+        - name: symbol
+          in: path
+          required: true
+          type: string
+
+definitions:
+  SearchResult:
+    type: object
+  Package:
+    type: object
+  Symbol:
+    type: object

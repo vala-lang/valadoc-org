@@ -64,9 +64,7 @@ function setupLink (link) {
       link.setAttribute('data-init', 'yes')
       fetch(`/tooltip.php?fullname=${encodeURIComponent(fullname)}`, {
         method: 'POST'
-      }).then(res => {
-        return res.text()
-      }).then(res => {
+      }).then(res => res.text()).then(res => {
         tooltip(link, res)
       })
     }
@@ -105,13 +103,13 @@ function loadPage (link) {
         console.error('Unable to load sidebar')
         console.error(err)
       })
-
-      evt.preventDefault()
     }
+
+    evt.preventDefault()
   }
 }
 
-document.addEventListener('popstate', () => loadPage(window.location))
+document.addEventListener('popstate', loadPage(window.location))
 
 // Initialize everything when document is ready
 document.addEventListener('DOMContentLoaded', () => {

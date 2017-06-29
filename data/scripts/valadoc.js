@@ -35,7 +35,7 @@ function search (query) {
 function tooltip (element, content) {
   const tip = document.createElement('div')
   tip.style.position = 'absolute'
-  tip.style.display = 'none'
+  tip.style.display = 'block'
   tip.innerHTML = content
   tip.className = 'tooltip'
   document.body.appendChild(tip)
@@ -53,7 +53,7 @@ function tooltip (element, content) {
 }
 
 function setupLink (link) {
-  if (link.hostname !== location.hostname) {
+  if (link.hostname !== location.hostname || link.pathname.endsWith('index.htm')) {
     return
   }
 
@@ -73,7 +73,7 @@ function setupLink (link) {
   link.addEventListener('click', loadPage(link))
 }
 
-function loadPage (link) {
+function loadPage (link, poped) {
   return evt => {
     const pageTitle = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
     const title = `${pageTitle.length ? `${pageTitle} — ` : ''}${config.appName}`
@@ -82,7 +82,9 @@ function loadPage (link) {
 
     fetch(pageUrl).then(res => res.text()).then(page => {
       html.content.innerHTML = page
-      history.pushState(null, title, pageUrl.replace('.content.tpl', ''))
+      if (!poped) { // only add this page to the history again if we didn't visited it juste before, else we won't be able to go back anymore
+        history.pushState(null, title, link.pathname)
+      }
       document.title = title
 
       // Init new tooltips
@@ -92,7 +94,7 @@ function loadPage (link) {
       html.content.innerHTML = `<h1>Sorry, an error occured</h1><p>${err.message}</p>`
     })
 
-    if (html.searchField.value !== '') {
+    if (html.searchField.value === '') {
       fetch(sidebarUrl).then(res => res.text()).then(sidebar => {
         html.navigation.innerHTML = sidebar
 
@@ -109,7 +111,7 @@ function loadPage (link) {
   }
 }
 
-document.addEventListener('popstate', loadPage(window.location))
+window.addEventListener('popstate', loadPage(window.location, true))
 
 // Initialize everything when document is ready
 document.addEventListener('DOMContentLoaded', () => {

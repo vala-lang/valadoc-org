@@ -73,7 +73,7 @@ function setupLink (link) {
   link.addEventListener('click', loadPage(link))
 }
 
-function loadPage (link, poped) {
+function loadPage (link, popped) {
   return evt => {
     const pageTitle = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
     const title = `${pageTitle.length ? `${pageTitle} — ` : ''}${config.appName}`
@@ -82,7 +82,7 @@ function loadPage (link, poped) {
 
     fetch(pageUrl).then(res => res.text()).then(page => {
       html.content.innerHTML = page
-      if (!poped) { // only add this page to the history again if we didn't visited it juste before, else we won't be able to go back anymore
+      if (!popped) { // only add this page to the history again if we didn't visited it just before, else we won't be able to go back anymore
         history.pushState(null, title, link.pathname)
       }
       document.title = title

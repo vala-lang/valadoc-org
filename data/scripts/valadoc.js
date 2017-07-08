@@ -42,8 +42,8 @@ function tooltip (element, content) {
 
   element.addEventListener('mousemove', evt => {
     tip.style.display = 'block'
-    tip.style.top = `${window.scrollY + evt.clientY}px`
-    tip.style.left = `${window.scrollX + evt.clientX}px`
+    tip.style.top = `${window.scrollY + evt.clientY + 2}px`
+    tip.style.left = `${window.scrollX + evt.clientX + 2}px`
   })
 
   element.addEventListener('mouseleave', () => {

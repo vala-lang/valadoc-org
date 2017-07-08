@@ -500,7 +500,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 	private void generate_navigation (string path) {
 		GLib.FileStream file = GLib.FileStream.open (path, "w");
-		var writer = new Html.MarkupWriter (file);
+		var writer = new Html.MarkupWriter (file, false);
 
 		writer.start_tag ("div", {"class", "site_navigation"});
 		writer.start_tag ("ul");
@@ -529,7 +529,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		public override void render (string path, Collection<Node> sections) {
 			GLib.FileStream file = GLib.FileStream.open (path, "w");
-			writer = new Html.MarkupWriter (file);
+			writer = new Html.MarkupWriter (file, false);
 
 			// Intro:
 			writer.start_tag ("h1").text ("Guides & References").end_tag ("h1");

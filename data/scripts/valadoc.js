@@ -1,355 +1,217 @@
-/* globals $ */
-
-// The old way. Please gracefully fall into oblivion
-window.addEventListener('load', function() {
-  if (
-    location.hash.substr(2, 3) == 'api' ||
-    location.hash.substr(2, 4) == 'wiki'
-  ) {
-    redirect_to = location.hash.split('=')
-    location = '/' + redirect_to[1]
-  }
-})
-
-var last_navi_content = ''
-var navi_xhr = null
-var content_xhr = null
-var navi_data = null
-var content_data = null
-var RESULTS_BULK = 20
-
-function clean_path () {
-  return window.location.pathname.replace(/(index)?(.html|.htm)/, '')
+// Some configuration that shouldn't be modified at runtime.
+const config = {
+  searchDelay: 1000, // time (in milliseconds) after which a new search request is triggered
+  appName: 'Valadoc'
 }
 
-function check_loaded (path) {
-  if (navi_data !== null && content_data !== null) {
+const curpkg = window.location.pathname.split('/')[1]
 
-    $('#navigation-content').html(navi_data)
-    var new_navi_content = $('#navigation-content').text()
-    if (last_navi_content !== new_navi_content) {
-      $('#navigation-content').scrollTop(0)
+// This object will contain the html elements of the interface
+const html = {}
+
+/*
+* Makes a request to the server to get search results
+*/
+function search (query) {
+  const postData = new FormData()
+  postData.append('query', query)
+  postData.append('curpkg', curpkg)
+
+  return fetch('/search.php', {
+    method: 'POST',
+    body: postData
+  }).then(res => {
+    if (res.ok) {
+      return res.text()
+    } else {
+      return Promise.resolve(`${res.status}: ${res.statusText}`)
     }
-    last_navi_content = new_navi_content
-
-    $('#content').html(content_data)
-    $('body').scrollTop(0)
-  }
-}
-
-function replace_navigation (path) {
-  navi_xhr = $.get(path, function (data) {
-    navi_xhr = null
-    navi_data = data
-    check_loaded(path)
   })
 }
 
-function replace_content (path) {
-  content_xhr = $.get(path, function (data) {
-    content_xhr = null
-    content_data = data
-    check_loaded(path)
+/*
+* Display a tooltip containing `content` when cursor is over `element`.
+*/
+function tooltip (element, content) {
+  const tip = document.createElement('div')
+  tip.style.position = 'absolute'
+  tip.style.display = 'block'
+  tip.innerHTML = content
+  tip.className = 'tooltip'
+  document.body.appendChild(tip)
+
+  element.addEventListener('mousemove', evt => {
+    tip.style.display = 'block'
+    tip.style.top = `${window.scrollY + evt.clientY}px`
+    tip.style.left = `${window.scrollX + evt.clientX}px`
   })
+
+  element.addEventListener('mouseleave', () => {
+    tip.style.display = 'none'
+  })
+  return tip
 }
 
-function abort_loading () {
-  if (navi_xhr) {
-    navi_xhr.abort()
-    navi_data = null
-  }
-  if (content_xhr) {
-    content_xhr.abort()
-    content_data = null
-  }
-}
-
-function load_content (href, push) {
-  if (push == null) push = true
-
-  abort_loading()
-  replace_navigation(href + '.navi.tpl')
-  replace_content(href + '.content.tpl')
-
-  // Standardize the href to a simple `glib-2.0/Glib.Envionment.get_home_dir` like string
-  var title = href.replace(/(.html|.htm)/, '')
-  if (title[0] === '/') title = title.substr(1)
-  if (title.substr(-1) === '/') title = title.substr(0, title.length - 1)
-
-  if (title.substr(-5) === 'index') { // An API index page
-    title = title.substr(0, title.length - 6)
-  } else if (title.split('/').length > 1) { // An API page
-    title = title.split('/').reverse().join(' – ')
-  }
-
-  if (title == null || title === '') { // Any other page
-    title = 'Valadoc.org – Stays crunchy. Even in milk.'
-  }
-  document.title = title
-
-  if (push && history.pushState != null) {
-    history.pushState(null, title, href)
-  }
-}
-
-function load_link (pathname, hostname) {
-  if (window.location.hostname !== hostname) {
-    return true
-  }
-
-  load_content(pathname)
-  close_tooltips()
-}
-
-function open_link (pathname, hostname) {
-  if (window.location.hostname !== hostname) {
-    return true
-  }
-
-  if (pathname.substr(-8) === '.tar.bz2') {
-    return true
-  }
-
-  if (pathname.substr(-8) === '.catalog') {
-    return true
-  }
-
-  // TODO: don't hardcode paths to ignore. It's unmaintable like the rest of this code
-  var path = pathname.split('/')[1].replace(/(.html|.htm)/, '').toLowerCase()
-  if (path === 'markup' || path === 'about') {
-    return true
-  }
-
-  load_content(pathname)
-  return false
-}
-
-function close_tooltips () {
-  $('a, area').trigger('mouseleave')
-}
-
-function scroll_to_selected () {
-  var sel = $('.search-selected')
-  if (sel.length === 0) {
+function setupLink (link) {
+  if (link.hostname !== location.hostname || link.pathname.endsWith('index.htm')) {
     return
   }
-  var seltop = sel.position().top
-  var selbottom = seltop + sel.outerHeight()
-  var box = $('#search-results')
-  var boxtop = box.position().top
-  var boxbottom = boxtop + box.outerHeight()
-  if (seltop < boxtop) {
-    box.scrollTop(box.scrollTop() - (boxtop - seltop))
-  } else if (selbottom > boxbottom) {
-    box.scrollTop(box.scrollTop() + (selbottom - boxbottom))
+
+  link.addEventListener('mouseenter', () => {
+    if (link.getAttribute('data-init') !== 'yes') {
+      // fullname = path without the / at the beggining and the .htm(l)
+      const fullname = link.pathname.substring(1).replace(/\.html?$/, '')
+      link.setAttribute('data-init', 'yes')
+      fetch(`/tooltip.php?fullname=${encodeURIComponent(fullname)}`, {
+        method: 'POST'
+      }).then(res => res.text()).then(res => {
+        tooltip(link, res)
+      })
+    }
+  })
+
+  link.addEventListener('click', loadPage(link))
+}
+
+function loadPage (link, popped) {
+  return evt => {
+    const pageTitle = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
+    const title = `${pageTitle.length ? `${pageTitle} — ` : ''}${config.appName}`
+    const pageUrl = `${link.pathname}.content.tpl`
+    const sidebarUrl = `${link.pathname}.navi.tpl`
+
+    fetch(pageUrl).then(res => res.text()).then(page => {
+      html.content.innerHTML = page
+      if (!popped) { // only add this page to the history again if we didn't visited it just before, else we won't be able to go back anymore
+        history.pushState(null, title, link.pathname)
+      }
+      document.title = title
+
+      // Init new tooltips
+      document.querySelectorAll('#content a').forEach(setupLink)
+      document.querySelectorAll('#content area').forEach(setupLink)
+    }).catch(err => {
+      html.content.innerHTML = `<h1>Sorry, an error occured</h1><p>${err.message}</p>`
+    })
+
+    if (html.searchField.value === '') {
+      fetch(sidebarUrl).then(res => res.text()).then(sidebar => {
+        html.navigation.innerHTML = sidebar
+
+        // Init new tooltips
+        document.querySelectorAll('#navigation-content a').forEach(setupLink)
+        document.querySelectorAll('#navigation-content area').forEach(setupLink)
+      }).catch(err => {
+        console.error('Unable to load sidebar')
+        console.error(err)
+      })
+    }
+
+    evt.preventDefault()
   }
 }
 
-$(document).ready(function () {
-  $(window).bind('popstate', function (event) {
-    if (window.location.pathname === '' || window.location.pathname === '/') {
-      load_content('index.htm', false)
-    } else {
-      load_content(window.location.pathname, false)
+window.addEventListener('popstate', loadPage(window.location, true))
+
+// Initialize everything when document is ready
+document.addEventListener('DOMContentLoaded', () => {
+  // HTML elements
+  html.searchBox = document.getElementById('search-box')
+  html.searchField = document.getElementById('search-field')
+  html.searchResults = document.getElementById('search-results')
+  html.searchClear = document.getElementById('search-field-clear')
+  html.navigation = document.getElementById('navigation-content')
+  html.searchFocused = null // The search result that is currently focused
+  html.content = document.getElementById('content')
+
+  // Init search
+  html.searchBox.style.display = 'inline-block' // display it (we do it here, so the user without javascript won't see a non-working search box)
+
+  // We run a search when the value changes, after a given delay
+  html.searchField.addEventListener('keyup', evt => {
+    // only if the pressed key isn't up/down arrow, because we use them to select next/previous search result and not to trigger search
+    if (evt.keyCode !== 40 && evt.keyCode !== 38) {
+      updateSearch()
     }
   })
 
-  $('#content').ajaxError(function (e, xhr, settings) {
-    if (xhr.status === 0) {
-      return
-    }
-    abort_loading()
-    close_tooltips()
-    var page = clean_path()
-    $(this).html('Error ' + xhr.status + ': <strong>' + xhr.statusText + '</strong>. When loading <em>' + page + '</em>.<br>' +
-    "<a href='/#!wiki=index'>Click here to go to the homepage</a>")
-    $(this).scrollTop(0)
+  // clear search when clicking on the clear button
+  html.searchClear.addEventListener('click', () => {
+    html.searchField.value = ''
+    html.searchField.focus() // we focus search after clearing
+    updateSearch()
   })
 
-  $(document).delegate('a, area', 'click', function () {
-    if ($(this).parent('.search-result').length > 0) {
-      $('.search-selected').removeClass('search-selected')
-      $(this).parent().addClass('search-selected')
-      scroll_to_selected()
-    }
-    return open_link(this.getAttribute('href'), this.hostname)
-  })
+  // Init tooltips
+  document.querySelectorAll('body > div a').forEach(setupLink)
+  document.querySelectorAll('body > div area').forEach(setupLink)
 
-  $(document).delegate('a, area', 'mouseenter', function (e) {
-    if (!$(this).data('init')) {
-      $(this).data('init', true)
-      /* api only: */
-      if (window.location.hostname !== this.hostname) {
-        return
-      }
-      if (this.pathname.substr(-5) !== '.html') {
-        return
-      }
-      var path = this.getAttribute('href').substr(1)
-      var fullname = path.substring(0, path.length - 5)
-      var self = $(this)
-      var hovered = true
-      self.hover(function () {
-        hovered = true
-      }, function () {
-        hovered = false
-      })
-      self.attr('title', '') // hide browser-tooltips
-      $.get('/tooltip.php?fullname=' + encodeURIComponent(fullname), function (data) {
-        self.wTooltip({
-          content: data,
-          className: 'tooltip',
-          offsetX: 15,
-          offsetY: -10
-        })
-        if (hovered) {
-          var je = $.Event('mousemove')
-          je.clientX = e.clientX
-          je.clientY = e.clientY
-          self.trigger(je)
-          self.trigger(e)
+  // register some usefull shortcuts
+  document.addEventListener('keyup', evt => {
+    switch (evt.keyCode) {
+      case 27: // echap
+        if (html.searchField === document.activeElement) {
+          html.searchField.value = ''
+          updateSearch()
         }
-      })
-      return false
-    }
-  })
-
-  var curtext = ''
-  var curpost = null
-  var curtimeout = null
-  var scrolltimeout = null
-  var scrollxhr = null
-  var max_results_reached = false
-
-  $('#search-box').css('display', 'inline-block');
-  $('#search-field').bind('keydown change paste cut', function (e) {
-    if (curtimeout !== null) {
-      clearTimeout(curtimeout)
-      curtimeout = null
-    }
-    var field = this
-    curtimeout = setTimeout(function () {
-      var cur = $('.search-selected')
-      if (e.keyCode === 27) { // escape
-        field.value = ''
-        field.focus()
-      } else if (e.keyCode === 40) { // down
-        if (cur.length === 0) {
-          $($('.search-result')[0]).addClass('search-selected')
-        } else {
-          var next = cur.next()
-          if (next.length > 0) {
-            next.addClass('search-selected')
-            cur.removeClass('search-selected')
-            scroll_to_selected()
+        break
+      case 38: // up arrrow
+        // if we are focusing a search result, but not the first...
+        if (html.searchFocused && html.searchFocused.previousElementSibling != null) {
+          html.searchFocused.className = html.searchFocused.className.replace(' search-selected', '')
+          html.searchFocused = html.searchFocused.previousElementSibling
+          html.searchFocused.className = html.searchFocused.className + ' search-selected'
+        }
+        break
+      case 40: // down arrow
+        // if we are focusing a search result, but not the last...
+        if (html.searchFocused && html.searchFocused.nextElementSibling != null) {
+          html.searchFocused.className = html.searchFocused.className.replace(' search-selected', '')
+          html.searchFocused = html.searchFocused.nextElementSibling
+          html.searchFocused.className = html.searchFocused.className + ' search-selected'
+        } else if (document.activeElement === html.searchField) {
+          // we focus the first element if we were in the search field
+          if (html.searchFocused != null) {
+            html.searchFocused.className = html.searchFocused.className.replace(' search-selected', '')
           }
+          html.searchFocused = html.searchResults.children[0]
+          html.searchFocused.className = html.searchFocused.className + ' search-selected'
         }
-      } else if (e.keyCode === 38) { // up
-        if (cur.length > 0) {
-          var prev = cur.prev()
-          if (prev.length > 0) {
-            prev.addClass('search-selected')
-            cur.removeClass('search-selected')
-            scroll_to_selected()
-          }
+        break
+      case 13: // enter
+        if (html.searchFocused) { // if we have a search item selected, we load its page
+          loadPage(html.searchFocused.children[0])
         }
-      } else if (e.keyCode === 13) { // enter
-        if (cur.length > 0) {
-          $('.search-selected a').trigger('click')
-          scroll_to_selected()
-        }
-      }
-      close_tooltips()
-      var value = $.trim(field.value)
-      if (value === '') {
-        curtext = ''
-        $('#search-results').hide().children().remove()
-        $('#navigation-content').show()
-        return
-      }
-      $('#search-results').show()
-      $('#navigation-content').hide()
-
-      if (value === curtext) {
-        return
-      }
-      $('.search-selected').removeClass('search-selected')
-      curtext = value
-      if (curpost !== null) {
-        curpost.abort()
-        curpost = null
-      }
-      var curpkg = clean_path().split('/')[1]
-      curpost = $.post('/search.php', { query: value, curpkg: curpkg }, function (data) {
-        if (scrollxhr) {
-          scrollxhr.abort()
-          scrollxhr = null
-        }
-        curpost = null
-        $('#search-results').html(data).scrollTop(0)
-        max_results_reached = $('#search-results li').length < RESULTS_BULK
-        if (!max_results_reached) {
-          // last child might be already visible
-          $('#search-results').triggerHandler('scroll')
-        }
-      }, 'text')
-      curtimeout = null
-    }, 1)
-  }).trigger('change')
-
-  var searchField = $('#search-field')
-
-  $('#search-field-clear').click(function () {
-    searchField.val('').trigger('change')
-  })
-
-  var ctrlDown = 0;
-  $(document).keydown(function (e) {
-    var c = String.fromCharCode(e.which)
-    var focused = searchField.is(':focus')
-    if (focused && e.keyCode === 27) { // escape
-      searchField.val('').focus()
-    } else if (e.keyCode === 27) { // escape
-      searchField.val('')
-      searchField.trigger ('change')
-    } else if (e.keyCode === 17) {
-      ctrlDown++;
-    } else if (!focused && ctrlDown == 0 && ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '.' || c == '_')) {
-      searchField.focus ()
-      searchField.trigger ('change')
+        break
+      case 17: // ctrl
+        html.searchField.focus() // we focus the search
+        break
     }
-  })
-  $(document).keyup(function (e) {
-    if (e.keyCode === 17) {
-      ctrlDown--
-    }
-  })
-
-
-  $('#search-results').scroll(function () {
-    if (scrolltimeout) {
-      clearTimeout(scrolltimeout)
-      scrolltimeout = null
-    }
-    scrolltimeout = setTimeout(function () {
-      scrolltimeout = null
-      var sr = $('#search-results')
-      var last = $('#search-results li:last-child')
-      if (max_results_reached || scrollxhr || last.position().top > sr.position().top + sr.outerHeight()) {
-        return
-      }
-      var value = $.trim($('#search-field').val())
-      if (value === '') {
-        return
-      }
-      var numresults = sr.children().length
-      var curpkg = clean_path().split('/')[1]
-        scrollxhr = $.post('/search.php', { query: value, curpkg: curpkg, offset: numresults }, function (data) {
-        scrollxhr = null
-        $('.search-more').remove()
-        sr.append(data)
-        max_results_reached = sr.children().length - numresults < RESULTS_BULK
-      }, 'text')
-    }, 1)
   })
 })
+
+let searchDelay
+function updateSearch () {
+  if (html.searchField == null || html.searchResults == null) {
+    return // Document isn't ready yet
+  }
+
+  if (searchDelay) {
+    clearTimeout(searchDelay) // reset the delay
+  }
+
+  if (html.searchField.value != null && html.searchField.value !== '') {
+    // if search isn't empty, we display results after `config.searchDelay` milliseconds
+    searchDelay = setTimeout(() => {
+      search(html.searchField.value).then(res => {
+        html.searchResults.innerHTML = res
+      })
+      html.navigation.style.display = 'none'
+    }, config.searchDelay)
+  } else {
+    // if the search field is empty, we display the symbols list again
+    html.searchResults.innerHTML = ''
+    html.navigation.style.display = 'block'
+    html.searchFocused = null
+  }
+}

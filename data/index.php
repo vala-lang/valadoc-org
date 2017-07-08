@@ -68,7 +68,8 @@ if ($first == null || $first === "index") { // Homepage
 <body>
   <nav>
     <div id="search-box">
-      <input id="search-field" type="text" placeholder="Search" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
+      <input id="search-field" type="search" placeholder="Search" autocomplete="off" />
+      <img id="search-field-clear" src="/images/clean.svg" alt="Clear search" />
     </div>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
     <ul>

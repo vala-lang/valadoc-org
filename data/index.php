@@ -47,7 +47,7 @@ if ($first == null || $first === "index") { // Homepage
 
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/WebSite">
 <head>
   <meta charset="UTF-8">
   <meta itemprop="image" content="https://valadoc.org/images/preview.png">

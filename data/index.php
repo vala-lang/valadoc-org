@@ -88,7 +88,6 @@ if ($first == null || $first === "index") { // Homepage
     <div id="content">
       <?php @readfile (__DIR__ . "/" . $page . ".content.tpl"); ?>
     </div>
-    <div id="comments" />
   </div>
   <footer>
     Copyright © <?php echo date('Y'); ?> Valadoc.org | Documentation is licensed under the same terms as its upstream |

@@ -566,7 +566,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.start_tag ("a", {"class", "video", "href", "https://www.youtube.com/watch?v=vxvZGf69nko", "target", "_blank"}).text ("Creating elementary OS apps with GTK & Vala").end_tag ("a");
 			writer.end_tag ("p");
 
-			writer.simple_tag ("hr/");
+			writer.simple_tag ("hr");
 			writer.start_tag ("h1").text ("Packages").end_tag ("h1");
 
 			writer.start_tag ("h2").text ("Submitting API-Bugs and Patches").end_tag ("h2");

@@ -500,7 +500,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 	private void generate_navigation (string path) {
 		GLib.FileStream file = GLib.FileStream.open (path, "w");
-		var writer = new Html.MarkupWriter (file);
+		var writer = new Html.MarkupWriter (file, false);
 
 		writer.start_tag ("div", {"class", "site_navigation"});
 		writer.start_tag ("ul");
@@ -529,7 +529,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		public override void render (string path, Collection<Node> sections) {
 			GLib.FileStream file = GLib.FileStream.open (path, "w");
-			writer = new Html.MarkupWriter (file);
+			writer = new Html.MarkupWriter (file, false);
 
 			// Intro:
 			writer.start_tag ("h1").text ("Guides & References").end_tag ("h1");
@@ -566,7 +566,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.start_tag ("a", {"class", "video", "href", "https://www.youtube.com/watch?v=vxvZGf69nko", "target", "_blank"}).text ("Creating elementary OS apps with GTK & Vala").end_tag ("a");
 			writer.end_tag ("p");
 
-			writer.simple_tag ("hr/");
+			writer.simple_tag ("hr");
 			writer.start_tag ("h1").text ("Packages").end_tag ("h1");
 
 			writer.start_tag ("h2").text ("Submitting API-Bugs and Patches").end_tag ("h2");
@@ -626,7 +626,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 
 			if (pkg is ExternalPackage) {
-				writer.simple_tag ("img", {"src", "/images/external_link.svg"});
+				writer.simple_tag ("img", {"src", "/images/external_link.svg", "alt", "This valadoc is on another site"});
 			}
 
 			writer.start_tag ("div", {"class", "links"});

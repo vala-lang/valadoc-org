@@ -34,12 +34,14 @@ function search (query) {
 /*
 * Display a tooltip containing `content` when cursor is over `element`.
 */
-function tooltip (element, content) {
+function tooltip (element, content, position) {
   const tip = document.createElement('div')
   tip.style.position = 'absolute'
   tip.style.display = 'block'
   tip.innerHTML = content
   tip.className = 'tooltip'
+  tip.style.top = `${position.y + 2}px`
+  tip.style.left = `${position.x + 2}px`
   document.body.appendChild(tip)
 
   element.addEventListener('mousemove', evt => {
@@ -59,7 +61,7 @@ function setupLink (link) {
     return
   }
 
-  link.addEventListener('mouseenter', () => {
+  link.addEventListener('mouseenter', evt => {
     if (link.getAttribute('data-init') !== 'yes') {
       // fullname = path without the / at the beggining and the .htm(l)
       const fullname = link.pathname.substring(1).replace(/\.html?$/, '')
@@ -67,7 +69,10 @@ function setupLink (link) {
       fetch(`/tooltip.php?fullname=${encodeURIComponent(fullname)}`, {
         method: 'POST'
       }).then(res => res.text()).then(res => {
-        html.tooltips.push(tooltip(link, res))
+        html.tooltips.push(tooltip(link, res, {
+          y: window.scrollY + evt.clientY,
+          x: window.scrollX + evt.clientX
+        }))
       })
     }
   })

@@ -7,7 +7,9 @@ const config = {
 const curpkg = window.location.pathname.split('/')[1]
 
 // This object will contain the html elements of the interface
-const html = {}
+const html = {
+  tooltips: []
+}
 
 /*
 * Makes a request to the server to get search results
@@ -65,7 +67,7 @@ function setupLink (link) {
       fetch(`/tooltip.php?fullname=${encodeURIComponent(fullname)}`, {
         method: 'POST'
       }).then(res => res.text()).then(res => {
-        tooltip(link, res)
+        html.tooltips.push(tooltip(link, res))
       })
     }
   })
@@ -75,6 +77,12 @@ function setupLink (link) {
 
 function loadPage (link, popped) {
   return evt => {
+    // first, destroy tooltips if any
+    for (const tip of html.tooltips) {
+      tip.remove()
+    }
+    html.tooltips = []
+
     const pageTitle = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
     const title = `${pageTitle.length ? `${pageTitle} — ` : ''}${config.appName}`
     const pageUrl = `${link.pathname}.content.tpl`

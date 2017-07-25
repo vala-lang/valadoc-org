@@ -31,6 +31,16 @@ function search (query) {
   })
 }
 
+/**
+ * removeTooltips
+ * Removes all the current active tooltips
+ *
+ * @return {void}
+ */
+function removeTooltips () {
+
+}
+
 /*
 * Display a tooltip containing `content` when cursor is over `element`.
 */
@@ -53,6 +63,7 @@ function tooltip (element, content, position) {
   element.addEventListener('mouseleave', () => {
     tip.style.display = 'none'
   })
+
   return tip
 }
 
@@ -69,6 +80,10 @@ function setupLink (link) {
       fetch(`/tooltip.php?fullname=${encodeURIComponent(fullname)}`, {
         method: 'POST'
       }).then(res => res.text()).then(res => {
+        for (const tip of html.tooltips) {
+          tip.style.display = 'none'
+        }
+
         html.tooltips.push(tooltip(link, res, {
           y: window.scrollY + evt.clientY,
           x: window.scrollX + evt.clientX

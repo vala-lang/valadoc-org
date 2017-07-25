@@ -31,16 +31,6 @@ function search (query) {
   })
 }
 
-/**
- * removeTooltips
- * Removes all the current active tooltips
- *
- * @return {void}
- */
-function removeTooltips () {
-
-}
-
 /*
 * Display a tooltip containing `content` when cursor is over `element`.
 */

@@ -737,18 +737,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		print_stored_messages ();
 	}
 
-	private string get_index_name (string pkg_name) {
-		StringBuilder builder = new StringBuilder ();
-		for (unowned string pos = pkg_name; pos.get_char () != '\0'; pos = pos.next_char ()) {
-			unichar c = pos.get_char ();
-			if (('A' <= c <= 'Z') || ('a' <= c <= 'z') || ('0' <= c <= '9')) {
-				builder.append_unichar (c);
-			}
-		}
-
-		return builder.str;
-	}
-
 	public void generate_configs (string path) throws Error {
 		string constants_path = Path.build_filename (path, "constants.php");
 		string path_prefix = Path.build_filename (path, "prefix.conf");
@@ -757,7 +745,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		_prefix.printf ("%s", prefix);
 
 		var php = FileStream.open (constants_path, "w");
-		bool first = true;
 
     php.printf ("<?php\n");
     php.printf ("\t// Vala generated file. I'm sorry. Look at generator.vala line 752-ish\n\n");

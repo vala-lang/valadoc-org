@@ -70,7 +70,7 @@ function setupLink (link) {
       fetch(`/tooltip.php?fullname=${encodeURIComponent(fullname)}`, {
         method: 'POST'
       }).then(res => res.text()).then(res => {
-        for (const tip of html.tooltips) {
+        for (let tip of html.tooltips) {
           tip.style.display = 'none'
         }
 

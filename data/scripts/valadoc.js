@@ -88,7 +88,7 @@ function setupLink (link) {
 function loadPage (link, popped) {
   return evt => {
     // first, destroy tooltips if any
-    for (const tip of html.tooltips) {
+    for (let tip of html.tooltips) {
       tip.remove()
     }
     html.tooltips = []

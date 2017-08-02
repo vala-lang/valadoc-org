@@ -21,8 +21,8 @@ static int main (string[] args) {
 	generator.set_root (root);
 
 	string str = generator.to_data (null);
-	stdout.puts (str);
-	stdout.putc ('\n');
+	print (str);
+	print ("\n");
 
 	return 0;
 }

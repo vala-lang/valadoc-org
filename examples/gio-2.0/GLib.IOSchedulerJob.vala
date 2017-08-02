@@ -1,7 +1,7 @@
 private int count_children (File file, Cancellable? cancellable = null) throws Error {
 	FileEnumerator enumerator = file.enumerate_children (
 		"standard::*",
-		FileQueryInfoFlags.NOFOLLOW_SYMLINKS, 
+		FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
 		cancellable);
 
 	FileInfo info = null;
@@ -37,9 +37,9 @@ public async int count_children_async (File file, Cancellable? cancellable = nul
 
 		// Run the user-callback in the thread that the job was started from:
 		job.send_to_mainloop (() => {
-			stdout.puts ("user-callback, start\n");
+			print ("user-callback, start\n");
 			count_children_async.callback ();
-			stdout.puts ("user-callback, end\n");
+			print ("user-callback, end\n");
 			return false;
 		});
 
@@ -60,7 +60,7 @@ public static int main (string[] args) {
 	MainLoop loop = new MainLoop ();
 
 	if (args.length != 2) {
-		stdout.printf ("%s [DIRECTORY]\n", args[0]);
+		print ("%s [DIRECTORY]\n", args[0]);
 		return 0;
 	}
 
@@ -71,9 +71,9 @@ public static int main (string[] args) {
 	count_children_async.begin (File.new_for_commandline_arg (args[1]), cancellable, (obj, res) => {
 		try {
 			int i = count_children_async.end (res);
-			stdout.printf ("%d\n", i);
+			print ("%d\n", i);
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

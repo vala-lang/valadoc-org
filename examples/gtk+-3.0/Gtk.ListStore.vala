@@ -32,7 +32,7 @@ public static int main (string[] args) {
 		list_store.get_value (iter, 0, out cell1);
 		list_store.get_value (iter, 1, out cell2);
 
-		stdout.printf ("%s\t%d\n", (string) cell1, (int) cell2);
+		print ("%s\t%d\n", (string) cell1, (int) cell2);
 		return false;
 	};
 
@@ -66,7 +66,7 @@ public static int main (string[] args) {
 	//  ``Tyrol			11``
 	//  ``Vorarlberg	5``
 	//  ``Vienna		1``
-	stdout.printf ("----\n");
+	print ("----\n");
 	list_store.foreach (print_row);
 
 	return 0;

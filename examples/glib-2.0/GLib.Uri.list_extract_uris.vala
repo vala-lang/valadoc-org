@@ -13,7 +13,7 @@ public static int main (string[] args) {
 	//  ``Uri: http://example.org/absolute/URI/absolute/path/to/resource3.txt``
 	string[] uris = Uri.list_extract_uris (uri_list);
 	foreach (string uri in uris) {
-		stdout.printf ("Uri: %s\n", uri);
+		print ("Uri: %s\n", uri);
 	}
 
 	return 0;

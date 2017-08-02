@@ -19,12 +19,12 @@ public class Worker : Object {
 
 	public int run () {
 		try {
-			stdout.printf ("Thread started (Port: %d)\n", this.source.port);
+			print ("Thread started (Port: %d)\n", this.source.port);
 
 			// Wait for a message:
 			DataInputStream istream = new DataInputStream (this.connection.input_stream) ;
 			string message = istream.read_line (null, this.cancellable);
-			stdout.printf ("Received: %s\n", message);
+			print ("Received: %s\n", message);
 			stdout.flush ();
 
 			// Response:
@@ -36,7 +36,7 @@ public class Worker : Object {
 				this.cancellable.cancel ();
 			}
 		} catch (IOError e) {
-			stdout.printf ("IOError: %s\n", e.message);
+			print ("IOError: %s\n", e.message);
 		}
 		return 0;
 	}
@@ -64,7 +64,7 @@ public static int main (string[] args) {
 			connection = null;
 		}
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

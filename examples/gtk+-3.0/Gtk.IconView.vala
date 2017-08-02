@@ -48,7 +48,7 @@ public class Application : Gtk.Window {
 
 				model.get_value (iter, 0, out icon); 
 				model.get_value (iter, 1, out title); 
-				stdout.printf ("%s: %p\n", (string) title, ((Gdk.Pixbuf) icon));
+				print ("%s: %p\n", (string) title, ((Gdk.Pixbuf) icon));
 			}
 		});
 	}

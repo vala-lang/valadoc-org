@@ -10,7 +10,7 @@ public int main (string[] args) {
 	//  ``2. entry``
 	//  ``3. entry``
 	for (int i = 0; i < array.length ; i++) {
-		stdout.printf ("%s\n", array.index (i));
+		print ("%s\n", array.index (i));
 	}
 
 	return 0;

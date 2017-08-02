@@ -9,7 +9,7 @@ public class MyApplication : Application {
 		//  to the mainloop, you should use g_application_hold() and
 		//  g_application_release() to keep the application alive until
 		//  the action is completed.
-		stdout.puts ("activated\n");
+		print ("Activated\n");
 	}
 
 	public override bool dbus_register (DBusConnection connection, string object_path) throws Error {

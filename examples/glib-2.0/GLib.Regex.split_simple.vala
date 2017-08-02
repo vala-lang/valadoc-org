@@ -5,7 +5,7 @@ public static int main (string[] args) {
 	//  ``string``
 	string[] lines = Regex.split_simple ("[ \t]+", "my  splitted  \t string");
 	foreach (string line in lines) {
-		stdout.printf ("%s\n", line);
+		print ("%s\n", line);
 	}
 	return 0;
 }

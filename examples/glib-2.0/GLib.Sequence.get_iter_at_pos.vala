@@ -8,7 +8,7 @@ public static int main (string[] args) {
 
 	// Output: ``ipsum``
 	SequenceIter<string> iter = seq.get_iter_at_pos (1);
-	stdout.printf ("%s\n", iter.get ());
+	print ("%s\n", iter.get ());
 
 	return 0;
 }

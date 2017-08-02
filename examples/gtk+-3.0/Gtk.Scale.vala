@@ -12,7 +12,7 @@ public class Application : Gtk.Window {
 
 		// Catch changes:
 		scale.value_changed.connect (() => {
-			stdout.printf ("%f\n", scale.get_value ());
+			print ("%f\n", scale.get_value ());
 		});
 	}
 

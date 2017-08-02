@@ -5,21 +5,21 @@ public static int main (string[] args) {
 
 	// Concat:
 	// Output: ``U = R * I; R = U / I``
-	stdout.puts (str3 + "\n");
+	print (str3 + "\n");
 
 
 	// Copy:
 	// Output: ``0x82e4588 != 0x82e45a8true``
 	string str4 = str3;
-	stdout.printf ("%p != %p\n", str3, str4);
+	print ("%p != %p\n", str3, str4);
 
 
 	// Compare:
 	// Output: ``true``
 	if (str4 == str3) {
-		stdout.puts ("true\n");
+	   print ("true\n");
 	} else {
-		stdout.puts ("false\n");
+		print ("false\n");
 	}
 
 
@@ -32,6 +32,6 @@ public static int main (string[] args) {
 bar
 \t
 """;
-	stdout.puts (str5);
+	print (str5);
 	return 0;
 }

@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	if (args.length < 2) {
-		stdout.printf ("Usage: %s FILE\n", args[0]);
+		print ("Usage: %s FILE\n", args[0]);
 		return 0;
 	}
 
@@ -22,9 +22,9 @@ public static int main (string[] args) {
 			builder.append_len ((string) buffer, size);
 		}
 
-		stdout.puts (builder.str);
+		print (builder.str);
 	} catch (Error e) {
-		stderr.printf ("error: %s", e.message);
+		stderr.printf ("Error: %s", e.message);
 		return -1;
 	}
 	return 0;

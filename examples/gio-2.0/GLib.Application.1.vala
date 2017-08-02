@@ -9,20 +9,20 @@ public class MyApplication : Application {
 		SimpleAction simple_action = new SimpleAction ("simple-action", null);
 		simple_action.activate.connect (() => {
 			this.hold ();
-			stdout.printf ("simple action %s activated\n", simple_action.get_name ());
+			print ("Simple action %s activated\n", simple_action.get_name ());
 			this.release ();
 		});
 		this.add_action (simple_action);
 
 		SimpleAction stateful_action = new SimpleAction.stateful ("toggle-action", null, new Variant.boolean (false));
 		stateful_action.activate.connect (() => {
-			stdout.printf ("action %s activated\n", stateful_action.get_name ());
+			print ("Action %s activated\n", stateful_action.get_name ());
 
 			this.hold ();
 			Variant state = stateful_action.get_state ();
 			bool b = state.get_boolean ();
 			stateful_action.set_state (new Variant.boolean (!b));
-			stdout.printf ("state change %s -> %s\n", b.to_string (), (!b).to_string ());
+			print (@"State change $b -> $(!b)\n");
 			this.release ();
 		});
 		this.add_action (stateful_action);
@@ -30,7 +30,7 @@ public class MyApplication : Application {
 
 	public override void activate () {
 		this.hold ();
-		stdout.puts ("activated\n");
+		print ("Activated\n");
 		this.release ();
 	}
 
@@ -39,14 +39,14 @@ public class MyApplication : Application {
 		Variant state = this.get_action_state (name);
 		bool enabled = this.get_action_enabled (name);
 
-		stdout.printf ("action name:      %s\n", name);
-		string? tmp = (param_type != null)? param_type.dup_string () : "<none>";
-		stdout.printf ("parameter type:   %s\n", tmp);
+		print (@"Action name:      $name\n");
+		string? type = (param_type != null) ? param_type.dup_string () : "<none>";
+		printf (@"Parameter type:   $type\n");
 
-		stdout.printf ("state type:       %s\n", (state != null)? state.get_type_string () : "<none>");
-		tmp = (state != null)? state.print (false) : "<none>";
-		stdout.printf ("state:            %s\n", tmp);
-		stdout.printf ("enabled:          %s\n", enabled.to_string ());
+		print ("State type:       %s\n", (state != null) ? state.get_type_string () : "<none>");
+		string state_val = (state != null) ? state.print (false) : "<none>";
+		print (@"State:            $state_val\n");
+		print ("Enabled:          $enabled\n");
 
 		this.activate_action (name, null);
 	}
@@ -70,7 +70,7 @@ public class MyApplication : Application {
 			int status = app.run (args);
 			return status;
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 			return 0;
 		}
 	}

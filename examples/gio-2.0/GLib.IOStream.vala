@@ -36,21 +36,21 @@ public static int main (string[] args) {
 		// Output: ``y 1. line``
 		DataInputStream dis = new DataInputStream (@is);
 		string str = dis.read_line ();
-		stdout.printf ("%s\n", str);
+		print ("%s\n", str);
 
 		// Output: ``My 2. line``
 		str = dis.read_line ();
-		stdout.printf ("%s\n", str);
+		print ("%s\n", str);
 
 		// Output: ``My 3. line``
 		str = dis.read_line ();
-		stdout.printf ("%s\n", str);
+		print ("%s\n", str);
 
 		// Output: ``10``
 		int16 i = dis.read_int16 ();
-		stdout.printf ("%d\n", i);
+		print ("%d\n", i);
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

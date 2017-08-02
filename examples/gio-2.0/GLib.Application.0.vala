@@ -9,7 +9,7 @@ public class MyApplication : Application {
 		//  to the mainloop, you should use g_application_hold() and
 		//  g_application_release() to keep the application alive until
 		//  the action is completed.
-		stdout.puts ("activated\n");
+	    print ("Activated\n");
 	}
 
 	public override void open (File[] files, string hint) {
@@ -20,7 +20,7 @@ public class MyApplication : Application {
 
 		foreach (File file in files) {
 			string uri = file.get_uri ();
-			stdout.printf ("%s\n", uri);
+			print (@"$uri\n");
 		}
 	}
 

@@ -5,11 +5,11 @@ public static int main (string[] args) {
 	table.insert (2, "third string");
 
 	// Output: ``3``
-	stdout.printf ("%u\n", table.size ());
+	print ("%u\n", table.size ());
 
 	// Output: ``4``
 	table.insert (3, "third string");
-	stdout.printf ("%u\n", table.size ());
+	print ("%u\n", table.size ());
 
 	return 0;
 }

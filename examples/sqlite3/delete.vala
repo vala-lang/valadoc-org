@@ -29,7 +29,7 @@ public static int main (string[] args) {
 	}
 
 	int changes = db.total_changes ();
-	stdout.printf ("Affected rows: %d\n", changes);
+	print ("Affected rows: %d\n", changes);
 
 	return 0;
 }

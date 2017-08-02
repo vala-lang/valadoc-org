@@ -6,7 +6,7 @@ public static int main (string[] args) {
 		FileOutputStream os = file.append_to (FileCreateFlags.NONE);
 		os.write ("My new line\n".data);
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

@@ -8,7 +8,7 @@ public static int main (string[] args) {
 	unowned string? str = table.find ((k, v) => {
 		return v.has_prefix ("second");
 	});
-	stdout.printf ("%s\n", str);
+	print ("%s\n", str);
 
 	return 0;
 }

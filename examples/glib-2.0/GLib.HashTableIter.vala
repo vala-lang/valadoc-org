@@ -13,7 +13,7 @@ public static int main (string[] args) {
 	//  ``2 => second string``
 	//  ``3 => third string``
 	while (iter.next (out key, out val)) {
-		stdout.printf ("%d => %s\n", key, val);
+		print ("%d => %s\n", key, val);
 	}
 
 	return 0;

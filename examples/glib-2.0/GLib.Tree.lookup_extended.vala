@@ -9,7 +9,7 @@ public static int main (string[] args) {
 	unowned string? val = null; // stored value
 	bool res = tree.lookup_extended (needle, out key, out val);
 	// Output: ``res='true' needle='1. entry' key='1. entry', val='1. entry'``
-	stdout.printf ("res='%s' needle='%s' key='%s', val='%s'\n", res.to_string (), needle, key, val);
+	print ("res='%s' needle='%s' key='%s', val='%s'\n", res.to_string (), needle, key, val);
 
 	return 0;
 }

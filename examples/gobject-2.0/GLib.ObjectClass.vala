@@ -12,12 +12,12 @@ public static int main (string[] args) {
 	Type type = typeof (MyObject);
 	ObjectClass ocl = (ObjectClass) type.class_ref ();
 	foreach (ParamSpec spec in ocl.list_properties ()) {
-		stdout.printf ("%s\n", spec.get_name ());
+		print ("%s\n", spec.get_name ());
 	}
 
 	// Output: ``nick: myprop1``
 	unowned ParamSpec? spec = ocl.find_property ("myprop1"); 
-	stdout.printf ("nick: %s\n", spec.get_nick ());
+	print ("nick: %s\n", spec.get_nick ());
 
 	return 0;
 }

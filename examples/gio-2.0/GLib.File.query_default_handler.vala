@@ -7,7 +7,7 @@ public static int main (string[] args) {
 		AppInfo appinfo = file.query_default_handler ();
 		appinfo.launch_uris (uris, null);
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 	return 0;
 }

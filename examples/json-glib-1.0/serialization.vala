@@ -25,8 +25,8 @@ public static int main (string[] args) {
 
 	// Output:
 	// ``{"str":"my string","en":2,"num":10}``
-	stdout.puts (data);
-	stdout.putc ('\n');
+	print (data);
+	print ("\n");
 
 	return 0;
 }

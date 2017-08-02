@@ -1,7 +1,7 @@
 public static void my_printf (string format, ...) {
 	va_list va_list = va_list ();
 	string res = format.vprintf (va_list);
-	stdout.puts (res);
+	print (res);
 }
 
 public static int main (string[] args) {

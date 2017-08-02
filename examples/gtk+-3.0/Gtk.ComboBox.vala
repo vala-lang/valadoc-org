@@ -36,7 +36,7 @@ public class Application : Gtk.Window {
 			list_store.get_value (iter, 0, out val1);
 			list_store.get_value (iter, 1, out val2);
 
-			stdout.printf ("Selection: %s, %d\n", (string) val1, (int) val2);
+			print ("Selection: %s, %d\n", (string) val1, (int) val2);
 		});
 	}
 

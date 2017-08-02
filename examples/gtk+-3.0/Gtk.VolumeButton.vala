@@ -11,7 +11,7 @@ public class Application : Gtk.Window {
 
 		// Catch changes:
 		button.value_changed.connect ((val) => {
-			stdout.printf ("%f\n", val);
+			print ("%f\n", val);
 		});
 	}
 

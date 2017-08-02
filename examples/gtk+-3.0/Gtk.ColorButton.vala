@@ -24,7 +24,7 @@ public class Application : Gtk.Window {
 		// Catch color-changes:
 		button.color_set.connect (() => {
 			uint16 alpha = button.get_alpha ();
-			stdout.printf ("%s, %hu\n", button.rgba.to_string (), alpha);
+			print ("%s, %hu\n", button.rgba.to_string (), alpha);
 		});
 		this.add (button);
 	}

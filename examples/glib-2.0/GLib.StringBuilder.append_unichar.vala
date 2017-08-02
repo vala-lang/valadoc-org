@@ -4,6 +4,6 @@ public static int main (string[] args) {
 	builder.append_unichar ('世');
 	builder.append_unichar ('界');
 	builder.append ("!\n");
-	stdout.puts (builder.str);
+	print (builder.str);
 	return 0;
 }

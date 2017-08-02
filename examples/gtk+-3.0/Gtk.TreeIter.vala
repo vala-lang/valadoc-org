@@ -37,7 +37,7 @@ public static int main (string[] args) {
 		Value val1, val2;
 		list_store.get_value (iter, 0, out val1);
 		list_store.get_value (iter, 1, out val2);
-		stdout.printf ("Entry: %s\t%d\n", (string) val1, (int) val2);
+		print ("Entry: %s\t%d\n", (string) val1, (int) val2);
 	}
 	return 0;
 }

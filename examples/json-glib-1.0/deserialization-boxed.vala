@@ -38,7 +38,7 @@ public static int main (string[] args) {
 	// Check whether the struct is deserializeable:
 	// Output: ``deserializeable(1): false``
 	bool tmp = Json.boxed_can_deserialize (typeof (MyStruct), Json.NodeType.OBJECT);
-	stdout.printf ("deserializeable(1): %s\n", tmp.to_string ());
+	print ("deserializeable(1): %s\n", tmp.to_string ());
 
 	// Register our BoxedDeserializeFunc:
 	Json.boxed_register_deserialize_func (typeof (MyStruct), Json.NodeType.OBJECT, MyStruct.deserialize_func);
@@ -46,7 +46,7 @@ public static int main (string[] args) {
 	// Check again:
 	// Output: ``deserializeable(2): true``
 	tmp = Json.boxed_can_deserialize (typeof (MyStruct), Json.NodeType.OBJECT);
-	stdout.printf ("deserializeable(2): %s\n", tmp.to_string ());
+	print ("deserializeable(2): %s\n", tmp.to_string ());
 
 
 	// Deserialization:
@@ -54,8 +54,8 @@ public static int main (string[] args) {
 	//  ``a: 3``
 	//  ``b: 4``
 	MyStruct* stru = (MyStruct*) Json.boxed_deserialize (typeof (MyStruct), node);
-	stdout.puts (stru.to_string ());
-	stdout.putc ('\n');
+	print (stru.to_string ());
+	print ("\n");
 	delete stru;
 
 	return 0;

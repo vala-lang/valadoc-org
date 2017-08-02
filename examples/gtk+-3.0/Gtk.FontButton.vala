@@ -21,7 +21,7 @@ public class Application : Gtk.Window {
 		button.font_set.connect (() => {
 			// Emitted when a font has been chosen:
 			unowned string name = button.get_font_name ();
-			stdout.printf ("Selected font: %s\n", name);
+			print ("Selected font: %s\n", name);
 		});
 	}
 

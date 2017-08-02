@@ -3,6 +3,6 @@ public static int main (string[] args) {
 	int i = str.last_index_of (".");
 
 	// Output: ``txt``
-	stdout.printf ("%s\n", str.substring (i + 1));
+	print ("%s\n", str.substring (i + 1));
 	return 0;
 }

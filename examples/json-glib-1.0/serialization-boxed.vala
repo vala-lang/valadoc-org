@@ -21,7 +21,7 @@ public static int main (string[] args) {
 	// Check whether the struct is serializeable:
 	// Output: ``serializeable(1): false``
 	bool tmp = Json.boxed_can_serialize (typeof (MyStruct), null);
-	stdout.printf ("serializeable(1): %s\n", tmp.to_string ());
+	print ("serializeable(1): %s\n", tmp.to_string ());
 
 	// Register our BoxedDeserializeFunc:
 	Json.boxed_register_serialize_func (typeof (MyStruct), Json.NodeType.OBJECT, MyStruct.serialize_func);
@@ -29,7 +29,7 @@ public static int main (string[] args) {
 	// Check again:
 	// Output: ``serializeable(2): true``
 	tmp = Json.boxed_can_serialize (typeof (MyStruct), null);
-	stdout.printf ("serializeable(2): %s\n", tmp.to_string ());
+	print ("serializeable(2): %s\n", tmp.to_string ());
 
 
 	// Serialize the struct:
@@ -42,8 +42,8 @@ public static int main (string[] args) {
 	string data = generator.to_data (null);
 
 	// Output: ``{"a":10,"b":20}``
-	stdout.puts (data);
-	stdout.putc ('\n');
+	print (data);
+	print ("\n");
 
 	return 0;
 }

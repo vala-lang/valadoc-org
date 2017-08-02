@@ -24,8 +24,8 @@ public class Application : Gtk.Window {
 		Gtk.Button button = new Gtk.Button.with_label ("Print content to stdout");
 		box.pack_start (button, false, true, 0);
 		button.clicked.connect (() => {
-			stdout.puts (view.buffer.text);
-			stdout.putc ('\n');
+			print (view.buffer.text);
+			print ("\n");
 		});
 	}
 

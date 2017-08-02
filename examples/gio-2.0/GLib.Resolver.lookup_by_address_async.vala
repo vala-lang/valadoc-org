@@ -8,9 +8,9 @@ public static int main () {
 		try {
 			// Output: ``wikipedia-lb.pmtpa.wikimedia.org`` (Wed Oct 24, 20012)
 			string hostname = resolver.lookup_by_address_async.end (res);
-			stdout.printf ("host: %s\n", hostname);
+			print ("host: %s\n", hostname);
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

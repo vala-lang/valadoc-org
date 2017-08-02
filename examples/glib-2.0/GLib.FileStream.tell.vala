@@ -5,6 +5,6 @@ static int main (string[] args) {
 	stream.seek (0, FileSeek.END);
 	long size = stream.tell ();
 
-	stdout.printf ("File size: %ld bytes\n", size);
+	print ("File size: %ld bytes\n", size);
 	return 0;
 }

@@ -4,7 +4,7 @@ public static int main (string[] args) {
 	try {
 		file.delete ();
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

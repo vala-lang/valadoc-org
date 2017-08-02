@@ -29,7 +29,7 @@ public static int main (string[] args) {
 		FileAttributeMatcher matcher = new FileAttributeMatcher (match.a);
 		bool a = matcher.matches (match.a);
 		bool b = matcher.matches (match.b);
-		stdout.printf ("%s, %s\n", a.to_string (), b.to_string ());
+		print ("%s, %s\n", a.to_string (), b.to_string ());
 	}
 
 	return 0;

@@ -14,7 +14,7 @@ public static int main (string[] args) {
 	string str = stream.read_line ();
 	assert (str != null);
 
-	stdout.printf ("'%s'\n", str);
+	print ("'%s'\n", str);
 
 	return 0;
 }

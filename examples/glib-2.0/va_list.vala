@@ -1,10 +1,10 @@
 public void print_linesv (string fst_str, va_list list) {
-	stdout.puts (fst_str);
-	stdout.putc ('\n');
+	print (fst_str);
+	print ("\n");
 
 	for (string? str = list.arg<string?> (); str != null ; str = list.arg<string?> ()) {
-		stdout.puts (str);
-		stdout.putc ('\n');
+		print (str);
+		print ("\n");
 	}
 }
 
@@ -22,4 +22,3 @@ public static int main (string[] args) {
 	print_lines ("first line", "second line", "third line");
 	return 0;
 }
-

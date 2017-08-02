@@ -9,9 +9,9 @@ public static int main (string[] args) {
 	// Output: ``1 2 3 4``
 	string item;
 	while ((item = queue.pop_head ()) != null) {
-		stdout.printf ("%s ", item);
+		print ("%s ", item);
 	}
-	stdout.putc ('\n');
+	print ("\n");
 
 	return 0;
 }

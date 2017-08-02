@@ -15,7 +15,7 @@ public class Application : Gtk.Window {
 
 		box.changed.connect (() => {
 			string title = box.get_active_text ();
-			stdout.printf ("%d: %s\n", box.active, title);
+			print ("%d: %s\n", box.active, title);
 		});
 	}
 

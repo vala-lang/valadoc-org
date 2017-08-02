@@ -18,7 +18,7 @@ public static int main (string[] args) {
 		service.add_inet_port (1024, new Source (1024));
 		service.add_inet_port (1025, new Source (1025));
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 		return 0;
 	}
 
@@ -33,7 +33,7 @@ public static int main (string[] args) {
 	service.run.connect ((connection, source_object) => {
 		try {
 			Source source = source_object as Source;
-			stdout.printf ("Accepted! (Source: %d)\n", source.port);
+			print ("Accepted! (Source: %d)\n", source.port);
 
 			DataInputStream istream = new DataInputStream (connection.input_stream);
 			DataOutputStream ostream = new DataOutputStream (connection.output_stream);
@@ -41,7 +41,7 @@ public static int main (string[] args) {
 			// Get the received message:
 			string message = istream.read_line (null, cancellable);
 			message._strip ();
-			stdout.printf ("Received: %s\n", message);
+			print ("Received: %s\n", message);
 
 			// Response:
 			ostream.put_string (message, cancellable);
@@ -52,7 +52,7 @@ public static int main (string[] args) {
 				return true;
 			}
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 		return false;
 	});

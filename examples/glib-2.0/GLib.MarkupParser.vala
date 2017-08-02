@@ -67,7 +67,7 @@ public class MapParser : Object {
 				throw new MarkupError.MISSING_ATTRIBUTE (error_msg ("Missing attribute': `entry.value'"));
 			}
 
-			stdout.printf ("Entry: '%s' = '%s'\n", key, val);
+			print ("Entry: '%s' = '%s'\n", key, val);
 		} else {
 			throw new MarkupError.UNKNOWN_ELEMENT (error_msg ("Unexpected element: `%s'", name));
 		}
@@ -108,7 +108,7 @@ public class MapParser : Object {
 					<entry key="constant" value="RED" />
 				</map>""");
 		} catch (Error e) {
-			stdout.printf ("%s\n", e.message);
+			print ("%s\n", e.message);
 		}
 		return 0;
 	}

@@ -11,7 +11,7 @@ public static int main (string[] args) {
 	});
 
 	Test.add_func ("/valadoc/driver-0.14.x/subprocess", () => {
-		stdout.printf ("error: unexpected token: ==\n");
+		print ("error: unexpected token: ==\n");
 	});
 
 	Test.run ();

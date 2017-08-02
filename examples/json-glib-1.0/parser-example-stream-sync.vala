@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	if (args.length < 2) {
-		stdout.puts ("Usage: test <filename.json>\n");
+		print ("Usage: test <filename.json>\n");
 		return -1;
 	}
 
@@ -11,7 +11,7 @@ public static int main (string[] args) {
 		FileInputStream stream = file.read ();
 		parser.load_from_stream (stream);
 	} catch (Error e) {
-		stdout.printf ("Unable to parse `%s': %s\n", args[1], e.message);
+		print ("Unable to parse `%s': %s\n", args[1], e.message);
 		return -1;
 	}
 

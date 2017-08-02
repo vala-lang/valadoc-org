@@ -41,12 +41,12 @@ public static int main (string[] args) {
 	// Output: ``try-parse-nick: 1``
 	MyFlags result;
 	if (MyFlags.try_parse_nick ("value-a", out result)) {
-		stdout.printf ("try-parse-nick: %d\n", result);
+		print ("try-parse-nick: %d\n", result);
 	}
 
 	// Output: ``try-parse-name: 2``
 	if (MyFlags.try_parse_name ("MY_FLAGS_VALUE_B", out result)) {
-		stdout.printf ("try-parse-name: %d\n", result);
+		print ("try-parse-name: %d\n", result);
 	}
 
 	return 0;

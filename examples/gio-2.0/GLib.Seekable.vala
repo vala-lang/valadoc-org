@@ -19,12 +19,12 @@ public static int main (string[] args) {
 
 		string line;
 		while ((line = dis.read_line ()) != null) {
-			stdout.puts (line);
-			stdout.putc ('\n');
+			print (line);
+			print ("\n");
 		}
 
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

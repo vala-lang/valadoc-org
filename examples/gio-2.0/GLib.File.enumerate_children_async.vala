@@ -7,15 +7,15 @@ public static int main (string[] args) {
 			FileEnumerator enumerator = file.enumerate_children_async.end (res);
 			FileInfo info;
 			while ((info = enumerator.next_file (null)) != null) {
-				stdout.printf ("%s\n", info.get_name ());
-				stdout.printf ("\t%s\n", info.get_file_type ().to_string ());
-				stdout.printf ("\t%s\n", info.get_is_symlink ().to_string ());
-				stdout.printf ("\t%s\n", info.get_is_hidden ().to_string ());
-				stdout.printf ("\t%s\n", info.get_is_backup ().to_string ());
-				stdout.printf ("\t%"+int64.FORMAT+"\n", info.get_size ());
+				print ("%s\n", info.get_name ());
+				print ("\t%s\n", info.get_file_type ().to_string ());
+				print ("\t%s\n", info.get_is_symlink ().to_string ());
+				print ("\t%s\n", info.get_is_hidden ().to_string ());
+				print ("\t%s\n", info.get_is_backup ().to_string ());
+				print ("\t%"+int64.FORMAT+"\n", info.get_size ());
 			}
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

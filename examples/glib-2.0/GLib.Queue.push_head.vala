@@ -7,9 +7,9 @@ public static int main () {
 	// Output: ``3 2 1 ``
 	string item;
 	while ((item = stack.pop_head ()) != null) {
-		stdout.printf ("%s ", item);
+		print ("%s ", item);
 	}
-	stdout.putc ('\n');
+	print ("\n");
 
 	return 0;
 }

@@ -14,6 +14,6 @@ public static int main (string[] args) {
 	assert (iter != null);
 
 	// Output: ``3. dolor``
-	stdout.printf ("%s\n", iter.get ());
+	print ("%s\n", iter.get ());
 	return 0;
 }

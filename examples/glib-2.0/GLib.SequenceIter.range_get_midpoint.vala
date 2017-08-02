@@ -10,12 +10,12 @@ public static int main (string[] args) {
 
 	// Output: ``1``
 	SequenceIter<string> res = iter1.range_get_midpoint (iter2);
-	stdout.printf ("%u\n", res.get_position ());
+	print ("%u\n", res.get_position ());
 
 	// Output: ``2``
 	iter1 = seq.get_iter_at_pos (1);
 	res = iter1.range_get_midpoint (iter2);
-	stdout.printf ("%u\n", res.get_position ());
+	print ("%u\n", res.get_position ());
 
 	return 0;
 }

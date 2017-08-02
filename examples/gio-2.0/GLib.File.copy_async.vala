@@ -6,14 +6,14 @@ public static int main (string[] args) {
 	File file2 = File.new_for_path ("my-test-2.txt");
 	file1.copy_async.begin (file2, 0, Priority.DEFAULT, null, (current_num_bytes, total_num_bytes) => {
 		// Report copy-status:
-		stdout.printf ("%" + int64.FORMAT + " bytes of %" + int64.FORMAT + " bytes copied.\n",
+		print ("%" + int64.FORMAT + " bytes of %" + int64.FORMAT + " bytes copied.\n",
 			current_num_bytes, total_num_bytes);
 	}, (obj, res) => {
 		try {
 			bool tmp = file1.copy_async.end (res);
-			stdout.printf ("Result: %s\n", tmp.to_string ());
+			print ("Result: %s\n", tmp.to_string ());
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

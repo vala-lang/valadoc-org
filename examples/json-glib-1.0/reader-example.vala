@@ -10,7 +10,7 @@ public static int main (string[] args) {
 	try {
 		parser.load_from_data (str);
 	} catch (Error e) {
-		stdout.printf ("Unable to parse data: %s\n", e.message);
+		print ("Unable to parse data: %s\n", e.message);
 		return -1;
 	}
 
@@ -67,9 +67,9 @@ public static int main (string[] args) {
 	}
 
 	// Print the data:
-	stdout.printf ("url:    %s\n", url);
-	stdout.printf ("width:  %" + int64.FORMAT + "\n", width);
-	stdout.printf ("height: %" + int64.FORMAT + "\n", height);
+	print ("url:    %s\n", url);
+	print ("width:  %" + int64.FORMAT + "\n", width);
+	print ("height: %" + int64.FORMAT + "\n", height);
 
 	return 0;
 }

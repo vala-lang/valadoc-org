@@ -10,7 +10,7 @@ public static int main () {
 	//  ``3 (len: 0)``
 	string item = null;
 	while ((item = queue.pop_head ()) != null) {
-		stdout.printf ("%s (len: %u)\n", item, queue.length);
+		print ("%s (len: %u)\n", item, queue.length);
 	}
 
 	return 0;

@@ -15,38 +15,38 @@ public static int main (string[] args) {
 	//  `` is-enum: false``
 	//  `` is-flags: true``
 	Type type = typeof (AbstractGObject);
-	stdout.printf ("%s\n", type.name ());
-	stdout.printf (" is-obj: %s\n", type.is_object ().to_string ());
-	stdout.printf (" is-abstr: %s\n", type.is_abstract ().to_string ());
-	stdout.printf (" is-classed: %s\n", type.is_classed ().to_string ());
-	stdout.printf (" is-derivable: %s\n", type.is_derivable ().to_string ());
-	stdout.printf (" is-derived: %s\n", type.is_derived ().to_string ());
-	stdout.printf (" is-fund: %s\n", type.is_fundamental ().to_string ());
-	stdout.printf (" is-inst: %s\n", type.is_instantiatable ().to_string ());
-	stdout.printf (" is-iface: %s\n", type.is_interface ().to_string ());
-	stdout.printf (" is-enum: %s\n", type.is_enum ().to_string ());
-	stdout.printf (" is-flags: %s\n", type.is_object ().to_string ());
+	print ("%s\n", type.name ());
+	print (" is-obj: %s\n", type.is_object ().to_string ());
+	print (" is-abstr: %s\n", type.is_abstract ().to_string ());
+	print (" is-classed: %s\n", type.is_classed ().to_string ());
+	print (" is-derivable: %s\n", type.is_derivable ().to_string ());
+	print (" is-derived: %s\n", type.is_derived ().to_string ());
+	print (" is-fund: %s\n", type.is_fundamental ().to_string ());
+	print (" is-inst: %s\n", type.is_instantiatable ().to_string ());
+	print (" is-iface: %s\n", type.is_interface ().to_string ());
+	print (" is-enum: %s\n", type.is_enum ().to_string ());
+	print (" is-flags: %s\n", type.is_object ().to_string ());
 
 	// Output:
 	//  `` Children:``
-	stdout.printf (" Children:\n");
+	print (" Children:\n");
 	foreach (unowned Type ch in type.children ()) {
-		stdout.printf ("  - %s\n", ch.name ());
+		print ("  - %s\n", ch.name ());
 	}
 
 	//  `` Interfaces:``
 	//  ``  - Interface``
-	stdout.printf (" Interfaces:\n");
+	print (" Interfaces:\n");
 	foreach (unowned Type ch in type.interfaces ()) {
-		stdout.printf ("  - %s\n", ch.name ());
+		print ("  - %s\n", ch.name ());
 	}
 
 	// Output:
 	//  `` Parents:``
 	//  ``  - GObject``
-	stdout.printf (" Parents:\n");
+	print (" Parents:\n");
 	for (Type p = type.parent (); p != 0 ; p = p.parent ()) {
-		stdout.printf ("  - %s\n", p.name ());
+		print ("  - %s\n", p.name ());
 	}
 
 	return 0;

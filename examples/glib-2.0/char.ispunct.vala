@@ -6,12 +6,12 @@ public static int main (string[] args) {
 	}
 
 	// Output: ``,!``
-	string str = "hello, world!";
+	string str = "Hello, world!";
 	for (int i = 0; str[i] != '\0'; i++) {
 		if (str[i].ispunct ()) {
-			stdout.putc (str[i]);
+            print (@"$(str[i])");
 		}
 	}
-	stdout.putc ('\n');
+	print ("\n");
 	return 0;
 }

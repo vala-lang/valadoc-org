@@ -4,7 +4,7 @@ public static int main (string[] args) {
 	int cnt = 0;
 
 	for (cnt = 0; stream.eof () == false; stream.getc (), cnt++);
-	stdout.printf ("%d\n", cnt);
+	print ("%d\n", cnt);
 
 	return 0;
 }

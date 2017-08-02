@@ -8,7 +8,7 @@ public static int main (string[] args) {
 	// Output:
 	//  ``Search result: (nil)``
 	unowned List<string>? scnd1 = list1.find ("3. entry");
-	stdout.printf ("Search result: %p\n", scnd1);
+	print ("Search result: %p\n", scnd1);
 	assert (scnd1 == null);
 
 
@@ -20,7 +20,7 @@ public static int main (string[] args) {
 	// Output:
 	//  ``Search result: 0x???????: 3``
 	unowned List<int>? scnd2 = list2.find (3);
-	stdout.printf ("Search result: %p: %d\n", scnd2, scnd2.data);
+	print ("Search result: %p: %d\n", scnd2, scnd2.data);
 	assert (scnd2 != null);
 
 	return 0;

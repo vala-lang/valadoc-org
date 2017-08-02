@@ -1,7 +1,7 @@
 // The programm:
 public static int main (string[] args) {
 	if (args.length != 2) {
-		stdout.printf ("Usage: %s PLUGIN-PATH\n", args[0]);
+		print ("Usage: %s PLUGIN-PATH\n", args[0]);
 		return 0;
 	}
 
@@ -10,7 +10,7 @@ public static int main (string[] args) {
 		PluginIface plugin = loader.load (args[1]);
 		plugin.activated ();
 	} catch (PluginError e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 	return 0;
 }

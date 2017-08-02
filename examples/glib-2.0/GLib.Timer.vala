@@ -10,7 +10,7 @@ public static int main (string[] args) {
 	timer.stop ();
 
  	seconds = timer.elapsed (out microseconds);
-	stdout.printf ("1.1: %s, %lu\n", seconds.to_string (), microseconds);
+	print ("1.1: %s, %lu\n", seconds.to_string (), microseconds);
 
 	// 1. measurement, part 2:
 	timer.@continue ();
@@ -18,7 +18,7 @@ public static int main (string[] args) {
 	timer.stop ();
 
  	seconds = timer.elapsed (out microseconds);
-	stdout.printf ("1.2: %s, %lu\n", seconds.to_string (), microseconds);
+	print ("1.2: %s, %lu\n", seconds.to_string (), microseconds);
 
 
 	// 2. measurement:
@@ -28,6 +28,6 @@ public static int main (string[] args) {
 	timer.stop ();
 
  	seconds = timer.elapsed (out microseconds);
-	stdout.printf ("2.1: %s, %lu\n", seconds.to_string (), microseconds);
+	print ("2.1: %s, %lu\n", seconds.to_string (), microseconds);
 	return 0;
 }

@@ -5,9 +5,9 @@ public static int main (string[] args) {
 	//  ``'e', 'f', ``
 	for (int i = 0; i <= 255; i++) {
 		if (((char) i).xdigit_value () >= 0) {
-			stdout.printf ("'%c', ", (char) i);
+			print ("'%c', ", (char) i);
 		}
 	}
-	stdout.putc ('\n');
+	print ("\n");
 	return 0;
 }

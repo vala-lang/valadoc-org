@@ -9,10 +9,10 @@ public int main (string[] args) {
 	//  ``2. entry``
 	//  ``3. entry``
 	//  ``(null)``
-	stdout.printf ("%s\n", array.index (0));
-	stdout.printf ("%s\n", array.index (1));
-	stdout.printf ("%s\n", array.index (2));
-	stdout.printf ("%s\n", array.index (3));
+	print ("%s\n", array.index (0));
+	print ("%s\n", array.index (1));
+	print ("%s\n", array.index (2));
+	print ("%s\n", array.index (3));
 
 	return 0;
 }

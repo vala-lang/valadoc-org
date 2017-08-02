@@ -6,9 +6,9 @@ public static int main (string[] args) {
 
 	// Output: ``3 2 1``
 	foreach (int key in table.get_keys ()) {
-		stdout.printf ("%d ", key);
+		print ("%d ", key);
 	}
-	stdout.putc ('\n');
+	print ("\n");
 
 	return 0;
 }

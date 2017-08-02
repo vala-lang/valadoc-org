@@ -9,7 +9,7 @@ public static int main (string[] args) {
 	//  ``2. entry``
 	//  ``3. entry``
 	foreach (string i in list) {
-		stdout.printf ("%s\n", i);
+		print ("%s\n", i);
 	}
 
 	return 0;

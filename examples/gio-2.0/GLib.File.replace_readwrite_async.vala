@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	if (args.length != 2) {
-		stdout.printf ("%s FILE\n", args[0]);
+		print ("%s FILE\n", args[0]);
 		return 0;
 	}
 
@@ -15,7 +15,7 @@ public static int main (string[] args) {
 			DataOutputStream dostream = new DataOutputStream (ostream);
 			dostream.put_string ("new-line\n");
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

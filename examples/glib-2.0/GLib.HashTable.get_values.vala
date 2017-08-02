@@ -6,9 +6,9 @@ public static int main (string[] args) {
 
 	// Output: ``"third string" "second string" "first string"``
 	foreach (string val in table.get_values ()) {
-		stdout.printf ("\"%s\" ", val);
+		print ("\"%s\" ", val);
 	}
-	stdout.putc ('\n');
+	print ("\n");
 
 	return 0;
 }

@@ -8,7 +8,7 @@ public static int main (string[] args) {
 
 	// Output: ``Lorem``
 	SequenceIter<string> iter = seq.get_begin_iter ();
-	stdout.printf ("%s\n", Sequence<string>.get (iter));
+	print ("%s\n", Sequence<string>.get (iter));
 
 	return 0;
 }

@@ -25,7 +25,7 @@ public class Application : Gtk.Window {
 		// Print text to stdout on enter:
 		entry.activate.connect (() => {
 			unowned string str = entry.get_text ();
-			stdout.printf ("%s\n", str);
+			print ("%s\n", str);
 		});
 	}
 

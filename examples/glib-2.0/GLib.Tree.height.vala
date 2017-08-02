@@ -7,7 +7,7 @@ public static int main (string[] args) {
 
 	// Output: ``Tree, height: 3``
 	int height = tree.height ();
-	stdout.printf ("Tree, height: %d\n", height);
+	print ("Tree, height: %d\n", height);
 
 	return 0;
 }

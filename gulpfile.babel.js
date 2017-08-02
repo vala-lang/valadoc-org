@@ -10,6 +10,8 @@ import imagemin from 'gulp-imagemin'
 import postcss from 'gulp-postcss'
 import cssnext from 'postcss-cssnext'
 
+import babel from 'gulp-babel'
+
 // All browsers we should _try_ to build for
 const browsers = ['last 4 version', 'not ie <= 11']
 
@@ -32,18 +34,31 @@ gulp.task('images', () => {
 /**
  * scripts
  * Copies scripts to production folder
- * TODO: build files with babel
  *
  * @return {Task} - a gulp task
  */
-gulp.task('scripts', () => {
-  const base = 'data/scripts'
-  const src = ['data/scripts/*.js']
-  const dest = 'valadoc.org/scripts'
+gulp.task('scripts', gulp.parallel(
+  function valadoc () {
+    const base = 'data/scripts'
+    const src = ['data/scripts/*.js']
+    const dest = 'valadoc.org/scripts'
 
-  return gulp.src(src, { base })
-  .pipe(gulp.dest(dest))
-})
+    return gulp.src(src, { base })
+    .pipe(babel({
+      presets: ['env']
+    }))
+    .pipe(gulp.dest(dest))
+  },
+  function fetchPolyfill () { // fetch polyfill
+    const base = 'node_modules/whatwg-fetch'
+    const src = ['node_modules/whatwg-fetch/*.js']
+    const dest = 'valadoc.org/scripts'
+
+    return gulp.src(src, { base })
+    .pipe(gulp.dest(dest))
+  }
+))
+
 
 /**
  * styles

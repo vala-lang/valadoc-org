@@ -78,7 +78,7 @@
 			<package name="libgnome-menu-3.0" flags="--pkg gio-2.0 --pkg gio-unix-2.0" gir="GnomeDesktop-3.0">
 				Utility library for loading .desktop files.
 			</package>
-			<package name="libgdaui-5.0" gir="Gdaui-5.0">
+			<package name="libgda-ui-5.0" gir="Gdaui-5.0">
 				Libgda is a (relatively small) database access library. This package provides GTK+ widgets to database access.
 			</package>
 		</section>
@@ -280,6 +280,10 @@
 			<package name="sqlite3" home="http://www.sqlite.org/" c-docs="http://www.sqlite.org/c3ref/intro.html">
 			 	A C library that implements an SQL database engine.
 			</package>
+			<package name="camel-1.2" gir="Camel-1.2.gir" c-docs="https://developer.gnome.org/camel/unstable/">
+				Camel is a generic messaging library. It supports the standard messaging system for 
+				receiving and sending messages. It is the messaging backend for Evolution.
+			</package>
 			<package name="libebook-1.2" flags="--pkg libedataserver-1.2" gir="EBook-1.2" c-docs="http://developer.gnome.org/libebook/stable/">
 				This package is a client library for evolution addressbooks.
 			</package>
@@ -322,19 +326,19 @@
 				into the data store. The data store allows both querying and inserting using SPARQL
 				based on the Nepomuk ontology. 
 			</package>
-			<external-package name="folks" home="http://telepathy.freedesktop.org/wiki/Folks" maintainers="Travis Reitter" link="http://telepathy.freedesktop.org/doc/folks/vala/">
+			<package name="folks" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks/c/">
 				Libfolks is a library that aggregates people from multiple sources (eg, Telepathy connection managers
 				and eventually evolution data server, Facebook, etc.) to create metacontacts. 
-			</external-package>
-			<external-package name="folks-eds" home="http://telepathy.freedesktop.org/wiki/Folks" maintainers="Travis Reitter" link="http://telepathy.freedesktop.org/doc/folks/vala-eds/">
+			</package>
+			<package name="folks-eds" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks/c/">
 				Folks, eds-backend
-			</external-package>
-			<external-package name="folks-libsocialweb" home="http://telepathy.freedesktop.org/wiki/Folks" maintainers="Travis Reitter" link="http://telepathy.freedesktop.org/doc/folks-libsocialweb/vala/">
+			</package>
+			<package name="folks-libsocialweb" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks-libsocialweb/c/">
 				Folks, libsocialweb-backend
-			</external-package>
-			<external-package name="folks-telepathy" home="http://telepathy.freedesktop.org/wiki/Folks" maintainers="Travis Reitter" link="http://telepathy.freedesktop.org/doc/folks-telepathy/vala/">
+			</package>
+			<package name="folks-telepathy" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks-telepathy/c/">
 				Folks, telepathy-backend
-			</external-package>
+			</package>
 			<package name="libmediaart-1.0" flags="--pkg gio-2.0" gir="MediaArt-1.0" c-docs="https://developer.gnome.org/libmediaart/unstable/">
 				 The libmediaart library is the foundation for media art caching,
 				 extraction and lookup for applications on the desktop. 
@@ -628,10 +632,10 @@
 	</section>
 
 	<section name="Pantheon">
-		<package name="granite" vapi-image-source="https://bazaar.launchpad.net/~elementary-pantheon/granite/granite/view/head:/doc/images/" home="https://launchpad.net/granite">
+		<package name="granite" vapi-image-source="https://github.com/elementary/granite/tree/master/doc/images/" home="https://github.com/elementary/granite">
 			Granite is an extension of GTK+. Among other things, it provides complex widgets and convenience functions designed for use in apps built for elementary OS.
 		</package>
-		<package name="switchboard-2.0" gir="Switchboard-1.0" home="https://launchpad.net/switchboard">
+		<package name="switchboard-2.0" gir="Switchboard-1.0" home="https://github.com/elementary/switchboard">
 			Switchboard is a modular system settings hub containing plugs (settings panels)
 		</package>
 	</section>

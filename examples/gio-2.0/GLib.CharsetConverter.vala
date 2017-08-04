@@ -17,16 +17,13 @@ public static int main (string[] args) {
 		DataInputStream distream = new DataInputStream (cistream);
 
 		string line = distream.read_line ();
-		print (line);
-		print ("\n");
+		print (@"$line\n");
 
 		line = distream.read_line ();
-		print (line);
-		print ("\n");
+        print (@"$line\n");
 
 		line = distream.read_line ();
-		print (line);
-        print ("\n");
+        print (@"$line\n");
 	} catch (IOError e) {
 		print ("IOError: %s\n", e.message);
 	} catch (Error e) {

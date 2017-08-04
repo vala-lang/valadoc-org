@@ -9,7 +9,7 @@ public class MyApplication : Application {
 		//  to the mainloop, you should use g_application_hold() and
 		//  g_application_release() to keep the application alive until
 		//  the action is completed.
-	    print ("Activated\n");
+	    print ("activated\n");
 	}
 
 	public override void open (File[] files, string hint) {

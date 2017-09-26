@@ -603,6 +603,9 @@
 		<package name="dee-1.0" gir="Dee-1.0">
 			Library to provide objects allowing to create Model-View-Controller type programs across DBus.
 		</package>
+    <package name="snapd-glib">
+      Library providing a GLib interface to snapd
+    </package>
 		<package name="zeitgeist-1.0" deprecated="true">
 			Zeitgeist is a service which logs the users's activities and events (files opened, websites
 			visites, conversations held with other people, etc.) and makes relevant information available

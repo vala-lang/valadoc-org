@@ -603,7 +603,7 @@
 		<package name="dee-1.0" gir="Dee-1.0">
 			Library to provide objects allowing to create Model-View-Controller type programs across DBus.
 		</package>
-		<package name="snapd-glib">
+		<package name="snapd-glib" gir="Snapd-1">
 			Library providing a GLib interface to snapd
 		</package>
 		<package name="zeitgeist-1.0" deprecated="true">

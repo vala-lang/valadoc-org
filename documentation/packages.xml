@@ -326,19 +326,19 @@
 				into the data store. The data store allows both querying and inserting using SPARQL
 				based on the Nepomuk ontology. 
 			</package>
-			<external-package name="folks" home="http://telepathy.freedesktop.org/wiki/Folks" maintainers="Travis Reitter" link="http://telepathy.freedesktop.org/doc/folks/vala/">
+			<package name="folks" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks/c/">
 				Libfolks is a library that aggregates people from multiple sources (eg, Telepathy connection managers
 				and eventually evolution data server, Facebook, etc.) to create metacontacts. 
-			</external-package>
-			<external-package name="folks-eds" home="http://telepathy.freedesktop.org/wiki/Folks" maintainers="Travis Reitter" link="http://telepathy.freedesktop.org/doc/folks/vala-eds/">
+			</package>
+			<package name="folks-eds" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks/c/">
 				Folks, eds-backend
-			</external-package>
-			<external-package name="folks-libsocialweb" home="http://telepathy.freedesktop.org/wiki/Folks" maintainers="Travis Reitter" link="http://telepathy.freedesktop.org/doc/folks-libsocialweb/vala/">
+			</package>
+			<package name="folks-libsocialweb" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks-libsocialweb/c/">
 				Folks, libsocialweb-backend
-			</external-package>
-			<external-package name="folks-telepathy" home="http://telepathy.freedesktop.org/wiki/Folks" maintainers="Travis Reitter" link="http://telepathy.freedesktop.org/doc/folks-telepathy/vala/">
+			</package>
+			<package name="folks-telepathy" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks-telepathy/c/">
 				Folks, telepathy-backend
-			</external-package>
+			</package>
 			<package name="libmediaart-1.0" flags="--pkg gio-2.0" gir="MediaArt-1.0" c-docs="https://developer.gnome.org/libmediaart/unstable/">
 				 The libmediaart library is the foundation for media art caching,
 				 extraction and lookup for applications on the desktop. 
@@ -603,6 +603,9 @@
 		<package name="dee-1.0" gir="Dee-1.0">
 			Library to provide objects allowing to create Model-View-Controller type programs across DBus.
 		</package>
+		<package name="snapd-glib" gir="Snapd-1">
+			Library providing a GLib interface to snapd
+		</package>
 		<package name="zeitgeist-1.0" deprecated="true">
 			Zeitgeist is a service which logs the users's activities and events (files opened, websites
 			visites, conversations held with other people, etc.) and makes relevant information available
@@ -632,10 +635,10 @@
 	</section>
 
 	<section name="Pantheon">
-		<package name="granite" vapi-image-source="https://bazaar.launchpad.net/~elementary-pantheon/granite/granite/view/head:/doc/images/" home="https://launchpad.net/granite">
+		<package name="granite" vapi-image-source="https://github.com/elementary/granite/tree/master/doc/images/" home="https://github.com/elementary/granite">
 			Granite is an extension of GTK+. Among other things, it provides complex widgets and convenience functions designed for use in apps built for elementary OS.
 		</package>
-		<package name="switchboard-2.0" gir="Switchboard-1.0" home="https://launchpad.net/switchboard">
+		<package name="switchboard-2.0" gir="Switchboard-1.0" home="https://github.com/elementary/switchboard">
 			Switchboard is a modular system settings hub containing plugs (settings panels)
 		</package>
 	</section>

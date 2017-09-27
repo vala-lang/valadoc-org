@@ -56,8 +56,8 @@ public class MyContainer : Gtk.Container {
         Gtk.Allocation child_allocation = Gtk.Allocation ();
         uint border_width = this.get_border_width ();
         if (this._title != null && this._title.get_visible ()) {
-            title_allocation.x = (int) border_width;
-            title_allocation.y = (int) border_width;
+            title_allocation.x = allocation.x + (int) border_width;
+            title_allocation.y = allocation.y + (int) border_width;
             title_allocation.width = allocation.width - 2 * (int) border_width;
             title_allocation.height = 24;
             this._title.size_allocate (title_allocation);
@@ -66,8 +66,8 @@ public class MyContainer : Gtk.Container {
             }
         }
         if (this._child != null && this._child.get_visible ()) {
-            child_allocation.x = (int) border_width;
-            child_allocation.y = 24 + (int) border_width;
+            child_allocation.x = allocation.x + (int) border_width;
+            child_allocation.y = allocation.y + 24 + (int) border_width;
             child_allocation.width = allocation.width - 2 * (int) border_width;
             child_allocation.height = allocation.height - 24 - 2 * (int) border_width;
             this._child.size_allocate (child_allocation);

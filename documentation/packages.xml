@@ -595,6 +595,9 @@
 			<package name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer.gnome.org/dbus-glib/unstable/">
 				D-Bus Support
 			</package>
+			<package name="libide-1.0" gir="Ide-1.0">
+				Plugin API for GNOME Builder
+			</package>
 		</section>
 	</section>
 

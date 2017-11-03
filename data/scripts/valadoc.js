@@ -1,6 +1,6 @@
 // Some configuration that shouldn't be modified at runtime.
 const config = {
-  searchDelay: 1000, // time (in milliseconds) after which a new search request is triggered
+  searchDelay: 200, // time (in milliseconds) after which a new search request is triggered
   appName: 'Valadoc'
 }
 

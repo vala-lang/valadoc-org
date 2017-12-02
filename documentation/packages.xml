@@ -81,6 +81,11 @@
 			<package name="libgda-ui-5.0" gir="Gdaui-5.0">
 				Libgda is a (relatively small) database access library. This package provides GTK+ widgets to database access.
 			</package>
+			<package name="libdazzle-1.0" gir="Dazzle-1.0" c-docs="https://people.gnome.org/~chergert/docs/libdazzle/">
+			  The libdazzle library is a companion library to GObject and Gtk+. It provides various features that we wish were
+			  in the underlying library but cannot for various reasons. In most cases, they are wildly out of scope for those
+			  libraries. In other cases, our design isn't quite generic enough to work for everyone.
+			</package>
 		</section>
 
 		<section name="Multimedia">
@@ -589,6 +594,9 @@
 			</package>
 			<package name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer.gnome.org/dbus-glib/unstable/">
 				D-Bus Support
+			</package>
+			<package name="libide-1.0" gir="Ide-1.0">
+				Plugin API for GNOME Builder
 			</package>
 		</section>
 	</section>

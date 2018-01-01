@@ -26,7 +26,7 @@ sudo apt install valac valadoc libvaladoc-dev unzip php php-curl
 
 Arch or derivatives run:
 ```bash
-yaourt -S valadoc-git php
+pacman -S vala php
 ```
 
 After you have `valadoc` installed, you can move to building the documentation. Simply run:

@@ -1296,11 +1296,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return -1;
 		}
 
-		if (FileUtils.test (metadata_path, FileTest.IS_REGULAR)) {
-			stdout.printf ("error: %s does not exist.\n", metadata_path);
-			return -1;
-		}
-
 		if (FileUtils.test ("tmp", FileTest.IS_DIR)) {
 			stdout.printf ("error: tmp already exist.\n");
 			return -1;
@@ -1320,9 +1315,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return -1;
 		}
 
-		if (metadata_path == null) {
-			metadata_path = "documentation/packages.xml";
-		}
+		metadata_path = "documentation/packages.xml";
 
 		if (docletpath == null) {
 			docletpath = ".";

@@ -14,4 +14,4 @@ install:
 
 script:
   - "bash -c 'source ~/.nvm/nvm.sh; nvm use 6; npm test'"
-  - make build-docs-mini
+  - make build-docs-mini || cat LOG

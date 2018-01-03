@@ -1,6 +1,6 @@
 VALAC = valac
 VALAC_VERSION := $(shell vala --api-version | awk -F. '{ print "0."$$2 }')
-VALAFLAGS = -X -w
+VALAFLAGS = -g -X -w
 PREFIX = "stable"
 
 default: generator libdoclet.so update-girs configgen valadoc-example-gen valadoc-example-tester

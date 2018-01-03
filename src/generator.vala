@@ -35,7 +35,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private HashMap<string, Package> packages_per_name = new HashMap<string, Package> ();
 	private Collection<Node> sections;
 	private Regex markdown_img_regex;
-	private string global_wget_flags;
+	private string global_wget_flags = "--no-verbose";
 
 	private bool has_error = false;
 
@@ -100,7 +100,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private static string[] vapidirs;
 
 	public IndexGenerator (ErrorReporter reporter) {
-		this.global_wget_flags = wget_no_check_certificate? "--no-check-certificate" : "";
+		this.global_wget_flags += wget_no_check_certificate ? " --no-check-certificate" : "";
 		this.reporter = new ErrorReporter ();
 
 		// TODO: += is broken for LHS array_length = false

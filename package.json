@@ -9,7 +9,7 @@
   "scripts": {
     "test": "stylelint data/styles/*.css",
     "build": "gulp",
-    "start": "php -S localhost:7777 -t ./valadoc.org ./router.php",
+    "start": "php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php",
     "lint": "eslint data/scripts/*.js"
   },
   "dependencies": {

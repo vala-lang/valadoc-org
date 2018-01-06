@@ -49,6 +49,13 @@ function initTooltip() {
     tip.innerHTML = content
 
     const targetRect = target.getBoundingClientRect()
+    // if tooltip is in a class hierarchy diagram
+    if (target.tagName === "AREA") {
+      tip.style.left = `${ targetRect.right + pageXOffset + 5 }px`
+      tip.style.top = `${targetRect.top + parseInt(target.coords.split(',')[1]) }px`
+      return
+    }
+
     const tipRect = tip.getBoundingClientRect()
     const tipOffset = 5 + tipRect.height
     tip.style.top = `${targetRect.top + pageYOffset - tipOffset}px`

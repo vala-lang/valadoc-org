@@ -40,9 +40,8 @@ function search (query) {
 function initTooltip() {
   const tip = document.createElement('div')
   tip.reset = () => {
-    tip.style.display = 'hidden'
     tip.innerHTML = null
-    tip.style.top = '-100px'
+    tip.style.top = '-200px'
   }
 
   tip.show = (content, target) => {
@@ -52,7 +51,7 @@ function initTooltip() {
     // if tooltip is in a class hierarchy diagram
     if (target.tagName === "AREA") {
       tip.style.left = `${ targetRect.right + pageXOffset + 5 }px`
-      tip.style.top = `${targetRect.top + parseInt(target.coords.split(',')[1]) }px`
+      tip.style.top = `${targetRect.top + parseInt(target.coords.split(',')[1]) + pageYOffset }px`
       return
     }
 
@@ -60,12 +59,10 @@ function initTooltip() {
     const tipOffset = 5 + tipRect.height
     tip.style.top = `${targetRect.top + pageYOffset - tipOffset}px`
     tip.style.left = `${targetRect.x + pageXOffset}px`
-    tip.style.display = 'block'
   }
 
   tip.className = 'tooltip'
   tip.style.position = 'absolute'
-  tip.style.display = 'hidden'
   document.body.appendChild(tip)
   return tip
 }

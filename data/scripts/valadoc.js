@@ -50,8 +50,9 @@ function initTooltip() {
     const targetRect = target.getBoundingClientRect()
     // if tooltip is in a class hierarchy diagram
     if (target.tagName === "AREA") {
-      tip.style.left = `${ targetRect.right + pageXOffset + 5 }px`
-      tip.style.top = `${targetRect.top + parseInt(target.coords.split(',')[1]) + pageYOffset }px`
+      const [areaLeft, areaTop, areaRight, areaBottom] = target.coords.split(',').map(Number) // offset of box in svg graph
+      tip.style.top = `${targetRect.top + areaTop + pageYOffset}px`
+      tip.style.left = `${targetRect.left + areaRight + pageXOffset + 5}px`
       return
     }
 

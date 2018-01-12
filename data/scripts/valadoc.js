@@ -99,7 +99,10 @@ function setupLink (link) {
     }
   })
 
-  link.addEventListener('click', loadPage(link))
+  link.addEventListener('click', evt => {
+    html.tooltipEl.reset()
+    loadPage(link)(evt)
+  })
 }
 
 function loadPage (link, popped) {

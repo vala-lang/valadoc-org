@@ -6,9 +6,12 @@ const config = {
 
 const curpkg = window.location.pathname.split('/')[1]
 
+// cache of the content of tooltips stored by their url
+const tooltipCache = {}
+
 // This object will contain the html elements of the interface
 const html = {
-  tooltips: []
+  tooltipEl: initTooltip(),
 }
 
 /*
@@ -34,50 +37,64 @@ function search (query) {
 /*
 * Display a tooltip containing `content` when cursor is over `element`.
 */
-function tooltip (element, content, position) {
+function initTooltip() {
   const tip = document.createElement('div')
-  tip.style.position = 'absolute'
-  tip.style.display = 'block'
-  tip.innerHTML = content
+  tip.reset = () => {
+    tip.innerHTML = null
+    tip.style.top = '-200px'
+  }
+
+  tip.show = (content, target) => {
+    tip.innerHTML = content
+
+    const targetRect = target.getBoundingClientRect()
+    // if tooltip is in a class hierarchy diagram
+    if (target.tagName === "AREA") {
+      const [areaLeft, areaTop, areaRight, areaBottom] = target.coords.split(',').map(Number) // offset of box in svg graph
+      tip.style.top = `${targetRect.top + areaTop + pageYOffset}px`
+      tip.style.left = `${targetRect.left + areaRight + pageXOffset + 5}px`
+      return
+    }
+
+    tip.style.left = `${targetRect.x + pageXOffset}px`
+    // this needs to be after tip.style.left=... to compute the correct new height
+    const tipRect = tip.getBoundingClientRect()
+    const tipOffset = 5 + tipRect.height
+    tip.style.top = `${targetRect.top + pageYOffset - tipOffset}px`
+  }
+
   tip.className = 'tooltip'
-  tip.style.top = `${position.y + 2}px`
-  tip.style.left = `${position.x + 2}px`
+  tip.style.position = 'absolute'
   document.body.appendChild(tip)
-
-  element.addEventListener('mousemove', evt => {
-    tip.style.display = 'block'
-    tip.style.top = `${window.scrollY + evt.clientY + 2}px`
-    tip.style.left = `${window.scrollX + evt.clientX + 2}px`
-  })
-
-  element.addEventListener('mouseleave', () => {
-    tip.style.display = 'none'
-  })
-
   return tip
 }
+
 
 function setupLink (link) {
   if (link.hostname !== location.hostname || link.pathname.endsWith('index.htm')) {
     return
   }
 
+  link.addEventListener('mouseleave', evt => {
+    evt.currentTarget.hovered = false
+    html.tooltipEl.reset();
+  })
+
   link.addEventListener('mouseenter', evt => {
-    if (link.getAttribute('data-init') !== 'yes') {
       // fullname = path without the / at the beggining and the .htm(l)
-      const fullname = link.pathname.substring(1).replace(/\.html?$/, '')
-      link.setAttribute('data-init', 'yes')
+    const target = evt.currentTarget
+    target.hovered = true
+    const fullname = link.pathname.substring(1).replace(/\.html?$/, '')
+    if (tooltipCache[fullname]) {
+      html.tooltipEl.show(tooltipCache[fullname], target)
+    } else {
       fetch(`/tooltip.php?fullname=${encodeURIComponent(fullname)}`, {
         method: 'POST'
-      }).then(res => res.text()).then(res => {
-        for (let tip of html.tooltips) {
-          tip.style.display = 'none'
+      }).then(res => res.text()).then(content => { 
+        tooltipCache[fullname] = content
+        if (target.hovered) {
+          html.tooltipEl.show(content, target)
         }
-
-        html.tooltips.push(tooltip(link, res, {
-          y: window.scrollY + evt.clientY,
-          x: window.scrollX + evt.clientX
-        }))
       })
     }
   })
@@ -87,11 +104,6 @@ function setupLink (link) {
 
 function loadPage (link, popped) {
   return evt => {
-    // first, destroy tooltips if any
-    for (let tip of html.tooltips) {
-      tip.remove()
-    }
-    html.tooltips = []
 
     const pageTitle = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
     const title = `${pageTitle.length ? `${pageTitle} — ` : ''}${config.appName}`

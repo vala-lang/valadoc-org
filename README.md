@@ -19,9 +19,9 @@ In order to build the docs you will need the following:
 
 On elementary OS or Ubuntu run:
 ```bash
-sudo add-apt-repository ppa:vala-team;
-sudo apt update;
-sudo apt install valac valadoc libvaladoc-dev unzip;
+sudo add-apt-repository ppa:vala-team
+sudo apt update
+sudo apt install valac valadoc libvaladoc-dev unzip php php-curl
 ```
 
 Arch or derivatives run:

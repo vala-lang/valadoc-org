@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         break
       case 13: // enter
         if (html.searchFocused) { // if we have a search item selected, we load its page
-          loadPage(html.searchFocused.children[0])
+          loadPage(html.searchFocused.children[0])(evt)
         }
         break
       case 17: // ctrl

@@ -56,10 +56,11 @@ function initTooltip() {
       return
     }
 
+    tip.style.left = `${targetRect.x + pageXOffset}px`
+    // this needs to be after tip.style.left=... to compute the correct new height
     const tipRect = tip.getBoundingClientRect()
     const tipOffset = 5 + tipRect.height
     tip.style.top = `${targetRect.top + pageYOffset - tipOffset}px`
-    tip.style.left = `${targetRect.x + pageXOffset}px`
   }
 
   tip.className = 'tooltip'

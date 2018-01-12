@@ -105,7 +105,7 @@ function setupLink (link) {
   })
 }
 
-function loadPage (link, popped) {
+function loadPage (link, popped = false) {
   return evt => {
 
     const pageTitle = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')

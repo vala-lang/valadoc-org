@@ -99,10 +99,13 @@ function setupLink (link) {
     }
   })
 
-  link.addEventListener('click', loadPage(link))
+  link.addEventListener('click', evt => {
+    html.tooltipEl.reset()
+    loadPage(link)(evt)
+  })
 }
 
-function loadPage (link, popped) {
+function loadPage (link, popped = false) {
   return evt => {
 
     const pageTitle = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
@@ -210,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         break
       case 13: // enter
         if (html.searchFocused) { // if we have a search item selected, we load its page
-          loadPage(html.searchFocused.children[0])
+          loadPage(html.searchFocused.children[0])(evt)
         }
         break
       case 17: // ctrl

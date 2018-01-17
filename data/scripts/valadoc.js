@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
     )
     return urlParams
   }
-  const urlParams = parseQueryString(location.search); 
+  const urlParams = parseQueryString(location.search)
   if (typeof urlParams.q !== 'undefined' && urlParams.q) {
     html.searchField.value = urlParams.q
     updateSearch()

@@ -221,6 +221,23 @@ document.addEventListener('DOMContentLoaded', () => {
         break
     }
   })
+
+  // Conduct a search if the "q" field is present in the URL Parameters
+  function parseQueryString (url) {
+    let urlParams = {}
+    url.replace(
+      new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+      function($0, $1, $2, $3) {
+        urlParams[$1] = $3
+      }
+    )
+    return urlParams
+  }
+  const urlParams = parseQueryString(location.search)
+  if (typeof urlParams.q !== 'undefined' && urlParams.q) {
+    html.searchField.value = urlParams.q
+    updateSearch()
+  }
 })
 
 let searchDelay

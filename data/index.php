@@ -67,7 +67,9 @@ if ($first == null || $first === "index") { // Homepage
 </head>
 <body>
   <nav>
-    <div id="search-box">
+    <div id="search-box" itemscope itemprop="potentialAction" itemtype="http://schema.org/SearchAction">
+      <meta itemprop="target" content="/?q={query}">
+      <meta itemprop="query-input" content="required name=query">
       <input id="search-field" type="search" placeholder="Search" autocomplete="off" />
       <img id="search-field-clear" src="/images/clean.svg" alt="Clear search" />
     </div>

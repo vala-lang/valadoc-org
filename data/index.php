@@ -54,6 +54,7 @@ if ($first == null || $first === "index") { // Homepage
   <meta name="fragment" content="!">
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#403757">
+  <meta itemprop="url" content="https://valadoc.org/"/>
   <meta property="og:description" content="The canonical source for Vala API references.">
   <meta property="og:image" content="https://valadoc.org/images/preview.png">
   <meta property="og:title" content="<?php echo get_title ($page); ?>">
@@ -70,7 +71,7 @@ if ($first == null || $first === "index") { // Homepage
     <div id="search-box" itemscope itemprop="potentialAction" itemtype="http://schema.org/SearchAction">
       <meta itemprop="target" content="/?q={query}">
       <meta itemprop="query-input" content="required name=query">
-      <input id="search-field" type="search" placeholder="Search" autocomplete="off" />
+      <input itemprop="query-input" id="search-field" type="search" placeholder="Search" autocomplete="off" />
       <img id="search-field-clear" src="/images/clean.svg" alt="Clear search" />
     </div>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>

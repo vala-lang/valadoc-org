@@ -27,13 +27,10 @@
 //
 
 
-using Gee;
-
-
 public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
-	private LinkedList<Package> unavailable_packages = new LinkedList<Package> ();
-	private HashMap<string, Package> packages_per_name = new HashMap<string, Package> ();
-	private Collection<Node> sections;
+	private Gee.LinkedList<Package> unavailable_packages = new Gee.LinkedList<Package> ();
+	private Gee.HashMap<string, Package> packages_per_name = new Gee.HashMap<string, Package> ();
+	private Gee.Collection<Node> sections;
 	private Regex markdown_img_regex;
 	private string global_wget_flags = "--no-verbose";
 
@@ -284,15 +281,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 	private class Section : Node {
 		public string name;
-		public Collection<Package> packages = new ArrayList<Package> ();
-		public Collection<Section> sections = new ArrayList<Section> ();
+		public Gee.Collection<Package> packages = new Gee.ArrayList<Package> ();
+		public Gee.Collection<Section> sections = new Gee.ArrayList<Section> ();
 
 		public Section (string name) {
 			this.name = name;
 		}
 
-		public Collection<Package> sorted_package_list () {
-			ArrayList<Package> packages = new ArrayList<Package> ();
+		public Gee.Collection<Package> sorted_package_list () {
+			Gee.ArrayList<Package> packages = new Gee.ArrayList<Package> ();
 			packages.add_all (this.packages);
 			packages.sort ((a, b) => {
 				return ((Package) a).name.ascii_casecmp (((Package) b).name);
@@ -464,7 +461,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	}
 
 	private abstract class Renderer {
-		public abstract void render (string path, Collection<Node> sections);
+		public abstract void render (string path, Gee.Collection<Node> sections);
 		public abstract void render_section (Section section);
 		public abstract void render_package (Package pkg);
 		public abstract void render_external_package (ExternalPackage pkg);
@@ -488,8 +485,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
-	private ArrayList<Package> get_sorted_package_list () {
-		ArrayList<Package> packages = new ArrayList<Package> ();
+	private Gee.ArrayList<Package> get_sorted_package_list () {
+		Gee.ArrayList<Package> packages = new Gee.ArrayList<Package> ();
 		packages.add_all (packages_per_name.values);
 		packages.sort ((a, b) => {
 			return ((Package) a).name.ascii_casecmp (((Package) b).name);
@@ -505,7 +502,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		writer.start_tag ("div", {"class", "site_navigation"});
 		writer.start_tag ("ul");
 
-		ArrayList<Package> packages = get_sorted_package_list ();
+		Gee.ArrayList<Package> packages = get_sorted_package_list ();
 		foreach (Package pkg in packages) {
 			if (!pkg.is_local || regenerate_all_packages || pkg.name in requested_packages) {
 				if (pkg.is_local) {
@@ -527,7 +524,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		private Html.MarkupWriter writer;
 		private int header_level = HEADER_LEVEL_START;
 
-		public override void render (string path, Collection<Node> sections) {
+		public override void render (string path, Gee.Collection<Node> sections) {
 			GLib.FileStream file = GLib.FileStream.open (path, "w");
 			writer = new Html.MarkupWriter (file, false);
 
@@ -764,7 +761,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	}
 
 	public void regenerate_packages (string[] packages) throws Error {
-		LinkedList<Package> queue = new LinkedList<Package> ();
+		Gee.LinkedList<Package> queue = new Gee.LinkedList<Package> ();
 
 		foreach (string pkg_name in packages) {
 			Package? pkg = packages_per_name.get (pkg_name);
@@ -953,7 +950,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		log = null;
 	}
 
-	private void collect_images (string content, HashSet<string> images, bool is_docbook) {
+	private void collect_images (string content, Gee.HashSet<string> images, bool is_docbook) {
 		if (is_docbook) {
 			// Docbook:
 			Gtkdoc.Scanner scanner = new Gtkdoc.Scanner ();
@@ -1011,7 +1008,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 		}
 
-		HashMap<string, string> images = new HashMap<string, string> ();
+		Gee.HashMap<string, string> images = new Gee.HashMap<string, string> ();
 
 		var markup_reader = new Valadoc.MarkupReader ("tmp/c-gallery.html", reporter);
 		MarkupTokenType token = MarkupTokenType.START_ELEMENT;
@@ -1217,7 +1214,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		MarkupSourceLocation token_begin;
 		MarkupSourceLocation token_end;
 
-		HashSet<string> images = new HashSet<string> ();
+		Gee.HashSet<string> images = new Gee.HashSet<string> ();
 
 		do {
 			token = markup_reader.read_token (out token_begin, out token_end);

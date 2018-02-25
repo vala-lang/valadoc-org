@@ -11,7 +11,7 @@ public static int main (string[] args) {
 	Variant dictionary = builder.end ();
 
 	VariantIter iter = dictionary.iterator ();
-	while (iter.next ("{sv}", &key, &val)) {
+	while (iter.next ("{sv}", ref key, ref val)) {
 		stdout.printf ("Item '%s' has type '%s'\n", key, val.get_type_string ());
 	}
 

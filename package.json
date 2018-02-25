@@ -9,13 +9,13 @@
   "scripts": {
     "test": "stylelint data/styles/*.css",
     "build": "gulp",
-    "start": "php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php",
+    "start": "php -S localhost:7777 -t ./valadoc.org ./router.php",
     "lint": "eslint data/scripts/*.js"
   },
   "dependencies": {
     "babel-core": "^6.23.1",
     "babel-preset-env": "^1.6.0",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp": "^4.0.0",
     "gulp-babel": "^6.1.2",
     "gulp-imagemin": "^3.1.1",
     "gulp-postcss": "^6.4.0",

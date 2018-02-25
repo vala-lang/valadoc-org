@@ -598,6 +598,11 @@
 			<package name="libide-1.0" gir="Ide-1.0">
 				Plugin API for GNOME Builder
 			</package>
+			<package name="jsonrpc-glib-1.0" gir="Jsonrpc-1.0">
+				Jsonrpc-GLib is a library to communicate with JSON-RPC based peers in either a synchronous or asynchronous fashion.
+				It also allows communicating using the GVariant serialization format instead of JSON when both peers support it.
+				You might want that when communicating on a single host to avoid parser overhead and memory-allocator fragmentation
+			</package>
 		</section>
 	</section>
 
@@ -796,7 +801,7 @@
 	</section>
 
 	<section name="Other">
-		<external-package name="bump" home="http://code.google.com/p/bump" maintainers="Evan Nemerson" link="http://code.coeusgroup.com/bump/valadoc/Bump/index.htm">
+		<external-package name="bump" home="https://github.com/nemequ/bump" maintainers="Evan Nemerson" link="http://code.coeusgroup.com/bump/valadoc/Bump/index.htm">
 			Bump is a library designed to make asynchronous programming easy by providing high-level data
 			structures for concurrency management, including multi-threading and main loop callbacks, in
 			GObject/GIO based projects, especially those written in Vala.

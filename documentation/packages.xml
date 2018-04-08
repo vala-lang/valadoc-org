@@ -305,11 +305,6 @@
 			<package name="libgeoclue-2.0" gir="Geoclue-2.0" flags="--pkg=glib-2.0 --pkg=gobject-2.0 --pkg=gio-2.0" home="https://freedesktop.org/wiki/Software/GeoClue/" c-docs="https://www.freedesktop.org/software/geoclue/docs/libgeoclue/">
 				GeoClue is a D-Bus geoinformation service. The goal of the Geoclue project is to make creating location-aware applications as simple as possible.
 			</package>
-			<package name="tracker-indexer-module-1.0" home="http://projects.gnome.org/tracker/">
-				The tracker-indexer is responsible for indexing all content it is given. The indexer
-				is completely modular, this means that there are modules or 'backends' which are used
-				for indexing specific content types.
-			</package>
 			<package deprecated="true" name="tracker-miner-0.16" flags="--pkg tracker-sparql-0.16" home="http://projects.gnome.org/tracker/" gir="TrackerMiner-0.16">
 				This package contains the library that is used by applications that provide data miners for tracker.
 

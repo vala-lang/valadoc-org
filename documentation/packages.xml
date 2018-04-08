@@ -55,21 +55,12 @@
 			<package name="vte-2.91" gir="Vte-2.91" flags="--pkg gtk+-3.0" c-docs="http://developer.gnome.org/vte/unstable/">
 				Terminal emulator widget used by GNOME terminal.
 			</package>
-			<package deprecated="true" name="webkitgtk-3.0" ignore="true" gir="WebKit-3.0" home="http://webkitgtk.org/">
-				WebKitGTK+ is the GNOME platform port of the WebKit rendering engine. Offering WebKit’s full functionality
-				through a set of GObject-based APIs, it is suitable for projects requiring any kind of web integration,
-				from hybrid HTML/CSS applications to full-fledged web browsers, like Epiphany and Midori.
-			</package>
-			<package deprecated="true" name="webkit-1.0" home="http://webkitgtk.org/" c-docs="http://webkitgtk.org/reference/webkitgtk/unstable/" gir="WebKit-1.0">
-				WebKitGTK+ is the GNOME platform port of the WebKit rendering engine. Offering WebKit’s full functionality
-				through a set of GObject-based APIs, it is suitable for projects requiring any kind of web integration,
-				from hybrid HTML/CSS applications to full-fledged web browsers, like Epiphany and Midori.
-			</package>
 			<package name="webkit2gtk-web-extension-4.0" gir="WebKit2WebExtension-4.0" flags="--pkg libsoup-2.4" c-docs="http://webkitgtk.org/reference/webkit2gtk/unstable/index.html" home="http://webkitgtk.org/">
-				Web content rendering for the GNOME Platform	
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+				This is the library to use to build extensions running in the separated webprocess.
 			</package>
 			<package name="webkit2gtk-4.0" gir="WebKit2-4.0" c-docs="http://webkitgtk.org/reference/webkit2gtk/unstable/index.html" home="http://webkitgtk.org/">
-				Web content rendering for the GNOME Platform
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
 			</package>
 			<package name="champlain-gtk-0.12" gir="GtkChamplain-0.12" flags="--pkg gtk+-3.0 --pkg champlain-0.12 --pkg clutter-1.0" c-docs="https://developer.gnome.org/libchamplain/unstable/" home="http://projects.gnome.org/libchamplain/">
 				Libchamplain-gtk is a C library on top of libchamplain providing a Gtk+ widget to display maps

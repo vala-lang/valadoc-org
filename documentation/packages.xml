@@ -356,13 +356,10 @@
 				libsoup is an HTTP client/server library for GNOME. It uses GObjects and the glib main loop,
 				to integrate well with GNOME applications.
 			</package>
-			<package name="rest-0.6" maintainers="Adrien Bustany">
-				A helper library for RESTful services.
-			</package>
 			<package name="rest-0.7" maintainers="Adrien Bustany" gir="Rest-0.7" c-docs="http://developer.gnome.org/rest/unstable/">
 				A helper library for RESTful services.
 			</package>
-			<package name="rest-extras-0.6" maintainers="Adrien Bustany" gir="RestExtras-0.7">
+			<package name="rest-extras-0.7" maintainers="Adrien Bustany" gir="RestExtras-0.7">
 				This extra package provides Facebook and Flickr support.
 			</package>
 			<package name="gnutls" maintainer="Jiří Zárevúcky" home="http://www.gnutls.org/" c-docs="http://www.gnutls.org/documentation.html">

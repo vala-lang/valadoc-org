@@ -378,12 +378,6 @@
 				voice calls and video calls. It abstracts differences between protocols to provide a unified
 				interface for applications.
 			</package>
-			<package name="twitter-glib-1.0" maintainers="Adrien Bustany">
-				Twitter-GLib is a GObject-based C wrapper library around the (almost-) RESTful web API provided by
-				Twitter. Twitter-GLib provides an object-oriented API around the webservice methods and data
-				structures, and allows writing clients for Twitter and all the web services offering a Twitter-compatible
-				API, like Identi.ca. 
-			</package>
 			<package name="libgdata" flags="--pkg Goa-1.0" gir="GData-0.0" c-docs="http://developer.gnome.org/gdata/unstable/">
 				GData (Google data) is a set of Application Programming Interfaces (APIs) for the Common Language
 				Infrastructure (CLI) which provide a simple protocol for reading and writing data on the web. 

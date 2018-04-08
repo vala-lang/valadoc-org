@@ -1,4 +1,0 @@
-[PackageKit Catalog]
-
-InstallPackages(fedora)=webkitgtk-devel
-InstallPackages(debian)=libwebkitgtk-dev

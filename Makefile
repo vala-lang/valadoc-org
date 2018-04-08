@@ -36,7 +36,7 @@ valadoc-example-tester: src/valadoc-example-parser.vala src/valadoc-example-test
 	$(VALAC) $(VALAFLAGS) -o $@ $^
 
 
-DOCLET_DEPS = gee-0.8 valadoc-0.38
+DOCLET_DEPS = gee-0.8 valadoc-$(VALAC_VERSION)
 DOCLET_VALAFLAGS := $(patsubst %,--pkg=%,$(DOCLET_DEPS))
 DOCLET_CFLAGS := $(shell pkg-config --cflags --libs $(DOCLET_DEPS)) -shared -fPIC -w
 
@@ -46,7 +46,7 @@ libdoclet.so: src/doclet.vala src/linkhelper.vala
 	$(RM) $(patsubst %.vala,%.c,$^)
 
 
-GENERATOR_DEPS = gee-0.8 valadoc-0.38 gio-2.0
+GENERATOR_DEPS = gee-0.8 valadoc-$(VALAC_VERSION) gio-2.0
 GENERATOR_VALAFLAGS := $(patsubst %,--pkg=%,$(GENERATOR_DEPS)) --enable-experimental
 
 generator: src/doclet.vala src/linkhelper.vala src/generator.vala

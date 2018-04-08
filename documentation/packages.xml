@@ -824,10 +824,6 @@
 		<package name="lua">
 			Programming language designed for extending applications.
 		</package>
-		<package deprecated="true" name="gtkmozembed" home="https://wiki.mozilla.org/Gtkmozembed" c-docs="http://www-archive.mozilla.org/unix/gtk-embedding.html">
-			GtkMozEmbed is an easy-to-use widget that will allow you to embed a Mozilla browser window
-			into your Gtk application. 
-		</package>
 		<package name="mx-1.0" gir="Mx-1.0" c-docs="http://docs.clutter-project.org/docs/mx/unstable/">
 			The Moblin UI Toolkit is a project to create useful widgets for Clutter-based applications.
 			It includes widgets such as edit controls, buttons, and many more.

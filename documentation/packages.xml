@@ -661,10 +661,6 @@
 	</section>
 
 	<section name="Databases &amp; Resource Description">
-		<external-package name="sqlheavy" home="http://code.google.com/p/sqlheavy/" maintainers="Evan Nemerson" link="http://code.coeusgroup.com/sqlheavy/valadoc/SQLHeavy/index.htm">
-			SQLHeavy is a wrapper on top of SQLite with a GObject-based interface, providing very nice APIs for C and Vala,
-			GObject Introspection support, and additional functionality not present in SQLite. 
-		</external-package>
 		<package name="libpq" home="http://www.postgresql.org/" c-docs="http://www.postgresql.org/docs/8.1/static/libpq.html">
 			Client API for PostgreSQL.
 		</package>

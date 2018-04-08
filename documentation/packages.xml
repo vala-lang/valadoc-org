@@ -55,21 +55,12 @@
 			<package name="vte-2.91" gir="Vte-2.91" flags="--pkg gtk+-3.0" c-docs="http://developer.gnome.org/vte/unstable/">
 				Terminal emulator widget used by GNOME terminal.
 			</package>
-			<package deprecated="true" name="webkitgtk-3.0" ignore="true" gir="WebKit-3.0" home="http://webkitgtk.org/">
-				WebKitGTK+ is the GNOME platform port of the WebKit rendering engine. Offering WebKit’s full functionality
-				through a set of GObject-based APIs, it is suitable for projects requiring any kind of web integration,
-				from hybrid HTML/CSS applications to full-fledged web browsers, like Epiphany and Midori.
-			</package>
-			<package deprecated="true" name="webkit-1.0" home="http://webkitgtk.org/" c-docs="http://webkitgtk.org/reference/webkitgtk/unstable/" gir="WebKit-1.0">
-				WebKitGTK+ is the GNOME platform port of the WebKit rendering engine. Offering WebKit’s full functionality
-				through a set of GObject-based APIs, it is suitable for projects requiring any kind of web integration,
-				from hybrid HTML/CSS applications to full-fledged web browsers, like Epiphany and Midori.
-			</package>
 			<package name="webkit2gtk-web-extension-4.0" gir="WebKit2WebExtension-4.0" flags="--pkg libsoup-2.4" c-docs="http://webkitgtk.org/reference/webkit2gtk/unstable/index.html" home="http://webkitgtk.org/">
-				Web content rendering for the GNOME Platform	
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+				This is the library to use to build extensions running in the separated webprocess.
 			</package>
 			<package name="webkit2gtk-4.0" gir="WebKit2-4.0" c-docs="http://webkitgtk.org/reference/webkit2gtk/unstable/index.html" home="http://webkitgtk.org/">
-				Web content rendering for the GNOME Platform
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
 			</package>
 			<package name="champlain-gtk-0.12" gir="GtkChamplain-0.12" flags="--pkg gtk+-3.0 --pkg champlain-0.12 --pkg clutter-1.0" c-docs="https://developer.gnome.org/libchamplain/unstable/" home="http://projects.gnome.org/libchamplain/">
 				Libchamplain-gtk is a C library on top of libchamplain providing a Gtk+ widget to display maps
@@ -305,11 +296,6 @@
 			<package name="libgeoclue-2.0" gir="Geoclue-2.0" flags="--pkg=glib-2.0 --pkg=gobject-2.0 --pkg=gio-2.0" home="https://freedesktop.org/wiki/Software/GeoClue/" c-docs="https://www.freedesktop.org/software/geoclue/docs/libgeoclue/">
 				GeoClue is a D-Bus geoinformation service. The goal of the Geoclue project is to make creating location-aware applications as simple as possible.
 			</package>
-			<package name="tracker-indexer-module-1.0" home="http://projects.gnome.org/tracker/">
-				The tracker-indexer is responsible for indexing all content it is given. The indexer
-				is completely modular, this means that there are modules or 'backends' which are used
-				for indexing specific content types.
-			</package>
 			<package deprecated="true" name="tracker-miner-0.16" flags="--pkg tracker-sparql-0.16" home="http://projects.gnome.org/tracker/" gir="TrackerMiner-0.16">
 				This package contains the library that is used by applications that provide data miners for tracker.
 
@@ -361,13 +347,10 @@
 				libsoup is an HTTP client/server library for GNOME. It uses GObjects and the glib main loop,
 				to integrate well with GNOME applications.
 			</package>
-			<package name="rest-0.6" maintainers="Adrien Bustany">
-				A helper library for RESTful services.
-			</package>
 			<package name="rest-0.7" maintainers="Adrien Bustany" gir="Rest-0.7" c-docs="http://developer.gnome.org/rest/unstable/">
 				A helper library for RESTful services.
 			</package>
-			<package name="rest-extras-0.6" maintainers="Adrien Bustany" gir="RestExtras-0.7">
+			<package name="rest-extras-0.7" maintainers="Adrien Bustany" gir="RestExtras-0.7">
 				This extra package provides Facebook and Flickr support.
 			</package>
 			<package name="gnutls" maintainer="Jiří Zárevúcky" home="http://www.gnutls.org/" c-docs="http://www.gnutls.org/documentation.html">
@@ -377,12 +360,6 @@
 				Telepathy is a D-Bus framework for unifying real time communication, including instant messaging,
 				voice calls and video calls. It abstracts differences between protocols to provide a unified
 				interface for applications.
-			</package>
-			<package name="twitter-glib-1.0" maintainers="Adrien Bustany">
-				Twitter-GLib is a GObject-based C wrapper library around the (almost-) RESTful web API provided by
-				Twitter. Twitter-GLib provides an object-oriented API around the webservice methods and data
-				structures, and allows writing clients for Twitter and all the web services offering a Twitter-compatible
-				API, like Identi.ca. 
 			</package>
 			<package name="libgdata" flags="--pkg Goa-1.0" gir="GData-0.0" c-docs="http://developer.gnome.org/gdata/unstable/">
 				GData (Google data) is a set of Application Programming Interfaces (APIs) for the Common Language
@@ -543,12 +520,6 @@
 			<package name="javascriptcoregtk-3.0" gir="JSCore-3.0">
 				This package contains introspection data for the GTK+-based version of JavaScriptCore 
 			</package>
-			<package name="gdu">
-				GObject based Disk Utility Library -- a system device management application for the GNOME desktop.
-			</package>
-			<package name="gdu-gtk">
-				GTK+ standard dialog library for libgdu.
-			</package>
 			<package name="libosinfo-1.0" gir="Libosinfo-1.0" flags="--pkg gio-2.0">
 				Library for managing information about operating systems and hypervisors.
 			</package>
@@ -681,10 +652,6 @@
 	</section>
 
 	<section name="Databases &amp; Resource Description">
-		<external-package name="sqlheavy" home="http://code.google.com/p/sqlheavy/" maintainers="Evan Nemerson" link="http://code.coeusgroup.com/sqlheavy/valadoc/SQLHeavy/index.htm">
-			SQLHeavy is a wrapper on top of SQLite with a GObject-based interface, providing very nice APIs for C and Vala,
-			GObject Introspection support, and additional functionality not present in SQLite. 
-		</external-package>
 		<package name="libpq" home="http://www.postgresql.org/" c-docs="http://www.postgresql.org/docs/8.1/static/libpq.html">
 			Client API for PostgreSQL.
 		</package>
@@ -843,10 +810,6 @@
 		</package>
 		<package name="lua">
 			Programming language designed for extending applications.
-		</package>
-		<package deprecated="true" name="gtkmozembed" home="https://wiki.mozilla.org/Gtkmozembed" c-docs="http://www-archive.mozilla.org/unix/gtk-embedding.html">
-			GtkMozEmbed is an easy-to-use widget that will allow you to embed a Mozilla browser window
-			into your Gtk application. 
 		</package>
 		<package name="mx-1.0" gir="Mx-1.0" c-docs="http://docs.clutter-project.org/docs/mx/unstable/">
 			The Moblin UI Toolkit is a project to create useful widgets for Clutter-based applications.

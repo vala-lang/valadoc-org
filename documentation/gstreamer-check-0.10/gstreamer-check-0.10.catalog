@@ -1,4 +1,0 @@
-[PackageKit Catalog]
-
-InstallPackages(fedora)=gstreamer-devel-0.10.35-1.fc16.x86_64
-InstallPackages(debian)=libgstreamer0.10-dev

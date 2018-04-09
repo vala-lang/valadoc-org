@@ -49,7 +49,7 @@
 				with support for configurable syntax highlighting, unlimited undo/redo, search and replace, a completion
 				framework, printing and other features typical of a source code editor. (upstream)
 			</package>
-			<package name="vte-2.90" gir="Vte-2.90" c-docs="http://developer.gnome.org/vte/unstable/">
+			<package deprecated="true" name="vte-2.90" gir="Vte-2.90" c-docs="http://developer.gnome.org/vte/unstable/">
 				Terminal emulator widget used by GNOME terminal.
 			</package>
 			<package name="vte-2.91" gir="Vte-2.91" flags="--pkg gtk+-3.0" c-docs="http://developer.gnome.org/vte/unstable/">

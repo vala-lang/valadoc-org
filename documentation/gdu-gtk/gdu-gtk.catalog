@@ -1,4 +1,0 @@
-[PackageKit Catalog]
-
-InstallPackages(fedora)=gnome-disk-utility-ui-devel
-InstallPackages(debian)=libgdu-gtk-dev

@@ -1,6 +1,6 @@
 VALAC = valac
 VALAC_VERSION := $(shell vala --api-version | awk -F. '{ print "0."$$2 }')
-VALAFLAGS = -X -w
+VALAFLAGS = -g -X -w
 PREFIX = "stable"
 
 default: generator libdoclet.so update-girs configgen valadoc-example-gen valadoc-example-tester
@@ -36,7 +36,7 @@ valadoc-example-tester: src/valadoc-example-parser.vala src/valadoc-example-test
 	$(VALAC) $(VALAFLAGS) -o $@ $^
 
 
-DOCLET_DEPS = gee-0.8 valadoc-1.0
+DOCLET_DEPS = gee-0.8 valadoc-0.38
 DOCLET_VALAFLAGS := $(patsubst %,--pkg=%,$(DOCLET_DEPS))
 DOCLET_CFLAGS := $(shell pkg-config --cflags --libs $(DOCLET_DEPS)) -shared -fPIC -w
 
@@ -46,7 +46,7 @@ libdoclet.so: src/doclet.vala src/linkhelper.vala
 	$(RM) $(patsubst %.vala,%.c,$^)
 
 
-GENERATOR_DEPS = gee-0.8 valadoc-1.0 gio-2.0
+GENERATOR_DEPS = gee-0.8 valadoc-0.38 gio-2.0
 GENERATOR_VALAFLAGS := $(patsubst %,--pkg=%,$(GENERATOR_DEPS)) --enable-experimental
 
 generator: src/doclet.vala src/linkhelper.vala src/generator.vala
@@ -138,6 +138,6 @@ test-examples: valadoc-example-tester
 
 
 serve: build-docs build-data
-	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php
+	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org $(PWD)/valadoc.org/router.php
 serve-mini: build-docs-mini build-data
-	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php
+	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org $(PWD)/valadoc.org/router.php

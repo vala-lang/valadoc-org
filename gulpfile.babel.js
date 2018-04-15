@@ -59,7 +59,6 @@ gulp.task('scripts', gulp.parallel(
   }
 ))
 
-
 /**
  * styles
  * Builds and compresses styles for production use

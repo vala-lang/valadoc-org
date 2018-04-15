@@ -1,7 +1,0 @@
-
-[General]
-resources = gir-images/
-index_sgml = index.sgml
-index_sgml_online = http://developer.gnome.org/clutter-gst/unstable/
-is_docbook = true
-

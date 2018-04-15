@@ -54,6 +54,7 @@ if ($first == null || $first === "index") { // Homepage
   <meta name="fragment" content="!">
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#403757">
+  <meta itemprop="url" content="https://valadoc.org/"/>
   <meta property="og:description" content="The canonical source for Vala API references.">
   <meta property="og:image" content="https://valadoc.org/images/preview.png">
   <meta property="og:title" content="<?php echo get_title ($page); ?>">
@@ -67,14 +68,15 @@ if ($first == null || $first === "index") { // Homepage
 </head>
 <body>
   <nav>
-    <div id="search-box">
-      <input id="search-field" type="search" placeholder="Search" autocomplete="off" />
+    <div id="search-box" itemscope itemprop="potentialAction" itemtype="http://schema.org/SearchAction">
+      <meta itemprop="target" content="/?q={query}">
+      <meta itemprop="query-input" content="required name=query">
+      <input itemprop="query-input" id="search-field" type="search" placeholder="Search" autocomplete="off" />
       <img id="search-field-clear" src="/images/clean.svg" alt="Clear search" />
     </div>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
     <ul>
       <li><a href="https://plus.google.com/communities/113287185626826620884" target="_blank" title="Google+"><i class="fa fa-google-plus"></i></a>
-      <li><a href="http://stackoverflow.com/documentation/vala/" target="_blank" title="stackoverflow"><i class="fa fa-stack-overflow"></i></a>
       <li><a href="https://www.reddit.com/r/vala/" target="_blank" title="reddit"><i class="fa fa-reddit"></i></a>
       <li><a href="/markup.htm" title="Markup Info"><i class="fa fa-info-circle"></i></a>
     </ul>

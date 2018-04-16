@@ -24,7 +24,7 @@ public static int main (string[] args) {
 				type += "| EXECUTABLE ";
 			}
 
-			stdout.printf ("%s\t%s\n", name, type);
+			print ("%s\t%s\n", name, type);
 		}
 	} catch (FileError err) {
 		stderr.printf (err.message);

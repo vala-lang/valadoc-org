@@ -11,10 +11,10 @@ public static int main (string[] args) {
 	//  ``class-size: 68``
 	//  ``instance-size: 16``
 	type.query (out query);
-	stdout.printf ("type: %s\n", query.type.to_string ());
-	stdout.printf ("name: %s\n", query.type_name);
-	stdout.printf ("class-size: %u\n", query.class_size);
-	stdout.printf ("instance-size: %u\n", query.instance_size);
+	print ("type: %s\n", query.type.to_string ());
+	print ("name: %s\n", query.type_name);
+	print ("class-size: %u\n", query.class_size);
+	print ("instance-size: %u\n", query.instance_size);
 
 	return 0;
 }

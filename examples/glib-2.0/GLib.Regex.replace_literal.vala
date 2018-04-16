@@ -11,10 +11,10 @@ public int main (string[] args) {
 		//  ``old: "duck"``
 		//  ``replacement: "duct"``
 		//  ``result: "If I had some duct tape, I could fix that."``
-		stdout.printf ("str: \"%s\"\n", str);
-		stdout.printf ("old: \"%s\"\n", old);
-		stdout.printf ("replacement: \"%s\"\n", replacement);
-		stdout.printf ("result: \"%s\"\n", result);
+		print ("str: \"%s\"\n", str);
+		print ("old: \"%s\"\n", old);
+		print ("replacement: \"%s\"\n", replacement);
+		print ("result: \"%s\"\n", result);
 	} catch (GLib.RegexError e) {
 		GLib.assert_not_reached ();
 	}

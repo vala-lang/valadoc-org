@@ -3,8 +3,8 @@ private static async void read_lines_async (InputStream stream) throws IOError {
 	string line;
 
 	while ((line = yield data_stream.read_line_async ()) != null) {
-		stdout.puts (line);
-		stdout.putc ('\n');
+		print (line);
+		print ("\n");
 	}
 }
 

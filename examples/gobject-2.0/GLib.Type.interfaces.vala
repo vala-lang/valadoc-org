@@ -8,7 +8,7 @@ public static int main (string[] args) {
 	// ``  - InterfaceB``
 	Type type = typeof (AbstractGObject);
 	foreach (unowned Type ch in type.interfaces ()) {
-		stdout.printf ("  - %s\n", ch.name ());
+		print ("  - %s\n", ch.name ());
 	}
 
 	return 0;

@@ -18,19 +18,19 @@ public static int main (string[] args) {
 
 	// Output: ``10.000000, 9.500000, 190.500000, 20.000000``
 	context.stroke_extents (out x1, out y1, out x2, out y2);
-	stdout.printf ("%f, %f, %f, %f\n", x1, y1, x2, y2);
+	print ("%f, %f, %f, %f\n", x1, y1, x2, y2);
 
 	// Output: ``false``
 	bool tmp = context.in_stroke (180, 15);
-	stdout.printf ("%s\n", tmp.to_string ());
+	print ("%s\n", tmp.to_string ());
 
 	// Output: ``false``
 	tmp = context.in_stroke (180, 5);
-	stdout.printf ("%s\n", tmp.to_string ());
+	print ("%s\n", tmp.to_string ());
 
 	// Output: ``true``
 	tmp = context.in_stroke (20, 10);
-	stdout.printf ("%s\n", tmp.to_string ());
+	print ("%s\n", tmp.to_string ());
 
 	context.close_path ();
 	context.stroke ();

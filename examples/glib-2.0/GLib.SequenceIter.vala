@@ -13,7 +13,7 @@ public static int main (string[] args) {
 	//  ``sit``
 	//  ``amet``
 	for (SequenceIter<string> iter = seq.get_begin_iter (); !iter.is_end (); iter = iter.next ()) {
-		stdout.printf ("%d: %s\n", iter.get_position (), iter.get ());
+		print ("%d: %s\n", iter.get_position (), iter.get ());
 	}
 
 	// Output:
@@ -25,7 +25,7 @@ public static int main (string[] args) {
 	SequenceIter<string> iter = seq.get_end_iter ().prev ();
 	bool has_next = !iter.is_begin ();
 	while (has_next) {
-		stdout.printf ("%d: %s\n", iter.get_position (), iter.get ());
+		print ("%d: %s\n", iter.get_position (), iter.get ());
 		has_next = !iter.is_begin ();
 		iter = iter.prev ();
 	}

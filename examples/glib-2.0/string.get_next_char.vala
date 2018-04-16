@@ -12,7 +12,7 @@ public static int main (string[] args) {
 	//  ``5: 18:	。``
 
 	for (int cnt = 0; wisdom.get_next_char (ref index, out c); cnt++) {
-		stdout.printf ("%d: %d:\t%s\n", cnt, index, c.to_string ());
+		print ("%d: %d:\t%s\n", cnt, index, c.to_string ());
 	}
 
 	return 0;

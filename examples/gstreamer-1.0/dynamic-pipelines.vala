@@ -14,11 +14,11 @@ public class Main {
 	//
 	private void pad_added_handler (Gst.Element src, Gst.Pad new_pad) {
 		Gst.Pad sink_pad = this.convert.get_static_pad ("sink");
-		stdout.printf ("Received new pad '%s' from '%s':\n", new_pad.name, src.name);
+		print ("Received new pad '%s' from '%s':\n", new_pad.name, src.name);
 
 		// If our converter is already linked, we have nothing to do here:
 		if (sink_pad.is_linked ()) {
-			stdout.puts ("  We are already linked. Ignoring.\n");
+			print ("  We are already linked. Ignoring.\n");
 			return ;
 		}
 
@@ -27,16 +27,16 @@ public class Main {
 		weak Gst.Structure new_pad_struct = new_pad_caps.get_structure (0);
 		string new_pad_type = new_pad_struct.get_name ();
 		if (!new_pad_type.has_prefix ("audio/x-raw")) {
-			stdout.printf ("  It has type '%s' which is not raw audio. Ignoring.\n", new_pad_type);
+			print ("  It has type '%s' which is not raw audio. Ignoring.\n", new_pad_type);
 			return ;
 		}
 
 		// Attempt the link:
 		Gst.PadLinkReturn ret = new_pad.link (sink_pad);
 		if (ret != Gst.PadLinkReturn.OK) {
-			stdout.printf ("  Type is '%s' but link failed.\n", new_pad_type);
+			print ("  Type is '%s' but link failed.\n", new_pad_type);
 		} else {
-			stdout.printf ("  Link succeeded (type '%s').\n", new_pad_type);
+			print ("  Link succeeded (type '%s').\n", new_pad_type);
 		}
 	}
 
@@ -53,7 +53,7 @@ public class Main {
 		this.pipeline = new Gst.Pipeline ("test-pipeline");
 
 		if (this.pipeline == null || this.source == null || this.convert == null || this.sink == null) {
-			stdout.puts ("Not all elements could be created.\n");
+			print ("Not all elements could be created.\n");
 			return -1;
 		}
 
@@ -62,7 +62,7 @@ public class Main {
 
 		this.pipeline.add_many (this.source, this.convert , this.sink);
 		if (!this.convert.link (this.sink)) {
-			stdout.puts ("Elements could not be linked.\n");
+			print ("Elements could not be linked.\n");
 			return -1;
 		}
 
@@ -100,7 +100,7 @@ public class Main {
 					break;
 
 				case Gst.MessageType.EOS:
-					stdout.puts ("End-Of-Stream reached.\n");
+					print ("End-Of-Stream reached.\n");
 					terminate = true;
 					break;
 
@@ -112,7 +112,7 @@ public class Main {
 						Gst.State pending_state;
 
 						msg.parse_state_changed (out old_state, out new_state, out pending_state);
-						stdout.printf ("Pipeline state changed from %s to %s:\n",
+						print ("Pipeline state changed from %s to %s:\n",
 							Gst.Element.state_get_name (old_state),
 							Gst.Element.state_get_name (new_state));
 					}

@@ -10,7 +10,7 @@ public static int main (string[] args) {
 	try {
 		Notify.Notification notification = new Notify.Notification (summary, body, icon);
 		notification.add_action ("action-name", "Quit", (notification, action) => {
-			stdout.puts ("Bye!\n");
+			print ("Bye!\n");
 			try {
 				notification.close ();
 			} catch (Error e) {

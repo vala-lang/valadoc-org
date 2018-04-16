@@ -2,7 +2,7 @@ public static int main (string[] args) {
 	// The document:
 	Xml.Doc* doc = Xml.Parser.parse_file ("books.xml");
 	if (doc == null) {
-		stdout.printf ("File 'books.xml' not found or permissions missing\n");
+		print ("File 'books.xml' not found or permissions missing\n");
 		return 0;
 	}
 
@@ -10,13 +10,13 @@ public static int main (string[] args) {
 	Xml.SchemaParserCtxt schema_parser = new Xml.SchemaParserCtxt ("books.xsd");
 	Xml.Schema schema = schema_parser.parse ();
 	if (schema == null) {
-		stdout.puts ("Invalid/missing schema\n");
+		print ("Invalid/missing schema\n");
 		return 0;
 	}
 
 	Xml.SchemaValidCtxt valctxt = new Xml.SchemaValidCtxt (schema);
 	if (valctxt == null) {
-		stdout.puts ("Unable to create a validation context\n");
+		print ("Unable to create a validation context\n");
 		return 0;
 	}
 
@@ -24,9 +24,9 @@ public static int main (string[] args) {
 	// Validation:
 	int is_valid = valctxt.validate_doc (doc);
 	if (is_valid == 0) {
-		stdout.puts ("valid\n");
+		print ("valid\n");
 	} else {
-		stdout.puts ("invalid\n");
+		print ("invalid\n");
 	}
 
 	return 0;

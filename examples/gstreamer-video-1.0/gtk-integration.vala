@@ -3,7 +3,7 @@ public int main (string[] args) {
 	Gst.init (ref args);
 
 	if (args.length != 2) {
-		stdout.printf ("% [VIDEO]\n", args[0]);
+		print ("% [VIDEO]\n", args[0]);
 		return 0;
 	}
 

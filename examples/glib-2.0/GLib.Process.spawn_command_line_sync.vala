@@ -10,15 +10,15 @@ public static int main (string[] args) {
 									out ls_status);
 
 		// Output: <File list>
-		stdout.printf ("stdout:\n");
+		print ("stdout:\n");
 		// Output: ````
-		stdout.puts (ls_stdout);
-		stdout.printf ("stderr:\n");
-		stdout.puts (ls_stderr);
+		print (ls_stdout);
+		print ("stderr:\n");
+		print (ls_stderr);
 		// Output: ``0``
-		stdout.printf ("status: %d\n", ls_status);
+		print ("Status: %d\n", ls_status);
 	} catch (SpawnError e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

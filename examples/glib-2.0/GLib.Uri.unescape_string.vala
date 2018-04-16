@@ -5,15 +5,15 @@ public static int main (string[] args) {
 
 	// Output: ``Unescaped: "(null)"``
 	string fragment = Uri.unescape_string (escaped1, "/");
-	stdout.printf ("Unescaped: \"%s\"\n", fragment);
+	print ("Unescaped: \"%s\"\n", fragment);
 
 	// Output: ``Unescaped: "foo/my ressource.txt"``
 	fragment = Uri.unescape_string (escaped1);
-	stdout.printf ("Unescaped: \"%s\"\n", fragment);
+	print ("Unescaped: \"%s\"\n", fragment);
 
 	// Output: ``Unescaped: "foo/my ressource.txt"``
 	fragment = Uri.unescape_string (escaped2);
-	stdout.printf ("Unescaped: \"%s\"\n", fragment);
+	print ("Unescaped: \"%s\"\n", fragment);
 
 	return 0;
 }

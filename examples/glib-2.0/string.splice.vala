@@ -9,9 +9,9 @@ static int main (string[] args) {
 	//  ``水は方円のREPLACEMENT人は善悪の友による。``
 	string res1 = wisdom.splice (start, end);
 	string res2 = wisdom.splice (start, end, "REPLACEMENT");
-	stdout.printf ("%s\n", wisdom);
-	stdout.printf ("%s\n", res1);
-	stdout.printf ("%s\n", res2);
+	print ("%s\n", wisdom);
+	print ("%s\n", res1);
+	print ("%s\n", res2);
 
 	return 0;
 }

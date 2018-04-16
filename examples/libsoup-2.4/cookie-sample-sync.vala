@@ -18,25 +18,25 @@ public static int main (string[] args) {
 
 	// Process the result:
     msg.response_headers.foreach ((name, val) => {
-        stdout.printf ("%s = %s\n", name, val);
+        print ("%s = %s\n", name, val);
     });
 
-	stdout.printf ("Status Code: %u\n", msg.status_code);
-	stdout.printf ("Message length: %lld\n", msg.response_body.length);
-    stdout.printf ("Data: \n%s\n", (string) msg.response_body.data);
+	print ("Status Code: %u\n", msg.status_code);
+	print ("Message length: %lld\n", msg.response_body.length);
+    print ("Data: \n%s\n", (string) msg.response_body.data);
 
 	GLib.SList<Soup.Cookie> cookies = Soup.cookies_from_request (msg);
-	stdout.printf ("Cookies from request: (%u)\n", cookies.length ());
+	print ("Cookies from request: (%u)\n", cookies.length ());
 
 	foreach (Soup.Cookie c in cookies) {
-		stdout.printf ("  %s: %s\n", c.name, c.value);
+		print ("  %s: %s\n", c.name, c.value);
 	}
 
 	cookies = Soup.cookies_from_response (msg);
-	stdout.printf ("Cookies from response: (%u)\n", cookies.length ());
+	print ("Cookies from response: (%u)\n", cookies.length ());
 
 	foreach (Soup.Cookie c in cookies) {
-		stdout.printf ("  %s: %s\n", c.name, c.value);
+		print ("  %s: %s\n", c.name, c.value);
 	}
 
 	return 0;

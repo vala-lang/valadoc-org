@@ -13,7 +13,7 @@ public static int main (string[] args) {
 	//  ´´2´´
 	//  ´´3´´
 	foreach (int i in list) {
-		stdout.printf ("%d\n", i);
+		print ("%d\n", i);
 	}
 
 	return 0;

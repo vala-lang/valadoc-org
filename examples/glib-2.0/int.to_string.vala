@@ -4,8 +4,8 @@ public static int main (string[] args) {
 	//  ``2147483647``
 	//  ``0``
 
-	stdout.printf ("%s\n", int.MIN.to_string ());
-	stdout.printf ("%s\n", int.MAX.to_string ());
-	stdout.printf ("%s\n", 0.to_string ());
+	print ("%s\n", int.MIN.to_string ());
+	print ("%s\n", int.MAX.to_string ());
+	print ("%s\n", 0.to_string ());
 	return 0;
 }

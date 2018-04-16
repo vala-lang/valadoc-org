@@ -29,7 +29,7 @@ public class Application : Gtk.Window {
 		button.clicked.connect (() => {
 			string alpha = widget.use_alpha.to_string ();
 			string col = widget.rgba.to_string ();
-			stdout.printf ("Color: %s, Alpha: %s\n", col, alpha);
+			print ("Color: %s, Alpha: %s\n", col, alpha);
 		});
 	}
 

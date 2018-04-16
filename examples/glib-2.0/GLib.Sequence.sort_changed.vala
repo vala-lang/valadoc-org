@@ -20,7 +20,7 @@ public static int main (string[] args) {
 	//  ``4. sit``
 	//  ``5. amet``
 	seq.foreach ((item) => {
-		stdout.printf ("%s\n", item);
+		print ("%s\n", item);
 	});
 
 	return 0;

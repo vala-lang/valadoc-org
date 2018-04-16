@@ -5,6 +5,6 @@ public static void shutdown () {
 public static int main (string[] args) {
 	// Output: ````
 	shutdown ();
-	stdout.printf ("You can't see me!\n");
+	print ("You can't see me!\n");
 	return 0;
 }

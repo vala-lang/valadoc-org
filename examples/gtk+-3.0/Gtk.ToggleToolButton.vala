@@ -17,7 +17,7 @@ public class Application : Gtk.Window {
 		Gtk.ToggleToolButton button1 = new Gtk.ToggleToolButton ();
 		button1.set_icon_widget (img);
 		button1.toggled.connect (() => {
-			stdout.printf ("Button 1, %s\n", button1.get_active ().to_string ());
+			print ("Button 1, %s\n", button1.get_active ().to_string ());
 		});
 		bar.add (button1);
 
@@ -26,7 +26,7 @@ public class Application : Gtk.Window {
 		button2.set_icon_widget (img);
 		button2.set_active (true);
 		button2.toggled.connect (() => {
-			stdout.printf ("Button 2, %s\n", button2.get_active ().to_string ());
+			print ("Button 2, %s\n", button2.get_active ().to_string ());
 		});
 		bar.add (button2);
 	}

@@ -32,10 +32,10 @@ public static int main (string[] args) {
 		//  ``str = my string``
 		//  ``en  = MY_ENUM_FOOBAR``
 		//  ``num = 10``
-		stdout.puts (obj.to_string ());
-		stdout.putc ('\n');
+		print (obj.to_string ());
+		print ("\n");
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

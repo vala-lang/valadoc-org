@@ -1,16 +1,16 @@
 public static int main (string[] args) {
 	// Output: ``azAZ09``
-	stdout.puts ('a'.to_string ());
-	stdout.puts ('z'.to_string ());
-	stdout.puts ('A'.to_string ());
-	stdout.puts ('Z'.to_string ());
-	stdout.puts ('0'.to_string ());
-	stdout.puts ('9'.to_string ());
+	print ('a'.to_string ());
+	print ('z'.to_string ());
+	print ('A'.to_string ());
+	print ('Z'.to_string ());
+	print ('0'.to_string ());
+	print ('9'.to_string ());
 
 	// Output: ````
-	stdout.puts (((char) 0).to_string ());
+	print (((char) 0).to_string ());
 
 	// Output: ``<newline>``
-	stdout.puts ('\n'.to_string ());
+	print ('\n'.to_string ());
 	return 0;
 }

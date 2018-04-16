@@ -1,15 +1,15 @@
 // The plugin:
 private class MyPlugin : Object, PluginIface {
 	public void registered (PluginLoader loader) {
-    	stdout.puts ("loaded\n");
+        print ("Loaded\n");
 	}
 
     public void activated () {
-    	stdout.puts ("activate\n");
+    	print ("Activate\n");
     }
 
     public void deactivated () {
-    	stdout.puts ("deactivatev");
+    	print ("Deactivate");
     }
 }
 

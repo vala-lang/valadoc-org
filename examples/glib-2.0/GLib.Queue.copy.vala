@@ -6,26 +6,26 @@ public static int main () {
 
 	Queue<int> copy = queue.copy ();
 
-	// Output: ``qzeze: 1 2 3 ``
-	stdout.puts ("queue: ");
+	// Output: ``Queue: 1 2 3 ``
+	print ("Queue: ");
 	int item = 0;
 	while ((item = queue.pop_head ()) != 0) {
-		stdout.printf ("%d ", item);
+		print (@"$item ");
 	}
-	stdout.putc ('\n');
+	print ("\n");
 
 	// Output: ``Stats: queue: 0, copy: 3``
-	stdout.printf ("Stats: queue: %u, copy: %u\n", queue.get_length (), copy.get_length ());
+	print ("Stats: queue: %u, copy: %u\n", queue.get_length (), copy.get_length ());
 
 	// Output: ``copy: 1 2 3 ``
-	stdout.puts ("copy: ");
+	print ("Copy: ");
 	while ((item = copy.pop_head ()) != 0) {
-		stdout.printf ("%d ", item);
+		print (@"$item ");
 	}
-	stdout.putc ('\n');
+	print ("\n");
 
 	// Output: ``Stats: queue: 0, copy: 0``
-	stdout.printf ("Stats: queue: %u, copy: %u\n", queue.get_length (), copy.get_length ());
+	print ("Stats: queue: %u, copy: %u\n", queue.get_length (), copy.get_length ());
 
 	return 0;
 }

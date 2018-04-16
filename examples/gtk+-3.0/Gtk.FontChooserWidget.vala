@@ -11,13 +11,13 @@ public class Application : Gtk.Window {
 		this.add (widget);
 
 		widget.font_activated.connect ((font) => {
-			stdout.printf ("%s\n", font);
-			stdout.printf (" font: %s\n", widget.get_font ().to_string ());
-			stdout.printf (" desc: %s\n", widget.get_font_desc ().to_string ());
-			stdout.printf (" face: %s\n", widget.get_font_face ().get_face_name ());
-			stdout.printf (" size: %d\n", widget.get_font_size ());
-			stdout.printf (" family: %s\n", widget.get_font_family ().get_name ());
-			stdout.printf (" monospace: %s\n", widget.get_font_family ().is_monospace ().to_string ());
+			print ("%s\n", font);
+			print (" font: %s\n", widget.get_font ().to_string ());
+			print (" desc: %s\n", widget.get_font_desc ().to_string ());
+			print (" face: %s\n", widget.get_font_face ().get_face_name ());
+			print (" size: %d\n", widget.get_font_size ());
+			print (" family: %s\n", widget.get_font_family ().get_name ());
+			print (" monospace: %s\n", widget.get_font_family ().is_monospace ().to_string ());
 		});
 	}
 

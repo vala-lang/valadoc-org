@@ -2,7 +2,7 @@ public static int main (string[] args) {
 	// Parse the document from path
 	Xml.Doc* doc = Xml.Parser.parse_file ("books.xml");
 	if (doc == null) {
-		stdout.printf ("File 'books.xml' not found or permissions missing\n");
+		print ("File 'books.xml' not found or permissions missing\n");
 		return 0;
 	}
 
@@ -15,7 +15,7 @@ public static int main (string[] args) {
 
 	for (int i = 0; i < res->nodesetval->length (); i++) {
 		Xml.Node* node = res->nodesetval->item (i);
-		stdout.printf ("%s\n", node->get_content ());
+		print ("%s\n", node->get_content ());
 	}
 
 	delete res;

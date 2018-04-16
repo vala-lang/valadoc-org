@@ -16,13 +16,13 @@ void xml_node_output (Rest.XmlNode node, int depth) {
 	do {
 		// node.attrs is bound as <void*, void*> (Wed Aug 28, 2013)
 		string attrs_output = generate_attrs_output ((HashTable<string, string>) node.attrs);
-		stdout.printf ("%*s[%s, %s, %s]\n",
+		print ("%*s[%s, %s, %s]\n",
 			depth, "", node.name, (node.content != null)? node.content : "NULL",
 			attrs_output);
 
 		// Bound as <void*, void*>  (Wed Aug 28, 2013)
 		((HashTable<string, Rest.XmlNode>) node.children).foreach ((name, child) => {
-			stdout.printf ("%*s%s - >\n", depth, "", child.name);
+			print ("%*s%s - >\n", depth, "", child.name);
 			xml_node_output (child, depth + 4);
 		});
 	} while ((node = node.next) != null);
@@ -47,7 +47,7 @@ public static int main (string[] args) {
 	Rest.XmlParser parser = new Rest.XmlParser ();
 	Rest.XmlNode node = parser.parse_from_data (data, length);
 	if (node == null) {
-		stdout.puts ("Cannot parse document\n");
+		print ("Cannot parse document\n");
 		return -1;
 	}
 

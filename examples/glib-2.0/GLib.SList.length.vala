@@ -6,7 +6,7 @@ public static int main (string[] args) {
 
 	// Out: ´´length: 3´´
 	uint length = list.length ();
-	stdout.printf ("length: %u\n", length);
+	print ("length: %u\n", length);
 
 	return 0;
 }

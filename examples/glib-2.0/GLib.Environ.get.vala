@@ -5,7 +5,7 @@ public static int main (string[] args) {
 	// ...
 	string[] vars = Environ.get ();
 	foreach (unowned string str in vars) {
-		stdout.printf ("%s\n", str);
+		print ("%s\n", str);
 	}
 	return 0;
 }

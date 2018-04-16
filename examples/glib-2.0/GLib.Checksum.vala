@@ -10,6 +10,6 @@ public static int main (string[] args) {
 	}
 
 	unowned string digest = checksum.get_string ();
-	stdout.printf ("%s: %s\n", args[0], digest);
+	print ("%s: %s\n", args[0], digest);
 	return 0;
 }

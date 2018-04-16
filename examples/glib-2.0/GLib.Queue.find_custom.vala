@@ -6,13 +6,13 @@ public static int main () {
 	queue.push_tail ("3");
 
 	unowned List<string> found = queue.find_custom ("900", strcmp);
-	stdout.printf ("Found: %s\n", found.data);
+	print ("Found: %s\n", found.data);
 	queue.delete_link (found);
 
 	// Output: ``1 2 3 ``
 	string item;
 	while ((item = queue.pop_head ()) != null) {
-		stdout.printf ("%s\n", item);
+		print ("%s\n", item);
 	}
 
 	return 0;

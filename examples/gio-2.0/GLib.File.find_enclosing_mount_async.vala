@@ -6,9 +6,9 @@ public static int main (string[] args) {
 	file.find_enclosing_mount_async.begin (Priority.DEFAULT, null, (obj, res) => {
 		try {
 			Mount mount = file.find_enclosing_mount_async.end (res);
-			stdout.printf ("%s\n", mount.get_name ());
+			print ("%s\n", mount.get_name ());
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

@@ -1,6 +1,6 @@
 static int main (string[] args) {
 	FileStream stream = FileStream.open ("GLib.FileStream.ungetc.vala", "r");
-	assert (stream != null);	
+	assert (stream != null);
 
 	while (stream.eof () == false) {
 		// get first char of each line
@@ -10,8 +10,8 @@ static int main (string[] args) {
 			stream.read_line ();
 		} else if (c >= 0) {
 			stream.ungetc (c);
-			stdout.puts (stream.read_line ());
-			stdout.putc ('\n');
+			print (stream.read_line ());
+			print ("\n");
 		}
 	}
 

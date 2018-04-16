@@ -3,12 +3,12 @@ public static int main (string[] args) {
 
 	// Output: ``Fragment: frag``
 	unowned string fragment = uri.get_fragment ();
-	stdout.printf ("Fragment: %s\n", fragment);
+	print ("Fragment: %s\n", fragment);
 
 	// Output: ``URI: http://username@localhost:8088/foo/bar.html?foo=f&bar=b#fragment``
 	uri.set_fragment ("fragment");
 	string uri_str = uri.to_string (false); 
-	stdout.printf ("URI: %s\n", uri_str);
+	print ("URI: %s\n", uri_str);
 
 	return 0;
 }

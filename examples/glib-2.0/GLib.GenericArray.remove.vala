@@ -13,7 +13,7 @@ public static int main (string[] args) {
 	//  ``2``
 	//  ``4``
 	array.foreach ((val) => {
-		stdout.printf ("%d\n", val);
+		print ("%d\n", val);
 	});
 
 	return 0;

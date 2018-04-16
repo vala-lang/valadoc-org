@@ -16,9 +16,9 @@ public static void http_get_sync (string host) {
 		// Receive response
 		DataInputStream response = new DataInputStream (conn.input_stream);
 		string status_line = response.read_line (null).strip ();
-		stdout.printf ("Received status line: %s\n", status_line);
+		print ("Received status line: %s\n", status_line);
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 }
 

@@ -5,10 +5,9 @@ public static int main (string[] args) {
 
 	string? line = null;
 	while ((line = stream.read_line ()) != null) {
-		stdout.puts (line);
-		stdout.putc ('\n');
+		print (line);
+		print ("\n");
 	}
 
 	return 0;
 }
-

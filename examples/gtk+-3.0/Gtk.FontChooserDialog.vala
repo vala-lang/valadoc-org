@@ -9,12 +9,12 @@ public class Application : Gtk.Window {
 		// The button:
 		Gtk.FontChooserDialog dialog = new Gtk.FontChooserDialog ("Pick your favourite font", this);
 		if (dialog.run () == Gtk.ResponseType.OK) {
-			stdout.printf (" font: %s\n", dialog.get_font ().to_string ());
-			stdout.printf (" desc: %s\n", dialog.get_font_desc ().to_string ());
-			stdout.printf (" face: %s\n", dialog.get_font_face ().get_face_name ());
-			stdout.printf (" size: %d\n", dialog.get_font_size ());
-			stdout.printf (" family: %s\n", dialog.get_font_family ().get_name ());
-			stdout.printf (" monospace: %s\n", dialog.get_font_family ().is_monospace ().to_string ());
+			print (" font: %s\n", dialog.get_font ().to_string ());
+			print (" desc: %s\n", dialog.get_font_desc ().to_string ());
+			print (" face: %s\n", dialog.get_font_face ().get_face_name ());
+			print (" size: %d\n", dialog.get_font_size ());
+			print (" family: %s\n", dialog.get_font_family ().get_name ());
+			print (" monospace: %s\n", dialog.get_font_family ().is_monospace ().to_string ());
 		}
 
 		// Close the FontChooserDialog

@@ -6,19 +6,19 @@ public static int main (string[] args) {
 
 	// Output: ``first string``
 	unowned string val = table.lookup ("1");
-	stdout.printf ("%s\n", val);
+	print ("%s\n", val);
 
 	// Output: ``second string``
 	val = table.lookup ("2");
-	stdout.printf ("%s\n", val);
+	print ("%s\n", val);
 
 	// Output: ``third string``
 	val = table.lookup ("3");
-	stdout.printf ("%s\n", val);
+	print ("%s\n", val);
 
 	// Output: ``(null)``
 	val = table.lookup ("4");
-	stdout.printf ("%s\n", val);
+	print ("%s\n", val);
 
 
 
@@ -27,11 +27,11 @@ public static int main (string[] args) {
 
 	// Output: ``1``
 	int val2 = table2.lookup ("1");
-	stdout.printf ("%d\n", val2);
+	print ("%d\n", val2);
 
 	// Output: ``0``
 	val2 = table2.lookup ("2");
-	stdout.printf ("%d\n", val2);
+	print ("%d\n", val2);
 
 
 	HashTable<string, int?> table3 = new HashTable<string, int?> (str_hash, str_equal);
@@ -39,14 +39,14 @@ public static int main (string[] args) {
 
 	// Output: ``1``
 	int? val3 = table3.lookup ("1");
-	stdout.printf ("%d\n", val3);
+	print ("%d\n", val3);
 
 	// Output: ``(null)``
 	val3 = table3.lookup ("2");
 	if (val3 == null) {
-		stdout.printf ("(null)\n");
+		print ("(null)\n");
 	} else {
-		stdout.printf ("%d\n", val3);
+		print ("%d\n", val3);
 	}
 
 	return 0;

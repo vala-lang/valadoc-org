@@ -9,9 +9,6 @@ public static string mysprintf (string str, ...) {
 public static int main (string[] args) {
 	// Output: ``hello, world!``
 	string str = mysprintf ("%s%s%s%s\n", "hello", ", ", "world", "!");
-	stdout.puts (str);
+	print (str);
 	return 0;
 }
-
-
-

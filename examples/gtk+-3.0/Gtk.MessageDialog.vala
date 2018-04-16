@@ -11,13 +11,13 @@ public class Application : Gtk.Window {
 			msg.response.connect ((response_id) => {
 			switch (response_id) {
 				case Gtk.ResponseType.OK:
-					stdout.puts ("Ok\n");
+					print ("Ok\n");
 					break;
 				case Gtk.ResponseType.CANCEL:
-					stdout.puts ("Cancel\n");
+					print ("Cancel\n");
 					break;
 				case Gtk.ResponseType.DELETE_EVENT:
-					stdout.puts ("Delete\n");
+					print ("Delete\n");
 					break;
 			}
 

@@ -34,7 +34,7 @@ public static int main (string[] args) {
 
 	int res = doc->save_format_file ("my-books.xml", 1);
 	if (res < 0) {
-		stdout.printf ("Error\n");
+		print ("Error\n");
 	}
 
 	delete doc;

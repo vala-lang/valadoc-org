@@ -11,7 +11,7 @@ public static int main (string[] args) {
 	//  ``'Sylvester McCoy'``
 	string[] doctors = doctors_str.split (", ");
 	foreach (unowned string str in doctors) {
-		stdout.printf ("'%s'\n", str);
+		print ("'%s'\n", str);
 	}
 
 	// Output:
@@ -20,7 +20,7 @@ public static int main (string[] args) {
 	string line = "Alistair Gordon Lethbridge-Stewart";
 	string[] lines = line.split (" ", 2);
 	foreach (unowned string str in lines) {
-		stdout.printf ("'%s'\n", str);
+		print ("'%s'\n", str);
 	}
 
 	return 0;

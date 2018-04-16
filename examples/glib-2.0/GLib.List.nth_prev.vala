@@ -11,6 +11,6 @@ public static int main (string[] args) {
 	//  ^<----^
 	unowned List<string> list3 = list.nth (2);
 	unowned List<string> list1 = list3.nth_prev (2);
-	stdout.printf ("Data: list.nth(2): %s, list[2-2] = %s\n", list3.data, list1.data);
+	print ("Data: list.nth(2): %s, list[2-2] = %s\n", list3.data, list1.data);
 	return 0;
 }

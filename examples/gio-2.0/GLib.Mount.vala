@@ -1,23 +1,23 @@
 public static void print_mount (Mount mount, string title) {
-	stdout.printf ("%s:\n", title);
+	print ("%s:\n", title);
 
-	stdout.printf ("  name: %s\n", mount.get_name ());
-	stdout.printf ("  uuid: %s\n", mount.get_uuid ());
-	stdout.printf ("  can-eject: %s\n", mount.can_eject ().to_string ());
-	stdout.printf ("  can-unmount: %s\n", mount.can_unmount ().to_string ());
-	stdout.printf ("  is-shadowed: %s\n", mount.is_shadowed ().to_string ());
-	stdout.printf ("  default-location: %s\n", mount.get_default_location ().get_path ());
-	stdout.printf ("  icon: %s\n", mount.get_icon ().to_string ());
-	stdout.printf ("  root: %s\n", mount.get_root ().get_path ());
+	print ("  name: %s\n", mount.get_name ());
+	print ("  uuid: %s\n", mount.get_uuid ());
+	print ("  can-eject: %s\n", mount.can_eject ().to_string ());
+	print ("  can-unmount: %s\n", mount.can_unmount ().to_string ());
+	print ("  is-shadowed: %s\n", mount.is_shadowed ().to_string ());
+	print ("  default-location: %s\n", mount.get_default_location ().get_path ());
+	print ("  icon: %s\n", mount.get_icon ().to_string ());
+	print ("  root: %s\n", mount.get_root ().get_path ());
 
 	try {
 		string[] types = mount.guess_content_type_sync (false);
-		stdout.printf ("  guess-content-type:\n");
+		print ("  guess-content-type:\n");
 		foreach (unowned string type in types) {
-			stdout.printf ("    %s\n", type);
+			print ("    %s\n", type);
 		}
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 }
 

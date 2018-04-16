@@ -12,7 +12,7 @@ public class Application : Gtk.Window {
 		// Catch changes:
 		button.value_changed.connect (() => {
 			int val = button.get_value_as_int ();
-			stdout.printf ("%d\n", val);
+			print ("%d\n", val);
 		});
 	}
 

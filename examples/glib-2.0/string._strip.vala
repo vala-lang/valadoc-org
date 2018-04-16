@@ -5,8 +5,8 @@ public static int main (string[] args) {
 	// Output:
 	//   ``'I'm here, Brigadier.'``
 	//   ``'I'm here, Brigadier.'``
-	stdout.printf ("'%s'\n", my_wisdom);
-	stdout.printf ("'%s'\n", res);
+	print ("'%s'\n", my_wisdom);
+	print ("'%s'\n", res);
 
 	return 0;
 }

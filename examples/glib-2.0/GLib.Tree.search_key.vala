@@ -10,7 +10,7 @@ public static int main (string[] args) {
 	string val = tree.search_key ((key, needle) => {
 		// key: one of {"key1", "key2", "key3"}
 		// needle: KEY2
-		stdout.printf ("visit: %s, %s\n", key, needle);
+		print ("visit: %s, %s\n", key, needle);
 
 		// param order is significant!
 		return strcmp (needle, key);
@@ -18,7 +18,7 @@ public static int main (string[] args) {
 
 	// Output:
 	//  ``key=KEY2, value=val3``
-	stdout.printf ("Selected: %s\n", val);
+	print ("Selected: %s\n", val);
 
 	return 0;
 }

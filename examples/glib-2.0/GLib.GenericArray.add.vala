@@ -16,7 +16,7 @@ public static int main (string[] args) {
 	//  ``second entry``
 	//  ``third entry``
 	array.foreach ((item) => {
-		stdout.printf ("%s\n", item);
+		print ("%s\n", item);
 	});
 
 	return 0;

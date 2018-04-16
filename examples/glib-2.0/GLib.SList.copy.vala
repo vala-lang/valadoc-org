@@ -12,7 +12,7 @@ public static int main (string[] args) {
 	//  ´´list1: 2. entry´´
 	//  ´´list1: 3. entry´´
 	foreach (string str in list1) {
-		stdout.printf ("list1: %s\n", str);
+		print ("list1: %s\n", str);
 	}
 
 	// Out:
@@ -21,7 +21,7 @@ public static int main (string[] args) {
 	//  ´´list2: 3. entry´´
 	//  ´´list2: 4. entry´´
 	foreach (string str in list2) {
-		stdout.printf ("list2: %s\n", str);
+		print ("list2: %s\n", str);
 	}
 
 	return 0;

@@ -18,15 +18,15 @@ public static int main (string[] args) {
 
 	// Output: ``true``
 	bool tmp = context.in_fill (50, 60);
-	stdout.printf ("%s\n", tmp.to_string ());
+	print (@"$tmp\n");
 
 	// Output: ``false``
 	tmp = context.in_fill (10, 10);
-	stdout.printf ("%s\n", tmp.to_string ());
+	print (@"$tmp\n");
 
 	// Output: ``25.000000, 25.000000, 100.000000, 175.000000
 	context.fill_extents (out x1, out y1, out x2, out y2);
-	stdout.printf ("%f, %f, %f, %f\n", x1, y1, x2, y2);
+	print ("%f, %f, %f, %f\n", x1, y1, x2, y2);
 	context.fill ();
 
 

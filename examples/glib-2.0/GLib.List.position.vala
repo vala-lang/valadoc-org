@@ -7,12 +7,12 @@ public static int main (string[] args) {
 	// Get 3. element:
 	// Output: ``list.nth (0) = "3. entry"``
 	unowned List<string> element = list.nth (2);
-	stdout.printf ("list.nth (2) = \"%s\"\n", element.data);
+	print ("list.nth (2) = \"%s\"\n", element.data);
 
 	// Calculate the position:
 	// Output: ``Position: list.position () = 2``
 	int pos = list.position (element);
-	stdout.printf ("Position: list.position () = %d\n", pos);
+	print ("Position: list.position () = %d\n", pos);
 
 	return 0;
 }

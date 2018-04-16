@@ -1,10 +1,10 @@
 public static int main (string[] args) {
 	// Output: ``aa1 !``
-	stdout.printf ("%c", 'A'.tolower ());
-	stdout.printf ("%c", 'a'.tolower ());
-	stdout.printf ("%c", '1'.tolower ());
-	stdout.printf ("%c", ' '.tolower ());
-	stdout.printf ("%c", '!'.tolower ());
-	stdout.printf ("%c", '\n'.tolower ());
+	print ("%c", 'A'.tolower ());
+	print ("%c", 'a'.tolower ());
+	print ("%c", '1'.tolower ());
+	print ("%c", ' '.tolower ());
+	print ("%c", '!'.tolower ());
+	print ("%c", '\n'.tolower ());
 	return 0;
 }

@@ -6,8 +6,8 @@ public static int main (string[] args) {
 	//  ``Default: false``
 	uint port = uri.get_port ();
 	bool default = uri.uses_default_port ();
-	stdout.printf ("Port: %u\n", port);
-	stdout.printf ("Default: %s\n", default.to_string ());
+	print ("Port: %u\n", port);
+	print ("Default: %s\n", default.to_string ());
 
 
 	// Output:
@@ -16,8 +16,8 @@ public static int main (string[] args) {
 	uri.set_port (80);
 	string uri_str = uri.to_string (false); 
 	@default = uri.uses_default_port ();
-	stdout.printf ("URI: %s\n", uri_str);
-	stdout.printf ("Default: %s\n", default.to_string ());
+	print ("URI: %s\n", uri_str);
+	print ("Default: %s\n", default.to_string ());
 
 	return 0;
 }

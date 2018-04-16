@@ -8,7 +8,7 @@ public static int main (string[] args) {
 	//  ``'Schrödinger'``
 	string[] names = names_str.split_set (",;");
 	foreach (unowned string str in names) {
-		stdout.printf ("'%s'\n", str);
+		print ("'%s'\n", str);
 	}
 
 	// Output:
@@ -16,7 +16,7 @@ public static int main (string[] args) {
 	//  ``'Mach;Erwin,Schrödinger'``
 	names = names_str.split_set (",;", 2);
 	foreach (unowned string str in names) {
-		stdout.printf ("'%s'\n", str);
+		print ("'%s'\n", str);
 	}
 
 	return 0;

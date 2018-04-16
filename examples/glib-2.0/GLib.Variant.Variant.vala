@@ -10,7 +10,7 @@ public static int main (string[] args) {
 	iter.next ("i", &val3);
 
 	// Output: ``aa, bb, 10``
-	stdout.printf ("%s, %s, %d\n", val1, val2, val3);
+	print ("%s, %s, %d\n", val1, val2, val3);
 
 	return 0;
 }

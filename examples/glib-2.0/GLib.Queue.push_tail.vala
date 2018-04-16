@@ -7,9 +7,9 @@ public static int main () {
 	// Output: ``1 2 3 ``
 	string item = null;
 	while ((item = queue.pop_head ()) != null) {
-		stdout.printf ("%s ", item);
+		print ("%s ", item);
 	}
-	stdout.putc ('\n');
+	print ("\n");
 
 	return 0;
 }

@@ -17,7 +17,7 @@ public static int main (string[] args) {
 	}
 
 	// From the token construct a URL for the user to visit:
-	stdout.printf ("Go to https://fireeagle.yahoo.net/oauth/authorize?oauth_token=%s then enter the verification code\n",
+	print ("Go to https://fireeagle.yahoo.net/oauth/authorize?oauth_token=%s then enter the verification code\n",
 		proxy.get_token ());
 
 	// Read the PIN:
@@ -47,6 +47,6 @@ public static int main (string[] args) {
 
 	Rest.XmlNode node = root.find ("location");
 	node = node.find ("name");
-	stdout.printf ("%s\n", node.content);
+	print ("%s\n", node.content);
 	return 0;
 }

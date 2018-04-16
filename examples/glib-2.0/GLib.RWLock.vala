@@ -18,14 +18,14 @@ public class Context : Object {
 		string? stored_pw = users.lookup (username);
 		rwlock.reader_unlock ();
 		if (stored_pw == null || stored_pw != password) {
-			stdout.printf ("%s: Invalid user name or password\n", username);
+			print ("%s: Invalid user name or password\n", username);
 			return false;
 		}
 
 		// Read all messages:
 		rwlock.reader_lock ();
 		messages.foreach ((str) => {
-			stdout.printf ("%s: %s\n", username, str);
+			print ("%s: %s\n", username, str);
 		});
 		rwlock.reader_unlock ();
 
@@ -67,7 +67,7 @@ public class Context : Object {
 
 	public static int main (string[] args) {
 		if (Thread.supported () == false) {
-			stdout.printf ("Threads are not supported.\n");
+			print ("Threads are not supported.\n");
 			return 0;
 		}
 

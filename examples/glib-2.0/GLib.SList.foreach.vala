@@ -5,7 +5,7 @@ public static int main (string[] args) {
 	list.append ("3. entry");
 
 	list.@foreach ((item) => {
-		stdout.printf ("%s\n", item);
+		print ("%s\n", item);
 	});
 
 	return 0;

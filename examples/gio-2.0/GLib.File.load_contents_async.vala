@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	if (args.length != 2) {
-		stdout.printf ("%s FILE\n", args[0]);
+		print ("%s FILE\n", args[0]);
 		return 0;
 	}
 
@@ -13,9 +13,9 @@ public static int main (string[] args) {
 			string etag_out;
 
 			file.load_contents_async.end (res, out contents, out etag_out);
-			stdout.printf ("%s", (string) contents);
+			print ("%s", (string) contents);
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

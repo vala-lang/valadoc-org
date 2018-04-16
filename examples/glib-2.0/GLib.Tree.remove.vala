@@ -7,14 +7,14 @@ public static int main (string[] args) {
 
 	bool tmp = tree.remove ("key4");
 	// Output: ``removed: true``
-	stdout.printf ("removed: %s\n", tmp.to_string ());
+	print ("removed: %s\n", tmp.to_string ());
 
 	// Output:
 	//  ``key=key1, value=val1``
 	//  ``key=key2, value=val2``
 	//  ``key=key3, value=val3``
 	tree.@foreach ((key, val) => {
-		stdout.printf ("key=%s, value=%s\n", (string) key, (string) val);
+		print ("key=%s, value=%s\n", (string) key, (string) val);
 		return false;
 	});
 

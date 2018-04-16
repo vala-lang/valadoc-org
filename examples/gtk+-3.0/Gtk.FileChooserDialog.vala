@@ -44,9 +44,9 @@ public class Application : Gtk.Window {
 		// Process response:
 		if (chooser.run () == Gtk.ResponseType.ACCEPT) {
 			SList<string> uris = chooser.get_uris ();
-			stdout.printf ("Selection:\n");
+			print ("Selection:\n");
 			foreach (unowned string uri in uris) {
-				stdout.printf (" %s\n", uri);
+				print (" %s\n", uri);
 			}
 		}
 

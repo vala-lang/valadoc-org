@@ -5,9 +5,9 @@ public static int main (string[] args) {
 
 	// Output: ``鳥二石一``
 	while (wisdom.get_prev_char (ref index, out c)) {
-		stdout.puts (c.to_string ());
+		print (c.to_string ());
 	}
-	stdout.putc ('\n');
+	print ("\n");
 
 	return 0;
 }

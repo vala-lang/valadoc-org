@@ -6,7 +6,7 @@ public static int main () {
 
 	// Output: ``1``
 	uint pos = queue.index (2);
-	stdout.printf ("%u\n", pos);
+	print ("%u\n", pos);
 
 	return 0;
 }

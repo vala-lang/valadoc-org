@@ -22,7 +22,7 @@ public static int main (string[] args) {
 	//  ``2 => second string``
 	//  ``3 => third string``
 	table.foreach ((key, val) => {
-		stdout.printf ("%s => %s\n", key, val);
+		print ("%s => %s\n", key, val);
 	});
 
 	return 0;

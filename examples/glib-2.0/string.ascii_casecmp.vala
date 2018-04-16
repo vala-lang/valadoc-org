@@ -4,6 +4,6 @@ public static int main (string[] args) {
 	int res = str1.ascii_casecmp (str2);
 
 	// Output: ``0``
-	stdout.printf ("%d\n", res);
+	print ("%d\n", res);
 	return 0;
 }

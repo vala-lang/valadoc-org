@@ -45,8 +45,8 @@ public class Application : Gtk.Window {
 		chooser.selection_changed.connect (() => {
 			SList<string> uris = chooser.get_uris ();
 			foreach (unowned string uri in uris) {
-				stdout.printf ("Selection changed:\n");
-				stdout.printf (" %s\n", uri);
+				print ("Selection changed:\n");
+				print (" %s\n", uri);
 			}
 		});
 

@@ -269,6 +269,7 @@ nav .title img {
     text-align: left;
     vertical-align: top;
     width: calc(100% - 240px);
+    margin-bottom: 49px;
 }
 
 #content {

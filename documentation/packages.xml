@@ -134,6 +134,14 @@
 			<package name="gstreamer-video-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GstVideo-1.0" c-docs="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/">
 				Support library for video operations
 			</package>
+			<!-- add once vala support merged
+			<package name="gst-editing-services-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GES-1.0.gir" c-docs="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-editing-services/html/">
+				The GStreamer Editing Services (GES) aims to fill the gap between
+				GStreamer/NLE and the application developer by offering a series of
+				classes to simplify the creation of many kind of editing-related
+				applications.
+			</package
+			>-->
 			<package name="grilo-0.2" gir="Grl-0.2" c-docs="https://developer.gnome.org/grilo/unstable/">
 				Framework that provides access to various sources of multimedia content
 			</package>
@@ -152,37 +160,40 @@
 			<package name="clutter-gst-3.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-3.0" c-docs="http://developer.gnome.org/clutter-gst/unstable/">
 				GStreamer bindings for clutter.
 			</package>
-			<package name="gupnp-1.0" home="http://gupnp.org/" gir="GUPnP-1.0">
+			<package name="gupnp-1.0" home="https://wiki.gnome.org/Projects/GUPnP" gir="GUPnP-1.0" c-docs="https://developer.gnome.org/gupnp/unstable/">
 				Core UPnP API built on top of gssdp
 			</package>
-			<package name="gupnp-av-1.0" home="http://gupnp.org/" gir="GUPnPAV-1.0">
+			<package name="gupnp-av-1.0" home="https://wiki.gnome.org/Projects/GUPnP" gir="GUPnPAV-1.0" c-docs="https://developer.gnome.org/gupnp-av/unstable/">
 				Small utility library that aims to ease the handling and implementation of UPnP audio/video profiles
 			</package>
-			<package name="gupnp-dlna-1.0" home="http://gupnp.org/" gir="GUPnP-DLNA-1.0">
-				Library to ease DLNA-related bits for applications using gupnp.
-			</package>
-			<package name="gupnp-dlna-2.0" gir="GUPnPDLNA-2.0" c-docs="https://developer.gnome.org/gupnp-dlna/unstable/">
+			<package name="gupnp-dlna-2.0" home="https://wiki.gnome.org/Projects/GUPnP" gir="GUPnPDLNA-2.0" c-docs="https://developer.gnome.org/gupnp-dlna/unstable/">
 				GUPnP DLNA is a set of utility APIs to simplify DLNA-specific bits
 				of MediaServer implementations, such as DLNA media profile guessing. 
 			</package>
 			<package name="gupnp-dlna-gst-2.0" gir="GUPnPDLNAGst-2.0">
-				-
+				GStreamer integration for GUPnP DLNA
 			</package>
-			<package ignore="true" name="rygel-core-2.0" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
+			<package ignore="true" name="rygel-core-2.6" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
 				Librygel-core is a collection of classes useful to Rygel's server and renderer implementation
 				libraries and useful to plugin implementors.
 			</package>
-			<package ignore="true" name="rygel-server-2.0" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
+			<package ignore="true" name="rygel-db-2.6" home="https://live.gnome.org/Rygel">
+				This library implements a generic database abstraction used by rygel and rygel plugins
+			</package>
+			<package ignore="true" name="rygel-server-2.6" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
 				This library may be used to create UPnP or DLNA servers, Rygel Server plugins or
 				Rygel Media Engines
 			</package>
-			<package ignore="true" name="rygel-renderer-2.0" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
+			<package ignore="true" name="rygel-renderer-2.6" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
 				This library may be used to create UPnP or DLNA Renderers. For instance, librygel-renderer-gst
 				uses librygel-renderer with GStreamer to implement its RygelPlaybinRenderer renderer. 
 			</package>
-			<package ignore="true" name="rygel-renderer-gst-2.0" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
+			<package ignore="true" name="rygel-renderer-gst-2.6" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
 				This library may be used to create UPnP or DLNA Renderers using GStreamer. The RygelPlaybinRenderer
 				may wrap an existing GStreamer playbin or create its own. See the example. 
+			</package>
+			<package ignore="true" name="rygel-ruih-2.6" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
+				This library implements the Remote User Interface Server protocol interfaces.
 			</package>
 			<package name="gssdp-1.0" gir="GSSDP-1.0">
 				GObject-based API for handling resource discovery and announcement over SSDP.
@@ -235,10 +246,7 @@
 				GdkPixbuf is a library for image loading and manipulation. The GdkPixbuf documentation contains both the
 				programmer's guide and the API reference.
 			</package>
-			<package name="ccss-1" maintainers="Ali Sabil">
-				Simple api for CSS stylesheets.
-			</package>
-			<package name="ibus-1.0" home="https://code.google.com/p/ibus/" gir="IBus-1.0" c-docs="http://ibus.googlecode.com/svn/docs/ibus-1.5/index.html">
+			<package name="ibus-1.0" home="https://github.com/ibus/ibus/wiki" gir="IBus-1.0" c-docs="http://ibus.github.io/docs/ibus-1.5/index.html">
 				Next Generation Input Bus for Linux.
 			</package>
 			<!-- Seems as we do not support callback-elements correctly -->
@@ -251,9 +259,9 @@
 		</section>
 
 		<section name="Data Storage">
-			<package name="gnome-keyring-1" gir="GnomeKeyring-1.0">
+			<package name="gnome-keyring-1" deprecated="true" gir="GnomeKeyring-1.0">
 				GNOME Keyring is a collection of components in GNOME that store secrets, passwords, keys,
-				certificates and make them available to applications. (upstream)
+				certificates and make them available to applications.
 			</package>
 			<package name="libsecret-1" gir="Secret-1" home="https://wiki.gnome.org/Projects/Libsecret" c-docs="https://developer.gnome.org/libsecret/unstable/">
 				libsecret is a library for storing and retrieving passwords and other secrets.
@@ -331,7 +339,7 @@
 				 The libmediaart library is the foundation for media art caching,
 				 extraction and lookup for applications on the desktop. 
 			</package>
-			<package name="libaccounts-glib" gir="Accounts-1.0" home="https://gitlab.com/accounts-sso/libaccounts-glib" c-docs="https://gitlab.com/accounts-sso/docs/tree/master/libaccounts-glib/html">
+			<package name="libaccounts-glib" gir="Accounts-1.0" home="https://gitlab.com/accounts-sso/libaccounts-glib" c-docs="http://accounts-sso.gitlab.io/libaccounts-glib/">
 				Accounts management library for online services.
 			</package>
 		</section>
@@ -373,10 +381,10 @@
 			<package name="mock-service-0">
 				Mock service
 			</package>
-			<package name="gsignond" gir="gSignond-1.0" home="https://gitlab.com/accounts-sso/gsignond" c-docs="https://gitlab.com/accounts-sso/gsignon-docs/tree/master/gsignond">
+			<package name="gsignond" gir="gSignond-1.0" home="https://gitlab.com/accounts-sso/gsignond" c-docs="http://accounts-sso.gitlab.io/gsignond/">
 				Single signon daemon library.
 			</package>
-			<package name="libgsignon-glib" gir="gSignon-1.0" home="https://gitlab.com/accounts-sso/libgsignon-glib" c-docs="https://gitlab.com/accounts-sso/gsignon-docs/tree/master/libgsignon-glib">
+			<package name="libgsignon-glib" gir="gSignon-1.0" home="https://gitlab.com/accounts-sso/libgsignon-glib" c-docs="http://accounts-sso.gitlab.io/libgsignon-glib/">
 				Single signon authentication library for online services.
 			</package>
 			<package name="vsgi-0.3" home="https://github.com/valum-framework/valum">
@@ -385,17 +393,36 @@
 			<package name="valum-0.3" home="https://github.com/valum-framework/valum">
 				Web micro-framework written in Vala
 			</package>
+			<package name="libcurl" home="http://curl.haxx.se/" c-docs="http://curl.haxx.se/docs/">
+				An open source command line tool and library for transferring data with URL syntax, supporting
+				DICT, FILE, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP,
+				SMB, SMTP, SMTPS, Telnet and TFTP. curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading,
+				HTTP form based upload, proxies, HTTP/2, cookies, user+password authentication (Basic, Plain, Digest,
+				CRAM-MD5, NTLM, Negotiate and Kerberos), file transfer resume, proxy tunneling and more. 
+			</package>
+			<package name="libnm" home="http://projects.gnome.org/NetworkManager/" gir="NM-1.0" c-docs="http://developer.gnome.org/libnm/unstable/">
+				Network management framework.
+			</package>
+			<package name="libnm-glib" deprecated="true" home="http://projects.gnome.org/NetworkManager/" gir="NMClient-1.0" c-docs="http://developer.gnome.org/libnm-glib/unstable/">
+				Network management framework. (replaced by libnm)
+			</package>
+			<package name="libnm-util" home="http://projects.gnome.org/NetworkManager/" gir="NetworkManager-1.0" c-docs="http://developer.gnome.org/libnm-util/unstable/">
+				Network management framework, utils.
+			</package>
 		</section>
 
 		<section name="Markup">
+			<package name="gxml-0.14" maintainers="Daniel Espinosa">
+				GObject XML library and serialization framework.
+			</package>
 			<package name="json-glib-1.0" maintainers="Tomaž Vajngerl" gir="Json-1.0" c-docs="http://developer.gnome.org/json-glib/unstable/">
 				JSON-GLib is a library for reading and parsing JSON using GLib and GObject data types and API.
 			</package>
-			<package name="libxml-2.0" maintainers="Tomaž Vajngerl" gir="libxml2-2.0" c-docs="http://xmlsoft.org/html/">
-			    Powerful and feature complete XML handling library.
-			</package>
 			<package name="gxml-0.14" maintainers="Daniel Espinosa">
-			    GObject XML library and serialization framework.
+				GObject XML library and serialization framework.
+			</package>
+			<package name="libxml-2.0" maintainers="Tomaž Vajngerl" gir="libxml2-2.0" c-docs="http://xmlsoft.org/html/">
+				Powerful and feature complete XML handling library.
 			</package>
 		</section>
 
@@ -409,13 +436,13 @@
 			<package name="spice-protocol" home="http://spice-space.org/">
 				Headers for SPICE protocol.
 			</package>
-			<package name="gtk-vnc-2.0" gir="GtkVnc-2.0">
+			<package name="gtk-vnc-2.0" gir="GtkVnc-2.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
 				A VNC viewer widget for GTK+.
 			</package>
-			<package name="gvnc-1.0" gir="GtkVnc-2.0" home="https://live.gnome.org/gtk-vnc">
+			<package name="gvnc-1.0" gir="GVnc-1.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
 				VNC gobject wrapper.
 			</package>
-			<package name="gvncpulse-1.0" flags="--pkg gvnc-1.0" gir="GVncPulse-1.0">
+			<package name="gvncpulse-1.0" flags="--pkg gvnc-1.0" gir="GVncPulse-1.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
 				A bridge to the Pulse Audio system for VNC.
 				It allows VNC clients to play back audio on the local system
 			</package>
@@ -437,16 +464,10 @@
 			<package name="colord-gtk" flags="--pkg colord --pkg gio-2.0 --pkg gtk+-3.0" home="http://www.freedesktop.org/software/colord/" gir="ColordGtk-1.0">
 				GTK integration for libcolord.
 			</package>
-			<package name="libnm-glib" home="http://projects.gnome.org/NetworkManager/" gir="NMClient-1.0" c-docs="http://developer.gnome.org/libnm-glib/unstable/">
-				Network management framework.
-			</package>
-			<package name="libnm-util" home="http://projects.gnome.org/NetworkManager/" gir="NetworkManager-1.0" c-docs="http://developer.gnome.org/libnm-util/unstable/">
-				Network management framework, utils.
-			</package>
 			<package name="gedit" gir="Gedit-3.0" home="http://projects.gnome.org/gedit/" maintainers="Andrea Del Signore" c-docs="http://developer.gnome.org/gedit/unstable/">
-				Official text editor of the GNOME desktop environment. (upsream)
+				Official text editor of the GNOME desktop environment.
 			</package>
-			<package name="poppler-glib" gir="Poppler-0.18" c-docs="http://people.freedesktop.org/~ajohnson/docs/poppler-glib/">
+			<package name="poppler-glib" gir="Poppler-0.18" home="https://poppler.freedesktop.org/" c-docs="http://people.freedesktop.org/~ajohnson/docs/poppler-glib/">
 				PDF rendering library.
 			</package>
 			<package deprecated="true" name="gdl-1.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="http://developer.gnome.org/gdl/unstable/">
@@ -457,7 +478,7 @@
 				The GNOME Devtools Library package provides a docking system and several utilities useful to GNOME
 				development tools and GNOME applications in general.
 			</package>
-			<package name="enchant" home="http://www.abisource.com/projects/enchant/">
+			<package name="enchant" home="https://abiword.github.io/enchant/">
 				A wrapper library for generic spell checking.
 			</package>
 			<!-- vapi contains a class without name -->
@@ -507,9 +528,6 @@
 			</package>
 			<package name="liboobs-1">
 				GObject based interface to system-tools-backends.
-			</package>
-			<package deprecated="true" name="unique-1.0">
-				This package contains introspection data for the GTK+-based version of JavaScriptCore.
 			</package>
 			<package name="javascriptcoregtk-3.0" gir="JSCore-3.0">
 				This package contains introspection data for the GTK+-based version of JavaScriptCore 
@@ -890,13 +908,6 @@
 			libcouchbase, also simplifies requests to Views through its handling of
 			HTTP transport.
 		</package>
-		<package name="libcurl" home="http://curl.haxx.se/" c-docs="http://curl.haxx.se/docs/">
-			An open source command line tool and library for transferring data with URL syntax, supporting
-			DICT, FILE, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP,
-			SMB, SMTP, SMTPS, Telnet and TFTP. curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading,
-			HTTP form based upload, proxies, HTTP/2, cookies, user+password authentication (Basic, Plain, Digest,
-			CRAM-MD5, NTLM, Negotiate and Kerberos), file transfer resume, proxy tunneling and more. 
-		</package>
 		<package name="libevent" home="http://sourceforge.net/projects/levent/">
 			Abstract asynchronous event notification library.
 			The libevent API provides a mechanism to execute a callback function
@@ -909,9 +920,6 @@
 			and at least partial support for the CRAM-MD5, EXTERNAL,
 			GSSAPI, ANONYMOUS, PLAIN, SECURID, DIGEST-MD5, LOGIN,
 			and NTLM mechanisms.
-		</package>
-		<package name="libmarkdown" home="http://www.pell.portland.or.us/~orc/Code/discount/">
-			A fast implementation of the Markdown language in C
 		</package>
 		<package name="libmatheval" home="http://www.gnu.org/software/libmatheval/" c-docs="http://www.gnu.org/software/libmatheval/manual/libmatheval.html">
 			Library for parsing and evaluating symbolic expressions input as text

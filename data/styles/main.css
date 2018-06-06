@@ -269,6 +269,7 @@ nav .title img {
     text-align: left;
     vertical-align: top;
     width: calc(100% - 240px);
+    margin-bottom: 49px;
 }
 
 #content {
@@ -434,6 +435,10 @@ footer {
     background-color: #fafafa;
     color: #666;
     padding: 16px;
+    margin-left: 240px;
+    width: calc(100% - 240px - 32px);
+    margin-bottom: -48px;
+    margin-top: -49px; /* 1px extra gets rid of scrollbar when page is short enough not to need one */
 }
 
 .main_source {

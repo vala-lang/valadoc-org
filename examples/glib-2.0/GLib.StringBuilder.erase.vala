@@ -5,6 +5,6 @@ public static int main (string[] args) {
 	//         ^----------------->
 	//         7        19
 	builder.erase (7, 19);
-	stdout.puts (builder.str);
+	print (builder.str);
 	return 0;
 }

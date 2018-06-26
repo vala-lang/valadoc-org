@@ -56,9 +56,9 @@ public static int main (string[] args) {
 			string val = stmt.column_text (i) ?? "<none>";
 			int type_id = stmt.column_type (i);
 
-			stdout.printf ("column: %s\n", col_name);
-			stdout.printf ("value: %s\n", val);
-			stdout.printf ("type: %d\n", type_id);
+			print ("column: %s\n", col_name);
+			print ("value: %s\n", val);
+			print ("type: %d\n", type_id);
 		}
 	}
 

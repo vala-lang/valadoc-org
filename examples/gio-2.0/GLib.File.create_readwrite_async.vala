@@ -8,7 +8,7 @@ public static int main (string[] args) {
 			FileIOStream stream = file.create_readwrite_async.end (res);
 			stream.output_stream.write ("My first line\n".data);
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

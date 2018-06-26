@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	if (args.length != 3) {
-		stdout.printf ("%s FILE NEW-NAME\n", args[0]);
+		print ("%s FILE NEW-NAME\n", args[0]);
 		return 0;
 	}
 
@@ -11,7 +11,7 @@ public static int main (string[] args) {
 		try {
 			file.set_display_name_async.end (res);
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

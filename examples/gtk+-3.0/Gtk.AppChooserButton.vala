@@ -18,16 +18,16 @@ public class Application : Gtk.Window {
 
 		// Catch custom selections:
 		button.custom_item_activated.connect ((item_name) => {
-			stdout.printf ("%s\n", item_name);
+			print ("%s\n", item_name);
 		});
 
 		// Catch all selections:
 		button.changed.connect (() => {
 			AppInfo info = button.get_app_info ();
 			if (info != null) {
-				stdout.printf ("Selection:\n");
-				stdout.printf (" Name: %s\n", info.get_display_name ());
-				stdout.printf (" Desc: %s\n", info.get_description ());
+				print ("Selection:\n");
+				print (" Name: %s\n", info.get_display_name ());
+				print (" Desc: %s\n", info.get_description ());
 			}
 		});
 	}

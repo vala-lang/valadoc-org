@@ -10,7 +10,7 @@ public static int main (string[] args) {
 	//  ``third entry``
 	string[] data = array.data;
 	foreach (unowned string str in data) {
-		stdout.printf ("%s\n", str);
+		print ("%s\n", str);
 	}
 
 	return 0;

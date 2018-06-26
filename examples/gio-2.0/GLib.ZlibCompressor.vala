@@ -11,7 +11,7 @@ private void convert (File source, File dest, Converter converter) throws Error 
 
 public int main (string[] args) {
 	if (args.length < 2) {
-		stdout.printf ("Usage: %s FILE\n", args[0]);
+		print ("Usage: %s FILE\n", args[0]);
 		return 0;
 	}
 

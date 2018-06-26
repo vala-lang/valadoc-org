@@ -7,7 +7,7 @@ public static int main (string[] args) {
 	// Output: ``Error!``
 	stream.puts ("data");
 	if (stream.error () != 0) {
-		stdout.printf ("Error!\n");
+		print ("Error!\n");
 	}
 
 	return 0;

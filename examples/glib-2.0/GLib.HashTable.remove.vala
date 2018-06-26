@@ -5,11 +5,11 @@ public static int main (string[] args) {
 	table.insert (3, "third string");
 
 	// Output: ``first string``
-	stdout.printf ("%s\n", table.lookup (1));
+	print ("%s\n", table.lookup (1));
 
 	// Output: ``null``
 	table.remove (1);
-	stdout.printf ("%s\n", table.lookup (1));
+	print ("%s\n", table.lookup (1));
 
 	return 0;
 }

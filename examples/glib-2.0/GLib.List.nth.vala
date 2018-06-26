@@ -6,19 +6,19 @@ public static int main (string[] args) {
 
 	// Output: ``List.nth (0) = "1. entry"``
 	unowned List<string> element = list.nth (0);
-	stdout.printf ("list.nth (0) = \"%s\"\n", element.data);
+	print ("list.nth (0) = \"%s\"\n", element.data);
 
 	// Output: ``List.nth (1) = "2. entry"``
 	element = list.nth (1);
-	stdout.printf ("list.nth (1) = \"%s\"\n", element.data);
+	print ("list.nth (1) = \"%s\"\n", element.data);
 
 	// Output: ``List.nth (2) = "3. entry"``
 	element = list.nth (2);
-	stdout.printf ("list.nth (2) = \"%s\"\n", element.data);
+	print ("list.nth (2) = \"%s\"\n", element.data);
 
 	// Output: ``List.nth (3) = "3. entry"``
 	element = list.nth (3);
-	stdout.printf ("list.nth (3) = \"%p\"\n", element);
+	print ("list.nth (3) = \"%p\"\n", element);
 
 	return 0;
 }

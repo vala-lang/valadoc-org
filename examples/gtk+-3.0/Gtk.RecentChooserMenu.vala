@@ -18,7 +18,7 @@ public class Application : Gtk.Window {
 
 		recent.item_activated.connect (() => {
 			Gtk.RecentInfo info = recent.get_current_item ();
-			stdout.printf ("%s\n", info.get_uri ());
+			print ("%s\n", info.get_uri ());
 		});
 	}
 

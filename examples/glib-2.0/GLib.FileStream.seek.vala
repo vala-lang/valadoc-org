@@ -20,7 +20,7 @@ public static int main (string[] args) {
 
 	int c = stream.getc ();
 	assert (c >= 0);
-	stdout.printf ("First char: %c\n", c);
+	print ("First char: %c\n", c);
 
 	
 	// Get the next but one char:
@@ -33,7 +33,7 @@ public static int main (string[] args) {
 
 	c = stream.getc ();
 	assert (c >= 0);
-	stdout.printf ("Third char: %c\n", c);
+	print ("Third char: %c\n", c);
 
 
 	// Get the last char:
@@ -46,7 +46,7 @@ public static int main (string[] args) {
 
 	c = stream.getc ();
 	assert (c >= 0);
-	stdout.printf ("Last char: %c\n", c);
+	print ("Last char: %c\n", c);
 
 	return 0;
 }

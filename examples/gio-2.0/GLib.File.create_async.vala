@@ -7,9 +7,9 @@ public static int main (string[] args) {
 		try {
 			FileOutputStream os = file.create_async.end (res);
 			os.write ("My first line\n".data);
-			stdout.printf ("Created.\n");
+			print ("Created.\n");
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

@@ -5,10 +5,10 @@ public static void example_sync () {
 	try {
 		SocketAddressEnumerator en = socket_address.enumerate ();
 		for (SocketAddress add = en.next (); add != null; add = en.next ()) {
-			stdout.printf ("%s\n", add.get_family ().to_string ());
+			print ("%s\n", add.get_family ().to_string ());
 		}
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 }
 
@@ -19,10 +19,10 @@ public async void example_async () {
 	try {
 		SocketAddressEnumerator en = socket_address.enumerate ();
 		for (SocketAddress add = yield en.next_async (); add != null; add = yield en.next_async ()) {
-			stdout.printf ("%s\n", add.get_family ().to_string ());
+			print ("%s\n", add.get_family ().to_string ());
 		}
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 }
 

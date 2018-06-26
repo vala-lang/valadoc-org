@@ -6,7 +6,7 @@ public static int main (string[] args) {
 
 	// Out: ´´Last: "e. entry"´´
 	unowned SList<string> last = list.last ();
-	stdout.printf ("Last: \"%s\"\n", last.data);
+	print ("Last: \"%s\"\n", last.data);
 
 	return 0;
 }

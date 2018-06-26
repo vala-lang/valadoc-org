@@ -17,7 +17,7 @@ public int main (string[] args) {
 	//  ``4. entry``  4 was the last element!
 	//  ``3. entry``
 	for (int i = 0; i < array.length ; i++) {
-		stdout.printf ("%s\n", array.index (i));
+		print ("%s\n", array.index (i));
 	}
 
 	return 0;

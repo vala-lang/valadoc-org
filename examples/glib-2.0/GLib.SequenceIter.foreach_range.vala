@@ -14,7 +14,7 @@ public static int main (string[] args) {
 	//  ``sit``
 	//  ``amet``
 	start.foreach_range (end, (item) => {
-		stdout.printf ("%s\n", item);
+		print ("%s\n", item);
 	});
 
 	return 0;

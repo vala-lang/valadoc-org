@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	if (args.length != 2) {
-		stdout.printf ("%s FILE\n", args[0]);
+		print ("%s FILE\n", args[0]);
 		return 0;
 	}
 
@@ -8,9 +8,9 @@ public static int main (string[] args) {
 		File file = File.new_for_commandline_arg (args[1]);
 		FileInfo info = file.query_info ("standard::icon", 0);
 		Icon icon = info.get_icon ();
-		stdout.printf ("%s\n", icon.to_string ());
+		print ("%s\n", icon.to_string ());
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 	return 0;
 }

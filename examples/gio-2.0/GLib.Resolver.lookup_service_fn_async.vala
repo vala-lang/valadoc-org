@@ -6,13 +6,13 @@ public static int main () {
 		try {
 			List<SrvTarget> targets = resolver.lookup_service_async.end (res);
 			foreach (SrvTarget target in targets) {
-				stdout.printf ("host: %s\n", target.get_hostname ());
-				stdout.printf ("  port: %hu\n", target.get_port ());
-				stdout.printf ("  priority: %hu\n", target.get_priority ());
-				stdout.printf ("  weight: %hu\n", target.get_weight ());
+				print ("host: %s\n", target.get_hostname ());
+				print ("  port: %hu\n", target.get_port ());
+				print ("  priority: %hu\n", target.get_priority ());
+				print ("  weight: %hu\n", target.get_weight ());
 			}
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

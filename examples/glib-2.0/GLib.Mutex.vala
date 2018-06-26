@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	if (Thread.supported () == false) {
-		stdout.printf ("Threads are not supported.\n");
+		print ("Threads are not supported.\n");
 		return 0;
 	}
 
@@ -26,7 +26,7 @@ public static int main (string[] args) {
 
 			mutex.lock ();
 			int tmp = shared;
-			stdout.printf ("t%d = %d\n", id, tmp);
+			print ("t%d = %d\n", id, tmp);
 			shared++;
 			mutex.unlock ();
 

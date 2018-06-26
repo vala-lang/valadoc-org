@@ -74,7 +74,7 @@ public static int main (string[] args) {
 	// Output: ``MY_ENUM_VALUE_A, value-a``
 	string str = MyEnum.VALUE_A.to_string ();
 	string nick = MyEnum.VALUE_A.to_nick ();
-	stdout.printf ("%s, %s\n", str, nick);
+	print ("%s, %s\n", str, nick);
 
 
 	HashTable<unowned string, MyEnum> table = MyEnum.to_hash_table ();
@@ -82,22 +82,22 @@ public static int main (string[] args) {
 
 	// Output: ``value-a, MY_ENUM_VALUE_A = value-a = -10``
 	MyEnum val = table.lookup (key);
-	stdout.printf ("%s, %s = %s = %d\n", key, val.to_string (), val.to_nick (), val);
+	print ("%s, %s = %s = %d\n", key, val.to_string (), val.to_nick (), val);
 
 	// Output: ``value-b, MY_ENUM_VALUE_B = value-b = 10``
 	key = "value-b";
 	val = table.lookup (key);
-	stdout.printf ("%s, %s = %s = %d\n", key, val.to_string (), val.to_nick (), val);
+	print ("%s, %s = %s = %d\n", key, val.to_string (), val.to_nick (), val);
 
 	// Output: ``try-parse-nick: MY_ENUM_VALUE_A``
 	MyEnum result;
 	if (MyEnum.try_parse_nick ("value-a", out result)) {
-		stdout.printf ("try-parse-nick: %s\n", result.to_string ());
+		print ("try-parse-nick: %s\n", result.to_string ());
 	}
 
 	// Output: ``try-parse-name: MY_ENUM_VALUE_A``
 	if (MyEnum.try_parse_name ("MY_ENUM_VALUE_A", out result)) {
-		stdout.printf ("try-parse-name: %s\n", result.to_string ());
+		print ("try-parse-name: %s\n", result.to_string ());
 	}
 
 	return 0;

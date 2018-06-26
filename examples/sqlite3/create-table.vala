@@ -24,7 +24,7 @@ public static int main (string[] args) {
 		return -1;
 	}
 
-	stdout.puts ("Created.\n");
+	print ("Created.\n");
 
 	return 0;
 }

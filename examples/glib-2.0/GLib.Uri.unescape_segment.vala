@@ -9,22 +9,22 @@ public static int main (string[] args) {
 	// Output:
 	//  ``start: "my%2F1.%20ressource.txt"``
 	//  ``end: ""``
-	stdout.printf ("start: \"%s\"\n", start);
-	stdout.printf ("end: \"%s\"\n", end);
+	print ("start: \"%s\"\n", start);
+	print ("end: \"%s\"\n", end);
 
 
 	// Output: ``Unescaped segment: "my/1. ressource.txt"``
 	string? segment = Uri.unescape_segment (start, end);
-	stdout.printf ("Unescaped segment: \"%s\"\n", segment);
+	print ("Unescaped segment: \"%s\"\n", segment);
 
 	// Output: ``Unescaped segment: "(null)"``
 	segment = Uri.unescape_segment (start, end, "/");
-	stdout.printf ("Unescaped segment: \"%s\"\n", segment);
+	print ("Unescaped segment: \"%s\"\n", segment);
 
 
 	// Output: ``Unescaped segment: "(null)"``
 	segment = Uri.unescape_segment (null, null);
-	stdout.printf ("Unescaped segment: \"%s\"\n", segment);
+	print ("Unescaped segment: \"%s\"\n", segment);
 
 	return 0;
 }

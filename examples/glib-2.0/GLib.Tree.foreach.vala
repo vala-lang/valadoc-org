@@ -11,7 +11,7 @@ public static int main (string[] args) {
 	tree.@foreach ((_key, _val) => {
 		unowned string key = (string) _key; // void* _key
 		unowned string val = (string) _val; // void* _val
-		stdout.printf ("key=%s, value=%s\n", key, val);
+		print ("key=%s, value=%s\n", key, val);
 		return false; // return true to stop foreach
 	});
 

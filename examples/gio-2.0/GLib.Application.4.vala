@@ -8,7 +8,7 @@ public class MyApplication : Application {
 
 	public override void activate () {
 		this.hold ();
-		stdout.puts ("activated\n");
+		print ("Activated\n");
 		this.release ();
 	}
 

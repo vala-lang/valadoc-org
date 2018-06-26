@@ -8,7 +8,7 @@ public static int main (string[] args) {
 	//  ``GObject``
 	Type type = typeof (MyGObject);
 	for (Type p = type.parent (); p != 0 ; p = p.parent ()) {
-		stdout.printf ("%s\n", p.name ());
+		print ("%s\n", p.name ());
 	}
 	return 0;
 }

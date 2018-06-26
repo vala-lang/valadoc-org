@@ -12,7 +12,7 @@ public static int main (string[] args) {
 
 	// Output:
 	//  ``key=KEY2, value=val2``
-	stdout.printf ("key=%s, val=%s\n", needle, val);
+	print ("key=%s, val=%s\n", needle, val);
 
 	return 0;
 }

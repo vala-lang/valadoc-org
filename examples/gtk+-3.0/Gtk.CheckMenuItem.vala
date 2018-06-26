@@ -21,7 +21,7 @@ public class Application : Gtk.Window {
 		filemenu.add (item_option);
 
 		item_option.toggled.connect (() => {
-			stdout.printf ("%s\n", item_option.active.to_string ());
+			print ("%s\n", item_option.active.to_string ());
 		});
 	}
 

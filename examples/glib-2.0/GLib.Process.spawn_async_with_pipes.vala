@@ -1,18 +1,18 @@
 private static bool process_line (IOChannel channel, IOCondition condition, string stream_name) {
 	if (condition == IOCondition.HUP) {
-		stdout.printf ("%s: The fd has been closed.\n", stream_name);
+		print ("%s: The fd has been closed.\n", stream_name);
 		return false;
 	}
 
 	try {
 		string line;
 		channel.read_line (out line, null, null);
-		stdout.printf ("%s: %s", stream_name, line);
+		print ("%s: %s", stream_name, line);
 	} catch (IOChannelError e) {
-		stdout.printf ("%s: IOChannelError: %s\n", stream_name, e.message);
+		print ("%s: IOChannelError: %s\n", stream_name, e.message);
 		return false;
 	} catch (ConvertError e) {
-		stdout.printf ("%s: ConvertError: %s\n", stream_name, e.message);
+		print ("%s: ConvertError: %s\n", stream_name, e.message);
 		return false;
 	}
 
@@ -60,7 +60,7 @@ public static int main (string[] args) {
 
 		loop.run ();
 	} catch (SpawnError e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 	return 0;
 }

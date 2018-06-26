@@ -6,7 +6,7 @@ public static int main (string[] args) {
 		// start a fork & reduce its runtime to 9000 micro seconds
 		if (Test.trap_fork (9000, TestTrapFlags.SILENCE_STDOUT | TestTrapFlags.SILENCE_STDERR)) {
 			// Simulate driver output:
-			stdout.printf ("warning: unexpected token: ==\n");
+			print ("warning: unexpected token: ==\n");
 			stderr.printf ("error: unexpected token: ==\n");
 
 			// use assert () and friends to verify your code

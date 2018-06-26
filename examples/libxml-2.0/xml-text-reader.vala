@@ -155,11 +155,11 @@ public class BookReader : Object {
 			BookReader reader = new BookReader ();
 			SList<Book> books = reader.read ("books.xml");
 			books.foreach ((book) => {
-				stdout.puts (book.to_string ());
-				stdout.putc ('\n');
+				print (book.to_string ());
+				print ("\n");
 			});
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 		return 0;
 	}

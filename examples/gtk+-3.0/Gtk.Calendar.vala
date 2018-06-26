@@ -2,7 +2,7 @@ public class Application : Gtk.Window {
 	private Gtk.Calendar calendar;
 
 	private void print_date (string context) {
-		stdout.printf ("%s: %04d-%02d-%02d\n", context, calendar.year, calendar.month, calendar.day);
+		print ("%s: %04d-%02d-%02d\n", context, calendar.year, calendar.month, calendar.day);
 	}
 
 	public Application () {

@@ -21,7 +21,7 @@ public class Application : Gtk.Window {
 		button.clicked.connect (() => {
 			// Emitted when a font has been chosen:
 			string name = selection.get_font_name ();
-			stdout.printf ("Selected font: %s\n", name);
+			print ("Selected font: %s\n", name);
 		});
 	}
 

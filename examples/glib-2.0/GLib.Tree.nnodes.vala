@@ -6,7 +6,7 @@ public static int main (string[] args) {
 
 	// Output: ``nodes: 3``
 	int cnt = tree.nnodes ();
-	stdout.printf ("nodes: %d\n", cnt);
+	print ("nodes: %d\n", cnt);
 
 	return 0;
 }

@@ -17,21 +17,17 @@ public static int main (string[] args) {
 		DataInputStream distream = new DataInputStream (cistream);
 
 		string line = distream.read_line ();
-		stdout.puts (line);
-		stdout.putc ('\n');
+		print (@"$line\n");
 
 		line = distream.read_line ();
-		stdout.puts (line);
-		stdout.putc ('\n');
+        print (@"$line\n");
 
 		line = distream.read_line ();
-		stdout.puts (line);
-		stdout.putc ('\n');
-
+        print (@"$line\n");
 	} catch (IOError e) {
-		stdout.printf ("IOError: %s\n", e.message);
+		print ("IOError: %s\n", e.message);
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 	return 0;
 }

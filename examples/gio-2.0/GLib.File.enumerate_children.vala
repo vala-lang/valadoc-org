@@ -10,12 +10,12 @@ private void list_children (File file, string space = "", Cancellable? cancellab
 			File subdir = file.resolve_relative_path (info.get_name ());
 			list_children (subdir, space + " ", cancellable);
 		} else {
-			stdout.printf ("%s%s\n", space, info.get_name ());
-			stdout.printf ("%s %s\n", space, info.get_file_type ().to_string ());
-			stdout.printf ("%s %s\n", space, info.get_is_symlink ().to_string ());
-			stdout.printf ("%s %s\n", space, info.get_is_hidden ().to_string ());
-			stdout.printf ("%s %s\n", space, info.get_is_backup ().to_string ());
-			stdout.printf ("%s %"+int64.FORMAT+"\n", space, info.get_size ());
+			print ("%s%s\n", space, info.get_name ());
+			print ("%s %s\n", space, info.get_file_type ().to_string ());
+			print ("%s %s\n", space, info.get_is_symlink ().to_string ());
+			print ("%s %s\n", space, info.get_is_hidden ().to_string ());
+			print ("%s %s\n", space, info.get_is_backup ().to_string ());
+			print ("%s %"+int64.FORMAT+"\n", space, info.get_size ());
 		}
 	}
 
@@ -26,7 +26,7 @@ private void list_children (File file, string space = "", Cancellable? cancellab
 
 public static int main (string[] args) {
 	if (args.length != 2) {
-		stdout.printf ("%s [DIRECTORY]\n", args[0]);
+		print ("%s [DIRECTORY]\n", args[0]);
 		return 0;
 	}
 
@@ -35,7 +35,7 @@ public static int main (string[] args) {
 	try {
 		list_children (file, "", new Cancellable ());
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 		return 0;
 	}
 

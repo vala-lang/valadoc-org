@@ -6,15 +6,15 @@ public static int main () {
 	queue.push_tail (3);
 
 	unowned List<int> found = queue.find (900);
-	stdout.printf ("Found: %d\n", found.data);
+	print ("Found: %d\n", found.data);
 	queue.delete_link (found);
 
 	// Output: ``1 2 3 ``
 	int item = 0;
 	while ((item = queue.pop_head ()) != 0) {
-		stdout.printf ("%d ", item);
+		print ("%d ", item);
 	}
-	stdout.putc ('\n');
+	print ("\n");
 
 	return 0;
 }

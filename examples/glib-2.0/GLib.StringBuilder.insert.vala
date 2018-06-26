@@ -3,6 +3,6 @@ public static int main (string[] args) {
 	StringBuilder builder = new StringBuilder ("helloworld");
 	builder.insert (5, ", ");
 	builder.insert (12, "!\n");
-	stdout.puts (builder.str);
+	print (builder.str);
 	return 0;
 }

@@ -6,9 +6,9 @@ public static int main (string[] args) {
 	file.delete_async.begin (Priority.DEFAULT, null, (obj, res) => {
 		try {
 			bool tmp = file.delete_async.end (res);
-			stdout.printf ("Result: %s\n", tmp.to_string ());
+			print ("Result: %s\n", tmp.to_string ());
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

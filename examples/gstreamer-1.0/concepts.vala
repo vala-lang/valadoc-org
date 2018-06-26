@@ -54,7 +54,7 @@ public static int main (string[] args) {
 			break;
 
 		case Gst.MessageType.EOS:
-			stdout.puts ("End-Of-Stream reached.\n");
+			print ("End-Of-Stream reached.\n");
 			break;
 
 		default:

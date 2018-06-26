@@ -17,7 +17,7 @@ public class Application : Gtk.Window {
 		// Process response:
 		if (chooser.run () == Gtk.ResponseType.OK) {
 			string uri = chooser.get_current_uri ();
-			stdout.printf ("%s\n", uri);
+			print ("%s\n", uri);
 		}
 
 		// Close the RecentChooserDialog:

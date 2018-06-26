@@ -45,10 +45,10 @@ public static int main (string[] args) {
 		//  ``true``
 		//  ``300``
 		//  ``0.000000``
-		stdout.printf ("%s\n", @string);
-		stdout.printf ("%s\n", @bool.to_string ());
-		stdout.printf ("%d\n", @int);
-		stdout.printf ("%f\n", @double);
+		print ("%s\n", @string);
+		print ("%s\n", @bool.to_string ());
+		print ("%d\n", @int);
+		print ("%f\n", @double);
 
 		// ** Lists:
 		bool[] bool_array = file.get_boolean_list ("Lists", "BoolArray");
@@ -56,20 +56,20 @@ public static int main (string[] args) {
 
 		// Output: ``true true false``
 		foreach (bool b in bool_array) {
-			stdout.printf ("%s ", b.to_string ());
+			print ("%s ", b.to_string ());
 		}
-		stdout.putc ('\n');
+		print ("\n");
 
 		// Output: ``"Str1" "Str2"``
 		foreach (string str in string_array) {
-			stdout.printf ("\"%s\" ", str);
+			print ("\"%s\" ", str);
 		}
-		stdout.putc ('\n');
+		print ("\n");
 
 		// ** LocalizedString:
 		string hi = file.get_locale_string ("LocalizedString", "Hi", null);
 		// Output: ``Hello``
-		stdout.printf ("%s\n", hi);
+		print ("%s\n", hi);
 
 
 		// ** OptionalGroup
@@ -84,8 +84,8 @@ public static int main (string[] args) {
 			// Output:
 			//  ``myreq``
 			//  ``myopt``
-			stdout.printf ("%s\n", required_key);
-			stdout.printf ("%s\n", optional_key);
+			print ("%s\n", required_key);
+			print ("%s\n", optional_key);
 		}
 
 		//
@@ -111,7 +111,7 @@ public static int main (string[] args) {
 
 		foreach (unowned string group in file.get_groups ()) {
 			foreach (unowned string key in file.get_keys (group)) {
-				stdout.printf ("Key: %s.%s = %s\n", group, key, file.get_value (group, key));
+				print ("Key: %s.%s = %s\n", group, key, file.get_value (group, key));
 			}
 		}
 
@@ -131,9 +131,9 @@ public static int main (string[] args) {
 		//  ``BoolArray=true,true,false``
 		//  ``----``
 		string keyfile_str = file.to_data ();
-		stdout.printf ("-----\n%s----\n", keyfile_str);
+		print ("-----\n%s----\n", keyfile_str);
 	} catch (KeyFileError e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 	return 0;
 }

@@ -8,9 +8,9 @@ public static int main (string[] args) {
 	Soup.Message msg = new Soup.Message ("GET", "http://gnome.org/");
 	session.queue_message (msg, (sess, mess) => {
 		// Process the result:
-		stdout.printf ("Status Code: %u\n", mess.status_code);
-		stdout.printf ("Message length: %lld\n", mess.response_body.length);
-		stdout.printf ("Data: \n%s\n", (string) mess.response_body.data);
+		print ("Status Code: %u\n", mess.status_code);
+		print ("Message length: %lld\n", mess.response_body.length);
+		print ("Data: \n%s\n", (string) mess.response_body.data);
 		loop.quit ();
 	});
 

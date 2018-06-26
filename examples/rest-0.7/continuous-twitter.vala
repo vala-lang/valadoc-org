@@ -15,7 +15,7 @@ public class Twitter : Object {
 		}
 
 		// From the token construct a URL for the user to visit:
-		stdout.printf ("Go to http://twitter.com/oauth/authorize?oauth_token=%s then enter the PIN\n",
+		print ("Go to http://twitter.com/oauth/authorize?oauth_token=%s then enter the PIN\n",
 			proxy.get_token ());
 
 		string pin = stdin.read_line ();
@@ -43,8 +43,8 @@ public class Twitter : Object {
 		call.add_param ("delimited", "length");
 		try {
 			call.continuous ((call, str, len, err, obj) => {
-				stdout.puts (str);
-				stdout.putc ('\n');
+				print (str);
+				print ("\n");
 			}, this);
 		} catch (Error e) {
 			error ("continuous: %s", e.message);

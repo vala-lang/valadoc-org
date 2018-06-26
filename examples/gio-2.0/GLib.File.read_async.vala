@@ -9,10 +9,10 @@ public static int main (string[] args) {
 			string line;
 
 			while ((line = dis.read_line ()) != null) {
-				stdout.printf ("%s\n", line);
+				print ("%s\n", line);
 			}
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 
 		loop.quit ();

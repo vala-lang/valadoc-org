@@ -17,7 +17,7 @@ public class Server : Object {
 			// Get the received message:
 			string message = yield istream.read_line_async (Priority.DEFAULT, this.cancellable);
 			message._strip ();
-			stdout.printf ("Received: %s\n", message);
+			print ("Received: %s\n", message);
 
 			// Response:
 			ostream.put_string (message, this.cancellable);
@@ -27,7 +27,7 @@ public class Server : Object {
 				this.cancellable.cancel ();
 			}
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 	}
 
@@ -51,13 +51,13 @@ public class Server : Object {
 				Source source = source_obj as Source;
 				assert (source != null);
 
-				stdout.printf ("Accepted! (Source: %d)\n", source.port);
+				print ("Accepted! (Source: %d)\n", source.port);
 
 				// Register a worker:
 				worker_func.begin (connection, source);
 			}
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 	}
 

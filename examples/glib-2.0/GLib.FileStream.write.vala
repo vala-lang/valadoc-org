@@ -14,7 +14,7 @@ public static int main (string[] args) {
 					Data('l'), Data('o') };
 
 	// write array of 5 elements with 2 bytes size
-	stdout.write ((uint8[]) mem, sizeof (Data));	
-	stdout.putc('\n');
+	stdout.write ((uint8[]) mem, sizeof (Data));
+	print ("\n");
 	return 0;
 }

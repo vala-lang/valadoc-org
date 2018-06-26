@@ -1,6 +1,6 @@
 public class Application : Gtk.Window {
 	private void toggled (Gtk.ToggleButton button) {
-		stdout.printf ("%s\n", button.label);
+		print ("%s\n", button.label);
 	}
 
 	public Application () {

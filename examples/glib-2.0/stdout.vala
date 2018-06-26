@@ -2,8 +2,8 @@ public int main (string[] args) {
 	// Output:
 	//  ``formated string``
 	//  ``simple string``
-	stdout.printf ("%s %s\n", "formated", "string");
-	stdout.puts ("simple string");
-	stdout.putc ('\n');
+	print ("%s %s\n", "formated", "string");
+	print ("simple string");
+	print ("\n");
 	return 0;
 }

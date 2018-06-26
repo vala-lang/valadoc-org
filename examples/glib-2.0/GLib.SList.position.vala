@@ -8,7 +8,7 @@ public static int main (string[] args) {
 
 	// Out: ´´pos: 2´
 	int pos = list.position (el3);
-	stdout.printf ("pos: %d\n", pos);
+	print ("pos: %d\n", pos);
 
 	return 0;
 }

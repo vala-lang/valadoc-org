@@ -12,7 +12,7 @@ public static int main (string[] args) {
 	array.prepend (create_string_value ("AA"));
 
 	// Output: ``Len: 3``
-	stdout.printf ("Len: %u\n", array.n_values);
+	print ("Len: %u\n", array.n_values);
 
 	array.insert (2, create_string_value ("CC"));
 	array.remove (3);
@@ -23,7 +23,7 @@ public static int main (string[] args) {
 	//  ``BB``
 	//  ``CC``
 	foreach (Value val in array.values) {
-		stdout.printf ("%s\n", val.get_string ());
+		print ("%s\n", val.get_string ());
 	}
 
 	return 0;

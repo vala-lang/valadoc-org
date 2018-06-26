@@ -7,13 +7,13 @@ public static int main (string[] args) {
 	session.authenticate.connect ((msg, auth, retrying) => {
 		if (counter < 3) {
 			if (retrying == true) {
-				stdout.puts ("Invalid user name or password.\n");
+				print ("Invalid user name or password.\n");
 			}
 
-			stdout.puts ("Username: ");
+			print ("Username: ");
 			string username = stdin.read_line ();
 
-			stdout.puts ("Password: ");
+			print ("Password: ");
 			string passwd = stdin.read_line ();
 
 			auth.authenticate (username, passwd);
@@ -22,19 +22,19 @@ public static int main (string[] args) {
 	}); 
 
 
-	stdout.puts ("URL: ");
+	print ("URL: ");
 	string url = stdin.read_line ();
 
 	// Send a request:
 	Soup.Message msg = new Soup.Message ("GET", url);
 	if (msg == null) {
-		stdout.printf ("Invalid URL\n");
+		print ("Invalid URL\n");
 		return 0;
 	}
 
 	session.send_message (msg);
 
 	// Process the result:
-	stdout.printf ("Status Code: %u\n", msg.status_code);
+	print ("Status Code: %u\n", msg.status_code);
 	return 0;
 }

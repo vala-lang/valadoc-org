@@ -10,9 +10,9 @@ public static int main (string[] args) {
 	//  ``               0x??????: 0x??????:'2. entry'``
 	unowned List<string>? element = list.first ();
 	assert (element != null);
-	stdout.printf ("Search result: %p.data: '%s'\n", element, element.data);
-	stdout.printf ("               %p.prev: %p\n", element, element.prev);
-	stdout.printf ("               %p.next: %p:'%s'\n", element, element.next, element.next.data);
+	print ("Search result: %p.data: '%s'\n", element, element.data);
+	print ("               %p.prev: %p\n", element, element.prev);
+	print ("               %p.next: %p:'%s'\n", element, element.next, element.next.data);
 
 	return 0;
 }

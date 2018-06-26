@@ -3,6 +3,6 @@ public static int main (string[] args) {
 	float x = 10.0f;
 	float y = 05.0f;
 	float result = Math.atan2f (x, y);
-	stdout.printf("atan2f (%lff, %lff) = %lff\n", x, y, result);
+	print("atan2f (%lff, %lff) = %lff\n", x, y, result);
 	return 0;
 }

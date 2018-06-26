@@ -62,7 +62,7 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    add-apt-repository --yes ppa:vala-team
+    add-apt-repository --yes ppa:vala-team/next
     apt-get update -y
     curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
     apt-get install -y         \
@@ -75,7 +75,8 @@ Vagrant.configure("2") do |config|
         libsoup2.4-dev         \
         libssl-dev             \
         libxml2-dev            \
-        libvaladoc-dev         \
+        libvala-0.40-dev       \
+        libvaladoc-0.40-dev    \
         nodejs                 \
         python3-pip            \
         sphinxsearch           \

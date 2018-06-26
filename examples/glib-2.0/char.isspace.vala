@@ -4,9 +4,9 @@ public static int main (string[] args) {
 
 	for (int i = 0; i <= 255; i++) {
 		if (((char) i).isspace () == true) {
-			stdout.printf ("'%c', ", (char) i);
+			print ("'%c', ", (char) i);
 		}
 	}
-	stdout.putc ('\n');
+	print ("\n");
 	return 0;
 }

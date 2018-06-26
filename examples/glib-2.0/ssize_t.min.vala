@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	// Output: ``min ('100, 900) = 100``
 	ssize_t min = ssize_t.min (100, 900);
-	stdout.printf ("min (100, 900) = %lu\n", min);
+	print ("min (100, 900) = %lu\n", min);
 	return 0;
 }

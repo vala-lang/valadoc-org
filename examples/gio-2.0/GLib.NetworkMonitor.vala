@@ -7,7 +7,7 @@ public static int main (string[] args) {
 	//
 
 	bool available = monitor.get_network_available ();
-	stdout.printf ("Network available: %s\n", available.to_string ());
+	print ("Network available: %s\n", available.to_string ());
 
 
 	//
@@ -18,9 +18,9 @@ public static int main (string[] args) {
 	if (available == true) {
 		try {
 			bool can_reach = monitor.can_reach (address);
-			stdout.printf ("can-reach: %s\n", can_reach.to_string ());
+			print ("can-reach: %s\n", can_reach.to_string ());
 		} catch (Error e) {
-			stdout.printf ("Error: %s\n", e.message);
+			print ("Error: %s\n", e.message);
 		}
 	}
 
@@ -30,16 +30,16 @@ public static int main (string[] args) {
 	//
 
 	monitor.network_changed.connect ((available) => {
-		stdout.printf ("Network changed (available: %s)\n", available.to_string ());
+		print ("Network changed (available: %s)\n", available.to_string ());
 
 		// Determine whether valadoc.org can be reached: (async):
 		if (available == true) {
 			monitor.can_reach_async.begin (address, null, (obj, res) => {
 				try {
 					bool can_reach = monitor.can_reach_async.end (res);
-					stdout.printf ("can-reach: %s\n", can_reach.to_string ());
+					print ("can-reach: %s\n", can_reach.to_string ());
 				} catch (Error e) {
-					stdout.printf ("Error: %s\n", e.message);
+					print ("Error: %s\n", e.message);
 				}
 			});
 		}

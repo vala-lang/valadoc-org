@@ -3,11 +3,11 @@ public static int main (string[] args) {
 
 	// Output: ``Escaped ressource: "foo%2Fmy%20ressource.txt"``
 	string fragment = Uri.escape_string (ressource);
-	stdout.printf ("Escaped ressource: \"%s\"\n", fragment);
+	print ("Escaped ressource: \"%s\"\n", fragment);
 
 	// Output: ``Escaped ressource: "foo/my%20ressource.txt"``
 	fragment = Uri.escape_string (ressource, "/");
-	stdout.printf ("Escaped ressource: \"%s\"\n", fragment);
+	print ("Escaped ressource: \"%s\"\n", fragment);
 
 	return 0;
 }

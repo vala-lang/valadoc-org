@@ -27,15 +27,12 @@
 //
 
 
-using Gee;
-
-
 public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
-	private LinkedList<Package> unavailable_packages = new LinkedList<Package> ();
-	private HashMap<string, Package> packages_per_name = new HashMap<string, Package> ();
-	private Collection<Node> sections;
+	private Gee.LinkedList<Package> unavailable_packages = new Gee.LinkedList<Package> ();
+	private Gee.HashMap<string, Package> packages_per_name = new Gee.HashMap<string, Package> ();
+	private Gee.Collection<Node> sections;
 	private Regex markdown_img_regex;
-	private string global_wget_flags;
+	private string global_wget_flags = "--no-verbose";
 
 	private bool has_error = false;
 
@@ -100,7 +97,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private static string[] vapidirs;
 
 	public IndexGenerator (ErrorReporter reporter) {
-		this.global_wget_flags = wget_no_check_certificate? "--no-check-certificate" : "";
+		this.global_wget_flags += wget_no_check_certificate ? " --no-check-certificate" : "";
 		this.reporter = new ErrorReporter ();
 
 		// TODO: += is broken for LHS array_length = false
@@ -138,7 +135,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		{ null }
 	};
 
-	private void parse_metadata_package (Section section, MarkupReader reader, ref MarkupTokenType current_token, ref MarkupSourceLocation begin, ref MarkupSourceLocation end) {
+	private void parse_metadata_package (Section section, Vala.MarkupReader reader, ref Vala.MarkupTokenType current_token, ref Vala.SourceLocation begin, ref Vala.SourceLocation end) {
 		string start_tag = reader.name;
 		Package pkg = null;
 
@@ -183,7 +180,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		current_token = reader.read_token (out begin, out end);
 
-		if (current_token == MarkupTokenType.TEXT) {
+		if (current_token == Vala.MarkupTokenType.TEXT) {
 			if (pkg != null) {
 				pkg.description = Regex.split_simple ("[ |\t]*\n[ |\t]*\n[ |\t]*", reader.content.strip ());
 				try {
@@ -199,7 +196,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			current_token = reader.read_token (out begin, out end);
 		}
 
-		if (current_token != MarkupTokenType.END_ELEMENT || reader.name != start_tag) {
+		if (current_token != Vala.MarkupTokenType.END_ELEMENT || reader.name != start_tag) {
 			xml_error (reader, current_token, begin, end, "Expected: </%s> (got: %s '%s')".printf (start_tag, current_token.to_string (), reader.name));
 			return ;
 		}
@@ -207,7 +204,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		current_token = reader.read_token (out begin, out end);
 	}
 
-	private void parse_metadata_section (Section parent_section, MarkupReader reader, ref MarkupTokenType current_token, ref MarkupSourceLocation begin, ref MarkupSourceLocation end) {
+	private void parse_metadata_section (Section parent_section, Vala.MarkupReader reader, ref Vala.MarkupTokenType current_token, ref Vala.SourceLocation begin, ref Vala.SourceLocation end) {
 		string name = reader.get_attribute ("name");
 		if (name == null) {
 			xml_error (reader, current_token, begin, end, "Expected: <section name=\"...\"");
@@ -219,8 +216,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		current_token = reader.read_token (out begin, out end);
 
-		while (current_token != MarkupTokenType.END_ELEMENT && current_token != MarkupTokenType.EOF) {
-			if (current_token != MarkupTokenType.START_ELEMENT || !(reader.name == "package" || reader.name == "external-package" || reader.name == "section")) {
+		while (current_token != Vala.MarkupTokenType.END_ELEMENT && current_token != Vala.MarkupTokenType.EOF) {
+			if (current_token != Vala.MarkupTokenType.START_ELEMENT || !(reader.name == "package" || reader.name == "external-package" || reader.name == "section")) {
 				xml_error (reader, current_token, begin, end, "Expected: <section>|<package>|<external-package> (got: %s '%s')".printf (current_token.to_string (), reader.name));
 				return ;
 			}
@@ -234,7 +231,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 		}
 
-		if (current_token != MarkupTokenType.END_ELEMENT || reader.name != "section") {
+		if (current_token != Vala.MarkupTokenType.END_ELEMENT || reader.name != "section") {
 			xml_error (reader, current_token, begin, end, "error: Expected: </section> (got: %s '%s')".printf (current_token.to_string (), reader.name));
 			return ;
 		}
@@ -243,16 +240,16 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	}
 
 	private void load_metadata (string filename) {
-		MarkupReader reader = new MarkupReader (filename, reporter);
+		var reader = new Vala.MarkupReader (filename);
 
-		MarkupSourceLocation begin;
-		MarkupSourceLocation end;
+		Vala.SourceLocation begin;
+		Vala.SourceLocation end;
 
 		var current_token = reader.read_token (out begin, out end);
 		current_token = reader.read_token (out begin, out end);
 		current_token = reader.read_token (out begin, out end);
 
-		if (current_token != MarkupTokenType.START_ELEMENT || reader.name != "packages") {
+		if (current_token != Vala.MarkupTokenType.START_ELEMENT || reader.name != "packages") {
 			reporter.simple_error (null, "error: Expected: <packages>");
 			return ;
 		}
@@ -261,8 +258,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		Section section = new Section ("");
 
-		while (current_token != MarkupTokenType.END_ELEMENT && current_token != MarkupTokenType.EOF) {
-			if (current_token != MarkupTokenType.START_ELEMENT || reader.name != "section") {
+		while (current_token != Vala.MarkupTokenType.END_ELEMENT && current_token != Vala.MarkupTokenType.EOF) {
+			if (current_token != Vala.MarkupTokenType.START_ELEMENT || reader.name != "section") {
 				reporter.simple_error (null, "Expected: <section> (got: %s '%s')", current_token.to_string (), reader.name);
 				return ;
 			}
@@ -272,7 +269,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		this.sections = section.sections;
 
-		if (current_token != MarkupTokenType.END_ELEMENT || reader.name != "packages") {
+		if (current_token != Vala.MarkupTokenType.END_ELEMENT || reader.name != "packages") {
 			reporter.simple_error (null, "Expected: </packages> (got: %s '%s')", current_token.to_string (), reader.name);
 			return ;
 		}
@@ -284,15 +281,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 	private class Section : Node {
 		public string name;
-		public Collection<Package> packages = new ArrayList<Package> ();
-		public Collection<Section> sections = new ArrayList<Section> ();
+		public Gee.Collection<Package> packages = new Gee.ArrayList<Package> ();
+		public Gee.Collection<Section> sections = new Gee.ArrayList<Section> ();
 
 		public Section (string name) {
 			this.name = name;
 		}
 
-		public Collection<Package> sorted_package_list () {
-			ArrayList<Package> packages = new ArrayList<Package> ();
+		public Gee.Collection<Package> sorted_package_list () {
+			Gee.ArrayList<Package> packages = new Gee.ArrayList<Package> ();
 			packages.add_all (this.packages);
 			packages.sort ((a, b) => {
 				return ((Package) a).name.ascii_casecmp (((Package) b).name);
@@ -464,7 +461,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	}
 
 	private abstract class Renderer {
-		public abstract void render (string path, Collection<Node> sections);
+		public abstract void render (string path, Gee.Collection<Node> sections);
 		public abstract void render_section (Section section);
 		public abstract void render_package (Package pkg);
 		public abstract void render_external_package (ExternalPackage pkg);
@@ -488,8 +485,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
-	private ArrayList<Package> get_sorted_package_list () {
-		ArrayList<Package> packages = new ArrayList<Package> ();
+	private Gee.ArrayList<Package> get_sorted_package_list () {
+		Gee.ArrayList<Package> packages = new Gee.ArrayList<Package> ();
 		packages.add_all (packages_per_name.values);
 		packages.sort ((a, b) => {
 			return ((Package) a).name.ascii_casecmp (((Package) b).name);
@@ -500,12 +497,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 	private void generate_navigation (string path) {
 		GLib.FileStream file = GLib.FileStream.open (path, "w");
-		var writer = new Html.MarkupWriter (file);
+		var writer = new Html.MarkupWriter (file, false);
 
 		writer.start_tag ("div", {"class", "site_navigation"});
 		writer.start_tag ("ul");
 
-		ArrayList<Package> packages = get_sorted_package_list ();
+		Gee.ArrayList<Package> packages = get_sorted_package_list ();
 		foreach (Package pkg in packages) {
 			if (!pkg.is_local || regenerate_all_packages || pkg.name in requested_packages) {
 				if (pkg.is_local) {
@@ -527,9 +524,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		private Html.MarkupWriter writer;
 		private int header_level = HEADER_LEVEL_START;
 
-		public override void render (string path, Collection<Node> sections) {
+		public override void render (string path, Gee.Collection<Node> sections) {
 			GLib.FileStream file = GLib.FileStream.open (path, "w");
-			writer = new Html.MarkupWriter (file);
+			writer = new Html.MarkupWriter (file, false);
 
 			// Intro:
 			writer.start_tag ("h1").text ("Guides & References").end_tag ("h1");
@@ -562,7 +559,11 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.start_tag ("a", {"class", "video", "href", "https://www.youtube.com/watch?v=Eqa38B0GV6U", "target", "_blank"}).text ("Vala Language Introduction by Andre Masella").end_tag ("a");
 			writer.end_tag ("p");
 
-			writer.simple_tag ("hr/");
+			writer.start_tag ("p");
+			writer.start_tag ("a", {"class", "video", "href", "https://www.youtube.com/watch?v=vxvZGf69nko", "target", "_blank"}).text ("Creating elementary OS apps with GTK & Vala").end_tag ("a");
+			writer.end_tag ("p");
+
+			writer.simple_tag ("hr");
 			writer.start_tag ("h1").text ("Packages").end_tag ("h1");
 
 			writer.start_tag ("h2").text ("Submitting API-Bugs and Patches").end_tag ("h2");
@@ -622,7 +623,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 
 			if (pkg is ExternalPackage) {
-				writer.simple_tag ("img", {"src", "/images/external_link.svg"});
+				writer.simple_tag ("img", {"src", "/images/external_link.svg", "alt", "This valadoc is on another site"});
 			}
 
 			writer.start_tag ("div", {"class", "links"});
@@ -733,18 +734,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		print_stored_messages ();
 	}
 
-	private string get_index_name (string pkg_name) {
-		StringBuilder builder = new StringBuilder ();
-		for (unowned string pos = pkg_name; pos.get_char () != '\0'; pos = pos.next_char ()) {
-			unichar c = pos.get_char ();
-			if (('A' <= c <= 'Z') || ('a' <= c <= 'z') || ('0' <= c <= '9')) {
-				builder.append_unichar (c);
-			}
-		}
-
-		return builder.str;
-	}
-
 	public void generate_configs (string path) throws Error {
 		string constants_path = Path.build_filename (path, "constants.php");
 		string path_prefix = Path.build_filename (path, "prefix.conf");
@@ -753,7 +742,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		_prefix.printf ("%s", prefix);
 
 		var php = FileStream.open (constants_path, "w");
-		bool first = true;
 
     php.printf ("<?php\n");
     php.printf ("\t// Vala generated file. I'm sorry. Look at generator.vala line 752-ish\n\n");
@@ -773,7 +761,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	}
 
 	public void regenerate_packages (string[] packages) throws Error {
-		LinkedList<Package> queue = new LinkedList<Package> ();
+		Gee.LinkedList<Package> queue = new Gee.LinkedList<Package> ();
 
 		foreach (string pkg_name in packages) {
 			Package? pkg = packages_per_name.get (pkg_name);
@@ -962,7 +950,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		log = null;
 	}
 
-	private void collect_images (string content, HashSet<string> images, bool is_docbook) {
+	private void collect_images (string content, Gee.HashSet<string> images, bool is_docbook) {
 		if (is_docbook) {
 			// Docbook:
 			Gtkdoc.Scanner scanner = new Gtkdoc.Scanner ();
@@ -1020,25 +1008,25 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 		}
 
-		HashMap<string, string> images = new HashMap<string, string> ();
+		Gee.HashMap<string, string> images = new Gee.HashMap<string, string> ();
 
-		var markup_reader = new Valadoc.MarkupReader ("tmp/c-gallery.html", reporter);
-		MarkupTokenType token = MarkupTokenType.START_ELEMENT;
-		MarkupSourceLocation token_begin;
-		MarkupSourceLocation token_end;
+		var markup_reader = new Vala.MarkupReader ("tmp/c-gallery.html");
+		Vala.MarkupTokenType token = Vala.MarkupTokenType.START_ELEMENT;
+		Vala.SourceLocation token_begin;
+		Vala.SourceLocation token_end;
 
 		token = markup_reader.read_token (out token_begin, out token_end);
-		while (token != MarkupTokenType.EOF) {
-			if (token == MarkupTokenType.START_ELEMENT && markup_reader.name == "div" && markup_reader.get_attribute ("class") == "gallery-float") {
+		while (token != Vala.MarkupTokenType.EOF) {
+			if (token == Vala.MarkupTokenType.START_ELEMENT && markup_reader.name == "div" && markup_reader.get_attribute ("class") == "gallery-float") {
 				string? widget = null;
 				string? img = null;
 
 				token = markup_reader.read_token (out token_begin, out token_end);
-				if (token == MarkupTokenType.START_ELEMENT && markup_reader.name == "a") {
+				if (token == Vala.MarkupTokenType.START_ELEMENT && markup_reader.name == "a") {
 					widget = markup_reader.get_attribute ("title");
 
 					token = markup_reader.read_token (out token_begin, out token_end);
-					if (token == MarkupTokenType.START_ELEMENT && markup_reader.name == "img") {
+					if (token == Vala.MarkupTokenType.START_ELEMENT && markup_reader.name == "img") {
 						img = markup_reader.get_attribute ("src");
 						images.set (widget, img);
 					} else {
@@ -1221,23 +1209,23 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		stdout.printf ("  download images (gir) ...\n");
 
-		var markup_reader = new Valadoc.MarkupReader (gir_path, reporter);
-		MarkupTokenType token = MarkupTokenType.EOF;
-		MarkupSourceLocation token_begin;
-		MarkupSourceLocation token_end;
+		var markup_reader = new Vala.MarkupReader (gir_path);
+		var token = Vala.MarkupTokenType.EOF;
+		Vala.SourceLocation token_begin;
+		Vala.SourceLocation token_end;
 
-		HashSet<string> images = new HashSet<string> ();
+		Gee.HashSet<string> images = new Gee.HashSet<string> ();
 
 		do {
 			token = markup_reader.read_token (out token_begin, out token_end);
 
-			if (token == MarkupTokenType.START_ELEMENT && markup_reader.name == "doc") {
+			if (token == Vala.MarkupTokenType.START_ELEMENT && markup_reader.name == "doc") {
 				token = markup_reader.read_token (out token_begin, out token_end);
-				if (token == MarkupTokenType.TEXT) {
+				if (token == Vala.MarkupTokenType.TEXT) {
 					this.collect_images (markup_reader.content, images, pkg.is_docbook);
 				}
 			}
-		} while (token != MarkupTokenType.EOF);
+		} while (token != Vala.MarkupTokenType.EOF);
 
 		foreach (string image_name in images) {
 			if (!FileUtils.test ("documentation/%s/gir-images/%s".printf (pkg.name, image_name), FileTest.EXISTS)) {
@@ -1305,11 +1293,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return -1;
 		}
 
-		if (FileUtils.test (metadata_path, FileTest.IS_REGULAR)) {
-			stdout.printf ("error: %s does not exist.\n", metadata_path);
-			return -1;
-		}
-
 		if (FileUtils.test ("tmp", FileTest.IS_DIR)) {
 			stdout.printf ("error: tmp already exist.\n");
 			return -1;
@@ -1329,9 +1312,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return -1;
 		}
 
-		if (metadata_path == null) {
-			metadata_path = "documentation/packages.xml";
-		}
+		metadata_path = "documentation/packages.xml";
 
 		if (docletpath == null) {
 			docletpath = ".";
@@ -1405,8 +1386,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	//					  reader.get_line_content (begin.line), message);
 	//}
 
-	private void xml_error (MarkupReader reader, MarkupTokenType current_token, MarkupSourceLocation begin, MarkupSourceLocation end, string message) {
+	private void xml_error (Vala.MarkupReader reader, Vala.MarkupTokenType current_token, Vala.SourceLocation begin, Vala.SourceLocation end, string message) {
 		reporter.error (reader.filename, begin.line, begin.column, end.column,
-						reader.get_line_content (begin.line), message);
+						"", message);
 	}
 }

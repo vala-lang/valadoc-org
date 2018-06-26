@@ -34,10 +34,10 @@ public static int main (string[] args) {
 	int max = nrows*ncols + ncols;
 	for (int i = 0; i < max; i = i + ncols) {
 		for (int x = 0; x < ncols; x++) {
-			stdout.puts (res[i + x]);
-			stdout.putc ('\t');
+			print (res[i + x]);
+			print ("\t");
 		}
-		stdout.putc ('\n');
+		print ("\n");
 	}
 
 

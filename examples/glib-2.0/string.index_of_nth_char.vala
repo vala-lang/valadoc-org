@@ -12,7 +12,7 @@ static int main (string[] args) {
 	string wisdom = "楽あれば苦あり。";
 	for (int i = 0; i < 8; i++) {
 		int bpos = wisdom.index_of_nth_char (i);
-		stdout.printf ("symbol: %d\tbyte-offset: %d:\t%s\n", i, bpos, wisdom.get_char (bpos).to_string ());
+		print ("symbol: %d\tbyte-offset: %d:\t%s\n", i, bpos, wisdom.get_char (bpos).to_string ());
 	}
 
 	return 0;

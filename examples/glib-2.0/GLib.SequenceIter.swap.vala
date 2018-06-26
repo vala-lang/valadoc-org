@@ -17,7 +17,7 @@ public static int main (string[] args) {
 	//  ``sit``		(amet)
 	//  ``amet``	(sit)
 	seq.foreach ((item) => {
-		stdout.printf ("%s\n", item);
+		print ("%s\n", item);
 	});
 
 	return 0;

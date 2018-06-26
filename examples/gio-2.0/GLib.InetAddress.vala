@@ -7,9 +7,9 @@ public static int main (string[] args) {
 	try {
 		// Output: ``wikipedia-lb.pmtpa.wikimedia.org`` (Wed Oct 24, 20012)
 		string hostname = resolver.lookup_by_address (address1, null);
-		stdout.printf ("host: %s\n", hostname);
+		print ("host: %s\n", hostname);
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 
@@ -19,9 +19,9 @@ public static int main (string[] args) {
 	try {
 		// Output: ``wikipedia-lb.pmtpa.wikimedia.org`` (Wed Oct 24, 20012)
 		string hostname = resolver.lookup_by_address (address2, null);
-		stdout.printf ("host: %s\n", hostname);
+		print ("host: %s\n", hostname);
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 
@@ -43,9 +43,9 @@ public static int main (string[] args) {
 		// Receive response
 		DataInputStream response = new DataInputStream (conn.input_stream);
 		string status_line = response.read_line (null).strip ();
-		stdout.printf ("Received status line: %s\n", status_line);
+		print ("Received status line: %s\n", status_line);
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

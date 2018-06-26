@@ -6,7 +6,7 @@ public static int main (string[] args) {
 
 	// Output: ``value=val2``
 	string val = tree.lookup ("key2");
-	stdout.printf ("value=%s\n", val);
+	print ("value=%s\n", val);
 
 	return 0;
 }

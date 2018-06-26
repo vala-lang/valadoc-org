@@ -10,8 +10,8 @@ public static int main (string[] args) {
 
 		// Deserialization:
 		Variant variant = Json.gvariant_deserialize (node, null);
-		stdout.printf (variant.print (true));
-		stdout.putc ('\n');
+		print (variant.print (true));
+		print ("\n");
 	} catch (Error e) {
 		assert_not_reached ();
 	}

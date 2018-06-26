@@ -42,40 +42,40 @@ public class Main : Object {
 			opt_context.add_main_entries (options, null);
 			opt_context.parse (ref args);
 		} catch (OptionError e) {
-			stdout.printf ("error: %s\n", e.message);
-			stdout.printf ("Run '%s --help' to see a full list of available command line options.\n", args[0]);
+			print ("error: %s\n", e.message);
+			print ("Run '%s --help' to see a full list of available command line options.\n", args[0]);
 			return 0;
 		}
 
 		if (version) {
-			stdout.printf ("Test 0.1\n");
+			print ("Test 0.1\n");
 			return 0;
 		}
 
 
-		stdout.puts ("Paths:\n");
-		stdout.printf (" directory: \"%s\"\n", directory);
-		stdout.puts (" importdir: ");
+		print ("Paths:\n");
+		print (@" directory: '$directory'\n");
+		print (" importdir: ");
 		foreach (string str in importdirs) {
-			stdout.printf ("\"%s\" ", str);
+			print (@"'$str' ");
 		}
-		stdout.puts ("\n\n");
+		print ("\n\n");
 
 
-		stdout.puts ("Strings:\n");
-		stdout.printf (" driver: \"%s\"\n", driver);
-		stdout.puts (" import: ");
+		print ("Strings:\n");
+		print (@" driver: '$driver'\n");
+		print (" import: ");
 		foreach (string str in import_packages) {
-			stdout.printf ("\"%s\" ", str);
+			print (@"'$str' ");
 		}
-		stdout.puts ("\n\n");
+		print ("\n\n");
 
 
-		stdout.puts ("Numeric:\n");
-		stdout.printf (" double:  %f\n", numd);
-		stdout.printf (" int64:   %" + int64.FORMAT + "\n", numi64);
-		stdout.printf (" int:     %d\n", numi);
-		stdout.printf (" version: %s\n", version.to_string ());
+		print ("Numeric:\n");
+		print (@" double:  $numd\n");
+		print (" int64:   %" + int64.FORMAT + "\n", numi64);
+		print (@" int:     $numi\n");
+		print (@" version: $version\n");
 
 		// Help:
 		//  ``Usage:``

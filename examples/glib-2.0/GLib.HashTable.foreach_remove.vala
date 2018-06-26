@@ -9,12 +9,12 @@ public static int main (string[] args) {
 	//  ``2 => second string``
 	//  ``3 => third string``
 	table.foreach_remove ((key, val) => {
-		stdout.printf ("%d => %s\n", key, val);
+		print ("%d => %s\n", key, val);
 		return true; // remove current item!
 	});
 
 	// Output: ``Size: 0``
-	stdout.printf ("Size: %u\n", table.size ());
+	print ("Size: %u\n", table.size ());
 
 	return 0;
 }

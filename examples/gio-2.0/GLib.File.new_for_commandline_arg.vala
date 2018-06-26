@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	if (args.length != 2) {
-		stdout.printf ("%s [FILE]\n", args[0]);
+		print ("%s [FILE]\n", args[0]);
 		return 0;
 	}
 
@@ -9,9 +9,9 @@ public static int main (string[] args) {
 	try {
 		FileOutputStream os = file.create (FileCreateFlags.PRIVATE);
 		os.write ("My first line\n".data);
-		stdout.printf ("Created.\n");
+		print ("Created.\n");
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 
 	return 0;

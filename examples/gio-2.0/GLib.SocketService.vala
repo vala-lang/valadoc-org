@@ -14,7 +14,7 @@ public async void worker_func (SocketConnection connection, Source source, Cance
 		// Get the received message:
 		string message = yield istream.read_line_async (Priority.DEFAULT, cancellable);
 		message._strip ();
-		stdout.printf ("Received: %s\n", message);
+		print ("Received: %s\n", message);
 
 		// Response:
 		ostream.put_string (message, cancellable);
@@ -24,7 +24,7 @@ public async void worker_func (SocketConnection connection, Source source, Cance
 			cancellable.cancel ();
 		}
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 }
 
@@ -50,7 +50,7 @@ public static int main (string[] args) {
 		service.incoming.connect ((connection, source_object) => {
 			Source source = source_object as Source;
 
-			stdout.printf ("Accepted! (Source: %d)\n", source.port);
+			print ("Accepted! (Source: %d)\n", source.port);
 			worker_func.begin (connection, source, cancellable);
 			return false;
 		});
@@ -58,7 +58,7 @@ public static int main (string[] args) {
 		service.start ();
 		loop.run ();
 	} catch (Error e) {
-		stdout.printf ("Error: %s\n", e.message);
+		print ("Error: %s\n", e.message);
 	}
 	return 0;
 }

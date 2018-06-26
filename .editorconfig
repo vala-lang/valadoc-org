@@ -12,3 +12,6 @@ indent_size = 4
 
 [*.css]
 indent_size = 4
+
+[*.vala]
+indent_size = 4

@@ -7,6 +7,6 @@ public static int main (string[] args) {
 
 	// md5 (md5 (password) + salt) = ce48e145cb9fdcaf6ba2f63afc262d14
 	hash = GLib.Checksum.compute_for_string (ChecksumType.MD5, hash + salt);
-	stdout.printf ("Hash: %s\n", hash);
+	print ("Hash: %s\n", hash);
 	return 0;
 }

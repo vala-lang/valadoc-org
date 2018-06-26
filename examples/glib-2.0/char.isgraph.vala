@@ -9,9 +9,9 @@ public static int main (string[] args) {
 	string str = "\thello,\nworld !";
 	for (int i = 0; str[i] != '\0'; i++) {
 		if (str[i].isgraph ()) {
-			stdout.putc (str[i]);
+			print (@"$(str[i])");
 		}
 	}
-	stdout.putc ('\n');
+	print ("\n");
 	return 0;
 }

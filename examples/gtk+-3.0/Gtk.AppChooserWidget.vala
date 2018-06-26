@@ -2,9 +2,9 @@ public class Application : Gtk.Window {
 	private void print_selection (string title, Gtk.AppChooserWidget widget) {
 		AppInfo info = widget.get_app_info ();
 		if (info != null) {
-			stdout.printf ("%s:\n", title);
-			stdout.printf (" Name: %s\n", info.get_display_name ());
-			stdout.printf (" Desc: %s\n", info.get_description ());
+			print ("%s:\n", title);
+			print (" Name: %s\n", info.get_display_name ());
+			print (" Desc: %s\n", info.get_description ());
 		}
 	}
 

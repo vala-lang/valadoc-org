@@ -2,13 +2,13 @@ public static int main (string[] args) {
 	MainLoop loop = new MainLoop ();
 
 
-	stdout.puts ("URL: ");
+	print ("URL: ");
 	string url = stdin.read_line ();
 
-	stdout.puts ("Username: ");
+	print ("Username: ");
 	string username = stdin.read_line ();
 
-	stdout.puts ("Password: ");
+	print ("Password: ");
 	string passwd = stdin.read_line ();
 
 
@@ -18,12 +18,12 @@ public static int main (string[] args) {
 	// Register authentication handler:
 	session.authenticate.connect ((msg, auth, retrying) => {
 		if (retrying == false) {
-			stdout.printf ("Start authetnication:\n");
+			print ("Start authetnication:\n");
 
 			// Simulate asynchronous input / time consuming operations:
 			// See GLib.IOSchedulerJob for time consuming operations
 			Timeout.add_seconds (10, () => {
-				stdout.puts ("Authentication\n");
+				print ("Authentication\n");
 				auth.authenticate (username, passwd);
 
 				// Resumes HTTP I/O on msg:
@@ -39,13 +39,13 @@ public static int main (string[] args) {
 	// Send a request:
 	Soup.Message msg = new Soup.Message ("GET", url);
 	if (msg == null) {
-		stdout.printf ("Invalid URL\n");
+		print ("Invalid URL\n");
 		return 0;
 	}
 
 	session.queue_message (msg, (sess, mess) => {
 		// Process the result:
-		stdout.printf ("Status Code: %u\n", mess.status_code);
+		print ("Status Code: %u\n", mess.status_code);
 		loop.quit ();
 	});
 

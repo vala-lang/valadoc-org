@@ -3,6 +3,6 @@ public static int main (string[] args) {
 
 	// Output: ``Uri scheme: http``
 	string scheme = Uri.parse_scheme (uri);
-	stdout.printf ("Uri scheme: %s\n", scheme);
+	print ("Uri scheme: %s\n", scheme);
 	return 0;
 }

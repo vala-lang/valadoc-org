@@ -18,8 +18,8 @@ public static int main (string[] args) {
 	MyObject obj = new MyObject ("my string", MyEnum.FOOBAR, 10);
 
 	string data = Json.gobject_to_data (obj, null);
-	stdout.puts (data);
-	stdout.putc ('\n');
+	print (data);
+	print ("\n");
 
 	// Output:
 	//  ``{``

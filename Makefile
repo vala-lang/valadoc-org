@@ -1,12 +1,12 @@
 VALAC = valac
 VALAC_VERSION := $(shell vala --api-version | awk -F. '{ print "0."$$2 }')
-VALAFLAGS = -X -w
+VALAFLAGS = -g -X -w
 PREFIX = "stable"
 
 gee-version = 0.18.1
 gee-pc-version = 0.8
 
-default: app generator libdoclet.so update-girs configgen valadoc-example-gen valadoc-example-tester
+default: generator libdoclet.so update-girs configgen valadoc-example-gen valadoc-example-tester
 
 datadir := $(shell dirname $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))
 
@@ -25,7 +25,6 @@ clean:
 	$(RM) valadoc-example-gen
 	$(RM) configgen
 	$(RM) generator
-	$(RM) app
 	$(RM) -r extra-vapis
 	$(RM) -r girs
 	$(RM) -r tmp
@@ -41,7 +40,7 @@ valadoc-example-tester: src/valadoc-example-parser.vala src/valadoc-example-test
 	$(VALAC) $(VALAFLAGS) -o $@ $^
 
 
-DOCLET_DEPS = gee-0.8 valadoc-1.0
+DOCLET_DEPS = gee-0.8 valadoc-$(VALAC_VERSION)
 DOCLET_VALAFLAGS := $(patsubst %,--pkg=%,$(DOCLET_DEPS))
 DOCLET_CFLAGS := $(shell pkg-config --cflags --libs $(DOCLET_DEPS)) -shared -fPIC -w
 
@@ -51,7 +50,7 @@ libdoclet.so: src/doclet.vala src/linkhelper.vala
 	$(RM) $(patsubst %.vala,%.c,$^)
 
 
-GENERATOR_DEPS = gee-0.8 valadoc-1.0 gio-2.0
+GENERATOR_DEPS = gee-0.8 valadoc-$(VALAC_VERSION) gio-2.0
 GENERATOR_VALAFLAGS := $(patsubst %,--pkg=%,$(GENERATOR_DEPS)) --enable-experimental
 
 generator: src/doclet.vala src/linkhelper.vala src/generator.vala
@@ -141,8 +140,8 @@ test-examples: valadoc-example-tester
 # Run a local webserver serving valadoc.org
 #
 
-serve: default build-docs build-data
-	./build/src/valadoc-app --address=0.0.0.0:7777
-serve-mini: default build-docs-mini build-data
+serve: build-docs build-data
 	./build/src/valadoc-app --address=0.0.0.0:7777
 
+serve-mini: build-docs-mini build-data
+	./build/src/valadoc-app --address=0.0.0.0:7777

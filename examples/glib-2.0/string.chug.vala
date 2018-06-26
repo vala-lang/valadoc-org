@@ -5,8 +5,8 @@ public static int main (string[] args) {
 	// Output:
 	//   ``'  	 I'll kill him with this deadly jelly baby!  '``
 	//   ``'I'll kill him with this deadly jelly baby!  '``
-	stdout.printf ("'%s'\n", my_wisdom);
-	stdout.printf ("'%s'\n", res);
+	print ("'%s'\n", my_wisdom);
+	print ("'%s'\n", res);
 
 	return 0;
 }

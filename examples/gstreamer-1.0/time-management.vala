@@ -35,13 +35,13 @@ public class Main {
 			string debug_info;
 
 			msg.parse_error (out err, out debug_info);
-			stdout.printf ("Error received from element %s: %s\n", msg.src.name, err.message);
-			stdout.printf ("Debugging information: %s\n", (debug_info != null)? debug_info : "none");
+			print ("Error received from element %s: %s\n", msg.src.name, err.message);
+			print ("Debugging information: %s\n", (debug_info != null)? debug_info : "none");
 			this.terminate = true;
 			break;
 
 		case Gst.MessageType.EOS:
-			stdout.puts ("End-Of-Stream reached.\n");
+			print ("End-Of-Stream reached.\n");
 			this.terminate = true;
 			break;
 
@@ -57,13 +57,13 @@ public class Main {
 
 			msg.parse_state_changed (out old_state, out new_state, out pending_state);
 			if (msg.src == this.playbin2) {
-				stdout.printf ("Pipeline state changed from %s to %s:\n",
+				print ("Pipeline state changed from %s to %s:\n",
 					Gst.Element.state_get_name (old_state),
 					Gst.Element.state_get_name (new_state));
 
 				// Remember whether we are in the PLAYING state or not:
 				this.playing = (new_state == Gst.State.PLAYING);
-					 
+
 				if (this.playing) {
 					// We just moved to PLAYING. Check if seeking is possible:
 					Gst.Query query = new Gst.Query.seeking (Gst.Format.TIME);
@@ -74,14 +74,14 @@ public class Main {
 						query.parse_seeking (null, out this.seek_enabled, out start, out end);
 						if (this.seek_enabled) {
 							// GST_TIME_ARGS isn't available (Tue Aug 20, 2013)
-							//stdout.printf ("Seeking is ENABLED from %" GST_TIME_FORMAT " to %" GST_TIME_FORMAT "\n",
+							//print ("Seeking is ENABLED from %" GST_TIME_FORMAT " to %" GST_TIME_FORMAT "\n",
 							//		GST_TIME_ARGS (start), GST_TIME_ARGS (end));
-							stdout.printf ("Seeking is ENABLED from %" + int64.FORMAT + " to %" + int64.FORMAT + "\n", start, end);
+							print ("Seeking is ENABLED from %" + int64.FORMAT + " to %" + int64.FORMAT + "\n", start, end);
 						} else {
-							stdout.puts ("Seeking is DISABLED for this stream.\n");
+							print ("Seeking is DISABLED for this stream.\n");
 						}
 					} else {
-						stdout.puts ("Seeking query failed.\n");
+						print ("Seeking query failed.\n");
 					}
 				}
 			}
@@ -106,7 +106,7 @@ public class Main {
 		this.playbin2 = Gst.ElementFactory.make ("playbin", "playbin");
 
 		if (this.playbin2 == null) {
-			stdout.puts ("Not all elements could be created.\n");
+			print ("Not all elements could be created.\n");
 			return -1;
 		}
 
@@ -140,7 +140,7 @@ public class Main {
 					if (!this.playbin2.query_position (fmt, out current)) {
 						stderr.puts ("Could not query current position.\n");
 					}
-					 
+
 					// If we didn't know it yet, query the stream duration:
 					if (!GST_CLOCK_TIME_IS_VALID (this.duration)) {
 						if (!this.playbin2.query_duration (fmt, out this.duration)) {
@@ -150,14 +150,14 @@ public class Main {
 
 					// Print current position and total duration:
 					// GST_TIME_ARGS isn't available (Tue Aug 20, 2013)
-					// stdout.printf ("Position %" + Gst.TIME_FORMAT + " / %" + Gst.TIME_FORMAT + "\r",
+					// print ("Position %" + Gst.TIME_FORMAT + " / %" + Gst.TIME_FORMAT + "\r",
 					//  GST_TIME_ARGS (current), GST_TIME_ARGS (this.duration));
-					stdout.printf ("Position %" + int64.FORMAT + " / %" + int64.FORMAT + "\r",
+					print ("Position %" + int64.FORMAT + " / %" + int64.FORMAT + "\r",
 						current, this.duration);
 
 					// If seeking is enabled, we have not done it yet, and the time is right, seek:
 					if (this.seek_enabled && !this.seek_done && current > 10 * Gst.SECOND) {
-						stdout.puts ("\nReached 10s, performing seek...\n");
+						print ("\nReached 10s, performing seek...\n");
 						this.playbin2.seek_simple (Gst.Format.TIME, Gst.SeekFlags.FLUSH | Gst.SeekFlags.KEY_UNIT, 30 * Gst.SECOND);
 						this.seek_done = true;
 					}

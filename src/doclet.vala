@@ -20,12 +20,6 @@
  * 	Florian Brosch <flo.brosch@gmail.com>
  */
 
-using Valadoc;
-using Valadoc.Api;
-using Valadoc.Html;
-using Gee;
-
-
 public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 	public const string css_path_package = "styles/main.css";
 	public const string css_path_wiki = "../styles/main.css";
@@ -164,7 +158,7 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		string basic_path = Path.build_filename(contentp, page.name.substring (0, page.name.length-7).replace ("/", ".")+"htm");
 
 		GLib.FileStream file = GLib.FileStream.open (basic_path + ".content.tpl", "w");
-		writer = new Html.MarkupWriter (file);
+		writer = new Html.MarkupWriter (file, false);
 		_renderer.set_writer (writer);
 
 		_renderer.set_container (page);
@@ -182,8 +176,8 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		base.process (settings, tree, reporter);
 
 		this.linker = new ValadocOrgLinkHelper ();
-		_renderer = new HtmlRenderer (settings, this.linker, this.cssresolver);
-		this.image_factory = new SimpleChartFactory (settings, linker);
+		_renderer = new Html.HtmlRenderer (settings, this.linker, this.cssresolver);
+		this.image_factory = new Html.SimpleChartFactory (settings, linker);
 
 		DirUtils.create_with_parents (this.settings.path, 0777);
 
@@ -195,7 +189,7 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		tree.accept_children (this);
 	}
 
-	public override void visit_package (Package package) {
+	public override void visit_package (Api.Package package) {
 		if (!package.is_browsable (settings)) {
 			return ;
 		}
@@ -220,12 +214,12 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		register_package_start (package, index_path);
 
 		GLib.FileStream file = GLib.FileStream.open (index_path + ".navi.tpl", "w");
-		writer = new Html.MarkupWriter (file);
+		writer = new Html.MarkupWriter (file, false);
 		_renderer.set_writer (writer);
 		write_navi_package (package);
 
 		file = GLib.FileStream.open (index_path + ".content.tpl", "w");
-		writer = new Html.MarkupWriter (file);
+		writer = new Html.MarkupWriter (file, false);
 		_renderer.set_writer (writer);
 		write_package_content (package, package);
 
@@ -235,19 +229,19 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		register_package_end (package, index_path);
 	}
 
-	public override void visit_namespace (Namespace ns) {
+	public override void visit_namespace (Api.Namespace ns) {
 		string rpath = this.get_real_path (ns);
 
 		if (ns.name != null) {
 			register_node (ns);
 
 			GLib.FileStream file = GLib.FileStream.open (rpath + ".navi.tpl", "w");
-			writer = new Html.MarkupWriter (file);
+			writer = new Html.MarkupWriter (file, false);
 			_renderer.set_writer (writer);
 			write_navi_symbol (ns);
 
 			file = GLib.FileStream.open (rpath + ".content.tpl", "w");
-			writer = new Html.MarkupWriter (file);
+			writer = new Html.MarkupWriter (file, false);
 			_renderer.set_writer (writer);
 			write_namespace_content (ns, ns);
 		}
@@ -261,7 +255,7 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 
 
 		GLib.FileStream file = GLib.FileStream.open (rpath + ".navi.tpl", "w");
-		writer = new Html.MarkupWriter (file);
+		writer = new Html.MarkupWriter (file, false);
 		_renderer.set_writer (writer);
 
 		if (is_internal_node (node)) {
@@ -272,7 +266,7 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 
 
 		file = GLib.FileStream.open (rpath + ".content.tpl", "w");
-		writer = new Html.MarkupWriter (file);
+		writer = new Html.MarkupWriter (file, false);
 		_renderer.set_writer (writer);
 		write_symbol_content (node);
 
@@ -282,7 +276,7 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		}
 	}
 
-	public override void visit_interface (Interface item) {
+	public override void visit_interface (Api.Interface item) {
 		process_node (item, true);
 	}
 

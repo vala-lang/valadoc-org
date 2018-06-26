@@ -4,9 +4,9 @@ public static int main (string[] args) {
 	// Check if a particular file exists:
 	bool tmp = file.query_exists ();
 	if (tmp == true) {
-		stdout.printf ("File exists\n");
+		print ("File exists\n");
 	} else {
-		stdout.printf ("File does not exist\n");
+		print ("File does not exist\n");
 	}
 
 	return 0;

@@ -6,11 +6,11 @@ public static int main (string[] args) {
 
 	// Output: ``valid index: 2``
 	int i = list.index (3);
-	stdout.printf ("valid index: %d\n", i);
+	print ("valid index: %d\n", i);
 
 	// Output: ``valid index: -1``
 	i = list.index (4);
-	stdout.printf ("valid index: %d\n", i);
+	print ("valid index: %d\n", i);
 
 	return 0;
 }

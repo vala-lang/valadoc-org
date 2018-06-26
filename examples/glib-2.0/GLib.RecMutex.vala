@@ -1,6 +1,6 @@
 public static int main (string[] args) {
 	if (Thread.supported () == false) {
-		stdout.printf ("Threads are not supported.\n");
+		print ("Threads are not supported.\n");
 		return 0;
 	}
 
@@ -18,7 +18,7 @@ public static int main (string[] args) {
 		// RecMutex allows us to nest critical section without deadlock.
 		mutex.lock ();
 		int tmp = shared;
-		stdout.printf ("%s=%d\n", name, tmp);
+		print ("%s=%d\n", name, tmp);
 		shared++;
 		mutex.unlock ();
 		// Leave the critical section

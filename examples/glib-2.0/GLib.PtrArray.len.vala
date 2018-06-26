@@ -5,6 +5,6 @@ public static int main (string[] args) {
 	array.add ("third entry");
 
 	// Output: ``3``
-	stdout.printf ("%u\n", array.len);
+	print ("%u\n", array.len);
 	return 0;
 }

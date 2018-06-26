@@ -12,7 +12,7 @@ public class Calculation : Object {
 
 public static int main (string[] args) {
 	if (Thread.supported () == false) {
-		stdout.printf ("Threads are not supported.\n");
+		print ("Threads are not supported.\n");
 		return 0;
 	}
 
@@ -23,19 +23,19 @@ public static int main (string[] args) {
 			Calculation calc = jobs.pop ();
 			switch (calc.op) {
 			case '+':
-				stdout.printf ("Thread %p: %d + %d = %d\n", Thread<bool>.self<bool> (), calc.a, calc.b, calc.a + calc.b);
+				print ("Thread %p: %d + %d = %d\n", Thread<bool>.self<bool> (), calc.a, calc.b, calc.a + calc.b);
 				break;
 
 			case '-':
-				stdout.printf ("Thread %p: %d - %d = %d\n", Thread<bool>.self<bool> (), calc.a, calc.b, calc.a - calc.b);
+				print ("Thread %p: %d - %d = %d\n", Thread<bool>.self<bool> (), calc.a, calc.b, calc.a - calc.b);
 				break;
 
 			case '*':
-				stdout.printf ("Thread %p: %d * %d = %d\n", Thread<bool>.self<bool> (), calc.a, calc.b, calc.a * calc.b);
+				print ("Thread %p: %d * %d = %d\n", Thread<bool>.self<bool> (), calc.a, calc.b, calc.a * calc.b);
 				break;
 
 			case '/':
-				stdout.printf ("Thread %p: %d / %d = %d\n", Thread<bool>.self<bool> (), calc.a, calc.b, calc.a / calc.b);
+				print ("Thread %p: %d / %d = %d\n", Thread<bool>.self<bool> (), calc.a, calc.b, calc.a / calc.b);
 				break;
 
 			case '\0':
@@ -52,7 +52,7 @@ public static int main (string[] args) {
 	Thread<bool> thread2 = new Thread<bool> ("thread-2", worker_func);
 
 	while (true) {
-		stdout.puts ("Operator: (+,-,*,/, exit)\n");
+		print ("Operator: (+,-,*,/, exit)\n");
 		string line = stdin.read_line ()._strip ();
 
 		if (line == "exit") {
@@ -68,13 +68,13 @@ public static int main (string[] args) {
 		case "-": op = '-'; break;
 		case "*": op = '*'; break;
 		case "/": op = '/'; break;
-		default: stdout.printf ("Invalid operator\n"); continue;
+		default: print ("Invalid operator\n"); continue;
 		}
 
-		stdout.puts ("Value 1:\n");
+		print ("Value 1:\n");
 		a = int.parse (stdin.read_line ()._strip ());
 
-		stdout.puts ("Value 2:\n");
+		print ("Value 2:\n");
 		b = int.parse (stdin.read_line ()._strip ());
 
 		jobs.push (new Calculation (op, a, b));
@@ -88,4 +88,3 @@ public static int main (string[] args) {
 	jobs = null;
 	return 0;
 }
-

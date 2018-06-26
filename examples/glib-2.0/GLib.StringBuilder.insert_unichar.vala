@@ -3,6 +3,6 @@ public static int main (string[] args) {
 	StringBuilder builder = new StringBuilder ("hello world\n");
 	builder.insert_unichar (5, ',');
 	builder.insert_unichar (12, '!');
-	stdout.puts (builder.str);
+	print (builder.str);
 	return 0;
 }

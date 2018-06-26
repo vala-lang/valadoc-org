@@ -7,15 +7,15 @@ public static int main (string[] args) {
 
 	switch (status) {
 	case Soup.Status.OK:
-		stdout.printf ("Resolved! %s\n", address.get_physical ());
+		print ("Resolved! %s\n", address.get_physical ());
 		break;
 
 	case Soup.Status.CANT_RESOLVE:
-		stdout.printf ("Error: Unable to resolve destination host name.\n");
+		print ("Error: Unable to resolve destination host name.\n");
 		break;
 
 	case Soup.Status.CANCELLED:
-		stdout.printf ("Error: Message was cancelled locally.\n");
+		print ("Error: Message was cancelled locally.\n");
 		break;
 
 	default:

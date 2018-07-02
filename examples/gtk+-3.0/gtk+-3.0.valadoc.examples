@@ -98,6 +98,14 @@
 		<node>Gtk.ButtonBox</node>
 	</example>
 	<example>
+		<title>Builder</title>
+		<file>Gtk.Builder.ui</file>
+		<file>Gtk.Builder.xml</file>
+		<file>Gtk.Builder.vala</file>
+		<compile>glib-compile-resources Gtk.Builder.xml --generate-source --target=Gtk.Builder.Resource.c && valac --pkg gtk+-3.0 Gtk.Builder.vala Gtk.Builder.Resource.c --gresources=Gtk.Builder.xml</compile>
+		<node>Gtk.Builder</node>
+	</example>
+	<example>
 		<title>Calendar</title>
 		<image>example-Gtk.Calendar.png</image>
 		<file>Gtk.Calendar.vala</file>

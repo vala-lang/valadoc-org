@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <!-- interface-requires gtk+ 3.8 -->
+  <template class="BarWindow" parent="GtkWindow">
+    <signal name="destroy" handler="gtk_main_quit"/>
+    <child>
+      <object class="GtkGrid">
+        <property name="visible">true</property>
+        <property name="margin">12</property>
+        <property name="row_spacing">6</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">true</property>
+            <property name="expand">true</property>
+            <property name="label" translatable="yes">My first label</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="entry">
+            <property name="visible">true</property>
+            <property name="can_focus">true</property>
+            <signal name="changed" handler="entry_changed" object="BarWindow" swapped="no"/>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">true</property>
+            <property name="expand">true</property>
+            <property name="label" translatable="yes">My second label</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button">
+            <property name="label" translatable="yes">button</property>
+            <property name="visible">true</property>
+            <property name="can_focus">true</property>
+            <property name="receives_default">true</property>
+            <signal name="clicked" handler="button_clicked" object="BarWindow" swapped="no"/>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">3</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

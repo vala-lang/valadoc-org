@@ -21,12 +21,10 @@ public class BarWindow : Gtk.Window {
 	}
 }
 
-public static int main (string[] args) {
+public static void main (string[] args) {
 	Gtk.init (ref args);
 
 	var app = new BarWindow ();
 	app.show_all ();
 	Gtk.main ();
-
-	return 0;
 }

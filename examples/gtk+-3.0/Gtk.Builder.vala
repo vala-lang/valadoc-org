@@ -21,7 +21,7 @@ public class BarWindow : Gtk.Window {
 	}
 }
 
-public static void main (string[] args) {
+public void main (string[] args) {
 	Gtk.init (ref args);
 
 	var app = new BarWindow ();

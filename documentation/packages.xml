@@ -1005,9 +1005,8 @@
 			pronounceability. The library supports reading and parsing of a configuration
 			file.
 		</package>
-		<package name="qrencode" home="http://megaui.net/fukuchi/works/qrencode/index.en.html">
-			Qrencode is a utility software using libqrencode to encode string data in a
-			QR Code and save as a PNG image.
+		<package name="libqrencode" home="https://fukuchi.org/works/qrencode/" c-docs="https://fukuchi.org/works/qrencode/manual/index.html">
+			QRencode is a library to encode a string as a QR code and save it as a PNG image.
 		</package>
 		<package name="samplerate">
 			A Sample Rate Converter for audio.

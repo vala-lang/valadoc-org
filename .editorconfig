@@ -12,3 +12,6 @@ indent_size = 4
 [*.vala]
 indent_style = tab
 indent_size = 4
+
+[packages.xml]
+indent_style = tab

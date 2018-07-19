@@ -44,6 +44,9 @@
 			<!--package name="clutter-gtk-0.10" deprecated="true" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/">
 				GTK clutter widget.
 			</package-->
+			<package name="gegl-gtk3-0.1" gir="GeglGtk3-0.1.gir">
+				Utility library for using GEGL in GTK+ 3 based applications
+			</package>
 			<package name="gtksourceview-3.0" home="http://projects.gnome.org/gtksourceview/" gir="GtkSource-3.0" c-docs="http://developer.gnome.org/gtksourceview/unstable/">
 				GtkSourceView is a portable C library that extends the standard GTK+ framework for multiline text editing
 				with support for configurable syntax highlighting, unlimited undo/redo, search and replace, a completion
@@ -159,6 +162,21 @@
 			</package>
 			<package name="clutter-gst-3.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-3.0" c-docs="http://developer.gnome.org/clutter-gst/unstable/">
 				GStreamer bindings for clutter.
+			</package>
+			<package name="gegl-0.3" home="http://www.gegl.org/" gir="Gegl-0.3">
+				GEGL (Generic Graphics Library) is a data flow based image processing framework, providing
+				floating point processing and non-destructive image processing capabilities to GNU Image
+				Manipulation Program and other projects (imgflo, GNOME Photos, gcut, iconographer, …)
+			</package>
+			<package name="gegl-0.4" home="http://www.gegl.org/" gir="Gegl-0.4">
+				GEGL (Generic Graphics Library) is a data flow based image processing framework, providing
+				floating point processing and non-destructive image processing capabilities to GNU Image
+				Manipulation Program and other projects (imgflo, GNOME Photos, gcut, iconographer, …)
+			</package>
+			<package name="gexiv2" home="https://wiki.gnome.org/Projects/gexiv2" gir="GExiv2-0.10">
+				gexiv2 is a GObject wrapper around the Exiv2 photo metadata library. It allows for GNOME
+				applications to easily inspect and update EXIF, IPTC, and XMP metadata in photo and video
+				files of various formats
 			</package>
 			<package name="gupnp-1.0" home="https://wiki.gnome.org/Projects/GUPnP" gir="GUPnP-1.0" c-docs="https://developer.gnome.org/gupnp/unstable/">
 				Core UPnP API built on top of gssdp

@@ -463,6 +463,10 @@ simple methods via GObject-Introspection
 			<package name="gtk-vnc-2.0" gir="GtkVnc-2.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
 				A VNC viewer widget for GTK+.
 			</package>
+			<package name="libguestfs-gobject-1.0" gir="Guestfs-1.0" home="http://libguestfs.org/" c-docs="http://libguestfs.org/guestfs-gobject.3.html">
+				GObject binding for libguestfs, a set of tools for accessing and
+				modifying virtual machine disk images.
+			</package>
 			<package name="gvnc-1.0" gir="GVnc-1.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
 				VNC gobject wrapper.
 			</package>

@@ -442,6 +442,12 @@
 			<package name="libxml-2.0" maintainers="Tomaž Vajngerl" gir="libxml2-2.0" c-docs="http://xmlsoft.org/html/">
 				Powerful and feature complete XML handling library.
 			</package>
+			<package name="template-glib-1.0" home="https://gitlab.gnome.org/GNOME/template-glib" gir="Template-1.0">
+				Template-GLib is a library to generate text from a template and user defined state.
+				Template-GLib allows you to access properties on GObjects as well as call
+simple methods via GObject-Introspection
+				Template-GLib does not use a language runtime, so it is safe to use from any GObject-Introspectable language.
+			</package>
 		</section>
 
 		<section name="Remote Display Systems &amp; Virtualization">
@@ -456,6 +462,10 @@
 			</package>
 			<package name="gtk-vnc-2.0" gir="GtkVnc-2.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
 				A VNC viewer widget for GTK+.
+			</package>
+			<package name="libguestfs-gobject-1.0" gir="Guestfs-1.0" home="http://libguestfs.org/" c-docs="http://libguestfs.org/guestfs-gobject.3.html">
+				GObject binding for libguestfs, a set of tools for accessing and
+				modifying virtual machine disk images.
 			</package>
 			<package name="gvnc-1.0" gir="GVnc-1.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
 				VNC gobject wrapper.
@@ -1023,9 +1033,8 @@
 			pronounceability. The library supports reading and parsing of a configuration
 			file.
 		</package>
-		<package name="qrencode" home="http://megaui.net/fukuchi/works/qrencode/index.en.html">
-			Qrencode is a utility software using libqrencode to encode string data in a
-			QR Code and save as a PNG image.
+		<package name="libqrencode" home="https://fukuchi.org/works/qrencode/" c-docs="https://fukuchi.org/works/qrencode/manual/index.html">
+			QRencode is a library to encode a string as a QR code and save it as a PNG image.
 		</package>
 		<package name="samplerate">
 			A Sample Rate Converter for audio.

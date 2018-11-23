@@ -2,6 +2,7 @@
 *.c
 *.log
 *.patch
+*.dSYM
 *~
 /configgen
 /documentation/*/gallery-images/*

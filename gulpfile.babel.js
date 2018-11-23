@@ -2,7 +2,6 @@
  * gulpfile.babel.js
  * Builds local assets for production environment
  */
-
 import gulp from 'gulp'
 
 import imagemin from 'gulp-imagemin'
@@ -27,8 +26,8 @@ gulp.task('images', () => {
   const dest = 'valadoc.org/images'
 
   return gulp.src(src, { base })
-  .pipe(imagemin())
-  .pipe(gulp.dest(dest))
+    .pipe(imagemin())
+    .pipe(gulp.dest(dest))
 })
 
 /**
@@ -38,24 +37,31 @@ gulp.task('images', () => {
  * @return {Task} - a gulp task
  */
 gulp.task('scripts', gulp.parallel(
-  function valadoc () {
+  function valadoc() {
     const base = 'data/scripts'
     const src = ['data/scripts/*.js']
     const dest = 'valadoc.org/scripts'
 
     return gulp.src(src, { base })
-    .pipe(babel({
-      presets: ['env']
-    }))
-    .pipe(gulp.dest(dest))
+      .pipe(babel({
+        presets: [
+          [
+            '@babel/preset-env',
+            {
+              "targets": browsers
+            }
+          ]
+        ]
+      }))
+      .pipe(gulp.dest(dest))
   },
-  function fetchPolyfill () { // fetch polyfill
+  function fetchPolyfill() { // fetch polyfill
     const base = 'node_modules/whatwg-fetch'
     const src = ['node_modules/whatwg-fetch/*.js']
     const dest = 'valadoc.org/scripts'
 
     return gulp.src(src, { base })
-    .pipe(gulp.dest(dest))
+      .pipe(gulp.dest(dest))
   }
 ))
 
@@ -71,10 +77,10 @@ gulp.task('styles', () => {
   const dest = 'valadoc.org/styles'
 
   return gulp.src(src, { base })
-  .pipe(postcss([
-    cssnext({ browsers })
-  ]))
-  .pipe(gulp.dest(dest))
+    .pipe(postcss([
+      cssnext({ browsers })
+    ]))
+    .pipe(gulp.dest(dest))
 })
 
 /**
@@ -89,7 +95,7 @@ gulp.task('php', () => {
   const dest = 'valadoc.org'
 
   return gulp.src(src, { base })
-  .pipe(gulp.dest(dest))
+    .pipe(gulp.dest(dest))
 })
 
 /**

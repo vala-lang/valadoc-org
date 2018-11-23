@@ -71,7 +71,9 @@ function initTooltip() {
 
 
 function setupLink (link) {
-  if (link.hostname !== location.hostname || link.pathname.endsWith('index.htm')) {
+  if (link.hostname !== location.hostname
+    || link.pathname.endsWith('index.htm')
+    || link.pathname.endsWith('.tar.bz2')) {
     return
   }
 

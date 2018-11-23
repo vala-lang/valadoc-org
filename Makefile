@@ -90,7 +90,6 @@ check-examples: valadoc-example-tester
 #
 
 build-data:
-	npm install
 	./node_modules/.bin/gulp
 
 
@@ -138,6 +137,8 @@ test-examples: valadoc-example-tester
 
 
 serve: build-docs build-data
+	npm install
 	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org $(PWD)/valadoc.org/router.php
+
 serve-mini: build-docs-mini build-data
 	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org $(PWD)/valadoc.org/router.php

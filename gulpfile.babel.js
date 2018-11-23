@@ -2,6 +2,7 @@
  * gulpfile.babel.js
  * Builds local assets for production environment
  */
+
 import gulp from 'gulp'
 
 import imagemin from 'gulp-imagemin'

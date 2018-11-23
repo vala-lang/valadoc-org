@@ -19,7 +19,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-imagemin": "^5.0.3",
     "gulp-postcss": "^6.4.0",
-    "postcss-cssnext": "^2.11.0",
+    "postcss-preset-env": "^6.4.0",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {

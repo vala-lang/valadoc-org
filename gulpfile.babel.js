@@ -8,7 +8,7 @@ import gulp from 'gulp'
 import imagemin from 'gulp-imagemin'
 
 import postcss from 'gulp-postcss'
-import cssnext from 'postcss-cssnext'
+import postcssPresetEnv from 'postcss-preset-env'
 
 import babel from 'gulp-babel'
 
@@ -79,7 +79,7 @@ gulp.task('styles', () => {
 
   return gulp.src(src, { base })
     .pipe(postcss([
-      cssnext({ browsers })
+      postcssPresetEnv({ browsers })
     ]))
     .pipe(gulp.dest(dest))
 })

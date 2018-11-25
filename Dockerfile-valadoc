@@ -1,0 +1,53 @@
+# Dockerfile-valadoc
+## Builds valadoc and serves it with a basic PHP server
+
+# Build valadoc
+FROM ubuntu:18.04 as build-docs
+
+# Install basic needed packages
+RUN apt update && apt install -y --no-install-recommends software-properties-common
+
+# Install third party repos
+RUN add-apt-repository -y ppa:vala-team
+
+# Install valadoc and server packages
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install \
+  -y \
+  --no-install-recommends \
+  gcc \
+  gee-0.8 \
+  git \
+  libguestfs-gobject-1.0 \
+  libvaladoc-dev \
+  php \
+  php-curl \
+  unzip \
+  valac \
+  valadoc \
+  wget
+
+# Copy over the valadoc stuff
+COPY . /opt/valadoc
+WORKDIR /opt/valadoc
+
+# Build docs
+RUN make build-docs || true
+
+# Build valadoc assets
+FROM node:10 as build-assets
+
+# Copy over the valadoc stuff
+COPY --from=build-docs /opt/valadoc /opt/valadoc
+WORKDIR /opt/valadoc
+
+# Build website assets
+RUN make build-data
+
+# Cleanup and publish
+FROM php:apache
+
+# Cleanup to make the image smaller
+COPY --from=build-assets /opt/valadoc/valadoc.org/ /var/www/html/
+
+# A couple default apache changes to make valadoc work
+COPY apache.conf /etc/apache2/sites-available/000-default.conf

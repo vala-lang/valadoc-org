@@ -91,7 +91,7 @@ check-examples: valadoc-example-tester
 
 build-data:
 	npm install
-	./node_modules/.bin/gulp
+	npx gulp
 
 
 #

@@ -3,7 +3,7 @@
 	<section name="GNOME &amp; Friends">
 
 		<section name="Core">
-			<package name="glib-2.0" flags="--pkg posix" home="http://www.gtk.org/" gir="GLib-2.0" c-docs="http://developer.gnome.org/glib/unstable/">
+			<package name="glib-2.0" flags="--pkg posix" home="https://www.gtk.org/" gir="GLib-2.0" c-docs="https://developer.gnome.org/glib/stable/">
 				GLib provides the core application building blocks for libraries and applications written in C.
 				It provides the core object system used in GNOME, the main loop implementation, and a large set of
 				utility functions for strings and common data structures.

@@ -106,7 +106,7 @@ build-docs: default
 		--vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
 		--driver $(VALAC_VERSION) \
 		--prefix $(PREFIX) \
-		--target-glib 2.99 \
+		--target-glib 2.98 \
 		--download-images \
 		--skip-existing \
 		--no-check-certificate \
@@ -119,7 +119,7 @@ build-docs-mini: default
 		--vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
 		--driver $(VALAC_VERSION) \
 		--prefix $(PREFIX) \
-		--target-glib 2.99 \
+		--target-glib 2.98 \
 		--download-images \
 		--skip-existing \
 		--no-check-certificate \

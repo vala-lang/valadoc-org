@@ -3,7 +3,7 @@
 	<section name="GNOME &amp; Friends">
 
 		<section name="Core">
-			<package name="glib-2.0" flags="--pkg posix" home="http://www.gtk.org/" gir="GLib-2.0" c-docs="http://developer.gnome.org/glib/unstable/">
+			<package name="glib-2.0" flags="--pkg posix" home="https://www.gtk.org/" gir="GLib-2.0" c-docs="https://developer.gnome.org/glib/stable/">
 				GLib provides the core application building blocks for libraries and applications written in C.
 				It provides the core object system used in GNOME, the main loop implementation, and a large set of
 				utility functions for strings and common data structures.
@@ -402,7 +402,7 @@
 			<package name="gsignond" gir="gSignond-1.0" home="https://gitlab.com/accounts-sso/gsignond" c-docs="http://accounts-sso.gitlab.io/gsignond/">
 				Single signon daemon library.
 			</package>
-			<package name="libgsignon-glib" gir="gSignon-1.0" home="https://gitlab.com/accounts-sso/libgsignon-glib" c-docs="http://accounts-sso.gitlab.io/libgsignon-glib/">
+			<package name="libsignon-glib" gir="Signon-2.0" home="https://gitlab.com/accounts-sso/libsignon-glib" c-docs="http://accounts-sso.gitlab.io/libsignon-glib/">
 				Single signon authentication library for online services.
 			</package>
 			<package name="vsgi-0.3" home="https://github.com/valum-framework/valum">

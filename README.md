@@ -29,6 +29,11 @@ Arch or derivatives run:
 pacman -S vala php
 ```
 
+Next, install JS dependencies:
+```bash
+npm install
+```
+
 After you have `valadoc` installed, you can move to building the documentation. Simply run:
 ```bash
 make serve

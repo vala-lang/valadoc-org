@@ -114,7 +114,7 @@ The following attributes are supported:
 Referenced GIR and vapi-files have to be part of one of the following repositories:
 - [vala](http://vala-project.org/)
 - [vala-girs](https://github.com/nemequ/vala-girs)
-- [vala-extra-vapis](https://github.com/nemequ/vala-extra-vapis)
+- [vala-extra-vapis](https://gitlab.gnome.org/GNOME/vala-extra-vapis)
 
 
 Add New Source Code Examples

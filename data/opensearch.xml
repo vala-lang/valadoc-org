@@ -1,0 +1,9 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Valadoc</ShortName>
+  <Description>Valadoc - The canonical source for Vala API references</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">/images/favicon.ico</Image>
+  <Url type="text/html" template="https://valadoc.org/?q={searchTerms}" />
+  <moz:SearchForm>https://valadoc.org</moz:SearchForm>
+</OpenSearchDescription>

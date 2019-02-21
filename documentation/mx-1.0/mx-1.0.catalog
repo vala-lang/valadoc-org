@@ -1,4 +1,0 @@
-[PackageKit Catalog]
-
-InstallPackages(fedora)=libmx-devel
-InstallPackages(debian)=libmx-dev

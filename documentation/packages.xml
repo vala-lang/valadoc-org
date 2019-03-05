@@ -44,7 +44,7 @@
 			<!--package name="clutter-gtk-0.10" deprecated="true" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/">
 				GTK clutter widget.
 			</package-->
-			<package name="gegl-gtk3-0.1" gir="GeglGtk3-0.1.gir">
+			<package name="gegl-gtk3-0.1" gir="GeglGtk3-0.1">
 				Utility library for using GEGL in GTK+ 3 based applications
 			</package>
 			<package name="gtksourceview-3.0" home="http://projects.gnome.org/gtksourceview/" gir="GtkSource-3.0" c-docs="http://developer.gnome.org/gtksourceview/unstable/">
@@ -52,7 +52,7 @@
 				with support for configurable syntax highlighting, unlimited undo/redo, search and replace, a completion
 				framework, printing and other features typical of a source code editor. (upstream)
 			</package>
-			<package name="libhandy-0.0" gir="Handy-0.0.gir" flags="--pkg=gio-2.0 --pkg=gtk+-3.0" c-docs="http://honk.sigxcpu.org/projects/libhandy/doc/" home="https://source.puri.sm/Librem5/libhandy">
+			<package name="libhandy-0.0" gir="Handy-0.0" flags="--pkg=gio-2.0 --pkg=gtk+-3.0" c-docs="http://honk.sigxcpu.org/projects/libhandy/doc/" home="https://source.puri.sm/Librem5/libhandy">
 				A library full of GTK+ widgets for mobile phones
 			</package>
 			<package deprecated="true" name="vte-2.90" gir="Vte-2.90" c-docs="http://developer.gnome.org/vte/unstable/">
@@ -141,7 +141,7 @@
 				Support library for video operations
 			</package>
 			<!-- add once vala support merged
-			<package name="gst-editing-services-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GES-1.0.gir" c-docs="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-editing-services/html/">
+			<package name="gst-editing-services-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GES-1.0" c-docs="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-editing-services/html/">
 				The GStreamer Editing Services (GES) aims to fill the gap between
 				GStreamer/NLE and the application developer by offering a series of
 				classes to simplify the creation of many kind of editing-related
@@ -299,7 +299,7 @@
 			<package name="sqlite3" home="http://www.sqlite.org/" c-docs="http://www.sqlite.org/c3ref/intro.html">
 			 	A C library that implements an SQL database engine.
 			</package>
-			<package name="camel-1.2" gir="Camel-1.2.gir" c-docs="https://developer.gnome.org/camel/unstable/">
+			<package name="camel-1.2" gir="Camel-1.2" c-docs="https://developer.gnome.org/camel/unstable/">
 				Camel is a generic messaging library. It supports the standard messaging system for 
 				receiving and sending messages. It is the messaging backend for Evolution.
 			</package>

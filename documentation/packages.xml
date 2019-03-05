@@ -376,7 +376,7 @@
 			<package name="rest-extras-0.7" maintainers="Adrien Bustany" gir="RestExtras-0.7">
 				This extra package provides Facebook and Flickr support.
 			</package>
-			<package name="gmime-3.0" home="https://github.com/jstedfast/gmime" c-docs="https://developer.gnome.org/gmime/stable/">
+			<package name="gmime-3.0" gir="GMime-3.0" home="https://github.com/jstedfast/gmime" c-docs="https://developer.gnome.org/gmime/stable/">
 				MIME message parser and creator library
 			</package>
 			<package name="gnutls" maintainer="Jiří Zárevúcky" home="http://www.gnutls.org/" c-docs="http://www.gnutls.org/documentation.html">

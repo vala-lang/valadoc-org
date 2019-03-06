@@ -377,7 +377,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return null;
 		}
 
-		public virtual string? get_gir_file () {
+		public virtual string? get_gir_file (ErrorReporter reporter) {
 			if (gir_name == null) {
 				return null;
 			}
@@ -387,6 +387,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				return path;
 			}
 
+			reporter.simple_warning (null, "Unable to find gir file `%s', some documentation might be missing", path);
 			return null;
 		}
 
@@ -439,7 +440,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			this.name = name;
 		}
 
-		public override string? get_gir_file () {
+		public override string? get_gir_file (ErrorReporter reporter) {
 			return null;
 		}
 
@@ -843,7 +844,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			builder.append_printf (" --import %s", pkg.name);
 		}
 
-		string gir_path = pkg.get_gir_file ();
+		string? gir_path = pkg.get_gir_file (reporter);
 		if (gir_path != null) {
 			stdout.printf ("  select .gir:            %s\n", gir_path);
 
@@ -1210,7 +1211,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 
-		string gir_path = pkg.get_gir_file ();
+		string gir_path = pkg.get_gir_file (reporter);
 
 		stdout.printf ("  download images (gir) ...\n");
 

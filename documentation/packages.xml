@@ -140,14 +140,12 @@
 			<package name="gstreamer-video-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GstVideo-1.0" c-docs="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/">
 				Support library for video operations
 			</package>
-			<!-- add once vala support merged
 			<package name="gst-editing-services-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GES-1.0" c-docs="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-editing-services/html/">
 				The GStreamer Editing Services (GES) aims to fill the gap between
 				GStreamer/NLE and the application developer by offering a series of
 				classes to simplify the creation of many kind of editing-related
 				applications.
-			</package
-			>-->
+			</package>
 			<package name="grilo-0.2" gir="Grl-0.2" c-docs="https://developer.gnome.org/grilo/unstable/">
 				Framework that provides access to various sources of multimedia content
 			</package>

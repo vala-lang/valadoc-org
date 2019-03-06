@@ -117,6 +117,11 @@ namespace Generator {
 		}
 
 		config = FileStream.open ("sphinx.conf", "w");
+		if (config == null) {
+			stdout.printf ("error: unable to write to 'sphinx.conf': %s", GLib.strerror (GLib.errno));
+			return -1;
+		}
+
 		if (template != null) {
 			if (!FileUtils.test (template, FileTest.IS_REGULAR)) {
 				stdout.printf ("template != file\n");

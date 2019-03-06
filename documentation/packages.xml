@@ -348,9 +348,6 @@
 			<package name="folks-eds" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks/c/">
 				Folks, eds-backend
 			</package>
-			<package name="folks-libsocialweb" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks-libsocialweb/c/">
-				Folks, libsocialweb-backend
-			</package>
 			<package name="folks-telepathy" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks-telepathy/c/">
 				Folks, telepathy-backend
 			</package>

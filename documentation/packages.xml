@@ -615,9 +615,6 @@ simple methods via GObject-Introspection
 			<package name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer.gnome.org/dbus-glib/unstable/">
 				D-Bus Support
 			</package>
-			<package name="libide-1.0" gir="Ide-1.0">
-				Plugin API for GNOME Builder
-			</package>
 			<package name="jsonrpc-glib-1.0" gir="Jsonrpc-1.0">
 				Jsonrpc-GLib is a library to communicate with JSON-RPC based peers in either a synchronous or asynchronous fashion.
 				It also allows communicating using the GVariant serialization format instead of JSON when both peers support it.

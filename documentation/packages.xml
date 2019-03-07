@@ -265,6 +265,9 @@
 				GdkPixbuf is a library for image loading and manipulation. The GdkPixbuf documentation contains both the
 				programmer's guide and the API reference.
 			</package>
+			<package name="graphene-1.0" flags="--pkg gobject-2.0" home="http://ebassi.github.io/graphene/" gir="Graphene-1.0" c-docs="https://ebassi.github.io/graphene/docs/">
+				A thin layer of types for graphic libraries
+			</package>
 			<package name="ibus-1.0" home="https://github.com/ibus/ibus/wiki" gir="IBus-1.0" c-docs="http://ibus.github.io/docs/ibus-1.5/index.html">
 				Next Generation Input Bus for Linux.
 			</package>

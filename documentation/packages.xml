@@ -608,7 +608,7 @@ simple methods via GObject-Introspection
 	</section>
 
 	<section name="Ubuntu">
-		<package name="unity" gir="Unity-6.0">
+		<package name="unity">
 			A library for instrumenting- and integrating with all aspects of the Unity shell.
 		</package>
 		<package name="unity-trace">

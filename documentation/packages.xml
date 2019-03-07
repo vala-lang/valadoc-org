@@ -872,6 +872,13 @@ simple methods via GObject-Introspection
 		<package name="cairo-xcb" home="http://cairographics.org/">
 			Cairo - multi-platform 2D graphics library
 		</package>
+		<package name="check" flags="--pkg posix --pkg glib-2.0" home="https://libcheck.github.io/check/" c-docs="https://libcheck.github.io/check/doc/doxygen/html/check_8h.html">
+			Check is a unit testing framework for C. It features a simple interface for
+			defining unit tests, putting little in the way of the developer. Tests are run
+			in a separate address space, so both assertion failures and code errors that
+			cause segmentation faults or other signals can be caught. Test results are reportable
+			in the following: Subunit, TAP, XML, and a generic logging format.
+		</package>
 		<package name="cpufreq" home="http://cvs.mandriva.com/cgi-bin/cvsweb.cgi/SPECS/cpufreq/">
 			An initscript to set CPU frequency settings.
 		</package>

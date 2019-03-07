@@ -434,14 +434,11 @@
 		</section>
 
 		<section name="Markup">
-			<package name="gxml-0.14" maintainers="Daniel Espinosa">
+			<package name="gxml-0.16" maintainers="Daniel Espinosa">
 				GObject XML library and serialization framework.
 			</package>
 			<package name="json-glib-1.0" maintainers="Tomaž Vajngerl" gir="Json-1.0" c-docs="http://developer.gnome.org/json-glib/unstable/">
 				JSON-GLib is a library for reading and parsing JSON using GLib and GObject data types and API.
-			</package>
-			<package name="gxml-0.14" maintainers="Daniel Espinosa">
-				GObject XML library and serialization framework.
 			</package>
 			<package name="libxml-2.0" maintainers="Tomaž Vajngerl" gir="libxml2-2.0" c-docs="http://xmlsoft.org/html/">
 				Powerful and feature complete XML handling library.

@@ -158,9 +158,6 @@
 			<package name="libcanberra" home="http://0pointer.de/lennart/projects/libcanberra/" c-docs="http://developer.gnome.org/libcanberra/unstable/">
 				A small and lightweight implementation of the XDG Sound Theme Specification.
 			</package>
-			<package name="clutter-gst-2.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-2.0" c-docs="http://developer.gnome.org/clutter-gst/unstable/">
-				GStreamer bindings for clutter.
-			</package>
 			<package name="clutter-gst-3.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-3.0" c-docs="http://developer.gnome.org/clutter-gst/unstable/">
 				GStreamer bindings for clutter.
 			</package>

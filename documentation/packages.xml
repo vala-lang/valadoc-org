@@ -281,10 +281,6 @@
 		</section>
 
 		<section name="Data Storage">
-			<package name="gnome-keyring-1" deprecated="true" gir="GnomeKeyring-1.0">
-				GNOME Keyring is a collection of components in GNOME that store secrets, passwords, keys,
-				certificates and make them available to applications.
-			</package>
 			<package name="libsecret-1" gir="Secret-1" home="https://wiki.gnome.org/Projects/Libsecret" c-docs="https://developer.gnome.org/libsecret/unstable/">
 				libsecret is a library for storing and retrieving passwords and other secrets.
 				It communicates with the "Secret Service" using DBus. gnome-keyring and ksecretservice

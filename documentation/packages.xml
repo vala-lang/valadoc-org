@@ -591,8 +591,8 @@ simple methods via GObject-Introspection
 				AppStream is a cross-distro effort for enhancing the way we interact with the software
 				repositories provided by the distribution by standardizing sets of additional metadata.
 			</package>
-			<package name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer.gnome.org/dbus-glib/unstable/">
-				D-Bus Support
+			<package deprecated="true" name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer.gnome.org/dbus-glib/unstable/">
+				Initial D-Bus Support (Do not use in new projects, use DBus support included in GLib instead)
 			</package>
 			<package name="jsonrpc-glib-1.0" gir="Jsonrpc-1.0">
 				Jsonrpc-GLib is a library to communicate with JSON-RPC based peers in either a synchronous or asynchronous fashion.

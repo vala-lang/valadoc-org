@@ -2141,7 +2141,7 @@ float.MAX_10_EXP
 float.EPSILON
 
 /**
- * Minimum value of float
+ * Minimum positive value of float, use -{@link float.MAX} to get the minimum negative value
  */
 float.MIN
 
@@ -2223,7 +2223,7 @@ double.MAX_10_EXP
 double.EPSILON
 
 /**
- * Minimum value of double
+ * Minimum positive value of double, use -{@link double.MAX} to get the minimum negative value
  */
 double.MIN
 

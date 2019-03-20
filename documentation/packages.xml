@@ -275,16 +275,12 @@
 			<package ignore="true" name="caribou-1.0" gir="Caribou-1.0" home="https://live.gnome.org/Caribou">
 				Configurable onscreen keyboard with scanning mode.
 			</package>
-			<package name="librsvg-2.0" flags="--pkg gdk-3.0 --pkg gio-2.0" c-docs="https://developer.gnome.org/rsvg/unstable/">
+			<package name="librsvg-2.0" flags="--pkg gdk-3.0 --pkg gio-2.0" gir="Rsvg-2.0" c-docs="https://developer.gnome.org/rsvg/unstable/">
 				Library for rendering of SVG vector graphics.
 			</package>
 		</section>
 
 		<section name="Data Storage">
-			<package name="gnome-keyring-1" deprecated="true" gir="GnomeKeyring-1.0">
-				GNOME Keyring is a collection of components in GNOME that store secrets, passwords, keys,
-				certificates and make them available to applications.
-			</package>
 			<package name="libsecret-1" gir="Secret-1" home="https://wiki.gnome.org/Projects/Libsecret" c-docs="https://developer.gnome.org/libsecret/unstable/">
 				libsecret is a library for storing and retrieving passwords and other secrets.
 				It communicates with the "Secret Service" using DBus. gnome-keyring and ksecretservice
@@ -595,8 +591,8 @@ simple methods via GObject-Introspection
 				AppStream is a cross-distro effort for enhancing the way we interact with the software
 				repositories provided by the distribution by standardizing sets of additional metadata.
 			</package>
-			<package name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer.gnome.org/dbus-glib/unstable/">
-				D-Bus Support
+			<package deprecated="true" name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer.gnome.org/dbus-glib/unstable/">
+				Initial D-Bus Support (Do not use in new projects, use DBus support included in GLib instead)
 			</package>
 			<package name="jsonrpc-glib-1.0" gir="Jsonrpc-1.0">
 				Jsonrpc-GLib is a library to communicate with JSON-RPC based peers in either a synchronous or asynchronous fashion.

@@ -146,11 +146,11 @@
 				classes to simplify the creation of many kind of editing-related
 				applications.
 			</package>
-			<package name="grilo-0.2" gir="Grl-0.2" c-docs="https://developer.gnome.org/grilo/unstable/">
+			<package name="grilo-0.3" gir="Grl-0.3" c-docs="https://developer.gnome.org/grilo/unstable/">
 				Framework that provides access to various sources of multimedia content
 			</package>
-			<package name="grilo-net-0.2" gir="GrlNet-0.2" c-docs="https://developer.gnome.org/grilo/unstable/">
-				Grilo, net
+			<package name="grilo-net-0.3" gir="GrlNet-0.3" c-docs="https://developer.gnome.org/grilo/unstable/">
+				Network classes for Grilo
 			</package>
 			<package name="libcanberra-gtk" flags="--pkg libcanberra --pkg gtk+-3.0" home="http://0pointer.de/lennart/projects/libcanberra/" c-docs="http://developer.gnome.org/libcanberra/unstable/">
 				Libcanberra-gtk provides a few functions that simplify libcanberra usage from Gtk+.

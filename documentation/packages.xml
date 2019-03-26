@@ -47,10 +47,15 @@
 			<package name="gegl-gtk3-0.1" gir="GeglGtk3-0.1">
 				Utility library for using GEGL in GTK+ 3 based applications
 			</package>
-			<package name="gtksourceview-3.0" home="http://projects.gnome.org/gtksourceview/" gir="GtkSource-3.0" c-docs="http://developer.gnome.org/gtksourceview/unstable/">
+			<package name="gtksourceview-3.0" home="https://wiki.gnome.org/Projects/GtkSourceView" gir="GtkSource-3.0" c-docs="http://developer.gnome.org/gtksourceview/unstable/">
 				GtkSourceView is a portable C library that extends the standard GTK+ framework for multiline text editing
 				with support for configurable syntax highlighting, unlimited undo/redo, search and replace, a completion
-				framework, printing and other features typical of a source code editor. (upstream)
+				framework, printing and other features typical of a source code editor.
+			</package>
+			<package name="gtksourceview-4" home="https://wiki.gnome.org/Projects/GtkSourceView" gir="GtkSource-4" c-docs="http://developer.gnome.org/gtksourceview/unstable/">
+				GtkSourceView is a GNOME library that extends GtkTextView, the standard GTK+ widget for multiline text editing.
+				GtkSourceView adds support for syntax highlighting, undo/redo, file loading and saving, search and replace,
+				a completion system, printing, displaying line numbers, and other features typical of a source code editor.
 			</package>
 			<package name="libhandy-0.0" gir="Handy-0.0" flags="--pkg=gio-2.0 --pkg=gtk+-3.0" c-docs="http://honk.sigxcpu.org/projects/libhandy/doc/" home="https://source.puri.sm/Librem5/libhandy">
 				A library full of GTK+ widgets for mobile phones

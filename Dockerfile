@@ -1,4 +1,4 @@
-# Dockerfile-valadoc
+# Dockerfile
 ## Builds valadoc and serves it with a basic PHP server
 
 # Build valadoc
@@ -21,10 +21,12 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive apt install \
   libvaladoc-dev \
   php \
   php-curl \
+  sphinxsearch \
   unzip \
   valac \
   valadoc \
-  wget
+  wget \
+  xsltproc
 
 # Copy over the valadoc stuff
 COPY . /opt/valadoc
@@ -32,6 +34,12 @@ WORKDIR /opt/valadoc
 
 # Build docs
 RUN make build-docs || true
+
+# Build search index
+RUN make configgen \
+  && ./configgen ./valadoc.org/ \
+  && mkdir ./sphinx/storage \
+  && indexer --config ./sphinx.conf --all
 
 # Build valadoc assets
 FROM node:10 as build-assets
@@ -46,8 +54,25 @@ RUN make build-data
 # Cleanup and publish
 FROM php:apache
 
-# Cleanup to make the image smaller
-COPY --from=build-assets /opt/valadoc/valadoc.org/ /var/www/html/
+# Install sphinxsearch for search index
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install \
+  -y \
+  --no-install-recommends \
+  sphinxsearch
+
+# Install the mysqli extension
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+
+# Copy over all of the valadoc sphinx search data and configuration
+RUN mkdir -p /opt/valadoc
+COPY --from=build-assets /opt/valadoc/sphinx.conf /opt/valadoc/sphinx.conf
+COPY --from=build-assets /opt/valadoc/sphinx /opt/valadoc/sphinx
+
+# Copy over the build static html files
+COPY --from=build-assets /opt/valadoc/valadoc.org /var/www/html
 
 # A couple default apache changes to make valadoc work
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
+
+COPY docker-server.sh /usr/local/bin/valadoc
+CMD ["valadoc"]

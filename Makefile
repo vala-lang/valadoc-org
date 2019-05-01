@@ -59,7 +59,7 @@ configgen: src/configgen.vala
 
 update-girs:
 	[ -d girs ]        && git -C girs pull        || git clone https://github.com/nemequ/vala-girs.git girs --depth 1
-	[ -d extra-vapis ] && git -C extra-vapis pull || git clone https://github.com/nemequ/vala-extra-vapis.git extra-vapis --depth 1
+	[ -d extra-vapis ] && git -C extra-vapis pull || git clone https://gitlab.gnome.org/GNOME/vala-extra-vapis.git extra-vapis --depth 1
 
 
 #
@@ -93,7 +93,6 @@ build-data:
 	npm install
 	npx gulp
 
-
 #
 # Documentation generation:
 #
@@ -106,7 +105,7 @@ build-docs: default
 		--vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
 		--driver $(VALAC_VERSION) \
 		--prefix $(PREFIX) \
-		--target-glib 2.99 \
+		--target-glib 2.98 \
 		--download-images \
 		--skip-existing \
 		--no-check-certificate \
@@ -119,7 +118,7 @@ build-docs-mini: default
 		--vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
 		--driver $(VALAC_VERSION) \
 		--prefix $(PREFIX) \
-		--target-glib 2.99 \
+		--target-glib 2.98 \
 		--download-images \
 		--skip-existing \
 		--no-check-certificate \
@@ -139,5 +138,6 @@ test-examples: valadoc-example-tester
 
 serve: build-docs build-data
 	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org $(PWD)/valadoc.org/router.php
+
 serve-mini: build-docs-mini build-data
 	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org $(PWD)/valadoc.org/router.php

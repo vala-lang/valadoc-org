@@ -63,8 +63,9 @@ if ($first == null || $first === "index") { // Homepage
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CDroid+Serif:400%7CRoboto+Mono:400,500,700,400italic">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/styles/main.css" type="text/css">
-  <link rel="apple-touch-icon" href="/images/icon.png" />
+  <link rel="apple-touch-icon" href="/images/icon.png">
   <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="search" type="application/opensearchdescription+xml" title="Valadoc" href="/opensearch.xml">
 </head>
 <body>
   <nav>

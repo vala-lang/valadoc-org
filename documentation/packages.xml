@@ -3,7 +3,7 @@
 	<section name="GNOME &amp; Friends">
 
 		<section name="Core">
-			<package name="glib-2.0" flags="--pkg posix" home="http://www.gtk.org/" gir="GLib-2.0" c-docs="http://developer.gnome.org/glib/unstable/">
+			<package name="glib-2.0" flags="--pkg posix" home="https://www.gtk.org/" gir="GLib-2.0" c-docs="https://developer.gnome.org/glib/stable/">
 				GLib provides the core application building blocks for libraries and applications written in C.
 				It provides the core object system used in GNOME, the main loop implementation, and a large set of
 				utility functions for strings and common data structures.
@@ -44,13 +44,21 @@
 			<!--package name="clutter-gtk-0.10" deprecated="true" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/">
 				GTK clutter widget.
 			</package-->
-			<package name="gegl-gtk3-0.1" gir="GeglGtk3-0.1.gir">
+			<package name="gegl-gtk3-0.1" gir="GeglGtk3-0.1">
 				Utility library for using GEGL in GTK+ 3 based applications
 			</package>
-			<package name="gtksourceview-3.0" home="http://projects.gnome.org/gtksourceview/" gir="GtkSource-3.0" c-docs="http://developer.gnome.org/gtksourceview/unstable/">
+			<package name="gtksourceview-3.0" home="https://wiki.gnome.org/Projects/GtkSourceView" gir="GtkSource-3.0" c-docs="http://developer.gnome.org/gtksourceview/unstable/">
 				GtkSourceView is a portable C library that extends the standard GTK+ framework for multiline text editing
 				with support for configurable syntax highlighting, unlimited undo/redo, search and replace, a completion
-				framework, printing and other features typical of a source code editor. (upstream)
+				framework, printing and other features typical of a source code editor.
+			</package>
+			<package name="gtksourceview-4" home="https://wiki.gnome.org/Projects/GtkSourceView" gir="GtkSource-4" c-docs="http://developer.gnome.org/gtksourceview/unstable/">
+				GtkSourceView is a GNOME library that extends GtkTextView, the standard GTK+ widget for multiline text editing.
+				GtkSourceView adds support for syntax highlighting, undo/redo, file loading and saving, search and replace,
+				a completion system, printing, displaying line numbers, and other features typical of a source code editor.
+			</package>
+			<package name="libhandy-0.0" gir="Handy-0.0" flags="--pkg=gio-2.0 --pkg=gtk+-3.0" c-docs="http://honk.sigxcpu.org/projects/libhandy/doc/" home="https://source.puri.sm/Librem5/libhandy">
+				A library full of GTK+ widgets for mobile phones
 			</package>
 			<package deprecated="true" name="vte-2.90" gir="Vte-2.90" c-docs="http://developer.gnome.org/vte/unstable/">
 				Terminal emulator widget used by GNOME terminal.
@@ -137,19 +145,17 @@
 			<package name="gstreamer-video-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GstVideo-1.0" c-docs="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/">
 				Support library for video operations
 			</package>
-			<!-- add once vala support merged
-			<package name="gst-editing-services-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GES-1.0.gir" c-docs="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-editing-services/html/">
+			<package name="gst-editing-services-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GES-1.0" c-docs="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-editing-services/html/">
 				The GStreamer Editing Services (GES) aims to fill the gap between
 				GStreamer/NLE and the application developer by offering a series of
 				classes to simplify the creation of many kind of editing-related
 				applications.
-			</package
-			>-->
-			<package name="grilo-0.2" gir="Grl-0.2" c-docs="https://developer.gnome.org/grilo/unstable/">
+			</package>
+			<package name="grilo-0.3" gir="Grl-0.3" c-docs="https://developer.gnome.org/grilo/unstable/">
 				Framework that provides access to various sources of multimedia content
 			</package>
-			<package name="grilo-net-0.2" gir="GrlNet-0.2" c-docs="https://developer.gnome.org/grilo/unstable/">
-				Grilo, net
+			<package name="grilo-net-0.3" gir="GrlNet-0.3" c-docs="https://developer.gnome.org/grilo/unstable/">
+				Network classes for Grilo
 			</package>
 			<package name="libcanberra-gtk" flags="--pkg libcanberra --pkg gtk+-3.0" home="http://0pointer.de/lennart/projects/libcanberra/" c-docs="http://developer.gnome.org/libcanberra/unstable/">
 				Libcanberra-gtk provides a few functions that simplify libcanberra usage from Gtk+.
@@ -264,6 +270,9 @@
 				GdkPixbuf is a library for image loading and manipulation. The GdkPixbuf documentation contains both the
 				programmer's guide and the API reference.
 			</package>
+			<package name="graphene-1.0" flags="--pkg gobject-2.0" home="http://ebassi.github.io/graphene/" gir="Graphene-1.0" c-docs="https://ebassi.github.io/graphene/docs/">
+				A thin layer of types for graphic libraries
+			</package>
 			<package name="ibus-1.0" home="https://github.com/ibus/ibus/wiki" gir="IBus-1.0" c-docs="http://ibus.github.io/docs/ibus-1.5/index.html">
 				Next Generation Input Bus for Linux.
 			</package>
@@ -271,16 +280,12 @@
 			<package ignore="true" name="caribou-1.0" gir="Caribou-1.0" home="https://live.gnome.org/Caribou">
 				Configurable onscreen keyboard with scanning mode.
 			</package>
-			<package name="librsvg-2.0" flags="--pkg gdk-3.0 --pkg gio-2.0" c-docs="https://developer.gnome.org/rsvg/unstable/">
+			<package name="librsvg-2.0" flags="--pkg gdk-3.0 --pkg gio-2.0" gir="Rsvg-2.0" c-docs="https://developer.gnome.org/rsvg/unstable/">
 				Library for rendering of SVG vector graphics.
 			</package>
 		</section>
 
 		<section name="Data Storage">
-			<package name="gnome-keyring-1" deprecated="true" gir="GnomeKeyring-1.0">
-				GNOME Keyring is a collection of components in GNOME that store secrets, passwords, keys,
-				certificates and make them available to applications.
-			</package>
 			<package name="libsecret-1" gir="Secret-1" home="https://wiki.gnome.org/Projects/Libsecret" c-docs="https://developer.gnome.org/libsecret/unstable/">
 				libsecret is a library for storing and retrieving passwords and other secrets.
 				It communicates with the "Secret Service" using DBus. gnome-keyring and ksecretservice
@@ -296,7 +301,7 @@
 			<package name="sqlite3" home="http://www.sqlite.org/" c-docs="http://www.sqlite.org/c3ref/intro.html">
 			 	A C library that implements an SQL database engine.
 			</package>
-			<package name="camel-1.2" gir="Camel-1.2.gir" c-docs="https://developer.gnome.org/camel/unstable/">
+			<package name="camel-1.2" gir="Camel-1.2" c-docs="https://developer.gnome.org/camel/unstable/">
 				Camel is a generic messaging library. It supports the standard messaging system for 
 				receiving and sending messages. It is the messaging backend for Evolution.
 			</package>
@@ -316,26 +321,15 @@
 			<package name="libgeoclue-2.0" gir="Geoclue-2.0" flags="--pkg=glib-2.0 --pkg=gobject-2.0 --pkg=gio-2.0" home="https://freedesktop.org/wiki/Software/GeoClue/" c-docs="https://www.freedesktop.org/software/geoclue/docs/libgeoclue/">
 				GeoClue is a D-Bus geoinformation service. The goal of the Geoclue project is to make creating location-aware applications as simple as possible.
 			</package>
-			<package deprecated="true" name="tracker-miner-0.16" flags="--pkg tracker-sparql-0.16" home="http://projects.gnome.org/tracker/" gir="TrackerMiner-0.16">
-				This package contains the library that is used by applications that provide data miners for tracker.
-
-				Tracker is an advanced framework for first class objects with associated metadata and tags. It provides
-				a one stop solution for all metadata, tags, shared object databases, search tools and indexing. 
+			<package name="tracker-control-2.0" gir="TrackerControl-2.0" c-docs="https://developer.gnome.org/libtracker-control/stable/">
+				External control and monitoring of miners
 			</package>
-			<package deprecated="true" name="tracker-sparql-0.16" home="http://projects.gnome.org/tracker/" c-docs="https://developer.gnome.org/libtracker-sparql/unstable/tracker-overview.html">
-				The foundation for Tracker querying and inserting into the data store. The data
-				store allows both querying and inserting using SPARQL based on the Nepomuk ontology. 				
-			</package>
-			<!-- TODO: invald gir, generated by valac -->
-			<package ignore="true" name="tracker-miner-1.0" flags="--pkg tracker-sparql-1.0" gir="Tracker-1.0" c-docs="https://developer.gnome.org/libtracker-miner/unstable/">
+			<package name="tracker-miner-2.0" gir="Tracker-2.0" c-docs="https://developer.gnome.org/libtracker-miner/stable/">
 				The libtracker-miner library is the foundation for Tracker data miners,
 				these miners will extract metadata and insert it in SPARQL form to
-				tracker-store.
+				a TrackerSparqlConnection. 
 			</package>
-			<package name="tracker-control-1.0" gir="TrackerControl-1.0" c-docs="https://developer.gnome.org/libtracker-control/unstable/">
-				Tracker, control
-			</package>
-			<package name="tracker-sparql-1.0" c-docs="https://developer.gnome.org/libtracker-sparql/unstable/">
+			<package name="tracker-sparql-2.0" c-docs="https://developer.gnome.org/libtracker-sparql/stable/">
 				The libtracker-sparql library is the foundation for Tracker querying and inserting
 				into the data store. The data store allows both querying and inserting using SPARQL
 				based on the Nepomuk ontology. 
@@ -346,9 +340,6 @@
 			</package>
 			<package name="folks-eds" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks/c/">
 				Folks, eds-backend
-			</package>
-			<package name="folks-libsocialweb" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks-libsocialweb/c/">
-				Folks, libsocialweb-backend
 			</package>
 			<package name="folks-telepathy" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks-telepathy/c/">
 				Folks, telepathy-backend
@@ -372,6 +363,9 @@
 			</package>
 			<package name="rest-extras-0.7" maintainers="Adrien Bustany" gir="RestExtras-0.7">
 				This extra package provides Facebook and Flickr support.
+			</package>
+			<package name="gmime-3.0" gir="GMime-3.0" home="https://github.com/jstedfast/gmime" c-docs="https://developer.gnome.org/gmime/stable/">
+				MIME message parser and creator library
 			</package>
 			<package name="gnutls" maintainer="Jiří Zárevúcky" home="http://www.gnutls.org/" c-docs="http://www.gnutls.org/documentation.html">
 				A library which provides a secure layer over a reliable transport layer
@@ -402,7 +396,7 @@
 			<package name="gsignond" gir="gSignond-1.0" home="https://gitlab.com/accounts-sso/gsignond" c-docs="http://accounts-sso.gitlab.io/gsignond/">
 				Single signon daemon library.
 			</package>
-			<package name="libgsignon-glib" gir="gSignon-1.0" home="https://gitlab.com/accounts-sso/libgsignon-glib" c-docs="http://accounts-sso.gitlab.io/libgsignon-glib/">
+			<package name="libsignon-glib" gir="Signon-2.0" home="https://gitlab.com/accounts-sso/libsignon-glib" c-docs="http://accounts-sso.gitlab.io/libsignon-glib/">
 				Single signon authentication library for online services.
 			</package>
 			<package name="vsgi-0.3" home="https://github.com/valum-framework/valum">
@@ -430,14 +424,11 @@
 		</section>
 
 		<section name="Markup">
-			<package name="gxml-0.14" maintainers="Daniel Espinosa">
+			<package name="gxml-0.16" maintainers="Daniel Espinosa">
 				GObject XML library and serialization framework.
 			</package>
 			<package name="json-glib-1.0" maintainers="Tomaž Vajngerl" gir="Json-1.0" c-docs="http://developer.gnome.org/json-glib/unstable/">
 				JSON-GLib is a library for reading and parsing JSON using GLib and GObject data types and API.
-			</package>
-			<package name="gxml-0.14" maintainers="Daniel Espinosa">
-				GObject XML library and serialization framework.
 			</package>
 			<package name="libxml-2.0" maintainers="Tomaž Vajngerl" gir="libxml2-2.0" c-docs="http://xmlsoft.org/html/">
 				Powerful and feature complete XML handling library.
@@ -592,25 +583,21 @@ simple methods via GObject-Introspection
 			<package name="gck-1" gir="Gck-1" c-docs="https://developer.gnome.org/gck/unstable/">
 				Glib wrapper library for PKCS#11
 			</package>
-			<package name="libgitg-ext-1.0" flags="--pkg libgitg-1.0 --pkg ggit-1.0 --pkg libsoup-2.4 --pkg webkit2gtk-4.0 --pkg gee-0.8 --pkg gtk+-3.0" gir="GitgExt-1.0">
-				-
+			<package name="libgit2-glib-1.0" gir="Ggit-1.0">
+				GLib wrapper library around the libgit2 git access library.
 			</package>
-			<!-- TODO: invald gir, generated by valac -->
-			<package ignore="true" name="libgitg-1.0" flags="--pkg libgitg-1.0 --pkg ggit-1.0 --pkg libsoup-2.4 --pkg webkit2gtk-4.0 --pkg gee-0.8 --pkg gtk+-3.0" gir="Gitg-1.0">
-				-
+			<package name="libgitg-1.0" flags="--pkg libgit2-glib-1.0 --pkg gee-0.8 --pkg gtk+-3.0" gir="Gitg-1.0">
+				Small, fast and convenient set of widgets to visualize the history of git repositories.
 			</package>
-			<package name="ggit-1.0" gir="Ggit-1.0">
-				-
+			<package name="libgitg-ext-1.0" flags="--pkg libgitg-1.0 --pkg libgit2-glib-1.0 --pkg gee-0.8 --pkg gtk+-3.0" gir="GitgExt-1.0">
+				Gitg extensions library.
 			</package>
 			<package name="appstream" gir="AppStream-1.0" home="https://www.freedesktop.org/wiki/Distributions/AppStream/" c-docs="https://www.freedesktop.org/software/appstream/docs/api/html/">
 				AppStream is a cross-distro effort for enhancing the way we interact with the software
 				repositories provided by the distribution by standardizing sets of additional metadata.
 			</package>
-			<package name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer.gnome.org/dbus-glib/unstable/">
-				D-Bus Support
-			</package>
-			<package name="libide-1.0" gir="Ide-1.0">
-				Plugin API for GNOME Builder
+			<package deprecated="true" name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer.gnome.org/dbus-glib/unstable/">
+				Initial D-Bus Support (Do not use in new projects, use DBus support included in GLib instead)
 			</package>
 			<package name="jsonrpc-glib-1.0" gir="Jsonrpc-1.0">
 				Jsonrpc-GLib is a library to communicate with JSON-RPC based peers in either a synchronous or asynchronous fashion.
@@ -621,7 +608,7 @@ simple methods via GObject-Introspection
 	</section>
 
 	<section name="Ubuntu">
-		<package name="unity" gir="Unity-6.0">
+		<package name="unity">
 			A library for instrumenting- and integrating with all aspects of the Unity shell.
 		</package>
 		<package name="unity-trace">
@@ -633,20 +620,13 @@ simple methods via GObject-Introspection
 		<package name="snapd-glib" gir="Snapd-1">
 			Library providing a GLib interface to snapd
 		</package>
-		<package name="zeitgeist-1.0" deprecated="true">
+		<package name="zeitgeist-2.0" flags="--pkg gio-2.0 --pkg zeitgeist-datamodel-2.0" home="https://zeitgeist.freedesktop.org/" c-docs="https://zeitgeist.freedesktop.org/documentation/latest/C/index.html">
 			Zeitgeist is a service which logs the users's activities and events (files opened, websites
 			visites, conversations held with other people, etc.) and makes relevant information available
 			to other applications. It is able to establish relationships between items based on similarity
 			and usage patterns.
 		</package>
-		<!-- TODO: invald gir, generated by valac -->
-		<package ignore="true" name="zeitgeist-2.0" gir="Zeitgeist-2.0">
-			Zeitgeist is a service which logs the users's activities and events (files opened, websites
-			visites, conversations held with other people, etc.) and makes relevant information available
-			to other applications. It is able to establish relationships between items based on similarity
-			and usage patterns.
-		</package>
-		<package name="zeitgeist-datamodel-2.0" flags="--pkg gio-2.0">
+		<package name="zeitgeist-datamodel-2.0" flags="--pkg gio-2.0" home="https://zeitgeist.freedesktop.org/" c-docs="https://zeitgeist.freedesktop.org/documentation/latest/C/index.html">
 			Zeitgeist, data model
 		</package>
 		<package name="dbusmenu-glib-0.4" gir="Dbusmenu-0.4" home="https://launchpad.net/dbusmenu">
@@ -844,10 +824,6 @@ simple methods via GObject-Introspection
 		<package name="lua">
 			Programming language designed for extending applications.
 		</package>
-		<package name="mx-1.0" gir="Mx-1.0" c-docs="http://docs.clutter-project.org/docs/mx/unstable/">
-			The Moblin UI Toolkit is a project to create useful widgets for Clutter-based applications.
-			It includes widgets such as edit controls, buttons, and many more.
-		</package>
 		<package name="mx-2.0" gir="Mx-2.0" flags="--pkg gio-2.0 --pkg clutter-1.0" c-docs="http://docs.clutter-project.org/docs/mx/unstable/">
 			The Moblin UI Toolkit is a project to create useful widgets for Clutter-based applications.
 			It includes widgets such as edit controls, buttons, and many more.
@@ -877,6 +853,13 @@ simple methods via GObject-Introspection
 		</package>
 		<package name="cairo-xcb" home="http://cairographics.org/">
 			Cairo - multi-platform 2D graphics library
+		</package>
+		<package name="check" flags="--pkg posix --pkg glib-2.0" home="https://libcheck.github.io/check/" c-docs="https://libcheck.github.io/check/doc/doxygen/html/check_8h.html">
+			Check is a unit testing framework for C. It features a simple interface for
+			defining unit tests, putting little in the way of the developer. Tests are run
+			in a separate address space, so both assertion failures and code errors that
+			cause segmentation faults or other signals can be caught. Test results are reportable
+			in the following: Subunit, TAP, XML, and a generic logging format.
 		</package>
 		<package name="cpufreq" home="http://cvs.mandriva.com/cgi-bin/cvsweb.cgi/SPECS/cpufreq/">
 			An initscript to set CPU frequency settings.

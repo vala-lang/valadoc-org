@@ -377,7 +377,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return null;
 		}
 
-		public virtual string? get_gir_file () {
+		public virtual string? get_gir_file (ErrorReporter reporter) {
 			if (gir_name == null) {
 				return null;
 			}
@@ -387,6 +387,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				return path;
 			}
 
+			reporter.simple_warning (null, "Unable to find gir file `%s', some documentation might be missing", path);
 			return null;
 		}
 
@@ -439,7 +440,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			this.name = name;
 		}
 
-		public override string? get_gir_file () {
+		public override string? get_gir_file (ErrorReporter reporter) {
 			return null;
 		}
 
@@ -567,10 +568,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.start_tag ("h1").text ("Packages").end_tag ("h1");
 
 			writer.start_tag ("h2").text ("Submitting API-Bugs and Patches").end_tag ("h2");
-			writer.start_tag ("p").text ("For all bindings where the status is not marked as external, and unless otherwise noted, bugs and patches should be submitted to the bindings component in the Vala product in the GNOME Bugzilla.").end_tag ("p");
+			writer.start_tag ("p");
+			writer.text ("For all bindings where the status is not marked as external, and unless otherwise noted, bugs and pull-requests should be submitted to the Vala product in the ");
+			writer.start_tag ("a", {"href", "https://gitlab.gnome.org/GNOME/vala", "target", "_blank"}).text ("GNOME GitLab instance").end_tag ("a");
+			writer.text (".").end_tag ("p");
 
-			writer.start_tag ("h2").text ("Bindings without maintainer(s) listed").end_tag ("h2");
-			writer.start_tag ("p").text ("The general bindings maintainer is Evan Nemerson (IRC nickname: nemequ). If you would like to adopt some bindings, please contact him.").end_tag ("p");
+			writer.start_tag ("h2").text ("Projects without VAPI files").end_tag ("h2");
+			writer.start_tag ("p").text ("Most GObject-instrospected projects are shipping their own bindings and Vala also ships with many of them. For many non-GObject introspected libraries, a repository is available in the ");
+			writer.start_tag ("a", {"href", "https://gitlab.gnome.org/GNOME/vala-extra-vapis", "target", "_blank"}).text ("vala-extra-vapis").end_tag ("a");
+			writer.text (" project in the GNOME GitLab instance.").end_tag ("p");
 
 			foreach (Node node in sections) {
 				node.render (this);
@@ -838,7 +844,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			builder.append_printf (" --import %s", pkg.name);
 		}
 
-		string gir_path = pkg.get_gir_file ();
+		string? gir_path = pkg.get_gir_file (reporter);
 		if (gir_path != null) {
 			stdout.printf ("  select .gir:            %s\n", gir_path);
 
@@ -1205,7 +1211,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 
-		string gir_path = pkg.get_gir_file ();
+		string gir_path = pkg.get_gir_file (reporter);
 
 		stdout.printf ("  download images (gir) ...\n");
 

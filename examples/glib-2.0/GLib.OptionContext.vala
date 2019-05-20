@@ -42,9 +42,9 @@ public class Main : Object {
 			opt_context.add_main_entries (options, null);
 			opt_context.parse (ref args);
 		} catch (OptionError e) {
-			print ("error: %s\n", e.message);
-			print ("Run '%s --help' to see a full list of available command line options.\n", args[0]);
-			return 0;
+			printerr ("error: %s\n", e.message);
+			printerr ("Run '%s --help' to see a full list of available command line options.\n", args[0]);
+			return 1;
 		}
 
 		if (version) {

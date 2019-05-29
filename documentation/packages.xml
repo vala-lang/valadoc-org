@@ -301,6 +301,11 @@
 			<package name="sqlite3" home="http://www.sqlite.org/" c-docs="http://www.sqlite.org/c3ref/intro.html">
 			 	A C library that implements an SQL database engine.
 			</package>
+			<package name="libical-glib" gir="ICalGLib-3.0" home="http://libical.github.io/libical/" c-docs="http://libical.github.io/libical/apidocs/index.html">
+				Implementation of the iCalendar protocols and protocol data units.
+				The iCalendar specification describes how calendar clients can communicate with calendar
+				servers so users can store their calendar data and arrange meetings with other users.
+			</package>
 			<package name="camel-1.2" gir="Camel-1.2" c-docs="https://developer.gnome.org/camel/unstable/">
 				Camel is a generic messaging library. It supports the standard messaging system for 
 				receiving and sending messages. It is the messaging backend for Evolution.

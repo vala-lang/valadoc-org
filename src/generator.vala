@@ -560,6 +560,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.start_tag ("a", {"class", "video", "href", "https://www.youtube.com/watch?v=vxvZGf69nko", "target", "_blank"}).text ("Creating elementary OS apps with GTK & Vala").end_tag ("a");
 			writer.end_tag ("p");
 
+			writer.start_tag ("p");
+			writer.start_tag ("a", {"class", "video", "href", "https://www.youtube.com/playlist?list=PLriKzYyLb28mn2lS3c5yqMHgLREi7kR9-", "target", "_blank"}).text ("Learn Vala and Gtk+ from Scratch (Playlist)").end_tag ("a");
+			writer.end_tag ("p");
+
 			writer.simple_tag ("hr");
 			writer.start_tag ("h1").text ("Packages").end_tag ("h1");
 

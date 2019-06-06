@@ -541,10 +541,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.end_tag ("p");
 
 			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://chebizarro.gitbooks.io/the-vala-tutorial/content/", "target", "_blank"}).text ("The Vala Tutorial by Valadate").end_tag ("a");
-			writer.end_tag ("p");
-
-			writer.start_tag ("p");
 			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/ValaForCSharpProgrammers", "target", "_blank"}).text ("Vala for C# Programmers by GNOME").end_tag ("a");
 			writer.end_tag ("p");
 

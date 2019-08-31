@@ -74,5 +74,5 @@ COPY --from=build-assets /opt/valadoc/valadoc.org /var/www/html
 # A couple default apache changes to make valadoc work
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
 
-COPY docker-server.sh /usr/local/bin/valadoc
-CMD ["valadoc"]
+COPY docker-server.sh /usr/local/bin/valadoc.org
+CMD ["valadoc.org"]

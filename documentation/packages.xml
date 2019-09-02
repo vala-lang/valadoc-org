@@ -73,6 +73,10 @@
 			<package name="webkit2gtk-4.0" gir="WebKit2-4.0" c-docs="http://webkitgtk.org/reference/webkit2gtk/unstable/index.html" home="http://webkitgtk.org/">
 				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
 			</package>
+			<package name="javascriptcoregtk-4.0" gir="JavaScriptCore-4.0">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+				This is the library to use to acces JavaScript from WebKitGTK.
+			</package>
 			<package name="champlain-gtk-0.12" gir="GtkChamplain-0.12" flags="--pkg gtk+-3.0 --pkg champlain-0.12 --pkg clutter-1.0" c-docs="https://developer.gnome.org/libchamplain/unstable/" home="http://projects.gnome.org/libchamplain/">
 				Libchamplain-gtk is a C library on top of libchamplain providing a Gtk+ widget to display maps
 				in GTK+ applications.
@@ -300,6 +304,11 @@
 			</package>
 			<package name="sqlite3" home="http://www.sqlite.org/" c-docs="http://www.sqlite.org/c3ref/intro.html">
 			 	A C library that implements an SQL database engine.
+			</package>
+			<package name="libical-glib" gir="ICalGLib-3.0" home="http://libical.github.io/libical/" c-docs="http://libical.github.io/libical/apidocs/index.html">
+				Implementation of the iCalendar protocols and protocol data units.
+				The iCalendar specification describes how calendar clients can communicate with calendar
+				servers so users can store their calendar data and arrange meetings with other users.
 			</package>
 			<package name="camel-1.2" gir="Camel-1.2" c-docs="https://developer.gnome.org/camel/unstable/">
 				Camel is a generic messaging library. It supports the standard messaging system for 
@@ -547,9 +556,6 @@ simple methods via GObject-Introspection
 			</package>
 			<package name="liboobs-1">
 				GObject based interface to system-tools-backends.
-			</package>
-			<package name="javascriptcoregtk-3.0" gir="JSCore-3.0">
-				This package contains introspection data for the GTK+-based version of JavaScriptCore 
 			</package>
 			<package name="libosinfo-1.0" gir="Libosinfo-1.0" flags="--pkg gio-2.0">
 				Library for managing information about operating systems and hypervisors.

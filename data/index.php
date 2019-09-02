@@ -77,7 +77,6 @@ if ($first == null || $first === "index") { // Homepage
     </div>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
     <ul>
-      <li><a href="https://plus.google.com/communities/113287185626826620884" target="_blank" title="Google+"><i class="fa fa-google-plus"></i></a>
       <li><a href="https://www.reddit.com/r/vala/" target="_blank" title="reddit"><i class="fa fa-reddit"></i></a>
       <li><a href="/markup.htm" title="Markup Info"><i class="fa fa-info-circle"></i></a>
     </ul>

@@ -541,10 +541,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.end_tag ("p");
 
 			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://chebizarro.gitbooks.io/the-vala-tutorial/content/", "target", "_blank"}).text ("The Vala Tutorial by Valadate").end_tag ("a");
-			writer.end_tag ("p");
-
-			writer.start_tag ("p");
 			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/ValaForCSharpProgrammers", "target", "_blank"}).text ("Vala for C# Programmers by GNOME").end_tag ("a");
 			writer.end_tag ("p");
 
@@ -562,6 +558,10 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			writer.start_tag ("p");
 			writer.start_tag ("a", {"class", "video", "href", "https://www.youtube.com/watch?v=vxvZGf69nko", "target", "_blank"}).text ("Creating elementary OS apps with GTK & Vala").end_tag ("a");
+			writer.end_tag ("p");
+
+			writer.start_tag ("p");
+			writer.start_tag ("a", {"class", "video", "href", "https://www.youtube.com/playlist?list=PLriKzYyLb28mn2lS3c5yqMHgLREi7kR9-", "target", "_blank"}).text ("Learn Vala and Gtk+ from Scratch (Playlist)").end_tag ("a");
 			writer.end_tag ("p");
 
 			writer.simple_tag ("hr");

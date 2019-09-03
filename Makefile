@@ -90,8 +90,8 @@ check-examples: valadoc-example-tester
 #
 
 build-data:
-	./node_modules/.bin/gulp
-
+	npm install
+	npx gulp
 
 #
 # Documentation generation:

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "https://valadoc.org",
   "main": "valadoc.org/router.php",
-  "repository": "Valadoc/valadoc-org",
+  "repository": "vala-lang/valadoc-org",
   "author": "Valadoc",
   "scripts": {
     "test": "stylelint data/styles/*.css",

@@ -95,7 +95,7 @@ if ($first == null || $first === "index") { // Homepage
   </div>
   <footer>
     Copyright © <?php echo date('Y'); ?> Valadoc.org | Documentation is licensed under the same terms as its upstream |
-    <a href="https://github.com/Valadoc/valadoc-org/issues" target="_blank">Report an Issue</a>
+    <a href="https://github.com/vala-lang/valadoc-org/issues" target="_blank">Report an Issue</a>
   </footer>
   <script type="text/javascript" src="/scripts/fetch.js"></script>
   <script type="text/javascript" src="/scripts/valadoc.js"></script>

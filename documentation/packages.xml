@@ -360,6 +360,18 @@
 			<package name="libaccounts-glib" gir="Accounts-1.0" home="https://gitlab.com/accounts-sso/libaccounts-glib" c-docs="http://accounts-sso.gitlab.io/libaccounts-glib/">
 				Accounts management library for online services.
 			</package>
+			<external-package name="vda" link="https://esodan.pages.gitlab.gnome.org/libvda/Vda-1/">
+				Vala Data Access library, a set of interfaces to connect to databases and execute queries
+			</external-package>
+			<external-package name="vgpg" link="https://esodan.pages.gitlab.gnome.org/libvda/Vgpg-1/">
+				VDA implementation using GDA as backend to connect to PostgreSQL databases
+			</external-package>
+			<external-package name="vgda" link="https://esodan.pages.gitlab.gnome.org/libvda/Vgda-1/">
+				VDA implementation using GDA as backend to connect to SQLite databases and implement new ones
+			</external-package>
+			<external-package name="vpg" link="https://esodan.pages.gitlab.gnome.org/libvda/Vpg-1/">
+				VDA implementation using to connect directly to PostgreSQL databases
+			</external-package>
 		</section>
 
 		<section name="Web Services &amp; HTTP">

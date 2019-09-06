@@ -1,7 +1,7 @@
 # Valadoc.org
 
 [![Bountysource](https://www.bountysource.com/badge/tracker?tracker_id=45574303)](https://www.bountysource.com/trackers/45574303-valadoc-org)
-[![Build Status](https://travis-ci.org/Valadoc/valadoc-org.svg?branch=master)](https://travis-ci.org/Valadoc/valadoc-org)
+[![Build Status](https://travis-ci.org/vala-lang/valadoc-org.svg?branch=master)](https://travis-ci.org/vala-lang/valadoc-org)
 
 Stays crunchy, even in milk.
 
@@ -187,8 +187,8 @@ Other errors:
 Contact And Help
 =================
 
-- [Homepage](http://www.valadoc.org), [GIT](https://github.com/Valadoc/valadoc-org)
-- [Issue Tracker, valadoc.org](https://github.com/Valadoc/valadoc-org/issues)
+- [Homepage](http://www.valadoc.org), [GIT](https://github.com/vala-lang/valadoc-org)
+- [Issue Tracker, valadoc.org](https://github.com/vala-lang/valadoc-org/issues)
 - [Issue Tracker, valadoc (now a part of Vala)](https://gitlab.gnome.org/GNOME/vala/issues)
 - IRC: irc.gnome.org, #vala (flo, UTC+01:00)
 - Mail: flo.brosch@gmail.com

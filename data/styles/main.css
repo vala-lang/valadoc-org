@@ -91,6 +91,11 @@ nav .title img {
     line-height: 26px;
     padding-left: 6px;
     width: 200px;
+    -webkit-appearance: none;
+}
+
+#search-field::-webkit-search-cancel-button {
+    display: none;
 }
 
 #search-field:focus {

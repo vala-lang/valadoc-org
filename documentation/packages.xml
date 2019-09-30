@@ -302,6 +302,9 @@
 			<package name="libgda-5.0" gir="Gda-5.0">
 				Libgda is a (relatively small) database access library.
 			</package>
+			<package name="libgda-6.0" gir="Gda-6.0">
+				Libgda is a (relatively small) database access library.
+			</package>
 			<package name="sqlite3" home="http://www.sqlite.org/" c-docs="http://www.sqlite.org/c3ref/intro.html">
 			 	A C library that implements an SQL database engine.
 			</package>
@@ -360,18 +363,24 @@
 			<package name="libaccounts-glib" gir="Accounts-1.0" home="https://gitlab.com/accounts-sso/libaccounts-glib" c-docs="http://accounts-sso.gitlab.io/libaccounts-glib/">
 				Accounts management library for online services.
 			</package>
-			<external-package name="vda" link="https://esodan.pages.gitlab.gnome.org/libvda/Vda-1/">
+			<package name="gcalc-1" home="https://gitlab.gnome.org/GNOME/gnome-calculator" flags="--pkg gio-2.0 --pkg=libxml-2.0 --pkg=gee-0.8" gir="GCalc-1">
+				GNOME Calculator's library to parse and evaluate math expressions
+			</package>
+			<package name="vda-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" flags="--pkg gio-2.0 --pkg=libxml-2.0 --pkg=gee-0.8 --pkg=gcalc-1" gir="Vda-1">
 				Vala Data Access library, a set of interfaces to connect to databases and execute queries
-			</external-package>
-			<external-package name="vgpg" link="https://esodan.pages.gitlab.gnome.org/libvda/Vgpg-1/">
+			</package>
+			<package name="vgpg-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" flags="--pkg gio-2.0 --pkg=libxml-2.0 --pkg=gee-0.8 --pkg=gcalc-1 --pkg libgda-6.0" gir="Vgpg-1">
 				VDA implementation using GDA as backend to connect to PostgreSQL databases
-			</external-package>
-			<external-package name="vgda" link="https://esodan.pages.gitlab.gnome.org/libvda/Vgda-1/">
-				VDA implementation using GDA as backend to connect to SQLite databases and implement new ones
-			</external-package>
-			<external-package name="vpg" link="https://esodan.pages.gitlab.gnome.org/libvda/Vpg-1/">
+			</package>
+			<package name="vgsl-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" flags="--pkg gio-2.0 --pkg=libxml-2.0 --pkg=gee-0.8 --pkg=gcalc-1 --pkg libgda-6.0" gir="Vgsl-1">
+				VDA implementation using GDA as backend to connect to SQLite databases
+			</package>
+			<package name="vgda-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" flags="--pkg gio-2.0 --pkg=libxml-2.0 --pkg=gee-0.8 --pkg=gcalc-1 --pkg libgda-6.0" gir="Vgda-1">
+				VDA implementation using GDA as backend, suitable to implement new GDA supported implementations
+			</package>
+			<package name="vpg-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" flags="--pkg gio-2.0 --pkg=libxml-2.0 --pkg=gee-0.8 --pkg=gcalc-1 --pkg libpq" gir="Vpg-1">
 				VDA implementation using to connect directly to PostgreSQL databases
-			</external-package>
+			</package>
 		</section>
 
 		<section name="Web Services &amp; HTTP">

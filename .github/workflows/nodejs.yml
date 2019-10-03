@@ -30,7 +30,7 @@ jobs:
       run: |
         sudo add-apt-repository ppa:vala-team -y
         sudo add-apt-repository ppa:vala-team/next -y
-        sudo apt-get install -y -qq valac libvala-0.44-dev valadoc libvaladoc-0.44-dev libgee-0.8-dev unzip
+        sudo apt-get install -y -qq valac=0.44 libvala-0.44-dev valadoc=0.44 libvaladoc-0.44-dev libgee-0.8-dev unzip
 
     - name: build valadoc-org
       run: make build-docs-mini || (cat LOG; false)

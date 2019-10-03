@@ -1,4 +1,4 @@
-name: GitHub CI
+name: Node CI
 
 on: [pull_request, push]
 
@@ -10,35 +10,26 @@ jobs:
     strategy:
       matrix:
         node-version: [10.x, 12.x]
-        vala-version: [0.44, 0.46]
 
     steps:
     - uses: actions/checkout@v1
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: npm install, build, and test
-      run: |
-        npm install
-        npm run build --if-present
-        npm test
+    - name: Install
+      run: npm ci
       env:
         CI: true
-        
-    - name: Install Latest Valadoc
-      run: |
-        sudo add-apt-repository ppa:vala-team -y
-        sudo add-apt-repository ppa:vala-team/next -y
-        sudo apt search vala
-        sudo apt install -y -qq \
-          valac=${{ matrix.vala-version }}.2-0ubuntu1~18.04~valateam1 \
-          libvala-${{ matrix.vala-version }}-dev=${{ matrix.vala-version }}.2-0ubuntu1~18.04~valateam1 \
-          valadoc=${{ matrix.vala-version }}.2-0ubuntu1~18.04~valateam1 \
-          libvaladoc-${{ matrix.vala-version }}-dev=${{ matrix.vala-version }}.2-0ubuntu1~18.04~valateam1 \
-          libgee-0.8-dev \
-          unzip
 
-    - name: build valadoc-org
-      run: make build-docs-mini || (cat LOG; false)
+    - name: Build 
+      run: npm run build --if-present
+      env:
+        CI: true
+
+    - name: Test
+      run: npm run test
+      env:
+        CI: true

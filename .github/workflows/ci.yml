@@ -1,10 +1,9 @@
-name: Node CI
+name: CI
 
 on: [pull_request, push]
 
 jobs:
-  build:
-
+  Node:
     runs-on: ubuntu-latest
 
     strategy:
@@ -33,3 +32,14 @@ jobs:
       run: npm run test
       env:
         CI: true
+
+  Vala:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Build
+      run: |
+        docker build -t valalang/docs:latest .

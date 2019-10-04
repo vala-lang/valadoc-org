@@ -1,0 +1,45 @@
+name: CI
+
+on: [pull_request, push]
+
+jobs:
+  Node:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install
+      run: npm ci
+      env:
+        CI: true
+
+    - name: Build 
+      run: npm run build --if-present
+      env:
+        CI: true
+
+    - name: Test
+      run: npm run test
+      env:
+        CI: true
+
+  Vala:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Build
+      run: |
+        docker build -t valalang/docs:latest .

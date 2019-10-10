@@ -92,6 +92,9 @@
 			  in the underlying library but cannot for various reasons. In most cases, they are wildly out of scope for those
 			  libraries. In other cases, our design isn't quite generic enough to work for everyone.
 			</package>
+			<package name="goocanvas-2.0" gir="GooCanvas-2.0" c-docs="https://developer.gnome.org/goocanvas/stable/">
+				GooCanvas is a canvas widget for GTK+ that uses the cairo 2D library for drawing.
+			</package>
 		</section>
 
 		<section name="Multimedia">

@@ -328,6 +328,9 @@
 			<package name="libebook-contacts-1.2" flags="--pkg libedataserver-1.2" gir="EBookContacts-1.2" c-docs="http://developer.gnome.org/libebook-contacts/stable/">
 				This package is a client library for evolution addressbooks.
 			</package>
+			<package name="libecal-2.0" gir="ECal-2.0" c-docs="http://developer.gnome.org/libecal/stable/">
+				This package is a client library for evolution calendars.
+			</package>
 			<package name="libecalendar-1.2" gir="ECalendar-1.2" c-docs="http://developer.gnome.org/libecal/stable/" flags="--pkg libedataserver-1.2">
 				This package is a client library for evolution calendars.
 			</package>

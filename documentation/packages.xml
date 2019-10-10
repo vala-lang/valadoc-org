@@ -173,6 +173,14 @@
 			<package name="clutter-gst-3.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-3.0" c-docs="http://developer.gnome.org/clutter-gst/unstable/">
 				GStreamer bindings for clutter.
 			</package>
+			<package name="babl-0.1" home="http://www.gegl.org/babl/" gir="Babl-0.1">
+				babl is pixel encoding and color space conversion engine in C.
+				It allows converting between different methods of storing pixels known as pixel formats
+				that have with different bitdepths and other data representations, color models, color
+				spaces and component permutations.
+				A vocabulary to formulate new pixel formats from existing primitives is provided as well
+				as the framework to add new color models, spaces and data types.
+			</package>
 			<package name="gegl-0.3" home="http://www.gegl.org/" gir="Gegl-0.3">
 				GEGL (Generic Graphics Library) is a data flow based image processing framework, providing
 				floating point processing and non-destructive image processing capabilities to GNU Image

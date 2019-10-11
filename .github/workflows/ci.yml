@@ -42,4 +42,4 @@ jobs:
 
     - name: Build
       run: |
-        docker build -t valalang/docs:latest .
+        docker build -t valalang/docs:latest --build-arg BUILD_CMD=build-docs-mini .

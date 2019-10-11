@@ -4,6 +4,8 @@
 # Build valadoc
 FROM ubuntu:18.04 as build-docs
 
+ARG BUILD_COMMAND=build-docs
+
 # Install basic needed packages
 RUN apt update && apt install -y --no-install-recommends software-properties-common
 
@@ -33,7 +35,7 @@ COPY . /opt/valadoc
 WORKDIR /opt/valadoc
 
 # Build docs
-RUN make build-docs || true
+RUN make ${BUILD_COMMAND} || true
 
 # Build search index
 RUN make configgen \

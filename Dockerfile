@@ -8,7 +8,7 @@ FROM ubuntu:18.04 as build-docs
 RUN apt update && apt install -y --no-install-recommends software-properties-common
 
 # Install third party repos
-RUN add-apt-repository -y ppa:vala-team
+RUN add-apt-repository -y ppa:vala-team/daily
 
 # Install valadoc and server packages
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install \
@@ -18,7 +18,7 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive apt install \
   gee-0.8 \
   git \
   libguestfs-gobject-1.0 \
-  libvaladoc-dev \
+  libvaladoc-0.48-dev \
   php \
   php-curl \
   sphinxsearch \

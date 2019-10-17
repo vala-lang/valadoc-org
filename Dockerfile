@@ -49,7 +49,7 @@ COPY --from=build-docs /opt/valadoc /opt/valadoc
 WORKDIR /opt/valadoc
 
 # Build website assets
-RUN make build-data
+RUN npm ci && make build-data
 
 # Cleanup and publish
 FROM php:apache

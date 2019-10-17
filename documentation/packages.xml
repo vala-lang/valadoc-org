@@ -313,6 +313,9 @@
 			<package name="libgda-5.0" gir="Gda-5.0">
 				Libgda is a (relatively small) database access library.
 			</package>
+			<package name="libgda-6.0" gir="Gda-6.0">
+				Libgda is a (relatively small) database access library.
+			</package>
 			<package name="sqlite3" home="http://www.sqlite.org/" c-docs="http://www.sqlite.org/c3ref/intro.html">
 			 	A C library that implements an SQL database engine.
 			</package>
@@ -373,6 +376,24 @@
 			</package>
 			<package name="libaccounts-glib" gir="Accounts-1.0" home="https://gitlab.com/accounts-sso/libaccounts-glib" c-docs="http://accounts-sso.gitlab.io/libaccounts-glib/">
 				Accounts management library for online services.
+			</package>
+			<package name="gcalc-1" home="https://gitlab.gnome.org/GNOME/gnome-calculator" gir="GCalc-1">
+				GNOME Calculator's library to parse and evaluate math expressions
+			</package>
+			<package name="vda-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" gir="Vda-1">
+				Vala Data Access library, a set of interfaces to connect to databases and execute queries
+			</package>
+			<package name="vgpg-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" gir="Vgpg-1">
+				VDA implementation using GDA as backend to connect to PostgreSQL databases
+			</package>
+			<package name="vgsl-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" gir="Vgsl-1">
+				VDA implementation using GDA as backend to connect to SQLite databases
+			</package>
+			<package name="vgda-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" gir="Vgda-1">
+				VDA implementation using GDA as backend, suitable to implement new GDA supported implementations
+			</package>
+			<package name="vpg-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" gir="Vpg-1">
+				VDA implementation using to connect directly to PostgreSQL databases
 			</package>
 		</section>
 

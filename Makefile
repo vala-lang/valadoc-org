@@ -90,7 +90,6 @@ check-examples: valadoc-example-tester
 #
 
 build-data:
-	npm install
 	npx gulp
 
 #

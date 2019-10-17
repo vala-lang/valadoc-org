@@ -92,6 +92,9 @@
 			  in the underlying library but cannot for various reasons. In most cases, they are wildly out of scope for those
 			  libraries. In other cases, our design isn't quite generic enough to work for everyone.
 			</package>
+			<package name="goocanvas-2.0" gir="GooCanvas-2.0" c-docs="https://developer.gnome.org/goocanvas/stable/">
+				GooCanvas is a canvas widget for GTK+ that uses the cairo 2D library for drawing.
+			</package>
 		</section>
 
 		<section name="Multimedia">
@@ -172,6 +175,14 @@
 			</package>
 			<package name="clutter-gst-3.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-3.0" c-docs="http://developer.gnome.org/clutter-gst/unstable/">
 				GStreamer bindings for clutter.
+			</package>
+			<package name="babl-0.1" home="http://www.gegl.org/babl/" gir="Babl-0.1">
+				babl is pixel encoding and color space conversion engine in C.
+				It allows converting between different methods of storing pixels known as pixel formats
+				that have with different bitdepths and other data representations, color models, color
+				spaces and component permutations.
+				A vocabulary to formulate new pixel formats from existing primitives is provided as well
+				as the framework to add new color models, spaces and data types.
 			</package>
 			<package name="gegl-0.3" home="http://www.gegl.org/" gir="Gegl-0.3">
 				GEGL (Generic Graphics Library) is a data flow based image processing framework, providing
@@ -322,6 +333,9 @@
 			</package>
 			<package name="libebook-contacts-1.2" flags="--pkg libedataserver-1.2" gir="EBookContacts-1.2" c-docs="http://developer.gnome.org/libebook-contacts/stable/">
 				This package is a client library for evolution addressbooks.
+			</package>
+			<package name="libecal-2.0" gir="ECal-2.0" c-docs="http://developer.gnome.org/libecal/stable/">
+				This package is a client library for evolution calendars.
 			</package>
 			<package name="libecalendar-1.2" gir="ECalendar-1.2" c-docs="http://developer.gnome.org/libecal/stable/" flags="--pkg libedataserver-1.2">
 				This package is a client library for evolution calendars.

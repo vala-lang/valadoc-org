@@ -1,0 +1,22 @@
+name: Publish
+
+on:
+  schedule:
+    - cron:  '0 20 * * *'
+
+  push:
+    branches:
+      - master
+
+jobs:
+  Dockerhub:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v1
+
+      - name: Publish
+        run: |
+          docker login -u "${{ secrets.DockerUsername }}" -p "${{ secrets.DockerPassword }}"
+          docker build -t valalang/docs:latest .
+          docker push valalang/docs:latest

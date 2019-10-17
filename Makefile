@@ -103,7 +103,6 @@ build-docs: default
 	./generator \
 		--vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
 		--vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
-		--driver $(VALAC_VERSION) \
 		--prefix $(PREFIX) \
 		--target-glib 2.98 \
 		--download-images \
@@ -116,7 +115,6 @@ build-docs-mini: default
 	./generator \
 		--vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
 		--vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
-		--driver $(VALAC_VERSION) \
 		--prefix $(PREFIX) \
 		--target-glib 2.98 \
 		--download-images \

@@ -68,7 +68,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		// Versioned vapi directory:
 		try {
-			Process.spawn_command_line_sync ("pkg-config --variable=vapidir libvala-%s".printf (driver), out standard_output, out standard_error, out exit_status);
+			Process.spawn_command_line_sync ("pkg-config --variable=vapidir libvala-%s".printf (Vala.API_VERSION), out standard_output, out standard_error, out exit_status);
 			if (exit_status == 0) {
 				paths += standard_output.strip ();
 			}
@@ -85,7 +85,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private static string output_directory;
 	private static string metadata_path;
 	private static string docletpath;
-	private static string driver;
 	private static bool download_images;
 	private static string prefix;
 	private static bool skip_existing;
@@ -120,12 +119,11 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	}
 
 	private const GLib.OptionEntry[] options = {
-		{ "prefix", 0, 0, OptionArg.STRING, ref prefix, "package prefix (e.g. stable, unstable", null},
+		{ "prefix", 0, 0, OptionArg.STRING, ref prefix, "package prefix (e.g. stable, unstable)", null},
 		{ "all", 0, 0, OptionArg.NONE, ref regenerate_all_packages, "Regenerate documentation for all packages", null },
 		{ "directory", 'o', 0, OptionArg.FILENAME, ref output_directory, "Output directory", "DIRECTORY" },
-		{ "target-glib", 0, 0, OptionArg.STRING, ref target_glib, "target", "VERSION" },
-		{ "driver", 'o', 0, OptionArg.FILENAME, ref driver, "Output directory", "DIRECTORY" },
-		{ "download-images", 0, 0, OptionArg.NONE, ref download_images, "Downlaod images", null },
+		{ "target-glib", 0, 0, OptionArg.STRING, ref target_glib, "Target version of glib for code generation", "MAJOR.MINOR" },
+		{ "download-images", 0, 0, OptionArg.NONE, ref download_images, "Download images", null },
 		{ "doclet", 0, 0, OptionArg.STRING, ref docletpath, "Name of an included doclet or path to custom doclet", "PLUGIN"},
 		{ "vapidir", 0, 0, OptionArg.FILENAME_ARRAY, ref vapidirs, "Look for package bindings in DIRECTORY", "[DIRECTORY]"},
 		{ "skip-existing", 0, 0, OptionArg.NONE, ref skip_existing, "Skip existing packages", null },
@@ -829,8 +827,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 
 		StringBuilder builder = new StringBuilder ();
-		builder.append_printf ("valadoc --target-glib %s --driver \"%s\" --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s --use-svg-images",
-			target_glib, driver, docletpath, pkg.name, pkg.get_vapi_path (vapidirs), Path.get_dirname (pkg.get_vapi_path (vapidirs)), girdir, pkg.flags);
+		builder.append_printf ("valadoc --target-glib %s --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s --use-svg-images",
+			target_glib, docletpath, pkg.name, pkg.get_vapi_path (vapidirs), Path.get_dirname (pkg.get_vapi_path (vapidirs)), girdir, pkg.flags);
 
 		if (disable_devhelp == true) {
 			builder.append (" -X --disable-devhelp");
@@ -1306,16 +1304,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		if (output_directory == null) {
 			output_directory = "valadoc.org";
-		}
-
-		if (driver == null) {
-			stdout.printf ("error: --driver is missing\n");
-			return -1;
-		}
-
-		if (Regex.match_simple ("^[0-9]+\\.[0-9]+$", driver) == false) {
-			stdout.printf ("error: unexpected driver format\n");
-			return -1;
 		}
 
 		metadata_path = "documentation/packages.xml";

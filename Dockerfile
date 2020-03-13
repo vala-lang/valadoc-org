@@ -2,7 +2,7 @@
 ## Builds valadoc and serves it with a basic PHP server
 
 # Build valadoc
-FROM ubuntu:20.04 as build-docs
+FROM ubuntu:19.04 as build-docs
 
 # Install basic needed packages
 RUN apt update && apt install -y --no-install-recommends software-properties-common
@@ -19,7 +19,7 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive apt install \
   gee-0.8 \
   git \
   libguestfs-gobject-1.0 \
-  libvaladoc-0.48-dev \
+  libvaladoc-0.44-dev \
   php \
   php-curl \
   sphinxsearch \

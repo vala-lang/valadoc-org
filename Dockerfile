@@ -2,18 +2,19 @@
 ## Builds valadoc and serves it with a basic PHP server
 
 # Build valadoc
-FROM ubuntu:18.04 as build-docs
+FROM ubuntu:20.04 as build-docs
 
 # Install basic needed packages
 RUN apt update && apt install -y --no-install-recommends software-properties-common
 
 # Install third party repos
-RUN add-apt-repository -y ppa:vala-team/daily
+RUN add-apt-repository -y ppa:vala-team
 
 # Install valadoc and server packages
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install \
   -y \
   --no-install-recommends \
+  build-essential \
   gcc \
   gee-0.8 \
   git \

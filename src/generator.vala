@@ -867,8 +867,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			builder.append_printf (" --import \"%s-widget-gallery\"", pkg.name);
 		}
 
-		FileStream log = FileStream.open ("LOG", "a");
-		log.printf ("===== %s =====\n", pkg.name);
+    stdout.printf ("===== %s =====\n", pkg.name);
 
 		bool has_examples = false;
 		string example_path = "examples/%s/%s.valadoc.examples".printf (pkg.name, pkg.name);
@@ -884,17 +883,17 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 				Process.spawn_command_line_sync ("./valadoc-example-gen \"%s\" \"%s\" \"%s\"".printf (example_path, output, "documentation/%s/wiki".printf (pkg.name)), out standard_output, out standard_error, out exit_status);
 				if (exit_status != 0) {
-					log.printf ("%s\n", builder.str);
+					stdout.printf ("%s\n", builder.str);
 					if (standard_error != null) {
-						log.printf (standard_error);
+						stdout.printf (standard_error);
 					}
 					if (standard_output != null) {
-						log.printf (standard_output);
+						stdout.printf (standard_output);
 					}
 					throw new SpawnError.FAILED ("Exit status != 0");
 				}
 			} catch (SpawnError e) {
-				stdout.printf ("ERROR: Can't generate documentation for %s. See LOG for details.\n", pkg.name);
+				stdout.printf ("ERROR: Can't generate documentation for %s.\n", pkg.name);
 				throw e;
 			}
 
@@ -924,12 +923,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			stdout.puts ("  run valadoc ...\n");
 			Process.spawn_command_line_sync (builder.str, out standard_output, out standard_error, out exit_status);
 
-			log.printf ("%s\n", builder.str);
+			stdout.printf ("%s\n", builder.str);
 			if (standard_error != null) {
-				log.printf (standard_error);
+				stdout.printf (standard_error);
 			}
 			if (standard_output != null) {
-				log.printf (standard_output);
+				stdout.printf (standard_output);
 			}
 			standard_output = null;
 			standard_error = null;
@@ -939,19 +938,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 
 			Process.spawn_command_line_sync ("rm -r -f %s".printf (Path.build_path (Path.DIR_SEPARATOR_S, output_directory, pkg.name)));
-			Process.spawn_command_line_sync ("mv LOG tmp/%s/%s".printf (pkg.name, pkg.name));
 			Process.spawn_command_line_sync ("mv tmp/%s/%s \"%s\"".printf (pkg.name, pkg.name, output_directory));
 		} catch (SpawnError e) {
-			stdout.printf ("ERROR: Can't generate documentation for %s. See LOG for details.\n", pkg.name);
+			stdout.printf ("ERROR: Can't generate documentation for %s.\n", pkg.name);
 			throw e;
 		} finally {
 			if (delete_wiki_path) {
 				FileUtils.unlink (wiki_path);
 			}
 		}
-
-		log.flush ();
-		log = null;
 	}
 
 	private void collect_images (string content, Gee.HashSet<string> images, bool is_docbook) {

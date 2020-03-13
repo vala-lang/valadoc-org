@@ -867,7 +867,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			builder.append_printf (" --import \"%s-widget-gallery\"", pkg.name);
 		}
 
-    stdout.printf ("===== %s =====\n", pkg.name);
+        stdout.printf ("===== %s =====\n", pkg.name);
 
 		bool has_examples = false;
 		string example_path = "examples/%s/%s.valadoc.examples".printf (pkg.name, pkg.name);

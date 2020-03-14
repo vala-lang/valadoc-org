@@ -1,4 +1,0 @@
-[PackageKit Catalog]
-
-InstallPackages(fedora)=vte3-devel
-InstallPackages(debian)=libvte-2.90-dev

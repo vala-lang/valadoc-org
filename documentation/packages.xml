@@ -876,6 +876,9 @@ simple methods via GObject-Introspection
 		<package name="gsl" maintainer="Matias De la Puente" home="http://www.gnu.org/software/gsl/manual/html_node/" c-docs="http://www.gnu.org/software/gsl/manual/html_node/">
 			A collection of numerical routines for scientific computing.
 		</package>
+		<package name="gpseq-1.0" maintainer="Космическое П." home="https://gitlab.com/kosmospredanie/gpseq/" c-docs="https://gitlab.com/kosmospredanie/gpseq/-/jobs/artifacts/master/file/gtkdoc/html/index.html?job=build">
+			A parallelism library for Vala and GObject.
+		</package>
 	</section>
 
 	<section name="Vala Extra Vapis">

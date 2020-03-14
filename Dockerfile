@@ -2,7 +2,7 @@
 ## Builds valadoc and serves it with a basic PHP server
 
 # Build valadoc
-FROM ubuntu:18.04 as build-docs
+FROM ubuntu:20.04 as build-docs
 
 # Install basic needed packages
 RUN apt update && apt install -y --no-install-recommends software-properties-common
@@ -26,7 +26,10 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive apt install \
   valac \
   valadoc \
   wget \
-  xsltproc
+  xsltproc \
+  make \
+  nodejs \
+  npm
 
 # Copy over the valadoc stuff
 COPY . /opt/valadoc
@@ -40,13 +43,6 @@ RUN make configgen \
   && ./configgen ./valadoc.org/ \
   && mkdir ./sphinx/storage \
   && indexer --config ./sphinx.conf --all
-
-# Build valadoc assets
-FROM node:10 as build-assets
-
-# Copy over the valadoc stuff
-COPY --from=build-docs /opt/valadoc /opt/valadoc
-WORKDIR /opt/valadoc
 
 # Build website assets
 RUN npm ci && make build-data
@@ -65,11 +61,11 @@ RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
 # Copy over all of the valadoc sphinx search data and configuration
 RUN mkdir -p /opt/valadoc
-COPY --from=build-assets /opt/valadoc/sphinx.conf /opt/valadoc/sphinx.conf
-COPY --from=build-assets /opt/valadoc/sphinx /opt/valadoc/sphinx
+COPY --from=build-docs /opt/valadoc/sphinx.conf /opt/valadoc/sphinx.conf
+COPY --from=build-docs /opt/valadoc/sphinx /opt/valadoc/sphinx
 
 # Copy over the build static html files
-COPY --from=build-assets /opt/valadoc/valadoc.org /var/www/html
+COPY --from=build-docs /opt/valadoc/valadoc.org /var/www/html
 
 # A couple default apache changes to make valadoc work
 COPY apache.conf /etc/apache2/sites-available/000-default.conf

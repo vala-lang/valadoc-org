@@ -4,21 +4,23 @@
 # Build valadoc
 FROM ubuntu:20.04 as build-docs
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Install basic needed packages
-RUN apt update && apt install -y --no-install-recommends software-properties-common
+RUN apt-get update -qq && apt-get install -qq --no-install-recommends software-properties-common
 
 # Install third party repos
 RUN add-apt-repository -y ppa:vala-team/daily
 
 # Install valadoc and server packages
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt install \
-  -y \
+RUN apt-get update -qq && apt-get install \
+  -qq \
   --no-install-recommends \
   gcc \
-  gee-0.8 \
+  libgee-0.8-dev \
   git \
-  libguestfs-gobject-1.0 \
-  libvaladoc-0.48-dev \
+  libguestfs-gobject-dev \
+  libvaladoc-0.50-dev \
   php \
   php-curl \
   sphinxsearch \
@@ -50,9 +52,11 @@ RUN npm ci && make build-data
 # Cleanup and publish
 FROM php:apache
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Install sphinxsearch for search index
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt install \
-  -y \
+RUN apt-get update -qq && apt-get install \
+  -qq \
   --no-install-recommends \
   sphinxsearch
 

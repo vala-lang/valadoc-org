@@ -16,7 +16,7 @@ Gvc.initlib
  * However, note that both {@link c::gvContext} and {@link c::gvParseArgs} will call {@link c::aginit}
  * internally if necessary. It's safe to call {@link c::aginit} multiple times.
  *
- * For more information of Graphviz initialization, see documention at:
+ * For more information of Graphviz initialization, see documentation at:
  * [[http://graphviz.org/pdf/libguide.pdf]]
  */
 Gvc.init

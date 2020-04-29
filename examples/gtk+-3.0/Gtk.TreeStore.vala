@@ -40,7 +40,7 @@ public class Application : Gtk.Window {
 		store.set (category_iter, 0, "Films", -1);
 
 		store.append (out product_iter, category_iter);
-		store.set (product_iter, 0, "Amores Perros", 1, "$7.99", -1);
+		store.set (product_iter, 0, "Amores Perrors", 1, "$7.99", -1);
 		store.append (out product_iter, category_iter);
 		store.set (product_iter, 0, "Twin Peaks", 1, "$14.99", -1);
 		store.append (out product_iter, category_iter);

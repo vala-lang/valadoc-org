@@ -2812,7 +2812,7 @@ GLib.Time.gm
 GLib.Time.local
 
 /**
- * Converts the date and time information to a formated string.
+ * Converts the date and time information to a formatted string.
  *
  * @param format a date-time format. See {@link GLib.Time.format} for details.
  * @return a newly-allocated string holding the result.

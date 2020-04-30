@@ -3,7 +3,7 @@ public static int main (string[] args) {
 
 	// Copy the data into a typeless buffer:
 	// Do not copy arrays / classes / etc when you do not know what you are doing.
-	// You may break your ref counters / lose array lenght information / etc
+	// You may break your ref counters / lose array length information / etc
 	void* copy = try_malloc (sizeof (char)*data.length);
 	Memory.copy (copy, data, sizeof (char)*data.length);
 	print ("%s\n", (string) copy);

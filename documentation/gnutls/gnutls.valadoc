@@ -84,7 +84,7 @@ GnuTLS.CertificateImportFlags.LIST_IMPORT_FAIL_IF_EXCEED
 /**
  * If set a signer does not have to be a certificate authority.
  *
- * This flag should normaly be disabled, unless you know what this means.
+ * This flag should normally be disabled, unless you know what this means.
  */
 GnuTLS.CertificateVerifyFlags.DISABLE_CA_SIGN
 

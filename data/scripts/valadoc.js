@@ -83,7 +83,7 @@ function setupLink (link) {
   })
 
   link.addEventListener('mouseenter', evt => {
-      // fullname = path without the / at the beggining and the .htm(l)
+      // fullname = path without the / at the beginning and the .htm(l)
     const target = evt.currentTarget
     target.hovered = true
     const fullname = link.pathname.substring(1).replace(/\.html?$/, '')
@@ -126,7 +126,7 @@ function loadPage (link, popped = false) {
       document.querySelectorAll('#content a').forEach(setupLink)
       document.querySelectorAll('#content area').forEach(setupLink)
     }).catch(err => {
-      html.content.innerHTML = `<h1>Sorry, an error occured</h1><p>${err.message}</p>`
+      html.content.innerHTML = `<h1>Sorry, an error occurred</h1><p>${err.message}</p>`
     })
 
     if (html.searchField.value === '') {
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('body > div a').forEach(setupLink)
   document.querySelectorAll('body > div area').forEach(setupLink)
 
-  // register some usefull shortcuts
+  // register some useful shortcuts
   document.addEventListener('keyup', evt => {
     switch (evt.keyCode) {
       case 27: // echap

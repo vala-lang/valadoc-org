@@ -1,6 +1,6 @@
 // README: Fire Eagle has closed as of February 2013.
 //  This eample won't work anymore. However, the code
-//  might be usefull.
+//  might be useful.
 public static int main (string[] args) {
 	// Create the proxy:
 	Rest.OAuthProxy proxy = new Rest.OAuthProxy (

@@ -127,7 +127,7 @@ public class ExampleTester : ExampleParser {
 				report_error (errmsg);
 			}
 		} else {
-			report_error ("An error occured. Please check the logs.");
+			report_error ("An error occurred. Please check the logs.");
 		}
 
 		example_experimental = false;

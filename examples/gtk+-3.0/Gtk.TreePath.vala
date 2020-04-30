@@ -26,7 +26,7 @@ public static int main (string[] args) {
 	store.set (category_iter, 0, "Films", -1);
 
 	store.append (out product_iter, category_iter);
-	store.set (product_iter, 0, "Amores Perros", 1, "$7.99", -1);
+	store.set (product_iter, 0, "Amores Perrors", 1, "$7.99", -1);
 	store.append (out product_iter, category_iter);
 	store.set (product_iter, 0, "Twin Peaks", 1, "$14.99", -1);
 	store.append (out product_iter, category_iter);
@@ -40,7 +40,7 @@ public static int main (string[] args) {
 	//     + Ulysses				$26.09
 	//     + Effective Vala			$38.99
 	//   + Films
-	//     + Amores Perros			$7.99
+	//     + Amores Perrors			$7.99
 	//     + Twin Peaks				$14.99
 	// 	   + Vertigo				$20.49
 

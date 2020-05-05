@@ -107,6 +107,7 @@ build-docs: default
 		--download-images \
 		--skip-existing \
 		--no-check-certificate \
+		--parallel 4 \
 		--all
 
 build-docs-mini: default
@@ -120,6 +121,7 @@ build-docs-mini: default
 		--skip-existing \
 		--no-check-certificate \
 		--disable-devhelp \
+		--parallel 4 \
 		"glib-2.0" "gio-2.0" "gobject-2.0"
 
 

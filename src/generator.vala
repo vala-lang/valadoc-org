@@ -92,6 +92,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private static string target_glib;
 	private static bool wget_no_check_certificate;
 	private static bool disable_devhelp;
+	private static int parallel;
 	[CCode (array_length = false, array_null_terminated = true)]
 	private static string[] vapidirs;
 
@@ -129,6 +130,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		{ "skip-existing", 0, 0, OptionArg.NONE, ref skip_existing, "Skip existing packages", null },
 		{ "no-check-certificate", 0, 0, OptionArg.NONE, ref wget_no_check_certificate, "Pass --no-check-certificate to wget", null },
 		{ "disable-devhelp", 0, 0, OptionArg.NONE, ref disable_devhelp, "Do not generate devhelp-packages", null },
+		{ "parallel", 'j', 0, OptionArg.INT, ref parallel, "Number of parallel generation", "NUMBER" },
 		{ "", 0, 0, OptionArg.FILENAME_ARRAY, ref requested_packages, null, "FILE..." },
 		{ null }
 	};
@@ -780,15 +782,20 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return ;
 		}
 
-		foreach (Package pkg in queue) {
+		var pool = new GLib.ThreadPool<Package>.with_owned_data ((pkg) => {
 			try {
 				build_doc_for_package (pkg);
 			} catch (Error e) {
 				stderr.printf ("%s\n", e.message);
 				has_error = true;
 			}
+		}, parallel, false);
+
+		foreach (Package pkg in queue) {
+			pool.add (pkg);
 		}
 
+		GLib.ThreadPool.free ((owned) pool, false, true);
 		print_stored_messages ();
 	}
 
@@ -1324,6 +1331,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return -1;
 		}
 
+		parallel = int.min (1, parallel);
 
 		int return_val = 0;
 

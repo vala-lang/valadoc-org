@@ -17,12 +17,9 @@
 /girs/
 /libdoclet.so
 /LOG
-/sphinx.conf
-/sphinx/storage/*
 /tmp/*
 /valadoc-example-gen
 /valadoc-example-tester
-/valadoc.org/
 /node_modules/
 /yarn.lock
 

@@ -15,8 +15,58 @@ jobs:
       - name: Clone
         uses: actions/checkout@v2
 
-      - name: Publish
+      - name: Install the dependencies
+        run: |
+          export DEBIAN_FRONTEND=noninteractive
+          curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+          sudo apt-get update -y
+          sudo apt-get install -y --no-install-recommends software-properties-common
+          sudo add-apt-repository -y ppa:vala-team/daily
+          sudo apt-get update -y
+          sudo apt-get install \
+          -y \
+          --no-install-recommends \
+          gcc \
+          libgee-0.8-dev \
+          git \
+          libguestfs-gobject-dev \
+          libvaladoc-0.50-dev \
+          php \
+          php-curl \
+          sphinxsearch \
+          unzip \
+          valac \
+          valadoc \
+          wget \
+          xsltproc \
+          make \
+          nodejs
+
+      - name: Build the documentation
+        run: |
+          make build-docs || true
+
+      - name: Build search index
+        run: |
+          make configgen \
+          && ./configgen ./valadoc.org/ \
+          && mkdir ./sphinx/storage \
+          && indexer --config ./sphinx.conf --all
+
+      - name: Build website assets
+        run: |
+          npm ci && make build-data
+
+      - name: Build image
+        run: |
+          docker build -t valalang/docs-tmp .
+          CONTAINER_ID=$(sudo docker create -v "$(pwd)"/valadoc.org:/opt/valadoc.org --name valadoc valalang/docs-tmp:latest)
+          docker start $CONTAINER_ID
+          docker exec $CONTAINER_ID sh -c 'mv /opt/valadoc.org/* /var/www/html/'
+          docker stop $CONTAINER_ID
+          docker commit $CONTAINER_ID valalang/docs:latest
+
+      - name: Build image and publish
         run: |
           docker login -u "${{ secrets.DockerUsername }}" -p "${{ secrets.DockerPassword }}"
-          docker build -t valalang/docs:latest .
           docker push valalang/docs:latest

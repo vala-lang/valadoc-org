@@ -149,6 +149,9 @@
 			<package name="gstreamer-video-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GstVideo-1.0" c-docs="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/">
 				Support library for video operations
 			</package>
+			<package name="gstreamer-webrtc-1.0" home="http://gstreamer.freedesktop.org/" gir="GstWebRTC-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/webrtclib/index.html?gi-language=c">
+				GStreamer WebRTC Library
+			</package>
 			<package name="gst-editing-services-1.0" flags="--pkg gstreamer-base-1.0" home="http://gstreamer.freedesktop.org/" gir="GES-1.0" c-docs="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-editing-services/html/">
 				The GStreamer Editing Services (GES) aims to fill the gap between
 				GStreamer/NLE and the application developer by offering a series of

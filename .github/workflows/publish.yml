@@ -10,6 +10,7 @@ on:
 
 jobs:
   Dockerhub:
+    if: github.repository == 'vala-lang/valadoc-org'
     runs-on: ubuntu-latest
     steps:
       - name: Clone

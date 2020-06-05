@@ -1,4 +1,0 @@
-[PackageKit Catalog]
-
-InstallPackages(fedora)=clutter-gtk010-devel
-InstallPackages(debian)=libclutter-gtk-0.10-dev

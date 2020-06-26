@@ -300,10 +300,6 @@
 				It communicates with the "Secret Service" using DBus. gnome-keyring and ksecretservice
 				are both implementations of a Secret Service.
 			</package>
-			<package name="dconf" home="https://live.gnome.org/dconf">
-				dconf is a low-level configuration system. Its main purpose is to provide a backend to GSettings on 
-				platforms that don't already have configuration storage systems.
-			</package>
 			<package name="libgda-5.0" gir="Gda-5.0">
 				Libgda is a (relatively small) database access library.
 			</package>

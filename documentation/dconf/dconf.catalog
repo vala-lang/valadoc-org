@@ -1,4 +1,0 @@
-[PackageKit Catalog]
-
-InstallPackages(fedora)=dconf-devel
-InstallPackages(debian)=libdconf-dev

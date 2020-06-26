@@ -520,7 +520,7 @@ simple methods via GObject-Introspection
 			<package name="gedit" gir="Gedit-3.0" home="http://projects.gnome.org/gedit/" maintainers="Andrea Del Signore" c-docs="http://developer.gnome.org/gedit/unstable/">
 				Official text editor of the GNOME desktop environment.
 			</package>
-			<package name="poppler-glib" gir="Poppler-0.18" home="https://poppler.freedesktop.org/" c-docs="http://people.freedesktop.org/~ajohnson/docs/poppler-glib/">
+			<package name="poppler-glib" gir="Poppler-0.18" home="https://poppler.freedesktop.org/" c-docs="https://poppler.freedesktop.org/api/glib/">
 				PDF rendering library.
 			</package>
 			<package deprecated="true" name="gdl-1.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="http://developer.gnome.org/gdl/unstable/">

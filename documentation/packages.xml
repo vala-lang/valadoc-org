@@ -768,11 +768,6 @@ simple methods via GObject-Introspection
 		<package name="x11" home="http://www.x.org" c-docs="http://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html">
 			Binding to the X11 graphics library.
 		</package>
-		<package name="libxklavier" gir="Xkl-1.0" home="http://freedesktop.org/wiki/Software/LibXklavier/">
-			A library providing high-level API for X Keyboard Extension
-			known as XKB. This library is indended to support XFree86 and other commercial
-			X servers. It is useful for creating XKB-related software (layout indicators etc). 
-		</package>
 		<package ignore="true" name="xcb" home="http://xcb.freedesktop.org/" c-docs="http://xcb.freedesktop.org/XcbApi/">
 			X11 client-side library.
 		</package>

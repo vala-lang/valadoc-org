@@ -753,10 +753,6 @@ simple methods via GObject-Introspection
 		<package name="linux" maintainers="Michael 'Mickey' Lauer">
 			API for the Linux-based GNU systems.
 		</package>
-		<package deprecated="true" name="libnl-1" maintainers="Michael 'Mickey' Lauer">
-			The libnl suite is a collection of libraries providing APIs to netlink protocol
-			based Linux kernel interfaces. 
-		</package>
 		<package name="libnl-3.0" maintainers="Michael 'Mickey' Lauer">
 			The libnl suite is a collection of libraries providing APIs to netlink protocol
 			based Linux kernel interfaces. 

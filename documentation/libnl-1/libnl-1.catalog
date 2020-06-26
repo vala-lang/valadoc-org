@@ -1,4 +1,0 @@
-[PackageKit Catalog]
-
-InstallPackages(fedora)=libnl-devel
-InstallPackages(debian)=libnl-dev

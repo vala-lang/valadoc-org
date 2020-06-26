@@ -577,7 +577,7 @@ simple methods via GObject-Introspection
 			<package name="udisks2" gir="UDisks-2.0">
 				Disk Management Service.
 			</package>
-			<package name="libarchive" home="http://code.google.com/p/libarchive/">
+			<package name="libarchive" home="http://www.libarchive.org/">
 				Library that can create and read several streaming archive formats.
 			</package>
 			<package name="gudev-1.0" home="http://gudev.sourceforge.net/" gir="GUdev-1.0">
@@ -934,7 +934,7 @@ simple methods via GObject-Introspection
 			A Fast Fourier Transform based up on the principle, "Keep It Simple, Stupid." Kiss FFT is a very small,
 			reasonably efficient, mixed radix FFT library that can use either fixed or floating point data types.
 		</package>
-		<package name="leveldb" home="http://code.google.com/p/leveldb/">
+		<package name="leveldb" home="https://github.com/google/leveldb#readme">
 			A fast key-value storage library written at Google that provides an
 			ordered mapping from string keys to string values.
 		</package>

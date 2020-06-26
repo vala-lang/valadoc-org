@@ -206,26 +206,26 @@
 			<package name="gupnp-dlna-gst-2.0" gir="GUPnPDLNAGst-2.0">
 				GStreamer integration for GUPnP DLNA
 			</package>
-			<package ignore="true" name="rygel-core-2.6" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
+			<package name="rygel-core-2.6" home="https://wiki.gnome.org/Projects/Rygel" c-docs="https://developer.gnome.org/librygel-core/unstable/">
 				Librygel-core is a collection of classes useful to Rygel's server and renderer implementation
 				libraries and useful to plugin implementors.
 			</package>
-			<package ignore="true" name="rygel-db-2.6" home="https://live.gnome.org/Rygel">
+			<package name="rygel-db-2.6" flags="--pkg gio-2.0" home="https://wiki.gnome.org/Projects/Rygel">
 				This library implements a generic database abstraction used by rygel and rygel plugins
 			</package>
-			<package ignore="true" name="rygel-server-2.6" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
+			<package name="rygel-server-2.6" home="https://wiki.gnome.org/Projects/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
 				This library may be used to create UPnP or DLNA servers, Rygel Server plugins or
 				Rygel Media Engines
 			</package>
-			<package ignore="true" name="rygel-renderer-2.6" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
+			<package name="rygel-renderer-2.6" home="https://wiki.gnome.org/Projects/Rygel" c-docs="https://developer.gnome.org/librygel-renderer/unstable/">
 				This library may be used to create UPnP or DLNA Renderers. For instance, librygel-renderer-gst
 				uses librygel-renderer with GStreamer to implement its RygelPlaybinRenderer renderer. 
 			</package>
-			<package ignore="true" name="rygel-renderer-gst-2.6" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
+			<package name="rygel-renderer-gst-2.6" home="https://wiki.gnome.org/Projects/Rygel" c-docs="https://developer.gnome.org/librygel-renderer-gst/unstable/">
 				This library may be used to create UPnP or DLNA Renderers using GStreamer. The RygelPlaybinRenderer
 				may wrap an existing GStreamer playbin or create its own. See the example. 
 			</package>
-			<package ignore="true" name="rygel-ruih-2.6" home="https://live.gnome.org/Rygel" c-docs="http://developer.gnome.org/librygel-server/unstable/">
+			<package name="rygel-ruih-2.0" home="https://wiki.gnome.org/Projects/Rygel">
 				This library implements the Remote User Interface Server protocol interfaces.
 			</package>
 			<package name="gssdp-1.0" gir="GSSDP-1.0">

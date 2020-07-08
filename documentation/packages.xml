@@ -464,6 +464,10 @@
 			<package name="json-glib-1.0" maintainers="Tomaž Vajngerl" gir="Json-1.0" c-docs="http://developer.gnome.org/json-glib/unstable/">
 				JSON-GLib is a library for reading and parsing JSON using GLib and GObject data types and API.
 			</package>
+			<package name="libgrss" home="https://wiki.gnome.org/Projects/Libgrss" gir="Grss-0.7" c-docs="https://developer.gnome.org/libgrss/0.7/">
+			  LibGRSS is a library for easy management of RSS/Atom/Pie feeds.
+			  Includes methods to fetch, parse and handle XML documents, an implementation of PubSubHubBub client, an OPML parser and some more utility.
+			</package>
 			<package name="libxml-2.0" maintainers="Tomaž Vajngerl" gir="libxml2-2.0" c-docs="http://xmlsoft.org/html/">
 				Powerful and feature complete XML handling library.
 			</package>

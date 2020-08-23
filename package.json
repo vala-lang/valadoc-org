@@ -12,7 +12,7 @@
     "lint": "eslint data/scripts/*.js"
   },
   "dependencies": {
-    "@babel/core": "^7.11.0",
+    "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/register": "^7.10.5",
     "gulp": "^4.0.2",

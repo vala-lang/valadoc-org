@@ -169,9 +169,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				}
 			} else {
 				string? gallery = reader.get_attribute ("gallery");
-				string? gir_name = reader.get_attribute ("gir");
+				string? girs = reader.get_attribute ("gir");
 				string? flags = reader.get_attribute ("flags");
-				pkg = new Package (name, gir_name, maintainers, home, c_docs, vapi_image_source, gallery, flags, is_deprecated);
+				pkg = new Package (name, girs, maintainers, home, c_docs, vapi_image_source, gallery, flags, is_deprecated);
 				register_package (section, pkg);
 			}
 		}
@@ -305,7 +305,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		public string? devhelp_link;
 		public string? maintainers;
 		public string online_link;
-		public string? gir_name;
+		public string[]? gir_names;
 		public string name;
 		public string? home;
 		public string? c_docs;
@@ -321,12 +321,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		protected Package.dummy () {
 		}
 
-		public Package (string name, string? gir_name = null, string? maintainers = null, string? home = null, string? c_docs = null, string? vapi_image_source = null, string? gallery = null, string? flags = null, bool is_deprecated = false) {
+		public Package (string name, string? girs = null, string? maintainers = null, string? home = null, string? c_docs = null, string? vapi_image_source = null, string? gallery = null, string? flags = null, bool is_deprecated = false) {
 			devhelp_link = "/" + name + "/" + name + ".tar.bz2";
 			online_link = "/" + name + "/index.htm";
 			this.is_deprecated = is_deprecated;
 			this.maintainers = maintainers;
-			this.gir_name = gir_name;
+			this.gir_names = girs != null ? girs.split (",") : null;
 			this.c_docs = c_docs;
 			this.vapi_image_source = vapi_image_source;
 			this.name = name;
@@ -336,7 +336,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			this.is_local = true;
 		}
 
-		public void load_metadata (ErrorReporter reporter) {
+		public void load_metadata (string? gir_name, ErrorReporter reporter) {
 			if (gir_name == null) {
 				return ;
 			}
@@ -366,7 +366,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 		}
 
-		public string? get_gir_file_metadata_path () {
+		public string? get_gir_file_metadata_path (string gir_name) {
 			string path = Path.build_path (Path.DIR_SEPARATOR_S, "documentation", name, gir_name + ".valadoc.metadata");
 			if (FileUtils.test (path, FileTest.IS_REGULAR)) {
 				return Path.get_dirname (path);
@@ -375,7 +375,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return null;
 		}
 
-		public virtual string? get_gir_file (ErrorReporter reporter) {
+		public virtual string? get_gir_file (string? gir_name, ErrorReporter reporter) {
 			if (gir_name == null) {
 				return null;
 			}
@@ -438,7 +438,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			this.name = name;
 		}
 
-		public override string? get_gir_file (ErrorReporter reporter) {
+		public override string? get_gir_file (string? gir_name, ErrorReporter reporter) {
 			return null;
 		}
 
@@ -810,8 +810,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		DirUtils.create ("documentation/%s/wiki".printf (pkg.name), 0755);
 
 
-		pkg.load_metadata (reporter);
-
+		foreach (unowned string gir_name in pkg.gir_names) {
+			pkg.load_metadata (gir_name, reporter);
+		}
 
 		if (pkg.sgml_path != null) {
 			stdout.printf ("  get index.sgml ...\n");
@@ -842,18 +843,24 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			builder.append_printf (" --import %s", pkg.name);
 		}
 
-		string? gir_path = pkg.get_gir_file (reporter);
-		if (gir_path != null) {
-			stdout.printf ("  select .gir:            %s\n", gir_path);
+		if (pkg.gir_names != null) {
+			foreach (unowned string gir_name in pkg.gir_names) {
+				var gir_path = pkg.get_gir_file (gir_name, reporter);
+				if (gir_path == null) {
+					continue;
+				}
 
-			builder.append_printf (" --importdir \"%s\"", girdir);
-			builder.append_printf (" --import %s", pkg.gir_name);
+				stdout.printf ("  select .gir:            %s\n", gir_path);
 
-			load_images_gir (pkg);
+				builder.append_printf (" --importdir \"%s\"", girdir);
+				builder.append_printf (" --import %s", gir_name);
 
-			string metadata_path = pkg.get_gir_file_metadata_path ();
-			if (metadata_path != null) {
-				builder.append_printf (" --metadatadir %s", metadata_path);
+				load_images_gir (pkg, gir_name);
+
+				string metadata_path = pkg.get_gir_file_metadata_path (gir_name);
+				if (metadata_path != null) {
+					builder.append_printf (" --metadatadir %s", metadata_path);
+				}
 			}
 		} else if (pkg.vapi_image_source != null) {
 			load_images_vapi (pkg);
@@ -1194,17 +1201,19 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		return url;
 	}
 
-	private void load_images_gir (Package pkg) {
-		if (pkg.c_docs == null || pkg.gir_name == null) {
+	private void load_images_gir (Package pkg, string gir_name) {
+		if (pkg.c_docs == null) {
+			return ;
+		}
+
+		string? gir_path = pkg.get_gir_file (gir_name, reporter);
+		if (gir_path == null) {
 			return ;
 		}
 
 		if (!download_images) {
 			return ;
 		}
-
-
-		string gir_path = pkg.get_gir_file (reporter);
 
 		stdout.printf ("  download images (gir) ...\n");
 
@@ -1239,7 +1248,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 
 		if (images.size > 0) {
-			string metadata_file_path = "documentation/%s/%s.valadoc.metadata".printf (pkg.name, pkg.gir_name);
+			string metadata_file_path = "documentation/%s/%s.valadoc.metadata".printf (pkg.name, gir_name);
 			if (!FileUtils.test (metadata_file_path, FileTest.EXISTS)) {
 				FileStream stream = FileStream.open (metadata_file_path, "w");
 				stream.printf ("\n");

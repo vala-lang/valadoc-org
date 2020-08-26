@@ -431,7 +431,7 @@
 			<package name="mock-service-0">
 				Mock service
 			</package>
-			<package name="gsignond" gir="gSignond-1.0" home="https://gitlab.com/accounts-sso/gsignond" c-docs="http://accounts-sso.gitlab.io/gsignond/">
+			<package name="gsignond" gir="GSignond-1.0" home="https://gitlab.com/accounts-sso/gsignond" c-docs="http://accounts-sso.gitlab.io/gsignond/">
 				Single signon daemon library.
 			</package>
 			<package name="libsignon-glib" gir="Signon-2.0" home="https://gitlab.com/accounts-sso/libsignon-glib" c-docs="http://accounts-sso.gitlab.io/libsignon-glib/">

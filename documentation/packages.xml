@@ -58,6 +58,9 @@
 				GtkSourceView adds support for syntax highlighting, undo/redo, file loading and saving, search and replace,
 				a completion system, printing, displaying line numbers, and other features typical of a source code editor.
 			</package>
+			<package name="libhandy-1" gir="Handy-1" flags="--pkg=gio-2.0 --pkg=gtk+-3.0" c-docs="https://gnome.pages.gitlab.gnome.org/libhandy/" home="https://gitlab.gnome.org/GNOME/libhandy">
+				Building blocks for modern adaptive GNOME apps
+			</package>
 			<package name="libhandy-0.0" gir="Handy-0.0" flags="--pkg=gio-2.0 --pkg=gtk+-3.0" c-docs="http://honk.sigxcpu.org/projects/libhandy/doc/" home="https://source.puri.sm/Librem5/libhandy">
 				A library full of GTK+ widgets for mobile phones
 			</package>

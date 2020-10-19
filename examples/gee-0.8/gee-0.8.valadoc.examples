@@ -1,0 +1,8 @@
+<examples>
+        <example>
+                <title>Find the length of the longest string in a set</title>
+                <file>Gee.Traversable.fold.vala</file>
+                <compile>valac --pkg gee-0.8 Gee.Traversable.fold.vala</compile>
+                <node>Gee.Traversable.fold</node>
+        </example>
+</examples>

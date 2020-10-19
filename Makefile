@@ -70,6 +70,7 @@ update-girs:
 check-examples: valadoc-example-tester
 	./valadoc-example-tester --keep-running --force \
 		examples/cairo/cairo.valadoc.examples \
+		examples/gee-0.8/gee-0.8.valadoc.examples \
 		examples/gio-2.0/gio-2.0.valadoc.examples \
 		examples/glib-2.0/glib-2.0.valadoc.examples \
 		examples/gmodule-2.0/gmodule-2.0.valadoc.examples \

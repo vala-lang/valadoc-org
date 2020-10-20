@@ -41,12 +41,12 @@ public class MyApplication : Application {
 
 		print (@"Action name:      $name\n");
 		string? type = (param_type != null) ? param_type.dup_string () : "<none>";
-		printf (@"Parameter type:   $type\n");
+		print (@"Parameter type:   $type\n");
 
 		print ("State type:       %s\n", (state != null) ? state.get_type_string () : "<none>");
 		string state_val = (state != null) ? state.print (false) : "<none>";
 		print (@"State:            $state_val\n");
-		print ("Enabled:          $enabled\n");
+		print (@"Enabled:          $enabled\n");
 
 		this.activate_action (name, null);
 	}

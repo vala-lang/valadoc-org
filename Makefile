@@ -1,5 +1,6 @@
 VALAC = valac
 VALAC_VERSION := $(shell vala --api-version | awk -F. '{ print "0."$$2 }')
+VAPIDIR := $(shell pkg-config --variable vapidir libvala-$(VALAC_VERSION))
 VALAFLAGS = -g -X -w
 PREFIX = "stable"
 
@@ -100,7 +101,7 @@ build-data:
 build-docs: default
 	$(RM) -r tmp/
 	./generator \
-		--vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
+		--vapidir $(VAPIDIR) \
 		--vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
 		--prefix $(PREFIX) \
 		--target-glib 2.98 \
@@ -112,7 +113,7 @@ build-docs: default
 build-docs-mini: default
 	$(RM) -r tmp/
 	./generator \
-		--vapidir /usr/share/vala-$(VALAC_VERSION)/vapi/ \
+		--vapidir $(VAPIDIR) \
 		--vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
 		--prefix $(PREFIX) \
 		--target-glib 2.98 \

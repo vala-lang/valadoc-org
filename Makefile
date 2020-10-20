@@ -140,3 +140,9 @@ serve: build-docs build-data
 
 serve-mini: build-docs-mini build-data
 	FWD_SEARCH=1 FWD_TOOLTIP=1 php -S localhost:7777 -t ./valadoc.org $(PWD)/valadoc.org/router.php
+
+serve-search: configgen
+	./configgen ./valadoc.org/
+	mkdir ./sphinx/storage
+	indexer --config ./sphinx.conf --all
+	searchd --config sphinx.conf

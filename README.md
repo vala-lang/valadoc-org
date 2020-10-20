@@ -62,16 +62,12 @@ On elementary OS or Ubuntu run:
 sudo apt install sphinxsearch xsltproc
 ```
 
-The run the following commands to generate search indexes:
+The run the following command to generate search indexes:
 ```bash
-make configgen
-./configgen ./valadoc.org/
-mkdir ./sphinx/storage
-indexer --config ./sphinx.conf --all
-searchd --config sphinx.conf
+make serve-search
 ```
 
-This will start a sphinx daemon on port `51413`.
+This will (eventually!) start a sphinx daemon on port `51413`.
 
 
 Add New Packages

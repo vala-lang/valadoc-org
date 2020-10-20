@@ -1067,7 +1067,7 @@ simple methods via GObject-Introspection
 		<package name="sdl2-android" home="https://www.libsdl.org/" c-docs="http://wiki.libsdl.org/CategoryAPI">
 			Android-specific API for SDL.
 		</package>
-		<package name="sdl2-gfx" home="http://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/">
+		<package name="SDL2_gfx" home="http://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/">
 			Provides the basic drawing functions such as lines, circles or polygons provided by SDL_gfx on SDL2 against renderers of SDL2.
  		</package>
 		<package name="sdl2" home="https://www.libsdl.org/" c-docs="http://wiki.libsdl.org/CategoryAPI">
@@ -1075,20 +1075,20 @@ simple methods via GObject-Introspection
 			keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playback software,
 			emulators, and popular games including Valve's award winning catalog and many Humble Bundle games.
 		</package>
-		<package name="sdl2-image" home="https://www.libsdl.org/">
+		<package name="SDL2_image" home="https://www.libsdl.org/">
 			An image file loading library.
 		</package>
 		<package name="sdl2-ios" home="https://www.libsdl.org/">
 			IOS-specific API for SDL.
 		</package>
-		<package name="sdl2-mixer" home="https://www.libsdl.org/">
+		<package name="SDL2_mixer" home="https://www.libsdl.org/">
 			A sample multi-channel audio mixer library. 
 		</package>
-		<package name="sdl2-net" home="https://www.libsdl.org/">
+		<package name="SDL2_net" home="https://www.libsdl.org/">
 			 A small sample cross-platform networking library, with a sample chat client and server application.
 			 The chat client uses the GUIlib GUI framework library. 
 		</package>
-		<package name="sdl2-ttf" home="https://www.libsdl.org/">
+		<package name="SDL2_ttf" home="https://www.libsdl.org/">
 			A sample library which allows you to use TrueType fonts in your SDL applications. It comes with an example
 			program "showfont" which displays an example string for a given TrueType font file.
 		</package>

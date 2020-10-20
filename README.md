@@ -13,7 +13,7 @@ Building
 ========
 
 In order to build the docs you will need the following:
-* `valadoc` past [this](https://git.gnome.org/browse/valadoc/commit/?id=f5b61201cc434cdb55d363d318e45ae423aada28) commit
+* `valadoc` >= 0.35.0
 * `php`
 * 4 GB of free space
 
@@ -39,13 +39,13 @@ After you have `valadoc` installed, you can move to building the documentation. 
 make serve
 ```
 
-and grab yourself a cup of coffee, or:
+This will take a bit of time, so grab yourself a cup of coffee; if you’re impatient, run:
 
 ```bash
 make serve-mini
 ```
 
-for a minimal test version. This will take a bit of time. If you
+for a minimal test version. If you
 encounter an error at this step, please see the [common pitfalls](#common-pitfalls) section. After
 you completed building, you should see a `valadoc.org` folder.
 

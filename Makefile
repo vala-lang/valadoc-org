@@ -125,8 +125,8 @@ build-docs-mini: default
 
 
 test-examples: valadoc-example-tester
-	-./valadoc-example-tester examples/*/*.valadoc.examples
 	$(RM) -r tmp/
+	-./valadoc-example-tester examples/*/*.valadoc.examples && $(RM) -r tmp/
 
 
 #

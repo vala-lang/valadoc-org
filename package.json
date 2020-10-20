@@ -12,14 +12,14 @@
     "lint": "eslint data/scripts/*.js"
   },
   "dependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.0",
-    "@babel/register": "^7.10.5",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-imagemin": "^5.0.3",
     "gulp-postcss": "^6.4.0",
-    "postcss": "^7.0.32",
+    "postcss": "^7.0.35",
     "postcss-preset-env": "^6.4.0",
     "whatwg-fetch": "^2.0.3"
   },
@@ -28,6 +28,6 @@
     "eslint-config-standard": "^7.1.0",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^2.3.1",
-    "stylelint": "^13.6.1"
+    "stylelint": "^13.7.2"
   }
 }

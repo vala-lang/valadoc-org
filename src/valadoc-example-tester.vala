@@ -37,7 +37,7 @@ public class ExampleTester : ExampleParser {
 		current_basedir = this.get_base_dir ();
 
 		string pkg_name = Path.get_basename (filename.substring (0, filename.length - 17) + "--" + pos_as_string ());
-		current_output_dir = Path.build_filename ("tmp", pkg_name);
+		current_output_dir = Path.build_filename (Environment.get_current_dir (), "tmp", pkg_name);
 		if (DirUtils.create (current_output_dir, 0777) == -1) {
 			report_error (strerror (errno), true);
 		}

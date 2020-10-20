@@ -130,6 +130,8 @@ Copy your examples to `examples/<vapi-name>/` and add a new entry to `examples/<
 </example>
 ```
 
+If this is the first example for the package, add a line to the `check-examples` target of `Makefile`.
+
 Add Handwritten Documentation
 =============================
 

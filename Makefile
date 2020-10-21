@@ -1,4 +1,6 @@
 VALAC = valac
+PACKAGES ?= --all
+GENERATOR_OPTS ?= --disable-devhelp --skip-existing
 VALAC_VERSION := $(shell vala --api-version | awk -F. '{ print "0."$$2 }')
 VAPIDIR := $(shell pkg-config --variable vapidir libvala-$(VALAC_VERSION))
 VALAFLAGS = -g -X -w
@@ -107,23 +109,12 @@ build-docs: default
 		--prefix $(PREFIX) \
 		--target-glib 2.98 \
 		--download-images \
-		--skip-existing \
 		--no-check-certificate \
-		--all
+		$(GENERATOR_OPTS) \
+		$(PACKAGES)
 
 build-docs-mini: default
-	$(RM) -r tmp/
-	./generator \
-		--vapidir $(VAPIDIR) \
-		--vapidir "extra-vapis/" --vapidir "girs/vala/vapi/" \
-		--prefix $(PREFIX) \
-		--target-glib 2.98 \
-		--download-images \
-		--skip-existing \
-		--no-check-certificate \
-		--disable-devhelp \
-		"glib-2.0" "gio-2.0" "gobject-2.0"
-
+	make build-docs PACKAGES="glib-2.0 gio-2.0 gobject-2.0"
 
 test-examples: valadoc-example-tester
 	$(RM) -r tmp/

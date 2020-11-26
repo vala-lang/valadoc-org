@@ -693,22 +693,53 @@ simple methods via GObject-Introspection
 	</section>
 
 	<section name="SDL">
-		<package name="sdl" home="http://www.libsdl.org/" c-docs="http://wiki.libsdl.org/moin.cgi/APIByCategory" maintainers="Levi Bard">
+		<package name="sdl2" home="https://www.libsdl.org/" c-docs="http://wiki.libsdl.org/CategoryAPI">
+			Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio,
+			keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playback software,
+			emulators, and popular games including Valve's award winning catalog and many Humble Bundle games.
+		</package>
+		<package name="SDL2_gfx" home="http://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/" c-docs="https://www.ferzkopp.net/Software/SDL2_gfx/Docs/html/index.html">
+			Provides the basic drawing functions such as lines, circles or polygons provided by SDL_gfx on SDL2 against renderers of SDL2.
+		</package>
+		<package name="SDL2_image" home="https://www.libsdl.org/">
+			An image file loading library.
+		</package>
+		<package name="SDL2_mixer" home="https://www.libsdl.org/">
+			A sample multi-channel audio mixer library.
+		</package>
+		<package name="SDL2_net" home="https://www.libsdl.org/">
+			 A small sample cross-platform networking library, with a sample chat client and server application.
+			 The chat client uses the GUIlib GUI framework library.
+		</package>
+		<package name="SDL2_ttf" home="https://www.libsdl.org/">
+			A sample library which allows you to use TrueType fonts in your SDL applications. It comes with an example
+			program "showfont" which displays an example string for a given TrueType font file.
+		</package>
+		<package name="sdl2-android" home="https://www.libsdl.org/">
+			Android-specific API for SDL.
+		</package>
+		<package name="sdl2-ios" home="https://www.libsdl.org/">
+			IOS-specific API for SDL.
+		</package>
+		<package name="sdl2-windows" home="https://www.libsdl.org/">
+			Windows-specific API for SDL.
+		</package>
+		<package name="sdl" deprecated="true" home="http://www.libsdl.org/">
 			A library for portable low-level access to a video framebuffer, audio output, mouse, and keyboard.
 		</package>
-		<package name="sdl-gfx" home="http://www.libsdl.org/">
+		<package name="sdl-gfx" deprecated="true" home="http://www.libsdl.org/">
 			SDL Graphic Primitives.
 		</package>
-		<package name="sdl-image" home="http://www.libsdl.org/">
+		<package name="sdl-image" deprecated="true" home="http://www.libsdl.org/">
 			A simple library to load images of various formats as SDL surfaces.
 		</package>
-		<package name="sdl-mixer" home="http://www.libsdl.org/">
+		<package name="sdl-mixer" deprecated="true" home="http://www.libsdl.org/">
 			A simple multi-channel audio mixer.
 		</package>
-		<package name="sdl-net" home="http://www.libsdl.org/">
+		<package name="sdl-net" deprecated="true" home="http://www.libsdl.org/">
 			A small sample cross-platform networking library.
 		</package>
-		<package name="sdl-ttf" home="http://www.libsdl.org/">
+		<package name="sdl-ttf" deprecated="true" home="http://www.libsdl.org/">
 			A library that allows you to use TrueType fonts in your SDL applications.
 		</package>
 	</section>
@@ -1063,37 +1094,6 @@ simple methods via GObject-Introspection
 			SANE application programming interface (API) provides standardized
 			access to any raster image scanner hardware (flatbed scanner,
 			hand-held scanner, video and still cameras, frame-grabbers, etc.).
-		</package>
-		<package name="sdl2-android" home="https://www.libsdl.org/" c-docs="http://wiki.libsdl.org/CategoryAPI">
-			Android-specific API for SDL.
-		</package>
-		<package name="SDL2_gfx" home="http://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/">
-			Provides the basic drawing functions such as lines, circles or polygons provided by SDL_gfx on SDL2 against renderers of SDL2.
- 		</package>
-		<package name="sdl2" home="https://www.libsdl.org/" c-docs="http://wiki.libsdl.org/CategoryAPI">
-			Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio,
-			keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playback software,
-			emulators, and popular games including Valve's award winning catalog and many Humble Bundle games.
-		</package>
-		<package name="SDL2_image" home="https://www.libsdl.org/">
-			An image file loading library.
-		</package>
-		<package name="sdl2-ios" home="https://www.libsdl.org/">
-			IOS-specific API for SDL.
-		</package>
-		<package name="SDL2_mixer" home="https://www.libsdl.org/">
-			A sample multi-channel audio mixer library. 
-		</package>
-		<package name="SDL2_net" home="https://www.libsdl.org/">
-			 A small sample cross-platform networking library, with a sample chat client and server application.
-			 The chat client uses the GUIlib GUI framework library. 
-		</package>
-		<package name="SDL2_ttf" home="https://www.libsdl.org/">
-			A sample library which allows you to use TrueType fonts in your SDL applications. It comes with an example
-			program "showfont" which displays an example string for a given TrueType font file.
-		</package>
-		<package name="sdl2-windows" home="https://www.libsdl.org/">
-			Windows-specific API for SDL.
 		</package>
 		<package name="sensors" home="http://www.lm-sensors.org/">
 			Hardware health monitoring for Linux.

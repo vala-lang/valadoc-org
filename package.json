@@ -17,17 +17,19 @@
     "@babel/register": "^7.12.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-postcss": "^6.4.0",
-    "postcss": "^7.0.35",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-postcss": "^9.0.0",
+    "postcss": "^8.1.4",
     "postcss-preset-env": "^6.4.0",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^3.4.1"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^7.1.0",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^2.3.1",
+    "eslint": "^7.12.1",
+    "eslint-config-standard": "^15.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.2",
     "stylelint": "^13.7.2"
   }
 }

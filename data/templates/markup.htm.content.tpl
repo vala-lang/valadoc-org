@@ -266,9 +266,9 @@
 <h3>Comment:</h3>
 <div class=\"main_code_definition\">
 <pre>= headline 1 =
-== healdline 2 ==
-=== healdline 3 ===
-==== healdline 4 ====
+== headline 2 ==
+=== headline 3 ===
+==== headline 4 ====
 </pre>
 </div>
 <h3>Output:</h3>

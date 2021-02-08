@@ -724,24 +724,6 @@ simple methods via GObject-Introspection
 		<package name="sdl2-windows" home="https://www.libsdl.org/">
 			Windows-specific API for SDL.
 		</package>
-		<package name="sdl" deprecated="true" home="http://www.libsdl.org/">
-			A library for portable low-level access to a video framebuffer, audio output, mouse, and keyboard.
-		</package>
-		<package name="sdl-gfx" deprecated="true" home="http://www.libsdl.org/">
-			SDL Graphic Primitives.
-		</package>
-		<package name="sdl-image" deprecated="true" home="http://www.libsdl.org/">
-			A simple library to load images of various formats as SDL surfaces.
-		</package>
-		<package name="sdl-mixer" deprecated="true" home="http://www.libsdl.org/">
-			A simple multi-channel audio mixer.
-		</package>
-		<package name="sdl-net" deprecated="true" home="http://www.libsdl.org/">
-			A small sample cross-platform networking library.
-		</package>
-		<package name="sdl-ttf" deprecated="true" home="http://www.libsdl.org/">
-			A library that allows you to use TrueType fonts in your SDL applications.
-		</package>
 	</section>
 
 	<section name="Databases &amp; Resource Description">

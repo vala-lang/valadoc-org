@@ -1,4 +1,0 @@
-[PackageKit Catalog]
-
-InstallPackages(fedora)=SDL-devel
-InstallPackages(debian)=libsdl1.2-dev

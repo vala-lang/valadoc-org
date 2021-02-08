@@ -1,4 +1,0 @@
-[PackageKit Catalog]
-
-InstallPackages(fedora)=SDL_gfx-devel
-InstallPackages(debian)=libsdl-gfx1.2-dev

@@ -1,4 +1,0 @@
-[PackageKit Catalog]
-
-InstallPackages(fedora)=SDL_mixer-devel
-InstallPackages(debian)=libsdl-mixer1.2-dev

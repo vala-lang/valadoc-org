@@ -896,10 +896,6 @@ simple methods via GObject-Introspection
 		<package name="augeas">
 			A library for changing configuration files.
 		</package>
-		<package name="cairosdl" flags="--pkg sdl --pkg cairo" home="http://cgit.freedesktop.org/~joonas/cairosdl/">
-			convenience functions for setting up drawing to SDL surfaces
-			using cairo.
-		</package>
 		<package name="cairo-xcb" home="http://cairographics.org/">
 			Cairo - multi-platform 2D graphics library
 		</package>

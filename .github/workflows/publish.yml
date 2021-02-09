@@ -45,7 +45,7 @@ jobs:
 
       - name: Build the documentation
         run: |
-          make build-docs || true
+          make build-docs
 
       - name: Build search index
         run: |

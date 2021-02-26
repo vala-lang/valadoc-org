@@ -400,7 +400,11 @@
 		</section>
 
 		<section name="Web Services &amp; HTTP">
-			<package name="libsoup-2.4" maintainers="Zeeshan Ali" gir="Soup-2.4" c-docs="http://developer.gnome.org/libsoup/unstable/">
+			<package name="libsoup-3.0" gir="Soup-3.0" home="https://wiki.gnome.org/Projects/libsoup" c-docs="https://libsoup.org/">
+				libsoup is an HTTP client/server library for GNOME. It uses GObjects and the glib main loop,
+				to integrate well with GNOME applications.
+			</package>
+			<package name="libsoup-2.4" maintainers="Zeeshan Ali" gir="Soup-2.4" home="https://wiki.gnome.org/Projects/libsoup" c-docs="https://developer.gnome.org/libsoup/stable/">
 				libsoup is an HTTP client/server library for GNOME. It uses GObjects and the glib main loop,
 				to integrate well with GNOME applications.
 			</package>

@@ -899,6 +899,11 @@ simple methods via GObject-Introspection
 		<package name="gpseq-1.0" maintainer="Космическое П." home="https://gitlab.com/kosmospredanie/gpseq/" c-docs="https://gitlab.com/kosmospredanie/gpseq/-/jobs/artifacts/master/file/gtkdoc/html/index.html?job=build">
 			A parallelism library for Vala and GObject.
 		</package>
+		<external-package name="libvala" home="https://wiki.gnome.org/Projects/Vala" link="https://gnome.pages.gitlab.gnome.org/vala/docs/vala/index.htm">
+			valac, the Vala compiler, is a self-hosting compiler that translates Vala source code
+			into C source and header files. It uses the GObject type system to create classes and
+			interfaces declared in the Vala source code.
+		</external-package>
 	</section>
 
 	<section name="Vala Extra Vapis">

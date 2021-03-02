@@ -842,11 +842,11 @@ simple methods via GObject-Introspection
 	</section>
 
 	<section name="Other">
-		<external-package name="bump" home="https://github.com/nemequ/bump" maintainers="Evan Nemerson" link="http://code.coeusgroup.com/bump/valadoc/Bump/index.htm">
+		<package name="bump-0.1" home="https://github.com/nemequ/bump" maintainers="Evan Nemerson">
 			Bump is a library designed to make asynchronous programming easy by providing high-level data
 			structures for concurrency management, including multi-threading and main loop callbacks, in
 			GObject/GIO based projects, especially those written in Vala.
-		</external-package>
+		</package>
 	 	<package name="libproxy-1.0">
 	 		Automatic proxy configuration management library.
 	 	</package>

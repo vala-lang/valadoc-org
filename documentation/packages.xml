@@ -474,7 +474,7 @@
 		</section>
 
 		<section name="Markup">
-			<package name="gxml-0.16" maintainers="Daniel Espinosa">
+			<package name="gxml-0.20" maintainers="Daniel Espinosa" home="https://wiki.gnome.org/GXml" >
 				GObject XML library and serialization framework.
 			</package>
 			<package name="json-glib-1.0" maintainers="Tomaž Vajngerl" gir="Json-1.0" c-docs="http://developer.gnome.org/json-glib/unstable/">

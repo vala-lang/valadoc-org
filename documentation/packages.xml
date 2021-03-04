@@ -83,6 +83,9 @@
 				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
 				This is the library to use to acces JavaScript from WebKitGTK.
 			</package>
+			<package name="shumate-0.0" gir="Shumate-0.0" home="https://wiki.gnome.org/Projects/libshumate">
+				Shumate is a library providing a widget to display maps in applications.
+			</package>
 			<package name="champlain-gtk-0.12" gir="GtkChamplain-0.12" flags="--pkg gtk+-3.0 --pkg champlain-0.12 --pkg clutter-1.0" c-docs="https://developer.gnome.org/libchamplain/unstable/" home="http://projects.gnome.org/libchamplain/">
 				Libchamplain-gtk is a C library on top of libchamplain providing a Gtk+ widget to display maps
 				in GTK+ applications.

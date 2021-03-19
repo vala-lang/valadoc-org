@@ -277,11 +277,11 @@
 			<package name="cogl-pango-1.0" flags="--pkg pangocairo" gir="CoglPango-1.0">
 				Binding for the CoglPango 1.0 library.
 			</package>
-			<package name="pango" home="http://www.gtk.org/" gir="Pango-1.0" c-docs="http://developer.gnome.org/pango/unstable/">
+			<package name="pango" home="http://www.gtk.org/" gir="Pango-1.0" c-docs="https://gnome.pages.gitlab.gnome.org/pango/Pango/">
 				Pango is the core text and font handling library used in GNOME applications. It has extensive support for
 				the different writing systems used throughout the world.
 			</package>
-			<package name="pangocairo" home="http://www.gtk.org/" gir="PangoCairo-1.0" c-docs="http://developer.gnome.org/pango/unstable/">
+			<package name="pangocairo" home="http://www.gtk.org/" gir="PangoCairo-1.0" c-docs="https://gnome.pages.gitlab.gnome.org/pango/PangoCairo/">
 				Rendering with the Cairo backend.
 			</package>
 			<package name="gdk-3.0" home="http://www.gtk.org/" gir="Gdk-3.0" c-docs="http://developer.gnome.org/gdk3/unstable/">

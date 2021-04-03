@@ -1,5 +1,5 @@
 public void print_drive (Drive drive, string title) {
-	print ("$title:\n");
+	print (@"$title:\n");
 	print ("  name: %s\n", drive.get_name ());
 	print ("  can-eject: %s\n", drive.can_eject ().to_string ());
 	print ("  can-poll-for-media: %s\n", drive.can_poll_for_media ().to_string ());

@@ -31,7 +31,7 @@ jobs:
           libgee-0.8-dev \
           git \
           libguestfs-gobject-dev \
-          libvaladoc-0.52-dev \
+          libvaladoc-0.54-dev \
           php \
           php-curl \
           sphinxsearch \

@@ -1,4 +1,5 @@
 [General]
 resources = gir-images/
+index_sgml_online = https://gitlab.gnome.org/GNOME/cogl/-/tree/cogl-1.22/doc/reference/cogl/
 is_docbook = true
 

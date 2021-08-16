@@ -1,4 +1,5 @@
 [General]
 resources = gir-images/
+index_sgml_online = https://gitlab.gnome.org/GNOME/clutter/-/tree/master/doc/reference/
 is_docbook = true
 

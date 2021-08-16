@@ -1,7 +1,3 @@
-
 [General]
 resources = gir-images/
-index_sgml = index.sgml
-index_sgml_online = https://gnome.pages.gitlab.gnome.org/pango/PangoCairo/
-is_docbook = true
-
+index_sgml_online = https://gitlab.gnome.org/GNOME/pango/-/tree/main/docs/

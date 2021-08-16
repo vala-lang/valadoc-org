@@ -39,7 +39,7 @@
 				GTK+ is the primary library used to construct user interfaces in GNOME applications.
 				It provides user interface controls and signal callbacks to control user interfaces.
 			</package>
-			<package name="clutter-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Clutter-1.0" c-docs="http://developer.gnome.org/clutter/unstable/">
+			<package name="clutter-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Clutter-1.0" c-docs="https://gitlab.gnome.org/GNOME/clutter/-/tree/master/doc/reference/">
 				Clutter is a GObject based library for creating fast, visually rich, graphical user interfaces.
 			</package>
 			<package name="clutter-gtk-1.0" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="http://developer.gnome.org/clutter-gtk/unstable/">
@@ -269,7 +269,7 @@
 			<package ignore="true" deprecated="true" name="cairo-xcb" home="http://cairographics.org/">
 				Cairo with XCB as a backend.
 			</package>
-			<package name="cogl-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Cogl-1.0" c-docs="http://developer.gnome.org/cogl-2.0-experimental/stable/">
+			<package name="cogl-1.0" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Cogl-1.0" c-docs="https://gitlab.gnome.org/GNOME/cogl/-/tree/cogl-1.22/doc/reference/cogl/">
 				COGL is a low level OpenGL abstraction library developed for (and part of) Clutter.
 				It is used primarily by Clutter to provide a common rendering API that works transparently
 				across OpenGL >=1.4, OpenGL ES 1.1 and OpenGL ES 2.0.

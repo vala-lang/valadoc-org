@@ -1,6 +1,2 @@
-
 [General]
 resources = gir-images/
-index_sgml = index.sgml
-index_sgml_online = https://developer.gnome.org/gcr/unstable/
-

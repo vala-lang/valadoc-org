@@ -72,7 +72,9 @@ if ($first == null || $first === "index") { // Homepage
     <div id="search-box" itemscope itemprop="potentialAction" itemtype="http://schema.org/SearchAction">
       <meta itemprop="target" content="/?q={query}">
       <meta itemprop="query-input" content="required name=query">
-      <input itemprop="query-input" id="search-field" type="search" placeholder="Search" autocomplete="off" />
+      <form action="/">
+        <input itemprop="query-input" id="search-field" type="search" placeholder="Search" autocomplete="off" name="q" />
+      </form>
       <img id="search-field-clear" src="/images/clean.svg" alt="Clear search" />
     </div>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>

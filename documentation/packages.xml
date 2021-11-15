@@ -945,7 +945,7 @@ simple methods via GObject-Introspection
 			A general purpose crypto library based on the code used
 			in GNU Privacy Guard.  This is a development version.
 		</package>
-		<package name="gles2" home="https://www.khronos.org/opengles/2_X/">
+		<package name="glesv2" home="https://www.khronos.org/opengles/2_X/">
 			The Standard for Embedded Accelerated 3D Graphics.
 		</package>
 		<package name="glfw3" home="http://www.glfw.org">

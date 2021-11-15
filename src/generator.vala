@@ -888,16 +888,18 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				string? standard_output = null;
 				string? standard_error = null;
 
-				Process.spawn_command_line_sync ("./valadoc-example-gen \"%s\" \"%s\" \"%s\"".printf (example_path, output, "documentation/%s/wiki".printf (pkg.name)), out standard_output, out standard_error, out exit_status);
+				string command = "./valadoc-example-gen \"%s\" \"%s\" \"%s\"".printf (example_path, output, "documentation/%s/wiki".printf (pkg.name));
+				Process.spawn_command_line_sync (command, out standard_output, out standard_error, out exit_status);
+
+				stdout.printf ("%s\n", command);
+				if (standard_error != null) {
+					stdout.printf (standard_error);
+				}
+				if (standard_output != null) {
+					stdout.printf (standard_output);
+				}
 				if (exit_status != 0) {
-					stdout.printf ("%s\n", builder.str);
-					if (standard_error != null) {
-						stdout.printf (standard_error);
-					}
-					if (standard_output != null) {
-						stdout.printf (standard_output);
-					}
-					throw new SpawnError.FAILED ("Exit status != 0");
+					throw new SpawnError.FAILED ("valadoc-example-gen exit status %d != 0", exit_status);
 				}
 			} catch (SpawnError e) {
 				stdout.printf ("ERROR: Can't generate documentation for %s.\n", pkg.name);

@@ -63,6 +63,9 @@
 				GtkSourceView adds support for syntax highlighting, undo/redo, file loading and saving, search and replace,
 				a completion system, printing, displaying line numbers, and other features typical of a source code editor.
 			</package>
+			<package name="libadwaita-1" gir="Adw-1" flags="--pkg=gio-2.0 --pkg=gtk4" c-docs="https://gnome.pages.gitlab.gnome.org/libadwaita/doc/" home="https://gitlab.gnome.org/GNOME/libadwaita/">
+				Building blocks for modern GNOME applications
+			</package>
 			<package name="libhandy-1" gir="Handy-1" flags="--pkg=gio-2.0 --pkg=gtk+-3.0" c-docs="https://gnome.pages.gitlab.gnome.org/libhandy/" home="https://gitlab.gnome.org/GNOME/libhandy">
 				Building blocks for modern adaptive GNOME apps
 			</package>

@@ -45,7 +45,7 @@ jobs:
 
       - name: Build the documentation
         run: |
-          make build-docs
+          make build-docs GENERATOR_OPTS=""
 
       - name: Build search index
         run: |

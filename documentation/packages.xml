@@ -31,7 +31,7 @@
 		</section>
 
 		<section name="User Interface">
-			<package name="gtk4" gallery="https://docs.gtk.org/gtk4/visual_index.html" home="https://www.gtk.org/" gir="Gsk-4.0,Gdk-4.0,GdkX11-4.0,Gtk-4.0" c-docs="https://developer-old.gnome.org/gtk4/unstable/">
+			<package name="gtk4" gallery="https://docs.gtk.org/gtk4/visual_index.html" home="https://www.gtk.org/" gir="Gsk-4.0,Gdk-4.0,GdkX11-4.0,Gtk-4.0" c-docs="https://docs.gtk.org/gtk4/">
 				GTK is the primary library used to construct user interfaces in GNOME applications.
 				It provides user interface controls and signal callbacks to control user interfaces.
 			</package>

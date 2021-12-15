@@ -440,6 +440,9 @@
 				In UX terms, GOA provides a static list of online accounts that can be setup by users (through the Online Accounts panel in System Settings).
 				These accounts can then be used by core GNOME applications.
  			</package>
+			<package name="gweather4" flags="--pkg gio-2.0" gir="GWeather-4.0" c-docs="https://gnome.pages.gitlab.gnome.org/libgweather/">
+				Location and timezone database and weather-lookup library.
+			</package>
 			<package name="gweather-3.0" flags="--pkg gtk+-3.0" gir="GWeather-3.0" c-docs="https://developer-old.gnome.org/libgweather/unstable/">
 				Location and timezone database and weather-lookup library.
 			</package>

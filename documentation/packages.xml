@@ -830,6 +830,9 @@ simple methods via GObject-Introspection
 		<package name="fwupd" gir="Fwupd-2.0" home="https://fwupd.org/" c-docs="https://fwupd.github.io/">
 			This project aims to make updating firmware on Linux automatic, safe and reliable.
 		</package>
+		<package name="libportal" home="https://github.com/flatpak/libportal" c-docs="https://flatpak.github.io/libportal/">
+			libportal provides GIO-style async APIs for most Flatpak portals.
+		</package>
 	</section>
 
 	<section name="Multimedia">

@@ -13,8 +13,6 @@ public static int main (string[] args) {
 		// TODO: test
 	});
 
-
 	// Run all tests!
-	Test.run ();
-	return 0;
+	return Test.run ();
 }

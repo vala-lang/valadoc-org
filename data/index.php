@@ -69,14 +69,14 @@ if ($first == null || $first === "index") { // Homepage
 </head>
 <body>
   <nav>
-    <div id="search-box" itemscope itemprop="potentialAction" itemtype="http://schema.org/SearchAction">
-      <meta itemprop="target" content="/?q={query}">
-      <meta itemprop="query-input" content="required name=query">
-      <form action="/">
+    <form action="/">
+      <div id="search-box" itemscope itemprop="potentialAction" itemtype="http://schema.org/SearchAction">
+        <meta itemprop="target" content="/?q={query}">
+        <meta itemprop="query-input" content="required name=query">
         <input itemprop="query-input" id="search-field" type="search" placeholder="Search" autocomplete="off" name="q" />
-      </form>
-      <img id="search-field-clear" src="/images/clean.svg" alt="Clear search" />
-    </div>
+        <img id="search-field-clear" src="/images/clean.svg" alt="Clear search" />
+      </div>
+    </form>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
     <ul>
       <li><a href="https://planet.vala-project.org/" target="_blank" title="Planet Vala"><i class="fa fa-globe"></i></a>

@@ -5,6 +5,7 @@ VALAC_VERSION := $(shell vala --api-version | awk -F. '{ print "0."$$2 }')
 VAPIDIR := $(shell pkg-config --variable vapidir libvala-$(VALAC_VERSION))
 VALAFLAGS = -g -X -w
 PREFIX = "stable"
+JOBS = $(if $(filter -j%,$(MAKEFLAGS)),$(subst -j,,$(filter -j%,$(MAKEFLAGS))),1)
 
 default: generator libdoclet.so update-girs configgen valadoc-example-gen valadoc-example-tester
 
@@ -110,6 +111,7 @@ build-docs: default
 		--target-glib 2.98 \
 		--download-images \
 		--no-check-certificate \
+		-j $(JOBS) \
 		$(GENERATOR_OPTS) \
 		$(PACKAGES)
 

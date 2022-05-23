@@ -31,7 +31,7 @@
 		</section>
 
 		<section name="User Interface">
-			<package name="gtk4" gallery="https://docs.gtk.org/gtk4/visual_index.html" home="https://www.gtk.org/" gir="Gsk-4.0,Gdk-4.0,GdkX11-4.0,Gtk-4.0" c-docs="https://docs.gtk.org/gtk4/">
+			<package name="gtk4" gallery="https://docs.gtk.org/gtk4/visual_index.html" home="https://www.gtk.org/" gir="Gsk-4.0,Gdk-4.0,Gtk-4.0" c-docs="https://docs.gtk.org/gtk4/">
 				GTK is the primary library used to construct user interfaces in GNOME applications.
 				It provides user interface controls and signal callbacks to control user interfaces.
 			</package>
@@ -292,6 +292,12 @@
 			</package>
 			<package name="gdk-x11-3.0" home="https://www.gtk.org/" gir="GdkX11-3.0" c-docs="https://docs.gtk.org/gdk3-x11/">
 				X backend-specific API for gdk.
+			</package>
+			<package name="gtk4-wayland" home="https://www.gtk.org/" gir="GdkWayland-4.0" c-docs="https://docs.gtk.org/gdk4-wayland/">
+				Wayland backend-specific API for gdk4.
+			</package>
+			<package name="gtk4-x11" home="https://www.gtk.org/" gir="GdkX11-4.0" c-docs="https://docs.gtk.org/gdk4-x11/">
+				X11 backend-specific API for gdk4.
 			</package>
 			<package name="gdk-pixbuf-2.0"  home="https://www.gtk.org/" gir="GdkPixbuf-2.0" c-docs="https://docs.gtk.org/gdk-pixbuf/">
 				GdkPixbuf is a library for image loading and manipulation. The GdkPixbuf documentation contains both the

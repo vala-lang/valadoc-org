@@ -531,7 +531,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.start_tag ("h1").text ("Guides & References").end_tag ("h1");
 
 			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://vala.dev", "target", "_blank"}).text ("About Vala").end_tag ("a");
+			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala", "target", "_blank"}).text ("About Vala").end_tag ("a");
 			writer.end_tag ("p");
 
 			writer.start_tag ("p");

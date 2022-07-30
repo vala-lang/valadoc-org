@@ -358,6 +358,11 @@ nav .title img {
     border-style: none;
     display: block;
     margin: 0 auto;
+    text-align: center;
+}
+
+.graph > polygon {
+    fill: none;
 }
 
 .site_navi {
@@ -845,6 +850,23 @@ a.abstract_class,
     footer {
         background-color: #1a1a1a;
         color: #eee;
+    }
+
+    .graph .node polygon {
+        stroke: white;
+    }
+
+    .graph .node text {
+        fill: white;
+    }
+
+    .graph .edge path {
+        stroke: white;
+    }
+
+    .graph .edge polygon {
+        stroke: white;
+        fill:  white;
     }
 
     .tooltip {

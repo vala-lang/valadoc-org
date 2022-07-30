@@ -79,7 +79,7 @@ if ($first == null || $first === "index") { // Homepage
     </form>
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
     <ul>
-      <li><a href="https://planet.vala-project.org/" target="_blank" title="Planet Vala"><i class="fa fa-globe"></i></a>
+      <li><a href="https://vala.dev/" target="_blank" title="Vala Official Website"><i class="fa fa-house"></i></a>
       <li><a href="https://www.reddit.com/r/vala/" target="_blank" title="reddit"><i class="fa fa-reddit"></i></a>
       <li><a href="/markup.htm" title="Markup Info"><i class="fa fa-info-circle"></i></a>
     </ul>

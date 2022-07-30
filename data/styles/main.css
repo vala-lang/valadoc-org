@@ -866,7 +866,7 @@ a.abstract_class,
 
     .graph .edge polygon {
         stroke: white;
-        fill:  white;
+        fill: white;
     }
 
     .tooltip {

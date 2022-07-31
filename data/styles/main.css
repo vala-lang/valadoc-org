@@ -361,6 +361,10 @@ nav .title img {
     text-align: center;
 }
 
+.graph .node text {
+    font-size: 14px;
+}
+
 .graph > polygon {
     fill: none;
 }

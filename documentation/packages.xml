@@ -634,6 +634,9 @@ simple methods via GObject-Introspection
 			<package name="gobject-introspection-1.0" gir="GIRepository-2.0" home="https://gi.readthedocs.io" c-docs="https://developer-old.gnome.org/gi/unstable/">
 				GObject introspection is a middleware layer between C libraries (using GObject) and language bindings.
 			</package>
+			<package name="geocode-glib-2.0" gir="GeocodeGlib-2.0">
+				Geocode Helper library
+			</package>
 			<package name="geocode-glib-1.0" gir="GeocodeGlib-1.0" c-docs="https://developer-old.gnome.org/geocode-glib/unstable/">
 				Geocode Helper library
 			</package>

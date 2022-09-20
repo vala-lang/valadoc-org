@@ -370,7 +370,7 @@ nav .title img {
 }
 
 .graph .node polygon {
-    fill: transparent
+    fill: transparent;
 }
 
 .site_navi {

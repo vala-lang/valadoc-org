@@ -369,6 +369,10 @@ nav .title img {
     fill: none;
 }
 
+.graph .node polygon {
+    fill: transparent
+}
+
 .site_navi {
     text-align: right;
 }

@@ -1,6 +1,6 @@
 VALAC = valac
 PACKAGES ?= --all
-GENERATOR_OPTS ?= --disable-devhelp --skip-existing
+GENERATOR_OPTS ?= --disable-devhelp
 VALAC_VERSION := $(shell vala --api-version | awk -F. '{ print "0."$$2 }')
 VAPIDIR := $(shell pkg-config --variable vapidir libvala-$(VALAC_VERSION))
 VALAFLAGS = -g -X -w

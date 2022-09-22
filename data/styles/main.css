@@ -138,7 +138,7 @@ nav .title img {
 }
 
 #sidebar .site_navigation a::before {
-    content: '';
+    content: "";
     display: inline-block;
     height: 16px;
     width: 16px;
@@ -183,7 +183,7 @@ nav .title img {
 
 #sidebar .external-link::after {
     background-image: url(/images/external_link.svg);
-    content: '';
+    content: "";
     display: inline-block;
     height: 12px;
     width: 12px;
@@ -249,7 +249,7 @@ nav .title img {
 
 .navi_inline li::before,
 .navi_main li::before {
-    content: '';
+    content: "";
     display: inline-block;
     height: 16px;
     width: 16px;
@@ -315,7 +315,7 @@ nav .title img {
 .highlight .package::before,
 .document::before,
 .video::before {
-    content: '';
+    content: "";
     display: inline-block;
     height: 16px;
     width: 16px;
@@ -434,6 +434,7 @@ nav .title img {
     padding: 12px;
     text-align: left;
     z-index: 1000;
+    top: -200px;
 }
 
 .tooltip * {

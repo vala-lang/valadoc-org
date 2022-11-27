@@ -611,8 +611,8 @@ simple methods via GObject-Introspection
 			<package name="libarchive" home="http://www.libarchive.org/">
 				Library that can create and read several streaming archive formats.
 			</package>
-			<package name="gudev-1.0" home="http://gudev.sourceforge.net/" gir="GUdev-1.0">
-				Gudev is a system device management application for the GNOME desktop.
+			<package name="gudev-1.0" home="https://gitlab.gnome.org/GNOME/libgudev" gir="GUdev-1.0">
+			  GUdev (libgudev) is a library with GObject bindings to libudev, now made independent, after being part of udev itself, and later systemd.
 			</package>
 			<package name="liboobs-1">
 				GObject based interface to system-tools-backends.

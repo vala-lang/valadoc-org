@@ -927,10 +927,6 @@ simple methods via GObject-Introspection
 		<package name="lua">
 			Programming language designed for extending applications.
 		</package>
-		<package name="mx-2.0" gir="Mx-2.0" flags="--pkg gio-2.0 --pkg clutter-1.0">
-			The Moblin UI Toolkit is a project to create useful widgets for Clutter-based applications.
-			It includes widgets such as edit controls, buttons, and many more.
-		</package>
 		<package name="hildon-1" home="https://wiki.gnome.org/Attic/Hildon">
 			Hildon Widgets is a set of widgets present in the Hildon framework. Its aim is to create
 			finger-friendly graphical interfaces specially designed for use in mobile devices. 

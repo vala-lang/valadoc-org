@@ -575,10 +575,6 @@ simple methods via GObject-Introspection
 			<package name="enchant" home="https://abiword.github.io/enchant/">
 				A wrapper library for generic spell checking.
 			</package>
-			<!-- vapi contains a class without name -->
-			<package ignore="true" name="babl-0.1" home="http://gegl.org/babl/" gir="Babl-0.1">
-				A dynamic, any to any, pixel format translation library.
-			</package>
 			<package name="libepc-1.0" gir="Epc-1.0">
 				The Easy Publish and Consume library (libepc) provides an easy method to publish data
 				using HTTPS, announce that information via DNS-SD, find that information and finally

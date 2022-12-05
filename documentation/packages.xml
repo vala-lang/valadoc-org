@@ -196,7 +196,7 @@
 				A vocabulary to formulate new pixel formats from existing primitives is provided as well
 				as the framework to add new color models, spaces and data types.
 			</package>
-			<package name="gegl-0.3" home="http://www.gegl.org/" gir="Gegl-0.3">
+			<package name="gegl-0.3" deprecated="true" home="http://www.gegl.org/" gir="Gegl-0.3">
 				GEGL (Generic Graphics Library) is a data flow based image processing framework, providing
 				floating point processing and non-destructive image processing capabilities to GNU Image
 				Manipulation Program and other projects (imgflo, GNOME Photos, gcut, iconographer, …)

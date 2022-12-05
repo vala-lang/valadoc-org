@@ -69,7 +69,7 @@
 			<package name="libhandy-1" gir="Handy-1" flags="--pkg=gio-2.0 --pkg=gtk+-3.0" c-docs="https://gnome.pages.gitlab.gnome.org/libhandy/" home="https://gitlab.gnome.org/GNOME/libhandy">
 				Building blocks for modern adaptive GNOME apps
 			</package>
-			<package name="libhandy-0.0" gir="Handy-0.0" flags="--pkg=gio-2.0 --pkg=gtk+-3.0" c-docs="https://honk.sigxcpu.org/projects/libhandy/doc/" home="https://source.puri.sm/Librem5/libhandy">
+			<package name="libhandy-0.0" deprecated="true" gir="Handy-0.0" flags="--pkg=gio-2.0 --pkg=gtk+-3.0" c-docs="https://honk.sigxcpu.org/projects/libhandy/doc/" home="https://source.puri.sm/Librem5/libhandy">
 				A library full of GTK+ widgets for mobile phones
 			</package>
 			<package name="vte-2.91" gir="Vte-2.91" flags="--pkg gtk+-3.0" c-docs="https://developer-old.gnome.org/vte/unstable/">

@@ -75,14 +75,25 @@
 			<package name="vte-2.91" gir="Vte-2.91" flags="--pkg gtk+-3.0" c-docs="https://developer-old.gnome.org/vte/unstable/">
 				Terminal emulator widget used by GNOME terminal.
 			</package>
-			<package name="webkit2gtk-web-extension-4.0" gir="WebKit2WebExtension-4.0" flags="--pkg libsoup-2.4" c-docs="https://webkitgtk.org/reference/webkit2gtk/unstable/index.html" home="https://webkitgtk.org/">
+			<package name="webkit2gtk-web-extension-4.0" gir="WebKit2WebExtension-4.0" flags="--pkg libsoup-2.4" c-docs="https://webkitgtk.org/reference/webkit2gtk-web-extension/unstable/" home="https://webkitgtk.org/">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+				This is the library to use to build extensions running in the separated webprocess.
+			</package>
+			<package name="webkit2gtk-web-extension-4.1" gir="WebKit2WebExtension-4.1" c-docs="https://webkitgtk.org/reference/webkit2gtk-web-extension/unstable/" home="https://webkitgtk.org/">
 				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
 				This is the library to use to build extensions running in the separated webprocess.
 			</package>
 			<package name="webkit2gtk-4.0" gir="WebKit2-4.0" c-docs="https://webkitgtk.org/reference/webkit2gtk/unstable/" home="https://webkitgtk.org/">
 				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
 			</package>
+			<package name="webkit2gtk-4.1" gir="WebKit2-4.1" c-docs="https://webkitgtk.org/reference/webkit2gtk/unstable/" home="https://webkitgtk.org/">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+			</package>
 			<package name="javascriptcoregtk-4.0" gir="JavaScriptCore-4.0" c-docs="https://webkitgtk.org/reference/jsc-glib/unstable/" home="https://webkitgtk.org/">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+				This is the library to use to acces JavaScript from WebKitGTK.
+			</package>
+			<package name="javascriptcoregtk-4.1" gir="JavaScriptCore-4.1" c-docs="https://webkitgtk.org/reference/jsc-glib/unstable/" home="https://webkitgtk.org/">
 				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
 				This is the library to use to acces JavaScript from WebKitGTK.
 			</package>

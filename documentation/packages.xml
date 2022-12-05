@@ -58,7 +58,7 @@
 				GtkSourceView adds support for syntax highlighting, undo/redo, file loading and saving, search and replace,
 				a completion system, printing, displaying line numbers, and other features typical of a source code editor.
 			</package>
-			<package name="gtksourceview-5" home="https://wiki.gnome.org/Projects/GtkSourceView" gir="GtkSource-5" c-docs="https://developer-old.gnome.org/gtksourceview/unstable/">
+			<package name="gtksourceview-5" home="https://wiki.gnome.org/Projects/GtkSourceView" gir="GtkSource-5" c-docs="https://gnome.pages.gitlab.gnome.org/gtksourceview/gtksourceview5/">
 				GtkSourceView is a GNOME library that extends GtkTextView, the standard GTK+ widget for multiline text editing.
 				GtkSourceView adds support for syntax highlighting, undo/redo, file loading and saving, search and replace,
 				a completion system, printing, displaying line numbers, and other features typical of a source code editor.

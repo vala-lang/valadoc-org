@@ -11,25 +11,25 @@
     "start": "php -S localhost:7777 -t ./valadoc.org ./router.php",
     "lint": "eslint data/scripts/*.js"
   },
+  "type": "module",
   "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/register": "^7.12.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
-    "gulp-imagemin": "^7.1.0",
+    "gulp-imagemin": "^8.0.0",
     "gulp-postcss": "^9.0.0",
     "postcss": "^8.1.4",
-    "postcss-preset-env": "^6.4.0",
+    "postcss-preset-env": "^7.8.3",
     "whatwg-fetch": "^3.4.1"
   },
   "devDependencies": {
-    "eslint": "^7.12.1",
-    "eslint-config-standard": "^15.0.0",
+    "eslint": "^8.29.0",
+    "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.2",
-    "stylelint": "^13.7.2"
+    "eslint-plugin-promise": "^6.1.1",
+    "stylelint": "^14.16.0"
   }
 }

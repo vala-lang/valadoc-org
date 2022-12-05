@@ -420,11 +420,17 @@
 				libsoup is an HTTP client/server library for GNOME. It uses GObjects and the glib main loop,
 				to integrate well with GNOME applications.
 			</package>
-			<package name="rest-0.7" maintainers="Adrien Bustany" gir="Rest-0.7" c-docs="https://developer-old.gnome.org/rest/unstable/">
+			<package name="rest-0.7" deprecated="true" gir="Rest-0.7" c-docs="https://developer-old.gnome.org/rest/unstable/">
 				A helper library for RESTful services.
 			</package>
-			<package name="rest-extras-0.7" maintainers="Adrien Bustany" gir="RestExtras-0.7">
+			<package name="rest-extras-0.7" deprecated="true" gir="RestExtras-0.7">
 				This extra package provides Facebook and Flickr support.
+			</package>
+			<package name="rest-1.0" gir="Rest-1.0" c-docs="https://gnome.pages.gitlab.gnome.org/librest/">
+				A helper library for RESTful services.
+			</package>
+			<package name="rest-extras-1.0" gir="RestExtras-1.0">
+				This extra package provides LastFM, Youtube and Flickr support.
 			</package>
 			<package name="gmime-3.0" gir="GMime-3.0" home="https://github.com/jstedfast/gmime" c-docs="https://developer-old.gnome.org/gmime/stable/">
 				MIME message parser and creator library

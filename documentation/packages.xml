@@ -927,13 +927,6 @@ simple methods via GObject-Introspection
 		<package name="lua">
 			Programming language designed for extending applications.
 		</package>
-		<package name="hildon-1" home="https://wiki.gnome.org/Attic/Hildon">
-			Hildon Widgets is a set of widgets present in the Hildon framework. Its aim is to create
-			finger-friendly graphical interfaces specially designed for use in mobile devices. 
-		</package>
-		<package name="hildon-fm-2" home="https://wiki.gnome.org/Attic/Hildon">
-			Hildon File Management.
-		</package>
 		<package name="gsl" maintainer="Matias De la Puente" home="http://www.gnu.org/software/gsl/manual/html_node/" c-docs="http://www.gnu.org/software/gsl/manual/html_node/">
 			A collection of numerical routines for scientific computing.
 		</package>

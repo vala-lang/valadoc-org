@@ -102,7 +102,7 @@
 		<file>Gtk.Builder.ui</file>
 		<file>Gtk.Builder.xml</file>
 		<file>Gtk.Builder.vala</file>
-		<compile>glib-compile-resources Gtk.Builder.xml --generate-source --target=Gtk.Builder.Resource.c && valac --pkg gtk+-3.0 Gtk.Builder.vala Gtk.Builder.Resource.c --gresources=Gtk.Builder.xml</compile>
+		<compile>glib-compile-resources Gtk.Builder.xml --generate-source --target=Gtk.Builder.Resource.c &amp;&amp; valac --pkg gtk+-3.0 Gtk.Builder.vala Gtk.Builder.Resource.c --gresources=Gtk.Builder.xml</compile>
 		<node>Gtk.Builder</node>
 	</example>
 	<example>

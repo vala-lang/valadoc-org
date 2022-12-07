@@ -134,6 +134,6 @@ serve-mini: build-docs-mini build-data
 
 serve-search: configgen
 	./configgen ./valadoc.org/
-	mkdir ./sphinx/storage
+	mkdir -p ./sphinx/storage
 	indexer --config ./sphinx.conf --all
 	searchd --config sphinx.conf

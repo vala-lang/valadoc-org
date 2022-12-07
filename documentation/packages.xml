@@ -667,14 +667,20 @@ simple methods via GObject-Introspection
 			<package name="libdmapsharing-3.0" flags="--pkg gio-2.0 --pkg libsoup-2.4 --pkg avahi-gobject --pkg gstreamer-1.0" gir="DMAP-3.0" c-docs="https://www.flyn.org/projects/libdmapsharing/doc/">
 				A library that implements the DMAP family of protocols
 			</package>
-			<package name="gcr-3" gir="Gcr-3" c-docs="https://developer-old.gnome.org/gcr/unstable/">
+			<package name="gcr-4" gir="Gcr-4" c-docs="https://gnome.pages.gitlab.gnome.org/gcr/gcr-4/">
 				A library for bits of crypto UI and parsing
 			</package>
-			<package name="gcr-ui-3" gir="GcrUi-3" c-docs="https://developer-old.gnome.org/gcr/unstable/">
+			<package name="gcr-3" deprecated="true" gir="Gcr-3" c-docs="https://developer-old.gnome.org/gcr/unstable/">
+				A library for bits of crypto UI and parsing
+			</package>
+			<package name="gcr-ui-3" deprecated="true" gir="GcrUi-3" c-docs="https://developer-old.gnome.org/gcr/unstable/">
 				GCR	widgets
 			</package>
-			<package name="gck-1" gir="Gck-1" c-docs="https://developer-old.gnome.org/gck/unstable/">
-				Glib wrapper library for PKCS#11
+			<package name="gck-2" gir="Gck-2" c-docs="https://gnome.pages.gitlab.gnome.org/gcr/gck-2/">
+				GLib wrapper library for PKCS#11
+			</package>
+			<package name="gck-1" deprecated="true" gir="Gck-1" c-docs="https://developer-old.gnome.org/gck/unstable/">
+				GLib wrapper library for PKCS#11
 			</package>
 			<package name="libgit2-glib-1.0" gir="Ggit-1.0">
 				GLib wrapper library around the libgit2 git access library.

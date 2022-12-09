@@ -22,6 +22,7 @@
 /valadoc-example-tester
 /node_modules/
 /yarn.lock
+/valadoc.org/
 
 !.babelrc
 !.editorconfig

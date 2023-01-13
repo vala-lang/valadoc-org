@@ -741,8 +741,11 @@ simple methods via GObject-Introspection
 	</section>
 
 	<section name="Pantheon">
-		<package name="granite" vapi-image-source="https://github.com/elementary/granite/tree/master/doc/images/" home="https://github.com/elementary/granite">
+		<package name="granite" vapi-image-source="https://github.com/elementary/granite/tree/master/doc/images/" home="https://github.com/elementary/granite/tree/master">
 			Granite is an extension of GTK+. Among other things, it provides complex widgets and convenience functions designed for use in apps built for elementary OS.
+		</package>
+		<package name="granite-7" vapi-image-source="https://github.com/elementary/granite/tree/main/doc/images/" home="https://github.com/elementary/granite">
+			Granite is a platform library for Gtk 4. It provides complex widgets and convenience functions designed for use in apps built for elementary OS.
 		</package>
 		<package name="switchboard-2.0" gir="Switchboard-1.0" home="https://github.com/elementary/switchboard">
 			Switchboard is a modular system settings hub containing plugs (settings panels)

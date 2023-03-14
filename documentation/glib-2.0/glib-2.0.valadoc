@@ -3212,8 +3212,8 @@ GLib.FileStream.clearerr
 /**
  * Reads specified number of objects in the array buffer from the given input stream stream.
  * 
- * @param buffer pointer to the first object object in the array to be read
- * @param size the number of the objects to be read
+ * @param buf pointer to the first object object in the array to be read
+ * @param size the element's size, this is always sizeof(uint8) or 1
  * @return number of objects read successfully 
  */
 GLib.FileStream.read
@@ -3221,8 +3221,8 @@ GLib.FileStream.read
 /**
  * Writes count of objects in the given array buffer to the output stream stream. 
  *
- * @param buffer pointer to the first object object in the array to be written
- * @param size the number of the objects to be written 
+ * @param buf pointer to the first object object in the array to be written
+ * @param size the element's size, this is always sizeof(uint8) or 1
  * @return number of objects written successfully
  */
 GLib.FileStream.write

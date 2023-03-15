@@ -2569,10 +2569,11 @@ string.valid_char
 string.get
 
 /**
- * Replace all occurrences of the search string with the replacement string
+ * Replace occurrences of the search string with the replacement string at a maximum of max_tokens
  *
  * @param old The value being searched for
  * @param replacement The replacement value that replaces ``old`` values.
+ * @param max_tokens The maximum number. If this is less than 0, the string will be replaced completely.
  * @return a string with the replaced values. 
  */
 string.replace

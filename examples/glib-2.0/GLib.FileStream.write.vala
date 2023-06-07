@@ -10,11 +10,10 @@ public struct Data {
 
 public static int main (string[] args) {
 	// array of 5 elements with size 2 bytes (2 * char)
-	Data [] mem = { Data('h'), Data('e'), Data('l'),
-					Data('l'), Data('o') };
+	Data[] mem = { Data('h'), Data('e'), Data('l'),
+	               Data('l'), Data('o') };
 
-	// write array of 5 elements with 2 bytes size
-	stdout.write ((uint8[]) mem, sizeof (Data));
+	stdout.write ((uint8[]) mem);
 	print ("\n");
 	return 0;
 }

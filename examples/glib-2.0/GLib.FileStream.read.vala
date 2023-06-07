@@ -10,7 +10,7 @@ public static int main (string[] args) {
 
 	// load content:
 	uint8[] buf = new uint8[size];
-	size_t read = stream.read (buf, 1);
+	size_t read = stream.read (buf);
 	assert (size == read);
 
 	// display content:

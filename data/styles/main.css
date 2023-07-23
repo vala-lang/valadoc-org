@@ -885,4 +885,9 @@ a.abstract_class,
     .main_parameter_table_unknown_parameter {
         color: #999;
     }
+
+    .main_table {
+        background: #335;
+        border: 1px solid #77c;
+    }
 }

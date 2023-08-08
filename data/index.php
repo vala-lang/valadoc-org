@@ -81,7 +81,7 @@ if ($first == null || $first === "index") { // Homepage
     <ul>
       <li><a href="https://vala.dev/" target="_blank" title="Vala Official Website"><i class="fa fa-home"></i></a>
       <li><a href="https://www.reddit.com/r/vala/" target="_blank" title="reddit"><i class="fa fa-reddit"></i></a>
-      <li><a href="/markup.htm" title="Markup Info"><i class="fa fa-info-circle"></i></a>
+      <li><a href="/markup.htm" title="Markup Info"><i class="fa fa-code"></i></a>
     </ul>
   </nav>
   <div id="sidebar">

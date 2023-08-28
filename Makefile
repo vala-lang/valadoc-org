@@ -5,6 +5,9 @@ VALAC_VERSION := $(shell vala --api-version | awk -F. '{ print "0."$$2 }')
 VAPIDIR := $(shell pkg-config --variable vapidir libvala-$(VALAC_VERSION))
 VALAFLAGS = -g -X -w
 PREFIX = "stable"
+INSTALL_DIR ?= /usr/local/share/devhelp/books
+
+.PHONY: install
 
 default: generator libdoclet.so update-girs configgen valadoc-example-gen valadoc-example-tester
 
@@ -137,3 +140,14 @@ serve-search: configgen
 	mkdir -p ./sphinx/storage
 	indexer --config ./sphinx.conf --all
 	searchd --config sphinx.conf
+
+.PHONY: install
+install:
+  $(shell mkdir -p $(INSTALL_DIR));
+  $(foreach package, $(shell ls ./valadoc.org/*/*.tar.bz2), $(shell tar -xf $(package) -C $(INSTALL_DIR));)
+
+#for package in `ls ./valadoc.org/*/*.tar.bz2`; do \
+#    echo $package; \
+#    tar -xf $package -C $INSTALL_DIR; \
+#  done; \
+

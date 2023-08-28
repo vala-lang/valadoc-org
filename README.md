@@ -52,6 +52,26 @@ you completed building, you should see a `valadoc.org` folder.
 To access the documentation navigate your browser to http://localhost:7777.
 
 
+Install locally
+===============
+
+To install valadoc documentation as devhelp books, first build the pages with either
+```bash
+make build-docs-mini build-data GENERATOR_OPTS=--skip-existing
+```
+for just glib, gio and gobject, or
+```bash
+make build-docs build-data GENERATOR_OPTS=--skip-existing
+```
+for all packages. This can take a bit longer.
+
+After that you can run
+```bash
+sudo make install
+```
+to install the devhelp books in your system. Now launch Devhelp and use them!
+
+
 Searching
 =========
 

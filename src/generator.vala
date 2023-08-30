@@ -92,6 +92,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private static string target_glib;
 	private static bool wget_no_check_certificate;
 	private static bool disable_devhelp;
+	private static int jobs;
 	[CCode (array_length = false, array_null_terminated = true)]
 	private static string[] vapidirs;
 
@@ -129,6 +130,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		{ "skip-existing", 0, 0, OptionArg.NONE, ref skip_existing, "Skip existing packages", null },
 		{ "no-check-certificate", 0, 0, OptionArg.NONE, ref wget_no_check_certificate, "Pass --no-check-certificate to wget", null },
 		{ "disable-devhelp", 0, 0, OptionArg.NONE, ref disable_devhelp, "Do not generate devhelp-packages", null },
+		{ "jobs", 'j', 0, OptionArg.INT, ref jobs, "Allow N jobs at once", "N" },
 		{ "", 0, 0, OptionArg.FILENAME_ARRAY, ref requested_packages, null, "FILE..." },
 		{ null }
 	};
@@ -723,19 +725,60 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		generate_index (path + ".content.tpl");
 	}
 
-	public void regenerate_all_known_packages () throws Error {
-		foreach (var pkg in packages_per_name.values) {
-			if (pkg is ExternalPackage == false) {
-				try {
-					build_doc_for_package (pkg);
-				} catch (Error e) {
-					stderr.printf ("%s\n", e.message);
-					has_error = true;
-				}
+	private void generate_packages_in_jobs (Gee.LinkedList<Package> queue) throws Error {
+		int elements = queue.size / jobs;
+		Gee.LinkedList<Thread<GLib.StringBuilder?>> threads = new Gee.LinkedList<Thread<GLib.StringBuilder?>> ();
+		for (int j = 0; j < jobs; j++) {
+			int length = elements;
+			if (j+1 == jobs) {
+				length = -1;
+			}
+
+			var sub_queue = queue.chop (j * elements, length);
+			Thread<GLib.StringBuilder?> thread = new Thread<GLib.StringBuilder?>.try ("Job %d".printf (j), () => {
+				GLib.StringBuilder? error_msg = null;
+				sub_queue.foreach ((pkg) => {
+					var output = new GLib.StringBuilder ();
+					try {
+						build_doc_for_package (pkg, output);
+					} catch (Error e) {
+						if (error_msg == null) {
+							error_msg = new GLib.StringBuilder ();
+						}
+
+						error_msg.append_printf ("%s\n", e.message);
+					}
+
+					stdout.puts (output.str);
+					return true;
+				});
+
+				return (owned)error_msg;
+			});
+
+			threads.add (thread);
+		}
+
+		foreach (var thread in threads) {
+			var error_msg = thread.join ();
+			if (error_msg != null) {
+				stderr.printf ("%s", error_msg.str);
+				has_error = true;
 			}
 		}
 
 		print_stored_messages ();
+	}
+
+	public void regenerate_all_known_packages () throws Error {
+		Gee.LinkedList<Package> queue = new Gee.LinkedList<Package> ();
+		foreach (var pkg in packages_per_name.values) {
+			if (pkg is ExternalPackage == false) {
+				queue.add (pkg);
+			}
+		}
+
+		generate_packages_in_jobs (queue);
 	}
 
 	public void generate_configs (string path) throws Error {
@@ -780,21 +823,32 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return ;
 		}
 
-		foreach (Package pkg in queue) {
-			try {
-				build_doc_for_package (pkg);
-			} catch (Error e) {
-				stderr.printf ("%s\n", e.message);
-				has_error = true;
-			}
-		}
-
-		print_stored_messages ();
+		generate_packages_in_jobs (queue);
 	}
 
-	private void build_doc_for_package (Package pkg) throws Error {
+	private int spawn_logged (string command_line, GLib.StringBuilder output) throws GLib.SpawnError {
+		int exit_status = 0;
+		try {
+			string? standard_output = null;
+			string? standard_error = null;
+			Process.spawn_command_line_sync (command_line, out standard_output, out standard_error, out exit_status);
+			if (standard_output != null && standard_output._strip ()  != "") {
+				output.append_printf ("%s\n", standard_output);
+			}
+
+			if (standard_error != null && standard_error._strip ()  != "") {
+				output.append_printf ("\x1b[31m%s\033[0m\n", standard_error);
+			}
+		} catch (SpawnError e) {
+			error (e.message);
+		}
+
+		return exit_status;
+	}
+
+	private void build_doc_for_package (Package pkg, GLib.StringBuilder output) throws Error {
 		if (skip_existing && FileUtils.test (Path.build_filename (output_directory, pkg.name), FileTest.IS_DIR)) {
-			stdout.printf ("skip \'%s\' ...\n", pkg.name);
+			stdout.printf ("Skipping \'%s\'\n", pkg.name);
 			return ;
 		}
 
@@ -803,23 +857,21 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return ;
 		}
 
-		stdout.printf ("create \'%s\' ...\n", pkg.name);
-
+		stdout.printf ("Creating \'%s\' ...\n", pkg.name);
 
 		DirUtils.create ("documentation/%s/".printf (pkg.name), 0755);
 		DirUtils.create ("documentation/%s/wiki".printf (pkg.name), 0755);
-
 
 		foreach (unowned string gir_name in pkg.gir_names) {
 			pkg.load_metadata (gir_name, reporter);
 		}
 
 		if (pkg.sgml_path != null) {
-			stdout.printf ("  get index.sgml ...\n");
+			output.append_printf ("  get index.sgml ...\n");
 
 			if (!FileUtils.test ("documentation/%s/index.sgml".printf (pkg.name), FileTest.EXISTS)) {
 				try {
-					Process.spawn_command_line_sync ("wget %s -O documentation/%s/index.sgml \"%s\"".printf (global_wget_flags, pkg.name, pkg.sgml_path));
+					spawn_logged ("wget %s -O documentation/%s/index.sgml \"%s\"".printf (global_wget_flags, pkg.name, pkg.sgml_path), output);
 				} catch (SpawnError e) {
 					error (e.message);
 				}
@@ -837,7 +889,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		string external_docu_path = pkg.get_valadoc_file ();
 		if (external_docu_path != null) {
-			stdout.printf ("  select .valadoc:        %s\n".printf (external_docu_path));
+			output.append_printf ("  select .valadoc:        %s\n".printf (external_docu_path));
 
 			builder.append_printf (" --importdir documentation/%s", pkg.name);
 			builder.append_printf (" --import %s", pkg.name);
@@ -850,12 +902,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 					continue;
 				}
 
-				stdout.printf ("  select .gir:            %s\n", gir_path);
+				output.append_printf ("  select .gir:            %s\n", gir_path);
 
 				builder.append_printf (" --importdir \"%s\"", girdir);
 				builder.append_printf (" --import %s", gir_name);
 
-				load_images_gir (pkg, gir_name);
+				load_images_gir (pkg, gir_name, output);
 
 				string metadata_path = pkg.get_gir_file_metadata_path (gir_name);
 				if (metadata_path != null) {
@@ -863,46 +915,36 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				}
 			}
 		} else if (pkg.vapi_image_source != null) {
-			load_images_vapi (pkg);
+			load_images_vapi (pkg, output);
 			builder.append_printf (" --alternative-resource-dir documentation/%s/vapi-images/", pkg.name);
 		}
 
 		if (pkg.gallery != null) {
-			generate_widget_gallery (pkg);
+			generate_widget_gallery (pkg, output);
 
 			builder.append (" --importdir \"tmp\"");
 			builder.append_printf (" --import \"%s-widget-gallery\"", pkg.name);
 		}
 
-		stdout.printf ("===== %s =====\n", pkg.name);
+		output.append_printf ("===== %s =====\n", pkg.name);
 
 		bool has_examples = false;
 		string example_path = "examples/%s/%s.valadoc.examples".printf (pkg.name, pkg.name);
 		if (FileUtils.test (example_path, FileTest.IS_REGULAR)) {
-			string output = "examples/%s-examples.valadoc".printf (pkg.name);
-			stdout.printf ("  select example.valadoc: %s\n", output);
-			FileUtils.remove (output);
+			string example_valadoc = "examples/%s-examples.valadoc".printf (pkg.name);
+			output.append_printf ("  select example.valadoc: %s\n", example_valadoc);
+			FileUtils.remove (example_valadoc);
 
 			try {
-				int exit_status = 0;
-				string? standard_output = null;
-				string? standard_error = null;
+				string command = "./valadoc-example-gen \"%s\" \"%s\" \"%s\"".printf (example_path, example_valadoc, "documentation/%s/wiki".printf (pkg.name));
+				output.append_printf ("%s\n", command);
+				int exit_status = spawn_logged (command, output);
 
-				string command = "./valadoc-example-gen \"%s\" \"%s\" \"%s\"".printf (example_path, output, "documentation/%s/wiki".printf (pkg.name));
-				Process.spawn_command_line_sync (command, out standard_output, out standard_error, out exit_status);
-
-				stdout.printf ("%s\n", command);
-				if (standard_error != null) {
-					stdout.printf (standard_error);
-				}
-				if (standard_output != null) {
-					stdout.printf (standard_output);
-				}
 				if (exit_status != 0) {
 					throw new SpawnError.FAILED ("valadoc-example-gen exit status %d != 0", exit_status);
 				}
 			} catch (SpawnError e) {
-				stdout.printf ("ERROR: Can't generate documentation for %s.\n", pkg.name);
+				output.append_printf ("ERROR: Can't generate documentation for %s.\n", pkg.name);
 				throw e;
 			}
 
@@ -914,7 +956,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		string wiki_path = "documentation/%s/wiki/index.valadoc".printf (pkg.name);
 		bool delete_wiki_path = false;
 		if (FileUtils.test (wiki_path, FileTest.IS_REGULAR)) {
-			stdout.printf ("  select .valadoc (wiki): documentation/%s/wiki/*.valadoc\n", pkg.name);
+			output.append_printf ("  select .valadoc (wiki): documentation/%s/wiki/*.valadoc\n", pkg.name);
 		} else {
 			string devhelp_wiki_path = "documentation/%s/wiki/devhelp-index.valadoc".printf (pkg.name);
 			generate_wiki_index (pkg, devhelp_wiki_path, has_examples, true);
@@ -925,31 +967,18 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 
 		try {
-			int exit_status = 0;
-			string? standard_output = null;
-			string? standard_error = null;
-
-			stdout.puts ("  run valadoc ...\n");
-			Process.spawn_command_line_sync (builder.str, out standard_output, out standard_error, out exit_status);
-
-			stdout.printf ("%s\n", builder.str);
-			if (standard_error != null) {
-				stdout.printf (standard_error);
-			}
-			if (standard_output != null) {
-				stdout.printf (standard_output);
-			}
-			standard_output = null;
-			standard_error = null;
+			output.append_printf ("  run valadoc ...\n");
+			output.append_printf ("%s\n", builder.str);
+			int exit_status = spawn_logged (builder.str, output);
 
 			if (exit_status != 0) {
 				throw new SpawnError.FAILED ("valadoc exit status %d != 0", exit_status);
 			}
 
-			Process.spawn_command_line_sync ("rm -r -f %s".printf (Path.build_path (Path.DIR_SEPARATOR_S, output_directory, pkg.name)));
-			Process.spawn_command_line_sync ("mv tmp/%s/%s \"%s\"".printf (pkg.name, pkg.name, output_directory));
+			spawn_logged ("rm -r -f %s".printf (Path.build_path (Path.DIR_SEPARATOR_S, output_directory, pkg.name)), output);
+			spawn_logged ("mv tmp/%s/%s \"%s\"".printf (pkg.name, pkg.name, output_directory), output);
 		} catch (SpawnError e) {
-			stdout.printf ("ERROR: Can't generate documentation for %s.\n", pkg.name);
+			output.append_printf ("ERROR: Can't generate documentation for %s.\n", pkg.name);
 			throw e;
 		} finally {
 			if (delete_wiki_path) {
@@ -993,7 +1022,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
-	private void generate_widget_gallery (Package pkg) throws Error {
+	private void generate_widget_gallery (Package pkg, GLib.StringBuilder output) throws Error {
 		if (pkg.gallery == null) {
 			return ;
 		}
@@ -1006,11 +1035,11 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		string search_path = pkg.gallery.substring (0, pos);
 
 
-		stdout.printf ("  widget gallery\n");
+		output.append_printf ("  widget gallery\n");
 
 		if (!FileUtils.test ("tmp/c-gallery.html", FileTest.EXISTS)) {
 			try {
-				Process.spawn_command_line_sync ("wget %s -O tmp/c-gallery.html \"%s\"".printf (global_wget_flags, pkg.gallery));
+				spawn_logged ("wget %s -O tmp/c-gallery.html \"%s\"".printf (global_wget_flags, pkg.gallery), output);
 			} catch (SpawnError e) {
 				error (e.message);
 			}
@@ -1059,7 +1088,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			if (!FileUtils.test ("documentation/%s/gallery-images/%s".printf (pkg.name, entry.value), FileTest.EXISTS)) {
 					try {
 						string link = Path.build_path (Path.DIR_SEPARATOR_S, search_path, entry.value);
-						Process.spawn_command_line_sync ("wget %s --directory-prefix documentation/%s/gallery-images/ \"%s\"".printf (global_wget_flags, pkg.name, link));
+						spawn_logged ("wget %s --directory-prefix documentation/%s/gallery-images/ \"%s\"".printf (global_wget_flags, pkg.name, link), output);
 					} catch (SpawnError e) {
 						error (e.message);
 					}
@@ -1107,7 +1136,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 	private Regex cmnt_regex;
 	private Regex content_regex;
 
-	private bool load_images_vapi (Package pkg) {
+	private bool load_images_vapi (Package pkg, GLib.StringBuilder output) {
 		if (pkg.vapi_image_source == null) {
 			return false;
 		}
@@ -1124,7 +1153,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		// {{[path]}}
 		// {{[path]|[description]}}
 
-		stdout.printf ("  download images (vapi) ...\n");
+		output.append_printf ("  download images (vapi) ...\n");
 
 		bool has_images = false;
 		try {
@@ -1160,7 +1189,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 						if (!FileUtils.test ("documentation/%s/vapi-images/%s".printf (pkg.name, image_name), FileTest.EXISTS)) {
 							string link = get_image_link (pkg.vapi_image_source, image_name);
-							Process.spawn_command_line_sync ("wget %s --directory-prefix documentation/%s/vapi-images/ \"%s\"".printf (global_wget_flags, pkg.name, link));
+							spawn_logged ("wget %s --directory-prefix documentation/%s/vapi-images/ \"%s\"".printf (global_wget_flags, pkg.name, link), output);
 							has_images = true;
 						}
 					}
@@ -1203,7 +1232,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		return url;
 	}
 
-	private void load_images_gir (Package pkg, string gir_name) {
+	private void load_images_gir (Package pkg, string gir_name, GLib.StringBuilder output) {
 		if (pkg.c_docs == null) {
 			return ;
 		}
@@ -1217,7 +1246,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return ;
 		}
 
-		stdout.printf ("  download images (gir) ...\n");
+		output.append_printf ("  download images (gir) ...\n");
 
 		var markup_reader = new Vala.MarkupReader (gir_path);
 		var token = Vala.MarkupTokenType.EOF;
@@ -1241,7 +1270,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			if (!FileUtils.test ("documentation/%s/gir-images/%s".printf (pkg.name, image_name), FileTest.EXISTS)) {
 				try {
 					string link = get_image_link (pkg.c_docs, image_name);
-					Process.spawn_command_line_sync ("wget %s --directory-prefix documentation/%s/gir-images/ \"%s\"".printf (global_wget_flags, pkg.name, link));
+					spawn_logged ("wget %s --directory-prefix documentation/%s/gir-images/ \"%s\"".printf (global_wget_flags, pkg.name, link), output);
 				} catch (SpawnError e) {
 					error (e.message);
 				}

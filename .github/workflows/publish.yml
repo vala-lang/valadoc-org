@@ -45,7 +45,7 @@ jobs:
 
       - name: Build the documentation
         run: |
-          make build-docs GENERATOR_OPTS=""
+          make build-docs -j$(nproc) GENERATOR_OPTS=""
 
       - name: Build search index
         run: |

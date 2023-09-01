@@ -77,6 +77,11 @@ jobs:
       run: |
         make build-docs GENERATOR_OPTS=""
 
+    - name: Build devhelp books
+      run: |
+        make install INSTALL_DIR="$(pwd)/books"
+        tar -cJf books.tar.xz books
+
     - name: Build search index
       run: |
         make configgen \
@@ -96,3 +101,9 @@ jobs:
         docker exec $CONTAINER_ID sh -c 'mv /opt/valadoc.org/* /var/www/html/'
         docker stop $CONTAINER_ID
         docker commit $CONTAINER_ID valalang/docs:latest
+
+    - name: Upload books as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: valadoc-books
+        path: books.tar.xz

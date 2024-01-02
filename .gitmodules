@@ -1,0 +1,6 @@
+[submodule "girs"]
+	path = girs
+	url = https://github.com/nemequ/vala-girs.git
+[submodule "extra-vapis"]
+	path = extra-vapis
+	url = https://gitlab.gnome.org/GNOME/vala-extra-vapis.git

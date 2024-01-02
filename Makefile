@@ -7,6 +7,8 @@ VALAFLAGS = -g -X -w
 PREFIX = "stable"
 INSTALL_DIR ?= /usr/local/share/devhelp/books
 
+.PHONY: install
+
 default: generator libdoclet.so update-girs configgen valadoc-example-gen valadoc-example-tester
 
 datadir := $(shell dirname $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))
@@ -142,5 +144,10 @@ serve-search: configgen
 .PHONY: install
 install:
   $(shell mkdir -p $(INSTALL_DIR));
-  $(foreach package, $(shell ls $(PWD)/valadoc.org/*/*.tar.bz2), $(shell tar -xf $(package) -C $(INSTALL_DIR));)
+  $(foreach package, $(shell ls ./valadoc.org/*/*.tar.bz2), $(shell tar -xf $(package) -C $(INSTALL_DIR));)
+
+#for package in `ls ./valadoc.org/*/*.tar.bz2`; do \
+#    echo $package; \
+#    tar -xf $package -C $INSTALL_DIR; \
+#  done; \
 

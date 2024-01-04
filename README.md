@@ -72,11 +72,11 @@ to install the devhelp books in your system. Now launch Devhelp and use them!
 Searching
 =========
 
-For a more complete experience, you will need to install `sphinxsearch` and `xsltproc`.
+For a more complete experience, you will need to install [manticore](https://manticoresearch.com/install/) and `xsltproc`.
 
 On elementary OS or Ubuntu run:
 ```bash
-sudo apt install sphinxsearch xsltproc
+sudo apt install xsltproc
 ```
 
 The run the following command to generate search indexes:
@@ -84,7 +84,7 @@ The run the following command to generate search indexes:
 make serve-search
 ```
 
-This will (eventually!) start a sphinx daemon on port `51413`.
+This will (eventually!) start a manticore daemon on port `51413`.
 
 
 Add New Packages

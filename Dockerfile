@@ -2,7 +2,7 @@
 ## Builds valadoc and serves it with a basic PHP server
 
 # Cleanup and publish
-FROM php:apache-buster
+FROM php:apache-bullseye
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -10,7 +10,14 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -qq && apt-get install \
   -qq \
   --no-install-recommends \
-  sphinxsearch
+  wget
+RUN wget https://repo.manticoresearch.com/manticore-repo.noarch.deb
+RUN dpkg -i manticore-repo.noarch.deb
+RUN apt-get update -qq && apt-get install \
+  -qq \
+  --no-install-recommends \
+  manticore manticore-extra
+RUN mkdir -p /var/run/manticore
 
 # Install the mysqli extension
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli

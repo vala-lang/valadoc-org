@@ -383,18 +383,8 @@
 			<package name="libgeoclue-2.0" gir="Geoclue-2.0" flags="--pkg=glib-2.0 --pkg=gobject-2.0 --pkg=gio-2.0" home="https://gitlab.freedesktop.org/geoclue/geoclue/-/wikis/home" c-docs="https://www.freedesktop.org/software/geoclue/docs/libgeoclue/">
 				GeoClue is a D-Bus geoinformation service. The goal of the Geoclue project is to make creating location-aware applications as simple as possible.
 			</package>
-			<package name="tracker-control-2.0" gir="TrackerControl-2.0" c-docs="https://developer-old.gnome.org/libtracker-control/stable/">
-				External control and monitoring of miners
-			</package>
-			<package name="tracker-miner-2.0" gir="Tracker-2.0" c-docs="https://developer-old.gnome.org/libtracker-miner/stable/">
-				The libtracker-miner library is the foundation for Tracker data miners,
-				these miners will extract metadata and insert it in SPARQL form to
-				a TrackerSparqlConnection. 
-			</package>
-			<package name="tracker-sparql-2.0" c-docs="https://developer-old.gnome.org/libtracker-sparql/stable/">
-				The libtracker-sparql library is the foundation for Tracker querying and inserting
-				into the data store. The data store allows both querying and inserting using SPARQL
-				based on the Nepomuk ontology. 
+			<package name="tracker-sparql-3.0" home="https://tracker.gnome.org" c-docs="https://gnome.pages.gitlab.gnome.org/tracker">
+				A SPARQL triple store library.
 			</package>
 			<package name="folks" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks/c/">
 				Libfolks is a library that aggregates people from multiple sources (eg, Telepathy connection managers

@@ -111,10 +111,6 @@
 			<package name="shumate-1.0" gir="Shumate-1.0" home="https://wiki.gnome.org/Projects/libshumate" c-docs="https://gnome.pages.gitlab.gnome.org/libshumate/">
 				Shumate is a library providing a widget to display maps in applications.
 			</package>
-			<package name="champlain-gtk-0.12" deprecated="true" gir="GtkChamplain-0.12" flags="--pkg gtk+-3.0 --pkg champlain-0.12 --pkg clutter-1.0" c-docs="https://developer-old.gnome.org/libchamplain/unstable/" home="https://projects.gnome.org/libchamplain/">
-				Libchamplain-gtk is a C library on top of libchamplain providing a Gtk+ widget to display maps
-				in GTK+ applications.
-			</package>
 			<package name="libgnome-menu-3.0" flags="--pkg gio-2.0 --pkg gio-unix-2.0" gir="GnomeDesktop-3.0">
 				Utility library for loading .desktop files.
 			</package>
@@ -600,9 +596,6 @@ simple methods via GObject-Introspection
 			</package>
 			<package name="avahi-client" flags="--pkg avahi-gobject" home="http://www.avahi.org/" maintainers="Sebastian Noack">
 				The Avahi package is a system which facilitates service discovery on a local network.
-			</package>
-			<package name="champlain-0.12" deprecated="true" flags="--pkg clutter-1.0" home="http://projects.gnome.org/libchamplain/" gir="Champlain-0.12">
-				Libchamplain is a C library providing a ClutterActor to display maps.
 			</package>
 			<package name="libwnck-3.0" gir="Wnck-3.0" c-docs="https://developer-old.gnome.org/libwnck/unstable/">
 				Library to manage X windows and workspaces (via pagers, tasklists, etc.)

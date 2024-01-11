@@ -2,7 +2,7 @@
 ## Builds valadoc and serves it with a basic PHP server
 
 # Cleanup and publish
-FROM php:apache-bullseye
+FROM php:apache-bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive
 

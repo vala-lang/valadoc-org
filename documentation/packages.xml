@@ -25,6 +25,14 @@
 			<package name="gmodule-2.0" home="https://www.gtk.org/" gir="GModule-2.0" c-docs="https://docs.gtk.org/gmodule/">
 				Portable method for dynamically loading 'plug-ins'
 			</package>
+			<package name="libpeas-2" gir="Peas-2" c-docs="https://gnome.pages.gitlab.gnome.org/libpeas/libpeas-2/">
+				libpeas is a gobject-based plugins engine, and is targetted at giving every application
+				the chance to assume its own extensibility.
+			</package>
+			<package name="libpeas-1.0" deprecated="true" gir="Peas-1.0" c-docs="https://developer-old.gnome.org/libpeas/unstable/">
+				libpeas is a gobject-based plugins engine, and is targetted at giving every application
+				the chance to assume its own extensibility.
+			</package>
 		</section>
 
 		<section name="User Interface">
@@ -122,7 +130,7 @@
 			<package name="goocanvas-2.0" gir="GooCanvas-2.0" c-docs="https://developer-old.gnome.org/goocanvas/stable/">
 				GooCanvas is a canvas widget for GTK+ that uses the cairo 2D library for drawing.
 			</package>
-			<package name="libpeas-gtk-1.0" gir="PeasGtk-1.0" c-docs="https://developer-old.gnome.org/libpeas/unstable/">
+			<package name="libpeas-gtk-1.0" deprecated="true" gir="PeasGtk-1.0" c-docs="https://developer-old.gnome.org/libpeas/unstable/">
 				A GObject-based plugins engine
 			</package>
 		</section>
@@ -599,10 +607,6 @@ simple methods via GObject-Introspection
 			</package>
 			<package name="libwnck-3.0" gir="Wnck-3.0" c-docs="https://developer-old.gnome.org/libwnck/unstable/">
 				Library to manage X windows and workspaces (via pagers, tasklists, etc.)
-			</package>
-			<package name="libpeas-1.0" gir="Peas-1.0" c-docs="https://developer-old.gnome.org/libpeas/unstable/">
-				libpeas is a gobject-based plugins engine, and is targetted at giving every application
-				the chance to assume its own extensibility.
 			</package>
 			<package name="libnotify" gir="Notify-0.7" c-docs="https://developer-old.gnome.org/libnotify/unstable/">
 			    libnotify is a library that sends desktop notifications to a notification daemon, as defined in

@@ -25,9 +25,6 @@
 			<package name="gmodule-2.0" home="https://www.gtk.org/" gir="GModule-2.0" c-docs="https://docs.gtk.org/gmodule/">
 				Portable method for dynamically loading 'plug-ins'
 			</package>
-			<package name="libpeas-gtk-1.0" gir="PeasGtk-1.0" c-docs="https://developer-old.gnome.org/libpeas/unstable/">
-				A GObject-based plugins engine
-			</package>
 		</section>
 
 		<section name="User Interface">
@@ -124,6 +121,9 @@
 			</package>
 			<package name="goocanvas-2.0" gir="GooCanvas-2.0" c-docs="https://developer-old.gnome.org/goocanvas/stable/">
 				GooCanvas is a canvas widget for GTK+ that uses the cairo 2D library for drawing.
+			</package>
+			<package name="libpeas-gtk-1.0" gir="PeasGtk-1.0" c-docs="https://developer-old.gnome.org/libpeas/unstable/">
+				A GObject-based plugins engine
 			</package>
 		</section>
 

@@ -80,7 +80,11 @@ if ($first == null || $first === "index") { // Homepage
     <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
     <ul>
       <li><a href="https://vala.dev/" target="_blank" title="Vala Official Website"><i class="fa fa-home"></i></a>
-      <li><a href="https://www.reddit.com/r/vala/" target="_blank" title="reddit"><i class="fa fa-reddit"></i></a>
+      <li><a href="https://discourse.gnome.org/tag/vala" target="_blank" title="Discourse (Forums)"><i class="fa fa-discourse"></i></a>
+      <li><a href="https://matrix.to/#/#vala:gnome.org" target="_blank" title="Matrix"><i class="fa fa-hashtag"></i></a>
+      <li><a href="https://discord.gg/YFAzjSVHt7" target="_blank" title="Discord"><i class="fa fa-discord"></i></a>
+      <li><a href="https://mastodon.social/@vala_lang" target="_blank" title="Mastodon"><i class="fa fa-mastodon"></i></a>
+      <li><a href="https://www.reddit.com/r/vala/" target="_blank" title="Reddit"><i class="fa fa-reddit"></i></a>
       <li><a href="/markup.htm" title="Markup Info"><i class="fa fa-info-circle"></i></a>
     </ul>
   </nav>

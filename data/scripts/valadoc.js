@@ -232,6 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         break
       case 17: // ctrl
+      case 191: // the "/" key
         html.searchField.focus() // we focus the search
         break
     }

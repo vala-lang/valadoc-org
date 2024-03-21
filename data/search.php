@@ -41,6 +41,10 @@ foreach ($tokens as &$token) {
   }
 }
 $query = implode (" ", $tokens);
+if ( empty($query) ) {
+  echo '<span class="search-name">No results found.</span>';
+  exit();
+}
 if ($trimmedquery[0] == '.') {
   $query = ". << ".$query;
 }
@@ -77,6 +81,9 @@ $qq = "SELECT type, name, path, signature, type, typeorder,
 
 if (!($q = $mysqli->query($qq)))
   die("Query failed: (" . $mysqli->errno . ") " . $mysqli->error);
+
+if ( $q->num_rows === 0 )
+  echo '<span class="search-name">No results found.</span>';
 
 while ($row = $q->fetch_assoc()) {
   $splitted = explode ("/", $row["path"]);

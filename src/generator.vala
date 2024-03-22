@@ -828,8 +828,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 
 		StringBuilder builder = new StringBuilder ();
-		builder.append_printf ("valadoc --target-glib %s --importdir girs --doclet \"%s\" -o \"tmp/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s --use-svg-images",
-			target_glib, docletpath, pkg.name, pkg.get_vapi_path (vapidirs), Path.get_dirname (pkg.get_vapi_path (vapidirs)), girdir, pkg.flags);
+		var tmp_dir = GLib.DirUtils.make_tmp ("valadoc-gen-XXXXXX");
+		builder.append_printf ("valadoc --target-glib %s --importdir girs --doclet \"%s\" -o \"%s/%s\" \"%s\" --vapidir \"%s\" --girdir \"%s\" %s --use-svg-images",
+			target_glib, docletpath, tmp_dir, pkg.name, pkg.get_vapi_path (vapidirs), Path.get_dirname (pkg.get_vapi_path (vapidirs)), girdir, pkg.flags);
 
 		if (disable_devhelp == true) {
 			builder.append (" -X --disable-devhelp");
@@ -868,9 +869,9 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 
 		if (pkg.gallery != null) {
-			generate_widget_gallery (pkg);
+			generate_widget_gallery (pkg, tmp_dir);
 
-			builder.append (" --importdir \"tmp\"");
+			builder.append_printf (" --importdir \"%s\"", tmp_dir);
 			builder.append_printf (" --import \"%s-widget-gallery\"", pkg.name);
 		}
 
@@ -947,7 +948,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			}
 
 			Process.spawn_command_line_sync ("rm -r -f %s".printf (Path.build_path (Path.DIR_SEPARATOR_S, output_directory, pkg.name)));
-			Process.spawn_command_line_sync ("mv tmp/%s/%s \"%s\"".printf (pkg.name, pkg.name, output_directory));
+			Process.spawn_command_line_sync ("mv %s/%s/%s \"%s\"".printf (tmp_dir, pkg.name, pkg.name, output_directory));
 		} catch (SpawnError e) {
 			stdout.printf ("ERROR: Can't generate documentation for %s.\n", pkg.name);
 			throw e;
@@ -993,7 +994,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 	}
 
-	private void generate_widget_gallery (Package pkg) throws Error {
+	private void generate_widget_gallery (Package pkg, string tmp_dir) throws Error {
 		if (pkg.gallery == null) {
 			return ;
 		}
@@ -1005,12 +1006,12 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		}
 		string search_path = pkg.gallery.substring (0, pos);
 
-
 		stdout.printf ("  widget gallery\n");
+		var c_gallery_path = "%s/c-gallery.html".printf (tmp_dir);
 
-		if (!FileUtils.test ("tmp/c-gallery.html", FileTest.EXISTS)) {
+		if (!FileUtils.test (c_gallery_path, FileTest.EXISTS)) {
 			try {
-				Process.spawn_command_line_sync ("wget %s -O tmp/c-gallery.html \"%s\"".printf (global_wget_flags, pkg.gallery));
+				Process.spawn_command_line_sync ("wget %s -O %s \"%s\"".printf (global_wget_flags, c_gallery_path, pkg.gallery));
 			} catch (SpawnError e) {
 				error (e.message);
 			}
@@ -1018,7 +1019,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 		Gee.HashMap<string, string> images = new Gee.HashMap<string, string> ();
 
-		var markup_reader = new Vala.MarkupReader ("tmp/c-gallery.html");
+		var markup_reader = new Vala.MarkupReader (c_gallery_path);
 		Vala.MarkupTokenType token = Vala.MarkupTokenType.START_ELEMENT;
 		Vala.SourceLocation token_begin;
 		Vala.SourceLocation token_end;
@@ -1047,7 +1048,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			token = markup_reader.read_token (out token_begin, out token_end);
 		}
 
-		FileUtils.unlink ("tmp/c-gallery.html");
+		FileUtils.unlink (c_gallery_path);
 
 
 
@@ -1083,7 +1084,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		});
 
 
-		stream = FileStream.open ("tmp/%s-widget-gallery.valadoc".printf (pkg.name), "w");
+		stream = FileStream.open ("%s/%s-widget-gallery.valadoc".printf (tmp_dir, pkg.name), "w");
 		assert (stream != null);
 
 		bool first_entry = true;
@@ -1303,11 +1304,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return -1;
 		}
 
-		if (FileUtils.test ("tmp", FileTest.IS_DIR)) {
-			stdout.printf ("error: tmp already exist.\n");
-			return -1;
-		}
-
 		if (output_directory == null) {
 			output_directory = "valadoc.org";
 		}
@@ -1329,12 +1325,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				return -1;
 			}
 		}
-
-		if (DirUtils.create ("tmp", 0777) != 0) {
-			stdout.printf ("error: can't create tmp/.\n");
-			return -1;
-		}
-
 
 		int return_val = 0;
 
@@ -1377,7 +1367,6 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			return_val = -1;
 		}
 
-		DirUtils.remove ("tmp");
 		return return_val;
 	}
 

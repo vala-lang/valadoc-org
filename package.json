@@ -16,7 +16,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/register": "^7.12.1",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-imagemin": "^8.0.0",
     "gulp-postcss": "^9.0.0",

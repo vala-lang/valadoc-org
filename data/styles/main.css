@@ -963,6 +963,10 @@ a.abstract_class,
         color: #fff;
     }
 
+    a {
+        color: #cd9ef7;
+    }
+
     #sidebar {
         background-color: #1E1E1E;
         border-right-color: #111;

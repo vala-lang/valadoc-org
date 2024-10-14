@@ -728,7 +728,7 @@ simple methods via GObject-Introspection
 	</section>
 
 	<section name="Pantheon">
-		<package name="granite" vapi-image-source="https://github.com/elementary/granite/tree/master/doc/images/" home="https://github.com/elementary/granite/tree/master">
+		<package name="granite" vapi-image-source="https://github.com/elementary/granite/tree/main/doc/images/" home="https://github.com/elementary/granite/tree/main">
 			Granite is an extension of GTK+. Among other things, it provides complex widgets and convenience functions designed for use in apps built for elementary OS.
 		</package>
 		<package name="granite-7" vapi-image-source="https://github.com/elementary/granite/tree/main/doc/images/" home="https://github.com/elementary/granite">

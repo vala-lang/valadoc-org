@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -qq && apt-get install \
   -qq \
   --no-install-recommends \
-  wget gpung
+  wget gnupg
 RUN wget https://repo.manticoresearch.com/manticore-repo.noarch.deb
 RUN dpkg -i manticore-repo.noarch.deb
 RUN apt-get update -qq && apt-get install \

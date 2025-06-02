@@ -18,7 +18,7 @@ On elementary OS or Ubuntu run:
 ```bash
 sudo add-apt-repository ppa:vala-team
 sudo apt update
-sudo apt install valac valadoc libvaladoc-dev unzip php php-curl
+sudo apt install valac valadoc libvaladoc-dev libjson-glib-dev unzip php php-curl 
 ```
 
 Arch or derivatives run:

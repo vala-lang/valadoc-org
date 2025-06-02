@@ -52,7 +52,7 @@ libdoclet.so: src/doclet.vala src/linkhelper.vala
 	$(RM) $(patsubst %.vala,%.c,$^)
 
 
-GENERATOR_DEPS = gee-0.8 valadoc-$(VALAC_VERSION) gio-2.0
+GENERATOR_DEPS = gee-0.8 valadoc-$(VALAC_VERSION) gio-2.0 json-glib-1.0
 GENERATOR_VALAFLAGS := $(patsubst %,--pkg=%,$(GENERATOR_DEPS)) --enable-experimental
 
 generator: src/doclet.vala src/linkhelper.vala src/generator.vala

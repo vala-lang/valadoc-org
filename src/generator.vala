@@ -531,19 +531,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.start_tag ("h1").text ("Guides & References").end_tag ("h1");
 
 			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala", "target", "_blank"}).text ("About Vala").end_tag ("a");
+			writer.start_tag ("a", {"class", "document", "href", "https://vala.dev/", "target", "_blank"}).text ("Vala - Introduction").end_tag ("a");
 			writer.end_tag ("p");
 
 			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/Tutorial", "target", "_blank"}).text ("The Vala Tutorial by GNOME").end_tag ("a");
+			writer.start_tag ("a", {"class", "document", "href", "https://docs.vala.dev/", "target", "_blank"}).text ("Vala Programming - Tutorial").end_tag ("a");
 			writer.end_tag ("p");
 
 			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/ValaForCSharpProgrammers", "target", "_blank"}).text ("Vala for C# Programmers by GNOME").end_tag ("a");
-			writer.end_tag ("p");
-
-			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/ValaForJavaProgrammers", "target", "_blank"}).text ("Vala for Java Programmers by GNOME").end_tag ("a");
+			writer.start_tag ("a", {"class", "document", "href", "https://docs.vala.dev/developer-guides/documentation/vala-for-csharp-devs.html", "target", "_blank"}).text ("Vala for C# Programmers by GNOME").end_tag ("a");
 			writer.end_tag ("p");
 
 			writer.start_tag ("p");

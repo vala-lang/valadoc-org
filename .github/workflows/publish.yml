@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Clone
         uses: actions/checkout@v4
+        with:
+          submodules: true
 
       - name: Install the dependencies
         run: |

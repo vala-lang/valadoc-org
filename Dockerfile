@@ -6,7 +6,7 @@ FROM php:apache-bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install sphinxsearch for search index
+# Install manticore for search index
 RUN apt-get update -qq && apt-get install \
   -qq \
   --no-install-recommends \
@@ -18,7 +18,7 @@ RUN rm manticore-repo.noarch.deb
 RUN apt-get update -qq && apt-get install \
   -qq \
   --no-install-recommends \
-  manticore manticore-extra
+  manticore
 RUN mkdir -p /var/run/manticore
 
 # Install the mysqli extension

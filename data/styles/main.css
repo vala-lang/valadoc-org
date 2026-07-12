@@ -195,6 +195,16 @@ nav .title img {
     overflow: auto;
 }
 
+/* Current symbol in the shared container sidebar, highlighted by JS. */
+#sidebar .current-symbol {
+    background: rgba(64, 55, 87, 0.12);
+}
+
+#sidebar .current-symbol > a {
+    color: #403757;
+    font-weight: 500;
+}
+
 .search-result:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.02);
 }
@@ -836,6 +846,14 @@ a.abstract_class,
 
     #sidebar a {
         color: #eee;
+    }
+
+    #sidebar .current-symbol {
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    #sidebar .current-symbol > a {
+        color: #fff;
     }
 
     .highlight:hover {

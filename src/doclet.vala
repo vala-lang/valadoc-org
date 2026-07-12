@@ -254,14 +254,13 @@ public class Valadoc.ValadocOrgDoclet : Valadoc.Html.BasicDoclet {
 		register_node (node);
 
 
-		GLib.FileStream file = GLib.FileStream.open (rpath + ".navi.tpl", "w");
-		writer = new Html.MarkupWriter (file, false);
-		_renderer.set_writer (writer);
-
+		// Only containers get their own sidebar; leaves reuse their container's navi.tpl.
+		GLib.FileStream file;
 		if (is_internal_node (node)) {
+			file = GLib.FileStream.open (rpath + ".navi.tpl", "w");
+			writer = new Html.MarkupWriter (file, false);
+			_renderer.set_writer (writer);
 			write_navi_symbol (node);
-		} else {
-			write_navi_leaf_symbol (node);
 		}
 
 

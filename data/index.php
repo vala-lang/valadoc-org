@@ -45,6 +45,32 @@ if ($first == null || $first === "index") { // Homepage
   $page = "templates/404.htm";
 }
 
+// Navigation: leaf pages reuse their nearest container's sidebar.
+$naviPage = $page;
+if (!file_exists(__DIR__ . "/$naviPage.navi.tpl")) {
+  $slash = strrpos($naviPage, '/');
+  if ($slash !== false) {
+    $dir = substr($naviPage, 0, $slash);
+    $leaf = substr($naviPage, $slash + 1);
+    $suffix = '';
+    if (substr($leaf, -5) === '.html') {
+      $leaf = substr($leaf, 0, -5);
+      $suffix = '.html';
+    } elseif (substr($leaf, -4) === '.htm') {
+      $leaf = substr($leaf, 0, -4);
+      $suffix = '.htm';
+    }
+    while (($dot = strrpos($leaf, '.')) !== false) {
+      $leaf = substr($leaf, 0, $dot);
+      $candidate = "$dir/$leaf$suffix";
+      if (file_exists(__DIR__ . "/$candidate.navi.tpl")) {
+        $naviPage = $candidate;
+        break;
+      }
+    }
+  }
+}
+
 ?>
 <!doctype html>
 <html lang="en" itemscope itemtype="http://schema.org/WebSite">
@@ -90,7 +116,7 @@ if ($first == null || $first === "index") { // Homepage
   <div id="sidebar">
     <ul class="navi_main" id="search-results"></ul>
     <div id="navigation-content">
-      <?php @readfile (__DIR__ . "/" . $page . ".navi.tpl"); ?>
+      <?php @readfile (__DIR__ . "/" . $naviPage . ".navi.tpl"); ?>
     </div>
   </div>
   <div id="content-wrapper">

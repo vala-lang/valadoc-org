@@ -120,13 +120,80 @@ function setupLink (link) {
   })
 }
 
+// Candidate sidebar URLs for a page, most specific first: the page itself, then
+// each ancestor container (leaf symbols reuse their container's navi.tpl).
+function naviCandidates (pathname) {
+  const slash = pathname.lastIndexOf('/')
+  const dir = pathname.slice(0, slash)
+  let leaf = pathname.slice(slash + 1)
+  const ext = (leaf.match(/\.html?$/) || [''])[0]
+  if (ext) {
+    leaf = leaf.slice(0, leaf.length - ext.length)
+  }
+  const parts = leaf.split('.')
+  const candidates = []
+  for (let i = parts.length; i >= 1; i--) {
+    candidates.push(`${dir}/${parts.slice(0, i).join('.')}${ext}.navi.tpl`)
+  }
+  return candidates
+}
+
+// Find the sidebar link (if any) that points at `pathname`.
+function navLinkFor (pathname) {
+  return Array.from(html.navigation.querySelectorAll('a')).find(
+    a => new URL(a.href, location.origin).pathname === pathname
+  )
+}
+
+// Highlight the current symbol within the currently-loaded sidebar.
+function markActiveSymbol (pathname) {
+  const previous = html.navigation.querySelector('.current-symbol')
+  if (previous) {
+    previous.classList.remove('current-symbol')
+  }
+  const link = navLinkFor(pathname)
+  if (link) {
+    const item = link.closest('li') || link
+    item.classList.add('current-symbol')
+  }
+}
+
+// Load the sidebar for `pathname`: if the current one already lists the symbol,
+// just move the highlight; otherwise fetch the nearest container's navi.tpl.
+function loadSidebar (pathname) {
+  if (navLinkFor(pathname)) {
+    markActiveSymbol(pathname)
+    return
+  }
+
+  const candidates = naviCandidates(pathname)
+  const tryCandidate = index => {
+    if (index >= candidates.length) {
+      console.error('Unable to load sidebar for', pathname)
+      return
+    }
+    fetch(candidates[index]).then(res => {
+      if (!res.ok) {
+        tryCandidate(index + 1)
+        return
+      }
+      return res.text().then(sidebar => {
+        html.navigation.innerHTML = sidebar
+        document.querySelectorAll('#navigation-content a').forEach(setupLink)
+        document.querySelectorAll('#navigation-content area').forEach(setupLink)
+        markActiveSymbol(pathname)
+      })
+    }).catch(() => tryCandidate(index + 1))
+  }
+  tryCandidate(0)
+}
+
 function loadPage (link, popped = false) {
   return evt => {
 
     const pageTitle = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
     const title = `${pageTitle.length ? `${pageTitle} — ` : ''}${config.appName}`
     const pageUrl = `${link.pathname}.content.tpl`
-    const sidebarUrl = `${link.pathname}.navi.tpl`
 
     fetch(pageUrl).then(res => res.text()).then(page => {
       html.content.innerHTML = page
@@ -143,16 +210,7 @@ function loadPage (link, popped = false) {
     })
 
     if (html.searchField.value === '') {
-      fetch(sidebarUrl).then(res => res.text()).then(sidebar => {
-        html.navigation.innerHTML = sidebar
-
-        // Init new tooltips
-        document.querySelectorAll('#navigation-content a').forEach(setupLink)
-        document.querySelectorAll('#navigation-content area').forEach(setupLink)
-      }).catch(err => {
-        console.error('Unable to load sidebar')
-        console.error(err)
-      })
+      loadSidebar(link.pathname)
     }
 
     evt.preventDefault()
@@ -193,6 +251,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Init tooltips
   document.querySelectorAll('body > div a').forEach(setupLink)
   document.querySelectorAll('body > div area').forEach(setupLink)
+
+  // Highlight the current symbol in the server-rendered sidebar.
+  markActiveSymbol(location.pathname)
 
   // register some useful shortcuts
   document.addEventListener('keyup', evt => {

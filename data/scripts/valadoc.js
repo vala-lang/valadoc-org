@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // We run a search when the value changes, after a given delay
   html.searchField.addEventListener('keyup', evt => {
     // only if the pressed key isn't up/down arrow, because we use them to select next/previous search result and not to trigger search
-    if (evt.keyCode !== 40 && evt.keyCode !== 38) {
+    if (evt.key !== "ArrowUp" && evt.key !== "ArrowDown") {
       updateSearch()
     }
   })
@@ -196,14 +196,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // register some useful shortcuts
   document.addEventListener('keyup', evt => {
-    switch (evt.keyCode) {
-      case 27: // echap
+    switch (evt.key) {
+      case "Escape": // Esc key
         if (html.searchField === document.activeElement) {
           html.searchField.value = ''
           updateSearch()
         }
         break
-      case 38: // up arrrow
+      case "ArrowUp": // up arrrow
         // if we are focusing a search result, but not the first...
         if (html.searchFocused && html.searchFocused.previousElementSibling != null) {
           html.searchFocused.className = html.searchFocused.className.replace(' search-selected', '')
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
           html.searchFocused.className = html.searchFocused.className + ' search-selected'
         }
         break
-      case 40: // down arrow
+      case "ArrowDown": // down arrow
         // if we are focusing a search result, but not the last...
         if (html.searchFocused && html.searchFocused.nextElementSibling != null) {
           html.searchFocused.className = html.searchFocused.className.replace(' search-selected', '')
@@ -226,12 +226,13 @@ document.addEventListener('DOMContentLoaded', () => {
           html.searchFocused.className = html.searchFocused.className + ' search-selected'
         }
         break
-      case 13: // enter
+      case "Enter": // enter
         if (html.searchFocused) { // if we have a search item selected, we load its page
           loadPage(html.searchFocused.children[0])(evt)
         }
         break
-      case 17: // ctrl
+      case "Control": // ctrl
+      case "/": // the "/" key
         html.searchField.focus() // we focus the search
         break
     }

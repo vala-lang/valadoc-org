@@ -52,7 +52,7 @@ libdoclet.so: src/doclet.vala src/linkhelper.vala
 	$(RM) $(patsubst %.vala,%.c,$^)
 
 
-GENERATOR_DEPS = gee-0.8 valadoc-$(VALAC_VERSION) gio-2.0
+GENERATOR_DEPS = gee-0.8 valadoc-$(VALAC_VERSION) gio-2.0 json-glib-1.0
 GENERATOR_VALAFLAGS := $(patsubst %,--pkg=%,$(GENERATOR_DEPS)) --enable-experimental
 
 generator: src/doclet.vala src/linkhelper.vala src/generator.vala
@@ -64,8 +64,7 @@ configgen: src/configgen.vala
 
 
 update-girs:
-	[ -d girs ]        && git -C girs pull        || git clone https://github.com/nemequ/vala-girs.git girs --depth 1
-	[ -d extra-vapis ] && git -C extra-vapis pull || git clone https://gitlab.gnome.org/GNOME/vala-extra-vapis.git extra-vapis --depth 1
+	git submodule update --remote --init
 
 
 #

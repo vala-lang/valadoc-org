@@ -531,19 +531,15 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 			writer.start_tag ("h1").text ("Guides & References").end_tag ("h1");
 
 			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala", "target", "_blank"}).text ("About Vala").end_tag ("a");
+			writer.start_tag ("a", {"class", "document", "href", "https://vala.dev/", "target", "_blank"}).text ("Vala - Introduction").end_tag ("a");
 			writer.end_tag ("p");
 
 			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/Tutorial", "target", "_blank"}).text ("The Vala Tutorial by GNOME").end_tag ("a");
+			writer.start_tag ("a", {"class", "document", "href", "https://docs.vala.dev/", "target", "_blank"}).text ("Vala Programming - Tutorial").end_tag ("a");
 			writer.end_tag ("p");
 
 			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/ValaForCSharpProgrammers", "target", "_blank"}).text ("Vala for C# Programmers by GNOME").end_tag ("a");
-			writer.end_tag ("p");
-
-			writer.start_tag ("p");
-			writer.start_tag ("a", {"class", "document", "href", "https://wiki.gnome.org/Projects/Vala/ValaForJavaProgrammers", "target", "_blank"}).text ("Vala for Java Programmers by GNOME").end_tag ("a");
+			writer.start_tag ("a", {"class", "document", "href", "https://docs.vala.dev/developer-guides/documentation/vala-for-csharp-programmers.html", "target", "_blank"}).text ("Vala for C# Programmers by GNOME").end_tag ("a");
 			writer.end_tag ("p");
 
 			writer.start_tag ("p");
@@ -723,6 +719,45 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		generate_index (path + ".content.tpl");
 	}
 
+	public void generate_json (string path) {
+		stdout.printf ("generate JSON ...\n");
+
+		string json_path = Path.build_filename (path, "packages.json");
+
+		var builder = new Json.Builder ();
+
+		builder.begin_object ();
+		builder.set_member_name ("books");
+		builder.begin_array ();
+		Gee.ArrayList<Package> packages = get_sorted_package_list ();
+		foreach (Package pkg in packages) {
+			if (!pkg.is_local || regenerate_all_packages || pkg.name in requested_packages) {
+				builder.begin_object ();
+				builder.set_member_name ("name");
+				builder.add_string_value (pkg.name);
+				builder.set_member_name ("description");
+				builder.add_string_value (string.joinv ("\n", pkg.description));
+				if (pkg.devhelp_link != null) {
+					builder.set_member_name ("book_path");
+					builder.add_string_value (pkg.devhelp_link);
+				}
+				builder.end_object ();
+			}
+		}
+		builder.end_array ();
+		builder.end_object ();
+
+		var generator = new Json.Generator ();
+		Json.Node root = builder.get_root ();
+		generator.set_root (root);
+		try {
+			generator.to_file (json_path);
+		} catch (Error e) {
+			stderr.printf ("%s\n", e.message);
+			has_error = true;
+		}
+	}
+
 	public void regenerate_all_known_packages () throws Error {
 		foreach (var pkg in packages_per_name.values) {
 			if (pkg is ExternalPackage == false) {
@@ -756,7 +791,7 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
     php.printf ("\t$res = mysqli_query($mysqli, \"SHOW TABLES\");\n");
     php.printf ("\t$pkgs = array();\n");
     php.printf ("\twhile ($row = $res->fetch_assoc()) {\n");
-    php.printf ("\t\t$pkgs[] = $row['Index'];\n");
+    php.printf ("\t\t$pkgs[] = $row['Table'];\n");
     php.printf ("\t}\n");
     php.printf ("\t$res->close ();\n");
     php.printf ("\t$allpkgs = implode(', ', $pkgs);\n\n");
@@ -1362,8 +1397,8 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 
 			string index = Path.build_path (Path.DIR_SEPARATOR_S, output_directory, "index.htm");
 			generator.generate (index);
-
 			generator.generate_configs (output_directory);
+			generator.generate_json (output_directory);
 
 			if (reporter.errors > 0) {
 				return -1;

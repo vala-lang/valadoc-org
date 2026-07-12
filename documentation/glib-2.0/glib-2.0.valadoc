@@ -3229,7 +3229,7 @@ GLib.FileStream.read
 GLib.FileStream.write
 
 /**
- * Reads a line, including the terminating character(s), from a IOChannel into a newly-allocated string.
+ * Reads a line, including any line terminating character(s), from a FileStream. Returns a newly-allocated string containing the line, excluding any line terminator.
  */
 GLib.FileStream.read_line
 

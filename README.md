@@ -1,8 +1,5 @@
 # Valadoc.org
 
-[![Bountysource](https://www.bountysource.com/badge/tracker?tracker_id=45574303)](https://www.bountysource.com/trackers/45574303-valadoc-org)
-[![Build Status](https://travis-ci.org/vala-lang/valadoc-org.svg?branch=master)](https://travis-ci.org/vala-lang/valadoc-org)
-
 Stays crunchy, even in milk.
 
 This package contains build-tools used to generate valadoc.org and ideally shouldn't be used to
@@ -21,7 +18,7 @@ On elementary OS or Ubuntu run:
 ```bash
 sudo add-apt-repository ppa:vala-team
 sudo apt update
-sudo apt install valac valadoc libvaladoc-dev unzip php php-curl
+sudo apt install valac valadoc libvaladoc-dev libjson-glib-dev unzip php php-curl 
 ```
 
 Arch or derivatives run:
@@ -75,11 +72,11 @@ to install the devhelp books in your system. Now launch Devhelp and use them!
 Searching
 =========
 
-For a more complete experience, you will need to install `sphinxsearch` and `xsltproc`.
+For a more complete experience, you will need to install [manticore](https://manticoresearch.com/install/) and `xsltproc`.
 
 On elementary OS or Ubuntu run:
 ```bash
-sudo apt install sphinxsearch xsltproc
+sudo apt install xsltproc
 ```
 
 The run the following command to generate search indexes:
@@ -87,7 +84,7 @@ The run the following command to generate search indexes:
 make serve-search
 ```
 
-This will (eventually!) start a sphinx daemon on port `51413`.
+This will (eventually!) start a manticore daemon on port `51413`.
 
 
 Add New Packages

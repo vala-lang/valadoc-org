@@ -33,6 +33,7 @@ jobs:
           -qq \
           --no-install-recommends \
           gcc \
+          graphviz \
           libgee-0.8-dev \
           git \
           libguestfs-gobject-dev \

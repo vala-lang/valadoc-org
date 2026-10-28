@@ -1,0 +1,3 @@
+option('generator_options', type : 'array', value : ['--disable-devhelp', '--skip-existing'], description : 'The options to give to the generator')
+option('packages', type : 'array', value : [], description : 'The packages to generate, none means all')
+option('doc_prefix', type : 'string', value : 'stable', description : 'The documentation prefix')

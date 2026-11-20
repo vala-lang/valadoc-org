@@ -127,7 +127,7 @@
 			  in the underlying library but cannot for various reasons. In most cases, they are wildly out of scope for those
 			  libraries. In other cases, our design isn't quite generic enough to work for everyone.
 			</package>
-			<package name="goocanvas-2.0" gir="GooCanvas-2.0" c-docs="https://developer-old.gnome.org/goocanvas/stable/">
+			<package name="goocanvas-2.0" deprecated="true" gir="GooCanvas-2.0" c-docs="https://developer-old.gnome.org/goocanvas/stable/">
 				GooCanvas is a canvas widget for GTK+ that uses the cairo 2D library for drawing.
 			</package>
 			<package name="libpeas-gtk-1.0" deprecated="true" gir="PeasGtk-1.0" c-docs="https://developer-old.gnome.org/libpeas/unstable/">

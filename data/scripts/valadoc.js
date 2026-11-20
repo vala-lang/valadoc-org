@@ -71,19 +71,17 @@ function initTooltip () {
 
 function setupLink (link) {
   const xlinkPath = link.getAttribute('xlink:href')
+  // SVG links have no hostname/pathname, and assigning them rewrites href in Firefox.
+  const url = xlinkPath ? new URL(xlinkPath, location.origin) : link
 
   // Force tooltip to show up over `<a>` element nodes in SVGs.
   if (xlinkPath && !link.getAttribute('href')) {
     link.setAttribute('href', xlinkPath)
-    link.hostname = location.hostname
-    // An SVGAnimatedString is returned when getting attributes from inside an SVG.
-    // We need to use the "baseVal` field to get the actual value  we need for the pathaname.
-    link.pathname = link.href.baseVal
   }
 
-  if (link.hostname !== location.hostname ||
-    link.pathname.endsWith('index.htm') ||
-    link.pathname.endsWith('.tar.bz2')) {
+  if (url.hostname !== location.hostname ||
+    url.pathname.endsWith('index.htm') ||
+    url.pathname.endsWith('.tar.bz2')) {
     return
   }
 
@@ -96,7 +94,7 @@ function setupLink (link) {
     // fullname = path without the / at the beginning and the .htm(l)
     const target = evt.currentTarget
     target.hovered = true
-    const fullname = link.pathname.substring(1).replace(/\.html?$/, '')
+    const fullname = url.pathname.substring(1).replace(/\.html?$/, '')
     if (tooltipCache[fullname]) {
       html.tooltipEl.show(tooltipCache[fullname], target)
     } else {
@@ -113,7 +111,7 @@ function setupLink (link) {
 
   link.addEventListener('click', evt => {
     html.tooltipEl.reset()
-    loadPage(link)(evt)
+    loadPage(url)(evt)
   })
 }
 

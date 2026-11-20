@@ -309,6 +309,13 @@
 			<package name="pangocairo" home="https://www.gtk.org/" gir="PangoCairo-1.0" c-docs="https://docs.gtk.org/PangoCairo/">
 				Rendering with the Cairo backend.
 			</package>
+			<package name="harfbuzz-gobject" home="https://harfbuzz.github.io/" gir="HarfBuzz-0.0" c-docs="https://harfbuzz.github.io/">
+				HarfBuzz is a text shaping library. Using the HarfBuzz library allows programs to convert a
+				sequence of Unicode input into properly formatted and positioned glyph output—for any
+				writing system and language. HarfBuzz also includes font subsetting, glyph rasterization
+				(bitmap, vector, and GPU), and integration with FreeType, Cairo, CoreText, DirectWrite, and
+				other platforms. 
+			</package>
 			<package name="gdk-3.0" home="https://www.gtk.org/" gir="Gdk-3.0" c-docs="https://docs.gtk.org/gdk3/">
 				An intermediate layer which isolates GTK+ from the details of the windowing system.
 			</package>

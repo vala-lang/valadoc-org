@@ -294,10 +294,6 @@
 				Cairo is a 2D graphics library with support for multiple output devices like the X Window System (via both Xlib and XCB),
 				Quartz, Win32, image buffers, PostScript, PDF, and SVG.
 			</package>
-			<!-- TODO: libvala-0.26 bug -->
-			<package ignore="true" deprecated="true" name="cairo-xcb" home="http://cairographics.org/">
-				Cairo with XCB as a backend.
-			</package>
 			<package name="cogl-1.0" deprecated="true" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Cogl-1.0" c-docs="https://gitlab.gnome.org/GNOME/cogl/-/tree/cogl-1.22/doc/reference/cogl/">
 				COGL is a low level OpenGL abstraction library developed for (and part of) Clutter.
 				It is used primarily by Clutter to provide a common rendering API that works transparently
@@ -334,10 +330,6 @@
 			</package>
 			<package name="ibus-1.0" home="https://github.com/ibus/ibus/wiki" gir="IBus-1.0" c-docs="http://ibus.github.io/docs/ibus-1.5/index.html">
 				Next Generation Input Bus for Linux.
-			</package>
-			<!-- Seems as we do not support callback-elements correctly -->
-			<package ignore="true" name="caribou-1.0" gir="Caribou-1.0" home="https://live.gnome.org/Caribou">
-				Configurable onscreen keyboard with scanning mode.
 			</package>
 			<package name="librsvg-2.0" flags="--pkg gdk-3.0 --pkg gio-2.0" gir="Rsvg-2.0" c-docs="https://developer-old.gnome.org/rsvg/unstable/">
 				Library for rendering of SVG vector graphics.
@@ -831,9 +823,6 @@ simple methods via GObject-Introspection
 		<package name="x11" home="http://www.x.org" c-docs="https://www.x.org/releases/current/doc/libX11/libX11/libX11.html">
 			Binding to the X11 graphics library.
 		</package>
-		<package ignore="true" name="xcb" home="https://xcb.freedesktop.org/" c-docs="https://xcb.freedesktop.org/XcbApi/">
-			X11 client-side library.
-		</package>
 		<package name="xtst">
 			X11 Testing -- Resource extension library.
 		</package>
@@ -953,9 +942,6 @@ simple methods via GObject-Introspection
 			cause segmentation faults or other signals can be caught. Test results are reportable
 			in the following: Subunit, TAP, XML, and a generic logging format.
 		</package>
-		<package name="cpufreq" home="http://cvs.mandriva.com/cgi-bin/cvsweb.cgi/SPECS/cpufreq/">
-			An initscript to set CPU frequency settings.
-		</package>
 		<package name="ctpl" flags="--pkg gio-2.0" home="http://ctpl.tuxfamily.org/">
 			CTPL is a template library written in C. It allows fast and easy parsing of
 			templates from many sources (including in-memory data and local and remote
@@ -1000,16 +986,6 @@ simple methods via GObject-Introspection
 		<package name="leveldb" home="https://github.com/google/leveldb#readme">
 			A fast key-value storage library written at Google that provides an
 			ordered mapping from string keys to string values.
-		</package>
-		<package name="libcolumbus" home="https://launchpad.net/libcolumbus">
-			A lightweight library for document indexing and fuzzy searching.
-		</package>
-		<package name="libcouchbase" home="http://www.couchbase.com/communities/c/getting-started">
-			The C library provides fast access to documents in Couchbase Server 2.0.
-			With JSON documents and Couchbase server 2.0 you have new ways to index
-			and query data stored in the cluster through views. This client library,
-			libcouchbase, also simplifies requests to Views through its handling of
-			HTTP transport.
 		</package>
 		<package name="libevent" home="http://sourceforge.net/projects/levent/">
 			Abstract asynchronous event notification library.
@@ -1059,12 +1035,6 @@ simple methods via GObject-Introspection
 			be able to find a document containing "cycling" given the query
 			"cycles".
 		</package>
-		<package name="libsystemd-id128" home="http://www.freedesktop.org/wiki/Software/systemd">
-			This package provides the systemd-id128 shared library.
-		</package>
-		<package name="libsystemd-journal" home="http://www.freedesktop.org/wiki/Software/systemd">
-			This package provides the systemd-journal shared library.
-		</package>
 		<package name="libzmq" home="http://www.zeromq.org/">
 			The 0MQ lightweight messaging kernel is a library which extends the
 			standard socket interfaces with features traditionally provided by
@@ -1072,9 +1042,6 @@ simple methods via GObject-Introspection
 			abstraction of asynchronous message queues, multiple messaging patterns,
 			message filtering (subscriptions), seamless access to multiple transport
 			protocols and more.
-		</package>
-		<package name="magic" home="http://opencircuitdesign.com/magic/index.html">
-			A very capable VLSI layout tool.
 		</package>
 		<package name="oniguruma" home="http://www.geocities.jp/kosako3/oniguruma/">
 			Oniguruma is a regular expressions library.

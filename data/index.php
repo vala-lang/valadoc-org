@@ -38,6 +38,8 @@ if ($first == null || $first === "index") { // Homepage
   $page = "$first/index.htm";
 } else if (file_exists(__DIR__."/$first/$second.html.content.tpl")) { // An API info page
   $page = "$first/$second.html";
+} else if (file_exists(__DIR__."/$first/$second.htm.content.tpl")) { // A package page (gallery, example listing...)
+  $page = "$first/$second.htm";
 } else if (file_exists(__DIR__."/templates/$first.htm.content.tpl")) { // A template page
   $page = "templates/$first.htm";
 } else { // 404 page

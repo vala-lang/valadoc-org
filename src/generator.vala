@@ -719,6 +719,23 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 		generate_index (path + ".content.tpl");
 	}
 
+	// Returns null when the file doesn't exist (e.g. devhelp generation is disabled)
+	private static string? compute_sha256 (string file_path) {
+		FileStream? stream = FileStream.open (file_path, "rb");
+		if (stream == null) {
+			return null;
+		}
+
+		var checksum = new Checksum (ChecksumType.SHA256);
+		uint8 buffer[65536];
+		size_t size;
+		while ((size = stream.read (buffer)) > 0) {
+			checksum.update (buffer, size);
+		}
+
+		return checksum.get_string ();
+	}
+
 	public void generate_json (string path) {
 		stdout.printf ("generate JSON ...\n");
 
@@ -738,8 +755,13 @@ public class Valadoc.IndexGenerator : Valadoc.ValadocOrgDoclet {
 				builder.set_member_name ("description");
 				builder.add_string_value (string.joinv ("\n", pkg.description));
 				if (pkg.devhelp_link != null) {
-					builder.set_member_name ("book_path");
-					builder.add_string_value (pkg.devhelp_link);
+					string? sha256 = compute_sha256 (Path.build_filename (path, pkg.devhelp_link));
+					if (sha256 != null) {
+						builder.set_member_name ("book_path");
+						builder.add_string_value (pkg.devhelp_link);
+						builder.set_member_name ("sha256");
+						builder.add_string_value (sha256);
+					}
 				}
 				builder.end_object ();
 			}

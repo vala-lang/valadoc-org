@@ -4,7 +4,7 @@
 /* eslint camelcase: "off", no-unused-vars: "off" */
 
 function get_path (path) {
-  var pos = path.lastIndexOf('/')
+  const pos = path.lastIndexOf('/')
   if (pos < 0) {
     return ''
   }
@@ -13,12 +13,12 @@ function get_path (path) {
 }
 
 function toggle_box (self, id) {
-  var element = document.getElementById(id)
+  const element = document.getElementById(id)
   if (!element) {
     return
   }
 
-  var style = self.currentStyle || window.getComputedStyle(self, false)
+  const style = self.currentStyle || window.getComputedStyle(self, false)
   if (element.style.display === 'block') {
     element.style.display = 'none'
     self.style.backgroundImage = style.backgroundImage.replace('coll_close', 'coll_open')

@@ -11,7 +11,7 @@ const tooltipCache = {}
 
 // This object will contain the html elements of the interface
 const html = {
-  tooltipEl: initTooltip(),
+  tooltipEl: initTooltip()
 }
 
 /*
@@ -37,7 +37,7 @@ function search (query) {
 /*
 * Display a tooltip containing `content` when cursor is over `element`.
 */
-function initTooltip() {
+function initTooltip () {
   const tip = document.createElement('div')
   tip.reset = () => {
     tip.innerHTML = null
@@ -49,8 +49,8 @@ function initTooltip() {
 
     const targetRect = target.getBoundingClientRect()
     // if tooltip is in a class hierarchy diagram
-    if (target.tagName === "AREA") {
-      const [areaLeft, areaTop, areaRight, areaBottom] = target.coords.split(',').map(Number) // offset of box in svg graph
+    if (target.tagName === 'AREA') {
+      const [, areaTop, areaRight] = target.coords.split(',').map(Number) // offset of box in svg graph
       tip.style.top = `${targetRect.top + areaTop + pageYOffset}px`
       tip.style.left = `${targetRect.left + areaRight + pageXOffset + 5}px`
       return
@@ -69,34 +69,31 @@ function initTooltip() {
   return tip
 }
 
-
 function setupLink (link) {
-  let shouldTrackLink = false;
+  const xlinkPath = link.getAttribute('xlink:href')
 
-  const xlinkPath = link.getAttribute('xlink:href');
-  
   // Force tooltip to show up over `<a>` element nodes in SVGs.
   if (xlinkPath && !link.getAttribute('href')) {
-    link.setAttribute('href', xlinkPath);
-    link.hostname = location.hostname;
+    link.setAttribute('href', xlinkPath)
+    link.hostname = location.hostname
     // An SVGAnimatedString is returned when getting attributes from inside an SVG.
     // We need to use the "baseVal` field to get the actual value  we need for the pathaname.
-    link.pathname = link.href.baseVal;
+    link.pathname = link.href.baseVal
   }
 
-  if (link.hostname !== location.hostname
-    || link.pathname.endsWith('index.htm')
-    || link.pathname.endsWith('.tar.bz2')) {
+  if (link.hostname !== location.hostname ||
+    link.pathname.endsWith('index.htm') ||
+    link.pathname.endsWith('.tar.bz2')) {
     return
   }
 
   link.addEventListener('mouseleave', evt => {
     evt.currentTarget.hovered = false
-    html.tooltipEl.reset();
+    html.tooltipEl.reset()
   })
 
   link.addEventListener('mouseenter', evt => {
-      // fullname = path without the / at the beginning and the .htm(l)
+    // fullname = path without the / at the beginning and the .htm(l)
     const target = evt.currentTarget
     target.hovered = true
     const fullname = link.pathname.substring(1).replace(/\.html?$/, '')
@@ -105,7 +102,7 @@ function setupLink (link) {
     } else {
       fetch(`/tooltip.php?fullname=${encodeURIComponent(fullname)}`, {
         method: 'POST'
-      }).then(res => res.text()).then(content => { 
+      }).then(res => res.text()).then(content => {
         tooltipCache[fullname] = content
         if (target.hovered) {
           html.tooltipEl.show(content, target)
@@ -190,7 +187,6 @@ function loadSidebar (pathname) {
 
 function loadPage (link, popped = false) {
   return evt => {
-
     const pageTitle = link.pathname.replace(/(\/index)?\.html?$/, '').substring(1).split('/').reverse().join(' — ')
     const title = `${pageTitle.length ? `${pageTitle} — ` : ''}${config.appName}`
     const pageUrl = `${link.pathname}.content.tpl`
@@ -236,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // We run a search when the value changes, after a given delay
   html.searchField.addEventListener('keyup', evt => {
     // only if the pressed key isn't up/down arrow, because we use them to select next/previous search result and not to trigger search
-    if (evt.key !== "ArrowUp" && evt.key !== "ArrowDown") {
+    if (evt.key !== 'ArrowUp' && evt.key !== 'ArrowDown') {
       updateSearch()
     }
   })
@@ -258,13 +254,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // register some useful shortcuts
   document.addEventListener('keyup', evt => {
     switch (evt.key) {
-      case "Escape": // Esc key
+      case 'Escape': // Esc key
         if (html.searchField === document.activeElement) {
           html.searchField.value = ''
           updateSearch()
         }
         break
-      case "ArrowUp": // up arrrow
+      case 'ArrowUp': // up arrrow
         // if we are focusing a search result, but not the first...
         if (html.searchFocused && html.searchFocused.previousElementSibling != null) {
           html.searchFocused.className = html.searchFocused.className.replace(' search-selected', '')
@@ -272,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
           html.searchFocused.className = html.searchFocused.className + ' search-selected'
         }
         break
-      case "ArrowDown": // down arrow
+      case 'ArrowDown': // down arrow
         // if we are focusing a search result, but not the last...
         if (html.searchFocused && html.searchFocused.nextElementSibling != null) {
           html.searchFocused.className = html.searchFocused.className.replace(' search-selected', '')
@@ -287,13 +283,13 @@ document.addEventListener('DOMContentLoaded', () => {
           html.searchFocused.className = html.searchFocused.className + ' search-selected'
         }
         break
-      case "Enter": // enter
+      case 'Enter': // enter
         if (html.searchFocused) { // if we have a search item selected, we load its page
           loadPage(html.searchFocused.children[0])(evt)
         }
         break
-      case "Control": // ctrl
-      case "/": // the "/" key
+      case 'Control': // ctrl
+      case '/': // the "/" key
         html.searchField.focus() // we focus the search
         break
     }
@@ -301,10 +297,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Conduct a search if the "q" field is present in the URL Parameters
   function parseQueryString (url) {
-    let urlParams = {}
+    const urlParams = {}
     url.replace(
-      new RegExp("([^?=&]+)(=([^&]*))?", "g"),
-      function($0, $1, $2, $3) {
+      /([^?=&]+)(=([^&]*))?/g,
+      function ($0, $1, $2, $3) {
         urlParams[$1] = $3
       }
     )

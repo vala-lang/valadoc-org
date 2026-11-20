@@ -14,6 +14,9 @@
     "lint": "eslint data/scripts/*.js"
   },
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "browserslist": [
     "last 4 versions",
     "not dead"

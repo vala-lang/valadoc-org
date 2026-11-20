@@ -7,22 +7,21 @@
   "author": "Valadoc",
   "scripts": {
     "test": "stylelint data/styles/*.css",
-    "build": "gulp",
-    "start": "php -S localhost:7777 -t ./valadoc.org ./router.php",
+    "build": "npm run build:static && npm run build:styles",
+    "build:static": "mkdir -p valadoc.org/scripts valadoc.org/images && cp data/*.php valadoc.org/ && cp data/scripts/*.js valadoc.org/scripts/ && cp data/images/* valadoc.org/images/",
+    "build:styles": "postcss data/styles/*.css --base data/styles --dir valadoc.org/styles",
+    "start": "php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php",
     "lint": "eslint data/scripts/*.js"
   },
   "type": "module",
+  "browserslist": [
+    "last 4 versions",
+    "not dead"
+  ],
   "dependencies": {
-    "@babel/core": "^8.0.1",
-    "@babel/preset-env": "^8.0.2",
-    "@babel/register": "^8.0.1",
-    "gulp": "^5.0.0",
-    "gulp-babel": "^8.1.0",
-    "gulp-imagemin": "^8.0.0",
-    "gulp-postcss": "^9.0.0",
-    "postcss": "^8.5.25",
-    "postcss-preset-env": "^11.6.1",
-    "whatwg-fetch": "^3.4.1"
+    "postcss": "^8.5.33",
+    "postcss-cli": "^12.0.0",
+    "postcss-preset-env": "^11.6.3"
   },
   "devDependencies": {
     "@stylistic/stylelint-plugin": "^5.3.1",

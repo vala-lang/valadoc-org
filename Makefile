@@ -96,7 +96,7 @@ check-examples: valadoc-example-tester
 #
 
 build-data:
-	npx gulp
+	npm run build
 
 #
 # Documentation generation:

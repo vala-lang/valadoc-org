@@ -24,6 +24,5 @@
 /yarn.lock
 /valadoc.org/
 
-!.babelrc
 !.editorconfig
 !.stylelintrc.json

@@ -128,7 +128,6 @@ if (!file_exists(__DIR__ . "/$naviPage.navi.tpl")) {
     Copyright © <?php echo date('Y'); ?> Valadoc.org | Documentation is licensed under the same terms as its upstream |
     <a href="https://github.com/vala-lang/valadoc-org/issues" target="_blank">Report an Issue</a>
   </footer>
-  <script type="text/javascript" src="/scripts/fetch.js"></script>
   <script type="text/javascript" src="/scripts/valadoc.js"></script>
   <script type="text/javascript" src="/scripts/main.js"></script>
 </body>

@@ -34,7 +34,7 @@ $second = str_replace(['.html', '.htm'], '', $segments[2] ?? '');
 
 if ($first == null || $first === "index") { // Homepage
   $page = "index.htm";
-} else if ($second === "index") { // An API index page
+} else if ($second === "index" || ($second === '' && is_dir(__DIR__."/$first"))) { // An API index page
   $page = "$first/index.htm";
 } else if (file_exists(__DIR__."/$first/$second.html.content.tpl")) { // An API info page
   $page = "$first/$second.html";

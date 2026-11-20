@@ -8,7 +8,7 @@
   "scripts": {
     "test": "stylelint data/styles/*.css",
     "build": "npm run build:static && npm run build:styles",
-    "build:static": "mkdir -p valadoc.org/scripts valadoc.org/images && cp data/*.php valadoc.org/ && cp data/scripts/*.js valadoc.org/scripts/ && cp data/images/* valadoc.org/images/",
+    "build:static": "node tools/build-static.js",
     "build:styles": "postcss data/styles/*.css --base data/styles --dir valadoc.org/styles",
     "start": "php -S localhost:7777 -t ./valadoc.org ./valadoc.org/router.php",
     "lint": "eslint data/scripts/*.js"
@@ -27,6 +27,9 @@
     "postcss-preset-env": "^11.6.3"
   },
   "devDependencies": {
+    "@fontsource/noto-serif": "^5.3.0",
+    "@fontsource/open-sans": "^5.3.0",
+    "@fontsource/roboto-mono": "^5.3.0",
     "@stylistic/stylelint-plugin": "^5.3.1",
     "eslint": "^8.29.0",
     "eslint-config-standard": "^17.0.0",

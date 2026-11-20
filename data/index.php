@@ -86,7 +86,7 @@ if (!file_exists(__DIR__ . "/$naviPage.navi.tpl")) {
   <meta property="og:title" content="<?php echo get_title ($page); ?>">
   <meta property="og:type" content="website">
   <title><?php echo get_title ($page); ?></title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CDroid+Serif:400%7CRoboto+Mono:400,500,700,400italic">
+  <link rel="stylesheet" href="/styles/fonts.css" type="text/css">
   <link rel="stylesheet" href="/styles/main.css" type="text/css">
   <link rel="apple-touch-icon" href="/images/icon.png">
   <link rel="shortcut icon" href="/images/favicon.ico">

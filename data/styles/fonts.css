@@ -1,0 +1,55 @@
+@font-face {
+    font-display: swap;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 300;
+    src: url("/fonts/open-sans-latin-300-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/open-sans-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Noto Serif";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/noto-serif-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/roboto-mono-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 500;
+    src: url("/fonts/roboto-mono-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/fonts/roboto-mono-latin-700-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Roboto Mono";
+    font-style: italic;
+    font-weight: 400;
+    src: url("/fonts/roboto-mono-latin-400-italic.woff2") format("woff2");
+}

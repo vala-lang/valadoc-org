@@ -144,6 +144,10 @@ function navLinkFor (pathname) {
 
 // Highlight the current symbol within the currently-loaded sidebar.
 function markActiveSymbol (pathname) {
+  const owner = html.navigation.dataset.owner
+  if (owner && new URL(owner, location.origin).pathname !== pathname) {
+    linkContainerItem(owner)
+  }
   const previous = html.navigation.querySelector('.current-symbol')
   if (previous) {
     previous.classList.remove('current-symbol')
@@ -152,6 +156,20 @@ function markActiveSymbol (pathname) {
   if (link) {
     const item = link.closest('li') || link
     item.classList.add('current-symbol')
+  }
+}
+
+// A container's own sidebar renders the container unlinked; when it is shown
+// for one of its leaf symbols, turn that item back into a link.
+function linkContainerItem (href) {
+  const item = Array.from(html.navigation.querySelectorAll('.navi_main > li'))
+    .find(li => !li.querySelector('a') && li.textContent.trim().length)
+  if (item) {
+    const a = document.createElement('a')
+    a.href = href
+    a.textContent = item.textContent.trim()
+    item.textContent = ''
+    item.appendChild(a)
   }
 }
 
@@ -176,6 +194,7 @@ function loadSidebar (pathname) {
       }
       return res.text().then(sidebar => {
         html.navigation.innerHTML = sidebar
+        html.navigation.dataset.owner = candidates[index].replace(/\.navi\.tpl$/, '')
         document.querySelectorAll('#navigation-content a').forEach(setupLink)
         document.querySelectorAll('#navigation-content area').forEach(setupLink)
         markActiveSymbol(pathname)

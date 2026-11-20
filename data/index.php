@@ -115,7 +115,7 @@ if (!file_exists(__DIR__ . "/$naviPage.navi.tpl")) {
   </nav>
   <div id="sidebar">
     <ul class="navi_main" id="search-results"></ul>
-    <div id="navigation-content">
+    <div id="navigation-content"<?php if ($naviPage !== $page) { echo ' data-owner="/' . htmlspecialchars($naviPage) . '"'; } ?>>
       <?php @readfile (__DIR__ . "/" . $naviPage . ".navi.tpl"); ?>
     </div>
   </div>

@@ -145,7 +145,7 @@ namespace Generator {
     config.printf ("\n\n");
 
 		config.printf ("index base {\n");
-		config.printf ("\tmin_infix_len = 1\n");
+		config.printf ("\tmin_infix_len = 2\n");
 		config.printf ("\thtml_strip = 1\n");
 		config.printf ("\tcharset_table = 0..9, A..Z->a..z, ., _, a..z\n");
     config.printf ("\tpath = ./sphinx/storage/sphinx-base\n");

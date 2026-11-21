@@ -63,7 +63,7 @@
 				GtkSourceView adds support for syntax highlighting, undo/redo, file loading and saving, search and replace,
 				a completion system, printing, displaying line numbers, and other features typical of a source code editor.
 			</package>
-			<package name="gtksourceview-5" home="https://wiki.gnome.org/Projects/GtkSourceView" gir="GtkSource-5" c-docs="https://gnome.pages.gitlab.gnome.org/gtksourceview/gtksourceview5/">
+			<package name="gtksourceview-5" gir="GtkSource-5" c-docs="https://gnome.pages.gitlab.gnome.org/gtksourceview/gtksourceview5/">
 				GtkSourceView is a GNOME library that extends GtkTextView, the standard GTK+ widget for multiline text editing.
 				GtkSourceView adds support for syntax highlighting, undo/redo, file loading and saving, search and replace,
 				a completion system, printing, displaying line numbers, and other features typical of a source code editor.
@@ -113,7 +113,7 @@
 				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
 				This is the library to use to acces JavaScript from WebKitGTK.
 			</package>
-			<package name="shumate-1.0" gir="Shumate-1.0" home="https://wiki.gnome.org/Projects/libshumate" c-docs="https://gnome.pages.gitlab.gnome.org/libshumate/">
+			<package name="shumate-1.0" gir="Shumate-1.0" c-docs="https://gnome.pages.gitlab.gnome.org/libshumate/">
 				Shumate is a library providing a widget to display maps in applications.
 			</package>
 			<package name="libgnome-menu-3.0" flags="--pkg gio-2.0 --pkg gio-unix-2.0" gir="GnomeDesktop-3.0">
@@ -237,42 +237,42 @@
 				applications to easily inspect and update EXIF, IPTC, and XMP metadata in photo and video
 				files of various formats
 			</package>
-			<package name="gupnp-1.0" home="https://wiki.gnome.org/Projects/GUPnP" gir="GUPnP-1.0" c-docs="https://developer-old.gnome.org/gupnp/unstable/">
+			<package name="gupnp-1.0" home="https://gupnp.org/" gir="GUPnP-1.0" c-docs="https://gnome.pages.gitlab.gnome.org/gupnp/docs/">
 				Core UPnP API built on top of gssdp
 			</package>
-			<package name="gupnp-av-1.0" home="https://wiki.gnome.org/Projects/GUPnP" gir="GUPnPAV-1.0" c-docs="https://developer-old.gnome.org/gupnp-av/unstable/">
+			<package name="gupnp-av-1.0" home="https://gupnp.org/" gir="GUPnPAV-1.0" c-docs="https://gnome.pages.gitlab.gnome.org/gupnp-av/docs/">
 				Small utility library that aims to ease the handling and implementation of UPnP audio/video profiles
 			</package>
-			<package name="gupnp-dlna-2.0" home="https://wiki.gnome.org/Projects/GUPnP" gir="GUPnPDLNA-2.0" c-docs="https://developer-old.gnome.org/gupnp-dlna/unstable/">
+			<package name="gupnp-dlna-2.0" home="https://gupnp.org/" gir="GUPnPDLNA-2.0" c-docs="https://gnome.pages.gitlab.gnome.org/gupnp-dlna/docs/">
 				GUPnP DLNA is a set of utility APIs to simplify DLNA-specific bits
 				of MediaServer implementations, such as DLNA media profile guessing. 
 			</package>
-			<package name="gupnp-dlna-gst-2.0" gir="GUPnPDLNAGst-2.0">
+			<package name="gupnp-dlna-gst-2.0" home="https://gupnp.org/" gir="GUPnPDLNAGst-2.0"  c-docs="https://gnome.pages.gitlab.gnome.org/gupnp-dlna/docs/gupnp-dlna-gst/">
 				GStreamer integration for GUPnP DLNA
 			</package>
-			<package name="rygel-core-2.6" home="https://wiki.gnome.org/Projects/Rygel" c-docs="https://developer-old.gnome.org/librygel-core/unstable/">
+			<package name="rygel-core-2.6" home="https://gnome.pages.gitlab.gnome.org/rygel/" c-docs="https://gnome.pages.gitlab.gnome.org/rygel/reference/gtkdoc/librygel-core/">
 				Librygel-core is a collection of classes useful to Rygel's server and renderer implementation
 				libraries and useful to plugin implementors.
 			</package>
-			<package name="rygel-db-2.6" flags="--pkg gio-2.0" home="https://wiki.gnome.org/Projects/Rygel">
+			<package name="rygel-db-2.6" home="https://gnome.pages.gitlab.gnome.org/rygel/" flags="--pkg gio-2.0" home="https://gnome.pages.gitlab.gnome.org/rygel/reference/gtkdoc/librygel-db/">
 				This library implements a generic database abstraction used by rygel and rygel plugins
 			</package>
-			<package name="rygel-server-2.6" home="https://wiki.gnome.org/Projects/Rygel" c-docs="https://developer-old.gnome.org/librygel-server/unstable/">
+			<package name="rygel-server-2.6" home="https://gnome.pages.gitlab.gnome.org/rygel/" c-docs="https://gnome.pages.gitlab.gnome.org/rygel/reference/gtkdoc/librygel-server/">
 				This library may be used to create UPnP or DLNA servers, Rygel Server plugins or
 				Rygel Media Engines
 			</package>
-			<package name="rygel-renderer-2.6" home="https://wiki.gnome.org/Projects/Rygel" c-docs="https://developer-old.gnome.org/librygel-renderer/unstable/">
+			<package name="rygel-renderer-2.6" home="https://gnome.pages.gitlab.gnome.org/rygel/" c-docs="https://gnome.pages.gitlab.gnome.org/rygel/reference/gtkdoc/librygel-renderer/">
 				This library may be used to create UPnP or DLNA Renderers. For instance, librygel-renderer-gst
 				uses librygel-renderer with GStreamer to implement its RygelPlaybinRenderer renderer. 
 			</package>
-			<package name="rygel-renderer-gst-2.6" home="https://wiki.gnome.org/Projects/Rygel" c-docs="https://developer-old.gnome.org/librygel-renderer-gst/unstable/">
+			<package name="rygel-renderer-gst-2.6" home="https://gnome.pages.gitlab.gnome.org/rygel/" c-docs="https://gnome.pages.gitlab.gnome.org/rygel/reference/gtkdoc/librygel-renderer-gst">
 				This library may be used to create UPnP or DLNA Renderers using GStreamer. The RygelPlaybinRenderer
 				may wrap an existing GStreamer playbin or create its own. See the example. 
 			</package>
-			<package name="rygel-ruih-2.0" home="https://wiki.gnome.org/Projects/Rygel">
+			<package name="rygel-ruih-2.0" home="https://gnome.pages.gitlab.gnome.org/rygel/" c-docs="https://gnome.pages.gitlab.gnome.org/rygel/reference/gtkdoc/librygel-ruih">
 				This library implements the Remote User Interface Server protocol interfaces.
 			</package>
-			<package name="gssdp-1.0" gir="GSSDP-1.0">
+			<package name="gssdp-1.0" gir="GSSDP-1.0" c-docs="https://gnome.pages.gitlab.gnome.org/gssdp/docs/">
 				GObject-based API for handling resource discovery and announcement over SSDP.
 			</package>
 		</section>
@@ -283,7 +283,7 @@
 				applications. Using the ATK interfaces, accessibility tools have full access to view and
 				control running applications.
 			</package>
-			<package name="atspi-2" gir="Atspi-2.0" c-docs="https://developer-old.gnome.org/libatspi/unstable/" home="https://wiki.linuxfoundation.org/accessibility/atk/at-spi/at-spi_on_d-bus">
+			<package name="atspi-2" gir="Atspi-2.0" c-docs="https://gnome.pages.gitlab.gnome.org/at-spi2-core/libatspi" home="https://gitlab.gnome.org/GNOME/at-spi2-core/">
 				AT-SPI2 is a D-Bus based accessibility framework. It defines a D-Bus
 				protocol for providing and accessing application accessibility
 				information. The project includes a library for bridging the D-Bus
@@ -338,13 +338,13 @@
 			<package name="ibus-1.0" home="https://github.com/ibus/ibus/wiki" gir="IBus-1.0" c-docs="http://ibus.github.io/docs/ibus-1.5/index.html">
 				Next Generation Input Bus for Linux.
 			</package>
-			<package name="librsvg-2.0" flags="--pkg gdk-3.0 --pkg gio-2.0" gir="Rsvg-2.0" c-docs="https://developer-old.gnome.org/rsvg/unstable/">
+			<package name="librsvg-2.0" flags="--pkg gdk-3.0 --pkg gio-2.0" gir="Rsvg-2.0" c-docs="https://gnome.pages.gitlab.gnome.org/librsvg/Rsvg-2.0/">
 				Library for rendering of SVG vector graphics.
 			</package>
 		</section>
 
 		<section name="Data Storage">
-			<package name="libsecret-1" gir="Secret-1" home="https://wiki.gnome.org/Projects/Libsecret" c-docs="https://developer-old.gnome.org/libsecret/unstable/">
+			<package name="libsecret-1" gir="Secret-1" c-docs="https://gnome.pages.gitlab.gnome.org/libsecret/">
 				libsecret is a library for storing and retrieving passwords and other secrets.
 				It communicates with the "Secret Service" using DBus. gnome-keyring and ksecretservice
 				are both implementations of a Secret Service.
@@ -363,23 +363,20 @@
 				The iCalendar specification describes how calendar clients can communicate with calendar
 				servers so users can store their calendar data and arrange meetings with other users.
 			</package>
-			<package name="camel-1.2" gir="Camel-1.2" c-docs="https://developer-old.gnome.org/camel/unstable/">
+			<package name="camel-1.2" gir="Camel-1.2" c-docs="https://gnome.pages.gitlab.gnome.org/evolution-data-server/camel/">
 				Camel is a generic messaging library. It supports the standard messaging system for 
 				receiving and sending messages. It is the messaging backend for Evolution.
 			</package>
-			<package name="libebook-1.2" flags="--pkg libedataserver-1.2" gir="EBook-1.2" c-docs="https://developer-old.gnome.org/libebook/stable/">
+			<package name="libebook-1.2" flags="--pkg libedataserver-1.2" gir="EBook-1.2" c-docs="https://gnome.pages.gitlab.gnome.org/evolution-data-server/libebook/">
 				This package is a client library for evolution addressbooks.
 			</package>
-			<package name="libebook-contacts-1.2" flags="--pkg libedataserver-1.2" gir="EBookContacts-1.2" c-docs="https://developer-old.gnome.org/libebook-contacts/stable/">
+			<package name="libebook-contacts-1.2" flags="--pkg libedataserver-1.2" gir="EBookContacts-1.2" c-docs="https://gnome.pages.gitlab.gnome.org/evolution-data-server/libebook-contacts/">
 				This package is a client library for evolution addressbooks.
 			</package>
-			<package name="libecal-2.0" gir="ECal-2.0" c-docs="https://developer-old.gnome.org/libecal/stable/">
+			<package name="libecal-2.0" gir="ECal-2.0" c-docs="https://gnome.pages.gitlab.gnome.org/evolution-data-server/libecal/">
 				This package is a client library for evolution calendars.
 			</package>
-			<package name="libecalendar-1.2" gir="ECalendar-1.2" c-docs="https://developer-old.gnome.org/libecal/stable/" flags="--pkg libedataserver-1.2">
-				This package is a client library for evolution calendars.
-			</package>
-			<package name="libedataserver-1.2" gir="EDataServer-1.2" flags="--pkg gio-2.0 --pkg libxml-2.0" c-docs="https://developer-old.gnome.org/libedataserver/stable/">
+			<package name="libedataserver-1.2" gir="EDataServer-1.2" flags="--pkg gio-2.0 --pkg libxml-2.0" c-docs="https://gnome.pages.gitlab.gnome.org/evolution-data-server/libedataserver/">
 				The data server, called "Evolution Data Server" is responsible for managing calendar and
 				addressbook information. 
 			</package>
@@ -423,11 +420,11 @@
 		</section>
 
 		<section name="Web Services &amp; HTTP">
-			<package name="libsoup-3.0" gir="Soup-3.0" home="https://wiki.gnome.org/Projects/libsoup" c-docs="https://libsoup.org/">
+			<package name="libsoup-3.0" gir="Soup-3.0" home="https://libsoup.gnome.org/" c-docs="https://libsoup.gnome.org/libsoup-3.0/">
 				libsoup is an HTTP client/server library for GNOME. It uses GObjects and the glib main loop,
 				to integrate well with GNOME applications.
 			</package>
-			<package name="libsoup-2.4" maintainers="Zeeshan Ali" gir="Soup-2.4" home="https://wiki.gnome.org/Projects/libsoup" c-docs="https://developer-old.gnome.org/libsoup/stable/">
+			<package name="libsoup-2.4" deprecated="true" gir="Soup-2.4" home="https://wiki.gnome.org/Projects/libsoup" c-docs="https://developer-old.gnome.org/libsoup/stable/">
 				libsoup is an HTTP client/server library for GNOME. It uses GObjects and the glib main loop,
 				to integrate well with GNOME applications.
 			</package>
@@ -440,9 +437,6 @@
 			<package name="rest-1.0" gir="Rest-1.0" c-docs="https://gnome.pages.gitlab.gnome.org/librest/">
 				A helper library for RESTful services.
 			</package>
-			<package name="rest-extras-1.0" gir="RestExtras-1.0">
-				This extra package provides LastFM, Youtube and Flickr support.
-			</package>
 			<package name="gmime-3.0" gir="GMime-3.0" home="https://github.com/jstedfast/gmime" c-docs="https://developer-old.gnome.org/gmime/stable/">
 				MIME message parser and creator library
 			</package>
@@ -454,11 +448,11 @@
 				voice calls and video calls. It abstracts differences between protocols to provide a unified
 				interface for applications.
 			</package>
-			<package name="libgdata" flags="--pkg Goa-1.0" gir="GData-0.0" c-docs="https://developer-old.gnome.org/gdata/unstable/">
+			<package name="libgdata" deprecated="true" flags="--pkg Goa-1.0" gir="GData-0.0" c-docs="https://developer-old.gnome.org/gdata/unstable/">
 				GData (Google data) is a set of Application Programming Interfaces (APIs) for the Common Language
 				Infrastructure (CLI) which provide a simple protocol for reading and writing data on the web. 
 			</package>
-			<package name="goa-1.0" gir="Goa-1.0" home="https://wiki.gnome.org/Projects/GnomeOnlineAccounts" c-docs="https://developer-old.gnome.org/goa/stable/">
+			<package name="goa-1.0" gir="Goa-1.0" c-docs="https://gnome.pages.gitlab.gnome.org/gnome-online-accounts/">
 				A centralized service that allows a set of online accounts to be configured for use with core GNOME applications.
 				In UX terms, GOA provides a static list of online accounts that can be setup by users (through the Online Accounts panel in System Settings).
 				These accounts can then be used by core GNOME applications.
@@ -494,13 +488,13 @@
 				HTTP form based upload, proxies, HTTP/2, cookies, user+password authentication (Basic, Plain, Digest,
 				CRAM-MD5, NTLM, Negotiate and Kerberos), file transfer resume, proxy tunneling and more. 
 			</package>
-			<package name="libnm" home="http://projects.gnome.org/NetworkManager/" gir="NM-1.0" c-docs="https://developer-old.gnome.org/libnm/unstable/">
+			<package name="libnm" home="https://networkmanager.dev/" gir="NM-1.0" c-docs="https://networkmanager.dev/docs/libnm/latest/">
 				Network management framework.
 			</package>
 			<package name="libnm-glib" deprecated="true" home="http://projects.gnome.org/NetworkManager/" gir="NMClient-1.0" c-docs="https://developer-old.gnome.org/libnm-glib/unstable/">
 				Network management framework. (replaced by libnm)
 			</package>
-			<package name="libnm-util" home="http://projects.gnome.org/NetworkManager/" gir="NetworkManager-1.0" c-docs="https://developer-old.gnome.org/libnm-util/unstable/">
+			<package name="libnm-util" deprecated="true" home="http://projects.gnome.org/NetworkManager/" gir="NetworkManager-1.0" c-docs="https://developer-old.gnome.org/libnm-util/unstable/">
 				Network management framework, utils.
 			</package>
 		</section>
@@ -509,17 +503,17 @@
 			<package name="gxml-0.20" maintainers="Daniel Espinosa" home="https://wiki.gnome.org/GXml" >
 				GObject XML library and serialization framework.
 			</package>
-			<package name="json-glib-1.0" maintainers="Tomaž Vajngerl" gir="Json-1.0" c-docs="https://developer-old.gnome.org/json-glib/unstable/">
+			<package name="json-glib-1.0" maintainers="Tomaž Vajngerl" gir="Json-1.0" c-docs="https://gnome.pages.gitlab.gnome.org/json-glib/">
 				JSON-GLib is a library for reading and parsing JSON using GLib and GObject data types and API.
 			</package>
-			<package name="libgrss" home="https://wiki.gnome.org/Projects/Libgrss" gir="Grss-0.7" c-docs="https://developer-old.gnome.org/libgrss/0.7/">
+			<package name="libgrss" deprecated="true" home="https://wiki.gnome.org/Projects/Libgrss" gir="Grss-0.7" c-docs="https://developer-old.gnome.org/libgrss/0.7/">
 			  LibGRSS is a library for easy management of RSS/Atom/Pie feeds.
 			  Includes methods to fetch, parse and handle XML documents, an implementation of PubSubHubBub client, an OPML parser and some more utility.
 			</package>
 			<package name="libxml-2.0" maintainers="Tomaž Vajngerl" gir="libxml2-2.0" c-docs="http://xmlsoft.org/html/">
 				Powerful and feature complete XML handling library.
 			</package>
-			<package name="template-glib-1.0" home="https://gitlab.gnome.org/GNOME/template-glib" gir="Template-1.0">
+			<package name="template-glib-1.0" gir="Template-1.0" c-docs="https://gnome.pages.gitlab.gnome.org/template-glib/template-glib-1.0/">
 				Template-GLib is a library to generate text from a template and user defined state.
 				Template-GLib allows you to access properties on GObjects as well as call
 simple methods via GObject-Introspection
@@ -537,17 +531,17 @@ simple methods via GObject-Introspection
 			<package name="spice-protocol" home="http://spice-space.org/">
 				Headers for SPICE protocol.
 			</package>
-			<package name="gtk-vnc-2.0" gir="GtkVnc-2.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
+			<package name="gtk-vnc-2.0" gir="GtkVnc-2.0" home="https://gitlab.gnome.org/GNOME/gtk-vnc">
 				A VNC viewer widget for GTK+.
 			</package>
 			<package name="libguestfs-gobject-1.0" gir="Guestfs-1.0" home="http://libguestfs.org/" c-docs="http://libguestfs.org/guestfs-gobject.3.html">
 				GObject binding for libguestfs, a set of tools for accessing and
 				modifying virtual machine disk images.
 			</package>
-			<package name="gvnc-1.0" gir="GVnc-1.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
+			<package name="gvnc-1.0" gir="GVnc-1.0" home="https://gitlab.gnome.org/GNOME/gtk-vnc">
 				VNC gobject wrapper.
 			</package>
-			<package name="gvncpulse-1.0" flags="--pkg gvnc-1.0" gir="GVncPulse-1.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
+			<package name="gvncpulse-1.0" flags="--pkg gvnc-1.0" gir="GVncPulse-1.0" home="https://gitlab.gnome.org/GNOME/gtk-vnc">
 				A bridge to the Pulse Audio system for VNC.
 				It allows VNC clients to play back audio on the local system
 			</package>
@@ -575,12 +569,8 @@ simple methods via GObject-Introspection
 			<package name="poppler-glib" gir="Poppler-0.18" home="https://poppler.freedesktop.org/" c-docs="https://poppler.freedesktop.org/api/glib/">
 				PDF rendering library.
 			</package>
-			<package deprecated="true" name="gdl-1.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="https://developer-old.gnome.org/gdl/unstable/">
-				The GNOME Devtools Library package provides a docking system and several utilities useful to GNOME
-				development tools and GNOME applications in general.
-			</package>
-			<package name="gdl-3.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="https://developer-old.gnome.org/gdl/unstable/">
-				The GNOME Devtools Library package provides a docking system and several utilities useful to GNOME
+			<package deprecated="true" name="gdl-3.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="https://developer-old.gnome.org/gdl/unstable/">
+				The GNOME Docking Library package provides a docking system and several utilities useful to GNOME
 				development tools and GNOME applications in general.
 			</package>
 			<package name="enchant" home="https://abiword.github.io/enchant/">
@@ -600,10 +590,10 @@ simple methods via GObject-Introspection
 			<package name="avahi-client" flags="--pkg avahi-gobject" home="http://www.avahi.org/" maintainers="Sebastian Noack">
 				The Avahi package is a system which facilitates service discovery on a local network.
 			</package>
-			<package name="libwnck-3.0" gir="Wnck-3.0" c-docs="https://developer-old.gnome.org/libwnck/unstable/">
+			<package name="libwnck-3.0" gir="Wnck-3.0" home="https://gitlab.gnome.org/GNOME/libwnck">
 				Library to manage X windows and workspaces (via pagers, tasklists, etc.)
 			</package>
-			<package name="libnotify" gir="Notify-0.7" c-docs="https://developer-old.gnome.org/libnotify/unstable/">
+			<package name="libnotify" gir="Notify-0.7" c-docs="https://gnome.pages.gitlab.gnome.org/libnotify/">
 			    libnotify is a library that sends desktop notifications to a notification daemon, as defined in
 			    the Desktop Notifications spec. These notifications can be used to inform the user about an event
 			    or display some form of information without getting in the user's way.
@@ -637,13 +627,13 @@ simple methods via GObject-Introspection
 			<package name="accountsservice" gir="AccountsService-1.0">
 				Query and manipulate user account information 
 			</package>
-			<package name="gobject-introspection-1.0" gir="GIRepository-2.0" home="https://gi.readthedocs.io" c-docs="https://developer-old.gnome.org/gi/unstable/">
+			<package name="gobject-introspection-1.0" gir="GIRepository-2.0" home="https://gi.readthedocs.io" c-docs="https://gnome.pages.gitlab.gnome.org/gobject-introspection/girepository/">
 				GObject introspection is a middleware layer between C libraries (using GObject) and language bindings.
 			</package>
-			<package name="geocode-glib-2.0" gir="GeocodeGlib-2.0">
+			<package name="geocode-glib-2.0" gir="GeocodeGlib-2.0" c-docs="https://gnome.pages.gitlab.gnome.org/geocode-glib/html/geocode-glib-2/">
 				Geocode Helper library
 			</package>
-			<package name="geocode-glib-1.0" gir="GeocodeGlib-1.0" c-docs="https://developer-old.gnome.org/geocode-glib/unstable/">
+			<package name="geocode-glib-1.0" deprecated="true" gir="GeocodeGlib-1.0">
 				Geocode Helper library
 			</package>
 			<package name="libdmapsharing-3.0" flags="--pkg gio-2.0 --pkg libsoup-2.4 --pkg avahi-gobject --pkg gstreamer-1.0" gir="DMAP-3.0" c-docs="https://www.flyn.org/projects/libdmapsharing/doc/">
@@ -677,7 +667,7 @@ simple methods via GObject-Introspection
 				AppStream is a cross-distro effort for enhancing the way we interact with the software
 				repositories provided by the distribution by standardizing sets of additional metadata.
 			</package>
-			<package deprecated="true" name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer-old.gnome.org/dbus-glib/unstable/">
+			<package deprecated="true" name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="dbus.freedesktop.org/doc/dbus-glib/">
 				Initial D-Bus Support (Do not use in new projects, use DBus support included in GLib instead)
 			</package>
 			<package name="jsonrpc-glib-1.0" gir="Jsonrpc-1.0">
@@ -834,7 +824,7 @@ simple methods via GObject-Introspection
 		<package name="readline">
 			GNU readline library.
 		</package>
-		<package name="libmm-glib" gir="ModemManager-1.0" c-docs="https://developer-old.gnome.org/ModemManager/unstable/">
+		<package name="libmm-glib" gir="ModemManager-1.0" home="https://modemmanager.org/" c-docs="https://modemmanager.org/docs/modemmanager/">
 			ModemManager provides a unified high level API for communicating
 			with (mobile broadband) modems.
 		</package>
